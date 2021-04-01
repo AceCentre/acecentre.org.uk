@@ -9,7 +9,7 @@ jobs:
         id: wait-for-build
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: netlify/acecentreorguk/deploy-preview
+          checkName: Pages changed - acecentreorguk
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Get netlify preview url
