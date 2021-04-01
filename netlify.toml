@@ -1,3 +1,8 @@
+###
+### Everything below is taken from netlify docs and does actually reflect our app.
+### Its left here just for easy reference 
+###
+
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 # [build]
