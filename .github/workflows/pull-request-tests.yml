@@ -37,9 +37,9 @@ jobs:
   Cypress:
     runs-on: ubuntu-latest
     needs: WaitForPreviewDeploy
-      steps:
-        - name: Test
-          uses: echo "Hello"
+    steps:
+      - name: Test
+        uses: echo "Hello"
 
-        - name: Output netlify preview URL
-          run: echo "${{ jobs.WaitForPreviewDeploy.steps.wait-for-netlify-preview.outputs.url }}"
+      - name: Output netlify preview URL
+        run: echo "${{ jobs.WaitForPreviewDeploy.steps.wait-for-netlify-preview.outputs.url }}"
