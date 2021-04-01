@@ -53,6 +53,8 @@ jobs:
         run: yarn install
 
       - name: Run Cypress
+        env:
+          CYPRESS_BASE_URL: ${{ needs.WaitForPreviewDeploy.outputs.deployed_url }}
         run: yarn cypress:run
 
       - uses: actions/upload-artifact@v2
