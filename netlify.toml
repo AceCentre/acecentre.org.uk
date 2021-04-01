@@ -95,7 +95,7 @@
 #     X-Api-Key = "some-api-key-string"
 
 # Role-based redirects do not have a “to” property.
-[[redirects]]
+# [[redirects]]
 #   from = "/gated-path"
 #   status = 200
 #   conditions = {Role = ["admin"]}
