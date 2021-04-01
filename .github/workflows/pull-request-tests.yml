@@ -42,4 +42,4 @@ jobs:
         uses: echo "Hello"
 
       - name: Output netlify preview URL
-        run: echo "${{ jobs.WaitForPreviewDeploy.steps.wait-for-netlify-preview.outputs.url }}"
+        run: echo "${{ needs.WaitForPreviewDeploy.steps.wait-for-netlify-preview.outputs.url }}"
