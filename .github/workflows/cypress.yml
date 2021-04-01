@@ -4,6 +4,16 @@ jobs:
   Cypress:
     runs-on: ubuntu-latest
     steps:
+      - name: Waiting for Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netlify-preview
+        with:
+          site_name: "acecentreorguk"
+          max_timeout: 60
+
+      - name: output url
+        command: echo "${{ steps.wait-for-netlify-preview.outputs.url }}""
+
       - name: Get Code
         uses: actions/checkout@v2
 
