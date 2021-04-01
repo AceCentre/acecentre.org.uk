@@ -10,7 +10,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "mkdir out && build-storybook -o out/design-system",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress"
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "next": "10.1.2",
