@@ -1,4 +1,5 @@
 {
     "screenshotsFolder": "./artifacts/screenshots",
-    "videosFolder": "./artifacts/videos"
+    "videosFolder": "./artifacts/videos",
+    "baseUrl":"http://localhost:3000"
 }
