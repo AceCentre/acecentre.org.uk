@@ -20,3 +20,5 @@ jobs:
         with:
           name: cypress-results
           path: artifacts
+          # Github has size limits so this avoids hitting them
+          retention-days: 1
