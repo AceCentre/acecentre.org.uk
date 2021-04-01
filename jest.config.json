@@ -1,0 +1,6 @@
+{
+    "modulePathIgnorePatterns": [
+        "<rootDir>/cypress",
+        "<rootDir>/.next"
+      ]
+}
