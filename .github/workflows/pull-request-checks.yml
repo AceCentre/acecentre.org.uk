@@ -41,4 +41,23 @@ jobs:
     needs: WaitForPreviewDeploy
     steps:
       - name: Output netlify preview URL
-        run: echo "${{ needs.WaitForPreviewDeploy.outputs.deploy_url }}"
+        run: echo "${{ needs.WaitForPreviewDeploy.outputs.deployed_url }}"
+
+      - name: Get Code
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - name: Run Cypress
+        run: yarn cypress:run
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cypress-results
+          path: artifacts
+          # Github has size limits so this avoids hitting them
+          retention-days: 1
