@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && build-storybook",
+    "build": "next build && yarn build-storybook",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "mkdir out && build-storybook -o out/design-system"
   },
   "dependencies": {
     "next": "10.1.2",
