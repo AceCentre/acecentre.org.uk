@@ -12,7 +12,7 @@ jobs:
           max_timeout: 60
 
       - name: output url
-        run: echo "${{ steps.wait-for-netlify-preview.outputs.url }}""
+        run: echo "${{ steps.wait-for-netlify-preview.outputs.url }}"
 
       - name: Get Code
         uses: actions/checkout@v2
