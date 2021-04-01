@@ -13,5 +13,5 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Build Site
+      - name: Run Jest Tests
         run: yarn test
