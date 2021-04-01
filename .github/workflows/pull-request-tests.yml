@@ -3,6 +3,8 @@ on: [pull_request]
 jobs:
   WaitForPreviewDeploy:
     runs-on: ubuntu-latest
+    outputs:
+      deployed_url: ${{ steps.wait-for-netlify-preview.outputs.url }}
     steps:
       - name: Wait for netlify to deploy
         uses: fountainhead/action-wait-for-check@v1.0.0
@@ -42,4 +44,4 @@ jobs:
         uses: echo "Hello"
 
       - name: Output netlify preview URL
-        run: echo "${{ needs.WaitForPreviewDeploy.steps.wait-for-netlify-preview.outputs.url }}"
+        run: echo "${{ needs.WaitForPreviewDeploy.outputs.deploy_url }}"
