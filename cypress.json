@@ -1,1 +1,4 @@
-{}
+{
+    "screenshotsFolder": "./artifacts/screenshots",
+    "videosFolder": "./artifacts/videos"
+}
