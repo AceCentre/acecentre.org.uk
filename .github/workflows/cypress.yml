@@ -1,7 +1,7 @@
 name: Cypress
 on: [pull_request]
 jobs:
-  JestTests:
+  Cypress:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
