@@ -4,22 +4,22 @@ jobs:
   Cypress:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for build to succeed
+      - name: Wait for netlify to deploy
         uses: fountainhead/action-wait-for-check@v1.0.0
         id: wait-for-build
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: Netlify
+          checkName: netlify/acecentreorguk/deploy-preview
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
-      - name: Waiting for Netlify Preview
+      - name: Get netlify preview url
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netlify-preview
         with:
           site_name: "acecentreorguk"
           max_timeout: 60
 
-      - name: output url
+      - name: Output netlify preview URL
         run: echo "${{ steps.wait-for-netlify-preview.outputs.url }}"
 
       - name: Get Code
