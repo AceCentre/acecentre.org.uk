@@ -81,4 +81,4 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_URL: ${{ needs.WaitForPreviewDeploy.outputs.deployed_url }}
-      - run: yarn lighthouse
+        run: yarn lighthouse
