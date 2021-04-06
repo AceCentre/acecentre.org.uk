@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "mkdir out && build-storybook -o out/design-system",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "next": "10.1.2",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
+    "@lhci/cli": "^0.7.0",
     "@storybook/addon-actions": "^6.2.1",
     "@storybook/addon-essentials": "^6.2.1",
     "@storybook/addon-links": "^6.2.1",
