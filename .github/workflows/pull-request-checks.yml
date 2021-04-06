@@ -78,4 +78,7 @@ jobs:
         run: yarn install
 
       - name: Run Lighthouse
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_URL: ${{ needs.WaitForPreviewDeploy.outputs.deployed_url }}
       - run: yarn lighthouse
