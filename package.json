@@ -8,7 +8,7 @@
     "build": "next build && yarn build-storybook",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "mkdir out && build-storybook -o out/design-system",
+    "build-storybook": "mkdir out && build-storybook -o out/design-system --quiet",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lighthouse": "lhci autorun"
