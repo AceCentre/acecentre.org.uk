@@ -50,7 +50,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.13.14", "@babel/core@^7.7.5":
+"@babel/core@7.13.14", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.7.5":
   version "7.13.14"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.13.14.tgz#8e46ebbaca460a63497c797e574038ab04ae6d06"
   integrity sha512-wZso/vyF4ki0l0znlgM4inxbdrUvCb+cVz8grxDq+6C9k6qbqoIJteQOKicaKjCipU3ISV+XedCqpL2RJJVehA==
@@ -1750,7 +1750,7 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-essentials@^6.2.1":
+"@storybook/addon-essentials@6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-6.2.1.tgz#6b8f5e7f10da431ef287e64df9e47ce6eb2fff78"
   integrity sha512-jgz37V+FCIk3GKsVdvBf5Toz+yz/FPB1B85wFrkxNpJljdHC1XN5xd41AVFlkEsqzeaTLiHPpthHaPtjaQpbOw==
@@ -1768,7 +1768,7 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-links@^6.2.1":
+"@storybook/addon-links@6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.2.1.tgz#64a9978b9eaec8a85de8b965d823cf5786c1a6ba"
   integrity sha512-ZVAaNEVdQaL8+OLu6A7yfake0w8cn9YOZAnUcrIPalIVZ7MESy/vfxAE7lzYk17ngC9G+w5ELtzoD4WThTcCNg==
@@ -2190,7 +2190,7 @@
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/react@^6.2.1":
+"@storybook/react@6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-6.2.1.tgz#d07d5dc3b48823527a6a632189008d4a2c9399be"
   integrity sha512-k9muo4BqItVnCNx45uQAUP9gQOtEBMQljrUD+UesTxZ11gfWPE4QeUHryJJUsA3ojKtUN8VAQawwHp/5cSFDFw==
@@ -11121,7 +11121,7 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-css-modules-preset@^1.0.7:
+storybook-css-modules-preset@1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/storybook-css-modules-preset/-/storybook-css-modules-preset-1.0.7.tgz#2b8fcf7209b7009102b6f80564465086c4d1f7ce"
   integrity sha512-Tq5SJ31NeyQBFxSUTVotfXhIaObQ5/xbrQjaGGmZ2vc2+Q8ivljs3qKB1cMshAPqY2VJ6yXYdt8S/e0ma6WxQw==

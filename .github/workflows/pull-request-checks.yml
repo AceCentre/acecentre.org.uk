@@ -31,7 +31,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-          check-latest: true
 
       - name: Install NPM deps
         run: yarn install
@@ -53,7 +52,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-          check-latest: true
 
       - name: Install NPM deps
         run: yarn install
@@ -81,7 +79,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14"
-          check-latest: true
 
       - name: Install NPM deps
         run: yarn install
