@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Front-end for acecentre.org.uk built using NextJS. Sits on top of a wordpress backend (wpgraphl)
 
-## Getting Started
+- [Development](#development)
+  - [Setup](#setup)
+  - [Running in Dev Mode](#running-in-dev-mode)
+  - [Storybook](#storybook)
+  - [Graphql](#graphql)
+- [Contributing](#contributing)
+- [Deployment](#deployment)
+- [Tests](#tests)
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before getting started make sure that you have the following installed:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+* Node (LTS)
+* Yarn (`npm i -g yarn`)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Make sure to install the dependencies using `yarn install`
+   
+### Running in Dev Mode
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+You can run the NextJS app by doing `yarn start`. You can then see the website at localhost:3000](http://localhost:3000).
 
-## Learn More
+### Storybook
 
-To learn more about Next.js, take a look at the following resources:
+[Storybook](https://storybook.js.org/) is an open source tool for developing UI components in isolation for React, Vue, Angular, and more. It makes building stunning UIs organized and efficient.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can run storybook in dev mode by running `yarn storybook`. You can then see it running at [localhost:6006](http://localhost:6006).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You can see it deployed at [acecentreorguk.netlify.app/design-system/](https://acecentreorguk.netlify.app/design-system/)
 
-## Deploy on Vercel
+### Graphql
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The website is powered by Wordpress but uses [WPGraphql](https://www.wpgraphql.com/) to expose an API from wordpress. You can explore the API at our hosted graphql playground at [acecentreorguk.netlify.app/api/graphql](https://acecentreorguk.netlify.app/api/graphql)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+If you want to contribute, open a PR so that the tests can run against your changes and we can view a preview before you change goes live.
+
+## Deployment
+
+This project uses the automation in Netlify to deploy the website. This means that every commit to the `main` branch will get published to the main site and every Pull Request will get a preview version.
+
+## Tests
+
+On every pull request we will run the following tests:
+
+* Jest
+* Cypress
+* Lighthouse
