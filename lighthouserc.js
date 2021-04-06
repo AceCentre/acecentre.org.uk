@@ -16,7 +16,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        "seo/is-crawlable": "off", // We no-index the previews so we can ignore this rule
+        "is-crawlable": "off", // We no-index the previews so we can ignore this rule
         "categories:performance": ["error", { minScore: 0.95 }],
         "categories:accessibility": ["error", { minScore: 0.95 }],
         "categories:best-practices": ["error", { minScore: 0.95 }],
