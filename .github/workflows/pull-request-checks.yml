@@ -91,3 +91,10 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_URL: ${{ needs.WaitForPreviewDeploy.outputs.deployed_url }}
         run: yarn lighthouse
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: lighthouse-results
+          path: artifacts
+          # Github has size limits so this avoids hitting them
+          retention-days: 1
