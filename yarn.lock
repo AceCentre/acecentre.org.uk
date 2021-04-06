@@ -1432,7 +1432,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@lhci/cli@^0.7.0":
+"@lhci/cli@0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@lhci/cli/-/cli-0.7.0.tgz#bbba5fbe027fe98f0daa6ff682fa39a4c6f7cbb0"
   integrity sha512-MyV+KtoOnXbhvu4Y4iE8EE5haL+czO9+RpVgU/cFL8jueFfXV9FxJ7QmAs+U68HmjK+fOTgmkPu0k7nGn8K0pw==
@@ -4681,7 +4681,7 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
-cypress@^6.8.0:
+cypress@6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-6.8.0.tgz#8338f39212a8f71e91ff8c017a1b6e22d823d8c1"
   integrity sha512-W2e9Oqi7DmF48QtOD0LfsOLVq6ef2hcXZvJXI/E3PgFNmZXEVwBefhAxVCW9yTPortjYA2XkM20KyC4HRkOm9w==
@@ -7751,7 +7751,7 @@ jest-worker@^26.2.1, jest-worker@^26.6.2:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^26.6.3:
+jest@26.6.3:
   version "26.6.3"
   resolved "https://registry.yarnpkg.com/jest/-/jest-26.6.3.tgz#40e8fdbe48f00dfa1f0ce8121ca74b88ac9148ef"
   integrity sha512-lGS5PXGAzR4RF7V5+XObhqz2KZIDUA1yD0DG6pBVmy10eh0ZIXQImRuzocsI/N2XZ1GrLFwTS27In2i2jlpq1Q==
