@@ -3,6 +3,9 @@
 # Cypress
 artifacts
 
+# Lighthouse
+.lighthouseci
+
 # storybook
 storybook-static
 
