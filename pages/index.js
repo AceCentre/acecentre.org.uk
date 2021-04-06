@@ -64,6 +64,7 @@ export default function Home() {
             alt="Vercel Logo"
             className={styles.logo}
             height="16"
+            width="70"
           />
         </a>
       </footer>
