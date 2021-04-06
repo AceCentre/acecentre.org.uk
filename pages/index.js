@@ -8,10 +8,8 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="Description" content="Put your description here." />
       </Head>
-
-      <Button primary size="large" label="Large Primary Button" />
-      <Button size="small" label="Small Secondary Button" />
 
       <main className={styles.main}>
         <h1 className={styles.title}>
