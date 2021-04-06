@@ -93,6 +93,6 @@ jobs:
         if: ${{ always() }}
         with:
           name: lighthouse-results
-          path: artifacts
+          path: .lighthouseci
           # Github has size limits so this avoids hitting them
           retention-days: 1
