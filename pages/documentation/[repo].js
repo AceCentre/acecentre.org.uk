@@ -4,6 +4,7 @@ import { getFileTree } from "../../lib/auto-docs/get-file-tree";
 export default function RepoView({ directory, source }) {
   return (
     <>
+      <p>Nice landing page for a project</p>
       <pre>{JSON.stringify(source, null, 2)}</pre>
       <pre>{JSON.stringify(directory, null, 2)}</pre>
     </>
