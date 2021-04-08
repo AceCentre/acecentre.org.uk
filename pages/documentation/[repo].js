@@ -1,8 +1,13 @@
 import { SOURCES } from "../../lib/auto-docs/config";
 import { getFileTree } from "../../lib/auto-docs/get-file-tree";
 
-export default function RepoView() {
-  return <p>test</p>;
+export default function RepoView({ directory, source }) {
+  return (
+    <>
+      <pre>{JSON.stringify(source, null, 2)}</pre>
+      <pre>{JSON.stringify(directory, null, 2)}</pre>
+    </>
+  );
 }
 
 export async function getStaticPaths() {
@@ -23,5 +28,5 @@ export async function getStaticProps({ params }) {
 
   const directory = await getFileTree(source);
 
-  return { props: {} };
+  return { props: { directory, source } };
 }
