@@ -37,7 +37,7 @@ export const DocsSidebar = ({ activeLink, topLevel }) => {
                     <li className={styles.listItem}>
                       <a
                         className={isSubActive && styles.activeLink}
-                        href={subItem.href}
+                        href={subItem.link}
                       >
                         {subItem.title}
                       </a>
