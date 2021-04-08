@@ -1,4 +1,5 @@
 import { SOURCES } from "../../lib/auto-docs/config";
+import { getAllSources } from "../../lib/auto-docs/get-source";
 
 export default function DocsHome({ sources }) {
   return (
@@ -11,7 +12,7 @@ export default function DocsHome({ sources }) {
         {/* TODO: make this a next link  */}
         {sources.map((source) => (
           <li>
-            <a href={`/documentation/${source.path}`}>
+            <a href={`/documentation/${source.path}/${source.homeLink}`}>
               {source.owner}/{source.repo}
             </a>
           </li>
@@ -22,5 +23,7 @@ export default function DocsHome({ sources }) {
 }
 
 export async function getStaticProps() {
-  return { props: { sources: SOURCES } };
+  const sources = await getAllSources();
+
+  return { props: { sources } };
 }
