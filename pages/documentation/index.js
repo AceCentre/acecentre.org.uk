@@ -1,8 +1,6 @@
 import { SOURCES } from "../../lib/auto-docs/config";
 
 export default function DocsHome({ sources }) {
-  console.log(sources);
-
   return (
     <>
       <ul>
