@@ -1,56 +1,31 @@
+import { DocsSidebar } from "../../../components/docs-sidebar/docs-sidebar";
 import { SOURCES } from "../../../lib/auto-docs/config";
-import { getFileTree } from "../../../lib/auto-docs/get-file-tree";
-import { parseFileTree } from "../../../lib/auto-docs/parse-file-tree";
+import { getAllSources, getSource } from "../../../lib/auto-docs/get-source";
 
-const Node = ({ node }) => {
-  return (
-    <>
-      <p>{/* Need to make this a next link */}</p>
-      <a href={node.path}>{node.path}</a>
+export default function RepoView({ activeLink, fileTree }) {
+  console.log(fileTree, activeLink);
 
-      {node.type === "tree" && node.children.length > 0 && (
-        <>
-          {node.children.map((child) => (
-            <Node node={child}></Node>
-          ))}
-        </>
-      )}
-    </>
-  );
-};
-
-export default function RepoView({ directory, source }) {
   return (
     <>
       <p>This is the page for a file</p>
+      <DocsSidebar activeLink={activeLink} topLevel={fileTree}></DocsSidebar>
     </>
   );
 }
 
 export async function getStaticPaths(params) {
-  const paths = await Promise.all(
-    SOURCES.map(async (source) => {
-      const { owner, repo, path, rootFolder } = source;
-
-      const flatTree = (await getFileTree(source))
-        .filter((file) => file.path.startsWith(rootFolder))
-        .filter((file) => !(file.type === "blob" && !file.path.includes(".md")))
-        .map((currentFile) => {
-          return {
-            // ...currentFile,
-            params: {
-              project: path,
-              file: currentFile.path.replace(/\//g, "--"),
-            },
-          };
-        });
-
-      return flatTree;
-    })
-  );
+  const allSources = await getAllSources();
+  const paths = allSources.flatMap((source) => {
+    return source.allLinks.map((currentLink) => ({
+      params: {
+        project: source.path,
+        file: currentLink,
+      },
+    }));
+  });
 
   return {
-    paths: paths.flat(),
+    paths: paths,
     fallback: false, // See the "fallback" section below
   };
 }
@@ -58,8 +33,7 @@ export async function getStaticPaths(params) {
 export async function getStaticProps({ params }) {
   const source = SOURCES.find(({ path }) => path == params.project);
 
-  const flatTree = await getFileTree(source);
-  const directory = parseFileTree(flatTree, source);
+  const fullSource = await getSource(source);
 
-  return { props: { directory, source } };
+  return { props: { activeLink: params.file, fileTree: fullSource.fileTree } };
 }
