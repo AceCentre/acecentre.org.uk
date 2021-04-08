@@ -5,4 +5,5 @@ module.exports = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
   modulePathIgnorePatterns: ["<rootDir>/cypress", "<rootDir>/.next"],
+  setupFiles: ["<rootDir>/jest-setup.js"],
 };
