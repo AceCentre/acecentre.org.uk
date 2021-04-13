@@ -2,13 +2,12 @@ import { DocsSidebar } from "../../../components/docs-sidebar/docs-sidebar";
 import { SOURCES } from "../../../lib/auto-docs/config";
 import { getAllSources, getSource } from "../../../lib/auto-docs/get-source";
 
-export default function RepoView({ activeLink, fileTree }) {
-  console.log(fileTree, activeLink);
-
+export default function RepoView({ activeLink, fileTree, markdownContent }) {
   return (
     <>
       <p>This is the page for a file</p>
       <DocsSidebar activeLink={activeLink} topLevel={fileTree}></DocsSidebar>
+      <div dangerouslySetInnerHTML={{ __html: markdownContent }}></div>
     </>
   );
 }
@@ -33,7 +32,13 @@ export async function getStaticPaths(params) {
 export async function getStaticProps({ params }) {
   const source = SOURCES.find(({ path }) => path == params.project);
 
-  const fullSource = await getSource(source);
+  const fullSource = await getSource(source, params.file);
 
-  return { props: { activeLink: params.file, fileTree: fullSource.fileTree } };
+  return {
+    props: {
+      activeLink: params.file,
+      fileTree: fullSource.fileTree,
+      markdownContent: fullSource.currentMarkdownContent,
+    },
+  };
 }
