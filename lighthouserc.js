@@ -6,10 +6,12 @@ const getTargetBaseUrl = () => {
   return "http://localhost:3000";
 };
 
+const PATHS_TO_TEST = ["/", "/staff", "/staff/will-wade"];
+
 module.exports = {
   ci: {
     collect: {
-      url: [getTargetBaseUrl()],
+      url: PATHS_TO_TEST.map((path) => getTargetBaseUrl() + path),
     },
     upload: {
       target: "temporary-public-storage",
