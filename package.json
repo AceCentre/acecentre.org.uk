@@ -6,7 +6,7 @@
     "test": "jest",
     "dev": "next dev",
     "build": "yarn build:next && yarn build-storybook",
-    "build:next":"next build",
+    "build:next": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "mkdir out && build-storybook -o out/design-system --quiet",
@@ -25,8 +25,6 @@
     "treeify-js": "1.0.3"
   },
   "devDependencies": {
-    "babel-jest": "26.6.3",
-    "identity-obj-proxy": "3.0.0",
     "@babel/core": "7.13.16",
     "@lhci/cli": "0.7.1",
     "@storybook/addon-actions": "6.2.8",
@@ -36,6 +34,10 @@
     "babel-jest": "26.6.3",
     "babel-loader": "8.2.2",
     "cypress": "7.1.0",
+    "eslint": "^7.24.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-jest": "^24.3.5",
+    "eslint-plugin-react": "^7.23.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
     "nock": "13.0.11",
