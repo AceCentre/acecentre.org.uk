@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>AceCentre</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="Description" content="AceCentre" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
