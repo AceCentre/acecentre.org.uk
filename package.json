@@ -25,7 +25,9 @@
     "treeify-js": "1.0.3"
   },
   "devDependencies": {
-    "@babel/core": "7.13.15",
+    "babel-jest": "26.6.3",
+    "identity-obj-proxy": "3.0.0",
+    "@babel/core": "7.13.16",
     "@lhci/cli": "0.7.1",
     "@storybook/addon-actions": "6.2.8",
     "@storybook/addon-essentials": "6.2.8",
