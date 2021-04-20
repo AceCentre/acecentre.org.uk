@@ -1,4 +1,3 @@
-import { SOURCES } from "../../lib/auto-docs/config";
 import { getAllSources } from "../../lib/auto-docs/get-source";
 
 export default function DocsHome({ sources }) {
@@ -11,7 +10,7 @@ export default function DocsHome({ sources }) {
       <ul>
         {/* TODO: make this a next link  */}
         {sources.map((source) => (
-          <li>
+          <li key={source.path}>
             <a href={`/documentation/${source.path}/${source.homeLink}`}>
               {source.owner}/{source.repo}
             </a>

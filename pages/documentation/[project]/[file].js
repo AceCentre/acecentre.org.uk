@@ -12,7 +12,7 @@ export default function RepoView({ activeLink, fileTree, markdownContent }) {
   );
 }
 
-export async function getStaticPaths(params) {
+export async function getStaticPaths() {
   const allSources = await getAllSources();
   const paths = allSources.flatMap((source) => {
     return source.allLinks.map((currentLink) => ({
