@@ -14,7 +14,7 @@ export const DocsSidebar = ({ activeLink, topLevel }) => {
         );
 
         return (
-          <li className={styles.listItem}>
+          <li key={item.link} className={styles.listItem}>
             <a
               className={`${styles.link} ${isActive && styles.activeLink}`}
               href={item.link}
@@ -23,7 +23,7 @@ export const DocsSidebar = ({ activeLink, topLevel }) => {
             </a>
             {hasSubPages && (
               <button
-                class={styles.unstyledButton}
+                className={styles.unstyledButton}
                 onClick={() => setDropDownActive(!dropDownActive)}
               >
                 {dropDownActive ? <DownChevron /> : <RightChevron />}
@@ -34,7 +34,7 @@ export const DocsSidebar = ({ activeLink, topLevel }) => {
                 {item.sub.map((subItem) => {
                   const isSubActive = subItem.link === activeLink;
                   return (
-                    <li className={styles.listItem}>
+                    <li key={subItem.link} className={styles.listItem}>
                       <a
                         className={isSubActive && styles.activeLink}
                         href={subItem.link}
@@ -60,11 +60,10 @@ const DownChevron = () => {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-chevron-down"
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
       />
     </svg>
@@ -78,11 +77,10 @@ const RightChevron = () => {
       width="16"
       height="16"
       fill="currentColor"
-      class="bi bi-chevron-right"
       viewBox="0 0 16 16"
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
       />
     </svg>
