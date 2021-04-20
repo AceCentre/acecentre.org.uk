@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "dev": "next dev",
-    "build": "next build && yarn build-storybook",
+    "build": "yarn build:next && yarn build-storybook",
+    "build:next":"next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "mkdir out && build-storybook -o out/design-system --quiet",
