@@ -20,8 +20,8 @@ export default function AllStaffPage({ allStaff }) {
                 <Image
                   alt={`A head shot of ${employee.name}`}
                   src={employee.imageUrl}
-                  width={40}
-                  height={40}
+                  width={96}
+                  height={126}
                 />
               )}
               <Link href={`/staff/${employee.slug}`}>{employee.name}</Link>

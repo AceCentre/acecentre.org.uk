@@ -7,8 +7,8 @@ export default function EmployeePage({ employee }) {
       {employee.imageUrl && (
         <Image
           src={employee.imageUrl}
-          width={40}
-          height={40}
+          width={96}
+          height={126}
           alt={`A head shot of ${employee.name}`}
         />
       )}
