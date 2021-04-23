@@ -23,6 +23,7 @@ module.exports = {
         "is-crawlable": "off", // We don't want the previews to be crawlable
         "non-composited-animations": "off", // Annoying to fix, remove this one day
         "unused-javascript": "off", // We don't have much control over this its down to Next
+        "uses-optimized-images": "off", // This complains because we don't serve images in WebP. It would be nice to do this one day but right now its not worth it
       },
     },
   },
