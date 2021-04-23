@@ -18,6 +18,7 @@ export default function AllTrusteesPage({ allTrustees }) {
               {trustee.imageUrl && (
                 <Image
                   alt={`A head shot of ${trustee.name}`}
+                  layout="responsive"
                   src={trustee.imageUrl}
                   width={96}
                   height={126}
