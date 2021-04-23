@@ -19,8 +19,8 @@ export default function AllTrusteesPage({ allTrustees }) {
                 <Image
                   alt={`A head shot of ${trustee.name}`}
                   src={trustee.imageUrl}
-                  width={40}
-                  height={40}
+                  width={96}
+                  height={126}
                 />
               )}
               <pre>{JSON.stringify(trustee, null, 2)}</pre>
