@@ -4,4 +4,7 @@ module.exports = {
     locales: ["en-GB"],
     defaultLocale: "en-GB",
   },
+  images: {
+    domains: ["acecentre.org.uk"],
+  },
 };

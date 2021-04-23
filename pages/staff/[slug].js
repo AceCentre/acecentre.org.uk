@@ -1,8 +1,12 @@
 import { getAllStaff, getEmployee } from "../../lib/staff/get-staff";
+import Image from "next/image";
 
 export default function EmployeePage({ employee }) {
   return (
     <>
+      {employee.imageUrl && (
+        <Image src={employee.imageUrl} width={40} height={40} />
+      )}
       <pre>{JSON.stringify(employee, null, 2)}</pre>
     </>
   );
