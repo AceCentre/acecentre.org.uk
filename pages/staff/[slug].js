@@ -1,8 +1,16 @@
+import { Image } from "../../components/image";
 import { getAllStaff, getEmployee } from "../../lib/staff/get-staff";
 
 export default function EmployeePage({ employee }) {
   return (
     <>
+      {employee.image && (
+        <Image
+          {...employee.image}
+          maxWidth={100}
+          alt={`A head shot of ${employee.name}`}
+        />
+      )}
       <pre>{JSON.stringify(employee, null, 2)}</pre>
     </>
   );
