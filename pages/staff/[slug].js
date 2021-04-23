@@ -5,7 +5,12 @@ export default function EmployeePage({ employee }) {
   return (
     <>
       {employee.imageUrl && (
-        <Image src={employee.imageUrl} width={40} height={40} />
+        <Image
+          src={employee.imageUrl}
+          width={40}
+          height={40}
+          alt={`A head shot of ${employee.name}`}
+        />
       )}
       <pre>{JSON.stringify(employee, null, 2)}</pre>
     </>
