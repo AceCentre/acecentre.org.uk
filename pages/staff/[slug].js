@@ -6,7 +6,6 @@ export default function EmployeePage({ employee }) {
     <>
       {employee.imageUrl && (
         <Image
-          layout="responsive"
           src={employee.imageUrl}
           width={96}
           height={126}

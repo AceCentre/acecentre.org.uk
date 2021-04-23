@@ -18,7 +18,6 @@ export default function AllStaffPage({ allStaff }) {
             <li key={employee.slug} className={styles.listItem}>
               {employee.imageUrl && (
                 <Image
-                  layout="responsive"
                   alt={`A head shot of ${employee.name}`}
                   src={employee.imageUrl}
                   width={96}
