@@ -15,13 +15,13 @@ export default function AllTrusteesPage({ allTrustees }) {
         <ul>
           {allTrustees.map((trustee) => (
             <li key={trustee.slug} className={styles.listItem}>
-              {trustee.imageUrl && (
-                <Image
-                  alt={`A head shot of ${trustee.name}`}
-                  src={trustee.imageUrl}
-                  width={96}
-                  height={126}
-                />
+              {trustee.image && (
+                <div className={styles.image}>
+                  <Image
+                    {...trustee.image}
+                    alt={`Headshot of ${trustee.name}`}
+                  />
+                </div>
               )}
               <pre>{JSON.stringify(trustee, null, 2)}</pre>
             </li>

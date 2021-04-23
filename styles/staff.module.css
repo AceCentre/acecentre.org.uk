@@ -1,3 +1,7 @@
 .listItem {
   padding: 16px 0;
 }
+
+.image {
+  max-width: 100px;
+}

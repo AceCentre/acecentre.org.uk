@@ -16,13 +16,13 @@ export default function AllStaffPage({ allStaff }) {
         <ul>
           {allStaff.map((employee) => (
             <li key={employee.slug} className={styles.listItem}>
-              {employee.imageUrl && (
-                <Image
-                  alt={`A head shot of ${employee.name}`}
-                  src={employee.imageUrl}
-                  width={96}
-                  height={126}
-                />
+              {employee.image && (
+                <div className={styles.image}>
+                  <Image
+                    {...employee.image}
+                    alt={`A head shot of ${employee.name}`}
+                  />
+                </div>
               )}
               <Link href={`/staff/${employee.slug}`}>{employee.name}</Link>
             </li>
