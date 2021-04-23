@@ -1,14 +1,15 @@
+import { Image } from "../../components/image";
 import { getAllStaff, getEmployee } from "../../lib/staff/get-staff";
-import Image from "next/image";
-import styles from "../../styles/staff.module.css";
 
 export default function EmployeePage({ employee }) {
   return (
     <>
       {employee.image && (
-        <div className={styles.image}>
-          <Image {...employee.image} alt={`A head shot of ${employee.name}`} />
-        </div>
+        <Image
+          {...employee.image}
+          maxWidth={100}
+          alt={`A head shot of ${employee.name}`}
+        />
       )}
       <pre>{JSON.stringify(employee, null, 2)}</pre>
     </>

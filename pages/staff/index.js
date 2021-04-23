@@ -1,7 +1,7 @@
 import { getAllStaff } from "../../lib/staff/get-staff";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../../styles/staff.module.css";
+import { Image } from "../../components/image";
 
 export default function AllStaffPage({ allStaff }) {
   return (
@@ -17,12 +17,11 @@ export default function AllStaffPage({ allStaff }) {
           {allStaff.map((employee) => (
             <li key={employee.slug} className={styles.listItem}>
               {employee.image && (
-                <div className={styles.image}>
-                  <Image
-                    {...employee.image}
-                    alt={`A head shot of ${employee.name}`}
-                  />
-                </div>
+                <Image
+                  {...employee.image}
+                  maxWidth={100}
+                  alt={`A head shot of ${employee.name}`}
+                />
               )}
               <Link href={`/staff/${employee.slug}`}>{employee.name}</Link>
             </li>
