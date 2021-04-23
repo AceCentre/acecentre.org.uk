@@ -1,7 +1,7 @@
-const URL = 'https://acecentre.org.uk/graphql'
+const URL = "https://acecentre.org.uk/graphql";
 
 export default function handler(req, res) {
-    res.status(200).send(`
+  res.status(200).send(`
     <!--
     *  Copyright (c) 2021 GraphQL Contributors
     *  All rights reserved.
@@ -86,5 +86,5 @@ export default function handler(req, res) {
        </script>
      </body>
    </html>
-    `)
-  }
+    `);
+}
