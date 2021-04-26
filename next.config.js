@@ -7,4 +7,17 @@ module.exports = {
   images: {
     domains: ["acecentre.org.uk"],
   },
+  async headers() {
+    return [
+      {
+        source: "/api/graphiql",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/html",
+          },
+        ],
+      },
+    ];
+  },
 };
