@@ -2,6 +2,7 @@ import { Image } from "../../components/image";
 import { getAllProducts } from "../../lib/products/get-products";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
+import config from "../../lib/config";
 
 const PRODUCT_CACHE_KEY = "products";
 
@@ -17,17 +18,17 @@ export default function ProductPage({ product }) {
       ))}
 
       {product.instantDownloadAvailable && (
-        <a href={`https://acecentre.org.uk${product.downloadUrl}`}>Download</a>
+        <a href={`${config.baseUrl}${product.downloadUrl}`}>Download</a>
       )}
 
       {product.variations &&
         product.variations.map((variation) => (
           <>
             <pre>{JSON.stringify(variation, null, 2)}</pre>
-            {variation.instantDownloadAvailable && (
-              <a href={`https://acecentre.org.uk${variation.downloadUrl}`}>
-                Download
-              </a>
+            {variation.instantDownloadAvailable ? (
+              <a href={`${config.baseUrl}${variation.downloadUrl}`}>Download</a>
+            ) : (
+              <a>Add to Cart</a>
             )}
           </>
         ))}
