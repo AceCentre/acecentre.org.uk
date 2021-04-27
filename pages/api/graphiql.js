@@ -1,4 +1,6 @@
-const URL = "https://acecentre.org.uk/graphql";
+import config from "../config";
+
+const URL = `${config.baseUrl}/graphql`;
 
 export default function handler(req, res) {
   res.setHeader("Content-Type", "text/html");
