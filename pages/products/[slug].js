@@ -1,3 +1,4 @@
+import { Image } from "../../components/image";
 import { getAllProducts } from "../../lib/products/get-products";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
@@ -9,6 +10,11 @@ export default function ProductPage({ product }) {
     <>
       <h1>A product page</h1>
       <pre>{JSON.stringify(product, null, 2)}</pre>
+      {product.image && <Image {...product.image} maxWidth={100} />}
+
+      {product.gallery.map((image) => (
+        <Image key={image.src} {...image} maxWidth={100} />
+      ))}
     </>
   );
 }
