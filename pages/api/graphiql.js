@@ -1,6 +1,10 @@
-const URL = "https://acecentre.org.uk/graphql";
+import config from "../../lib/config";
+
+const URL = `${config.baseUrl}/graphql`;
 
 export default function handler(req, res) {
+  res.setHeader("Content-Type", "text/html");
+
   res.status(200).send(`
     <!--
     *  Copyright (c) 2021 GraphQL Contributors
