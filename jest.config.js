@@ -4,6 +4,10 @@ module.exports = {
     "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
-  modulePathIgnorePatterns: ["<rootDir>/cypress", "<rootDir>/.next"],
+  modulePathIgnorePatterns: [
+    "<rootDir>/cypress",
+    "<rootDir>/.next",
+    "<rootDir>/.static-cache",
+  ],
   setupFiles: ["<rootDir>/jest-setup.js"],
 };

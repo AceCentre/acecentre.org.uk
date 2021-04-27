@@ -5,6 +5,6 @@ module.exports = {
     defaultLocale: "en-GB",
   },
   images: {
-    domains: ["acecentre.org.uk"],
+    domains: ["acecentre.org.uk", "internal.acecentre.org.uk"],
   },
 };
