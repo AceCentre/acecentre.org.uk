@@ -15,6 +15,22 @@ export default function ProductPage({ product }) {
       {product.gallery.map((image) => (
         <Image key={image.src} {...image} maxWidth={100} />
       ))}
+
+      {product.instantDownloadAvailable && (
+        <a href={`https://acecentre.org.uk${product.downloadUrl}`}>Download</a>
+      )}
+
+      {product.variations &&
+        product.variations.map((variation) => (
+          <>
+            <pre>{JSON.stringify(variation, null, 2)}</pre>
+            {variation.instantDownloadAvailable && (
+              <a href={`https://acecentre.org.uk${variation.downloadUrl}`}>
+                Download
+              </a>
+            )}
+          </>
+        ))}
     </>
   );
 }
