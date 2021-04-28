@@ -1,4 +1,7 @@
+import { ApolloProvider } from "@apollo/client";
 import Head from "next/head";
+
+import client from "../lib/apollo-client";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -9,7 +12,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <meta name="Description" content="AceCentre" />
       </Head>
-      <Component {...pageProps} />
+
+      <ApolloProvider client={client}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   );
 }
