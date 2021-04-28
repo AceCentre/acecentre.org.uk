@@ -29,10 +29,6 @@ export default function handler(req, res) {
          }
        </style>
    
-         <script>
-         console.log('${JSON.stringify(process.env)} - ${process.env.CONTEXT} - ${config}')
-         </script>
-
        <!--
          This GraphiQL example depends on Promise and fetch, which are available in
          modern browsers, but can be "polyfilled" for older browsers.

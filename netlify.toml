@@ -3,12 +3,6 @@
 ### Its left here just for easy reference 
 ###
 
-[[plugins]]
-package = "netlify-plugin-inline-functions-env"
-  [plugins.inputs]
-  buildEvent = "onBuild"
-  verbose = "true"
-
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
