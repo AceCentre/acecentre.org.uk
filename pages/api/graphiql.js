@@ -30,7 +30,7 @@ export default function handler(req, res) {
        </style>
    
          <script>
-         console.log('${process.env.NETLIFY} - ${process.env.CONTEXT} - ${config}')
+         console.log('${JSON.stringify(process.env)} - ${process.env.CONTEXT} - ${config}')
          </script>
 
        <!--
