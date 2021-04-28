@@ -7,9 +7,9 @@ export default function LoginPage() {
     <>
       {loginError && <p>{loginError}</p>}
       <form onSubmit={loginFormSubmit}>
-        <label>Username</label>
+        <label htmlFor="username"> Username</label>
         <input name="username"></input>
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input name="password"></input>
         <button type="submit" disabled={!readyForLogin}>
           Login
