@@ -1,4 +1,5 @@
 import { useLogin } from "../lib/auth/hooks";
+import withSession from "../lib/auth/with-session";
 
 export default function LoginPage() {
   const { loginFormSubmit, readyForLogin, loginError } = useLogin();
@@ -18,3 +19,19 @@ export default function LoginPage() {
     </>
   );
 }
+
+// Redirect if you are signed in
+export const getServerSideProps = withSession(async function ({ req, res }) {
+  const user = req.session.get("user");
+
+  if (user && user.authToken) {
+    res.setHeader("location", "/user");
+    res.statusCode = 302;
+    res.end();
+    return { props: {} };
+  }
+
+  return {
+    props: {},
+  };
+});
