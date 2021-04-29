@@ -9,7 +9,7 @@ export default function CartPage() {
   );
 }
 
-export const getServerSideProps = withSession(async function ({ req, res }) {
+export const getServerSideProps = withSession(async function ({ req }) {
   await refreshToken(req);
 
   return {
