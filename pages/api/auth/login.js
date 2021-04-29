@@ -1,23 +1,54 @@
-import { withIronSession } from "next-iron-session";
+import request, { gql } from "graphql-request";
+import withSession from "../../../lib/auth/with-session";
+import config from "../../../lib/config";
+
+const ENDPOINT = `${config.baseUrl}/graphql`;
+
+const LOGIN_MUTATION = gql`
+  mutation($username: String!, $password: String!) {
+    login(input: { username: $username, password: $password }) {
+      authToken
+      refreshToken
+      user {
+        id
+      }
+      customer {
+        id
+      }
+    }
+  }
+`;
 
 async function handler(req, res) {
   // get user from database then
   const body = JSON.parse(req.body);
-  const user = body.user;
+  const username = body.username;
+  const password = body.password;
 
-  console.log(user);
+  try {
+    const queryResponse = await request(ENDPOINT, LOGIN_MUTATION, {
+      username,
+      password,
+    });
 
-  req.session.set("user", user);
+    const user = {
+      authToken: queryResponse.login.authToken,
+      refreshToken: queryResponse.login.authToken,
+      userId: queryResponse.login.user.id,
+      customerId: queryResponse.login.customer.id,
+    };
 
-  await req.session.save();
-  res.send({ success: true });
+    req.session.set("user", user);
+
+    await req.session.save();
+    res.send({ success: true });
+  } catch (error) {
+    if (error.response && error.response.errors && error.response.errors) {
+      const firstError = error.response.errors[0];
+      return res.send({ success: false, error: firstError.message });
+    }
+    return res.send({ success: false, error });
+  }
 }
 
-export default withIronSession(handler, {
-  cookieName: "next_auth",
-  password: process.env.SESSION_SECRET,
-  // if your localhost is served on http:// then disable the secure flag
-  cookieOptions: {
-    secure: process.env.NODE_ENV === "production",
-  },
-});
+export default withSession(handler);
