@@ -51,3 +51,4 @@ On every pull request we will run the following tests:
 * Jest
 * Cypress
 * Lighthouse
+* ESLint

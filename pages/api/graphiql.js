@@ -28,7 +28,7 @@ export default function handler(req, res) {
            height: 100vh;
          }
        </style>
-   
+
        <!--
          This GraphiQL example depends on Promise and fetch, which are available in
          modern browsers, but can be "polyfilled" for older browsers.
