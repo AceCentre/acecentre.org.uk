@@ -49,10 +49,6 @@ async function handler(req, res) {
 
   const user = req.session.get("user");
 
-  console.log({
-    authorization: `Bearer ${user.authToken}`,
-  });
-
   const client = new GraphQLClient(ENDPOINT, {
     headers: {
       authorization: `Bearer ${user.authToken}`,
@@ -63,8 +59,6 @@ async function handler(req, res) {
     const response = await client.request(GET_USER, {
       userId: user.userId,
     });
-
-    console.log("this far");
 
     res.send({ user: response.user });
   } catch (error) {
