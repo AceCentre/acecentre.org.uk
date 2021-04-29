@@ -28,10 +28,6 @@ export default function handler(req, res) {
            height: 100vh;
          }
        </style>
-   
-        <script>
-        console.log('${JSON.stringify(process.env)}')
-        </script>
 
        <!--
          This GraphiQL example depends on Promise and fetch, which are available in
