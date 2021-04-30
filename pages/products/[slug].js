@@ -28,7 +28,27 @@ export default function ProductPage({ product }) {
             {variation.instantDownloadAvailable ? (
               <a href={`${config.baseUrl}${variation.downloadUrl}`}>Download</a>
             ) : (
-              <a>Add to Cart</a>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const body = {
+                    productId: product.id,
+                    variationId: variation.id,
+                  };
+                  fetch("/api/cart/add", {
+                    method: "POST",
+                    body: JSON.stringify(body),
+                  })
+                    .then(async (result) => {
+                      const response = await result.json();
+                      console.log(response);
+                    })
+                    .catch((err) => console.warn(err));
+                }}
+              >
+                Add to Cart
+              </a>
             )}
           </>
         ))}
