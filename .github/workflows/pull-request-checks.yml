@@ -18,6 +18,14 @@ jobs:
       - name: Run Jest Tests
         run: yarn test
 
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: jest-coverage
+          path: coverage
+          # Github has size limits so this avoids hitting them
+          retention-days: 1
+
   ESLint:
     runs-on: ubuntu-latest
     steps:
