@@ -19,8 +19,8 @@
     "graphql": "15.5.0",
     "graphql-playground-middleware-express": "1.7.22",
     "graphql-request": "3.4.0",
-    "next-iron-session": "^4.1.13",
     "next": "10.2.0",
+    "next-iron-session": "^4.1.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "treeify-js": "1.0.3"
@@ -41,6 +41,7 @@
     "eslint-plugin-react": "7.23.2",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
+    "mock-fs": "^4.14.0",
     "nock": "13.0.11",
     "storybook-css-modules-preset": "1.0.8"
   }
