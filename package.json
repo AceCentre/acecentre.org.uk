@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.13.16",
-    "@lhci/cli": "0.7.1",
+    "@lhci/cli": "0.7.2",
     "@storybook/addon-actions": "6.2.8",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-links": "6.2.8",
