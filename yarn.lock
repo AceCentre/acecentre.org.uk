@@ -11915,10 +11915,10 @@ store2@^2.12.0:
   resolved "https://registry.npmjs.org/store2/-/store2-2.12.0.tgz"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-css-modules-preset@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.npmjs.org/storybook-css-modules-preset/-/storybook-css-modules-preset-1.0.8.tgz"
-  integrity sha512-P9yFbM+HYAOpMO7bp/6u0dVbx0ZYaBqxPIhPdotu6gGBT1+FlEL8t41ML8IC1V0dWKT2ZEnzCiglOUES9Mg1cw==
+storybook-css-modules-preset@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/storybook-css-modules-preset/-/storybook-css-modules-preset-1.1.0.tgz"
+  integrity sha512-zrtRTOmfQ4pDUlKgtlbK6xr7ZmeLTOHeznox3Kp8aZLUooLW4mEycK8QG4EAnNQerbvKLDlW2044T+KPqOhooA==
 
 stream-browserify@3.0.0:
   version "3.0.0"
