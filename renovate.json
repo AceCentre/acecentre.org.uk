@@ -1,7 +1,5 @@
 {
-    "extends": [
-      "config:base"
-    ],
-    "dependencyDashboard": true
-  }
- 
+  "extends": ["config:base"],
+  "dependencyDashboard": true,
+  "ignoreDeps": ["storybook-css-modules-preset"]
+}
