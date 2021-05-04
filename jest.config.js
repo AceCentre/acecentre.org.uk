@@ -10,4 +10,6 @@ module.exports = {
     "<rootDir>/.static-cache",
   ],
   setupFiles: ["<rootDir>/jest-setup.js"],
+  collectCoverage: true,
+  collectCoverageFrom: ["lib/**/*.{js,jsx}"],
 };
