@@ -19,8 +19,9 @@
     "graphql": "15.5.0",
     "graphql-playground-middleware-express": "1.7.22",
     "graphql-request": "3.4.0",
-    "next-iron-session": "4.1.13",
+    "jwt-decode": "^3.1.2",
     "next": "10.2.0",
+    "next-iron-session": "4.1.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "treeify-js": "1.0.3"
