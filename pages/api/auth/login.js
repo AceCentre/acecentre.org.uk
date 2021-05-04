@@ -11,6 +11,7 @@ const LOGIN_MUTATION = gql`
       refreshToken
       user {
         id
+        wooSessionToken
       }
       customer {
         id
@@ -36,9 +37,13 @@ async function handler(req, res) {
       refreshToken: queryResponse.login.authToken,
       userId: queryResponse.login.user.id,
       customerId: queryResponse.login.customer.id,
+      wooSessionToken: queryResponse.login.user.wooSessionToken,
     };
 
     req.session.set("user", user);
+    req.session.set("cart", {
+      wooSessionToken: queryResponse.login.user.wooSessionToken,
+    });
 
     await req.session.save();
     res.send({ success: true });
