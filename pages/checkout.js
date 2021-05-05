@@ -30,12 +30,19 @@ const CheckoutForm = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const source = await handleStripe();
-
     const value = event.target["free-input"].value;
     let parsed = JSON.parse(value);
-    parsed.billingDetails.stripeSourceId = source.id;
 
+    const name =
+      parsed.billingDetails.firstName + " " + parsed.billingDetails.lastName;
+
+    const source = await handleStripe(
+      name,
+      parsed.billingDetails.email,
+      parsed.billingDetails.phoneNo
+    );
+
+    parsed.billingDetails.stripeSourceId = source.id;
     const result = await fetch("/api/cart/checkout", {
       method: "POST",
       body: JSON.stringify(parsed),
@@ -46,7 +53,7 @@ const CheckoutForm = () => {
     console.log({ parsed, result, resultParsed });
   }
 
-  async function handleStripe() {
+  async function handleStripe(name, email, phone) {
     // Guard against stripe or elements not being available
     if (!stripe || !elements) {
       throw Error("stripe or elements undefined");
@@ -65,6 +72,11 @@ const CheckoutForm = () => {
       cardElements,
       {
         type: "card",
+        owner: {
+          email,
+          name,
+          phone,
+        },
       }
     );
 
