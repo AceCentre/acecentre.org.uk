@@ -4,29 +4,57 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import navLogo from "./nav-logo.png";
 
+import Link from "next/link";
+
+import { Image } from "../image";
 import styles from "./nav.module.css";
 
-export const Nav = () => {
+export const Nav = ({ numberOfItemsInCart = 0 }) => {
   return (
     <div className={styles.header}>
-      <HomeImage />
+      <div className={styles.homeImage}>
+        <Link href="/">
+          <a>
+            <HomeImage />
+          </a>
+        </Link>
+      </div>
       <div>
         <NavList>
-          <NavItem>About</NavItem>
-          <NavItem>Blog</NavItem>
-          <NavItem>Contact</NavItem>
           <NavItem>
-            <NavIcon icon={faUser} />
-            My AceCentre
+            <Link href="/about">About</Link>
           </NavItem>
           <NavItem>
-            <NavIcon icon={faSearch} />
-            Search
+            <Link href="/blog">Blog</Link>
           </NavItem>
           <NavItem>
-            <NavIcon icon={faShoppingCart} />
-            Checkout
+            <Link href="/contact">Contact</Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/my-acecentre">
+              <a>
+                <NavIcon icon={faUser} />
+                My AceCentre
+              </a>
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link href="/search">
+              <a>
+                <NavIcon icon={faSearch} />
+                Search
+              </a>
+            </Link>
+          </NavItem>
+          <NavItem>
+            <Link href="checkout">
+              <a>
+                <NavIcon icon={faShoppingCart} />
+                Checkout{numberOfItemsInCart ? ` (${numberOfItemsInCart})` : ""}
+              </a>
+            </Link>
           </NavItem>
           <NavItem>
             <DonateButton />
@@ -42,7 +70,9 @@ const NavIcon = ({ icon }) => {
 };
 
 const HomeImage = () => {
-  return <span className={styles.homeImage}>Home</span>;
+  return (
+    <Image height={152} width={290} maxHeight={50} src={"/" + navLogo}></Image>
+  );
 };
 
 const DonateButton = () => {
