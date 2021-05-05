@@ -15,7 +15,7 @@ export const Nav = ({ numberOfItemsInCart = 0 }) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.homeImage}>
-          <Link href="/">
+          <Link name="home" href="/">
             <a>
               <HomeImage />
             </a>
@@ -78,6 +78,7 @@ const HomeImage = () => {
       width={290}
       maxHeight={50}
       src={"/nav-logo.png"}
+      alt="The AceCentre logo"
     ></Image>
   );
 };
