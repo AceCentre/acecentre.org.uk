@@ -1253,6 +1253,32 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fortawesome/fontawesome-common-types@^0.2.35":
+  version "0.2.35"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.35.tgz#01dd3d054da07a00b764d78748df20daf2b317e9"
+  integrity sha512-IHUfxSEDS9dDGqYwIW7wTN6tn/O8E0n5PcAHz9cAaBoZw6UpG20IG/YM3NNLaGPwPqgjBAFjIURzqoQs3rrtuw==
+
+"@fortawesome/fontawesome-svg-core@1.2.35":
+  version "1.2.35"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.35.tgz#85aea8c25645fcec88d35f2eb1045c38d3e65cff"
+  integrity sha512-uLEXifXIL7hnh2sNZQrIJWNol7cTVIzwI+4qcBIq9QWaZqUblm0IDrtSqbNg+3SQf8SMGHkiSigD++rHmCHjBg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
+"@fortawesome/free-solid-svg-icons@5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.3.tgz#52eebe354f60dc77e0bde934ffc5c75ffd04f9d8"
+  integrity sha512-XPeeu1IlGYqz4VWGRAT5ukNMd4VHUEEJ7ysZ7pSSgaEtNvSo+FLurybGJVmiqkQdK50OkSja2bfZXOeyMGRD8Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
+"@fortawesome/react-fontawesome@0.1.14":
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.14.tgz#bf28875c3935b69ce2dc620e1060b217a47f64ca"
+  integrity sha512-4wqNb0gRLVaBm/h+lGe8UfPPivcbuJ6ecI4hIgW0LjI7kzpYB9FkN0L9apbVzg+lsBdcTf0AlBtODjcSX5mmKA==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@hapi/accept@5.0.1":
   version "5.0.1"
   resolved "https://registry.npmjs.org/@hapi/accept/-/accept-5.0.1.tgz"
@@ -2471,14 +2497,14 @@
     resolve-from "^5.0.0"
     store2 "^2.12.0"
 
-"@stripe/react-stripe-js@^1.4.0":
+"@stripe/react-stripe-js@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-1.4.0.tgz#a67e72202297fc409dc2c8c4f3fb98e0b61fa06d"
   integrity sha512-Pz5QmG8PgJ3pi8gOWxlngk+ns63p2L1Ds192fn55ykZNRKfGz3G6sfssUVThHn/NAt2Hp1eCEsy/hvlKnXJI6g==
   dependencies:
     prop-types "^15.7.2"
 
-"@stripe/stripe-js@^1.14.0":
+"@stripe/stripe-js@1.14.0":
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.14.0.tgz#0eb8a185197948ab9ddb62ee28ae555e7d90bc72"
   integrity sha512-Zw4EI+ph8RPxRpIX2uwKKDIbe7WM2OarasPjIPRulU1UCj8lRFqWWW/fTj79lZtnX3FNZkiTRM13UG1UZF7yjQ==
