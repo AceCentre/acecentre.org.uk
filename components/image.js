@@ -5,7 +5,7 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   if (!maxHeight && !maxWidth) {
     console.warn("You haven't provided a maxHeight or maxWidth for your image");
 
-    return <NextImage width={width} height={height} {...rest} />;
+    return <ImageSelector width={width} height={height} {...rest} />;
   }
 
   // const aspectRatio = width / height;
@@ -19,12 +19,16 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   const newWidth = Math.ceil(width * targetScale);
   const newHeight = Math.ceil(height * targetScale);
 
+  return <ImageSelector height={newHeight} width={newWidth} {...rest} />;
+};
+
+const ImageSelector = (props) => {
   // If we are on storybook we just use a normal image tag
   // Bear in mind that we will then do more optimizing for the
   // production build
   if (process.env.STORYBOOK) {
-    return <img height={newHeight} width={newWidth} {...rest}></img>;
+    return <img {...props} />;
   }
 
-  return <NextImage height={newHeight} width={newWidth} {...rest} />;
+  return <NextImage {...props} />;
 };
