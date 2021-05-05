@@ -4,7 +4,6 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import navLogo from "./nav-logo.png";
 
 import Link from "next/link";
 
@@ -74,7 +73,12 @@ const NavIcon = ({ icon }) => {
 
 const HomeImage = () => {
   return (
-    <Image height={152} width={290} maxHeight={50} src={"/" + navLogo}></Image>
+    <Image
+      height={152}
+      width={290}
+      maxHeight={50}
+      src={"/nav-logo.png"}
+    ></Image>
   );
 };
 
