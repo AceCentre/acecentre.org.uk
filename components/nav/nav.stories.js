@@ -7,8 +7,10 @@ export default {
 
 const Template = (args) => <Nav {...args} />;
 
-export const SignedIn = Template.bind({});
-SignedIn.args = {};
+export const EmptyCart = Template.bind({});
+EmptyCart.args = {};
 
-export const SingedOut = Template.bind({});
-SingedOut.args = {};
+export const ItemsInCart = Template.bind({});
+ItemsInCart.args = {
+  numberOfItemsInCart: 2,
+};
