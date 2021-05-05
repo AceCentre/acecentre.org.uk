@@ -49,7 +49,7 @@ export const Nav = ({ numberOfItemsInCart = 0 }) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link href="checkout">
+              <Link href="/checkout">
                 <a>
                   <NavIcon icon={faShoppingCart} />
                   Checkout
