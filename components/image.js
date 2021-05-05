@@ -19,5 +19,12 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   const newWidth = Math.ceil(width * targetScale);
   const newHeight = Math.ceil(height * targetScale);
 
+  // If we are on storybook we just use a normal image tag
+  // Bear in mind that we will then do more optimizing for the
+  // production build
+  if (process.env.STORYBOOK) {
+    return <img height={newHeight} width={newWidth} {...rest}></img>;
+  }
+
   return <NextImage height={newHeight} width={newWidth} {...rest} />;
 };
