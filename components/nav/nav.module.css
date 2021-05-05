@@ -9,7 +9,13 @@
   margin: 0 1rem;
 }
 
+.container {
+  background-color: grey;
+}
+
 .header {
+  margin: 0 auto;
+  max-width: 1024px;
   display: flex;
   align-items: center;
 }
@@ -20,4 +26,10 @@
 
 .navIcon {
   margin: 0 0.25rem;
+}
+
+.donate {
+  text-decoration: none;
+  background-color: white;
+  padding: 1rem;
 }
