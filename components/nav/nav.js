@@ -11,86 +11,87 @@ import { Image } from "../image";
 import styles from "./nav.module.css";
 
 export const Nav = ({ numberOfItemsInCart = 0 }) => {
+  // Append the number of items in the cart if there is any items
+  const checkoutPostfix = numberOfItemsInCart
+    ? ` (${numberOfItemsInCart})`
+    : "";
+
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.homeImage}>
-          <Link name="home" href="/">
-            <a>
-              <HomeImage />
-            </a>
-          </Link>
-        </div>
-        <div>
-          <NavList>
-            <NavItem>
-              <Link href="/about">About</Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/blog">Blog</Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/contact">Contact</Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/my-acecentre">
-                <a>
-                  <NavIcon icon={faUser} />
-                  My AceCentre
-                </a>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/search">
-                <a>
-                  <NavIcon icon={faSearch} />
-                  Search
-                </a>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/checkout">
-                <a>
-                  <NavIcon icon={faShoppingCart} />
-                  Checkout
-                  {numberOfItemsInCart ? ` (${numberOfItemsInCart})` : ""}
-                </a>
-              </Link>
-            </NavItem>
-            <NavItem className={styles.donate}>
-              <DonateButton />
-            </NavItem>
-          </NavList>
-        </div>
-      </div>
+    <FullWidthContainer>
+      <InnerContainer>
+        <HomeButton />
+        <NavList>
+          <NavLink href="/about">About</NavLink>
+
+          <NavLink href="/blog">Blog</NavLink>
+
+          <NavLink href="/contact">Contact</NavLink>
+
+          <NavLink href="/my-acecentre" icon={faUser}>
+            My AceCentre
+          </NavLink>
+
+          <NavLink href="/search" icon={faSearch}>
+            Search
+          </NavLink>
+
+          <NavLink icon={faShoppingCart} href="/checkout">
+            Checkout
+            {checkoutPostfix}
+          </NavLink>
+
+          <NavLink className={styles.donate} href="/donate">
+            Donate
+          </NavLink>
+        </NavList>
+      </InnerContainer>
+    </FullWidthContainer>
+  );
+};
+
+const FullWidthContainer = ({ children }) => {
+  return <div className={styles.container}>{children}</div>;
+};
+
+const InnerContainer = ({ children }) => {
+  return <div className={styles.innerContainer}>{children}</div>;
+};
+
+const NavLink = ({ href, children, icon, className }) => {
+  return (
+    <li className={`${styles.listItem} ${className}`}>
+      <Link href={href}>
+        <a>
+          {icon && <FontAwesomeIcon className={styles.navIcon} icon={icon} />}
+          {children}
+        </a>
+      </Link>
+    </li>
+  );
+};
+
+const HomeButton = () => {
+  return (
+    <div className={styles.homeImage}>
+      <Link name="home" href="/">
+        <a>
+          <Image
+            height={152}
+            width={290}
+            maxHeight={50}
+            src={"/nav-logo.png"}
+            alt="The AceCentre logo"
+          ></Image>
+        </a>
+      </Link>
     </div>
   );
 };
 
-const NavIcon = ({ icon }) => {
-  return <FontAwesomeIcon className={styles.navIcon} icon={icon} />;
-};
-
-const HomeImage = () => {
-  return (
-    <Image
-      height={152}
-      width={290}
-      maxHeight={50}
-      src={"/nav-logo.png"}
-      alt="The AceCentre logo"
-    ></Image>
-  );
-};
-
-const DonateButton = () => {
-  return <Link href="/donate">Donate</Link>;
-};
-
 const NavList = ({ children }) => {
-  return <ul className={styles.list}>{children}</ul>;
-};
-
-const NavItem = ({ children, className }) => {
-  return <li className={`${styles.listItem} ${className}`}>{children}</li>;
+  return (
+    <nav>
+      <ul className={styles.list}>{children}</ul>
+    </nav>
+  );
 };

@@ -9,7 +9,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="Description" content="Put your description here." />
       </Head>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
     </>
   );
 }
