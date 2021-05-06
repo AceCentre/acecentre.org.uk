@@ -12,6 +12,9 @@ module.exports = {
   ci: {
     collect: {
       url: PATHS_TO_TEST.map((path) => getTargetBaseUrl() + path),
+      settings: {
+        preset: "desktop",
+      },
     },
     upload: {
       target: "temporary-public-storage",
