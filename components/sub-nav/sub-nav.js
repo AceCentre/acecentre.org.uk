@@ -7,18 +7,28 @@ import styles from "./sub-nav.module.css";
 
 export const SubNav = ({ navItems, active }) => {
   return (
-    <nav>
-      <ul>
-        {navItems.map((item) => (
-          <NavItem
-            isActive={item.href === active}
-            key={item.href}
-            navItem={item}
-          />
-        ))}
-      </ul>
-    </nav>
+    <FullWidthContainer>
+      <InnerContainer>
+        <ul className={styles.list}>
+          {navItems.map((item) => (
+            <NavItem
+              isActive={item.href === active}
+              key={item.href}
+              navItem={item}
+            />
+          ))}
+        </ul>
+      </InnerContainer>
+    </FullWidthContainer>
   );
+};
+
+const InnerContainer = ({ children }) => {
+  return <nav className={styles.innerContainer}>{children}</nav>;
+};
+
+const FullWidthContainer = ({ children }) => {
+  return <div className={styles.container}>{children}</div>;
 };
 
 const useHighlight = () => {
@@ -47,7 +57,10 @@ const NavItem = ({ navItem, isActive }) => {
   let { highlightProps, isHighlighted } = useHighlight();
 
   return (
-    <li {...highlightProps} className={`${isActive ? styles.activeItem : ""}`}>
+    <li
+      {...highlightProps}
+      className={`${styles.listItem}  ${isActive ? styles.activeItem : ""}`}
+    >
       <Link href={navItem.href}>{navItem.title}</Link>
 
       {isHighlighted && (
