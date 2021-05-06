@@ -10,10 +10,10 @@
 }
 
 .container {
-  background-color: grey;
+  background-color: lightgray;
 }
 
-.header {
+.innerContainer {
   margin: 0 auto;
   max-width: 1024px;
   display: flex;
