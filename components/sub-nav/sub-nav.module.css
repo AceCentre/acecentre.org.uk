@@ -1,17 +1,16 @@
 .activeItem {
-  background-color: black;
+  background-color: gray;
 }
 
 .list {
   list-style-type: none;
-  padding: 1rem 0;
   margin: 0;
   display: flex;
   justify-content: space-between;
 }
 
 .listItem {
-  margin: 0 1rem;
+  padding: 1rem;
 }
 
 .innerContainer {
