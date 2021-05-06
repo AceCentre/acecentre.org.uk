@@ -1,0 +1,48 @@
+.activeItem {
+  background-color: gray;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  padding-inline-start: 0;
+  justify-content: space-between;
+}
+
+.listItem {
+  padding: 1rem;
+}
+
+.innerContainer {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.container {
+  background-color: #e3e3e3;
+}
+
+.subNav {
+  position: fixed;
+  background-color: #e3e3e3;
+}
+
+.listSplit {
+  column-count: 2;
+}
+
+.subList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.5rem;
+}
+
+.subListItem {
+  margin: 0.5rem;
+}
+
+.explore {
+  margin: 0.5rem;
+}
