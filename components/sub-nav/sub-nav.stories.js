@@ -1,4 +1,4 @@
-import { SubNav } from "./sub-nav";
+import { SubNav, defaultNavItems } from "./sub-nav";
 
 export default {
   title: "Components/SubNav",
@@ -8,3 +8,6 @@ export default {
 const Template = (args) => <SubNav {...args} />;
 
 export const NoActive = Template.bind({});
+NoActive.args = {
+  navItems: defaultNavItems,
+};
