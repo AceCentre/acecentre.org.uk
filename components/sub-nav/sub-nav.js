@@ -1,31 +1,63 @@
+import { useHover, useFocusWithin } from "@react-aria/interactions";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export const SubNav = ({ navItems }) => {
-  console.log(navItems);
-
   return (
     <nav>
       <ul>
-        {navItems.map((item) => {
-          return (
-            <li key={item.href}>
-              <Link href={item.href}>{item.title}</Link>
-              <nav>
-                <ul>
-                  {item.subItems.map((subItem) => {
-                    return (
-                      <li key={subItem.href}>
-                        <Link href={subItem.href}>{subItem.title}</Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-            </li>
-          );
-        })}
+        {navItems.map((item) => (
+          <NavItem key={item.href} navItem={item} />
+        ))}
       </ul>
     </nav>
+  );
+};
+
+const useHighlight = () => {
+  const [isFocused, setIsFocused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  let { hoverProps } = useHover({
+    onHoverChange: (latestHovered) => {
+      setIsHovered(latestHovered);
+    },
+  });
+
+  let { focusWithinProps } = useFocusWithin({
+    onFocusWithinChange: (latestFocused) => {
+      setIsFocused(latestFocused);
+    },
+  });
+
+  return {
+    highlightProps: { ...hoverProps, ...focusWithinProps },
+    isHighlighted: isHovered || isFocused,
+  };
+};
+
+const NavItem = ({ navItem }) => {
+  let { highlightProps, isHighlighted } = useHighlight();
+
+  return (
+    <li {...highlightProps}>
+      <Link href={navItem.href}>{navItem.title}</Link>
+
+      {isHighlighted && (
+        <nav>
+          <ul>
+            {navItem.subItems.map((subItem) => {
+              return (
+                <li key={subItem.href}>
+                  <Link href={subItem.href}>{subItem.title}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      )}
+    </li>
   );
 };
 
