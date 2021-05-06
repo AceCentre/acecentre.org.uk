@@ -118,7 +118,7 @@ jobs:
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_URL: ${{ steps.wait-for-netlify-preview.outputs.url }}
-        run: yarn lighthouse --token ${{ secrets.BUILD_TOKEN }}
+        run: yarn lighthouse --token ${{ secrets.LHCI_BUILD_TOKEN }}
 
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
