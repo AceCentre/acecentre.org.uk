@@ -5,6 +5,10 @@ import { useState } from "react";
 
 import styles from "./sub-nav.module.css";
 
+// We split the sub lists into two columns if there
+// more than 5 sub items
+const SPLIT_AFTER = 5;
+
 export const SubNav = ({ navItems, active }) => {
   return (
     <FullWidthContainer>
@@ -56,6 +60,8 @@ const useHighlight = () => {
 const NavItem = ({ navItem, isActive }) => {
   let { highlightProps, isHighlighted } = useHighlight();
 
+  const splitOverTwoColumns = navItem.subItems.length > SPLIT_AFTER;
+
   return (
     <li
       {...highlightProps}
@@ -64,11 +70,16 @@ const NavItem = ({ navItem, isActive }) => {
       <Link href={navItem.href}>{navItem.title}</Link>
 
       {isHighlighted && (
-        <nav>
-          <ul>
+        <nav className={styles.subNav}>
+          <p className={styles.explore}>Explore</p>
+          <ul
+            className={`${styles.subList} ${
+              splitOverTwoColumns ? styles.listSplit : ""
+            }`}
+          >
             {navItem.subItems.map((subItem) => {
               return (
-                <li key={subItem.href}>
+                <li className={styles.subListItem} key={subItem.href}>
                   <Link href={subItem.href}>{subItem.title}</Link>
                 </li>
               );
@@ -104,7 +115,13 @@ export const defaultNavItems = [
   {
     title: "Getting started",
     href: "/getting-started",
-    subItems,
+    subItems: [
+      { title: "Getting started", href: "/getting-started" },
+      { title: "Supporting language", href: "/supporting-language" },
+      { title: "Supporting access", href: "/supporting-access" },
+      { title: "Working in schools", href: "/working-in-schools" },
+      { title: "Family and friends", href: "/family-and-friends" },
+    ],
   },
   {
     title: "Resources",
