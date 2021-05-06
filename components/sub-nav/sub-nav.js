@@ -3,12 +3,18 @@ import { useHover, useFocusWithin } from "@react-aria/interactions";
 import Link from "next/link";
 import { useState } from "react";
 
-export const SubNav = ({ navItems }) => {
+import styles from "./sub-nav.module.css";
+
+export const SubNav = ({ navItems, active }) => {
   return (
     <nav>
       <ul>
         {navItems.map((item) => (
-          <NavItem key={item.href} navItem={item} />
+          <NavItem
+            isActive={item.href === active}
+            key={item.href}
+            navItem={item}
+          />
         ))}
       </ul>
     </nav>
@@ -37,11 +43,11 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem }) => {
+const NavItem = ({ navItem, isActive }) => {
   let { highlightProps, isHighlighted } = useHighlight();
 
   return (
-    <li {...highlightProps}>
+    <li {...highlightProps} className={`${isActive ? styles.activeItem : ""}`}>
       <Link href={navItem.href}>{navItem.title}</Link>
 
       {isHighlighted && (
@@ -72,6 +78,14 @@ const subItems = [
   { title: "Symbol resources", href: "/symbol-resources" },
   { title: "All resources", href: "/all-resources" },
 ];
+
+export const SUB_NAV_HEADERS = {
+  GETTING_STARTED: "/getting-started",
+  RESOURCES: "/resources",
+  SERVICES: "/services",
+  ACECENTRE_LEARNING: "/acecentre-learning",
+  GET_INVOLVED: "/get-involved",
+};
 
 export const defaultNavItems = [
   {
