@@ -29,6 +29,7 @@ module.exports = {
         "unused-javascript": "off", // We don't have much control over this its down to Next
         "uses-optimized-images": "off", // This complains because we don't serve images in WebP. It would be nice to do this one day but right now its not worth it
         redirects: "off", // For previews netlify bounces you about abit, to .com => .app => http => https. This makes redirect rule fail. Doesn't do the redirecting in prod though
+        "uses-responsive-images": "off", // Despite using responsive images i get this error
       },
     },
   },
