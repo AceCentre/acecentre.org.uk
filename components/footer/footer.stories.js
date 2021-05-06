@@ -8,4 +8,6 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 export const Standard = Template.bind({});
-Standard.args = {};
+Standard.args = {
+  currentYear: 2021,
+};
