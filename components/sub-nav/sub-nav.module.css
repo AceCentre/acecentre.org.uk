@@ -6,6 +6,7 @@
   list-style-type: none;
   margin: 0;
   display: flex;
+  padding-inline-start: 0;
   justify-content: space-between;
 }
 
