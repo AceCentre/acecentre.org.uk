@@ -1,0 +1,21 @@
+.container {
+  background-color: lightgray;
+}
+
+.innerContainer {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 1rem 0;
+}
+
+.topArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
