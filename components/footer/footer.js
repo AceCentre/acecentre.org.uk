@@ -23,12 +23,20 @@ export const Footer = ({ currentYear }) => {
             ))}
           </ul>
         </div>
-        <div>
-          <ul>
-            <li>Newsletter</li>
-            <li>Sitemap</li>
-            <li>Privacy Policy</li>
-            <li>Safeguarding</li>
+        <div className={styles.bottomSection}>
+          <ul className={styles.flatList}>
+            <li className={styles.flatListItem}>
+              <Link href="/newsletter">Newsletter</Link>
+            </li>
+            <li className={styles.flatListItem}>
+              <Link href="/sitemap">Sitemap</Link>
+            </li>
+            <li className={styles.flatListItem}>
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li className={styles.flatListItem}>
+              <Link href="/safeguarding">Safeguarding</Link>
+            </li>
           </ul>
           <p>© Copyright AceCentre {currentYear}</p>
         </div>
