@@ -1,16 +1,11 @@
-import Head from "next/head";
-
 import "../styles/globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { DefaultHead } from "../components/default-head";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>AceCentre</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="Description" content="AceCentre" />
-      </Head>
-
+      <DefaultHead />
       <Component {...pageProps} />
     </>
   );
