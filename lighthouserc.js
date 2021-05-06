@@ -17,7 +17,8 @@ module.exports = {
       },
     },
     upload: {
-      target: "temporary-public-storage",
+      target: "lhci",
+      serverBaseUrl: "https://ace-lh-ci.herokuapp.com/",
     },
     assert: {
       preset: "lighthouse:no-pwa",
