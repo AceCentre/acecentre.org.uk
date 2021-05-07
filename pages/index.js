@@ -1,4 +1,5 @@
 import { Footer } from "../components/footer/footer";
+import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-we-help-cards";
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
@@ -18,6 +19,7 @@ export default function Home() {
       </header>
       <main>
         <VideoWithCardCover />
+        <HowCanWeHelpCards />
       </main>
       <Footer currentYear={currentYear} />
     </>
