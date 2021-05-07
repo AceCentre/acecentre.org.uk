@@ -9,9 +9,10 @@ import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
+import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStory } from "../lib/story/get-story";
 
-export default function Home({ featuredStory }) {
+export default function Home({ featuredStory, landingPagePosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -38,5 +39,9 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 
-  return { props: { featuredStory } };
+  const landingPagePosts = await getLandingPagePosts();
+
+  if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
+
+  return { props: { featuredStory, landingPagePosts } };
 });
