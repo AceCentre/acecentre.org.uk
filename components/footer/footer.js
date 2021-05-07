@@ -7,7 +7,13 @@ export const Footer = ({ currentYear }) => {
     <footer className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.topArea}>
-          <Image height={152} width={290} maxHeight={100} src="/nav-logo.png" />
+          <Image
+            alt="The AceCentre logo"
+            height={152}
+            width={290}
+            maxHeight={100}
+            src="/nav-logo.png"
+          />
           <div>
             <p>0800 048 7642</p>
             <p>Office hours, Monday - Friday</p>
