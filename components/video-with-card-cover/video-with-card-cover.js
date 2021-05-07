@@ -6,7 +6,12 @@ export const VideoWithCardCover = () => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img height="400px" width="100%" src="/placeholder.jpeg" />
+        <img
+          alt="placeholder"
+          height="400px"
+          width="100%"
+          src="/placeholder.jpeg"
+        />
       </div>
       <div className={styles.cardContainer}>
         <div className={styles.cardInnerContainer}>
