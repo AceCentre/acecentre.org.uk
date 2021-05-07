@@ -14,10 +14,21 @@
 
 .imageContainer {
   position: absolute;
+  width: 100vw;
 }
 
 .card {
-  width: 200px;
-  background-color: grey;
+  width: 300px;
+  background-color: lightgray;
   padding: 2rem;
+}
+
+.container {
+  height: 454px;
+}
+
+.aboutUs {
+  text-decoration: none;
+  background-color: white;
+  padding: 1rem;
 }
