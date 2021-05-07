@@ -1,0 +1,40 @@
+.container {
+  background-color: lightgray;
+}
+
+.innerContainer {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 1rem 0;
+}
+
+.topArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.flatList {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-grow: 1;
+}
+
+.flatList :not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.bottomSection {
+  display: flex;
+}
+
+.flatListItem {
+  padding: 0 1rem;
+}
