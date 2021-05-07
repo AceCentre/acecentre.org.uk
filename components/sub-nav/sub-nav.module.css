@@ -26,6 +26,7 @@
 .subNav {
   position: fixed;
   background-color: #e3e3e3;
+  z-index: 1;
 }
 
 .listSplit {
