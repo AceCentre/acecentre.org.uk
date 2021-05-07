@@ -3,6 +3,7 @@ import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-w
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
+import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
@@ -20,6 +21,7 @@ export default function Home() {
       <main>
         <VideoWithCardCover />
         <HowCanWeHelpCards />
+        <WhatWeDo />
       </main>
       <Footer currentYear={currentYear} />
     </>
