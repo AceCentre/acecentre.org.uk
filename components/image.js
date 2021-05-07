@@ -21,8 +21,7 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
 
   return <ImageSelector height={newHeight} width={newWidth} {...rest} />;
 };
-
-const ImageSelector = (props) => {
+export const ImageSelector = (props) => {
   // If we are on storybook we just use a normal image tag
   // Bear in mind that we will then do more optimizing for the
   // production build

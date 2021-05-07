@@ -1,0 +1,23 @@
+.cardContainer {
+  position: absolute;
+  width: 100%;
+}
+
+.cardInnerContainer {
+  margin: 0 auto;
+  max-width: 1024px;
+
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 250px;
+}
+
+.imageContainer {
+  position: absolute;
+}
+
+.card {
+  width: 200px;
+  background-color: grey;
+  padding: 2rem;
+}
