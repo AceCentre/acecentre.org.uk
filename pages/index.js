@@ -1,6 +1,7 @@
 import { Footer } from "../components/footer/footer";
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
+import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
@@ -15,7 +16,9 @@ export default function Home() {
         <Nav numberOfItemsInCart={cartCount} />
         <SubNav navItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <VideoWithCardCover />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
