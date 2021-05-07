@@ -1,0 +1,25 @@
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: grey;
+  padding: 3rem 0;
+}
+
+.innerContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: lightgray;
+  padding: 2rem;
+}
+
+.getInvolved {
+  text-decoration: none;
+  background-color: white;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+}
