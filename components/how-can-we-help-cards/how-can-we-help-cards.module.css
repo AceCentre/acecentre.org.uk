@@ -1,34 +1,31 @@
-.cardContainer {
-  position: absolute;
-  width: 100%;
-}
-
-.cardInnerContainer {
-  margin: 0 auto;
-  max-width: 1024px;
-
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 250px;
-}
-
-.imageContainer {
-  position: absolute;
-  width: 100vw;
-}
-
-.card {
-  width: 300px;
-  background-color: lightgray;
-  padding: 2rem;
-}
-
 .container {
-  height: 454px;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
-.aboutUs {
-  text-decoration: none;
-  background-color: white;
-  padding: 1rem;
+.container > h1 {
+  text-align: center;
+}
+
+.topCards {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.topCards p {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.bottomCards {
+  margin-top: 2rem;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.bottomCards p {
+  width: 80%;
+  margin: 0 auto;
 }
