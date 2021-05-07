@@ -1,5 +1,6 @@
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
+import { GetInvolved } from "../components/get-involved/get-involved";
 import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-we-help-cards";
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
@@ -25,6 +26,7 @@ export default function Home({ featuredStory }) {
         <HowCanWeHelpCards />
         <WhatWeDo />
         <FeaturedStory {...featuredStory} />
+        <GetInvolved />
       </main>
       <Footer currentYear={currentYear} />
     </>
