@@ -1,0 +1,27 @@
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: lightgray;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.video {
+  width: 450px;
+  height: 280px;
+  padding-right: 2rem;
+}
+
+.findOutMore {
+  text-decoration: none;
+  background-color: white;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+}
