@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from "./what-we-do.module.css";
 
 export const WhatWeDo = () => {
-  console.log(styles);
-
   return (
     <div className={styles.container}>
       <h1>What we do</h1>
