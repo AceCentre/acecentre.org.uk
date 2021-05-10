@@ -5,4 +5,12 @@
 
 .postList {
   display: flex;
+  gap: 1rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .postList {
+    flex-direction: column;
+  }
 }
