@@ -2,7 +2,7 @@
   max-width: var(--containerMaxWidth);
   margin: 0 auto;
   padding: 3rem;
-  background-color: var(--primary);
+  background-color: var(--primaryColour);
 
   display: flex;
   justify-content: space-between;
