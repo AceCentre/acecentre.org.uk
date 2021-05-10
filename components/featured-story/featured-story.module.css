@@ -1,5 +1,6 @@
 .container {
   max-width: var(--containerMaxWidth);
+  width: 90%;
   margin: 0 auto;
   padding: 3rem;
   background-color: var(--primaryColour);
@@ -9,7 +10,7 @@
 }
 
 .video {
-  width: 450px;
+  max-width: 450px;
   height: 280px;
   padding-right: 2rem;
 }
@@ -24,4 +25,20 @@
 .buttonContainer {
   display: flex;
   align-items: center;
+}
+
+/* Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+
+    margin: 0;
+  }
+
+  .video {
+    padding-right: 0;
+    width: 100%;
+    height: 200px;
+  }
 }
