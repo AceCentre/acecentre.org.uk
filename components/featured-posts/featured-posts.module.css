@@ -12,5 +12,6 @@
 @media (max-width: 760px) {
   .postList {
     flex-direction: column;
+    text-align: center;
   }
 }

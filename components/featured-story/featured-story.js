@@ -8,7 +8,9 @@ export const FeaturedStory = ({ youtubeVideo, summary, title, slug }) => {
 
   return (
     <div className={styles.container}>
-      <YouTube className={styles.video} videoId={videoId} />
+      <div className={styles.videoContainer}>
+        <YouTube className={styles.video} videoId={videoId} />
+      </div>
       <div>
         <h1>{title}</h1>
         {/* We are dangerously setting inner HTML here because the summary comes from wordpress */}
