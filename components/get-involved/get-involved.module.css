@@ -1,5 +1,6 @@
 .container {
   max-width: var(--containerMaxWidth);
+  width: 100%;
   margin: 0 auto;
   background-color: var(--secondaryColour);
   padding: 3rem 0;
@@ -22,4 +23,12 @@
 .buttonContainer {
   display: flex;
   align-items: center;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    padding: 0;
+    margin: 0 auto;
+  }
 }
