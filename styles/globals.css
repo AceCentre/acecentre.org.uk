@@ -12,4 +12,5 @@ body {
 
 :root {
   --containerMaxWidth: 1024px;
+  --primaryColour: lightgray;
 }
