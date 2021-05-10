@@ -17,3 +17,9 @@ body {
   --primaryColour: lightgray;
   --secondaryColour: #e3e3e3;
 }
+
+@media (max-width: 1024px) {
+  :root {
+    --containerMaxWidth: 760px;
+  }
+}

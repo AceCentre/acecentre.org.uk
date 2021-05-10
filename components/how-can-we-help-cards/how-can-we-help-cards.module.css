@@ -29,3 +29,13 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.twoWide {
+  height: 250px;
+  width: calc(var(--containerMaxWidth) / 2 - 2rem);
+}
+
+.threeWide {
+  height: 250px;
+  width: calc(var(--containerMaxWidth) / 3 - 2rem);
+}
