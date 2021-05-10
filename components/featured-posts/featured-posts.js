@@ -1,20 +1,25 @@
 import Link from "next/link";
 
+import styles from "./featured-posts.module.css";
+
 export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
   return (
-    <div>
+    <div className={styles.container}>
       {title && <h1>{title}</h1>}
       {viewAllLink && <Link href="viewAllLink">View All</Link>}
-      {posts.map((post) => {
-        return (
-          <Link key={post.slug} href={`/blog/${post.slug}`}>
-            <a>
-              <img src="/placeholder.jpeg" />
-              <h2>{post.title}</h2>
-            </a>
-          </Link>
-        );
-      })}
+      <div className={styles.postList}>
+        {posts.map((post) => {
+          return (
+            // Should this be a list?
+            <Link key={post.slug} href={`/blog/${post.slug}`}>
+              <a>
+                <img width="300px" height="250px" src="/placeholder.jpeg" />
+                <h2>{post.title}</h2>
+              </a>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -32,7 +32,6 @@ Standard.args = {
 
 export const NoTitle = Template.bind({});
 NoTitle.args = {
-  viewAllLink: "/blog",
   posts: [
     {
       title: "Ace Centre Festive opening times Christmas and New Year 2020",
