@@ -1,5 +1,5 @@
 .container {
-  max-width: 1024px;
+  max-width: var(--containerMaxWidth);
   margin: 0 auto;
   background-color: grey;
   padding: 3rem 0;
