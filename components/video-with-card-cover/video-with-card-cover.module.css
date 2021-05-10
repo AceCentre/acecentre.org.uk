@@ -19,7 +19,7 @@
 
 .card {
   width: 300px;
-  background-color: var(--primary);
+  background-color: var(--primaryColour);
   padding: 2rem;
 }
 
