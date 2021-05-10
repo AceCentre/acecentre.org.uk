@@ -6,7 +6,7 @@ export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
   return (
     <div className={styles.container}>
       {title && <h1>{title}</h1>}
-      {viewAllLink && <Link href="viewAllLink">View All</Link>}
+      {viewAllLink && <Link href={viewAllLink}>View All</Link>}
       <div className={styles.postList}>
         {posts.map((post) => {
           return (
