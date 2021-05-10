@@ -5,14 +5,6 @@ import styles from "./video-with-card-cover.module.css";
 export const VideoWithCardCover = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.imageContainer}>
-        <img
-          alt="placeholder"
-          height="400px"
-          width="100%"
-          src="/placeholder.jpeg"
-        />
-      </div>
       <div className={styles.cardContainer}>
         <div className={styles.cardInnerContainer}>
           <div className={styles.card}>

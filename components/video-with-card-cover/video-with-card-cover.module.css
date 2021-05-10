@@ -1,20 +1,13 @@
 .cardContainer {
-  position: absolute;
   width: 100%;
+
+  padding-top: 250px;
 }
 
 .cardInnerContainer {
   margin: 0 auto;
-  max-width: var(--containerMaxWidth);
-
   display: flex;
   justify-content: flex-end;
-  margin-top: 250px;
-}
-
-.imageContainer {
-  position: absolute;
-  width: 100vw;
 }
 
 .card {
@@ -24,7 +17,14 @@
 }
 
 .container {
-  height: 454px;
+  background-color: var(--secondaryColour);
+  box-sizing: border-box;
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  height: 400px;
+
+  margin-bottom: calc(50px + 3rem);
 }
 
 .aboutUs {
