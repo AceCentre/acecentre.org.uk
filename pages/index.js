@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
@@ -12,6 +13,7 @@ import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStory } from "../lib/story/get-story";
+import styles from "../styles/index.module.css";
 
 export default function Home({ featuredStory, landingPagePosts }) {
   const cartCount = useCartCount();
@@ -24,7 +26,14 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        <VideoWithCardCover />
+        <VideoWithCardCover>
+          <p>
+            Working with people of all ages to overcome communication challenges
+          </p>
+          <div className={styles.aboutUs}>
+            <Link href="/donate">Learn about us</Link>
+          </div>
+        </VideoWithCardCover>
         <HowCanWeHelpCards />
         <WhatWeDo />
         <FeaturedStory {...featuredStory} />
