@@ -24,7 +24,7 @@
 }
 
 .subNav {
-  position: fixed;
+  position: absolute;
   background-color: #e3e3e3;
   z-index: 1;
 }
