@@ -38,3 +38,31 @@
 .flatListItem {
   padding: 0 1rem;
 }
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .topArea {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flatList {
+    flex-direction: column;
+  }
+
+  .flatList :not(:last-child) {
+    border-right: none;
+  }
+
+  .bottomSection {
+    flex-direction: column;
+  }
+
+  .flatListItem {
+    padding: 0;
+  }
+}
