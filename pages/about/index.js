@@ -1,3 +1,4 @@
+import { DescriptionAndQuote } from "../../components/description-and-quote/description-and-quote";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
@@ -26,6 +27,7 @@ export default function Home({ featuredStory }) {
             difficulties
           </p>
         </VideoWithCardCover>
+        <DescriptionAndQuote />
         <FeaturedStory {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />
