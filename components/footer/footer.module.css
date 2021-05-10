@@ -4,7 +4,7 @@
 
 .innerContainer {
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: var(--containerMaxWidth);
   padding: 1rem 0;
 }
 

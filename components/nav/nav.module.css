@@ -15,7 +15,7 @@
 
 .innerContainer {
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: var(--containerMaxWidth);
   display: flex;
   align-items: center;
 }
