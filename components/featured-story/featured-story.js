@@ -1,6 +1,6 @@
 import styles from "./featured-story.module.css";
 
-import YouTube from "react-youtube";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import Link from "next/link";
 
 export const FeaturedStory = ({ youtubeVideo, summary, title, slug }) => {
@@ -9,7 +9,11 @@ export const FeaturedStory = ({ youtubeVideo, summary, title, slug }) => {
   return (
     <div className={styles.container}>
       <div className={styles.videoContainer}>
-        <YouTube className={styles.video} videoId={videoId} />
+        <LiteYouTubeEmbed
+          id={videoId}
+          title={`A youtube video about: ${title}`}
+          noCookie={true}
+        />
       </div>
       <div>
         <h1>{title}</h1>
