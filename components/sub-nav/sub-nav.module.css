@@ -47,3 +47,10 @@
 .explore {
   margin: 0.5rem;
 }
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    display: none;
+  }
+}

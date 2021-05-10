@@ -33,3 +33,10 @@
   background-color: white;
   padding: 1rem;
 }
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    display: none;
+  }
+}
