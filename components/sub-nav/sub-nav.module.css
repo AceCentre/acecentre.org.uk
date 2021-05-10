@@ -16,16 +16,17 @@
 
 .innerContainer {
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: var(--containerMaxWidth);
 }
 
 .container {
-  background-color: #e3e3e3;
+  background-color: var(--secondaryColour);
 }
 
 .subNav {
-  position: fixed;
-  background-color: #e3e3e3;
+  position: absolute;
+  background-color: var(--secondaryColour);
+  z-index: 1;
 }
 
 .listSplit {
@@ -45,4 +46,11 @@
 
 .explore {
   margin: 0.5rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    display: none;
+  }
 }

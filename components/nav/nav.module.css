@@ -10,12 +10,12 @@
 }
 
 .container {
-  background-color: lightgray;
+  background-color: var(--primaryColour);
 }
 
 .innerContainer {
   margin: 0 auto;
-  max-width: 1024px;
+  max-width: var(--containerMaxWidth);
   display: flex;
   align-items: center;
 }
@@ -32,4 +32,11 @@
   text-decoration: none;
   background-color: white;
   padding: 1rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    display: none;
+  }
 }

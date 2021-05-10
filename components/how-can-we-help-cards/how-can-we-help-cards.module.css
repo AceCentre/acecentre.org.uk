@@ -1,0 +1,65 @@
+.container {
+  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+}
+
+.container > h1 {
+  text-align: center;
+}
+
+.allCards p {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.gettingStarted {
+  grid-area: gettingStarted;
+}
+
+.resources {
+  grid-area: resources;
+}
+
+.aceCentreLearning {
+  grid-area: aceCentreLearning;
+}
+.assessment {
+  grid-area: assessment;
+}
+.helpline {
+  grid-area: helpline;
+}
+
+.allCards {
+  text-align: center;
+
+  grid-gap: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". gettingStarted gettingStarted resources resources ."
+    "aceCentreLearning aceCentreLearning assessment assessment helpline helpline";
+}
+
+/* Mobile CSS */
+@media (max-width: 760px) {
+  .allCards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ".  gettingStarted gettingStarted ."
+      "resources resources aceCentreLearning aceCentreLearning"
+      "assessment assessment helpline helpline";
+  }
+
+  .allCards p {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}

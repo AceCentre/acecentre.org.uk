@@ -9,7 +9,7 @@
     "build:next": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "mkdir out && build-storybook -o out/design-system --quiet -s ./public",
+    "build-storybook": "rm -rf out && mkdir out && build-storybook -o out/design-system --quiet -s ./public",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lighthouse": "lhci autorun"
@@ -30,6 +30,7 @@
     "next-iron-session": "4.1.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-lite-youtube-embed": "^2.0.3",
     "treeify-js": "1.0.3"
   },
   "devDependencies": {

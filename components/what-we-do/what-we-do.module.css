@@ -1,0 +1,19 @@
+.container {
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.list {
+  padding: 0;
+  list-style-type: none;
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+.list li {
+  padding: 0.5rem 0;
+}
