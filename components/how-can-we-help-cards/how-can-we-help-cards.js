@@ -9,7 +9,7 @@ export const HowCanWeHelpCards = () => {
           <img
             alt="placeholder"
             width="100%"
-            // height="250px"
+            height="250px"
             src="/placeholder.jpeg"
           />
           <h2>Getting started</h2>
@@ -19,7 +19,7 @@ export const HowCanWeHelpCards = () => {
           <img
             alt="placeholder"
             width="100%"
-            // height="250px"
+            height="250px"
             src="/placeholder.jpeg"
           />
           <h2>Resources</h2>
@@ -30,7 +30,7 @@ export const HowCanWeHelpCards = () => {
           <img
             alt="placeholder"
             width="100%"
-            // height="250px"
+            height="250px"
             src="/placeholder.jpeg"
           />
           <h2>Ace Centre Learning</h2>
@@ -40,7 +40,7 @@ export const HowCanWeHelpCards = () => {
           <img
             alt="placeholder"
             width="100%"
-            // height="250px"
+            height="250px"
             src="/placeholder.jpeg"
           />
           <h2>Assessment</h2>
@@ -50,7 +50,7 @@ export const HowCanWeHelpCards = () => {
           <img
             alt="placeholder"
             width="100%"
-            // height="250px"
+            height="250px"
             src="/placeholder.jpeg"
           />
           <h2>Helpline</h2>
