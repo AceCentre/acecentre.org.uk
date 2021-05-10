@@ -6,7 +6,13 @@ const getTargetBaseUrl = () => {
   return "http://localhost:3000";
 };
 
-const PATHS_TO_TEST = ["/", "/staff", "/staff/will-wade", "/trustees"];
+const PATHS_TO_TEST = [
+  "/",
+  "/about",
+  "/staff",
+  "/staff/will-wade",
+  "/trustees",
+];
 
 module.exports = {
   ci: {
