@@ -1,7 +1,7 @@
 .container {
   max-width: var(--containerMaxWidth);
   margin: 0 auto;
-  background-color: grey;
+  background-color: var(--secondaryColour);
   padding: 3rem 0;
 }
 

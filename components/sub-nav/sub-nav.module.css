@@ -20,12 +20,12 @@
 }
 
 .container {
-  background-color: #e3e3e3;
+  background-color: var(--secondaryColour);
 }
 
 .subNav {
   position: absolute;
-  background-color: #e3e3e3;
+  background-color: var(--secondaryColour);
   z-index: 1;
 }
 
