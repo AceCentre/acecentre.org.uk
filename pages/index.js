@@ -1,3 +1,4 @@
+import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
 import { GetInvolved } from "../components/get-involved/get-involved";
@@ -27,6 +28,11 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <HowCanWeHelpCards />
         <WhatWeDo />
         <FeaturedStory {...featuredStory} />
+        <FeaturedPosts
+          title="Latest from the blog"
+          viewAllLink="/blog"
+          posts={landingPagePosts}
+        />
         <GetInvolved />
       </main>
       <Footer currentYear={currentYear} />
