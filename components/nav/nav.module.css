@@ -10,7 +10,7 @@
 }
 
 .container {
-  background-color: lightgray;
+  background-color: var(--primary);
 }
 
 .innerContainer {
