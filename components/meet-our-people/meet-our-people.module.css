@@ -3,3 +3,6 @@
   width: 90%;
   max-width: var(--containerMaxWidth);
 }
+
+.innerContainer {
+}
