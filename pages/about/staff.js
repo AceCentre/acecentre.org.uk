@@ -1,3 +1,4 @@
+import { FilterPeople } from "../../components/filter-people/filter-people";
 import { Footer } from "../../components/footer/footer";
 import { MeetOurPeople } from "../../components/meet-our-people/meet-our-people";
 import { Nav } from "../../components/nav/nav";
@@ -21,6 +22,7 @@ export default function StaffPage({ allStaff }) {
       <main>
         <PageTitle />
         <MeetOurPeople />
+        <FilterPeople />
       </main>
       <Footer currentYear={currentYear} />
     </>
