@@ -1,0 +1,41 @@
+.container {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+
+  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "peopleImage peopleDescription"
+    "trusteeDescription trusteeImage";
+}
+
+.peopleImage {
+  grid-area: peopleImage;
+}
+
+.peopleDescription {
+  grid-area: peopleDescription;
+}
+
+.trusteeImage {
+  grid-area: trusteeImage;
+}
+
+.trusteeDescription {
+  grid-area: trusteeDescription;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "peopleImage"
+      "peopleDescription"
+      "trusteeImage"
+      "trusteeDescription";
+  }
+}
