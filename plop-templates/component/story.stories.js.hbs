@@ -1,0 +1,11 @@
+import { {{ componentName name }} } from "./{{ name }}";
+
+export default {
+  title: "{{ storyName }}",
+  component: {{ componentName name }},
+};
+
+const Template = (args) => <{{ componentName name }} {...args} />;
+
+export const Standard = Template.bind({});
+Standard.args = {};
