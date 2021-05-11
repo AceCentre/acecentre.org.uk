@@ -9,7 +9,10 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getLandingPagePosts } from "../../lib/posts/get-posts";
+import {
+  getLandingPagePosts,
+  getLandingPageProjects,
+} from "../../lib/posts/get-posts";
 import { getSimpleStory } from "../../lib/story/get-story";
 
 export default function Home({
@@ -62,7 +65,7 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
 
-  const researchProjects = landingPagePosts;
+  const researchProjects = await getLandingPageProjects();
 
   if (!researchProjects)
     throw new Error("Could not fetch research posts posts");
