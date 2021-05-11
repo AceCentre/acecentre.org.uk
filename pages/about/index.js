@@ -1,4 +1,5 @@
 import { DescriptionAndQuote } from "../../components/description-and-quote/description-and-quote";
+import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
@@ -8,9 +9,14 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import { getLandingPagePosts } from "../../lib/posts/get-posts";
 import { getSimpleStory } from "../../lib/story/get-story";
 
-export default function Home({ featuredStory }) {
+export default function Home({
+  featuredStory,
+  landingPagePosts,
+  researchProjects,
+}) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -31,6 +37,16 @@ export default function Home({ featuredStory }) {
         <DescriptionAndQuote />
         <FeaturedStory {...featuredStory} />
         <StaffAndTrustees />
+        <FeaturedPosts
+          title="Research projects"
+          viewAllLink="/research"
+          posts={researchProjects}
+        />
+        <FeaturedPosts
+          title="Latest from the blog"
+          viewAllLink="/blog"
+          posts={landingPagePosts}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -42,5 +58,14 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 
-  return { props: { featuredStory } };
+  const landingPagePosts = await getLandingPagePosts();
+
+  if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
+
+  const researchProjects = landingPagePosts;
+
+  if (!researchProjects)
+    throw new Error("Could not fetch research posts posts");
+
+  return { props: { featuredStory, landingPagePosts, researchProjects } };
 });
