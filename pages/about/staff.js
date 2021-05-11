@@ -1,4 +1,5 @@
 import { Footer } from "../../components/footer/footer";
+import { MeetOurPeople } from "../../components/meet-our-people/meet-our-people";
 import { Nav } from "../../components/nav/nav";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
@@ -19,6 +20,7 @@ export default function StaffPage({ allStaff }) {
       </header>
       <main>
         <PageTitle />
+        <MeetOurPeople />
       </main>
       <Footer currentYear={currentYear} />
     </>
