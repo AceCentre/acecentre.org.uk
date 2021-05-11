@@ -27,6 +27,11 @@
   grid-area: trusteeDescription;
 }
 
+.trusteeImage > img,
+.peopleImage > img {
+  object-fit: cover;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
