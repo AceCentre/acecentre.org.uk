@@ -2,10 +2,21 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.radioContainer {
+  background-color: var(--primaryColour);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    flex-direction: column;
   }
 }
