@@ -2,6 +2,7 @@ import { DescriptionAndQuote } from "../../components/description-and-quote/desc
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-trustees";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useCartCount } from "../../lib/cart/use-cart-count";
@@ -28,6 +29,7 @@ export default function Home({ featuredStory }) {
           </p>
         </VideoWithCardCover>
         <DescriptionAndQuote />
+        <StaffAndTrustees />
         <FeaturedStory {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />
