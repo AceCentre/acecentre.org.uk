@@ -1,12 +1,18 @@
 import { useState } from "react";
 import styles from "./filter-people.module.css";
 
-export const FilterPeople = ({ defaultSelected = OPTIONS.ALL }) => {
+const noop = () => {};
+
+export const FilterPeople = ({
+  defaultSelected = OPTIONS.ALL,
+  onChange = noop,
+}) => {
   const [selected, setSelected] = useState(defaultSelected);
 
   const onSelect = (event) => {
     const value = event.target.value;
 
+    onChange(value);
     setSelected(value);
   };
 
@@ -64,7 +70,7 @@ const RadioButton = ({
   );
 };
 
-const OPTIONS = {
+export const OPTIONS = {
   ALL: "all",
   LEADERSHIP: "leadership",
   NORTH: "north",
