@@ -29,8 +29,8 @@ export default function Home({ featuredStory }) {
           </p>
         </VideoWithCardCover>
         <DescriptionAndQuote />
-        <StaffAndTrustees />
         <FeaturedStory {...featuredStory} />
+        <StaffAndTrustees />
       </main>
       <Footer currentYear={currentYear} />
     </>
