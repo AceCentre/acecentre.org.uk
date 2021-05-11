@@ -5,7 +5,12 @@ export const StaffAndTrustees = () => {
   return (
     <div className={styles.container}>
       <div className={styles.peopleImage}>
-        <img width="100%" src="/placeholder.jpeg" />
+        <img
+          alt="placeholder"
+          width="100%"
+          height="250px"
+          src="/placeholder.jpeg"
+        />
       </div>
       <div className={styles.peopleDescription}>
         <h2>Our people</h2>
@@ -17,7 +22,12 @@ export const StaffAndTrustees = () => {
         <Link href="/about/staff">Meet the team</Link>
       </div>
       <div className={styles.trusteeImage}>
-        <img width="100%" src="/placeholder.jpeg" />
+        <img
+          alt="placeholder"
+          width="100%"
+          height="250px"
+          src="/placeholder.jpeg"
+        />
       </div>
       <div className={styles.trusteeDescription}>
         <h2>Our Trustees</h2>
