@@ -5,12 +5,14 @@ export const MeetOurPeople = () => {
     <div className={styles.container}>
       <h2>Meet our people</h2>
       <div className={styles.innerContainer}>
-        <img
-          alt="placeholder"
-          width="100%"
-          height="100%"
-          src="/placeholder.jpeg"
-        />
+        <div>
+          <img
+            alt="placeholder"
+            width="100%"
+            height="100%"
+            src="/placeholder.jpeg"
+          />
+        </div>
         <div>
           <p>
             &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
