@@ -8,7 +8,7 @@ export const StaffAndTrustees = () => {
         <img
           alt="placeholder"
           width="100%"
-          height="250px"
+          height="100%"
           src="/placeholder.jpeg"
         />
       </div>
@@ -25,7 +25,7 @@ export const StaffAndTrustees = () => {
         <img
           alt="placeholder"
           width="100%"
-          height="250px"
+          height="100%"
           src="/placeholder.jpeg"
         />
       </div>
