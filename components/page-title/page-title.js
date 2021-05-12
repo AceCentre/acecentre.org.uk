@@ -1,10 +1,10 @@
 import styles from "./page-title.module.css";
 
-export const PageTitle = () => {
+export const PageTitle = ({ heading, description }) => {
   return (
     <div className={styles.container}>
-      <h1>Our people</h1>
-      <p>Our people are our greatest strength</p>
+      <h1>{heading}</h1>
+      <p>{description}</p>
     </div>
   );
 };
