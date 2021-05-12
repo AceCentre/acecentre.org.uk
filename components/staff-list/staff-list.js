@@ -14,7 +14,6 @@ export const StaffList = ({ staffList }) => {
 };
 
 const StaffCard = ({ staffMember }) => {
-  console.log(staffMember);
   return (
     <li className={styles.staffCard}>
       <Image {...staffMember.image} maxWidth={200} />
