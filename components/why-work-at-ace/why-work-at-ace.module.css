@@ -4,8 +4,16 @@
   max-width: var(--containerMaxWidth);
 }
 
+.innerContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .innerContainer {
+    gap: 0;
+    flex-direction: column;
   }
 }

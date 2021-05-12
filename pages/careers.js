@@ -2,6 +2,7 @@ import { Footer } from "../components/footer/footer";
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
+import { WhyWorkAtAce } from "../components/why-work-at-ace/why-work-at-ace";
 import { WorkingAtAce } from "../components/working-at-ace/working-at-ace";
 import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
@@ -26,6 +27,7 @@ export default function Careers() {
           </p>
         </VideoWithCardCover>
         <WorkingAtAce />
+        <WhyWorkAtAce />
       </main>
       <Footer currentYear={currentYear} />
     </>
