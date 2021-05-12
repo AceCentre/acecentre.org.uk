@@ -12,6 +12,11 @@ jobs:
         with:
           node-version: "14"
 
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install NPM deps
         run: yarn install
 
@@ -37,6 +42,11 @@ jobs:
         with:
           node-version: "14"
 
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install NPM deps
         run: yarn install
 
@@ -53,6 +63,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.os }}-node_modules-and-cypress-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install NPM deps
         run: yarn install
@@ -95,6 +111,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install NPM deps
         run: yarn install
