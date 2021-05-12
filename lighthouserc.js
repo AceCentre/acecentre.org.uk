@@ -48,7 +48,13 @@ const getExtraAssertions = () => {
   };
 };
 
-const PATHS_TO_TEST = ["/", "/about", "/about/staff", "/about/trustees"];
+const PATHS_TO_TEST = [
+  "/",
+  "/about",
+  "/about/staff",
+  "/about/trustees",
+  "/careers",
+];
 
 module.exports = {
   ci: {
