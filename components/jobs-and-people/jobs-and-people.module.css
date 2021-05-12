@@ -1,11 +1,46 @@
 .container {
-  margin: 0 auto;
-  width: 90%;
   max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+
+  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "jobImage jobDescription"
+    "peopleDescription peopleImage";
+}
+
+.peopleImage {
+  grid-area: peopleImage;
+}
+
+.peopleDescription {
+  grid-area: peopleDescription;
+}
+
+.jobImage {
+  grid-area: jobImage;
+}
+
+.jobDescription {
+  grid-area: jobDescription;
+}
+
+.jobImage > img,
+.peopleImage > img {
+  object-fit: cover;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "jobImage"
+      "jobDescription"
+      "peopleImage"
+      "peopleDescription";
   }
 }
