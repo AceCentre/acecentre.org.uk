@@ -18,33 +18,36 @@ export const FilterPeople = ({
 
   return (
     <div className={styles.container}>
-      <RadioButton
-        onSelect={onSelect}
-        currentlySelected={selected}
-        optionValue={OPTIONS.ALL}
-        optionDescription="All"
-      />
+      <h2>Filter People</h2>
+      <div className={styles.innerContainer}>
+        <RadioButton
+          onSelect={onSelect}
+          currentlySelected={selected}
+          optionValue={OPTIONS.ALL}
+          optionDescription="All"
+        />
 
-      <RadioButton
-        onSelect={onSelect}
-        currentlySelected={selected}
-        optionValue={OPTIONS.LEADERSHIP}
-        optionDescription="Leadership"
-      />
+        <RadioButton
+          onSelect={onSelect}
+          currentlySelected={selected}
+          optionValue={OPTIONS.LEADERSHIP}
+          optionDescription="Leadership"
+        />
 
-      <RadioButton
-        onSelect={onSelect}
-        currentlySelected={selected}
-        optionValue={OPTIONS.NORTH}
-        optionDescription="North Office"
-      />
+        <RadioButton
+          onSelect={onSelect}
+          currentlySelected={selected}
+          optionValue={OPTIONS.NORTH}
+          optionDescription="North Office"
+        />
 
-      <RadioButton
-        onSelect={onSelect}
-        currentlySelected={selected}
-        optionValue={OPTIONS.SOUTH}
-        optionDescription="South Office"
-      />
+        <RadioButton
+          onSelect={onSelect}
+          currentlySelected={selected}
+          optionValue={OPTIONS.SOUTH}
+          optionDescription="South Office"
+        />
+      </div>
     </div>
   );
 };
