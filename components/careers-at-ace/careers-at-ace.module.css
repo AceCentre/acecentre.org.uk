@@ -2,10 +2,24 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.findYourJob {
+  text-decoration: none;
+  background-color: var(--primaryColour);
+  padding: 1rem;
+  display: inline-block;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    gap: 0;
+
+    flex-direction: column;
   }
 }
