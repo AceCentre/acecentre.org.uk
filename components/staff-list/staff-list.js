@@ -16,7 +16,11 @@ export const StaffList = ({ staffList }) => {
 const StaffCard = ({ staffMember }) => {
   return (
     <li className={styles.staffCard}>
-      <Image {...staffMember.image} maxWidth={200} />
+      <Image
+        alt={`Head shot of ${staffMember.name}`}
+        {...staffMember.image}
+        maxWidth={200}
+      />
       <p>{staffMember.name}</p>
       <p>{staffMember.role.trim()}</p>
       <p>{staffMember.location.trim()}</p>
