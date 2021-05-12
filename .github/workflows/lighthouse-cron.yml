@@ -1,12 +1,9 @@
-name: Lighthouse On Deploy
+name: Lighthouse CRON
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
   schedule:
-    # Everyday at 5AM
-    - cron: "0 5 * * *"
+    # Everyday at 5AM and 5PM
+    - cron: "0 5,17 * * *"
 
 jobs:
   Lighthouse:
