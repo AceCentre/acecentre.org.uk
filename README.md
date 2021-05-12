@@ -22,7 +22,7 @@ Make sure to install the dependencies using `yarn install`
    
 ### Running in Dev Mode
 
-You can run the NextJS app by doing `yarn start`. You can then see the website at localhost:3000](http://localhost:3000).
+You can run the NextJS app by doing `yarn start`. You can then see the website at localhost:3000](http://localhost:3000)
 
 ### Storybook
 
