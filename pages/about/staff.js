@@ -28,7 +28,10 @@ export default function StaffPage({ allStaff }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        <PageTitle />
+        <PageTitle
+          heading="Our people"
+          description="Our people are our greatest strength"
+        />
         <MeetOurPeople />
         <FilterPeople onChange={setCurrentFilter} />
         <StaffList staffList={filteredStaff} />
