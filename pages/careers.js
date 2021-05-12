@@ -1,4 +1,5 @@
 import { Footer } from "../components/footer/footer";
+import { JobsAndPeople } from "../components/jobs-and-people/jobs-and-people";
 import { Nav } from "../components/nav/nav";
 import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
@@ -28,6 +29,7 @@ export default function Careers() {
         </VideoWithCardCover>
         <WorkingAtAce />
         <WhyWorkAtAce />
+        <JobsAndPeople />
       </main>
       <Footer currentYear={currentYear} />
     </>
