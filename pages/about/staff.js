@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CareersAtAce } from "../../components/careers-at-ace/careers-at-ace";
 import {
   FilterPeople,
   OPTIONS,
@@ -31,6 +32,7 @@ export default function StaffPage({ allStaff }) {
         <MeetOurPeople />
         <FilterPeople onChange={setCurrentFilter} />
         <StaffList staffList={filteredStaff} />
+        <CareersAtAce />
       </main>
       <Footer currentYear={currentYear} />
     </>
