@@ -1,3 +1,4 @@
+import { Image } from "../image";
 import styles from "./staff-list.module.css";
 
 export const StaffList = ({ staffList }) => {
@@ -13,9 +14,13 @@ export const StaffList = ({ staffList }) => {
 };
 
 const StaffCard = ({ staffMember }) => {
+  console.log(staffMember);
   return (
     <li className={styles.staffCard}>
+      <Image {...staffMember.image} maxWidth={200} />
       <p>{staffMember.name}</p>
+      <p>{staffMember.role.trim()}</p>
+      <p>{staffMember.location.trim()}</p>
     </li>
   );
 };
