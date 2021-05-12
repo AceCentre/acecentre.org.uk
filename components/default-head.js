@@ -6,7 +6,10 @@ export const DefaultHead = () => {
     <Head>
       <title>AceCentre</title>
       <link rel="icon" href="/favicon.ico" />
-      <meta name="Description" content="AceCentre" />
+      <meta
+        name="Description"
+        content="Change to all pages to check build speed"
+      />
     </Head>
   );
 };
