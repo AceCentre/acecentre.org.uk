@@ -9,7 +9,7 @@
     "build:next": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "rm -rf out && mkdir out && build-storybook -o out/design-system --quiet -s ./public",
+    "build-storybook": "rm -rf out/design-system && mkdir -p out/design-system && build-storybook -o out/design-system --quiet -s ./public",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lighthouse": "lhci autorun",
