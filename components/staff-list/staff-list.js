@@ -1,29 +1,21 @@
 import { Image } from "../image";
-import styles from "./staff-list.module.css";
+import { PeopleList } from "../people-list/people-list";
 
 export const StaffList = ({ staffList }) => {
-  return (
-    <div className={styles.container}>
-      <ul className={styles.list}>
-        {staffList.map((staffMember) => (
-          <StaffCard key={staffMember.name} staffMember={staffMember} />
-        ))}
-      </ul>
-    </div>
-  );
+  return <PeopleList peopleList={staffList} renderCardContent={StaffCard} />;
 };
 
-const StaffCard = ({ staffMember }) => {
+const StaffCard = ({ person }) => {
   return (
-    <li className={styles.staffCard}>
+    <>
       <Image
-        alt={`Head shot of ${staffMember.name}`}
-        {...staffMember.image}
+        alt={`Head shot of ${person.name}`}
+        {...person.image}
         maxWidth={200}
       />
-      <p>{staffMember.name}</p>
-      <p>{staffMember.role.trim()}</p>
-      <p>{staffMember.location.trim()}</p>
-    </li>
+      <p>{person.name}</p>
+      <p>{person.role.trim()}</p>
+      <p>{person.location.trim()}</p>
+    </>
   );
 };
