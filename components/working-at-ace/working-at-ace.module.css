@@ -4,8 +4,17 @@
   max-width: var(--containerMaxWidth);
 }
 
+.innerContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  align-items: center;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .innerContainer {
+    flex-direction: column;
+    gap: 0;
   }
 }
