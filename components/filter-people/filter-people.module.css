@@ -1,0 +1,25 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.radioContainer {
+  background-color: var(--primaryColour);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .innerContainer {
+    flex-direction: column;
+  }
+}

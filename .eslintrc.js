@@ -18,7 +18,7 @@ module.exports = {
   rules: {
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double"],
+    quotes: ["error", "double", { avoidEscape: true }],
     semi: ["error", "always"],
     "react/react-in-jsx-scope": "off", // Next means we don't need this
     "react/prop-types": "off", // We don't use prop types

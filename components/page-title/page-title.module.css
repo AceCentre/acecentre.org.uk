@@ -1,0 +1,5 @@
+.container {
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+}
