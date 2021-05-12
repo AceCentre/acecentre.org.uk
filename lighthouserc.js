@@ -1,9 +1,51 @@
+// If there is a base URL then we are running in a prod like environment
+const isProd = !!process.env.BASE_URL;
+
 const getTargetBaseUrl = () => {
-  if (process.env.BASE_URL) {
+  if (isProd) {
     return process.env.BASE_URL;
   }
 
   return "http://localhost:3000";
+};
+
+// On localhost we only want one attempt
+const getNoOfAttempts = () => {
+  if (isProd) {
+    return 3;
+  }
+
+  return 1;
+};
+
+// On local just upload to temp storage
+const getUploadTarget = () => {
+  if (isProd) {
+    return {
+      target: "lhci",
+      serverBaseUrl: "https://ace-lh-ci.herokuapp.com/",
+    };
+  }
+
+  return {
+    target: "temporary-public-storage",
+  };
+};
+
+// On local we want to disable some assertions on a few extra things
+// for example we don't mind HTTP on local
+const getExtraAssertions = () => {
+  if (isProd) {
+    return {};
+  }
+
+  return {
+    "total-byte-weight": "off",
+    "unminified-css": "off",
+    "unminified-javascript": "off",
+    "uses-text-compression": "off",
+    "valid-source-maps": "off",
+  };
 };
 
 const PATHS_TO_TEST = ["/", "/about", "/about/staff", "/about/trustees"];
@@ -11,15 +53,14 @@ const PATHS_TO_TEST = ["/", "/about", "/about/staff", "/about/trustees"];
 module.exports = {
   ci: {
     collect: {
+      numberOfRuns: getNoOfAttempts(),
       url: PATHS_TO_TEST.map((path) => getTargetBaseUrl() + path),
       settings: {
         preset: "desktop",
+        maxWaitForLoad: 5000,
       },
     },
-    upload: {
-      target: "lhci",
-      serverBaseUrl: "https://ace-lh-ci.herokuapp.com/",
-    },
+    upload: getUploadTarget(),
     assert: {
       preset: "lighthouse:no-pwa",
       // NOTE: When turning a rule off please not why you are turning it off and what we can do to turn it back on
@@ -50,6 +91,8 @@ module.exports = {
 
         // Youtube doesnt set the same site attribute on cookies which causes a bunch of noise
         "inspector-issues": "off",
+
+        ...getExtraAssertions(),
       },
     },
   },
