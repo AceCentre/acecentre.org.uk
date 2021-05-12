@@ -9,15 +9,6 @@ const getTargetBaseUrl = () => {
   return "http://localhost:3000";
 };
 
-// On localhost we only want one attempt
-const getNoOfAttempts = () => {
-  if (isProd) {
-    return 3;
-  }
-
-  return 1;
-};
-
 // On local just upload to temp storage
 const getUploadTarget = () => {
   if (isProd) {
@@ -59,7 +50,7 @@ const PATHS_TO_TEST = [
 module.exports = {
   ci: {
     collect: {
-      numberOfRuns: getNoOfAttempts(),
+      numberOfRuns: 1,
       url: PATHS_TO_TEST.map((path) => getTargetBaseUrl() + path),
       settings: {
         preset: "desktop",
