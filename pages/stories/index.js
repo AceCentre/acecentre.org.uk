@@ -10,7 +10,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllStories } from "../../lib/story/get-story";
 
-export default function StoriesLandingPage({ allStories }) {
+export default function StoriesLandingPage({ featuredStories }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -32,7 +32,7 @@ export default function StoriesLandingPage({ allStories }) {
           </p>
         </VideoWithCardCover>
         <StoryHighlight />
-        <AllStories />
+        <AllStories stories={featuredStories} />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -45,5 +45,7 @@ export const getStaticProps = withGlobalProps(async () => {
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
 
-  return { props: { allStories } };
+  const featuredStories = allStories.slice(0, 6);
+
+  return { props: { featuredStories } };
 });
