@@ -12,7 +12,13 @@ export const AllStories = ({ stories }) => {
           <li key={story.slug}>
             <Link href={`/stories/${story.slug}`}>
               <a>
-                {story.image && <Image {...story.image} maxWidth={250} />}
+                {story.image && (
+                  <Image
+                    alt={`${story.possessiveName} story`}
+                    {...story.image}
+                    maxWidth={250}
+                  />
+                )}
                 <p>{story.possessiveName} story</p>
               </a>
             </Link>
