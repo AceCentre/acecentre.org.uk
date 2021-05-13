@@ -8,8 +8,9 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import { getAllStories } from "../../lib/story/get-story";
 
-export default function StoriesLandingPage() {
+export default function StoriesLandingPage({ allStories }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -39,5 +40,10 @@ export default function StoriesLandingPage() {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  return { props: {} };
+  const allStories = await getAllStories();
+
+  if (!allStories)
+    throw new Error("Could not get all the stories for stories page");
+
+  return { props: { allStories } };
 });
