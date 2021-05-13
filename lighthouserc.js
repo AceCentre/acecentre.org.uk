@@ -45,6 +45,7 @@ const PATHS_TO_TEST = [
   "/about/staff",
   "/about/trustees",
   "/careers",
+  "/stories",
 ];
 
 module.exports = {
