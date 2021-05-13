@@ -1,4 +1,5 @@
 import { AllStories } from "./all-stories";
+import { STORIES_DEMO } from "./all-stories-demo";
 
 export default {
   title: "Stories/AllStories",
@@ -8,4 +9,4 @@ export default {
 const Template = (args) => <AllStories {...args} />;
 
 export const Standard = Template.bind({});
-Standard.args = {};
+Standard.args = { stories: STORIES_DEMO };
