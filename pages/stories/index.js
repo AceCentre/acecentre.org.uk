@@ -1,3 +1,4 @@
+import { AllStories } from "../../components/all-stories/all-stories";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { PageTitle } from "../../components/page-title/page-title";
@@ -30,6 +31,7 @@ export default function StoriesLandingPage() {
           </p>
         </VideoWithCardCover>
         <StoryHighlight />
+        <AllStories />
       </main>
       <Footer currentYear={currentYear} />
     </>
