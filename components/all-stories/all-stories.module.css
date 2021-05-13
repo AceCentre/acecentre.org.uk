@@ -17,9 +17,3 @@
 
   text-align: center;
 }
-
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .container {
-  }
-}
