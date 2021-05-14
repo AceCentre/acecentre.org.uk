@@ -1,3 +1,4 @@
+import { AllCategories } from "../../components/all-categories/all-categories";
 import { BlogCategoryGrid } from "../../components/blog-category-grid/blog-category-grid";
 import { BlogSearch } from "../../components/blog-search/blog-search";
 import { Footer } from "../../components/footer/footer";
@@ -20,6 +21,7 @@ export default function Home() {
       <main>
         <BlogSearch />
         <BlogCategoryGrid />
+        <AllCategories />
       </main>
       <Footer currentYear={currentYear} />
     </>
