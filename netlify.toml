@@ -5,9 +5,11 @@
 
 [functions]
   node_bundler = "esbuild"
+  external_node_modules = ["@ampproject/toolbox-optimizer"]
 
 [[plugins]]
   package = "/netlify-plugins/storybook"
+
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
