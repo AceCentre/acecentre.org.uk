@@ -13,12 +13,14 @@ export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
             // Should this be a list?
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <a className={styles.listItem}>
-                <img
-                  alt="placeholder"
-                  width="100%"
-                  height="250px"
-                  src="/placeholder.jpeg"
-                />
+                <div>
+                  <img
+                    alt="placeholder"
+                    width="100%"
+                    height="100%"
+                    src="/placeholder.jpeg"
+                  />
+                </div>
                 <h2>{post.title}</h2>
               </a>
             </Link>
