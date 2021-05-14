@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from "./all-categories.module.css";
 
 export const AllCategories = ({ blogCategories = [] }) => {
-  console.log(blogCategories);
-
   return (
     <div className={styles.container}>
       <h2>All categories</h2>
