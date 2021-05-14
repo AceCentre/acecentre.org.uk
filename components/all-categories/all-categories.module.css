@@ -4,8 +4,15 @@
   max-width: var(--containerMaxWidth);
 }
 
+.list {
+  list-style-type: none;
+  padding: 0;
+  columns: 3;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .list {
+    columns: 2;
   }
 }
