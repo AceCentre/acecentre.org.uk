@@ -3,3 +3,9 @@
   background-color: white;
   padding: 1rem;
 }
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
