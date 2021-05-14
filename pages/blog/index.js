@@ -1,14 +1,16 @@
 import { AllCategories } from "../../components/all-categories/all-categories";
 import { BlogCategoryGrid } from "../../components/blog-category-grid/blog-category-grid";
 import { BlogSearch } from "../../components/blog-search/blog-search";
+import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import { getAllPostCards } from "../../lib/posts/get-posts";
 
-export default function Home() {
+export default function Home({ latestsPosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -20,6 +22,7 @@ export default function Home() {
       </header>
       <main>
         <BlogSearch />
+        <FeaturedPosts title="Latest posts" posts={latestsPosts} />
         <BlogCategoryGrid />
         <AllCategories blogCategories={blogCategories} />
       </main>
@@ -29,7 +32,11 @@ export default function Home() {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  return { props: {} };
+  const latestsPosts = await getAllPostCards();
+
+  if (!latestsPosts) throw new Error("couldnt get latests posts");
+
+  return { props: { latestsPosts: latestsPosts.slice(0, 6) } };
 });
 
 const blogCategories = [
