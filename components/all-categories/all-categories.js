@@ -8,7 +8,9 @@ export const AllCategories = ({ blogCategories = [] }) => {
       <ul className={styles.list}>
         {blogCategories.map((category) => (
           <li key={category.href}>
-            <Link href={category.href}>{category.title}</Link>
+            <Link href={`/blog/category/${category.slug}`}>
+              {category.title}
+            </Link>
           </li>
         ))}
       </ul>
