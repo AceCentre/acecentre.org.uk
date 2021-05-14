@@ -1,5 +1,8 @@
+import Link from "next/link";
+import { FeaturedPosts } from "../../../components/featured-posts/featured-posts";
 import { Footer } from "../../../components/footer/footer";
 import { Nav } from "../../../components/nav/nav";
+import { PageTitle } from "../../../components/page-title/page-title";
 import { defaultNavItems, SubNav } from "../../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../../lib/global-props/hook";
@@ -8,8 +11,9 @@ import { getAllCategories } from "../../../lib/posts/get-categories";
 import { getAllPostsForCategory } from "../../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../../lib/static-caching/read";
 import { writeToStaticCache } from "../../../lib/static-caching/write";
+import styles from "../../../styles/index.module.css";
 
-export default function CategoryPage({ ...allProps }) {
+export default function CategoryPage({ posts, category }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -20,7 +24,11 @@ export default function CategoryPage({ ...allProps }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        <pre>{JSON.stringify(allProps, null, 2)}</pre>
+        <div className={styles.container}>
+          <Link href="/blog">&lt; Back to blog</Link>
+        </div>
+        <PageTitle description={category.title} heading="From the blog" />
+        <FeaturedPosts posts={posts} />
       </main>
 
       <Footer currentYear={currentYear} />
