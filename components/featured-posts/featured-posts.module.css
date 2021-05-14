@@ -6,12 +6,12 @@
 .postList {
   display: flex;
   gap: 1rem;
+
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .postList {
-    flex-direction: column;
-    text-align: center;
-  }
+.listItem {
+  width: 280px;
 }
