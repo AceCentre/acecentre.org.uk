@@ -1,3 +1,4 @@
+import { BlogSearch } from "../../components/blog-search/blog-search";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
@@ -15,7 +16,9 @@ export default function Home() {
         <Nav numberOfItemsInCart={cartCount} />
         <SubNav navItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <BlogSearch />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
