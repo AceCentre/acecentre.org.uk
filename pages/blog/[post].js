@@ -5,8 +5,10 @@ import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllPostCards } from "../../lib/posts/get-posts";
+import { readFromStaticCache } from "../../lib/static-caching/read";
+import { writeToStaticCache } from "../../lib/static-caching/write";
 
-export default function CategoryPage() {
+export default function CategoryPage({ currentPost }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -16,15 +18,21 @@ export default function CategoryPage() {
         <Nav numberOfItemsInCart={cartCount} />
         <SubNav navItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <pre>{JSON.stringify(currentPost, null, 2)}</pre>
+      </main>
 
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
+const cacheKey = "ALL_FULL_POSTS";
+
 export async function getStaticPaths() {
   const allPosts = await getAllPostCards();
+
+  writeToStaticCache(cacheKey, allPosts);
 
   return {
     paths: allPosts.map((post) => ({ params: { post: post.slug } })),
@@ -32,4 +40,11 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(
+  async ({ params: { post: postSlug } }) => {
+    const allPosts = readFromStaticCache(cacheKey);
+    const currentPost = allPosts.find((post) => post.slug === postSlug);
+
+    return { props: { currentPost } };
+  }
+);
