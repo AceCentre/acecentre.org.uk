@@ -49,6 +49,7 @@ const PATHS_TO_TEST = [
   "/blog",
   "/blog/category/general",
   "/blog/covid-19-update-clients-at-the-centre-of-our-covid-19-strategy",
+  "/blog/search?searchText=test",
 ];
 
 module.exports = {
