@@ -10,6 +10,9 @@
 [[plugins]]
   package = "/netlify-plugins/storybook"
 
+[[plugins]]
+  package = "/netlify-plugins/sitemap"
+
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
