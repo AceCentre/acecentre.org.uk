@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
@@ -28,6 +29,11 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
+        <div className={styles.container}>
+          <Link href={`/blog/category/${currentPost.featuredCategorySlug}`}>
+            <a>&lt; Back to {currentPost.featuredCategoryName}</a>
+          </Link>
+        </div>
         <PageTitle
           heading="From the AceCentre blog"
           description={currentPost.title}
@@ -41,7 +47,10 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
           className={styles.container}
           dangerouslySetInnerHTML={{ __html: currentPost.content }}
         ></div>
-        <FeaturedPosts posts={featuredPosts} />
+        <FeaturedPosts
+          title={`More from ${currentPost.featuredCategoryName}`}
+          posts={featuredPosts}
+        />
       </main>
 
       <Footer currentYear={currentYear} />
@@ -71,6 +80,11 @@ export const getStaticProps = withGlobalProps(
       await getAllPostsForCategory(currentPost.featuredCategoryName)
     ).filter((post) => post.slug !== currentPost.slug);
 
-    return { props: { currentPost, featuredPosts: featuredPosts.slice(0, 3) } };
+    return {
+      props: {
+        currentPost,
+        featuredPosts: featuredPosts.slice(0, 3),
+      },
+    };
   }
 );
