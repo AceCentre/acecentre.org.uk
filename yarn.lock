@@ -50,17 +50,17 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@7.14.2", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.7.5":
-  version "7.14.2"
-  resolved "https://registry.npmjs.org/@babel/core/-/core-7.14.2.tgz"
-  integrity sha512-OgC1mON+l4U4B4wiohJlQNUU3H73mpTyYY3j/c8U9dr9UagGGSm+WFpzjy/YLdoyjiG++c1kIDgxCo/mLwQJeQ==
+"@babel/core@7.14.3", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.7.5":
+  version "7.14.3"
+  resolved "https://registry.npmjs.org/@babel/core/-/core-7.14.3.tgz"
+  integrity sha512-jB5AmTKOCSJIZ72sd78ECEhuPiDMKlQdDI/4QRI6lzYATx5SSogS1oQA2AoPecRCknm30gHi2l+QVvNUu3wZAg==
   dependencies:
     "@babel/code-frame" "^7.12.13"
-    "@babel/generator" "^7.14.2"
+    "@babel/generator" "^7.14.3"
     "@babel/helper-compilation-targets" "^7.13.16"
     "@babel/helper-module-transforms" "^7.14.2"
     "@babel/helpers" "^7.14.0"
-    "@babel/parser" "^7.14.2"
+    "@babel/parser" "^7.14.3"
     "@babel/template" "^7.12.13"
     "@babel/traverse" "^7.14.2"
     "@babel/types" "^7.14.2"
@@ -71,10 +71,10 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/generator@^7.12.11", "@babel/generator@^7.12.5", "@babel/generator@^7.14.2":
-  version "7.14.2"
-  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.14.2.tgz"
-  integrity sha512-OnADYbKrffDVai5qcpkMxQ7caomHOoEwjkouqnN2QhydAjowFAZcsdecFIRUBdb+ZcruwYE4ythYmF1UBZU5xQ==
+"@babel/generator@^7.12.11", "@babel/generator@^7.12.5", "@babel/generator@^7.14.2", "@babel/generator@^7.14.3":
+  version "7.14.3"
+  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.14.3.tgz"
+  integrity sha512-bn0S6flG/j0xtQdz3hsjJ624h3W0r3llttBMfyHX3YrZ/KtLYr15bjA0FXkgW7FpvrDuTuElXeVjiKlYRpnOFA==
   dependencies:
     "@babel/types" "^7.14.2"
     jsesc "^2.5.1"
@@ -306,10 +306,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.12.11", "@babel/parser@^7.12.13", "@babel/parser@^7.12.7", "@babel/parser@^7.14.2":
-  version "7.14.2"
-  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.14.2.tgz"
-  integrity sha512-IoVDIHpsgE/fu7eXBeRWt8zLbDrSvD7H1gpomOkPpBoEN8KCruCqSDdqo8dddwQQrui30KSvQBaMUOJiuFu6QQ==
+"@babel/parser@^7.1.0", "@babel/parser@^7.12.11", "@babel/parser@^7.12.13", "@babel/parser@^7.12.7", "@babel/parser@^7.14.2", "@babel/parser@^7.14.3":
+  version "7.14.3"
+  resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.14.3.tgz"
+  integrity sha512-7MpZDIfI7sUC5zWo2+foJ50CSI5lcqDehZ0lVgIhSi4bFEk94fLAKlF3Q0nzSQQ+ca0lm+O6G9ztKVBeu8PMRQ==
 
 "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.13.12":
   version "7.13.12"
@@ -6691,15 +6691,15 @@ functions-have-names@^1.2.2:
   resolved "https://registry.npmjs.org/functions-have-names/-/functions-have-names-1.2.2.tgz"
   integrity sha512-bLgc3asbWdwPbx2mNk2S49kmJCuQeu0nfmaOgbs8WIyzzkw3r4htszdIi9Q9EMezDPTYuJx2wvjZ/EwgAthpnA==
 
+fuse.js@6.4.6:
+  version "6.4.6"
+  resolved "https://registry.npmjs.org/fuse.js/-/fuse.js-6.4.6.tgz"
+  integrity sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==
+
 fuse.js@^3.6.1:
   version "3.6.1"
   resolved "https://registry.npmjs.org/fuse.js/-/fuse.js-3.6.1.tgz"
   integrity sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
-
-fuse.js@^6.4.6:
-  version "6.4.6"
-  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.6.tgz#62f216c110e5aa22486aff20be7896d19a059b79"
-  integrity sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==
 
 gauge@~2.7.3:
   version "2.7.4"
