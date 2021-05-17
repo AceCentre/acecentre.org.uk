@@ -4,7 +4,7 @@ import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getAllPostCards } from "../../lib/posts/get-posts";
+import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
 
@@ -30,7 +30,7 @@ export default function CategoryPage({ currentPost }) {
 const cacheKey = "ALL_FULL_POSTS";
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostCards();
+  const allPosts = await getAllFullPosts();
 
   writeToStaticCache(cacheKey, allPosts);
 
