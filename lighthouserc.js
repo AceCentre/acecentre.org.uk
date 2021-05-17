@@ -48,7 +48,7 @@ const PATHS_TO_TEST = [
   "/stories",
   "/blog",
   "/blog/category/general",
-  "/blog/ace-centre-festive-opening-times-christmas-and-new-year-2020",
+  "/blog/covid-19-update-clients-at-the-centre-of-our-covid-19-strategy",
 ];
 
 module.exports = {
