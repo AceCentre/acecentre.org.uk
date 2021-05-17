@@ -54,8 +54,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  console.log(slug);
-
   const blogCategories = readFromStaticCache(CACHE_KEY);
   const currentCategory = blogCategories.find(
     (category) => category.slug === slug
