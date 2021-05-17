@@ -1,16 +1,25 @@
+import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getAllFullPosts } from "../../lib/posts/get-posts";
+import {
+  getAllFullPosts,
+  getAllPostsForCategory,
+} from "../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
+import styles from "../../styles/index.module.css";
 
-export default function CategoryPage({ currentPost }) {
+export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
+
+  const publishedDate = new Date(currentPost.publishedDate);
+  const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
 
   return (
     <>
@@ -19,7 +28,20 @@ export default function CategoryPage({ currentPost }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        <pre>{JSON.stringify(currentPost, null, 2)}</pre>
+        <PageTitle
+          heading="From the AceCentre blog"
+          description={currentPost.title}
+        />
+        <div className={styles.container}>
+          <p>
+            <i>{formattedDate}</i>
+          </p>
+        </div>
+        <div
+          className={styles.container}
+          dangerouslySetInnerHTML={{ __html: currentPost.content }}
+        ></div>
+        <FeaturedPosts posts={featuredPosts} />
       </main>
 
       <Footer currentYear={currentYear} />
@@ -45,6 +67,10 @@ export const getStaticProps = withGlobalProps(
     const allPosts = readFromStaticCache(cacheKey);
     const currentPost = allPosts.find((post) => post.slug === postSlug);
 
-    return { props: { currentPost } };
+    const featuredPosts = (
+      await getAllPostsForCategory(currentPost.featuredCategoryName)
+    ).filter((post) => post.slug !== currentPost.slug);
+
+    return { props: { currentPost, featuredPosts: featuredPosts.slice(0, 3) } };
   }
 );
