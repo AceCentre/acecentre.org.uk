@@ -1,0 +1,46 @@
+.container {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+
+  grid-gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "dedicationToResearchImage dedicationToResearch"
+    "ourResources ourResourcesImage";
+}
+
+.dedicationToResearchImage {
+  grid-area: dedicationToResearchImage;
+}
+
+.dedicationToResearch {
+  grid-area: dedicationToResearch;
+}
+
+.ourResourcesImage {
+  grid-area: ourResourcesImage;
+}
+
+.ourResources {
+  grid-area: ourResources;
+}
+
+.ourResourcesImage > img,
+.dedicationToResearchImage > img {
+  object-fit: cover;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "dedicationToResearchImage"
+      "dedicationToResearch"
+      "ourResourcesImage"
+      "ourResources";
+  }
+}

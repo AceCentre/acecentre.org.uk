@@ -1,21 +1,17 @@
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { ProjectsSearch } from "../../components/projects-search/projects-search";
+import { ResearchCta } from "../../components/research-cta/research-cta";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getAllFullPosts } from "../../lib/posts/get-posts";
-import { useQueryParamSearch } from "../../lib/use-search";
+import { getAllProjects } from "../../lib/posts/get-posts";
 
-export default function SearchBlog({ allPosts }) {
+export default function Home({ latestProjects }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
-  const {
-    loading,
-    filteredList: filteredPosts,
-    searchText,
-  } = useQueryParamSearch(allPosts, ["content", "title"], "searchText");
 
   return (
     <>
@@ -24,14 +20,14 @@ export default function SearchBlog({ allPosts }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        {loading ? (
-          <p>Searching......</p>
-        ) : (
-          <FeaturedPosts
-            title={`Results for: "${searchText}"`}
-            posts={filteredPosts}
-          />
-        )}
+        <ProjectsSearch />
+        <FeaturedPosts
+          title="Latest projects"
+          viewAllLink="/research/all"
+          posts={latestProjects}
+          linkPrefix="research"
+        />
+        <ResearchCta />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -39,7 +35,8 @@ export default function SearchBlog({ allPosts }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const allPosts = await getAllFullPosts();
+  const latestProjects = await getAllProjects();
+  if (!latestProjects) throw new Error("Could not get the latest projects");
 
-  return { props: { allPosts } };
+  return { props: { latestProjects: latestProjects.slice(0, 8) } };
 });
