@@ -2,6 +2,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { ProjectsSearch } from "../../components/projects-search/projects-search";
+import { ResearchCta } from "../../components/research-cta/research-cta";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -26,6 +27,7 @@ export default function Home({ latestProjects }) {
           posts={latestProjects}
           linkPrefix="research"
         />
+        <ResearchCta />
       </main>
       <Footer currentYear={currentYear} />
     </>
