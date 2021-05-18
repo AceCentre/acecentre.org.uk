@@ -26,7 +26,11 @@ export default function AllProjects({ allProjects }) {
             <a>&lt; Back to research</a>
           </Link>
         </div>
-        <FeaturedPosts title="All research projects" posts={allProjects} />
+        <FeaturedPosts
+          linkPrefix="research"
+          title="All research projects"
+          posts={allProjects}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>

@@ -24,6 +24,7 @@ export default function Home({ latestProjects }) {
           title="Latest projects"
           viewAllLink="/research/all"
           posts={latestProjects}
+          linkPrefix="research"
         />
       </main>
       <Footer currentYear={currentYear} />
