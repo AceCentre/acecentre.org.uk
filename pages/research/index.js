@@ -1,5 +1,6 @@
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { ProjectsSearch } from "../../components/projects-search/projects-search";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -15,7 +16,9 @@ export default function Home() {
         <Nav numberOfItemsInCart={cartCount} />
         <SubNav navItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <ProjectsSearch />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
