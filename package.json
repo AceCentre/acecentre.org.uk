@@ -23,7 +23,7 @@
     "@octokit/rest": "18.5.3",
     "@react-aria/interactions": "3.4.0",
     "@stripe/react-stripe-js": "1.4.0",
-    "@stripe/stripe-js": "1.14.0",
+    "@stripe/stripe-js": "1.15.0",
     "fuse.js": "6.4.6",
     "graphql": "15.5.0",
     "graphql-playground-middleware-express": "1.7.22",
