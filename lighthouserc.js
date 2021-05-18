@@ -53,7 +53,7 @@ const PATHS_TO_TEST = [
   "/research",
   "/research/all",
   "/research/search?searchText=test",
-  "/research/you-matter",
+  "/research/talking-mats-aac",
 ];
 
 module.exports = {
