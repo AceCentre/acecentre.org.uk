@@ -5,17 +5,18 @@ import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getAllFullPosts } from "../../lib/posts/get-posts";
+import { getFullProjects } from "../../lib/posts/get-posts";
 import { useQueryParamSearch } from "../../lib/use-search";
 
-export default function SearchBlog({ allPosts }) {
+export default function SearchProjects({ allProjects }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
+
   const {
     loading,
-    filteredList: filteredPosts,
+    filteredList: filteredProjects,
     searchText,
-  } = useQueryParamSearch(allPosts, ["content", "title"], "searchText");
+  } = useQueryParamSearch(allProjects, ["content", "title"], "searchText");
 
   return (
     <>
@@ -29,7 +30,8 @@ export default function SearchBlog({ allPosts }) {
         ) : (
           <FeaturedPosts
             title={`Results for: "${searchText}"`}
-            posts={filteredPosts}
+            posts={filteredProjects}
+            linkPrefix="research"
           />
         )}
       </main>
@@ -39,7 +41,9 @@ export default function SearchBlog({ allPosts }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const allPosts = await getAllFullPosts();
+  const allProjects = await getFullProjects();
 
-  return { props: { allPosts } };
+  if (!allProjects) throw new Error("Could not get all the projects");
+
+  return { props: { allProjects } };
 });

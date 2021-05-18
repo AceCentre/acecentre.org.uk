@@ -2,7 +2,12 @@ import Link from "next/link";
 
 import styles from "./featured-posts.module.css";
 
-export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
+export const FeaturedPosts = ({
+  title,
+  viewAllLink,
+  posts,
+  linkPrefix = "blog",
+}) => {
   return (
     <div className={styles.container}>
       {title && <h1>{title}</h1>}
@@ -11,7 +16,7 @@ export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
         {posts.map((post) => {
           return (
             // Should this be a list?
-            <Link key={post.slug} href={`/blog/${post.slug}`}>
+            <Link key={post.slug} href={`/${linkPrefix}/${post.slug}`}>
               <a className={styles.listItem}>
                 <div>
                   <img

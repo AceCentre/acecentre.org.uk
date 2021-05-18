@@ -67,8 +67,14 @@ export const getStaticProps = withGlobalProps(async () => {
 
   const researchProjects = await getLandingPageProjects();
 
-  if (!researchProjects)
+  if (!researchProjects || researchProjects.length < 3)
     throw new Error("Could not fetch research posts posts");
 
-  return { props: { featuredStory, landingPagePosts, researchProjects } };
+  return {
+    props: {
+      featuredStory,
+      landingPagePosts,
+      researchProjects: researchProjects.slice(0, 3),
+    },
+  };
 });

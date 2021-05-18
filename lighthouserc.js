@@ -50,6 +50,10 @@ const PATHS_TO_TEST = [
   "/blog/category/general",
   "/blog/covid-19-update-clients-at-the-centre-of-our-covid-19-strategy",
   "/blog/search?searchText=test",
+  "/research",
+  "/research/all",
+  "/research/search?searchText=test",
+  "/research/talking-mats-aac",
 ];
 
 module.exports = {
