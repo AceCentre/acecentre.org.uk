@@ -12,6 +12,7 @@ export const BlogSearch = () => {
         </p>
         <form action="/blog/search" method="GET" className={styles.form}>
           <input
+            aria-label="Search blog posts"
             name="searchText"
             type="text"
             placeholder="What are you looking for?"
