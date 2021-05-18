@@ -17,10 +17,6 @@ export default function SearchBlog({ allPosts }) {
     searchText,
   } = useQueryParamSearch(allPosts, ["content", "title"], "searchText");
 
-  //   const { isReady: isRouterReady, query } = useRouter();
-  //   const isReady = isRouterReady;
-  //   const filteredPosts = allPosts;
-
   return (
     <>
       <header>
