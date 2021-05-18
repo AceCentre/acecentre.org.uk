@@ -2556,10 +2556,10 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@stripe/stripe-js@1.14.0":
-  version "1.14.0"
-  resolved "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.14.0.tgz"
-  integrity sha512-Zw4EI+ph8RPxRpIX2uwKKDIbe7WM2OarasPjIPRulU1UCj8lRFqWWW/fTj79lZtnX3FNZkiTRM13UG1UZF7yjQ==
+"@stripe/stripe-js@1.15.0":
+  version "1.15.0"
+  resolved "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.15.0.tgz"
+  integrity sha512-KQsNPc+uVQkc8dewwz1A6uHOWeU2cWoZyNIbsx5mtmperr5TPxw4u8M20WOa22n6zmIOh/zLdzEe8DYK/0IjBw==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -2568,9 +2568,9 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/cypress@^7.0.6":
+"@testing-library/cypress@7.0.6":
   version "7.0.6"
-  resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-7.0.6.tgz#5445dac4f4852c26901c356e9d3a69371bd20ccf"
+  resolved "https://registry.npmjs.org/@testing-library/cypress/-/cypress-7.0.6.tgz"
   integrity sha512-atnjqlkEt6spU4Mv7evvpA8fMXeRw7AN2uTKOR1dP6WBvBixVwAYMZY+1fMOaZULWAj9vGLCXXvmw++u3TxuCQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
@@ -2578,7 +2578,7 @@
 
 "@testing-library/dom@^7.28.1":
   version "7.31.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.0.tgz#938451abd3ca27e1b69bb395d4a40759fd7f5b3b"
+  resolved "https://registry.npmjs.org/@testing-library/dom/-/dom-7.31.0.tgz"
   integrity sha512-0X7ACg4YvTRDFMIuTOEj6B4NpN7i3F/4j5igOcTI5NC5J+N4TribNdErCHOZF1LBWhhcyfwxelVwvoYNMUXTOA==
   dependencies:
     "@babel/code-frame" "^7.10.4"
@@ -2597,7 +2597,7 @@
 
 "@types/aria-query@^4.2.0":
   version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.1.tgz#78b5433344e2f92e8b306c06a5622c50c245bf6b"
+  resolved "https://registry.npmjs.org/@types/aria-query/-/aria-query-4.2.1.tgz"
   integrity sha512-S6oPal772qJZHoRZLFc/XoZW2gFvwXusYUmXPXkgxJLuEk2vOt7jc4Yo6z/vtI0EBkbPBVrJJ0B+prLIKiWqHg==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
@@ -3395,7 +3395,7 @@ argparse@^1.0.7:
 
 aria-query@^4.2.2:
   version "4.2.2"
-  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-4.2.2.tgz#0d2ca6c9aceb56b8977e9fed6aed7e15bbd2f83b"
+  resolved "https://registry.npmjs.org/aria-query/-/aria-query-4.2.2.tgz"
   integrity sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==
   dependencies:
     "@babel/runtime" "^7.10.2"
@@ -5503,7 +5503,7 @@ doctrine@^3.0.0:
 
 dom-accessibility-api@^0.5.4:
   version "0.5.4"
-  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.4.tgz#b06d059cdd4a4ad9a79275f9d414a5c126241166"
+  resolved "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.4.tgz"
   integrity sha512-TvrjBckDy2c6v6RLxPv5QXOnU+SmF9nBII5621Ve5fu6Z/BDrENurBEvlC1f44lKEUVqOpK4w9E5Idc5/EgkLQ==
 
 dom-converter@^0.2:
@@ -9320,7 +9320,7 @@ lru-cache@^6.0.0:
 
 lz-string@^1.4.4:
   version "1.4.4"
-  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  resolved "https://registry.npmjs.org/lz-string/-/lz-string-1.4.4.tgz"
   integrity sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=
 
 make-dir@^1.0.0:
