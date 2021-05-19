@@ -1,14 +1,8 @@
-import { refreshToken } from "../../lib/auth/refresh-token";
-import withSession from "../../lib/auth/with-session";
 import config from "../../lib/config";
 
 const URL = `${config.baseUrl}/graphql`;
 
-async function handler(req, res) {
-  await refreshToken(req);
-  const user = req.session.get("user") || {};
-  const authToken = user.authToken || null;
-
+export default function handler(req, res) {
   res.setHeader("Content-Type", "text/html");
 
   res.status(200).send(`
@@ -73,7 +67,6 @@ async function handler(req, res) {
              {
                method: 'post',
                headers: {
-                authorization: "Bearer ${authToken}",
                  Accept: 'application/json',
                  'Content-Type': 'application/json',
                },
@@ -99,5 +92,3 @@ async function handler(req, res) {
    </html>
     `);
 }
-
-export default withSession(handler);
