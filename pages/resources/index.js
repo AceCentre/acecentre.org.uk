@@ -1,6 +1,7 @@
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { ResourceCategoriesHighlight } from "../../components/resource-categories-highlight/resource-categories-highlight";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
@@ -25,6 +26,7 @@ export default function Resources({ popularResources }) {
           title="Popular resources"
           posts={popularResources}
         />
+        <ResourceCategoriesHighlight />
       </main>
       <Footer currentYear={currentYear} />
     </>
