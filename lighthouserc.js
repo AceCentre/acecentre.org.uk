@@ -54,6 +54,7 @@ const PATHS_TO_TEST = [
   "/research/all",
   "/research/search?searchText=test",
   "/research/talking-mats-aac",
+  "/resources",
 ];
 
 module.exports = {
