@@ -1,5 +1,11 @@
 {
   "extends": ["config:base"],
   "dependencyDashboard": true,
-  "ignoreDeps": ["storybook-css-modules-preset"]
+  "ignoreDeps": ["storybook-css-modules-preset"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
