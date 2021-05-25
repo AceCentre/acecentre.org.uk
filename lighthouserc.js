@@ -102,6 +102,7 @@ module.exports = {
         // This is down to how next handles css, it does clever things but lighthouse doesnt like it
         "unused-css-rules": "off",
         "uses-rel-preconnect": "off",
+        "preload-lcp-image": "off",
 
         ...getExtraAssertions(),
       },
