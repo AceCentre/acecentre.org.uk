@@ -1,0 +1,13 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  list-style-type: none;
+  display: flex;
+
+  justify-content: space-evenly;
+  padding: 1rem 0;
+}
