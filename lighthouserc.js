@@ -99,6 +99,10 @@ module.exports = {
         // Youtube doesnt set the same site attribute on cookies which causes a bunch of noise
         "inspector-issues": "off",
 
+        // This is down to how next handles css, it does clever things but lighthouse doesnt like it
+        "unused-css-rules": "off",
+        "uses-rel-preconnect": "off",
+
         ...getExtraAssertions(),
       },
     },
