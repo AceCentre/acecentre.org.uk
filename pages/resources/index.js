@@ -10,7 +10,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProductsByPopularity } from "../../lib/products/get-products";
 
-export default function Resources({ popularResources }) {
+export default function Resources({ popularResources, featuredResources }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -29,6 +29,11 @@ export default function Resources({ popularResources }) {
         />
         <ResourceCategoriesHighlight />
         <ResourceCategoriesGrid />
+        <FeaturedPosts
+          linkPrefix="resources"
+          title="Featured resources"
+          posts={featuredResources}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -42,5 +47,12 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { popularResources } };
+  const featuredResources = allProducts
+    .filter((resource) => resource.featured)
+    .map((product) => ({
+      title: product.name,
+      ...product,
+    }));
+
+  return { props: { popularResources, featuredResources } };
 });
