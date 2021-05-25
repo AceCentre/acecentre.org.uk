@@ -54,6 +54,7 @@ const PATHS_TO_TEST = [
   "/research/all",
   "/research/search?searchText=test",
   "/research/talking-mats-aac",
+  "/resources",
 ];
 
 module.exports = {
@@ -97,6 +98,11 @@ module.exports = {
 
         // Youtube doesnt set the same site attribute on cookies which causes a bunch of noise
         "inspector-issues": "off",
+
+        // This is down to how next handles css, it does clever things but lighthouse doesnt like it
+        "unused-css-rules": "off",
+        "uses-rel-preconnect": "off",
+        "preload-lcp-image": "off",
 
         ...getExtraAssertions(),
       },
