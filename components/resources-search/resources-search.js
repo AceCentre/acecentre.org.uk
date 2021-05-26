@@ -7,7 +7,7 @@ export const ResourcesSearch = () => {
       description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
   gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
   pellentesque.`}
-      searchEndpoint={"/resources/search"}
+      searchEndpoint={"/resources/all"}
       ariaLabel={"Search resources"}
       placeholder={"What are you looking for?"}
       searchButtonText={"Search"}
