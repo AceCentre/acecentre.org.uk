@@ -10,7 +10,12 @@ import { getAllProducts } from "../../lib/products/get-products";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
 
-export default function AllResources({ resources, currentPage, pageCount }) {
+export default function AllResources({
+  resources,
+  currentPage,
+  pageCount,
+  searchText,
+}) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -21,6 +26,7 @@ export default function AllResources({ resources, currentPage, pageCount }) {
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
+        {searchText && <p>You searched for {searchText}</p>}
         <p>
           {currentPage} of {pageCount}
         </p>
@@ -36,6 +42,7 @@ const CACHE_KEY = "PRODUCTS_FILTER";
 // This will run every page run
 export const getServerSideProps = withGlobalProps(async (req) => {
   const page = req.query.page || 1;
+  const searchText = req.query.searchText || "";
   const productsPerPage = 20;
 
   // Get the products from the static cache, if they
@@ -54,6 +61,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     {
       page,
       productsPerPage,
+      searchText,
     }
   );
 
@@ -67,5 +75,5 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     title: product.name,
     ...product,
   }));
-  return { props: { resources, pageCount, currentPage: page } };
+  return { props: { resources, pageCount, currentPage: page, searchText } };
 });
