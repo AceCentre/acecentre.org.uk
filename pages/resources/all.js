@@ -1,20 +1,23 @@
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { ProductFilters } from "../../components/product-filters/product-filters";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
+import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
-import { readFromStaticCache } from "../../lib/static-caching/read";
-import { writeToStaticCache } from "../../lib/static-caching/write";
+import { readFromStaticCacheWithFallback } from "../../lib/static-caching/read";
 
 export default function AllResources({
   resources,
   currentPage,
   pageCount,
   searchText,
+  totalResourcesCount,
+  productCategories,
 }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -26,10 +29,12 @@ export default function AllResources({
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
+        <p>Number of resources: {totalResourcesCount}</p>
         {searchText && <p>You searched for {searchText}</p>}
         <p>
           {currentPage} of {pageCount}
         </p>
+        <ProductFilters categories={productCategories} />
         <FeaturedPosts linkPrefix="resources" posts={resources} />
       </main>
       <Footer currentYear={currentYear} />
@@ -37,7 +42,8 @@ export default function AllResources({
   );
 }
 
-const CACHE_KEY = "PRODUCTS_FILTER";
+const CACHE_KEY_PRODUCTS = "PRODUCTS_FILTER";
+const CACHE_KEY_PRODUCT_CATEGORIES = "PRODUCT_CATEGORIES";
 
 // This will run every page run
 export const getServerSideProps = withGlobalProps(async (req) => {
@@ -45,25 +51,30 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const searchText = req.query.searchText || "";
   const productsPerPage = 20;
 
-  // Get the products from the static cache, if they
-  // aren't there, fetch them then store them in static
-  // cache. Most pages will be rendered fast, the occasional
-  // will end up being slow.
-  let products = await readFromStaticCache(CACHE_KEY);
-  if (!products) {
-    const fetchedProducts = await getAllProducts();
-    writeToStaticCache(CACHE_KEY, fetchedProducts);
-    products = fetchedProducts;
-  }
-
-  const { results: filteredProducts, pageCount, showNotFound } = filterProducts(
-    products,
-    {
-      page,
-      productsPerPage,
-      searchText,
+  const products = await readFromStaticCacheWithFallback(
+    CACHE_KEY_PRODUCTS,
+    async () => {
+      return await getAllProducts();
     }
   );
+
+  const productCategories = await readFromStaticCacheWithFallback(
+    CACHE_KEY_PRODUCT_CATEGORIES,
+    async () => {
+      return await getAllProductCategories();
+    }
+  );
+
+  const {
+    results: filteredProducts,
+    pageCount,
+    showNotFound,
+    totalResourcesCount,
+  } = filterProducts(products, {
+    page,
+    productsPerPage,
+    searchText,
+  });
 
   if (showNotFound) {
     return {
@@ -75,5 +86,14 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     title: product.name,
     ...product,
   }));
-  return { props: { resources, pageCount, currentPage: page, searchText } };
+  return {
+    props: {
+      resources,
+      pageCount,
+      currentPage: page,
+      searchText,
+      totalResourcesCount,
+      productCategories,
+    },
+  };
 });
