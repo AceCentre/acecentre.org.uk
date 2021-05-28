@@ -8,6 +8,12 @@
   external_node_modules = ["@ampproject/toolbox-optimizer"]
 
 [[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
+
+[[plugins]]
   package = "/netlify-plugins/storybook"
 
 [[plugins]]
