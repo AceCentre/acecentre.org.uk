@@ -14479,10 +14479,10 @@ tree-kill@^1.2.1:
   resolved "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-treeify-js@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.3.tgz"
-  integrity sha512-EozN8yjrxbS6VwYMzzv7QK5yR9m/Q4zzt5c5+Os/Rojz1UHZkGbHMZcRBiWa6dvTwYKZCthKpCF6zK77K9BnXw==
+treeify-js@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.6.tgz"
+  integrity sha512-Ni8TtpRos+GF0vDN3b24KMsTqSwdUCprr91VzcO+Vo0e0D8GkqY2eO5LrbOQSttXLE2Bq2a0nEEEXU3ZEAuHVw==
 
 trim-trailing-lines@^1.0.0:
   version "1.1.4"
