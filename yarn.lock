@@ -56,6 +56,7 @@
     "@react-spectrum/well" "^3.1.2"
     "@react-stately/collections" "^3.3.2"
     "@react-stately/data" "^3.4.0"
+
 "@aws-crypto/crc32@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@aws-crypto/crc32/-/crc32-1.0.0.tgz"
@@ -2539,12 +2540,12 @@
   resolved "https://registry.npmjs.org/@octokit/plugin-request-log/-/plugin-request-log-1.0.3.tgz"
   integrity sha512-4RFU4li238jMJAzLgAwkBAw+4Loile5haQMQr+uhFq27BmyJXcXSKvoQKqh0agsZEiUlW6iSv3FAgvmGkur7OQ==
 
-"@octokit/plugin-rest-endpoint-methods@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.0.1.tgz"
-  integrity sha512-vvWbPtPqLyIzJ7A4IPdTl+8IeuKAwMJ4LjvmqWOOdfSuqWQYZXq2CEd0hsnkidff2YfKlguzujHs/reBdAx8Sg==
+"@octokit/plugin-rest-endpoint-methods@5.3.0":
+  version "5.3.0"
+  resolved "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.3.0.tgz"
+  integrity sha512-+4NAJ9WzPN5gW6W1H1tblw/DesTD6PaWuU5+/x3Pa7nyK6qjR6cn4jwkJtzxVPTgtzryOFLX+5vs7MROFswp5Q==
   dependencies:
-    "@octokit/types" "^6.13.1"
+    "@octokit/types" "^6.16.0"
     deprecation "^2.3.1"
 
 "@octokit/request-error@^2.0.0", "@octokit/request-error@^2.0.5":
@@ -2568,22 +2569,22 @@
     node-fetch "^2.6.1"
     universal-user-agent "^6.0.0"
 
-"@octokit/rest@18.5.3":
-  version "18.5.3"
-  resolved "https://registry.npmjs.org/@octokit/rest/-/rest-18.5.3.tgz"
-  integrity sha512-KPAsUCr1DOdLVbZJgGNuE/QVLWEaVBpFQwDAz/2Cnya6uW2wJ/P5RVGk0itx7yyN1aGa8uXm2pri4umEqG1JBA==
+"@octokit/rest@18.5.4":
+  version "18.5.4"
+  resolved "https://registry.npmjs.org/@octokit/rest/-/rest-18.5.4.tgz"
+  integrity sha512-n3Q5ikar6dFvGmSrzRwIrPvSAkwibQr5Ti0h722T/YuylsPYahRTmVEU1Vg+XIg8MHgHBTKmwBzz0IwpbseOtQ==
   dependencies:
     "@octokit/core" "^3.2.3"
     "@octokit/plugin-paginate-rest" "^2.6.2"
     "@octokit/plugin-request-log" "^1.0.2"
-    "@octokit/plugin-rest-endpoint-methods" "5.0.1"
+    "@octokit/plugin-rest-endpoint-methods" "5.3.0"
 
-"@octokit/types@^6.0.3", "@octokit/types@^6.11.0", "@octokit/types@^6.13.1", "@octokit/types@^6.7.1":
-  version "6.13.1"
-  resolved "https://registry.npmjs.org/@octokit/types/-/types-6.13.1.tgz"
-  integrity sha512-UF/PL0y4SKGx/p1azFf7e6j9lB78tVwAFvnHtslzOJ6VipshYks74qm9jjTEDlCyaTmbhbk2h3Run5l0CtCF6A==
+"@octokit/types@^6.0.3", "@octokit/types@^6.11.0", "@octokit/types@^6.16.0", "@octokit/types@^6.7.1":
+  version "6.16.2"
+  resolved "https://registry.npmjs.org/@octokit/types/-/types-6.16.2.tgz"
+  integrity sha512-wWPSynU4oLy3i4KGyk+J1BLwRKyoeW2TwRHgwbDz17WtVFzSK2GOErGliruIx8c+MaYtHSYTx36DSmLNoNbtgA==
   dependencies:
-    "@octokit/openapi-types" "^6.0.0"
+    "@octokit/openapi-types" "^7.2.3"
 
 "@opentelemetry/api@0.14.0":
   version "0.14.0"
@@ -3968,13 +3969,6 @@
   integrity sha512-ddiMB6JXR7acQnRFEL2/6SSdBropmNrcAFk3qFCfovuVZh6STYhPmoAgj06mJFDoAD63pxayysfPG2EvLl2yAw==
   dependencies:
     "@react-types/shared" "^3.3.0"
-"@octokit/plugin-rest-endpoint-methods@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.3.0.tgz"
-  integrity sha512-+4NAJ9WzPN5gW6W1H1tblw/DesTD6PaWuU5+/x3Pa7nyK6qjR6cn4jwkJtzxVPTgtzryOFLX+5vs7MROFswp5Q==
-  dependencies:
-    "@octokit/types" "^6.16.0"
-    deprecation "^2.3.1"
 
 "@react-types/progress@^3.1.1":
   version "3.1.1"
@@ -4003,22 +3997,6 @@
   integrity sha512-qNVrO3bIM9TcZHVuU7QI12LHShosvp3D297xw/iGLQoyaL0/W68d4dJs5ujU5ZRj8/gGRhAQiparpRs9hiHkxw==
   dependencies:
     "@react-types/textfield" "^3.2.1"
-"@octokit/rest@18.5.4":
-  version "18.5.4"
-  resolved "https://registry.npmjs.org/@octokit/rest/-/rest-18.5.4.tgz"
-  integrity sha512-n3Q5ikar6dFvGmSrzRwIrPvSAkwibQr5Ti0h722T/YuylsPYahRTmVEU1Vg+XIg8MHgHBTKmwBzz0IwpbseOtQ==
-  dependencies:
-    "@octokit/core" "^3.2.3"
-    "@octokit/plugin-paginate-rest" "^2.6.2"
-    "@octokit/plugin-request-log" "^1.0.2"
-    "@octokit/plugin-rest-endpoint-methods" "5.3.0"
-
-"@octokit/types@^6.0.3", "@octokit/types@^6.11.0", "@octokit/types@^6.16.0", "@octokit/types@^6.7.1":
-  version "6.16.2"
-  resolved "https://registry.npmjs.org/@octokit/types/-/types-6.16.2.tgz"
-  integrity sha512-wWPSynU4oLy3i4KGyk+J1BLwRKyoeW2TwRHgwbDz17WtVFzSK2GOErGliruIx8c+MaYtHSYTx36DSmLNoNbtgA==
-  dependencies:
-    "@octokit/openapi-types" "^7.2.3"
 
 "@react-types/select@^3.1.1", "@react-types/select@^3.2.0":
   version "3.2.0"
@@ -4124,21 +4102,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@spectrum-icons/ui@^3.1.0", "@spectrum-icons/ui@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-icons/ui/-/ui-3.2.0.tgz#c391b03fe3494a41957cdbbdf56d64365162696c"
-  integrity sha512-ez0Eu+fQAuE3B1Om5Dj3V+5wHNrUtbQpb3+27d4QsUbsUs0f0vcdEGO5P1UpA/1nEl1XF9gPcMpLX4B+c8/eDQ==
-  dependencies:
-    "@adobe/react-spectrum-ui" "^1.0.0"
-    "@react-spectrum/icon" "^3.2.0"
-
-"@spectrum-icons/workflow@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-icons/workflow/-/workflow-3.2.0.tgz#3d5c7e124a8967294782c9ae56350996491b2fdd"
-  integrity sha512-DCmyyLMfsAL5OpEzsfwBCeoGNcYgnh2vi8bPjBg+Wp/PTAD3RGERc8Len9KDwjntgwLsT8TVPMc5aqFfoWUFRw==
-  dependencies:
-    "@adobe/react-spectrum-workflow" "^1.0.0"
-    "@react-spectrum/icon" "^3.2.0"
 "@sls-next/lambda-at-edge@1.8.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@sls-next/lambda-at-edge/-/lambda-at-edge-1.8.0.tgz"
@@ -4158,6 +4121,22 @@
     node-fetch "^2.6.1"
     path-to-regexp "^6.1.0"
     send "^0.17.1"
+
+"@spectrum-icons/ui@^3.1.0", "@spectrum-icons/ui@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-icons/ui/-/ui-3.2.0.tgz#c391b03fe3494a41957cdbbdf56d64365162696c"
+  integrity sha512-ez0Eu+fQAuE3B1Om5Dj3V+5wHNrUtbQpb3+27d4QsUbsUs0f0vcdEGO5P1UpA/1nEl1XF9gPcMpLX4B+c8/eDQ==
+  dependencies:
+    "@adobe/react-spectrum-ui" "^1.0.0"
+    "@react-spectrum/icon" "^3.2.0"
+
+"@spectrum-icons/workflow@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@spectrum-icons/workflow/-/workflow-3.2.0.tgz#3d5c7e124a8967294782c9ae56350996491b2fdd"
+  integrity sha512-DCmyyLMfsAL5OpEzsfwBCeoGNcYgnh2vi8bPjBg+Wp/PTAD3RGERc8Len9KDwjntgwLsT8TVPMc5aqFfoWUFRw==
+  dependencies:
+    "@adobe/react-spectrum-workflow" "^1.0.0"
+    "@react-spectrum/icon" "^3.2.0"
 
 "@storybook/addon-actions@6.2.9":
   version "6.2.9"
@@ -6029,10 +6008,6 @@ babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-jest@26.6.3, babel-jest@^26.6.3:
-  version "26.6.3"
-  resolved "https://registry.npmjs.org/babel-jest/-/babel-jest-26.6.3.tgz"
-  integrity sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA==
 babel-jest@27.0.1, babel-jest@^27.0.1:
   version "27.0.1"
   resolved "https://registry.npmjs.org/babel-jest/-/babel-jest-27.0.1.tgz"
@@ -8919,16 +8894,15 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.6:
   resolved "https://registry.npmjs.org/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-fastparse@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
-  integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
-
-fastq@^1.6.0:
 fast-xml-parser@^3.16.0, fast-xml-parser@^3.19.0:
   version "3.19.0"
   resolved "https://registry.npmjs.org/fast-xml-parser/-/fast-xml-parser-3.19.0.tgz"
   integrity sha512-4pXwmBplsCPv8FOY1WRakF970TjNGnGnfbOnLqjlYvMiF1SR3yOHyxMR/YCXpPTOspNF5gwudqktIP4VsWkvBg==
+
+fastparse@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
+  integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
 
 fastq@^1.11.0, fastq@^1.6.0:
   version "1.11.0"
@@ -10157,6 +10131,7 @@ ignore-loader@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ignore-loader/-/ignore-loader-0.1.2.tgz#d81f240376d0ba4f0d778972c3ad25874117a463"
   integrity sha1-2B8kA3bQuk8Nd4lyw60lh0EXpGM=
+
 ignore-walk@^3.0.1:
   version "3.0.4"
   resolved "https://registry.npmjs.org/ignore-walk/-/ignore-walk-3.0.4.tgz"
@@ -12811,16 +12786,17 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-next-compose-plugins@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
-  integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 netlify-plugin-cache-nextjs@1.6.1:
   version "1.6.1"
   resolved "https://registry.npmjs.org/netlify-plugin-cache-nextjs/-/netlify-plugin-cache-nextjs-1.6.1.tgz"
   integrity sha512-UCxxpMgCuH/ZFenj/Y+GY2MGBQTqCNuEKNngYrKXUE3KkkHgE4ufTckhgv6nxjzIOJK2d+BQY/CwDClp2DLftA==
   dependencies:
     "@netlify/cache-utils" "1.0.7"
+
+next-compose-plugins@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
+  integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
 next-iron-session@4.1.13:
   version "4.1.13"
@@ -16011,6 +15987,7 @@ tapable@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.0.tgz#5c373d281d9c672848213d0e037d1c4165ab426b"
   integrity sha512-FBk4IesMV1rBxX2tfiK8RAmogtWn53puLOQlvO8XuwlgxcYbP4mVPS9Ph4aeamSyyVjOl24aYWAuc8U5kCVwMw==
+
 tar-fs@^2.0.0, tar-fs@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.1.tgz"
