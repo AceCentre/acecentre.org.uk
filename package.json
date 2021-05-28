@@ -20,7 +20,7 @@
     "@fortawesome/fontawesome-svg-core": "1.2.35",
     "@fortawesome/free-solid-svg-icons": "5.15.3",
     "@fortawesome/react-fontawesome": "0.1.14",
-    "@octokit/rest": "18.5.4",
+    "@octokit/rest": "18.5.5",
     "@react-aria/interactions": "3.4.0",
     "@stripe/react-stripe-js": "1.4.1",
     "@stripe/stripe-js": "1.15.0",
