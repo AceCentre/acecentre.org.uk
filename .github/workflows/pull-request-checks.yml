@@ -28,7 +28,7 @@ jobs:
         run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
-        run: netlify deploy
+        run: netlify deploy --alias=${GITHUB_REF#refs/heads/}
 
   Jest:
     runs-on: ubuntu-latest
