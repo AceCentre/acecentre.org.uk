@@ -3,6 +3,8 @@ on: [pull_request, workflow_dispatch]
 jobs:
   DeployNetlifyDraft:
     runs-on: ubuntu-latest
+    outputs:
+      deploy-name: ${{ steps.get-title.outputs.result }}
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -35,7 +37,7 @@ jobs:
         run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
-        run: netlify deploy --alias=${{steps.get-title.outputs.result}}
+        run: netlify deploy --alias=${{ steps.get-title.outputs.result }}
 
   Jest:
     runs-on: ubuntu-latest
