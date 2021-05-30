@@ -20,11 +20,8 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Run netlify link
-        run: netlify link --debug
-
       - name: Run netlify build
-        run: netlify build --context deploy-preview
+        run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
         run: netlify deploy
