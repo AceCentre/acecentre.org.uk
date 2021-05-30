@@ -27,7 +27,7 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            console.log(context)
+            console.log(context.pull_request.title)
 
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
