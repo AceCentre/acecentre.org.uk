@@ -27,7 +27,11 @@ jobs:
       - uses: actions/github-script@v4
         with:
           script: |
-            console.log(context.payload.pull_request.title)
+            const title = context.payload.pull_request.title;
+
+            console.log(title.toLowerCase().replace(/ /g,"-").slice(0,35));
+
+            return title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
