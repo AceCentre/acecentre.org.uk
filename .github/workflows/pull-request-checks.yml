@@ -25,23 +25,17 @@ jobs:
         run: yarn install
 
       - uses: actions/github-script@v4
+        id: get-title
         with:
           script: |
             const title = context.payload.pull_request.title;
-
-            console.log(context);
-            console.log(context.payload);
-            console.log(context.payload.pull_request);
-            console.log(context.payload.pull_request.title);
-            console.log(title.toLowerCase().replace(/ /g,"-").slice(0,35));
-
             return title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
-        run: netlify deploy --alias=${GITHUB_REF#refs/heads/}
+        run: netlify deploy --alias=${{steps.get-title.outputs.result}}
 
   Jest:
     runs-on: ubuntu-latest
