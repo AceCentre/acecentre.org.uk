@@ -26,15 +26,14 @@ jobs:
 
       - uses: actions/github-script@v4
         with:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
           script: |
-            console.log(process.env.GITHUB_CONTEXT)
+            console.log(context)
 
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
-        run: netlify deploy --alias=${GITHUB_REF#refs/heads/} --json
+        run: netlify deploy --alias=${GITHUB_REF#refs/heads/}
 
   Jest:
     runs-on: ubuntu-latest
