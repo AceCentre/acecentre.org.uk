@@ -3,6 +3,10 @@ on: [pull_request, workflow_dispatch]
 jobs:
   DeployNetlifyDraft:
     runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
     steps:
       - name: Get Code
         uses: actions/checkout@v2
