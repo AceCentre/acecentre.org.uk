@@ -24,6 +24,12 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
+      - uses: actions/github-script@v4
+        with:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          script: |
+            console.log(process.env.GITHUB_CONTEXT)
+
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
 
