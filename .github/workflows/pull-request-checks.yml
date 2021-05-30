@@ -20,8 +20,11 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Output netlify version
-        run: netlify -v
+      - name: Run netlify build
+        run: netlify build --context deploy-preview
+
+      - name: Run netlify deploy
+        run: netlify deploy
 
   Jest:
     runs-on: ubuntu-latest
