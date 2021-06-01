@@ -24,4 +24,7 @@ jobs:
               repo: context.repo.repo,
               deployment_id,
               state: 'inactive',
+              mediaType: {
+                previews: ['ant-man-preview']
+              }
             });
