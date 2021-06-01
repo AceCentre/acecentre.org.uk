@@ -2,29 +2,21 @@ name: Close Pull Request
 
 # only trigger on pull request closed events
 on:
-  pull_request:
-    types: [closed]
+  workflow_dispatch:
+    inputs:
+    env_name:
+      description: "The name of the environmetn"
+      required: true
 
 jobs:
   # Set deployment to inactive when we merge a PR
   PostMerge:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v4
-        id: my-script
+      - name: Set deployment status
+        uses: rsotnychenko/deployment-status-update@0.2.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const title = context.payload.pull_request.title;
-            const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
-
-            github.repos.createDeploymentStatus({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              deployment_id,
-              state: 'inactive',
-              mediaType: {
-                previews: ['ant-man-preview']
-              }
-            });
+          status: inactive
+          run_id: ${{ github.event.inputs.env_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
