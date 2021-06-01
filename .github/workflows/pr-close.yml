@@ -18,5 +18,6 @@ jobs:
         with:
           status: inactive
           run_id: ${{ github.event.inputs.env_name }}
+          deployment_status_url: ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
