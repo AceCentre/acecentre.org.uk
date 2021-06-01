@@ -1,6 +1,64 @@
 name: Pull Request Checks
-on: [pull_request]
+on: [pull_request, workflow_dispatch]
 jobs:
+  CalculateDeployKey:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-key: ${{ steps.get-title.outputs.result }}
+    steps:
+      - uses: actions/github-script@v4
+        id: get-title
+        with:
+          result-encoding: string
+          script: |
+            const title = context.payload.pull_request.title;
+            return title.toLowerCase().replace(/ /g,"-").slice(0,35);
+
+  DeployNetlifyDraft:
+    needs: CalculateDeployKey
+    environment:
+      name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}-environment
+      url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
+      deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - uses: actions/github-script@v4
+        id: get-title
+
+        with:
+          result-encoding: string
+          script: |
+            const title = context.payload.pull_request.title;
+            return title.toLowerCase().replace(/ /g,"-").slice(0,35);
+
+      - name: Run netlify build
+        run: netlify build --context deploy-preview --debug
+
+      - name: Run netlify deploy
+        run: netlify deploy --alias=${{ steps.get-title.outputs.result }}
+
   Jest:
     runs-on: ubuntu-latest
     steps:
@@ -54,6 +112,7 @@ jobs:
         run: yarn run eslint .
 
   Cypress:
+    needs: DeployNetlifyDraft
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -73,24 +132,9 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Wait for netlify to deploy
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-build
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: Pages changed - acecentreorguk
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-
-      - name: Get netlify preview url
-        uses: josephduffy/wait-for-netlify-action@v1
-        id: wait-for-netlify-preview
-        with:
-          site_name: "acecentreorguk"
-          max_timeout: 60
-
       - name: Run Cypress
         env:
-          CYPRESS_BASE_URL: ${{ steps.wait-for-netlify-preview.outputs.url }}
+          CYPRESS_BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
         run: yarn cypress:run
 
       - uses: actions/upload-artifact@v2
@@ -102,6 +146,7 @@ jobs:
           retention-days: 1
 
   Lighthouse:
+    needs: DeployNetlifyDraft
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -120,25 +165,10 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Wait for netlify to deploy
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-build
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: Pages changed - acecentreorguk
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-
-      - name: Get netlify preview url
-        uses: josephduffy/wait-for-netlify-action@v1
-        id: wait-for-netlify-preview
-        with:
-          site_name: "acecentreorguk"
-          max_timeout: 60
-
       - name: Run Lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_URL: ${{ steps.wait-for-netlify-preview.outputs.url }}
+          BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
         run: yarn lighthouse
 
