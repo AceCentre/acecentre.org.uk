@@ -16,8 +16,8 @@ jobs:
       with:
         result-encoding: string
         script: |
-        const title = context.payload.pull_request.title;
-        return title.toLowerCase().replace(/ /g,"-").slice(0,35);
+          const title = context.payload.pull_request.title;
+          return title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
       - uses: strumwolf/delete-deployment-environment@v2
         with:
