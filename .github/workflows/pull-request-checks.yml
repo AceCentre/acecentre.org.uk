@@ -2,6 +2,9 @@ name: Pull Request Checks
 on: [pull_request, workflow_dispatch]
 jobs:
   DeployNetlifyDraft:
+    environment:
+      name: ${{ steps.get-title.outputs.result }}-environment
+      url: https://${{ steps.get-title.outputs.result }}--acecentreorguk.netlify.app
     runs-on: ubuntu-latest
     outputs:
       deploy-name: ${{ steps.get-title.outputs.result }}
