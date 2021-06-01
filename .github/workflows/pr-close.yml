@@ -24,8 +24,8 @@ jobs:
             // const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
             const deployments = await github.repos.listDeployments({
-              owner,
-              repo,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
             });
 
             console.log(JSON.stringify(deployments, null, 2));
