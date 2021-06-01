@@ -1,14 +1,28 @@
 name: Pull Request Checks
 on: [pull_request, workflow_dispatch]
 jobs:
-  DeployNetlifyDraft:
-    environment:
-      name: pull-request-environment
-      url: https://${{ steps.get-title.outputs.result }}--acecentreorguk.netlify.app
+  CalculateDeployKey:
     runs-on: ubuntu-latest
     outputs:
-      deploy-name: ${{ steps.get-title.outputs.result }}
-      deploy-url: https://${{ steps.get-title.outputs.result }}--acecentreorguk.netlify.app
+      deploy-key: ${{ steps.get-title.outputs.result }}
+    steps:
+      - uses: actions/github-script@v4
+        id: get-title
+        with:
+          result-encoding: string
+          script: |
+            const title = context.payload.pull_request.title;
+            return title.toLowerCase().replace(/ /g,"-").slice(0,35);
+
+  DeployNetlifyDraft:
+    needs: CalculateDeployKey
+    environment:
+      name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}-environment
+      url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
+    runs-on: ubuntu-latest
+    outputs:
+      deploy-name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
+      deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
