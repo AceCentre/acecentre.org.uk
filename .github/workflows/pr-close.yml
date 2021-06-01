@@ -11,13 +11,13 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v4
-      id: get-title
-      with:
-        result-encoding: string
-        script: |
-          const title = context.payload.pull_request.title;
-          return title.toLowerCase().replace(/ /g,"-").slice(0,35);
+      - uses: actions/github-script@v4
+        id: get-title
+        with:
+          result-encoding: string
+          script: |
+            const title = context.payload.pull_request.title;
+            return title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
       - uses: strumwolf/delete-deployment-environment@v2
         with:
