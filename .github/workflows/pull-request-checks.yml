@@ -3,7 +3,7 @@ on: [pull_request, workflow_dispatch]
 jobs:
   DeployNetlifyDraft:
     environment:
-      name: ${{ steps.get-title.outputs.result }}-environment
+      name: pull-request-environment
       url: https://${{ steps.get-title.outputs.result }}--acecentreorguk.netlify.app
     runs-on: ubuntu-latest
     outputs:
