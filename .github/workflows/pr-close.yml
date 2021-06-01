@@ -23,6 +23,13 @@ jobs:
             // const title = context.payload.pull_request.title;
             // const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
+            const test = await github.repos.getEnvironment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              environment_name: process.env.ENV_NAME,
+            });
+            console.log(JSON.stringify(test, null, 2));
+
             await github.repos.deleteAnEnvironment({
               owner: context.repo.owner,
               repo: context.repo.repo,
