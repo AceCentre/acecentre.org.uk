@@ -1,0 +1,39 @@
+name: Deploy Production
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  DeployNetlify:
+    runs-on: ubuntu-latest
+    environment:
+      name: production-environment
+      url: https://acecentreorguk.netlify.app
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - name: Run netlify build
+        run: netlify build --context production --debug
+
+      - name: Run netlify deploy
+        run: netlify deploy --prod
