@@ -4,9 +4,9 @@ name: Close Pull Request
 on:
   workflow_dispatch:
     inputs:
-    env_name:
-      description: "The name of the environmetn"
-      required: true
+      env_name:
+        description: "The name of the environmetn"
+        required: true
 
 jobs:
   # Set deployment to inactive when we merge a PR
