@@ -13,35 +13,7 @@ jobs:
   PostMerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: AceCentre/github-script@main
-        id: my-script
-        env:
-          ENV_NAME: ${{ github.event.inputs.env_name }}
+      - uses: strumwolf/delete-deployment-environment@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            // const title = context.payload.pull_request.title;
-            // const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
-
-            const test = await github.repos.getEnvironment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              environment_name: process.env.ENV_NAME,
-            });
-            console.log(JSON.stringify(test, null, 2));
-
-            await github.repos.deleteAnEnvironment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              environment_name: process.env.ENV_NAME,
-            });
-
-    # steps:
-    #   - name: Set deployment status
-    #     uses: rsotnychenko/deployment-status-update@0.2.0
-    #     with:
-    #       status: inactive
-    #       run_id: ${{ github.event.inputs.env_name }}
-    #       deployment_status_url: ""
-    #     env:
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: ${{ github.event.inputs.env_name }}
