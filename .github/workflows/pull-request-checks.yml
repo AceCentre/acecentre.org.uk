@@ -17,7 +17,7 @@ jobs:
   DeployNetlifyDraft:
     needs: CalculateDeployKey
     environment:
-      name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}-environment
+      name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
     runs-on: ubuntu-latest
     outputs:

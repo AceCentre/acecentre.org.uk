@@ -9,7 +9,7 @@ jobs:
   DeployNetlify:
     runs-on: ubuntu-latest
     environment:
-      name: production-environment
+      name: production
       url: https://acecentreorguk.netlify.app
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
