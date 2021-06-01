@@ -20,8 +20,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            # const title = context.payload.pull_request.title;
-            # const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
+            // const title = context.payload.pull_request.title;
+            // const deployment_id = title.toLowerCase().replace(/ /g,"-").slice(0,35);
 
             const deployments = await github.repos.listDeployments({
               owner,
@@ -32,15 +32,15 @@ jobs:
 
             console.log(process.env.ENV_NAME)
 
-            # await github.repos.createDeploymentStatus({
-            #   owner: context.repo.owner,
-            #   repo: context.repo.repo,
-            #   deployment_id,
-            #   state: 'inactive',
-            #   mediaType: {
-            #     previews: ['ant-man-preview', 'flash']
-            #   }
-            # });
+            // await github.repos.createDeploymentStatus({
+            //   owner: context.repo.owner,
+            //   repo: context.repo.repo,
+            //   deployment_id,
+            //   state: 'inactive',
+            //   mediaType: {
+            //     previews: ['ant-man-preview', 'flash']
+            //   }
+            // });
 
     # steps:
     #   - name: Set deployment status
