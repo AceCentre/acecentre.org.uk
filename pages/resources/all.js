@@ -18,6 +18,8 @@ export default function AllResources({
   searchText,
   totalResourcesCount,
   productCategories,
+  selectedSubcategory,
+  selectedCategory,
 }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -34,7 +36,11 @@ export default function AllResources({
         <p>
           {currentPage} of {pageCount}
         </p>
-        <ProductFilters categories={productCategories} />
+        <ProductFilters
+          selectedCategory={selectedCategory}
+          selectedSubCategory={selectedSubcategory}
+          categories={productCategories}
+        />
         <FeaturedPosts linkPrefix="resources" posts={resources} />
       </main>
       <Footer currentYear={currentYear} />
@@ -49,6 +55,8 @@ const CACHE_KEY_PRODUCT_CATEGORIES = "PRODUCT_CATEGORIES";
 export const getServerSideProps = withGlobalProps(async (req) => {
   const page = req.query.page || 1;
   const searchText = req.query.searchText || "";
+  const category = req.query.category || "";
+  const subcategory = req.query.subcategory || "";
   const productsPerPage = 20;
 
   const products = await readFromStaticCacheWithFallback(
@@ -74,6 +82,8 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     page,
     productsPerPage,
     searchText,
+    category,
+    subcategory,
   });
 
   if (showNotFound) {
@@ -94,6 +104,8 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       searchText,
       totalResourcesCount,
       productCategories,
+      selectedCategory: category,
+      selectedSubcategory: subcategory,
     },
   };
 });
