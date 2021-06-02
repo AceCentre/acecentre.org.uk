@@ -75,7 +75,6 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const {
     results: filteredProducts,
     pageCount,
-    showNotFound,
     totalResourcesCount,
   } = filterProducts(products, productCategories, {
     page,
@@ -84,12 +83,6 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     category,
     subcategory,
   });
-
-  if (showNotFound) {
-    return {
-      notFound: true,
-    };
-  }
 
   const resources = filteredProducts.map((product) => ({
     title: product.name,
