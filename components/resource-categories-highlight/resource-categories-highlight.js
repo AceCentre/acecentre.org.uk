@@ -10,7 +10,7 @@ export const ResourceCategoriesHighlight = () => {
         </Link>
       </li>
       <li>
-        <Link href="/resources/all??category=alphabet-books">
+        <Link href="/resources/all?category=alphabet-books">
           Alphabet communication book templates
         </Link>
       </li>
