@@ -27,8 +27,6 @@ const useSearchController = () => {
 
     const newQueryString = queryStringPairs.join("&");
 
-    console.log(newQueryString, newQuery);
-
     pushNewUrl(`/resources/all?${newQueryString}`);
   };
 
