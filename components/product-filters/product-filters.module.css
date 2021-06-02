@@ -4,8 +4,52 @@
   max-width: var(--containerMaxWidth);
 }
 
+.selectContainer {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.searchBox {
+  text-align: right;
+  flex-grow: 1;
+}
+.resetLink {
+  flex-grow: 1;
+  text-align: right;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .selectContainer {
+    flex-direction: column;
+  }
+
+  .subHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .subHeader h2 {
+    margin: 0;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header h1 {
+    margin: 0;
   }
 }

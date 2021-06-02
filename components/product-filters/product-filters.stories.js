@@ -9,6 +9,7 @@ const Template = (args) => <ProductFilters {...args} />;
 
 export const Standard = Template.bind({});
 Standard.args = {
+  selectedCategory: "learning",
   categories: [
     {
       name: "Ace Centre Courses",
