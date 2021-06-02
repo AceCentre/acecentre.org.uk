@@ -85,6 +85,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     searchText,
     category,
     subcategory,
+    priceRange,
   });
 
   const resources = filteredProducts.map((product) => ({
