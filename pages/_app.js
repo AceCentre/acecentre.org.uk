@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
       <DefaultHead />
       <ChakraProvider resetCSS={false}>
         <Component {...pageProps} />
-      </ChakraProvider>{" "}
+      </ChakraProvider>
     </GlobalsContext.Provider>
   );
 }
