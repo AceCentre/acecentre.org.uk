@@ -2,6 +2,7 @@ import styles from "./product-filters.module.css";
 import { useState } from "react";
 import { Select } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const useSelect = (defaultValue) => {
   const [value, setValue] = useState(defaultValue);
@@ -13,6 +14,37 @@ const useSelect = (defaultValue) => {
   return { onChange, value };
 };
 
+const useSearchController = () => {
+  const { query, push: pushNewUrl } = useRouter();
+
+  const updateSearchParams = (newParams) => {
+    const newQuery = { ...query, ...newParams, page: 1 };
+    const queryStringPairs = [];
+
+    for (const [key, value] of Object.entries(newQuery)) {
+      queryStringPairs.push(`${key}=${value}`);
+    }
+
+    const newQueryString = queryStringPairs.join("&");
+
+    console.log(newQueryString, newQuery);
+
+    pushNewUrl(`/resources/all?${newQueryString}`);
+  };
+
+  const freeTextOnSubmit = (event) => {
+    event.preventDefault();
+    const searchText = event.target["searchText"].value;
+    if (!searchText) return;
+    updateSearchParams({ searchText });
+  };
+
+  return {
+    updateSearchParams,
+    freeTextOnSubmit,
+  };
+};
+
 export const ProductFilters = ({
   categories,
   selectedCategory = "",
@@ -20,6 +52,8 @@ export const ProductFilters = ({
   resourceCount = 0,
   searchText = "",
 }) => {
+  const { freeTextOnSubmit } = useSearchController();
+
   const categorySelectProps = useSelect(selectedCategory);
   const selectedCategoryFull =
     categories.find(
@@ -32,14 +66,14 @@ export const ProductFilters = ({
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>Resources</h1>
-        <div className={styles.searchBox}>
+        <form onSubmit={freeTextOnSubmit} className={styles.searchBox}>
           <input
             name="searchText"
             type="text"
             placeholder="What are you looking for?"
           />
           <button type="submit">Search</button>
-        </div>
+        </form>
       </div>
       <div className={styles.subHeader}>
         <h2>Filter Products</h2>
