@@ -17,6 +17,7 @@ export const ProductFilters = ({
   categories,
   selectedCategory = "",
   selectedSubCategory = "",
+  resourceCount = 0,
 }) => {
   const categorySelectProps = useSelect(selectedCategory);
   const selectedCategoryFull =
@@ -82,6 +83,26 @@ export const ProductFilters = ({
           })}
         </Select>
         <Select
+          disabled={currentSubCategories.length === 0}
+          {...subcategorySelectProps}
+          placeholder="Select sub-category"
+        >
+          {currentSubCategories.map((category) => {
+            return (
+              <option value={category.slug} key={category.slug}>
+                {category.name}
+              </option>
+            );
+          })}
+        </Select>
+      </div>
+      <div className={styles.orderByArea}>
+        <p>{`${resourceCount} resources`}</p>
+        <Select
+          width={"50%"}
+          maxWidth={200}
+          className={styles.orderBySelect}
+          variant="unstyled"
           disabled={currentSubCategories.length === 0}
           {...subcategorySelectProps}
           placeholder="Select sub-category"
