@@ -1,4 +1,5 @@
 import { GlobalStyles } from "./global-styles";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -13,8 +14,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <>
-      <GlobalStyles />
-      <Story />
+      <ChakraProvider resetCSS={false}>
+        <GlobalStyles />
+        <Story />
+      </ChakraProvider>
     </>
   ),
 ];
