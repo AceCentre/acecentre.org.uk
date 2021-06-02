@@ -77,7 +77,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     pageCount,
     showNotFound,
     totalResourcesCount,
-  } = filterProducts(products, {
+  } = filterProducts(products, productCategories, {
     page,
     productsPerPage,
     searchText,
