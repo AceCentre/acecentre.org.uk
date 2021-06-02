@@ -4,17 +4,10 @@ import { Select } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const useSelect = (defaultValue) => {
-  const [value, setValue] = useState(defaultValue);
-
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return { onChange, value };
-};
-
-const useSearchController = () => {
+const useSearchController = ({
+  defaultTopLevelValue,
+  defaultSubcategoryValue,
+}) => {
   const { query, push: pushNewUrl } = useRouter();
 
   const updateSearchParams = (newParams) => {
@@ -22,6 +15,9 @@ const useSearchController = () => {
     const queryStringPairs = [];
 
     for (const [key, value] of Object.entries(newQuery)) {
+      if (value === null) continue;
+      if (value === "") continue;
+
       queryStringPairs.push(`${key}=${value}`);
     }
 
@@ -37,9 +33,33 @@ const useSearchController = () => {
     updateSearchParams({ searchText });
   };
 
+  const [topLevelCategory, setTopLevelCategory] = useState(
+    defaultTopLevelValue
+  );
+
+  const onChangeTopLevelCategory = (event) => {
+    updateSearchParams({ category: event.target.value, subcategory: null });
+    setTopLevelCategory(event.target.value);
+  };
+
+  const [subcategory, setSubcategory] = useState(defaultSubcategoryValue);
+
+  const onChangeSubcategory = (event) => {
+    updateSearchParams({ subcategory: event.target.value });
+    setSubcategory(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
+    topLevelCategorySelectProps: {
+      onChange: onChangeTopLevelCategory,
+      value: topLevelCategory,
+    },
+    subcategorySelectProps: {
+      onChange: onChangeSubcategory,
+      value: subcategory,
+    },
   };
 };
 
@@ -50,15 +70,20 @@ export const ProductFilters = ({
   resourceCount = 0,
   searchText = "",
 }) => {
-  const { freeTextOnSubmit } = useSearchController();
+  const {
+    freeTextOnSubmit,
+    topLevelCategorySelectProps,
+    subcategorySelectProps,
+  } = useSearchController({
+    defaultTopLevelValue: selectedCategory,
+    defaultSubcategoryValue: selectedSubCategory,
+  });
 
-  const categorySelectProps = useSelect(selectedCategory);
   const selectedCategoryFull =
     categories.find(
-      (category) => category.slug === categorySelectProps.value
+      (category) => category.slug === topLevelCategorySelectProps.value
     ) || {};
   const currentSubCategories = selectedCategoryFull.subcategories || [];
-  const subcategorySelectProps = useSelect(selectedSubCategory);
 
   return (
     <div className={styles.container}>
@@ -81,7 +106,7 @@ export const ProductFilters = ({
       </div>
       {searchText && <p>{`You searched for: "${searchText}"`}</p>}
       <div className={styles.selectContainer}>
-        <Select {...categorySelectProps} placeholder="Select category">
+        <Select {...topLevelCategorySelectProps} placeholder="Select category">
           {categories.map((category) => {
             return (
               <option value={category.slug} key={category.slug}>
