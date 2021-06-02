@@ -3,13 +3,7 @@ import { useState } from "react";
 import { Select } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const priceRanges = [
-  {
-    slug: "1",
-    name: "tests",
-  },
-];
+import { priceRanges } from "../../lib/products/price-range-consts";
 
 const useSearchController = ({
   defaultTopLevelValue,
@@ -60,7 +54,7 @@ const useSearchController = ({
   const [priceRange, setPriceRange] = useState(defaultPriceRange);
 
   const onChangePriceRange = (event) => {
-    updateSearchParams({ priceRange: event.target.value });
+    updateSearchParams({ pricerange: event.target.value });
     setPriceRange(event.target.value);
   };
 
@@ -122,9 +116,9 @@ export const ProductFilters = ({
       </div>
       <div className={styles.subHeader}>
         <h2>Filter Products</h2>
-        <Link href="/resources/all">
-          <a className={styles.resetLink}>Reset filters</a>
-        </Link>
+        <a href="/resources/all" className={styles.resetLink}>
+          Reset filters
+        </a>
       </div>
       {searchText && <p>{`You searched for: "${searchText}"`}</p>}
       <div className={styles.selectContainer}>
