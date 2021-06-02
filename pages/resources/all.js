@@ -21,6 +21,7 @@ export default function AllResources({
   productCategories,
   selectedSubcategory,
   selectedCategory,
+  selectedPriceRange,
 }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -35,6 +36,7 @@ export default function AllResources({
         <ProductFilters
           selectedCategory={selectedCategory}
           selectedSubCategory={selectedSubcategory}
+          selectedPriceRange={selectedPriceRange}
           categories={productCategories}
           resourceCount={totalResourcesCount}
           searchText={searchText}
@@ -56,6 +58,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const searchText = req.query.searchText || "";
   const category = req.query.category || "";
   const subcategory = req.query.subcategory || "";
+  const priceRange = req.query.pricerange || "";
   const productsPerPage = 20;
 
   const products = await readFromStaticCacheWithFallback(
@@ -98,6 +101,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       productCategories,
       selectedCategory: category,
       selectedSubcategory: subcategory,
+      selectedPriceRange: priceRange,
     },
   };
 });
