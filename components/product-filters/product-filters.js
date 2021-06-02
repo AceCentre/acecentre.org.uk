@@ -18,6 +18,7 @@ export const ProductFilters = ({
   selectedCategory = "",
   selectedSubCategory = "",
   resourceCount = 0,
+  searchText = "",
 }) => {
   const categorySelectProps = useSelect(selectedCategory);
   const selectedCategoryFull =
@@ -46,6 +47,7 @@ export const ProductFilters = ({
           <a className={styles.resetLink}>Reset filters</a>
         </Link>
       </div>
+      {searchText && <p>{`You searched for: "${searchText}"`}</p>}
       <div className={styles.selectContainer}>
         <Select {...categorySelectProps} placeholder="Select category">
           {categories.map((category) => {
