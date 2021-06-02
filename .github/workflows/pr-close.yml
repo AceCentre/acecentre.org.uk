@@ -1,0 +1,25 @@
+name: Close Pull Request
+
+# only trigger on pull request closed events
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  # Set deployment to inactive when we merge a PR
+  PostMerge:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v4
+        id: get-title
+        with:
+          result-encoding: string
+          script: |
+            const title = context.payload.pull_request.title;
+            return title.toLowerCase().replace(/ /g,"-").replace(/\./g,'-').slice(0,35);
+
+      - uses: strumwolf/delete-deployment-environment@v2
+        with:
+          token: ${{ secrets.SUPER_TOKEN }}
+          environment: ${{ steps.get-title.outputs.result }}
