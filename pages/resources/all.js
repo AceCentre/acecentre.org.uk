@@ -1,6 +1,7 @@
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { Pagination } from "../../components/pagination/pagination";
 import { ProductFilters } from "../../components/product-filters/product-filters";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
@@ -31,17 +32,15 @@ export default function AllResources({
         <SubNav navItems={defaultNavItems} />
       </header>
       <main>
-        <p>Number of resources: {totalResourcesCount}</p>
-        {searchText && <p>You searched for {searchText}</p>}
-        <p>
-          {currentPage} of {pageCount}
-        </p>
         <ProductFilters
           selectedCategory={selectedCategory}
           selectedSubCategory={selectedSubcategory}
           categories={productCategories}
+          resourceCount={totalResourcesCount}
+          searchText={searchText}
         />
         <FeaturedPosts linkPrefix="resources" posts={resources} />
+        <Pagination currentPage={currentPage} pageCount={pageCount} />
       </main>
       <Footer currentYear={currentYear} />
     </>

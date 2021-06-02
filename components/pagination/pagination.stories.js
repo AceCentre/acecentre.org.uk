@@ -8,4 +8,4 @@ export default {
 const Template = (args) => <Pagination {...args} />;
 
 export const Standard = Template.bind({});
-Standard.args = {};
+Standard.args = { currentPage: 2, pageCount: 10 };
