@@ -17,6 +17,9 @@
     "build-sitemap": "next-sitemap"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.3",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@fortawesome/fontawesome-svg-core": "1.2.35",
     "@fortawesome/free-solid-svg-icons": "5.15.3",
     "@fortawesome/react-fontawesome": "0.1.14",
@@ -24,6 +27,7 @@
     "@react-aria/interactions": "3.4.0",
     "@stripe/react-stripe-js": "1.4.1",
     "@stripe/stripe-js": "1.15.0",
+    "framer-motion": "^4",
     "fuse.js": "6.4.6",
     "graphql": "15.5.0",
     "graphql-playground-middleware-express": "1.7.22",
