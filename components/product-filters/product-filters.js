@@ -4,9 +4,17 @@ import { Select } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+const priceRanges = [
+  {
+    slug: "1",
+    name: "tests",
+  },
+];
+
 const useSearchController = ({
   defaultTopLevelValue,
   defaultSubcategoryValue,
+  defaultPriceRange,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -49,6 +57,13 @@ const useSearchController = ({
     setSubcategory(event.target.value);
   };
 
+  const [priceRange, setPriceRange] = useState(defaultPriceRange);
+
+  const onChangePriceRange = (event) => {
+    updateSearchParams({ priceRange: event.target.value });
+    setPriceRange(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -60,6 +75,10 @@ const useSearchController = ({
       onChange: onChangeSubcategory,
       value: subcategory,
     },
+    priceRangeSelectProps: {
+      onChange: onChangePriceRange,
+      value: priceRange,
+    },
   };
 };
 
@@ -67,6 +86,7 @@ export const ProductFilters = ({
   categories,
   selectedCategory = "",
   selectedSubCategory = "",
+  selectedPriceRange = "",
   resourceCount = 0,
   searchText = "",
 }) => {
@@ -74,9 +94,11 @@ export const ProductFilters = ({
     freeTextOnSubmit,
     topLevelCategorySelectProps,
     subcategorySelectProps,
+    priceRangeSelectProps,
   } = useSearchController({
     defaultTopLevelValue: selectedCategory,
     defaultSubcategoryValue: selectedSubCategory,
+    defaultPriceRangeValue: selectedPriceRange,
   });
 
   const selectedCategoryFull =
@@ -128,28 +150,11 @@ export const ProductFilters = ({
             );
           })}
         </Select>
-        <Select
-          disabled={currentSubCategories.length === 0}
-          {...subcategorySelectProps}
-          placeholder="Select sub-category"
-        >
-          {currentSubCategories.map((category) => {
+        <Select {...priceRangeSelectProps} placeholder="Select price range">
+          {priceRanges.map((priceRange) => {
             return (
-              <option value={category.slug} key={category.slug}>
-                {category.name}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          disabled={currentSubCategories.length === 0}
-          {...subcategorySelectProps}
-          placeholder="Select sub-category"
-        >
-          {currentSubCategories.map((category) => {
-            return (
-              <option value={category.slug} key={category.slug}>
-                {category.name}
+              <option value={priceRange.slug} key={priceRange.slug}>
+                {priceRange.name}
               </option>
             );
           })}
