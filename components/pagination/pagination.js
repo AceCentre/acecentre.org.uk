@@ -9,7 +9,7 @@ export const Pagination = ({ pageCount, currentPage }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        <li className={styles.listItem}>Next</li>
+        {currentPage > 1 && <li className={styles.listItem}>Next</li>}
         {arrayOfNumbers.map((currentPageNumber) => (
           <li
             className={`${styles.listItem} ${
@@ -20,7 +20,9 @@ export const Pagination = ({ pageCount, currentPage }) => {
             {currentPageNumber}
           </li>
         ))}
-        <li className={styles.listItem}>Previous</li>
+        {currentPage < pageCount && (
+          <li className={styles.listItem}>Previous</li>
+        )}
       </ul>
     </div>
   );
