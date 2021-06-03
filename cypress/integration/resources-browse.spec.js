@@ -6,9 +6,7 @@ context("Resources Browse", () => {
     cy.findByTestId("subnav").findByRole("link", { name: "Resources" }).click();
 
     // Find the search box and then type 'a'
-    cy.findByRole("textbox", { name: "What are you looking for?" }).type(
-      "a{enter}"
-    );
+    cy.findByRole("textbox", { name: "Search resources" }).type("a{enter}");
 
     // const searchButton = cy.findByRole("button", { name: "Search" });
     // searchButton.click();
