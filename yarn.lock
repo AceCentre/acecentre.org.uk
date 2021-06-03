@@ -2842,10 +2842,10 @@
     rollup-plugin-terser "^7.0.2"
     typescript "^4.1.5"
 
-"@netlify/plugin-nextjs@3.3.1":
-  version "3.3.1"
-  resolved "https://registry.npmjs.org/@netlify/plugin-nextjs/-/plugin-nextjs-3.3.1.tgz"
-  integrity sha512-OrAOeOYRrnWlRZlXHJzqCYFbnYWvxIexqYiBpbrV2RYcyGixmRUsyZ540jo6rhab2aksaTvS7N4P5ZSXECKUfg==
+"@netlify/plugin-nextjs@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.npmjs.org/@netlify/plugin-nextjs/-/plugin-nextjs-3.4.0.tgz"
+  integrity sha512-nPkoWl/KJdx9CaXDyNC5ktJLMojQjo0PpUtzzGIG3HV6xm/GRBGl4QO122y12vuIieoneoxjoosmA1EY9eGGYA==
   dependencies:
     "@netlify/functions" "^0.7.2"
     "@sls-next/lambda-at-edge" "1.8.0"
@@ -2854,6 +2854,7 @@
     chokidar "^3.5.1"
     commander "^7.1.0"
     debounce-fn "^4.0.0"
+    etag "^1.8.1"
     execa "^5.0.0"
     fastq "^1.11.0"
     find-cache-dir "^3.3.1"
@@ -8630,7 +8631,7 @@ esutils@^2.0.2, esutils@^2.0.3:
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-etag@1.8.1, etag@~1.8.1:
+etag@1.8.1, etag@^1.8.1, etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
