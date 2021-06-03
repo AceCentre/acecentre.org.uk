@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Warm up resources
-        run: curl ${{ needs.DeployNetlifyDraft.outputs.DeployNetlifyDraft }}/resources/all
+        run: curl ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}/resources/all
 
   Jest:
     runs-on: ubuntu-latest
