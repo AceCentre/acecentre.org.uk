@@ -1,8 +1,7 @@
 import styles from "./product-filters.module.css";
 import { useState } from "react";
 import { Select } from "@chakra-ui/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
 
 const useSearchController = ({
