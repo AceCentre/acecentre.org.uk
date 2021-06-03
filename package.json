@@ -52,7 +52,7 @@
     "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-jest": "24.3.6",
     "eslint-plugin-react": "7.24.0",
-    "jest": "27.0.3",
+    "jest": "27.0.4",
     "jest-css-modules-transform": "4.2.1",
     "mock-fs": "5.0.0",
     "netlify-cli": "3.33.2",
