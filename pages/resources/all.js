@@ -11,6 +11,7 @@ import { filterProducts } from "../../lib/products/filter-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
 import { readFromStaticCacheWithFallback } from "../../lib/static-caching/read";
+import redis from "../../lib/static-caching/redis";
 
 export default function AllResources({
   resources,
@@ -63,6 +64,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
 
   const products = await readFromStaticCacheWithFallback(
     CACHE_KEY_PRODUCTS,
+    redis,
     async () => {
       return await getAllProducts();
     }
@@ -70,6 +72,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
 
   const productCategories = await readFromStaticCacheWithFallback(
     CACHE_KEY_PRODUCT_CATEGORIES,
+    redis,
     async () => {
       return await getAllProductCategories();
     }

@@ -10,6 +10,7 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
+import redis from "../../lib/static-caching/redis";
 
 import styles from "../../styles/index.module.css";
 
@@ -63,7 +64,7 @@ export async function getStaticPaths() {
 
   if (!allProjects) throw new Error("Could not get all the projects");
 
-  await writeToStaticCache(CACHE_KEY, allProjects);
+  await writeToStaticCache(CACHE_KEY, allProjects, redis);
 
   return {
     paths: allProjects.map((project) => ({
