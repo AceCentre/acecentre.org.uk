@@ -119,11 +119,6 @@ jobs:
         with:
           node-version: "14"
 
-      - uses: actions/cache@v2
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
       - name: Install NPM deps
         run: yarn install
 
