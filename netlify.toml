@@ -1,5 +1,5 @@
 ###
-### Everything below is taken from netlify docs and does actually reflect our app.
+### Everything below is taken from netlify docs and does not actually reflect our app.
 ### Its left here just for easy reference 
 ###
 
@@ -19,10 +19,14 @@
 [[plugins]]
   package = "/netlify-plugins/sitemap"
 
+[[plugins]]
+  package = "/netlify-plugins/expose-env-variables"
+
+[build]
+  command = "yarn build"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
-# [build]
   # Directory to change to before starting a build.
   # This is where we will look for package.json/.nvmrc/etc.
   # If not set, defaults to the root directory.
@@ -35,7 +39,6 @@
   # publish = "build-output/"
 
   # Default build command.
-  # command = "echo 'default context'"
 
   # Directory with the serverless functions, including background functions,
   # to deploy to AWS. This is relative to the base directory if one has been set, 
