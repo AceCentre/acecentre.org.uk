@@ -25,6 +25,7 @@ jobs:
       deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
     env:
       REDIS_URL: ${{ secrets.REDIS_URL }}
+      GITHUB_SHA: ${{ github.sha }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
@@ -55,6 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REDIS_URL: ${{ secrets.REDIS_URL }}
+      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Get Code
         uses: actions/checkout@v2
