@@ -76,7 +76,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { project: projectSlug } }) => {
-    const allProjects = await readFromStaticCache(CACHE_KEY);
+    const allProjects = await readFromStaticCache(CACHE_KEY, redis);
     const currentProject = allProjects.find(
       (project) => project.slug === projectSlug
     );
