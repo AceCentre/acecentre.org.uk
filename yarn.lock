@@ -13519,10 +13519,10 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@3.33.4:
-  version "3.33.4"
-  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.33.4.tgz"
-  integrity sha512-USPpmOfr1ZaFynAuTCjvmCzBPCY8swBkqr0jMBfOW2vDAThnVasqJyoW1ItkcjtafCGAR5+hyFcJFqzCbZgpbA==
+netlify-cli@3.34.0:
+  version "3.34.0"
+  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.34.0.tgz"
+  integrity sha512-wIjo8v2HZEqiLHraZmjsC3JFQl+Ax3KiN+sxT/0Cuq135BJY7csA+xsBY0N1Pb9UB8TQGYYVU9w+Z7CUcNdBHA==
   dependencies:
     "@netlify/build" "^11.31.1"
     "@netlify/config" "^6.7.1"
