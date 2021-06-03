@@ -6,6 +6,13 @@ on:
       - main
 
 jobs:
+  FlushRedis:
+    runs-on: ubuntu-latest
+    env:
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+    steps:
+      - name:
+
   DeployNetlify:
     runs-on: ubuntu-latest
     environment:
