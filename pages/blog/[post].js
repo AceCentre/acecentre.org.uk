@@ -63,7 +63,7 @@ const cacheKey = "ALL_FULL_POSTS";
 export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
 
-  writeToStaticCache(cacheKey, allPosts);
+  await writeToStaticCache(cacheKey, allPosts);
 
   return {
     paths: allPosts.map((post) => ({ params: { post: post.slug } })),
@@ -73,7 +73,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { post: postSlug } }) => {
-    const allPosts = readFromStaticCache(cacheKey);
+    const allPosts = await readFromStaticCache(cacheKey);
     const currentPost = allPosts.find((post) => post.slug === postSlug);
 
     const featuredPosts = (

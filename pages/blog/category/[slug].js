@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
   if (!blogCategories) throw new Error("Couldn't get categories");
 
-  writeToStaticCache(CACHE_KEY, blogCategories);
+  await writeToStaticCache(CACHE_KEY, blogCategories);
 
   return {
     paths: blogCategories.map((category) => ({
@@ -54,7 +54,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const blogCategories = readFromStaticCache(CACHE_KEY);
+  const blogCategories = await readFromStaticCache(CACHE_KEY);
   const currentCategory = blogCategories.find(
     (category) => category.slug === slug
   );

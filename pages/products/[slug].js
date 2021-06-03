@@ -59,7 +59,7 @@ export default function ProductPage({ product }) {
 export async function getStaticPaths() {
   const allProducts = await getAllProducts();
 
-  writeToStaticCache(PRODUCT_CACHE_KEY, allProducts);
+  await writeToStaticCache(PRODUCT_CACHE_KEY, allProducts);
 
   const paths = allProducts.map((product) => ({
     params: { slug: product.slug },
@@ -72,7 +72,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allProducts = readFromStaticCache(PRODUCT_CACHE_KEY);
+  const allProducts = await readFromStaticCache(PRODUCT_CACHE_KEY);
   const product = allProducts.find(({ slug }) => slug === params.slug);
 
   if (!product) {

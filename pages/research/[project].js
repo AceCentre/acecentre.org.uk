@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 
   if (!allProjects) throw new Error("Could not get all the projects");
 
-  writeToStaticCache(CACHE_KEY, allProjects);
+  await writeToStaticCache(CACHE_KEY, allProjects);
 
   return {
     paths: allProjects.map((project) => ({
@@ -75,7 +75,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { project: projectSlug } }) => {
-    const allProjects = readFromStaticCache(CACHE_KEY);
+    const allProjects = await readFromStaticCache(CACHE_KEY);
     const currentProject = allProjects.find(
       (project) => project.slug === projectSlug
     );
