@@ -131,7 +131,7 @@ jobs:
 
       - name: Run Cypress
         env:
-          CYPRESS_BASE_URL: ${{ jobs.DeployNetlifyDraft.outputs.deploy-url }}
+          CYPRESS_BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
         run: yarn cypress:run
 
       - uses: actions/upload-artifact@v2
@@ -165,7 +165,7 @@ jobs:
       - name: Run Lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_URL: ${{ jobs.DeployNetlifyDraft.outputs.deploy-url }}
+          BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
         run: yarn lighthouse
 
