@@ -28,7 +28,11 @@ export const SubNav = ({ navItems, active }) => {
 };
 
 const InnerContainer = ({ children }) => {
-  return <nav className={styles.innerContainer}>{children}</nav>;
+  return (
+    <nav data-testid="subnav" className={styles.innerContainer}>
+      {children}
+    </nav>
+  );
 };
 
 const FullWidthContainer = ({ children }) => {
