@@ -25,15 +25,4 @@ context("Resources Browse", () => {
 
     cy.contains("You searched for").contains(searchText);
   });
-
-  it("Make a search from the resources page", () => {
-    const searchText = "test";
-
-    cy.visit("/resources/all");
-
-    // Find the search box and then type 'a'
-    cy.get('input[name="searchText"]').type(`${searchText}{enter}`);
-
-    cy.contains("You searched for").contains(searchText);
-  });
 });
