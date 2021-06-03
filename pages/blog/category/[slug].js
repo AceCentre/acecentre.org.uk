@@ -12,7 +12,7 @@ import { getAllPostsForCategory } from "../../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../../lib/static-caching/read";
 import { writeToStaticCache } from "../../../lib/static-caching/write";
 import styles from "../../../styles/index.module.css";
-import redis from "../../lib/static-caching/redis";
+import redis from "../../../lib/static-caching/redis";
 
 export default function CategoryPage({ posts, category }) {
   const cartCount = useCartCount();
