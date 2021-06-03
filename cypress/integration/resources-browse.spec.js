@@ -1,7 +1,5 @@
 context("Resources Browse", () => {
   it("Completes a search and has the correct search text on the next page", () => {
-    const searchText = "My search text";
-
     cy.visit("/");
 
     // Click the resources link in the nav
