@@ -53,6 +53,14 @@ jobs:
 
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
+        
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: .
+          path: netlify-deployed
+          # Github has size limits so this avoids hitting them
+          retention-days: 1
 
   WarmUpCache:
     needs: DeployNetlifyDraft
