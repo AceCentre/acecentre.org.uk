@@ -4,13 +4,10 @@ context("Blog Search", () => {
 
     cy.visit("/blog");
 
-    const searchInput = cy.findByRole("textbox", { name: "Search blog posts" });
-    searchInput.type(searchText);
+    cy.findByRole("textbox", { name: "Search blog posts" }).type(searchText);
 
-    const searchButton = cy.findByRole("button", { name: "Search" });
-    searchButton.click();
+    cy.findByRole("button", { name: "Search" }).click();
 
-    const resultsElement = cy.findByRole("heading", { name: /Results/i });
-    resultsElement.contains(searchText);
+    cy.findByRole("heading", { name: /Results/i }).contains(searchText);
   });
 });

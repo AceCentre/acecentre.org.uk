@@ -12,6 +12,7 @@ import { getAllPostsForCategory } from "../../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../../lib/static-caching/read";
 import { writeToStaticCache } from "../../../lib/static-caching/write";
 import styles from "../../../styles/index.module.css";
+import redis from "../../../lib/static-caching/redis";
 
 export default function CategoryPage({ posts, category }) {
   const cartCount = useCartCount();
@@ -43,7 +44,7 @@ export async function getStaticPaths() {
 
   if (!blogCategories) throw new Error("Couldn't get categories");
 
-  writeToStaticCache(CACHE_KEY, blogCategories);
+  await writeToStaticCache(CACHE_KEY, blogCategories, redis);
 
   return {
     paths: blogCategories.map((category) => ({
@@ -54,7 +55,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const blogCategories = readFromStaticCache(CACHE_KEY);
+  const blogCategories = await readFromStaticCache(CACHE_KEY, redis);
   const currentCategory = blogCategories.find(
     (category) => category.slug === slug
   );

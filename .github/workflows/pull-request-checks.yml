@@ -24,6 +24,8 @@ jobs:
       deploy-name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
     env:
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+      GITHUB_SHA: ${{ github.sha }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
@@ -50,8 +52,18 @@ jobs:
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
 
+  WarmUpCache:
+    needs: DeployNetlifyDraft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Warm up resources
+        run: curl ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}/resources/all
+
   Jest:
     runs-on: ubuntu-latest
+    env:
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Get Code
         uses: actions/checkout@v2
@@ -103,7 +115,7 @@ jobs:
         run: yarn run eslint .
 
   Cypress:
-    needs: DeployNetlifyDraft
+    needs: [WarmUpCache, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -113,12 +125,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
-
-      - uses: actions/cache@v2
-        with:
-          path: node_modules
-            ~/.cache/Cypress
-          key: ${{ runner.os }}-node_modules-and-cypress-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install NPM deps
         run: yarn install
@@ -137,7 +143,7 @@ jobs:
           retention-days: 1
 
   Lighthouse:
-    needs: DeployNetlifyDraft
+    needs: [WarmUpCache, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     steps:
       - name: Get Code

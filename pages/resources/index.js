@@ -1,6 +1,7 @@
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
+import { ResourceCategoriesGrid } from "../../components/resource-categories-grid/resource-categories-grid";
 import { ResourceCategoriesHighlight } from "../../components/resource-categories-highlight/resource-categories-highlight";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
@@ -9,7 +10,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProductsByPopularity } from "../../lib/products/get-products";
 
-export default function Resources({ popularResources }) {
+export default function Resources({ popularResources, featuredResources }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -27,6 +28,12 @@ export default function Resources({ popularResources }) {
           posts={popularResources}
         />
         <ResourceCategoriesHighlight />
+        <ResourceCategoriesGrid />
+        <FeaturedPosts
+          linkPrefix="resources"
+          title="Featured resources"
+          posts={featuredResources}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -40,5 +47,12 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { popularResources } };
+  const featuredResources = allProducts
+    .filter((resource) => resource.featured)
+    .map((product) => ({
+      title: product.name,
+      ...product,
+    }));
+
+  return { props: { popularResources, featuredResources } };
 });

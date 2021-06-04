@@ -14,6 +14,7 @@ import {
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
 import styles from "../../styles/index.module.css";
+import redis from "../../lib/static-caching/redis";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
@@ -63,7 +64,7 @@ const cacheKey = "ALL_FULL_POSTS";
 export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
 
-  writeToStaticCache(cacheKey, allPosts);
+  await writeToStaticCache(cacheKey, allPosts, redis);
 
   return {
     paths: allPosts.map((post) => ({ params: { post: post.slug } })),
@@ -73,7 +74,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { post: postSlug } }) => {
-    const allPosts = readFromStaticCache(cacheKey);
+    const allPosts = await readFromStaticCache(cacheKey, redis);
     const currentPost = allPosts.find((post) => post.slug === postSlug);
 
     const featuredPosts = (
