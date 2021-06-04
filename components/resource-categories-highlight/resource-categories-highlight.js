@@ -5,17 +5,17 @@ export const ResourceCategoriesHighlight = () => {
   return (
     <ul className={styles.container}>
       <li>
-        <Link href="/resources/categories/alphabet-charts">
+        <Link href="/resources/all?category=alphabet-charts">
           Alphabet Charts
         </Link>
       </li>
       <li>
-        <Link href="/resources/categories/alphabet-books">
+        <Link href="/resources/all?category=alphabet-books">
           Alphabet communication book templates
         </Link>
       </li>
       <li>
-        <Link href="/resources/categories/symbol-charts">Symbol Charts</Link>
+        <Link href="/resources/all?category=symbol-charts">Symbol Charts</Link>
       </li>
     </ul>
   );

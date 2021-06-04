@@ -8,4 +8,17 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-css-modules-preset",
   ],
+  webpackFinal: async (config) => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          "@emotion/core": "@emotion/react",
+          "emotion-theming": "@emotion/react",
+        },
+      },
+    };
+  },
 };

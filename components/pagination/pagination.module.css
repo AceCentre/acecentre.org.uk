@@ -1,0 +1,29 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.listItem {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.selectedItem {
+  background: var(--primaryColour);
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
