@@ -51,3 +51,35 @@ it("trims long string", () => {
   // Assert
   expect(result).toBe(expected);
 });
+
+it("lower cases string", () => {
+  // Arrange
+  const context = {
+    payload: {
+      pull_request: { title: "UPPER" },
+    },
+  };
+  const expected = "upper";
+
+  // Act
+  const result = script(context);
+
+  // Assert
+  expect(result).toBe(expected);
+});
+
+it("Removes trailing dashes", () => {
+  // Arrange
+  const context = {
+    payload: {
+      pull_request: { title: "Update dependency @lhci/cli to v0.8.0" },
+    },
+  };
+  const expected = "update-dependency-lhci-cli-to-v0-8";
+
+  // Act
+  const result = script(context);
+
+  // Assert
+  expect(result).toBe(expected);
+});
