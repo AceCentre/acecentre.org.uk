@@ -54,12 +54,15 @@ jobs:
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
         
-      - uses: actions/upload-artifact@v2
+      - name: 'Tar files'
+        run: tar -cvf my_files.tar .
+
+      - name: 'Upload Artifact'
         if: ${{ always() }}
+        uses: actions/upload-artifact@v2
         with:
           name: netlify-deployed
-          path: .
-          # Github has size limits so this avoids hitting them
+          path: my_files.tar
           retention-days: 1
 
   WarmUpCache:
