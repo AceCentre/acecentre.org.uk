@@ -106,6 +106,10 @@ module.exports = {
         "uses-rel-preconnect": "off",
         "preload-lcp-image": "off",
 
+        // This would require a lot of work to fix, issue has been opened
+        // https://github.com/AceCentre/acecentre.org.uk/issues/108
+        "csp-xss": "off",
+
         ...getExtraAssertions(),
       },
     },
