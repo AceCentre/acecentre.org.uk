@@ -46,7 +46,7 @@
   "devDependencies": {
     "@babel/core": "7.14.3",
     "@lhci/cli": "0.7.2",
-    "@netlify/plugin-nextjs": "3.4.0",
+    "@netlify/plugin-nextjs": "3.4.1",
     "@storybook/addon-actions": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-links": "6.2.9",
