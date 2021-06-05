@@ -7575,9 +7575,9 @@ copy-to-clipboard@3.3.1, copy-to-clipboard@^3.3.1:
     toggle-selection "^1.0.6"
 
 core-js-compat@^3.8.1:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.13.1.tgz#05444caa8f153be0c67db03cf8adb8ec0964e58e"
-  integrity sha512-mdrcxc0WznfRd8ZicEZh1qVeJ2mu6bwQFh8YVUK48friy/FOwFV5EJj9/dlh+nMQ74YusdVfBFDuomKgUspxWQ==
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.14.0.tgz#b574dabf29184681d5b16357bd33d104df3d29a5"
+  integrity sha512-R4NS2eupxtiJU+VwgkF9WTpnSfZW4pogwKHd8bclWU2sp93Pr5S1uYJI84cMOubJRou7bcfL0vmwtLslWN5p3A==
   dependencies:
     browserslist "^4.16.6"
     semver "7.0.0"
@@ -7596,14 +7596,14 @@ core-js-pure@^3.0.0:
   integrity sha512-PxEiQGjzC+5qbvE7ZIs5Zn6BynNeZO9zHhrrWmkRff2SZLq0CE/H5LuZOJHhmOQ8L38+eMzEHAmPYWrUtDfuDQ==
 
 core-js-pure@^3.8.2:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.13.1.tgz#5d139d346780f015f67225f45ee2362a6bed6ba1"
-  integrity sha512-wVlh0IAi2t1iOEh16y4u1TRk6ubd4KvLE8dlMi+3QUI6SfKphQUh7tAwihGGSQ8affxEXpVIPpOdf9kjR4v4Pw==
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.14.0.tgz#72bcfacba74a65ffce04bf94ae91d966e80ee553"
+  integrity sha512-YVh+LN2FgNU0odThzm61BsdkwrbrchumFq3oztnE9vTKC4KS2fvnPmcx8t6jnqAyOTCTF4ZSiuK8Qhh7SNcL4g==
 
 core-js@^3.0.4:
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.13.1.tgz#30303fabd53638892062d8b4e802cac7599e9fb7"
-  integrity sha512-JqveUc4igkqwStL2RTRn/EPFGBOfEZHxJl/8ej1mXJR75V3go2mFF4bmUYkEIT1rveHKnkUlcJX/c+f1TyIovQ==
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.14.0.tgz#62322b98c71cc2018b027971a69419e2425c2a6c"
+  integrity sha512-3s+ed8er9ahK+zJpp9ZtuVcDoFzHNiZsPbNAAE4KXgrRHbjSqqNN6xGSXq6bq7TZIbKj4NLrLb6bJ5i+vSVjHA==
 
 core-js@^3.6.5, core-js@^3.8.2:
   version "3.10.2"
@@ -14140,10 +14140,10 @@ netlify@^7.0.0:
     p-wait-for "^3.2.0"
     qs "^6.9.6"
 
-next-iron-session@4.1.13:
-  version "4.1.13"
-  resolved "https://registry.npmjs.org/next-iron-session/-/next-iron-session-4.1.13.tgz"
-  integrity sha512-CHYeVtpdHDy4OjH1QppR0n2tF4eEp0hFalQIzhqNEPfG4AfbmqiVGZIVTipJRVc7YfCOS3MZx8B5/yKbM8gA7Q==
+next-iron-session@4.1.14:
+  version "4.1.14"
+  resolved "https://registry.npmjs.org/next-iron-session/-/next-iron-session-4.1.14.tgz"
+  integrity sha512-Df1m/ohtvgHLqi0ECznxjNDRzTLT1NSXgyuRjLc5spYMCBJQ6yVY0Ah03Lw7/+/9sYBJ00fQjilFQ2Whechhrw==
   dependencies:
     "@types/cookie" "^0.4.0"
     array.prototype.flat "^1.2.4"
