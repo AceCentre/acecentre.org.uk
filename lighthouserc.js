@@ -62,7 +62,7 @@ const PATHS_TO_TEST = [
 module.exports = {
   ci: {
     collect: {
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       url: PATHS_TO_TEST.map((path) => getTargetBaseUrl() + path),
       settings: {
         preset: "desktop",
