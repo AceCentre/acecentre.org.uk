@@ -3104,15 +3104,16 @@
     path-exists "^4.0.0"
     readdirp "^3.4.0"
 
-"@netlify/config@^6.0.0", "@netlify/config@^6.7.3":
-  version "6.7.3"
-  resolved "https://registry.npmjs.org/@netlify/config/-/config-6.7.3.tgz"
-  integrity sha512-Cfu4ENQFZynp50ysZ1u6vX/jJWCI6nAuIyBxqj8CNLj5GmwZMv+SXUxVpi+9kcIpuLV6tOADldTjDRTTnKsxcA==
+"@netlify/config@^6.0.0", "@netlify/config@^6.7.3", "@netlify/config@^6.9.0":
+  version "6.9.0"
+  resolved "https://registry.npmjs.org/@netlify/config/-/config-6.9.0.tgz"
+  integrity sha512-HGXO6bX6i6az1VfpBk0PIx0600f7IryTJN4bcoWxrevYeIUGuOU78fzCCCJvFOHEHis2BtaD0/sP02tOuqJkxw==
   dependencies:
     "@ungap/from-entries" "^0.2.1"
     array-flat-polyfill "^1.0.1"
     chalk "^3.0.0"
     deepmerge "^4.2.2"
+    dot-prop "^5.3.0"
     execa "^3.4.0"
     fast-safe-stringify "^2.0.7"
     figures "^3.2.0"
@@ -4883,9 +4884,9 @@
     "@types/react" "*"
 
 "@types/react@*":
-  version "17.0.10"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.10.tgz#c8bb4e37cc642f7cc5532959cb5e2ead6c74dec9"
-  integrity sha512-+Tc5aGO49L/cjFBfpIPB398ztmAUChglc+a+EYlvphMOMvwUEzmLiyfmnEseGE7inMO6XiSffHmXVPC8GonksQ==
+  version "17.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.11.tgz#67fcd0ddbf5a0b083a0f94e926c7d63f3b836451"
+  integrity sha512-yFRQbD+whVonItSk7ZzP/L+gPTJVBkL/7shLEF+i9GC/1cV3JmUxEQz6+9ylhUpWSDuqo1N9qEvqS6vTj4USUA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -8521,7 +8522,7 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
-dot-prop@^5.1.0, dot-prop@^5.2.0:
+dot-prop@^5.1.0, dot-prop@^5.2.0, dot-prop@^5.3.0:
   version "5.3.0"
   resolved "https://registry.npmjs.org/dot-prop/-/dot-prop-5.3.0.tgz"
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
@@ -14017,13 +14018,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@3.37.0:
-  version "3.37.0"
-  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.0.tgz"
-  integrity sha512-fU5f21TPllEd/Jxo/ED58iEOCNjml02NYe1R3UakFX4meCa0KIv/tFGu0Uu+JEnn2Ann/4IMzyiIn1qNuEk+Cg==
+netlify-cli@3.37.1:
+  version "3.37.1"
+  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.1.tgz"
+  integrity sha512-Mc6dSiRUm7E9G2xgxgkKJhRruF45u3VScW6X89badEdjkWhOvxqWEmCZh1SD4xTIjDzr2oMt1UgsGo+fpTgcLQ==
   dependencies:
     "@netlify/build" "^11.36.0"
-    "@netlify/config" "^6.7.3"
+    "@netlify/config" "^6.9.0"
     "@netlify/framework-info" "^5.1.4"
     "@netlify/plugin-edge-handlers" "^1.11.16"
     "@netlify/plugins-list" "^2.15.0"
