@@ -2,7 +2,10 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { Pagination } from "../../components/pagination/pagination";
-import { ProductFilters } from "../../components/product-filters/product-filters";
+import {
+  ProductFilters,
+  ORDER_BY_OPTIONS,
+} from "../../components/product-filters/product-filters";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -23,6 +26,7 @@ export default function AllResources({
   selectedSubcategory,
   selectedCategory,
   selectedPriceRange,
+  selectedOrderBy,
 }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -38,6 +42,7 @@ export default function AllResources({
           selectedCategory={selectedCategory}
           selectedSubCategory={selectedSubcategory}
           selectedPriceRange={selectedPriceRange}
+          selectedOrderBy={selectedOrderBy}
           categories={productCategories}
           resourceCount={totalResourcesCount}
           searchText={searchText}
@@ -60,6 +65,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const category = req.query.category || "";
   const subcategory = req.query.subcategory || "";
   const priceRange = req.query.pricerange || "";
+  const orderBy = req.query.orderby || ORDER_BY_OPTIONS[0].slug;
   const productsPerPage = 20;
 
   const products = await readFromStaticCacheWithFallback(
@@ -89,6 +95,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     category,
     subcategory,
     priceRange,
+    orderBy,
   });
 
   const resources = filteredProducts.map((product) => ({
@@ -106,6 +113,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       selectedCategory: category,
       selectedSubcategory: subcategory,
       selectedPriceRange: priceRange,
+      selectedOrderBy: orderBy,
     },
   };
 });
