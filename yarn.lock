@@ -3189,10 +3189,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@netlify/build@^12.1.1":
-  version "12.1.1"
-  resolved "https://registry.npmjs.org/@netlify/build/-/build-12.1.1.tgz"
-  integrity sha512-wBm9O1xFTQjZ/37cPfArxd5RG14RfdSmyrkw7KZquxTgGrDjtqAHqZPkpaMrTZuVsWnHbX1+TesBmT+zHA+RUQ==
+"@netlify/build@^12.1.2":
+  version "12.1.2"
+  resolved "https://registry.npmjs.org/@netlify/build/-/build-12.1.2.tgz"
+  integrity sha512-K8v+HeazBmaDtRT+ZHAj566vjk9dB1Dv9mnDibGU8dFSCVlNHEmJ4ycJe5c308xYUk+jJO4PGQ6155FDDmcyNQ==
   dependencies:
     "@bugsnag/js" "^7.0.0"
     "@netlify/cache-utils" "^1.0.7"
@@ -3263,10 +3263,10 @@
     path-exists "^4.0.0"
     readdirp "^3.4.0"
 
-"@netlify/config@^7.0.0", "@netlify/config@^7.2.1":
-  version "7.2.1"
-  resolved "https://registry.npmjs.org/@netlify/config/-/config-7.2.1.tgz"
-  integrity sha512-nxp3LwUggkjsgNpZy3WXyNEoFJ1cxi9yIIXYcNUEPifLtjZAoFDPu64yEoLaC8H6WNQ6baza0+K+KNtyGEQDCA==
+"@netlify/config@^7.0.0", "@netlify/config@^7.2.3":
+  version "7.2.3"
+  resolved "https://registry.npmjs.org/@netlify/config/-/config-7.2.3.tgz"
+  integrity sha512-ingKElzWTj3Lt3xuYOqiwp+B5qwTf3Xo4X0yKAmKXupygC2ZDFXBU3JKDQ/SkV7PJw8ofaDUYugeG9gfdyTonA==
   dependencies:
     "@ungap/from-entries" "^0.2.1"
     array-flat-polyfill "^1.0.1"
@@ -3283,7 +3283,7 @@
     js-yaml "^4.0.0"
     map-obj "^4.0.0"
     netlify "^7.0.1"
-    netlify-redirect-parser "^5.1.1"
+    netlify-redirect-parser "^5.2.1"
     omit.js "^2.0.2"
     p-locate "^4.1.0"
     path-exists "^4.0.0"
@@ -3292,11 +3292,6 @@
     tomlify-j0.4 "^3.0.0"
     validate-npm-package-name "^3.0.0"
     yargs "^15.3.0"
-
-"@netlify/esbuild@^0.13.4":
-  version "0.13.5"
-  resolved "https://registry.npmjs.org/@netlify/esbuild/-/esbuild-0.13.5.tgz"
-  integrity sha512-412V+fUhQagmQ6gw/SqvFU1Gi06n+7M9Rug6+Fr4Qzpiq7To2iMS0myYOyyFs1UfmVM6a3erXKfhPQsBzo4CQQ==
 
 "@netlify/framework-info@^5.2.0":
   version "5.2.0"
@@ -3313,11 +3308,11 @@
     semver "^7.3.4"
 
 "@netlify/functions-utils@^1.3.13":
-  version "1.3.40"
-  resolved "https://registry.npmjs.org/@netlify/functions-utils/-/functions-utils-1.3.40.tgz"
-  integrity sha512-H7+rB6VJOzzFSniUSv98ZSSydd5SfZlbEcxNPbVpXrl8WAcK7GlmIBfXCpyVzVjbflecxSdVhZC2i6isHDN4zA==
+  version "1.3.41"
+  resolved "https://registry.npmjs.org/@netlify/functions-utils/-/functions-utils-1.3.41.tgz"
+  integrity sha512-wtvQuG/gsvUmUMBF5PWn3Zi0PM6ZeYrRsaifow0u6cwkejVyChYpPVvFtQEb/R0rt3r325Wukp9NJgyrxDV3CQ==
   dependencies:
-    "@netlify/zip-it-and-ship-it" "^4.3.0"
+    "@netlify/zip-it-and-ship-it" "4.2.7"
     cpy "^8.1.0"
     path-exists "^4.0.0"
 
@@ -3400,35 +3395,35 @@
   resolved "https://registry.npmjs.org/@netlify/plugins-list/-/plugins-list-2.15.1.tgz"
   integrity sha512-455aOR8JMidQR8WJvtoWdvuRm+jYLiQf8Y83dr4OnVzCcnsi3sCSqWp3107JuLwYIN3TE5c/UZ2h9C8gIA08jA==
 
-"@netlify/routing-local-proxy-darwin-arm64@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-arm64/-/routing-local-proxy-darwin-arm64-0.30.0.tgz"
-  integrity sha512-DL73yErgPN/UeSZsxbEnJaEssLHlQVV+BWfPe45WP5qkRfvnokM1CXJX4KvblIyb82VbdY0Vczif8LLmAbKcGA==
+"@netlify/routing-local-proxy-darwin-arm64@^0.30.1":
+  version "0.30.1"
+  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-arm64/-/routing-local-proxy-darwin-arm64-0.30.1.tgz"
+  integrity sha512-i7UZsD0P0w9ZQGxrbNCPTaT0mrkPwAVCHEI5uHFIpAERahSAJbz4NYY8P1ubdYOdxjFXyGX3l5lTOvrpcc/mug==
 
-"@netlify/routing-local-proxy-darwin-x64@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-x64/-/routing-local-proxy-darwin-x64-0.30.0.tgz"
-  integrity sha512-vAY6hyAo5rH1dXTqp8AEPkouxoEPCkLiUS6wNRC0Y12765knB7vHWOQucm/7UcrcNUmvYmqtK8JClXAfQIDVZA==
+"@netlify/routing-local-proxy-darwin-x64@^0.30.1":
+  version "0.30.1"
+  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-darwin-x64/-/routing-local-proxy-darwin-x64-0.30.1.tgz"
+  integrity sha512-Jl8nPH/dkCUfSF4WuQss23gMMyTjgh4cqhCqlw5mfmp3+r1sdy7i346kY15rshPbBs+SrFbmxDfhk2zfqBV7nQ==
 
-"@netlify/routing-local-proxy-linux-x64@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-linux-x64/-/routing-local-proxy-linux-x64-0.30.0.tgz"
-  integrity sha512-sHa3nKK0uCNXUMtDNP/yuZElV7YVDiPU32HXm66lNKIde+EIMyYy93nmjRBHo4EbjniR1U5FY185FIAcQyPqqw==
+"@netlify/routing-local-proxy-linux-x64@^0.30.1":
+  version "0.30.1"
+  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-linux-x64/-/routing-local-proxy-linux-x64-0.30.1.tgz"
+  integrity sha512-fbwCrZ9RRxzxxrtAh3u4y+nzbpcPDwVLQf1pdO9OPs3D5C95Fju2FgYVW8pnPr/E96CzWb0l8rSMZl7R507iNA==
 
-"@netlify/routing-local-proxy-win32-x64@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-win32-x64/-/routing-local-proxy-win32-x64-0.30.0.tgz"
-  integrity sha512-TitCXiFxlXAfg3ynqZdtlEDXwGadNuOGPu3fK0dmeVvHbc2xMYYBva44ODNTbalKj2ZyLKUOT4G0PDlbSTsypQ==
+"@netlify/routing-local-proxy-win32-x64@^0.30.1":
+  version "0.30.1"
+  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy-win32-x64/-/routing-local-proxy-win32-x64-0.30.1.tgz"
+  integrity sha512-Adgz3O3RFjk1DgoyY7G21bMyrssTWaeD2942qgO8Kp33AJDsQ4vJbyflmmdWtYms2hKP29eu/0LJAziKG65/xw==
 
-"@netlify/routing-local-proxy@^0.30.0":
-  version "0.30.0"
-  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy/-/routing-local-proxy-0.30.0.tgz"
-  integrity sha512-603JAYirKZOse+wzAdHwudvWUCGe7nqu5pOVVIa562AV3YhNgZU4sPPKFUcRSXn3QFgyhUSxnNHOabs62IWhrg==
+"@netlify/routing-local-proxy@^0.30.1":
+  version "0.30.1"
+  resolved "https://registry.npmjs.org/@netlify/routing-local-proxy/-/routing-local-proxy-0.30.1.tgz"
+  integrity sha512-9IfNBXDJA2JLvHA5GRDTpOgPpU3dovL8ezB1+igxvtinnl4Nnl9G4D9N6leqf1ecC6aZrx9St4OATqVwY2LryQ==
   optionalDependencies:
-    "@netlify/routing-local-proxy-darwin-arm64" "^0.30.0"
-    "@netlify/routing-local-proxy-darwin-x64" "^0.30.0"
-    "@netlify/routing-local-proxy-linux-x64" "^0.30.0"
-    "@netlify/routing-local-proxy-win32-x64" "^0.30.0"
+    "@netlify/routing-local-proxy-darwin-arm64" "^0.30.1"
+    "@netlify/routing-local-proxy-darwin-x64" "^0.30.1"
+    "@netlify/routing-local-proxy-linux-x64" "^0.30.1"
+    "@netlify/routing-local-proxy-win32-x64" "^0.30.1"
 
 "@netlify/run-utils@^1.0.6":
   version "1.0.7"
@@ -3450,38 +3445,6 @@
     elf-cam "^0.1.1"
     end-of-stream "^1.4.4"
     esbuild "0.11.10"
-    filter-obj "^2.0.1"
-    find-up "^5.0.0"
-    glob "^7.1.6"
-    junk "^3.1.0"
-    locate-path "^6.0.0"
-    make-dir "^3.1.0"
-    merge-options "^3.0.4"
-    minimatch "^3.0.4"
-    p-map "^4.0.0"
-    path-exists "^4.0.0"
-    pkg-dir "^5.0.0"
-    precinct "^8.0.0"
-    read-package-json-fast "^2.0.2"
-    require-package-name "^2.0.1"
-    resolve "^2.0.0-next.1"
-    semver "^7.0.0"
-    unixify "^1.0.0"
-    yargs "^16.0.0"
-
-"@netlify/zip-it-and-ship-it@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/@netlify/zip-it-and-ship-it/-/zip-it-and-ship-it-4.3.0.tgz"
-  integrity sha512-SrI3AFL57IhhQiBgllCj2PMgRlY/b7iA1h0mym9EItduV98+3wmmyXDKTxJtxu2dE0QNUG2J8uiXmCncVAqv6g==
-  dependencies:
-    "@netlify/esbuild" "^0.13.4"
-    archiver "^5.3.0"
-    array-flat-polyfill "^1.0.1"
-    common-path-prefix "^3.0.0"
-    cp-file "^9.0.0"
-    del "^6.0.0"
-    elf-cam "^0.1.1"
-    end-of-stream "^1.4.4"
     filter-obj "^2.0.1"
     find-up "^5.0.0"
     glob "^7.1.6"
@@ -14328,17 +14291,17 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@3.37.20:
-  version "3.37.20"
-  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.20.tgz"
-  integrity sha512-Qlmx2r2pSLYUrO33zZ7/Y1hCgNOEZ6a2kAPR87naFXJnKlEWY4Jpmwlp0Yru5tAzyOLweMdSkINiwtQx/uNd7w==
+netlify-cli@3.37.25:
+  version "3.37.25"
+  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.25.tgz"
+  integrity sha512-uKXM1qDLVHcHgHPbNwfoKQNIwU8Rv5k5yQ0dotS//dPsnwXctVIlR1xGLTo10c4/GxMarCFWSVctDygtug+Waw==
   dependencies:
-    "@netlify/build" "^12.1.1"
-    "@netlify/config" "^7.2.1"
+    "@netlify/build" "^12.1.2"
+    "@netlify/config" "^7.2.3"
     "@netlify/framework-info" "^5.2.0"
     "@netlify/plugin-edge-handlers" "^1.11.17"
     "@netlify/plugins-list" "^2.15.1"
-    "@netlify/routing-local-proxy" "^0.30.0"
+    "@netlify/routing-local-proxy" "^0.30.1"
     "@netlify/zip-it-and-ship-it" "4.2.7"
     "@oclif/command" "^1.6.1"
     "@oclif/config" "^1.15.1"
@@ -14406,7 +14369,7 @@ netlify-cli@3.37.20:
     minimist "^1.2.5"
     multiparty "^4.2.1"
     netlify "^7.0.1"
-    netlify-redirect-parser "^5.1.1"
+    netlify-redirect-parser "^5.2.1"
     netlify-redirector "^0.2.1"
     node-fetch "^2.6.0"
     node-version-alias "^1.0.1"
@@ -14451,10 +14414,10 @@ netlify-plugin-cache-nextjs@1.6.1:
   dependencies:
     "@netlify/cache-utils" "1.0.7"
 
-netlify-redirect-parser@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.npmjs.org/netlify-redirect-parser/-/netlify-redirect-parser-5.1.1.tgz"
-  integrity sha512-TDJShXyaMwQaVtzWjK6U1UAWzWHnFzTVULAduaGroVlQha5Hi6WaRCZLg64FvQx4MUMOH8qOgSyByCqIMXqZWA==
+netlify-redirect-parser@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.npmjs.org/netlify-redirect-parser/-/netlify-redirect-parser-5.2.1.tgz"
+  integrity sha512-9Tua5HZvmIty9t8IuAWEbTB48X1Ih2RnULVVwF21JRliCRENlJ+8r8AopbiNv/8IbvFz04EnGG4TBTtOG/MKEg==
   dependencies:
     filter-obj "^2.0.2"
     is-plain-obj "^2.1.0"
