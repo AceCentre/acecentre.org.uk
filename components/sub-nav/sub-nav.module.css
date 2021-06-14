@@ -25,7 +25,10 @@
 
 .subNav {
   position: absolute;
-  background-color: var(--secondaryColour);
+  left: 0;
+  width: 100vw;
+  margin-top: 16px;
+  background-color: #ffffff;
   z-index: 1;
 }
 
