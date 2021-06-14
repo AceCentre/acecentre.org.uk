@@ -22,6 +22,9 @@
 [[plugins]]
   package = "/netlify-plugins/expose-env-variables"
 
+[[plugins]]
+  package = "/netlify-plugins/output-config"
+
 [build]
   command = "yarn build"
 
