@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Select } from "@chakra-ui/react";
 import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
+import { ORDER_BY_OPTIONS } from "./order-by-options";
 
 const useSearchController = ({
   defaultTopLevelValue,
   defaultSubcategoryValue,
   defaultPriceRange,
+  defaultOrderBy,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -57,6 +59,15 @@ const useSearchController = ({
     setPriceRange(event.target.value);
   };
 
+  const [orderByValue, setOrderByValue] = useState(
+    defaultOrderBy || ORDER_BY_OPTIONS[0].slug
+  );
+
+  const onChangeOrderBy = (event) => {
+    updateSearchParams({ orderby: event.target.value });
+    setOrderByValue(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -72,6 +83,10 @@ const useSearchController = ({
       onChange: onChangePriceRange,
       value: priceRange,
     },
+    orderByProps: {
+      onChange: onChangeOrderBy,
+      value: orderByValue,
+    },
   };
 };
 
@@ -82,16 +97,19 @@ export const ProductFilters = ({
   selectedPriceRange = "",
   resourceCount = 0,
   searchText = "",
+  selectedOrderBy = null,
 }) => {
   const {
     freeTextOnSubmit,
     topLevelCategorySelectProps,
     subcategorySelectProps,
     priceRangeSelectProps,
+    orderByProps,
   } = useSearchController({
     defaultTopLevelValue: selectedCategory,
     defaultSubcategoryValue: selectedSubCategory,
     defaultPriceRangeValue: selectedPriceRange,
+    defaultOrderBy: selectedOrderBy,
   });
 
   const selectedCategoryFull =
@@ -160,14 +178,12 @@ export const ProductFilters = ({
           maxWidth={200}
           className={styles.orderBySelect}
           variant="unstyled"
-          disabled={currentSubCategories.length === 0}
-          {...subcategorySelectProps}
-          placeholder="Select sub-category"
+          {...orderByProps}
         >
-          {currentSubCategories.map((category) => {
+          {ORDER_BY_OPTIONS.map((orderBy) => {
             return (
-              <option value={category.slug} key={category.slug}>
-                {category.name}
+              <option value={orderBy.slug} key={orderBy.slug}>
+                {orderBy.title}
               </option>
             );
           })}
