@@ -1,5 +1,6 @@
 import { useHover, useFocusWithin } from "@react-aria/interactions";
-
+import SvgIcon from "@material-ui/core/SvgIcon";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -71,7 +72,14 @@ const NavItem = ({ navItem, isActive }) => {
       {...highlightProps}
       className={`${styles.listItem}  ${isActive ? styles.activeItem : ""}`}
     >
-      <Link href={navItem.href}>{navItem.title}</Link>
+      <Link href={navItem.href}>
+        <a className={styles.navLink}>
+          {navItem.title}{" "}
+          <SvgIcon fontSize="inherit">
+            <KeyboardArrowDownIcon />
+          </SvgIcon>
+        </a>
+      </Link>
 
       {isHighlighted && (
         <nav className={styles.subNav}>
@@ -117,8 +125,8 @@ export const SUB_NAV_HEADERS = {
 
 export const defaultNavItems = [
   {
-    title: "Getting started",
-    href: "/getting-started",
+    title: "About",
+    href: "/about",
     subItems: [
       { title: "Getting started", href: "/getting-started" },
       { title: "Supporting language", href: "/supporting-language" },
@@ -128,17 +136,22 @@ export const defaultNavItems = [
     ],
   },
   {
+    title: "Getting started",
+    href: "/getting-started",
+    subItems,
+  },
+  {
     title: "Resources",
     href: "/resources",
     subItems,
   },
   {
     title: "Services",
-    href: "/services",
+    href: "/service",
     subItems,
   },
   {
-    title: "AceCentre Learning",
+    title: "AceCentre learning",
     href: "/acecentre-learning",
     subItems,
   },
