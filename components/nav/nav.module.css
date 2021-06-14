@@ -10,12 +10,11 @@
 }
 
 .container {
-  background-color: var(--primaryColour);
+  background-color: #ffffff;
 }
 
 .innerContainer {
-  margin: 0 auto;
-  max-width: var(--containerMaxWidth);
+  margin: 1rem 2rem;
   display: flex;
   align-items: center;
 }
@@ -32,6 +31,22 @@
   text-decoration: none;
   background-color: white;
   padding: 1rem;
+}
+
+.donateButton {
+  margin-left: 1rem;
+}
+
+.navLink {
+  display: flex;
+
+  text-decoration: none;
+  font-size: 14px;
+  color: #333333;
+}
+
+.navLink:hover {
+  text-decoration: underline;
 }
 
 /** Mobile CSS */
