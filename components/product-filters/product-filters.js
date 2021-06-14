@@ -4,10 +4,94 @@ import { Select } from "@chakra-ui/react";
 import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
 
+// The first will always be the default
+export const ORDER_BY_OPTIONS = [
+  {
+    slug: "newest",
+    title: "Newest",
+    sort: (productA, productB) => {
+      const dateA = new Date(productA.date);
+      const dateB = new Date(productB.date);
+      return dateB - dateA;
+    },
+  },
+  {
+    slug: "oldest",
+    title: "Oldest",
+    sort: (productA, productB) => {
+      const dateA = new Date(productA.date);
+      const dateB = new Date(productB.date);
+
+      return dateA - dateB;
+    },
+  },
+  {
+    slug: "alphabetical",
+    title: "Alphabetical (A-Z)",
+    sort: (productA, productB) => {
+      const nameA = productA.name.toUpperCase();
+      const nameB = productB.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      return 0;
+    },
+  },
+  {
+    slug: "alphabetical-reverse",
+    title: "Alphabetical (Z-A)",
+    sort: (productA, productB) => {
+      const nameA = productA.name.toUpperCase();
+      const nameB = productB.name.toUpperCase();
+      if (nameA < nameB) {
+        return 1;
+      }
+      if (nameA > nameB) {
+        return -1;
+      }
+
+      return 0;
+    },
+  },
+  {
+    slug: "price-lowest",
+    title: "Price (lowest)",
+    sort: (productA, productB) => {
+      if (productA.price < productB.price) {
+        return -1;
+      }
+      if (productA.price > productB.price) {
+        return 1;
+      }
+
+      return 0;
+    },
+  },
+  {
+    slug: "price-highest",
+    title: "Price (highest)",
+    sort: (productA, productB) => {
+      if (productA.price < productB.price) {
+        return 1;
+      }
+      if (productA.price > productB.price) {
+        return -1;
+      }
+
+      return 0;
+    },
+  },
+];
+
 const useSearchController = ({
   defaultTopLevelValue,
   defaultSubcategoryValue,
   defaultPriceRange,
+  defaultOrderBy,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -57,6 +141,15 @@ const useSearchController = ({
     setPriceRange(event.target.value);
   };
 
+  const [orderByValue, setOrderByValue] = useState(
+    defaultOrderBy || ORDER_BY_OPTIONS[0].slug
+  );
+
+  const onChangeOrderBy = (event) => {
+    updateSearchParams({ orderby: event.target.value });
+    setOrderByValue(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -72,6 +165,10 @@ const useSearchController = ({
       onChange: onChangePriceRange,
       value: priceRange,
     },
+    orderByProps: {
+      onChange: onChangeOrderBy,
+      value: orderByValue,
+    },
   };
 };
 
@@ -82,16 +179,19 @@ export const ProductFilters = ({
   selectedPriceRange = "",
   resourceCount = 0,
   searchText = "",
+  selectedOrderBy = null,
 }) => {
   const {
     freeTextOnSubmit,
     topLevelCategorySelectProps,
     subcategorySelectProps,
     priceRangeSelectProps,
+    orderByProps,
   } = useSearchController({
     defaultTopLevelValue: selectedCategory,
     defaultSubcategoryValue: selectedSubCategory,
     defaultPriceRangeValue: selectedPriceRange,
+    defaultOrderBy: selectedOrderBy,
   });
 
   const selectedCategoryFull =
@@ -160,14 +260,12 @@ export const ProductFilters = ({
           maxWidth={200}
           className={styles.orderBySelect}
           variant="unstyled"
-          disabled={currentSubCategories.length === 0}
-          {...subcategorySelectProps}
-          placeholder="Select sub-category"
+          {...orderByProps}
         >
-          {currentSubCategories.map((category) => {
+          {ORDER_BY_OPTIONS.map((orderBy) => {
             return (
-              <option value={category.slug} key={category.slug}>
-                {category.name}
+              <option value={orderBy.slug} key={orderBy.slug}>
+                {orderBy.title}
               </option>
             );
           })}
