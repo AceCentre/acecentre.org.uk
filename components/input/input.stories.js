@@ -1,4 +1,6 @@
 import { Input } from "./input";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import SearchIcon from "@material-ui/icons/Search";
 
 export default {
   title: "Components/Input",
@@ -7,5 +9,14 @@ export default {
 
 const Template = (args) => <Input {...args} />;
 
-export const Standard = Template.bind({});
-Standard.args = {};
+export const SearchInput = Template.bind({});
+
+SearchInput.args = {
+  placeholder: "Search",
+  maxWidth: 213,
+  children: (
+    <SvgIcon>
+      <SearchIcon />
+    </SvgIcon>
+  ),
+};
