@@ -1,11 +1,11 @@
-.container {
-  margin: 0 auto;
-  width: 90%;
-  max-width: var(--containerMaxWidth);
-}
-
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .container {
-  }
+.button {
+  font-weight: bold;
+  background-color: #94c64e;
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
