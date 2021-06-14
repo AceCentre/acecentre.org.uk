@@ -2,10 +2,8 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Nav } from "../../components/nav/nav";
 import { Pagination } from "../../components/pagination/pagination";
-import {
-  ProductFilters,
-  ORDER_BY_OPTIONS,
-} from "../../components/product-filters/product-filters";
+import { ORDER_BY_OPTIONS } from "../../components/product-filters/order-by-options";
+import { ProductFilters } from "../../components/product-filters/product-filters";
 import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
