@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "dev": "next dev",
+    "dev": "ENV=development next dev",
     "build": "yarn build:next",
     "build:next": "next build",
     "start": "next start",
