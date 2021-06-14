@@ -3345,10 +3345,10 @@
     semver "^7.3.2"
     sharp "^0.28.1"
 
-"@netlify/plugins-list@^2.15.0":
-  version "2.15.0"
-  resolved "https://registry.npmjs.org/@netlify/plugins-list/-/plugins-list-2.15.0.tgz"
-  integrity sha512-UOkQGvLjy5XDQsVpaaur/QOTPCXS6xCIbMWRYgboEH/BtMNh7ATv7fkF1kQgrJ1+hdguWzRYhww8/4A+G/kcxw==
+"@netlify/plugins-list@^2.15.0", "@netlify/plugins-list@^2.15.1":
+  version "2.15.1"
+  resolved "https://registry.npmjs.org/@netlify/plugins-list/-/plugins-list-2.15.1.tgz"
+  integrity sha512-455aOR8JMidQR8WJvtoWdvuRm+jYLiQf8Y83dr4OnVzCcnsi3sCSqWp3107JuLwYIN3TE5c/UZ2h9C8gIA08jA==
 
 "@netlify/routing-local-proxy-darwin-arm64@^0.30.0":
   version "0.30.0"
@@ -14278,16 +14278,16 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@3.37.18:
-  version "3.37.18"
-  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.18.tgz"
-  integrity sha512-Qv8GrZC4ApNU49miw0kMyMEjzrHSWVM6Zj2LCs7LnefAk+U6wN/krCUHyKYMkTTwezYq9SaDcpVd2Q+s6vKkwA==
+netlify-cli@3.37.19:
+  version "3.37.19"
+  resolved "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.37.19.tgz"
+  integrity sha512-bsyLN6h9TBgCCPGd/qP3Fxi8I21+esATsiCFJoE9eOBOaSk3Ov4a/ZPZo7GQkUcE3HMdRSBUvaaLZaolsFh1jw==
   dependencies:
     "@netlify/build" "^12.1.0"
     "@netlify/config" "^7.2.0"
     "@netlify/framework-info" "^5.2.0"
     "@netlify/plugin-edge-handlers" "^1.11.17"
-    "@netlify/plugins-list" "^2.15.0"
+    "@netlify/plugins-list" "^2.15.1"
     "@netlify/routing-local-proxy" "^0.30.0"
     "@netlify/zip-it-and-ship-it" "4.2.7"
     "@oclif/command" "^1.6.1"
