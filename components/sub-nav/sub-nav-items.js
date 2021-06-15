@@ -12,14 +12,13 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      // TODO Make these links right
-      { title: "About us", href: "/getting-started" },
-      { title: "Our people", href: "/supporting-language" },
-      { title: "Our trustees", href: "/supporting-access" },
-      { title: "Work with us", href: "/working-in-schools" },
-      { title: "People we support", href: "/family-and-friends" },
-      { title: "Blog", href: "/family-and-friends" },
-      { title: "Projects", href: "/family-and-friends" },
+      { title: "About us", href: "/about" },
+      { title: "Our people", href: "/about/staff" },
+      { title: "Our trustees", href: "/about/trustees" },
+      { title: "Work with us", href: "/careers" },
+      { title: "People we support", href: "/stories" },
+      { title: "Blog", href: "/blog" },
+      { title: "Projects", href: "/research" },
     ],
   },
   {
@@ -35,15 +34,14 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      // TODO Make these links right
       { title: "Getting started with AAC and AT", href: "/getting-started" },
-      { title: "What is AAC / What is AT?", href: "/supporting-language" },
-      { title: "Accessing the computer", href: "/supporting-access" },
+      { title: "What is AAC / What is AT?", href: "/getting-started" },
+      { title: "Accessing the computer", href: "/getting-started" },
       {
         title: "Which is the right communication aid for me?",
-        href: "/working-in-schools",
+        href: "/getting-started",
       },
-      { title: "Resources to get started", href: "/family-and-friends" },
+      { title: "Resources to get started", href: "/getting-started" },
     ],
   },
   {
@@ -59,19 +57,36 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      // TODO Make these links right
-      { title: "All resources", href: "/getting-started" },
-      { title: "Getting started resources", href: "/supporting-language" },
-      { title: "Supporting language", href: "/supporting-access" },
+      { title: "All resources", href: "/resources/all" },
+      {
+        title: "Getting started resources",
+        href: "/resources/all?category=getting-started",
+      },
+      {
+        title: "Supporting language",
+        href: "/resources/all?category=supporting-language",
+      },
       {
         title: "Supporting Access",
-        href: "/working-in-schools",
+        href: "/resources/all?category=supporting-access",
       },
-      { title: "Working in schools", href: "/family-and-friends" },
-      { title: "Family and friends", href: "/family-and-friends" },
-      { title: "Software", href: "/family-and-friends" },
-      { title: "Alphabet resources", href: "/family-and-friends" },
-      { title: "Symbol resources", href: "/family-and-friends" },
+      {
+        title: "Working in schools",
+        href: "/resources/all?category=working-in-schools",
+      },
+      {
+        title: "Family and friends",
+        href: "/resources/all?category=family-and-friends",
+      },
+      { title: "Software", href: "/resources/all?category=software" },
+      {
+        title: "Alphabet resources",
+        href: "/resources/all?category=alphabet-charts",
+      },
+      {
+        title: "Symbol resources",
+        href: "/resources/all?category=symbol-charts",
+      },
     ],
   },
   {
@@ -88,17 +103,20 @@ export const defaultNavItems = [
     },
     subItems: [
       // TODO Make these links right
-      { title: "All services", href: "/getting-started" },
-      { title: "NHS services", href: "/supporting-language" },
-      { title: "Assessments", href: "/supporting-access" },
+      { title: "All services", href: "/services" },
+      { title: "NHS services", href: "/services/nhs" },
+      { title: "Assessments", href: "/services/assessments" },
       {
         title: "Engineering",
-        href: "/working-in-schools",
+        href: "/services/engineering",
       },
-      { title: "Advice and information", href: "/family-and-friends" },
-      { title: "Research", href: "/family-and-friends" },
-      { title: "Partnerships", href: "/family-and-friends" },
-      { title: "AceCentre Learning", href: "/family-and-friends" },
+      {
+        title: "Advice and information",
+        href: "/service/advice-and-information",
+      },
+      { title: "Research", href: "/research" },
+      { title: "Partnerships", href: "/services/partnerships" },
+      { title: "AceCentre Learning", href: "/acecentre-learning" },
     ],
   },
   {
@@ -114,15 +132,20 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      // TODO Make these links right
-      { title: "AceCentre Learning", href: "/getting-started" },
-      { title: "All courses", href: "/supporting-language" },
-      { title: "Access courses", href: "/supporting-access" },
+      { title: "AceCentre Learning", href: "/acecentre-learning" },
+      { title: "All courses", href: "/acecentre-learning/all" },
+      {
+        title: "Access courses",
+        href: "/acecentre-learning/all?category=access",
+      },
       {
         title: "Communication Courses",
-        href: "/working-in-schools",
+        href: "/acecentre-learning/all?category=communication",
       },
-      { title: "Education courses", href: "/family-and-friends" },
+      {
+        title: "Education courses",
+        href: "/acecentre-learning/all?category=education",
+      },
     ],
   },
   {
@@ -139,13 +162,19 @@ export const defaultNavItems = [
         "https://www.justgiving.com/onecheckout/donation/direct/charity/139889",
     },
     subItems: [
-      // TODO Make these links right
-      { title: "Why support ace?", href: "/getting-started" },
-      { title: "Donate", href: "/supporting-language" },
-      { title: "Fundraise", href: "/supporting-access" },
+      {
+        title: "Why support ace?",
+        href: "/get-involved",
+      },
+      {
+        title: "Donate",
+        href:
+          "https://www.justgiving.com/onecheckout/donation/direct/charity/139889",
+      },
+      { title: "Fundraise", href: "/get-involved/fundraise" },
       {
         title: "Volunteer",
-        href: "/working-in-schools",
+        href: "/get-involved/Volunteer",
       },
     ],
   },
