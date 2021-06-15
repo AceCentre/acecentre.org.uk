@@ -3814,25 +3814,25 @@
     prop-types "^15.7.2"
     tslib "^2.1.0"
 
-"@react-aria/interactions@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/@react-aria/interactions/-/interactions-3.4.0.tgz"
-  integrity sha512-BCt0bP+XimcytkAVMQrpRfU/zlOFG1g6i6XmRnatsqq2Xc1ipQHr/MumE2cu8teXJZw2Q3e27VphCDNhCUkpnQ==
+"@react-aria/interactions@3.5.0":
+  version "3.5.0"
+  resolved "https://registry.npmjs.org/@react-aria/interactions/-/interactions-3.5.0.tgz"
+  integrity sha512-EL5GWpzM9UHU17LztwgL/tF3H2tLG375CD64kieCgSfsRcCSlC3pavnPy9jbS8levdBQ2qo9e2xfoX5VtfJisw==
   dependencies:
     "@babel/runtime" "^7.6.2"
-    "@react-aria/utils" "^3.8.0"
-    "@react-types/shared" "^3.6.0"
+    "@react-aria/utils" "^3.8.1"
+    "@react-types/shared" "^3.7.0"
 
 "@react-aria/ssr@^3.0.2":
   version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.0.2.tgz#f96a41a7314a60324b6de871cb872039b63be5c0"
+  resolved "https://registry.npmjs.org/@react-aria/ssr/-/ssr-3.0.2.tgz"
   integrity sha512-+M0wrUlc2eTuMiwTfd0iFZJGu2hvMeYBLE8gRdbPJCDjLhrNWOQLKR/y6ntxQ9u8zjrNl/YPOdRtcqkA2EBnAQ==
   dependencies:
     "@babel/runtime" "^7.6.2"
 
-"@react-aria/utils@^3.8.0":
+"@react-aria/utils@^3.8.1":
   version "3.8.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/utils/-/utils-3.8.1.tgz#7c7246a2d22078c1962d238bdc14569a15d0d761"
+  resolved "https://registry.npmjs.org/@react-aria/utils/-/utils-3.8.1.tgz"
   integrity sha512-SvFf1T2HHAId6LS4+gbJNLQU9wr5GHuR5wA+HOtfVkZ82v3xhOnzfjR5qgjSLYGsPfqNgci5cpKYlHf4YqMf5w==
   dependencies:
     "@babel/runtime" "^7.6.2"
@@ -3843,14 +3843,14 @@
 
 "@react-stately/utils@^3.2.1":
   version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.2.1.tgz#1e85861e6963230f80610bd9d1f5f0d33a481273"
+  resolved "https://registry.npmjs.org/@react-stately/utils/-/utils-3.2.1.tgz"
   integrity sha512-H79CYKPiQZrO1/dMSwjRJxsRlYg7y8PbTwnZOQ1h3DI5W6tD8CCLSlU1A5/Fp1GfcGNnK8gHqsJ9oJSRAwFS1g==
   dependencies:
     "@babel/runtime" "^7.6.2"
 
-"@react-types/shared@^3.6.0", "@react-types/shared@^3.7.0":
+"@react-types/shared@^3.7.0":
   version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.7.0.tgz#0d96cc96a38786ec46417a53c354cc0ed4a5efd9"
+  resolved "https://registry.npmjs.org/@react-types/shared/-/shared-3.7.0.tgz"
   integrity sha512-ivToQQayVIzBX3oqqNwUEtEA81YULnixCuXgzCYNyUthd+YnnBLsg2zMC9nXLGW3qHy8f6JHtD+pel7C3rrVgA==
 
 "@rollup/plugin-babel@^5.2.0":
@@ -7379,7 +7379,7 @@ clone@^2.1.2:
 
 clsx@^1.0.4, clsx@^1.1.1:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz"
   integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
 
 co@^4.6.0:
