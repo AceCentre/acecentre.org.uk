@@ -1,9 +1,9 @@
 import { AllStories } from "../../components/all-stories/all-stories";
+import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
-import { Nav } from "../../components/nav/nav";
 import { PageTitle } from "../../components/page-title/page-title";
 import { StoryHighlight } from "../../components/story-highlight/story-highlight";
-import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
+import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -17,8 +17,7 @@ export default function StoriesLandingPage({ featuredStories }) {
   return (
     <>
       <header>
-        <Nav numberOfItemsInCart={cartCount} />
-        <SubNav navItems={defaultNavItems} />
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
       </header>
       <main>
         <PageTitle

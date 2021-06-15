@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
-import { Nav } from "../../components/nav/nav";
 import { PageTitle } from "../../components/page-title/page-title";
-import { defaultNavItems, SubNav } from "../../components/sub-nav/sub-nav";
+import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -15,6 +14,7 @@ import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
 import styles from "../../styles/index.module.css";
 import redis from "../../lib/static-caching/redis";
+import { CombinedNav } from "../../components/combined-nav/combined-nav";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
@@ -26,8 +26,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
   return (
     <>
       <header>
-        <Nav numberOfItemsInCart={cartCount} />
-        <SubNav navItems={defaultNavItems} />
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
       </header>
       <main>
         <div className={styles.container}>
