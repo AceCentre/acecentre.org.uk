@@ -8,6 +8,9 @@ import { useState } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 import styles from "./sub-nav.module.css";
+import { NavCta } from "../nav-cta/nav-cta";
+
+export { defaultNavItems } from "./sub-nav-items";
 
 export const SubNav = ({ navItems, active }) => {
   return (
@@ -62,7 +65,7 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem, isActive, index }) => {
+const NavItem = ({ navItem, isActive }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
   if (navItem.subItems.length > 10) throw new Error("Too many subitems");
@@ -84,7 +87,7 @@ const NavItem = ({ navItem, isActive, index }) => {
         </a>
       </Link>
 
-      {index === 0 && (
+      {isHighlighted && (
         <nav className={styles.subNav}>
           <div className={styles.subNavInnerContainer}>
             <div className={styles.navContainer}>
@@ -125,7 +128,7 @@ const NavItem = ({ navItem, isActive, index }) => {
               </div>
             </div>
             <div>
-              <p>{navItem.ctaPrimary}</p>
+              <NavCta {...navItem.cta} />
             </div>
           </div>
         </nav>
@@ -153,53 +156,3 @@ export const SUB_NAV_HEADERS = {
   ACECENTRE_LEARNING: "/acecentre-learning",
   GET_INVOLVED: "/get-involved",
 };
-
-export const defaultNavItems = [
-  {
-    title: "About",
-    tagLine: "learn about us",
-    href: "/about",
-    ctaPrimary: "Contact us",
-    ctaSecondary: "to learn more about us",
-    subItems: [
-      // TODO Make these links right
-      { title: "About us", href: "/getting-started" },
-      { title: "Our people", href: "/supporting-language" },
-      { title: "Our trustees", href: "/supporting-access" },
-      { title: "Work with us", href: "/working-in-schools" },
-      { title: "People we support", href: "/family-and-friends" },
-      { title: "Blog", href: "/family-and-friends" },
-      { title: "Projects", href: "/family-and-friends" },
-    ],
-  },
-  {
-    title: "Getting started",
-    href: "/getting-started",
-    tagLine: "how to get started",
-    subItems,
-  },
-  {
-    title: "Resources",
-    tagLine: "explore resources",
-    href: "/resources",
-    subItems,
-  },
-  {
-    title: "Services",
-    tagLine: "what we do",
-    href: "/service",
-    subItems,
-  },
-  {
-    title: "AceCentre learning",
-    tagLine: "start learning",
-    href: "/acecentre-learning",
-    subItems,
-  },
-  {
-    title: "Get involved",
-    tagLine: "get involved",
-    href: "/get-involved",
-    subItems,
-  },
-];
