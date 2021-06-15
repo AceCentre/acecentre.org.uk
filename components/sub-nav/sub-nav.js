@@ -137,18 +137,6 @@ const NavItem = ({ navItem, isActive }) => {
   );
 };
 
-const subItems = [
-  { title: "Getting started", href: "/getting-started" },
-  { title: "Supporting language", href: "/supporting-language" },
-  { title: "Supporting access", href: "/supporting-access" },
-  { title: "Working in schools", href: "/working-in-schools" },
-  { title: "Family and friends", href: "/family-and-friends" },
-  { title: "Software", href: "/software" },
-  { title: "Alphabet resources", href: "/alphabet-resources" },
-  { title: "Symbol resources", href: "/symbol-resources" },
-  { title: "All resources", href: "/all-resources" },
-];
-
 export const SUB_NAV_HEADERS = {
   GETTING_STARTED: "/getting-started",
   RESOURCES: "/resources",
