@@ -19,8 +19,15 @@
   max-width: var(--containerMaxWidth);
 }
 
+.subNavInnerContainer {
+  margin: 0 auto;
+  max-width: var(--containerMaxWidth);
+}
+
 .container {
   background-color: #eeeeee;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
+  clip-path: inset(0 0 -600px 0);
 }
 
 .subNav {
@@ -30,6 +37,8 @@
   margin-top: 16px;
   background-color: #ffffff;
   z-index: 1;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
+  clip-path: inset(0 0 -600px 0);
 }
 
 .listSplit {
