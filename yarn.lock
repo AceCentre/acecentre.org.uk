@@ -14286,10 +14286,10 @@ next-iron-session@4.2.0:
     debug "^4.3.1"
     iron-store "^1.3.0"
 
-next-sitemap@1.6.111:
-  version "1.6.111"
-  resolved "https://registry.npmjs.org/next-sitemap/-/next-sitemap-1.6.111.tgz"
-  integrity sha512-cogtSEUBiJaqyBqujxBZlEvJcMfUXcR8+IRvm0yTNdbP9RLhYslppY3XZs+Pc2OE+AvgP3owmXYUvTCd93N85w==
+next-sitemap@1.6.116:
+  version "1.6.116"
+  resolved "https://registry.npmjs.org/next-sitemap/-/next-sitemap-1.6.116.tgz"
+  integrity sha512-UvxjiJ8X02h6aaGnZiRueSaacVWznzGnmMi6CqLRf9oxvA+Pg/Q28vMfTJTsOdQ7otWM6HVwHAMeJH/ZzjBnQg==
   dependencies:
     "@corex/deepmerge" "^2.6.20"
     matcher "^4.0.0"
