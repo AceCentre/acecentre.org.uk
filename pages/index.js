@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
 import { GetInvolved } from "../components/get-involved/get-involved";
 import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-we-help-cards";
-import { Nav } from "../components/nav/nav";
-import { defaultNavItems, SubNav } from "../components/sub-nav/sub-nav";
+import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useCartCount } from "../lib/cart/use-cart-count";
@@ -22,8 +22,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
   return (
     <>
       <header>
-        <Nav numberOfItemsInCart={cartCount} />
-        <SubNav navItems={defaultNavItems} />
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
       </header>
       <main>
         <VideoWithCardCover>
