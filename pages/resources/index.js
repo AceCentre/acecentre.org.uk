@@ -17,7 +17,7 @@ export default function Resources({ popularResources, featuredResources }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <ResourcesSearch />

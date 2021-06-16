@@ -20,7 +20,7 @@ export default function SearchBlog({ allPosts }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
         {loading ? (
