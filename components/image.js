@@ -1,4 +1,5 @@
 import NextImage from "next/image";
+import styles from "./image.module.css";
 
 export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
@@ -21,7 +22,7 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
 
   return <ImageSelector height={newHeight} width={newWidth} {...rest} />;
 };
-export const ImageSelector = (props) => {
+export const ImageSelector = ({ placeOnTop, ...props }) => {
   // If we are on storybook we just use a normal image tag
   // Bear in mind that we will then do more optimizing for the
   // production build
@@ -29,5 +30,9 @@ export const ImageSelector = (props) => {
     return <img {...props} />;
   }
 
-  return <NextImage {...props} />;
+  return (
+    <div className={`${placeOnTop ? "" : styles.imageContainer}`}>
+      <NextImage {...props} />
+    </div>
+  );
 };

@@ -10,11 +10,6 @@ button {
   font-family: "Montserrat", sans-serif !important;
 }
 
-main {
-  position: relative;
-  z-index: -1;
-}
-
 * {
   box-sizing: border-box;
 }
