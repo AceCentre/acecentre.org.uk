@@ -22,7 +22,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <VideoWithCardCover>
