@@ -53,17 +53,6 @@ jobs:
 
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
-        
-      - name: 'Tar files'
-        run: tar -cvf my_files.tar .
-
-      - name: 'Upload Artifact'
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: netlify-deployed
-          path: my_files.tar
-          retention-days: 1
 
   WarmUpCache:
     needs: DeployNetlifyDraft
@@ -145,7 +134,7 @@ jobs:
       - name: Run Cypress
         env:
           CYPRESS_BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
-        run: yarn cypress:run
+        run: yarn cypress:run --record --key ${{ secrets.CYPRESS_SECRET }}
 
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
