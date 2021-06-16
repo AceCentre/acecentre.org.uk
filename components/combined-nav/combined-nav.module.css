@@ -23,6 +23,12 @@
   height: 100%;
   overflow: auto;
 }
+.donateButton {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+}
 
 .navButton.navButton {
   border: none;
