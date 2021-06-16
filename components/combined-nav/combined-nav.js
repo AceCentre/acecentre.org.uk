@@ -14,6 +14,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { Button } from "../button/button";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -148,97 +149,106 @@ const MenuContent = ({ defaultNavItems, cartCount }) => {
   const checkoutPostfix = cartCount ? ` (${cartCount})` : "";
 
   return (
-    <ul className={styles.menuContentList}>
-      {defaultNavItems.map((navItem, index) => {
-        return (
-          <li key={navItem.title}>
-            <div className={styles.menuContentListItem}>
-              <ChakraButton
-                className={styles.menuContentListButton}
-                variant="unstyled"
-                onClick={onNavItemClick(index)}
-              >
-                {navItem.title}
-                <SvgIcon className={styles.menuContentIcon}>
-                  <KeyboardArrowDownIcon />
-                </SvgIcon>
-              </ChakraButton>
-            </div>
-            {currentlyOpen === index && (
-              <div>
-                <p className={styles.tagLine}>{navItem.tagLine}</p>
-                <ul className={styles.subNavList}>
-                  {navItem.subItems.map((item) => {
-                    return (
-                      <li key={item.title}>
-                        <Link href={item.href}>
-                          <a className={styles.subNavLink}>
-                            <Avatar className={styles.arrowAvatar}>
-                              <ChevronRightIcon className={styles.avatarIcon} />
-                            </Avatar>
-                            {item.title}
-                          </a>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+    <>
+      <ul className={styles.menuContentList}>
+        {defaultNavItems.map((navItem, index) => {
+          return (
+            <li key={navItem.title}>
+              <div className={styles.menuContentListItem}>
+                <ChakraButton
+                  className={styles.menuContentListButton}
+                  variant="unstyled"
+                  onClick={onNavItemClick(index)}
+                >
+                  {navItem.title}
+                  <SvgIcon className={styles.menuContentIcon}>
+                    <KeyboardArrowDownIcon />
+                  </SvgIcon>
+                </ChakraButton>
               </div>
-            )}
-          </li>
-        );
-      })}
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/blog">
-            <a className={styles.subNavLink}>Blog</a>
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/contact">
-            <a className={styles.subNavLink}>Contact</a>
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/my-acecentre">
-            <a className={styles.subNavLink}>
-              <SvgIcon>
-                <PersonOutlineOutlinedIcon />
-              </SvgIcon>
-              My AceCentre
-            </a>
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/checkout">
-            <a className={styles.subNavLink}>
-              <SvgIcon>
-                <ShoppingCartOutlinedIcon />
-              </SvgIcon>
-              Checkout
-              {checkoutPostfix}
-            </a>
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="tel:0800 080 3115">
-            <a className={styles.subNavLink}>
-              <SvgIcon>
-                <PhoneOutlinedIcon />
-              </SvgIcon>
-              0800 080 3115
-            </a>
-          </Link>
-        </div>
-      </li>
-    </ul>
+              {currentlyOpen === index && (
+                <div>
+                  <p className={styles.tagLine}>{navItem.tagLine}</p>
+                  <ul className={styles.subNavList}>
+                    {navItem.subItems.map((item) => {
+                      return (
+                        <li key={item.title}>
+                          <Link href={item.href}>
+                            <a className={styles.subNavLink}>
+                              <Avatar className={styles.arrowAvatar}>
+                                <ChevronRightIcon
+                                  className={styles.avatarIcon}
+                                />
+                              </Avatar>
+                              {item.title}
+                            </a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </li>
+          );
+        })}
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/blog">
+              <a className={styles.subNavLink}>Blog</a>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/contact">
+              <a className={styles.subNavLink}>Contact</a>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/my-acecentre">
+              <a className={styles.subNavLink}>
+                <SvgIcon>
+                  <PersonOutlineOutlinedIcon />
+                </SvgIcon>
+                My AceCentre
+              </a>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/checkout">
+              <a className={styles.subNavLink}>
+                <SvgIcon>
+                  <ShoppingCartOutlinedIcon />
+                </SvgIcon>
+                Checkout
+                {checkoutPostfix}
+              </a>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="tel:0800 080 3115">
+              <a className={styles.subNavLink}>
+                <SvgIcon>
+                  <PhoneOutlinedIcon />
+                </SvgIcon>
+                0800 080 3115
+              </a>
+            </Link>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <Button className={styles.donateButton} href="/donate">
+          Donate
+        </Button>
+      </div>
+    </>
   );
 };
