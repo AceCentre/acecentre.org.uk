@@ -94,6 +94,7 @@ const HomeButton = () => {
             maxHeight={50}
             src={"/nav-logo.png"}
             alt="The AceCentre logo"
+            placeOnTop
           ></Image>
         </a>
       </Link>
