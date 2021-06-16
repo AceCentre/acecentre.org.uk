@@ -3,6 +3,29 @@
 
 .mobileContainer {
   display: none;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
+  padding-left: 2rem;
+}
+
+.menuButton.menuButton.menuButton {
+}
+
+.navButton.navButton {
+  border: none;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0;
+  padding: 2rem 1rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.icon.icon {
+  font-size: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
 }
 
 /** Mobile CSS */
@@ -11,6 +34,8 @@
     display: none;
   }
   .mobileContainer {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
