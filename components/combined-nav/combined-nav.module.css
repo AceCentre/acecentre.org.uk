@@ -10,6 +10,20 @@
 .menuButton.menuButton.menuButton {
 }
 
+.noShadow {
+  box-shadow: none;
+}
+
+.drawer {
+  background-color: #eeeeee;
+  padding: 1rem;
+  padding-bottom: 9rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 .navButton.navButton {
   border: none;
   display: flex;
@@ -30,6 +44,60 @@
 
 .buttonContainer {
   display: flex;
+}
+
+.menuContentList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menuContentListItem {
+  border-bottom: solid 1px #cccccc;
+  margin-top: 1rem;
+}
+
+.menuContentListButton.menuContentListButton.menuContentListButton {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.menuContentIcon.menuContentIcon {
+  font-size: 30px;
+}
+
+.tagLine {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.arrowAvatar.arrowAvatar {
+  background-color: #94c64e;
+  height: 20px;
+  width: 20px;
+}
+
+.avatarIcon.avatarIcon {
+  font-size: 20px;
+}
+
+.subNavList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.subNavLink {
+  text-decoration: none;
+  display: flex;
+  gap: 0.5rem;
+  color: #333333;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 15px 0;
 }
 
 /** Mobile CSS */
