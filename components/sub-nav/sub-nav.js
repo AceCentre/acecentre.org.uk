@@ -65,7 +65,7 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem, isActive, index }) => {
+const NavItem = ({ navItem, isActive }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
   if (navItem.subItems.length > 10) throw new Error("Too many subitems");
@@ -79,7 +79,11 @@ const NavItem = ({ navItem, isActive, index }) => {
       className={`${styles.listItem}  ${isActive ? styles.activeItem : ""}`}
     >
       <Link href={navItem.href}>
-        <a className={styles.navLink}>
+        <a
+          className={`${styles.navLink} ${
+            isHighlighted ? styles.extraBottomPadding : ""
+          }`}
+        >
           {navItem.title}{" "}
           <SvgIcon fontSize="inherit">
             <KeyboardArrowDownIcon />
@@ -87,7 +91,7 @@ const NavItem = ({ navItem, isActive, index }) => {
         </a>
       </Link>
 
-      {index === 0 && (
+      {isHighlighted && (
         <nav className={styles.subNav}>
           <div className={styles.subNavInnerContainer}>
             <div className={styles.navContainer}>

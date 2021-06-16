@@ -71,11 +71,14 @@
   position: absolute;
   left: 0;
   width: 100vw;
-  margin-top: 16px;
   background-color: #ffffff;
   z-index: 99;
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
   clip-path: inset(0 0 -600px 0);
+}
+
+.extraBottomPadding {
+  padding-bottom: 1rem;
 }
 
 .subList {
