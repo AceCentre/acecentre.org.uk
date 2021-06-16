@@ -53,7 +53,9 @@ export const Nav = ({ numberOfItemsInCart = 0 }) => {
             <SearchIcon />
           </SvgIcon>
         </Input>
-        <Button className={styles.donateButton}>Donate</Button>
+        <Button href="/donate" className={styles.donateButton}>
+          Donate
+        </Button>
       </InnerContainer>
     </FullWidthContainer>
   );
