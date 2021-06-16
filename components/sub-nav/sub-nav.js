@@ -65,7 +65,7 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem, isActive }) => {
+const NavItem = ({ navItem, isActive, index }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
   if (navItem.subItems.length > 10) throw new Error("Too many subitems");
@@ -87,7 +87,7 @@ const NavItem = ({ navItem, isActive }) => {
         </a>
       </Link>
 
-      {isHighlighted && (
+      {index === 0 && (
         <nav className={styles.subNav}>
           <div className={styles.subNavInnerContainer}>
             <div className={styles.navContainer}>

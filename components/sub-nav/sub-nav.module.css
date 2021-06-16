@@ -24,8 +24,10 @@
   padding: 60px 0;
   display: flex;
   margin: 0 auto;
-  max-width: 1024px;
+  width: 1024px;
+  max-width: 90%;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .arrowAvatar.arrowAvatar {
