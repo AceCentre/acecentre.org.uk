@@ -1,21 +1,25 @@
 import { useHover, useFocusWithin } from "@react-aria/interactions";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import Avatar from "@material-ui/core/Avatar";
 
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Link from "next/link";
 import { useState } from "react";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 import styles from "./sub-nav.module.css";
+import { NavCta } from "../nav-cta/nav-cta";
 
-// We split the sub lists into two columns if there
-// more than 5 sub items
-const SPLIT_AFTER = 5;
+export { defaultNavItems } from "./sub-nav-items";
 
 export const SubNav = ({ navItems, active }) => {
   return (
     <FullWidthContainer>
       <InnerContainer>
         <ul className={styles.list}>
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <NavItem
+              index={index}
               isActive={item.href === active}
               key={item.href}
               navItem={item}
@@ -62,50 +66,80 @@ const useHighlight = () => {
 };
 
 const NavItem = ({ navItem, isActive }) => {
-  let { highlightProps, isHighlighted } = useHighlight();
+  const { highlightProps, isHighlighted } = useHighlight();
 
-  const splitOverTwoColumns = navItem.subItems.length > SPLIT_AFTER;
+  if (navItem.subItems.length > 10) throw new Error("Too many subitems");
+
+  const firstNavList = navItem.subItems.slice(0, 5);
+  const secondNavList = navItem.subItems.slice(5, 10);
 
   return (
     <li
       {...highlightProps}
       className={`${styles.listItem}  ${isActive ? styles.activeItem : ""}`}
     >
-      <Link href={navItem.href}>{navItem.title}</Link>
+      <Link href={navItem.href}>
+        <a
+          className={`${styles.navLink} ${
+            isHighlighted ? styles.extraBottomPadding : ""
+          }`}
+        >
+          {navItem.title}{" "}
+          <SvgIcon fontSize="inherit">
+            <KeyboardArrowDownIcon />
+          </SvgIcon>
+        </a>
+      </Link>
 
       {isHighlighted && (
         <nav className={styles.subNav}>
-          <p className={styles.explore}>Explore</p>
-          <ul
-            className={`${styles.subList} ${
-              splitOverTwoColumns ? styles.listSplit : ""
-            }`}
-          >
-            {navItem.subItems.map((subItem) => {
-              return (
-                <li className={styles.subListItem} key={subItem.href}>
-                  <Link href={subItem.href}>{subItem.title}</Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className={styles.subNavInnerContainer}>
+            <div className={styles.navContainer}>
+              <p className={styles.explore}>{navItem.tagLine}</p>
+              <div className={styles.listContainer}>
+                <ul className={styles.subList}>
+                  {firstNavList.map((subItem) => {
+                    return (
+                      <li className={styles.subListItem} key={subItem.href}>
+                        <Link href={subItem.href}>
+                          <a className={styles.subNavLink}>
+                            <Avatar className={styles.arrowAvatar}>
+                              <ArrowForwardIcon />
+                            </Avatar>
+                            {subItem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <ul className={styles.subList}>
+                  {secondNavList.map((subItem) => {
+                    return (
+                      <li className={styles.subListItem} key={subItem.href}>
+                        <Link href={subItem.href}>
+                          <a className={styles.subNavLink}>
+                            <Avatar className={styles.arrowAvatar}>
+                              <ArrowForwardIcon />
+                            </Avatar>
+                            {subItem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+            <div>
+              <NavCta {...navItem.cta} />
+            </div>
+          </div>
         </nav>
       )}
     </li>
   );
 };
-
-const subItems = [
-  { title: "Getting started", href: "/getting-started" },
-  { title: "Supporting language", href: "/supporting-language" },
-  { title: "Supporting access", href: "/supporting-access" },
-  { title: "Working in schools", href: "/working-in-schools" },
-  { title: "Family and friends", href: "/family-and-friends" },
-  { title: "Software", href: "/software" },
-  { title: "Alphabet resources", href: "/alphabet-resources" },
-  { title: "Symbol resources", href: "/symbol-resources" },
-  { title: "All resources", href: "/all-resources" },
-];
 
 export const SUB_NAV_HEADERS = {
   GETTING_STARTED: "/getting-started",
@@ -114,37 +148,3 @@ export const SUB_NAV_HEADERS = {
   ACECENTRE_LEARNING: "/acecentre-learning",
   GET_INVOLVED: "/get-involved",
 };
-
-export const defaultNavItems = [
-  {
-    title: "Getting started",
-    href: "/getting-started",
-    subItems: [
-      { title: "Getting started", href: "/getting-started" },
-      { title: "Supporting language", href: "/supporting-language" },
-      { title: "Supporting access", href: "/supporting-access" },
-      { title: "Working in schools", href: "/working-in-schools" },
-      { title: "Family and friends", href: "/family-and-friends" },
-    ],
-  },
-  {
-    title: "Resources",
-    href: "/resources",
-    subItems,
-  },
-  {
-    title: "Services",
-    href: "/services",
-    subItems,
-  },
-  {
-    title: "AceCentre Learning",
-    href: "/acecentre-learning",
-    subItems,
-  },
-  {
-    title: "Get involved",
-    href: "/get-involved",
-    subItems,
-  },
-];

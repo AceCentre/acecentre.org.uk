@@ -1,0 +1,56 @@
+.container {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  max-width: 240px;
+}
+
+.primaryLine {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.secondaryLine {
+  font-size: 16px;
+}
+
+.topSection {
+  width: 240px;
+  height: 200px;
+  display: flex;
+  position: relative;
+}
+
+.icon {
+  margin: 0 auto;
+}
+
+.bottomSection {
+  text-align: center;
+  padding: 15px;
+
+  color: #333333;
+}
+
+.bottomSection p {
+  margin: 0;
+}
+
+.avatarContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.avatarArrow.avatarArrow {
+  color: #333333;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

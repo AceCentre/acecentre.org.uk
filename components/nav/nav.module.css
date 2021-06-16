@@ -10,12 +10,11 @@
 }
 
 .container {
-  background-color: var(--primaryColour);
+  background-color: #ffffff;
 }
 
 .innerContainer {
-  margin: 0 auto;
-  max-width: var(--containerMaxWidth);
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
 }
@@ -34,9 +33,32 @@
   padding: 1rem;
 }
 
+.donateButton {
+  margin-left: 1rem;
+}
+
+.navLink {
+  display: flex;
+
+  text-decoration: none;
+  font-size: 14px;
+  color: #333333;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    display: none;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 1024px) {
+  .hideOnMediumScreens {
     display: none;
   }
 }

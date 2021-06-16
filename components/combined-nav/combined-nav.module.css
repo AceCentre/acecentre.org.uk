@@ -1,0 +1,133 @@
+.desktopContainer {
+}
+
+.mobileContainer {
+  display: none;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
+  padding-left: 2rem;
+}
+
+.menuButton.menuButton.menuButton {
+}
+
+.noShadow {
+  box-shadow: none;
+}
+
+.drawer {
+  background-color: #eeeeee;
+  padding: 1rem;
+  padding-bottom: 9rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.donateButton {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.navButton.navButton {
+  border: none;
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 0;
+  padding: 2rem 1rem;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.icon.icon {
+  font-size: 2rem;
+}
+
+.buttonOpen.buttonOpen {
+  background-color: #eeeeee;
+}
+
+.buttonContainer {
+  display: flex;
+}
+
+.menuContentList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menuContentListItem {
+  border-bottom: solid 1px #cccccc;
+  margin-top: 1rem;
+}
+
+.searchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchTagline {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px #cccccc solid;
+  padding-bottom: 1rem;
+}
+
+.menuContentListButton.menuContentListButton.menuContentListButton {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.menuContentIcon.menuContentIcon {
+  font-size: 30px;
+}
+
+.tagLine {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.arrowAvatar.arrowAvatar {
+  background-color: #94c64e;
+  height: 20px;
+  width: 20px;
+}
+
+.avatarIcon.avatarIcon {
+  font-size: 20px;
+}
+
+.subNavList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.subNavLink {
+  text-decoration: none;
+  display: flex;
+  gap: 0.5rem;
+  color: #333333;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .desktopContainer {
+    display: none;
+  }
+  .mobileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
