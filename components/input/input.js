@@ -5,13 +5,13 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-export const Input = ({ maxWidth, children, placeholder }) => {
+export const Input = ({ maxWidth, children, placeholder, white }) => {
   return (
     <>
       <InputGroup maxWidth={maxWidth}>
         <ChakraInput
           className={styles.input}
-          backgroundColor="#F5F5F5"
+          backgroundColor={white ? "white" : "#F5F5F5"}
           placeholder={placeholder}
         />
         <InputRightElement>{children}</InputRightElement>

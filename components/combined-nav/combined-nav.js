@@ -15,6 +15,7 @@ import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Button } from "../button/button";
+import { Input } from "../input/input";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -124,7 +125,17 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
               cartCount={cartCount}
             />
           )}
-          {isSearchOpen && <p>search</p>}
+          {isSearchOpen && (
+            <div className={styles.searchContainer}>
+              <p className={styles.searchTagline}>Search our website</p>
+              <Input white placeholder="Search">
+                <SvgIcon>
+                  <SearchIcon />
+                </SvgIcon>
+              </Input>
+              <Button className={styles.donateButton}>Search</Button>
+            </div>
+          )}
         </div>
       )}
     </>

@@ -62,6 +62,20 @@
   margin-top: 1rem;
 }
 
+.searchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchTagline {
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px #cccccc solid;
+  padding-bottom: 1rem;
+}
+
 .menuContentListButton.menuContentListButton.menuContentListButton {
   border: none;
   display: flex;
