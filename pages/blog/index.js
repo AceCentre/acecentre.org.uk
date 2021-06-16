@@ -18,7 +18,7 @@ export default function Home({ latestsPosts, blogCategories }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <BlogSearch />

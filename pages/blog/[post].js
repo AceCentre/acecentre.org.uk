@@ -26,7 +26,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />;
+        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <div className={styles.container}>
