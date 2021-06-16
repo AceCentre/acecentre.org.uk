@@ -1,11 +1,16 @@
-.container {
-  margin: 0 auto;
-  width: 90%;
-  max-width: var(--containerMaxWidth);
+.desktopContainer {
+}
+
+.mobileContainer {
+  display: none;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .desktopContainer {
+    display: none;
+  }
+  .mobileContainer {
+    display: block;
   }
 }
