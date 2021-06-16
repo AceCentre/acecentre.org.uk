@@ -16,7 +16,7 @@
 
 .innerContainer {
   margin: 0 auto;
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
 }
 
 .subNavInnerContainer {
@@ -24,7 +24,7 @@
   padding: 60px 0;
   display: flex;
   margin: 0 auto;
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
   justify-content: space-between;
 }
 
