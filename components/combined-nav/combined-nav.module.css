@@ -24,6 +24,10 @@
   font-size: 2rem;
 }
 
+.buttonOpen.buttonOpen {
+  background-color: #eeeeee;
+}
+
 .buttonContainer {
   display: flex;
 }
