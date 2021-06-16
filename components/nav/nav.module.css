@@ -55,3 +55,10 @@
     display: none;
   }
 }
+
+/** Mobile CSS */
+@media (max-width: 1024px) {
+  .hideOnMediumScreens {
+    display: none;
+  }
+}
