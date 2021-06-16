@@ -1,7 +1,12 @@
 import Link from "next/link";
 import styles from "./button.module.css";
 
-export const Button = ({ className, children, href, onClick = () => {} }) => {
+export const Button = ({
+  className = "",
+  children,
+  href,
+  onClick = () => {},
+}) => {
   if (href)
     return (
       <Link href={href}>
