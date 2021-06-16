@@ -1,5 +1,6 @@
 {
-    "screenshotsFolder": "./artifacts/screenshots",
-    "videosFolder": "./artifacts/videos",
-    "baseUrl":"http://localhost:3000"
+  "screenshotsFolder": "./artifacts/screenshots",
+  "videosFolder": "./artifacts/videos",
+  "baseUrl": "http://localhost:3000",
+  "projectId": "2da7p6"
 }
