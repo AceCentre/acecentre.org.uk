@@ -101,6 +101,9 @@
   font-weight: bold;
   color: #333333;
   text-decoration: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 
 .navLink svg {

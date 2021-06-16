@@ -48,14 +48,18 @@ export const Nav = ({ numberOfItemsInCart = 0 }) => {
             0800 080 3115
           </NavLink>
         </NavList>
-        <Input placeholder="Search" maxWidth={213}>
-          <SvgIcon>
-            <SearchIcon />
-          </SvgIcon>
-        </Input>
-        <Button href="/donate" className={styles.donateButton}>
-          Donate
-        </Button>
+        <div className={styles.hideOnMediumScreens}>
+          <Input placeholder="Search" maxWidth={213}>
+            <SvgIcon>
+              <SearchIcon />
+            </SvgIcon>
+          </Input>
+        </div>
+        <div className={styles.hideOnMediumScreens}>
+          <Button href="/donate" className={styles.donateButton}>
+            Donate
+          </Button>
+        </div>
       </InnerContainer>
     </FullWidthContainer>
   );
