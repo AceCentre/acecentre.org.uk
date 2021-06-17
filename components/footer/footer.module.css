@@ -50,7 +50,8 @@
 
 .innerContainer {
   margin: 0 auto;
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
+  width: 90%;
   padding: 1rem 0;
 }
 
@@ -89,6 +90,12 @@
 
 .flatListItem {
   padding: 0 1rem;
+}
+
+@media (max-width: 1024px) {
+  .socialsContainer {
+    display: none;
+  }
 }
 
 /** Mobile CSS */
