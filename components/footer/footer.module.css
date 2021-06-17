@@ -52,7 +52,10 @@
   margin: 0 auto;
   max-width: 1024px;
   width: 90%;
-  padding: 1rem 0;
+  padding: 4rem 0;
+  gap: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .topArea {
@@ -104,8 +107,13 @@
     padding: 1rem;
   }
 
+  .innerContainer {
+    gap: 2rem;
+  }
+
   .topArea {
     flex-direction: column;
+    gap: 2rem;
     align-items: flex-start;
   }
 
