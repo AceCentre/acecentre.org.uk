@@ -1,11 +1,26 @@
 name: Pull Request Checks Matrix Test
 on: [pull_request, workflow_dispatch]
 jobs:
+  GetLighthousePaths:
+    runs-on: ubuntu-latest
+    outputs:
+      lighthousePaths: ${{ steps.get-paths.outputs.result }}
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+      - uses: actions/github-script@v4
+        id: get-paths
+        with:
+          script: |
+            const paths = require('./lighthouse-paths')
+            return paths;
+
   Demo:
+    needs: [GetLighthousePaths]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        path: [/page-one, /page-two, /page-three]
+        path: ${{ fromJson(needs.GetLighthousePaths.outputs.lighthousePaths) }}
     steps:
       - name: Echo site details
         env:
