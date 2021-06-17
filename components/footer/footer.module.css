@@ -1,11 +1,61 @@
 .container {
-  background-color: var(--primaryColour);
+  background-color: #333333;
+}
+
+.phoneNumber {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  gap: 4px;
+  text-decoration: none;
+  align-items: center;
+}
+
+.officeHours {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.roundedAvatar.roundedAvatar.roundedAvatar {
+  border-radius: 25%;
+  background-color: #292929;
+}
+
+.socialsContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-self: flex-start;
+}
+
+.avatarLink {
+  cursor: pointer;
+}
+
+.copyright {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.helpAndSupport {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.helpAndSupportLink {
+  color: #ffffff;
+  display: block;
+  text-decoration: none;
 }
 
 .innerContainer {
   margin: 0 auto;
-  max-width: var(--containerMaxWidth);
-  padding: 1rem 0;
+  max-width: 1024px;
+  width: 90%;
+  padding: 4rem 0;
+  gap: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .topArea {
@@ -27,8 +77,14 @@
   flex-grow: 1;
 }
 
+.flatListLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
 .flatList :not(:last-child) {
-  border-right: 1px solid black;
+  border-right: 1px solid #ffffff;
 }
 
 .bottomSection {
@@ -39,14 +95,25 @@
   padding: 0 1rem;
 }
 
+@media (max-width: 1024px) {
+  .socialsContainer {
+    display: none;
+  }
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
     padding: 1rem;
   }
 
+  .innerContainer {
+    gap: 2rem;
+  }
+
   .topArea {
     flex-direction: column;
+    gap: 2rem;
     align-items: flex-start;
   }
 

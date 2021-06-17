@@ -1,3 +1,10 @@
+import { Avatar } from "@material-ui/core";
+import { SvgIcon } from "@material-ui/core";
+
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import PhoneIcon from "@material-ui/icons/Phone";
 import Link from "next/link";
 import { Image } from "../image";
 import styles from "./footer.module.css";
@@ -9,42 +16,91 @@ export const Footer = ({ currentYear }) => {
         <div className={styles.topArea}>
           <Image
             alt="The AceCentre logo"
-            height={152}
-            width={290}
+            height={105}
+            width={225}
             maxHeight={100}
-            src="/nav-logo.png"
+            src="/white-logo.png"
+            placeOnTop
           />
           <div>
-            <p>0800 048 7642</p>
-            <p>Office hours, Monday - Friday</p>
-            <p>
-              Call the helpline on <span>0800 080 3115</span>
-            </p>
+            <Link href="tel:08000487642">
+              <a className={styles.phoneNumber}>
+                <SvgIcon>
+                  <PhoneIcon />
+                </SvgIcon>
+                0800 048 7642
+              </a>
+            </Link>
+            <p className={styles.officeHours}>Office hours, Monday - Friday</p>
+            <p className={styles.helpAndSupport}>Help and support:</p>
+            <Link href="/contact">
+              <a className={styles.helpAndSupportLink}>Contact us</a>
+            </Link>
+            <Link href="/support">
+              <a className={styles.helpAndSupportLink}>Technical Support</a>
+            </Link>
           </div>
           <ul className={styles.list}>
             {sitemapList.map((item) => (
               <li key={item.href}>
-                <Link href={item.href}>{item.title}</Link>
+                <Link href={item.href}>
+                  <a className={styles.flatListLink}>{item.title}</a>
+                </Link>
               </li>
             ))}
+            <li></li>
           </ul>
+          <div className={styles.socialsContainer}>
+            <Link href="https://twitter.com/acecentre">
+              <a aria-label="Twitter logo" className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <TwitterIcon />
+                </Avatar>
+              </a>
+            </Link>
+
+            <Link href="https://www.youtube.com/user/acecentre">
+              <a aria-label="Youtube logo" className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <YouTubeIcon />
+                </Avatar>
+              </a>
+            </Link>
+            <Link href="https://www.facebook.com/AceCentre.uk/">
+              <a aria-label="Facebook logo" className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <FacebookIcon />
+                </Avatar>
+              </a>
+            </Link>
+          </div>
         </div>
         <div className={styles.bottomSection}>
           <ul className={styles.flatList}>
             <li className={styles.flatListItem}>
-              <Link href="/newsletter">Newsletter</Link>
+              <Link href="/newsletter">
+                <a className={styles.flatListLink}>Newsletter</a>
+              </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/sitemap">Sitemap</Link>
+              <Link href="/sitemap">
+                <a className={styles.flatListLink}>Sitemap</a>
+              </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/privacy-policy">
+                <a className={styles.flatListLink}>Privacy Policy</a>
+              </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/safeguarding">Safeguarding</Link>
+              <Link href="/safeguarding">
+                <a className={styles.flatListLink}>Safeguarding</a>
+              </Link>
             </li>
           </ul>
-          <p>© Copyright AceCentre {currentYear}</p>
+          <p className={styles.copyright}>
+            © Copyright AceCentre {currentYear}
+          </p>
         </div>
       </div>
     </footer>
