@@ -24,7 +24,6 @@ const useMobileNav = () => {
 
   useEffect(() => {
     document.body.style.overflow = isDrawerOpen ? "hidden" : "auto";
-    console.log("set style to: ", isDrawerOpen ? "hidden" : "auto");
   }, [isDrawerOpen]);
 
   const onClickMenu = () => {
