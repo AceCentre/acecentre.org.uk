@@ -1,0 +1,13 @@
+name: Pull Request Checks Matrix Test
+on: [pull_request, workflow_dispatch]
+jobs:
+  Demo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path: [/page-one, /page-two, /page-three]
+    steps:
+      - name: Echo site details
+        env:
+          CURRENT_PATH: ${{ matrix.path }}
+        run: echo $CURRENT_PATH
