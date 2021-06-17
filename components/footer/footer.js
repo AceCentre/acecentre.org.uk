@@ -52,7 +52,7 @@ export const Footer = ({ currentYear }) => {
           </ul>
           <div className={styles.socialsContainer}>
             <Link href="https://twitter.com/acecentre">
-              <a className={styles.avatarLink}>
+              <a aria-label="Twitter logo" className={styles.avatarLink}>
                 <Avatar className={styles.roundedAvatar}>
                   <TwitterIcon />
                 </Avatar>
@@ -60,14 +60,14 @@ export const Footer = ({ currentYear }) => {
             </Link>
 
             <Link href="https://www.youtube.com/user/acecentre">
-              <a className={styles.avatarLink}>
+              <a aria-label="Youtube logo" className={styles.avatarLink}>
                 <Avatar className={styles.roundedAvatar}>
                   <YouTubeIcon />
                 </Avatar>
               </a>
             </Link>
             <Link href="https://www.facebook.com/AceCentre.uk/">
-              <a className={styles.avatarLink}>
+              <a aria-label="Facebook logo" className={styles.avatarLink}>
                 <Avatar className={styles.roundedAvatar}>
                   <FacebookIcon />
                 </Avatar>

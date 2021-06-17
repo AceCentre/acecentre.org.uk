@@ -43,7 +43,7 @@
 }
 
 .helpAndSupportLink {
-  color: #999999;
+  color: #ffffff;
   display: block;
   text-decoration: none;
 }
@@ -78,13 +78,13 @@
 }
 
 .flatListLink {
-  color: #999999;
+  color: #ffffff;
   text-decoration: none;
   font-size: 16px;
 }
 
 .flatList :not(:last-child) {
-  border-right: 1px solid #999999;
+  border-right: 1px solid #ffffff;
 }
 
 .bottomSection {
