@@ -17,8 +17,19 @@
   color: #ffffff;
 }
 
+.roundedAvatar.roundedAvatar.roundedAvatar {
+  border-radius: 25%;
+  background-color: #292929;
+}
+
 .socialsContainer {
+  display: flex;
+  gap: 0.5rem;
   align-self: flex-start;
+}
+
+.avatarLink {
+  cursor: pointer;
 }
 
 .copyright {

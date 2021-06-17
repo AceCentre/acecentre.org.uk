@@ -1,4 +1,9 @@
+import { Avatar } from "@material-ui/core";
 import { SvgIcon } from "@material-ui/core";
+
+import TwitterIcon from "@material-ui/icons/Twitter";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Link from "next/link";
 import { Image } from "../image";
@@ -45,7 +50,28 @@ export const Footer = ({ currentYear }) => {
             ))}
           </ul>
           <div className={styles.socialsContainer}>
-            <p className={styles.phoneNumber}>Socials</p>
+            <Link href="https://twitter.com/acecentre">
+              <a className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <TwitterIcon />
+                </Avatar>
+              </a>
+            </Link>
+
+            <Link href="https://www.youtube.com/user/acecentre">
+              <a className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <YouTubeIcon />
+                </Avatar>
+              </a>
+            </Link>
+            <Link href="https://www.facebook.com/AceCentre.uk/">
+              <a className={styles.avatarLink}>
+                <Avatar className={styles.roundedAvatar}>
+                  <FacebookIcon />
+                </Avatar>
+              </a>
+            </Link>
           </div>
         </div>
         <div className={styles.bottomSection}>
