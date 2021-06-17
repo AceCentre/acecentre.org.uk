@@ -48,6 +48,7 @@ export const Footer = ({ currentYear }) => {
                 </Link>
               </li>
             ))}
+            <li></li>
           </ul>
           <div className={styles.socialsContainer}>
             <Link href="https://twitter.com/acecentre">
