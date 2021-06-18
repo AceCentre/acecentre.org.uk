@@ -3,8 +3,35 @@
   margin: 0 auto;
 }
 
+.handwriting {
+  font-family: "Yellowtail", cursive;
+  font-size: 36px;
+  color: #5589b7;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.cardContainer {
+  display: block;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  text-decoration: none;
+  color: #333333;
+}
+
+.cardHeadline {
+  font-weight: bold;
+}
+
+.bottomSection {
+  padding: 1rem;
+}
+
 .container > h1 {
   text-align: center;
+  font-size: 44px;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
 }
 
 .allCards p {
@@ -39,7 +66,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    ". gettingStarted gettingStarted resources resources ."
+    "gettingStarted gettingStarted gettingStarted resources resources resources"
     "aceCentreLearning aceCentreLearning assessment assessment helpline helpline";
 }
 
