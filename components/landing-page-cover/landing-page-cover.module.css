@@ -19,6 +19,8 @@
   padding: 38px;
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
   position: relative;
+  padding-bottom: -10px;
+  margin-bottom: 3rem;
 }
 
 .tagLine {
@@ -43,21 +45,41 @@
   color: #000000;
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
 }
 
-.ctaButton {
+.ctaButton.ctaButton {
   border: none;
+  cursor: pointer;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: calc(-2rem - 40px);
 }
 
-.ctaAvatar {
+.ctaAvatar.ctaAvatar {
+  width: 80px;
+  height: 80px;
+  background: #94c64e;
+  box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
 }
 
-.ctaIcon {
+.ctaIcon.ctaIcon.ctaIcon {
+  height: 60px;
+  width: 60px;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+  }
+
+  .card {
+    margin-top: -1rem;
+  }
+
+  .tagLine {
+    font-size: 20px;
   }
 
   .image {
