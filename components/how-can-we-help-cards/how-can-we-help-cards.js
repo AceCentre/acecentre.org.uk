@@ -1,3 +1,5 @@
+import { Avatar } from "@material-ui/core";
+import ArrowForward from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./how-can-we-help-cards.module.css";
 
@@ -14,6 +16,7 @@ export const HowCanWeHelpCards = () => {
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
             href="/getting-started"
+            iconColour="#E3BEBD"
           />
         </div>
         <div className={styles.resources}>
@@ -23,6 +26,7 @@ export const HowCanWeHelpCards = () => {
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
             href="/resources"
+            iconColour="#F4DF74"
           />
         </div>
 
@@ -33,6 +37,7 @@ export const HowCanWeHelpCards = () => {
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
             href="/acecentre-learning"
+            iconColour="#8AD9CA"
           />
         </div>
         <div className={styles.assessment}>
@@ -42,6 +47,7 @@ export const HowCanWeHelpCards = () => {
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
             href="/assessments"
+            iconColour="#F2AB3F"
           />
         </div>
         <div className={styles.helpline}>
@@ -59,7 +65,14 @@ export const HowCanWeHelpCards = () => {
   );
 };
 
-const HowWeHelpCard = ({ src, background, headline, secondaryLine, href }) => {
+const HowWeHelpCard = ({
+  src,
+  background,
+  headline,
+  secondaryLine,
+  href,
+  iconColour,
+}) => {
   return (
     <>
       <style jsx>{`
@@ -67,12 +80,21 @@ const HowWeHelpCard = ({ src, background, headline, secondaryLine, href }) => {
           background-color: ${background};
           max-height: 239px;
           height: 100%;
+          position: relative;
         }
       `}</style>
       <Link href={href}>
         <a className={styles.cardContainer}>
           <div className="imageBackground">
             <img className={styles.cardImage} src={src} />
+            {iconColour && (
+              <Avatar
+                style={{ backgroundColor: iconColour }}
+                className={styles.arrowAvatar}
+              >
+                <ArrowForward />
+              </Avatar>
+            )}
           </div>
           <div className={styles.bottomSection}>
             <p className={styles.cardHeadline}>{headline}</p>
