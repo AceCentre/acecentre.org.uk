@@ -162,7 +162,7 @@ jobs:
             return paths;
 
   Lighthouse:
-    needs: [GetLighthousePaths]
+    needs: [GetLighthousePaths, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     strategy:
       matrix:
