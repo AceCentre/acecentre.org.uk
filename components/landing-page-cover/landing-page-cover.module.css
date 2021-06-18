@@ -5,15 +5,25 @@
 }
 
 .imageContainer {
-  height: 500px;
+  background-color: rgba(33, 107, 146, 1);
 }
 
 .image {
-  object-fit: contain;
+  object-fit: cover;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  height: 500px;
+  display: block;
+  opacity: 0.75;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+  }
+
+  .image {
+    height: 250px;
   }
 }
