@@ -65,12 +65,14 @@ const HowWeHelpCard = ({ src, background, headline, secondaryLine, href }) => {
       <style jsx>{`
         .imageBackground {
           background-color: ${background};
+          max-height: 239px;
+          height: 100%;
         }
       `}</style>
       <Link href={href}>
         <a className={styles.cardContainer}>
           <div className="imageBackground">
-            <img src={src} />
+            <img className={styles.cardImage} src={src} />
           </div>
           <div className={styles.bottomSection}>
             <p className={styles.cardHeadline}>{headline}</p>
