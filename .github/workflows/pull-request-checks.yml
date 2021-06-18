@@ -60,6 +60,8 @@ jobs:
     steps:
       - name: Warm up resources
         run: curl ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}/resources/all
+      - name: Delay
+        run: sleep 20
 
   Jest:
     runs-on: ubuntu-latest
@@ -145,6 +147,7 @@ jobs:
           retention-days: 1
 
   GetLighthousePaths:
+    needs: [WarmUpCache, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     outputs:
       lighthousePaths: ${{ steps.get-paths.outputs.result }}
@@ -159,7 +162,7 @@ jobs:
             return paths;
 
   Lighthouse:
-    needs: [WarmUpCache, DeployNetlifyDraft, GetLighthousePaths]
+    needs: [GetLighthousePaths, DeployNetlifyDraft, Cypress]
     runs-on: ubuntu-latest
     strategy:
       matrix:
