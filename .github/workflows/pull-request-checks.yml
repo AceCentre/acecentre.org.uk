@@ -60,6 +60,8 @@ jobs:
     steps:
       - name: Warm up resources
         run: curl ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}/resources/all
+      - name: Delay
+        run: sleep 20
 
   Jest:
     runs-on: ubuntu-latest
