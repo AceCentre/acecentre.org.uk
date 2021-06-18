@@ -6,10 +6,31 @@
 
 .imageContainer {
   background-color: rgba(33, 107, 146, 1);
+  max-width: 1540px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #bfdded;
+  max-width: 720px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -200px;
+  padding: 38px;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.tagLine {
+  color: #00537f;
+  font-size: 29px;
+  margin: 0;
+  text-align: center;
 }
 
 .image {
   object-fit: cover;
+  object-position: 50% 70%;
   width: 100%;
   max-width: 1540px;
   margin: 0 auto;
