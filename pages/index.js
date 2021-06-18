@@ -1,12 +1,11 @@
-import Link from "next/link";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
 import { GetInvolved } from "../components/get-involved/get-involved";
 import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-we-help-cards";
+import { LandingPageCover } from "../components/landing-page-cover/landing-page-cover";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
@@ -25,14 +24,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <VideoWithCardCover>
-          <p>
-            Working with people of all ages to overcome communication challenges
-          </p>
-          <div className={styles.aboutUs}>
-            <Link href="/donate">Learn about us</Link>
-          </div>
-        </VideoWithCardCover>
+        <LandingPageCover />
         <HowCanWeHelpCards />
         <WhatWeDo />
         <FeaturedStory {...featuredStory} />
