@@ -1,0 +1,19 @@
+name: WarmUpCache
+on:
+  # Run every 10 mins
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  WarmUpCache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v4
+        with:
+          script: |
+            const result = await github.repos.getAllEnvironments({
+              owner,
+              repo,
+            });
+
+            console.log(JSON.stringify(result, null, 2))
