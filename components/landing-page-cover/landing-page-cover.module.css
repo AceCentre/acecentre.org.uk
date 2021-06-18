@@ -4,6 +4,14 @@
   max-width: var(--containerMaxWidth);
 }
 
+.imageContainer {
+  height: 500px;
+}
+
+.image {
+  object-fit: contain;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
