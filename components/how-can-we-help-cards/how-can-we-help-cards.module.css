@@ -12,14 +12,22 @@
 }
 
 .cardContainer {
-  display: block;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
   text-decoration: none;
   color: #333333;
+  height: 350px;
 }
 
 .cardHeadline {
   font-weight: bold;
+}
+
+.cardImage {
+  width: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .bottomSection {
@@ -35,7 +43,7 @@
 }
 
 .allCards p {
-  width: 75%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -88,5 +96,17 @@
 
   .container {
     padding: 0 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .allCards {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "gettingStarted"
+      "resources"
+      "aceCentreLearning"
+      "assessment"
+      "helpline";
   }
 }
