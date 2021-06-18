@@ -18,7 +18,7 @@
   margin-top: -200px;
   padding: 38px;
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  position: relative;
 }
 
 .tagLine {
@@ -37,6 +37,22 @@
   height: 500px;
   display: block;
   opacity: 0.75;
+}
+
+.ctaText {
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ctaButton {
+  border: none;
+}
+
+.ctaAvatar {
+}
+
+.ctaIcon {
 }
 
 /** Mobile CSS */

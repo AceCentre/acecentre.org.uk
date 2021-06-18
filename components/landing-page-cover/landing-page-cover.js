@@ -1,3 +1,6 @@
+import { Button } from "@chakra-ui/react";
+import { Avatar } from "@material-ui/core";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import Image from "next/image";
 import styles from "./landing-page-cover.module.css";
 
@@ -19,6 +22,12 @@ export const LandingPageCover = () => {
           with <strong>Augmentative and Alternative Communication</strong> (AAC)
           and <strong>Assistive Technology</strong> (AT)
         </p>
+        <p className={styles.ctaText}>Watch our video</p>
+        <Button variant="unstyled" className={styles.ctaButton}>
+          <Avatar className={styles.ctaAvatar}>
+            <PlayArrowIcon className={styles.ctaIcon} />
+          </Avatar>
+        </Button>
       </div>
     </div>
   );
