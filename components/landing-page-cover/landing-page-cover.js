@@ -12,6 +12,14 @@ export const LandingPageCover = () => {
           // height={942}
         />
       </div>
+      <div className={styles.card}>
+        <p className={styles.tagLine}>
+          We work with people of all ages to overcome{" "}
+          <strong>communication challenges</strong>
+          with <strong>Augmentative and Alternative Communication</strong> (AAC)
+          and <strong>Assistive Technology</strong> (AT)
+        </p>
+      </div>
     </div>
   );
 };
