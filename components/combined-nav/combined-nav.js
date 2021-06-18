@@ -7,7 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Button as ChakraButton } from "@chakra-ui/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { Avatar } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -20,6 +20,11 @@ import { Input } from "../input/input";
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const isDrawerOpen = isMenuOpen || isSearchOpen;
+
+  useEffect(() => {
+    document.body.style.overflow = isDrawerOpen ? "hidden" : "auto";
+  }, [isDrawerOpen]);
 
   const onClickMenu = () => {
     // Make sure search is closed
@@ -28,12 +33,6 @@ const useMobileNav = () => {
     // Toggle menu open
     const newMenuOpen = !isMenuOpen;
     setIsMenuOpen(newMenuOpen);
-
-    if (newMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
   };
 
   const onClickSearch = () => {
@@ -43,12 +42,6 @@ const useMobileNav = () => {
     // Toggle search open
     const newSearchOpen = !isSearchOpen;
     setIsSearchOpen(newSearchOpen);
-
-    if (newSearchOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
   };
 
   return {

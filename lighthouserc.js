@@ -1,3 +1,5 @@
+const PATHS_TO_TEST = require("./lighthouse-paths");
+
 // If there is a base URL then we are running in a prod like environment
 const isProd = !!process.env.BASE_URL;
 
@@ -38,26 +40,6 @@ const getExtraAssertions = () => {
     "valid-source-maps": "off",
   };
 };
-
-const PATHS_TO_TEST = [
-  "/",
-  "/about",
-  "/about/staff",
-  "/about/trustees",
-  "/careers",
-  "/stories",
-  "/blog",
-  "/blog/category/general",
-  "/blog/covid-19-update-clients-at-the-centre-of-our-covid-19-strategy",
-  "/blog/search?searchText=test",
-  "/research",
-  "/research/all",
-  "/research/search?searchText=test",
-  "/research/talking-mats-aac",
-  "/resources",
-  "/resources/all",
-  "/resources/all?page=2",
-];
 
 module.exports = {
   ci: {
