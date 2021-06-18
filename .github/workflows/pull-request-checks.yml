@@ -147,6 +147,7 @@ jobs:
           retention-days: 1
 
   GetLighthousePaths:
+    needs: [WarmUpCache, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     outputs:
       lighthousePaths: ${{ steps.get-paths.outputs.result }}
@@ -161,7 +162,7 @@ jobs:
             return paths;
 
   Lighthouse:
-    needs: [WarmUpCache, DeployNetlifyDraft, GetLighthousePaths]
+    needs: [GetLighthousePaths]
     runs-on: ubuntu-latest
     strategy:
       matrix:
