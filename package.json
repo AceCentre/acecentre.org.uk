@@ -29,7 +29,7 @@
     "async-redis": "2.0.0",
     "framer-motion": "4.1.17",
     "fuse.js": "6.4.6",
-    "graphql": "15.5.0",
+    "graphql": "15.5.1",
     "graphql-playground-middleware-express": "1.7.22",
     "graphql-request": "3.4.0",
     "jwt-decode": "3.1.2",
