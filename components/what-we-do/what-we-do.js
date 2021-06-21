@@ -6,7 +6,8 @@ import styles from "./what-we-do.module.css";
 export const WhatWeDo = () => {
   return (
     <div className={styles.container}>
-      <h1>What we do</h1>
+      <h1>More ways we can help</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
       <ul className={styles.list}>
         <div>
           <li>
