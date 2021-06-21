@@ -18796,10 +18796,10 @@ tree-kill@^1.2.1:
   resolved "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-treeify-js@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.7.tgz"
-  integrity sha512-CGkPeldZAU/9Ly5Q2aE3PuNR7T1bvguW9/sZbBnv1vLGNu4EmHcZlWqOIsB7SM/nf9id1sysS3c+tH+zVFN6hA==
+treeify-js@1.0.8:
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.8.tgz"
+  integrity sha512-DaR78fhLkuWy3GCimxCL8fi9ZsF43ahrVHl0MtPpxdqwpHIDhTQd/1Iai7yYP+2lVYSWEyGZyNeXiEdRxxD3iw==
 
 treeify@^1.1.0:
   version "1.1.0"
