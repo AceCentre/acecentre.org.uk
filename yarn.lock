@@ -7783,10 +7783,18 @@ copy-to-clipboard@3.3.1, copy-to-clipboard@^3.3.1:
   dependencies:
     toggle-selection "^1.0.6"
 
-core-js-compat@^3.14.0, core-js-compat@^3.8.1:
+core-js-compat@^3.14.0:
   version "3.14.0"
   resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.14.0.tgz"
   integrity sha512-R4NS2eupxtiJU+VwgkF9WTpnSfZW4pogwKHd8bclWU2sp93Pr5S1uYJI84cMOubJRou7bcfL0vmwtLslWN5p3A==
+  dependencies:
+    browserslist "^4.16.6"
+    semver "7.0.0"
+
+core-js-compat@^3.8.1:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.15.0.tgz#e14a371123db9d1c5b41206d3f420643d238b8fa"
+  integrity sha512-8X6lWsG+s7IfOKzV93a7fRYfWRZobOfjw5V5rrq43Vh/W+V6qYxl7Akalsvgab4PFT/4L/pjQbdBUEM36NXKrw==
   dependencies:
     browserslist "^4.16.6"
     semver "7.0.0"
@@ -7805,14 +7813,14 @@ core-js-pure@^3.0.0:
   integrity sha512-PxEiQGjzC+5qbvE7ZIs5Zn6BynNeZO9zHhrrWmkRff2SZLq0CE/H5LuZOJHhmOQ8L38+eMzEHAmPYWrUtDfuDQ==
 
 core-js-pure@^3.8.2:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.14.0.tgz#72bcfacba74a65ffce04bf94ae91d966e80ee553"
-  integrity sha512-YVh+LN2FgNU0odThzm61BsdkwrbrchumFq3oztnE9vTKC4KS2fvnPmcx8t6jnqAyOTCTF4ZSiuK8Qhh7SNcL4g==
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.15.0.tgz#c19349ae0be197b8bcf304acf4d91c5e29ae2091"
+  integrity sha512-RO+LFAso8DB6OeBX9BAcEGvyth36QtxYon1OyVsITNVtSKr/Hos0BXZwnsOJ7o+O6KHtK+O+cJIEj9NGg6VwFA==
 
 core-js@^3.0.4:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.14.0.tgz#62322b98c71cc2018b027971a69419e2425c2a6c"
-  integrity sha512-3s+ed8er9ahK+zJpp9ZtuVcDoFzHNiZsPbNAAE4KXgrRHbjSqqNN6xGSXq6bq7TZIbKj4NLrLb6bJ5i+vSVjHA==
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.15.0.tgz#db9554ebce0b6fd90dc9b1f2465c841d2d055044"
+  integrity sha512-GUbtPllXMYRzIgHNZ4dTYTcUemls2cni83Q4Q/TrFONHfhcg9oEGOtaGHfb0cpzec60P96UKPvMkjX1jET8rUw==
 
 core-js@^3.6.5, core-js@^3.8.2:
   version "3.10.2"
@@ -18788,10 +18796,10 @@ tree-kill@^1.2.1:
   resolved "https://registry.npmjs.org/tree-kill/-/tree-kill-1.2.2.tgz"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-treeify-js@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.6.tgz"
-  integrity sha512-Ni8TtpRos+GF0vDN3b24KMsTqSwdUCprr91VzcO+Vo0e0D8GkqY2eO5LrbOQSttXLE2Bq2a0nEEEXU3ZEAuHVw==
+treeify-js@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/treeify-js/-/treeify-js-1.0.7.tgz"
+  integrity sha512-CGkPeldZAU/9Ly5Q2aE3PuNR7T1bvguW9/sZbBnv1vLGNu4EmHcZlWqOIsB7SM/nf9id1sysS3c+tH+zVFN6hA==
 
 treeify@^1.1.0:
   version "1.1.0"
