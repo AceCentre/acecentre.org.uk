@@ -4,6 +4,19 @@
   max-width: var(--containerMaxWidth);
 }
 
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.buttonContainer {
+  margin: 0 auto;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
