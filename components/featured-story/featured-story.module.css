@@ -15,6 +15,10 @@
 }
 
 .playButton {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
   width: 60%;
   display: flex;
   align-items: center;
