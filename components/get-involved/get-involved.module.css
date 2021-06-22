@@ -1,9 +1,22 @@
 .container {
-  max-width: var(--containerMaxWidth);
+  max-width: 1540px;
+  width: 90%;
+  height: 500px;
+  position: relative;
+
+  margin: 2rem auto;
+  margin-bottom: 0;
+}
+
+.blueCover {
+  background-color: rgba(33, 107, 146, 0.25);
+  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  background-color: var(--secondaryColour);
-  padding: 3rem 0;
+  position: absolute;
+}
+
+.backgroundImage {
+  z-index: -1;
 }
 
 .innerContainer {
@@ -25,10 +38,55 @@
   align-items: center;
 }
 
+.handwriting {
+  font-family: "Yellowtail", cursive;
+  color: #5589b7;
+  font-size: 44px;
+  margin: 0;
+}
+
+.paragraph {
+  color: #333333;
+}
+
+.title {
+  font-size: 44px;
+  margin: 0;
+}
+
+.donationLink {
+  font-size: 16px;
+  color: #00537f;
+  text-decoration: none;
+}
+
+.cardContainer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #ffffff;
+  padding: 2rem;
+  max-width: 95%;
+  width: 540px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  flex-wrap: wrap;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
-    padding: 0;
-    margin: 0 auto;
+    height: 650px;
   }
 }
