@@ -5,6 +5,7 @@ import { Footer } from "../components/footer/footer";
 import { GetInvolved } from "../components/get-involved/get-involved";
 import { HowCanWeHelpCards } from "../components/how-can-we-help-cards/how-can-we-help-cards";
 import { LandingPageCover } from "../components/landing-page-cover/landing-page-cover";
+import { LatestFromBlog } from "../components/latest-from-blog/latest-from-blog";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useCartCount } from "../lib/cart/use-cart-count";
@@ -28,11 +29,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <HowCanWeHelpCards />
         <WhatWeDo />
         <FeaturedStory {...featuredStory} />
-        <FeaturedPosts
-          title="Latest from the blog"
-          viewAllLink="/blog"
-          posts={landingPagePosts}
-        />
+        <LatestFromBlog posts={landingPagePosts} />
         <GetInvolved />
       </main>
       <Footer currentYear={currentYear} />
