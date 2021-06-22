@@ -1,5 +1,4 @@
 import { CombinedNav } from "../components/combined-nav/combined-nav";
-import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
 import { GetInvolved } from "../components/get-involved/get-involved";
@@ -13,7 +12,6 @@ import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStory } from "../lib/story/get-story";
-import styles from "../styles/index.module.css";
 
 export default function Home({ featuredStory, landingPagePosts }) {
   const cartCount = useCartCount();
@@ -39,8 +37,6 @@ export default function Home({ featuredStory, landingPagePosts }) {
 
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
-
-  console.log(featuredStory);
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 
