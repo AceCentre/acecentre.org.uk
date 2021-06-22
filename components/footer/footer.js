@@ -75,6 +75,14 @@ export const Footer = ({ currentYear }) => {
             </Link>
           </div>
         </div>
+        <div className={styles.legalInfoContainer}>
+          <p className={styles.legalInfo}>
+            Ace Centre is a registered charity no. 1089313. Registered as a
+            company limited by guarantee no. 04268143 (England & Wales).
+            Registered office: Ace Centre, Hollinwood Business Centre, Albert
+            Street, Oldham, OL8 3QL. VAT registration number 785728278
+          </p>
+        </div>
         <div className={styles.bottomSection}>
           <ul className={styles.flatList}>
             <li className={styles.flatListItem}>
