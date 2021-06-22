@@ -12,11 +12,8 @@ export const FeaturedStory = ({
   summary,
   title,
   slug,
-  youtubeUrl = "https://www.youtube.com/watch?v=TqhZQsR5vmQ",
-  featuredImage = {
-    src:
-      "https://internal.acecentre.org.uk/wp-content/uploads/2021/03/Screenshot-2021-06-21-at-15.08.11.png",
-  },
+  youtubeVideo,
+  featuredImage,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -52,7 +49,7 @@ export const FeaturedStory = ({
         />
       </div>
       <VideoPopover
-        youtubeUrl={youtubeUrl}
+        youtubeUrl={youtubeVideo}
         isPopoverOpen={isPopoverOpen}
         onClose={() => setIsPopoverOpen(false)}
       />
