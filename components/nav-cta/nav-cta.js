@@ -11,7 +11,6 @@ export const NavCta = ({
   href,
   iconColour,
 }) => {
-  console.log(iconColour);
   return (
     <Link href={href}>
       <a className={styles.link}>
