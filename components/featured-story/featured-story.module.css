@@ -8,6 +8,13 @@
   position: relative;
 }
 
+.nextImageContainer {
+  position: relative;
+  height: 500px;
+  width: 70%;
+  z-index: -1;
+}
+
 .image {
   object-fit: cover;
   width: 70%;
@@ -124,7 +131,7 @@
   }
 
   .playButton {
-    height: 200px;
+    height: 300px;
   }
 
   .desktopCard {
@@ -147,6 +154,11 @@
 
   .image {
     width: 100%;
+  }
+
+  .nextImageContainer {
+    width: 100%;
+    height: 300px;
   }
 
   .greenSpan {

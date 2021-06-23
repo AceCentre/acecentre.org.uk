@@ -8,6 +8,8 @@ import { Avatar } from "@material-ui/core";
 import { VideoPopover } from "../video-popover/video-popover";
 import { useState } from "react";
 
+import Image from "next/image";
+
 export const FeaturedStory = ({
   summary,
   title,
@@ -25,7 +27,7 @@ export const FeaturedStory = ({
             <button
               className={styles.playButton}
               onClick={() => setIsPopoverOpen(true)}
-              ariaLabel={`Play video about: ${title}`}
+              aria-label={`Play video about: ${title}`}
             >
               <Avatar className={styles.playAvatar}>
                 <PlayArrowIcon className={styles.playIcon} />
@@ -40,11 +42,14 @@ export const FeaturedStory = ({
           </div>
           <div className={styles.gradientCover}></div>
           <div className={styles.backgroundOverlay}></div>
-          <img
-            className={styles.image}
-            alt={`An image of: ${title}`}
-            src={featuredImage.src}
-          />
+          <div className={styles.nextImageContainer}>
+            <Image
+              alt={`An image of: ${title}`}
+              src={featuredImage.src}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
         </div>
         <OverlayCard
           className={styles.mobileCard}
