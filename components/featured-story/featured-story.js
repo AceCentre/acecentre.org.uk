@@ -25,6 +25,7 @@ export const FeaturedStory = ({
             <button
               className={styles.playButton}
               onClick={() => setIsPopoverOpen(true)}
+              ariaLabel={`Play video about: ${title}`}
             >
               <Avatar className={styles.playAvatar}>
                 <PlayArrowIcon className={styles.playIcon} />
@@ -39,7 +40,11 @@ export const FeaturedStory = ({
           </div>
           <div className={styles.gradientCover}></div>
           <div className={styles.backgroundOverlay}></div>
-          <img className={styles.image} src={featuredImage.src} />
+          <img
+            className={styles.image}
+            alt={`An image of: ${title}`}
+            src={featuredImage.src}
+          />
         </div>
         <OverlayCard
           className={styles.mobileCard}

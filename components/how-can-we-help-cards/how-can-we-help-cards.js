@@ -17,6 +17,7 @@ export const HowCanWeHelpCards = () => {
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
             href="/getting-started"
             iconColour="#E3BEBD"
+            alt="Group of icons to show 'getting started'"
           />
         </div>
         <div className={styles.resources}>
@@ -27,6 +28,7 @@ export const HowCanWeHelpCards = () => {
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
             href="/resources"
             iconColour="#F4DF74"
+            alt="Group of icons to show 'resources'"
           />
         </div>
 
@@ -38,6 +40,7 @@ export const HowCanWeHelpCards = () => {
             secondaryLine="Find the right training for your specific needs"
             href="/acecentre-learning"
             iconColour="#8AD9CA"
+            alt="Group of icons to show 'AceCentre Learning'"
           />
         </div>
         <div className={styles.assessment}>
@@ -48,6 +51,7 @@ export const HowCanWeHelpCards = () => {
             secondaryLine="We offer independent interdisciplinary assessments"
             href="/assessments"
             iconColour="#F2AB3F"
+            alt="Group of icons to show 'Assessments'"
           />
         </div>
         <div className={styles.helpline}>
@@ -58,6 +62,7 @@ export const HowCanWeHelpCards = () => {
             secondaryLine="Call us on 0800 048 7642
             Office hours, Monday - Friday"
             href="tel:08000487642"
+            alt="Group of icons to show 'Free Advice Line'"
           />
         </div>
       </div>
@@ -72,6 +77,7 @@ const HowWeHelpCard = ({
   secondaryLine,
   href,
   iconColour,
+  alt,
 }) => {
   return (
     <>
@@ -86,7 +92,7 @@ const HowWeHelpCard = ({
       <Link href={href}>
         <a className={styles.cardContainer}>
           <div className="imageBackground">
-            <img className={styles.cardImage} src={src} />
+            <img className={styles.cardImage} alt={alt} src={src} />
             {iconColour && (
               <Avatar
                 style={{ backgroundColor: iconColour }}

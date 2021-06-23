@@ -45,14 +45,18 @@ const BlogCard = ({ post }) => {
         <a className={styles.listLink}>
           {post.featuredImage ? (
             <div className={styles.imageContainer}>
-              <img src={post.featuredImage.src} className={styles.image} />
+              <img
+                src={post.featuredImage.src}
+                alt={`An thumbnail for the post: ${post.title}`}
+                className={styles.image}
+              />
             </div>
           ) : (
             <NoImage post={post} />
           )}
           <p className={styles.blogTag}>Blog</p>
           <div className={styles.postTitleContainer}>
-            <h3 className={styles.postTitle}>{post.title}</h3>
+            <p className={styles.postTitle}>{post.title}</p>
           </div>
         </a>
       </Link>
@@ -70,6 +74,7 @@ const NoImage = ({ post }) => {
           layout="fill"
           objectFit="cover"
           className={styles.fakeImage}
+          alt={`An thumbnail for the post: ${post.title}`}
         />
       </div>
     );
@@ -81,6 +86,7 @@ const NoImage = ({ post }) => {
           src="/green-background.png"
           layout="fill"
           objectFit="cover"
+          alt={`An thumbnail for the post: ${post.title}`}
           className={styles.fakeImage}
         />
       </div>

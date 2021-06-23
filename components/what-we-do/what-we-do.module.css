@@ -42,6 +42,12 @@
   padding: 1px 0;
 }
 
+.unstyledList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .list li {
   padding: 5px 0;
 }
