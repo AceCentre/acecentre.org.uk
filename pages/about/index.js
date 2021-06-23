@@ -3,6 +3,7 @@ import { DescriptionAndQuote } from "../../components/description-and-quote/desc
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
+import { OurVision } from "../../components/our-vision/our-vision";
 import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-trustees";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
@@ -37,6 +38,7 @@ export default function Home({
           </p>
         </VideoWithCardCover>
         <DescriptionAndQuote />
+        <OurVision />
         <FeaturedStory {...featuredStory} />
         <StaffAndTrustees />
         <FeaturedPosts
