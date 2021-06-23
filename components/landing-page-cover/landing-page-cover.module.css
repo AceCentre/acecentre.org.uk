@@ -5,9 +5,21 @@
 }
 
 .imageContainer {
+  position: relative;
   background-color: rgba(33, 107, 146, 1);
   max-width: 1540px;
   margin: 0 auto;
+  height: 500px;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 50% 70%;
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+  display: block;
+  opacity: 0.75;
 }
 
 .card {
@@ -27,17 +39,6 @@
   font-size: 29px;
   margin: 0;
   text-align: center;
-}
-
-.image {
-  object-fit: cover;
-  object-position: 50% 70%;
-  width: 100%;
-  max-width: 1540px;
-  margin: 0 auto;
-  height: 500px;
-  display: block;
-  opacity: 0.75;
 }
 
 .ctaText {

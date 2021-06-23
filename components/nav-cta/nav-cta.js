@@ -3,6 +3,8 @@ import styles from "./nav-cta.module.css";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Avatar from "@material-ui/core/Avatar";
 
+import Image from "next/image";
+
 export const NavCta = ({
   primaryLine,
   secondaryLine,
@@ -25,7 +27,9 @@ export const NavCta = ({
             }
           `}</style>
           <div className={`${styles.topSection} colouredBackground`}>
-            <img className={styles.icon} src={iconPath} />
+            <div>
+              <Image className={styles.icon} src={iconPath} layout="fill" />
+            </div>
             <div className={`${styles.avatarContainer} avatarParent`}>
               <Avatar
                 style={{ backgroundColor: iconColour }}

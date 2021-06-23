@@ -4,6 +4,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
+import Image from "next/image";
 
 export const LandingPageCover = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -12,8 +13,10 @@ export const LandingPageCover = () => {
     <>
       <div>
         <div className={styles.imageContainer}>
-          <img
+          <Image
             className={styles.image}
+            objectFit="cover"
+            layout="fill"
             src="/landing-page-cover.png"
             alt="Cover image of a male looking happy to be communicating with an AAC device."
           />
