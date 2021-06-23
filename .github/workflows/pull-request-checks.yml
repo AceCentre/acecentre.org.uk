@@ -123,26 +123,14 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v2
 
-      - name: Install Node
-        uses: actions/setup-node@v2
+      - name: Cypress run
         with:
-          node-version: "14"
-
-      - name: Install NPM deps
-        run: yarn install
-
-      - name: Run Cypress
+          config: baseUrl=${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
+          record: true
         env:
-          CYPRESS_BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
-        run: yarn cypress:run --record --key ${{ secrets.CYPRESS_SECRET }}
-
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: cypress-results
-          path: artifacts
-          # Github has size limits so this avoids hitting them
-          retention-days: 1
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: cypress-io/github-action@v2
 
   GetLighthousePaths:
     runs-on: ubuntu-latest
