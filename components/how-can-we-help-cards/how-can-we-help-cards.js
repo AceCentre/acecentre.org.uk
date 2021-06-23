@@ -2,6 +2,7 @@ import { Avatar } from "@material-ui/core";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./how-can-we-help-cards.module.css";
+import Image from "next/image";
 
 export const HowCanWeHelpCards = () => {
   return (
@@ -92,7 +93,9 @@ const HowWeHelpCard = ({
       <Link href={href}>
         <a className={styles.cardContainer}>
           <div className="imageBackground">
-            <img className={styles.cardImage} alt={alt} src={src} />
+            <div>
+              <Image alt={alt} src={src} layout="fill" />
+            </div>
             {iconColour && (
               <Avatar
                 style={{ backgroundColor: iconColour }}
