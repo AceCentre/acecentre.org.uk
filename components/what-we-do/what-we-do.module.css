@@ -1,19 +1,61 @@
 .container {
-  max-width: 300px;
   margin: 2rem auto;
+  max-width: 760px;
+  width: 90%;
 }
 
 .container h1 {
   text-align: center;
+  font-size: 44px;
+  color: #333333;
+  margin-bottom: 6px;
+}
+
+.container p {
+  text-align: center;
+  color: #333333;
+  font-size: 18px;
+}
+
+.avatar.avatar {
+  height: 40px;
+  width: 40px;
+  background-color: #94c64e;
 }
 
 .list {
   padding: 0;
   list-style-type: none;
-  column-count: 2;
-  column-gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  padding: 1px 0;
+}
+
+.unstyledList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .list li {
-  padding: 0.5rem 0;
+  padding: 5px 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .list {
+    flex-direction: column;
+    gap: 0;
+  }
 }

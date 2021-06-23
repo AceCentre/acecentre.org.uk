@@ -79,11 +79,7 @@ const NavItem = ({ navItem, isActive }) => {
       className={`${styles.listItem}  ${isActive ? styles.activeItem : ""}`}
     >
       <Link href={navItem.href}>
-        <a
-          className={`${styles.navLink} ${
-            isHighlighted ? styles.extraBottomPadding : ""
-          }`}
-        >
+        <a className={styles.navLink}>
           {navItem.title}{" "}
           <SvgIcon fontSize="inherit">
             <KeyboardArrowDownIcon />
