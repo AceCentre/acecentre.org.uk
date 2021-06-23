@@ -12,7 +12,7 @@ export const HowCanWeHelpCards = () => {
       <div className={styles.allCards}>
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
-            src="/getting-started.svg"
+            src="/getting-started.png"
             background="#F1D1D0"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
@@ -23,7 +23,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/resources.svg"
+            src="/resources.png"
             background="#F6EEC5"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
@@ -35,7 +35,7 @@ export const HowCanWeHelpCards = () => {
 
         <div className={styles.aceCentreLearning}>
           <HowWeHelpCard
-            src="/acecentre-learning.svg"
+            src="/acecentre-learning.png"
             background="#B0E8DE"
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
@@ -46,7 +46,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.assessment}>
           <HowWeHelpCard
-            src="/assessments.svg"
+            src="/assessments.png"
             background="#F4D4A4"
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
@@ -57,7 +57,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.helpline}>
           <HowWeHelpCard
-            src="/advice-line.svg"
+            src="/advice-line.png"
             background="#BFDDED"
             headline="Free Advice Line"
             secondaryLine="Call us on 0800 048 7642
@@ -94,7 +94,7 @@ const HowWeHelpCard = ({
         <a className={styles.cardContainer}>
           <div className="imageBackground">
             <div className={styles.cardImageContainer}>
-              <Image alt={alt} src={src} layout="fill" />
+              <Image alt={alt} src={src} layout="fill" objectFit="cover" />
             </div>
             {iconColour && (
               <Avatar
