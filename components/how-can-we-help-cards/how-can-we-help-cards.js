@@ -94,7 +94,7 @@ const HowWeHelpCard = ({
         <a className={styles.cardContainer}>
           <div className="imageBackground">
             <div className={styles.cardImageContainer}>
-              <Image alt={alt} src={src} layout="fill" />
+              <Image alt={alt} src={src} layout="fill" objectFit="cover" />
             </div>
             {iconColour && (
               <Avatar

@@ -27,8 +27,13 @@ export const NavCta = ({
             }
           `}</style>
           <div className={`${styles.topSection} colouredBackground`}>
-            <div>
-              <Image className={styles.icon} src={iconPath} layout="fill" />
+            <div className={styles.iconContainer}>
+              <Image
+                className={styles.icon}
+                src={iconPath}
+                layout="fill"
+                objectFit="cover"
+              />
             </div>
             <div className={`${styles.avatarContainer} avatarParent`}>
               <Avatar
