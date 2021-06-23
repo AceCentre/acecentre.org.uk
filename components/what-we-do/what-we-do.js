@@ -9,7 +9,7 @@ export const WhatWeDo = () => {
       <h1>More ways we can help</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
       <ul className={styles.list}>
-        <div>
+        <ul className={styles.unstyledList}>
           <li>
             <Link href="/services/nhs">
               <a className={styles.link}>
@@ -50,8 +50,8 @@ export const WhatWeDo = () => {
               </a>
             </Link>
           </li>
-        </div>
-        <div>
+        </ul>
+        <ul className={styles.unstyledList}>
           <li>
             <Link href="/services/assessment">
               <a className={styles.link}>
@@ -82,7 +82,7 @@ export const WhatWeDo = () => {
               </a>
             </Link>
           </li>
-        </div>
+        </ul>
       </ul>
     </div>
   );

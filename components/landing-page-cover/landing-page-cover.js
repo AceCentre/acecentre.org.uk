@@ -12,7 +12,11 @@ export const LandingPageCover = () => {
     <>
       <div>
         <div className={styles.imageContainer}>
-          <img className={styles.image} src="/landing-page-cover.png" />
+          <img
+            className={styles.image}
+            src="/landing-page-cover.png"
+            alt="Cover image of a male looking happy to be communicating with an AAC device."
+          />
         </div>
         <div className={styles.card}>
           <p className={styles.tagLine}>
@@ -28,6 +32,7 @@ export const LandingPageCover = () => {
             variant="unstyled"
             onClick={() => setIsPopoverOpen(true)}
             className={styles.ctaButton}
+            aria-label="Play video about Ace Centre"
           >
             <Avatar className={styles.ctaAvatar}>
               <PlayArrowIcon className={styles.ctaIcon} />
