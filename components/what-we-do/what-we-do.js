@@ -8,7 +8,7 @@ export const WhatWeDo = () => {
     <div className={styles.container}>
       <h1>More ways we can help</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-      <ul className={styles.list}>
+      <div className={styles.list}>
         <ul className={styles.unstyledList}>
           <li>
             <Link href="/services/nhs">
@@ -83,7 +83,7 @@ export const WhatWeDo = () => {
             </Link>
           </li>
         </ul>
-      </ul>
+      </div>
     </div>
   );
 };
