@@ -45,10 +45,11 @@ const BlogCard = ({ post }) => {
         <a className={styles.listLink}>
           {post.featuredImage ? (
             <div className={styles.imageContainer}>
-              <img
+              <Image
                 src={post.featuredImage.src}
                 alt={`An thumbnail for the post: ${post.title}`}
                 className={styles.image}
+                layout="fill"
               />
             </div>
           ) : (
