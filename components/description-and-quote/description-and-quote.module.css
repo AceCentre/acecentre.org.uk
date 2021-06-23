@@ -2,28 +2,57 @@
   max-width: var(--containerMaxWidth);
   margin: 0 auto;
   display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "description quote";
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 4rem;
   align-items: center;
   width: 90%;
 }
 
 .description {
-  grid-area: description;
+}
+
+.description p {
+  color: #333333;
+  font-size: 16px;
 }
 
 .quote {
-  grid-area: quote;
+  display: flex;
+  gap: 0.5rem;
+  flex: 0 0 445px;
+  max-width: 90%;
+}
+
+.quoteText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quoteText p {
+  margin: 0;
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background: #bfdded;
+}
+
+.icon.icon {
+  color: #5589b7;
+  font-size: 40px;
+}
+
+.quoteContent {
+  color: #00537f;
+  font-size: 22px;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
-    max-width: var(--containerMaxWidth);
-    margin: 0 auto;
-    display: flex;
-    gap: 0;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
