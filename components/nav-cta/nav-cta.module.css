@@ -23,6 +23,11 @@
   margin: 0 auto;
 }
 
+.iconContainer {
+  position: relative;
+  width: 100%;
+}
+
 .bottomSection {
   text-align: center;
   padding: 15px;
