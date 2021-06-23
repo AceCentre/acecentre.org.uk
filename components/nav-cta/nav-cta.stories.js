@@ -11,7 +11,7 @@ export const Standard = Template.bind({});
 Standard.args = {
   primaryLine: "Contact us",
   secondaryLine: "to learn more",
-  iconPath: "/phone.svg",
+  iconPath: "/phone.png",
   backgroundColour: "#bfdded",
   href: "/contact",
   iconColour: "#84BADC",
@@ -21,7 +21,7 @@ export const JustGiving = Template.bind({});
 JustGiving.args = {
   primaryLine: "One-off donation",
   secondaryLine: "makes a difference",
-  iconPath: "/just-giving.svg",
+  iconPath: "/just-giving.png",
   backgroundColour: "#EFB3F3",
   href: "/contact",
   iconColour: "#AA1FBD",
