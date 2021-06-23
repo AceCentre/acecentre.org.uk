@@ -29,11 +29,11 @@ export default function Home({
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <VideoWithCardCover>
+        <VideoWithCardCover src="/about-cover.jpeg">
           <h1>About us</h1>
           <p>
-            Dedicated to supporting people with complex communication
-            difficulties
+            We’re dedicated to supporting people with{" "}
+            <strong>complex communications difficulties</strong>
           </p>
         </VideoWithCardCover>
         <DescriptionAndQuote />
