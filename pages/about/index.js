@@ -3,6 +3,7 @@ import { DescriptionAndQuote } from "../../components/description-and-quote/desc
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
+import { LatestFromBlog } from "../../components/latest-from-blog/latest-from-blog";
 import { OurVision } from "../../components/our-vision/our-vision";
 import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-trustees";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
@@ -10,17 +11,10 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import {
-  getLandingPagePosts,
-  getLandingPageProjects,
-} from "../../lib/posts/get-posts";
+import { getLandingPagePosts } from "../../lib/posts/get-posts";
 import { getSimpleStory } from "../../lib/story/get-story";
 
-export default function Home({
-  featuredStory,
-  landingPagePosts,
-  researchProjects,
-}) {
+export default function Home({ featuredStory, landingPagePosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
@@ -41,16 +35,8 @@ export default function Home({
         <OurVision />
         <FeaturedStory {...featuredStory} />
         <StaffAndTrustees />
-        <FeaturedPosts
-          title="Research projects"
-          viewAllLink="/research"
-          posts={researchProjects}
-        />
-        <FeaturedPosts
-          title="Latest from the blog"
-          viewAllLink="/blog"
-          posts={landingPagePosts}
-        />
+
+        <LatestFromBlog posts={landingPagePosts} />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -66,16 +52,10 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
 
-  const researchProjects = await getLandingPageProjects();
-
-  if (!researchProjects || researchProjects.length < 3)
-    throw new Error("Could not fetch research posts posts");
-
   return {
     props: {
       featuredStory,
       landingPagePosts,
-      researchProjects: researchProjects.slice(0, 3),
     },
   };
 });
