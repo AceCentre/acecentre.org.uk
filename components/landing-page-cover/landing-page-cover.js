@@ -4,7 +4,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const LandingPageCover = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);

@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./how-can-we-help-cards.module.css";
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const HowCanWeHelpCards = () => {
   return (

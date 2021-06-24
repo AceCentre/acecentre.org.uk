@@ -1,5 +1,5 @@
 import styles from "./video-with-card-cover.module.css";
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const VideoWithCardCover = ({ children, src = "/about-cover.jpeg" }) => {
   return (
