@@ -13,7 +13,7 @@ export const defaultNavItems = [
     },
     subItems: [
       { title: "About us", href: "/about" },
-      { title: "Our people", href: "/about/staff" },
+      { title: "Our team", href: "/about/staff" },
       { title: "Our trustees", href: "/about/trustees" },
       { title: "Work with us", href: "/careers" },
       { title: "People we support", href: "/stories" },

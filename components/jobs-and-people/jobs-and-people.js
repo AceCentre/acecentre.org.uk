@@ -30,7 +30,7 @@ export const JobsAndPeople = () => {
         />
       </div>
       <div className={styles.peopleDescription}>
-        <h2>Our people</h2>
+        <h2>Our team</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra

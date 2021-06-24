@@ -3,7 +3,7 @@ import styles from "./meet-our-people.module.css";
 export const MeetOurPeople = () => {
   return (
     <div className={styles.container}>
-      <h2>Meet our people</h2>
+      <h2>Meet our team</h2>
       <div className={styles.innerContainer}>
         <div>
           <img
