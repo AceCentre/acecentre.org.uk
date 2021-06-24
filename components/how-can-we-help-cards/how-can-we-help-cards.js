@@ -12,7 +12,7 @@ export const HowCanWeHelpCards = () => {
       <div className={styles.allCards}>
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
-            src="/getting-started.png"
+            src="/getting-started.svg"
             background="#F1D1D0"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
@@ -23,7 +23,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/resources.png"
+            src="/resources.svg"
             background="#F6EEC5"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
@@ -35,7 +35,7 @@ export const HowCanWeHelpCards = () => {
 
         <div className={styles.aceCentreLearning}>
           <HowWeHelpCard
-            src="/acecentre-learning.png"
+            src="/acecentre-learning.svg"
             background="#B0E8DE"
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
@@ -46,7 +46,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.assessment}>
           <HowWeHelpCard
-            src="/assessments.png"
+            src="/assessments.svg"
             background="#F4D4A4"
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
@@ -57,7 +57,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.helpline}>
           <HowWeHelpCard
-            src="/advice-line.png"
+            src="/advice-line.svg"
             background="#BFDDED"
             headline="Free Advice Line"
             secondaryLine="Call us on 0800 048 7642
