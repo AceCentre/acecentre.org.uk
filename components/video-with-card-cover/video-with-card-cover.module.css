@@ -1,28 +1,69 @@
-.cardContainer {
+.fullContainer {
   width: 100%;
-
-  padding-top: 250px;
+  height: 600px;
+  margin: 0 auto;
+  position: absolute;
 }
 
-.cardInnerContainer {
+.innerContainer {
+  width: 1024px;
+  max-width: 90%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
+  align-items: flex-end;
   justify-content: flex-end;
 }
 
 .card {
-  width: 300px;
-  background-color: var(--primaryColour);
-  padding: 2rem;
+  width: 445px;
+  padding: 40px;
+  background: #bfdded;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card h1 {
+  color: #333333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card p {
+  color: #00537f;
+  font-size: 32px;
+  margin: 0;
+}
+
+.coverImageContainer {
+  position: relative;
+  height: 500px;
+  max-width: 1540px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.backgroundGradient {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    rgba(33, 107, 146, 0.25),
+    rgba(33, 107, 146, 0.25) 60%,
+    rgba(33, 107, 146, 0.75) 100%
+  );
 }
 
 .container {
-  background-color: var(--secondaryColour);
-  box-sizing: border-box;
-  max-width: var(--containerMaxWidth);
-  width: 90%;
-  margin: 0 auto;
-  height: 400px;
+  display: absolute;
+  height: 600px;
+}
 
-  margin-bottom: calc(50px + 3rem);
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .card p {
+    color: #00537f;
+    font-size: 24px;
+    margin: 0;
+  }
 }

@@ -1,0 +1,2 @@
+/_next/image*  url=:url w=:width q=:quality  /nextimg/:url/:width/:quality  301!
+/nextimg/*  /.netlify/functions/custom-image-loader  200

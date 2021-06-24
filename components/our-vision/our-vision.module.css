@@ -1,0 +1,58 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1540px;
+  background: #eeeeee;
+  padding: 3rem 1rem;
+}
+
+.innerContainer {
+  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+  width: 85%;
+
+  display: flex;
+
+  gap: 2rem;
+}
+
+.innerContainer > div {
+  flex: 1 1 0px;
+}
+
+/* This is lazy and potentially flakey */
+.innerContainer > div > h2 {
+  color: #333333;
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.innerContainer > div > p {
+  color: #333333;
+  font-size: 16px;
+  margin: 0.5rem 0;
+}
+
+.weBelieveTagLine {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.weBelieveTagLine > p {
+  color: #666666;
+  font-size: 34px;
+}
+
+.weBelieveTagLine span {
+  color: #00537f;
+  font-weight: bold;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .innerContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+}

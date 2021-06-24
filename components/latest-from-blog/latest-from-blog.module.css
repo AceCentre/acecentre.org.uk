@@ -75,6 +75,7 @@
 .fakeImageContainer {
   height: 350px;
   position: relative;
+  width: 100%;
 }
 
 .fakeImage {
@@ -120,6 +121,14 @@
   font-weight: bold;
   text-transform: uppercase;
   font-size: 24px;
+  position: absolute;
+}
+
+.backgroundColorForLighthouse {
+  background-color: rgba(0, 83, 127, 1);
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .blueCover {

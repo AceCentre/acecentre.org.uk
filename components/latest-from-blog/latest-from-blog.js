@@ -1,7 +1,7 @@
 import { ChevronRight } from "@material-ui/icons";
 import Link from "next/link";
 import styles from "./latest-from-blog.module.css";
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const LatestFromBlog = ({ posts }) => {
   let imageCounter = 1;
@@ -82,14 +82,15 @@ const NoImage = ({ post }) => {
   } else {
     return (
       <div className={styles.fakeImageContainer}>
-        <div className={styles.fakeImageCover}>{post.title}</div>
+        <div className={styles.backgroundColorForLighthouse}></div>
         <Image
           src="/green-background.png"
           layout="fill"
           objectFit="cover"
           alt={`An thumbnail for the post: ${post.title}`}
-          className={styles.fakeImage}
+          // className={styles.fakeImage}
         />
+        <div className={styles.fakeImageCover}>{post.title}</div>
       </div>
     );
   }

@@ -1,0 +1,9 @@
+.latestFromTheBlogContainer {
+  background-color: #eeeeee;
+  z-index: 1;
+  padding: 3rem 0;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1540px;
+  position: relative;
+}

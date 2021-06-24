@@ -1,7 +1,8 @@
 .container {
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
   width: 90%;
   margin: 0 auto;
+  padding: 2rem 0;
 
   grid-gap: 2rem;
   display: grid;
@@ -13,14 +14,53 @@
 
 .peopleImage {
   grid-area: peopleImage;
+  position: relative;
+  height: 280px;
 }
 
 .peopleDescription {
   grid-area: peopleDescription;
 }
 
+.peopleDescription > h2,
+.trusteeDescription > h2 {
+  font-size: 34px;
+  color: #333333;
+  font-weight: normal;
+  margin: 0;
+}
+
+.peopleDescription > p,
+.trusteeDescription > p {
+  font-size: 16px;
+  color: #333333;
+  margin: 0;
+}
+
+.peopleDescription,
+.trusteeDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.buttonContainer {
+  margin: 1rem 0;
+}
+
+.background {
+  background-color: rgba(33, 107, 146, 0.2);
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+}
+
 .trusteeImage {
   grid-area: trusteeImage;
+  position: relative;
+  height: 280px;
 }
 
 .trusteeDescription {
