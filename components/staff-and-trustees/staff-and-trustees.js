@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./staff-and-trustees.module.css";
 
 import Image from "next/image";

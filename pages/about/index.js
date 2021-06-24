@@ -14,6 +14,8 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLandingPagePosts } from "../../lib/posts/get-posts";
 import { getSimpleStory } from "../../lib/story/get-story";
 
+import styles from "../../styles/about.module.css";
+
 export default function Home({ featuredStory, landingPagePosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -37,7 +39,9 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <FeaturedStory {...featuredStory} />
         <StaffAndTrustees />
 
-        <LatestFromBlog posts={landingPagePosts} />
+        <div className={styles.latestFromTheBlogContainer}>
+          <LatestFromBlog posts={landingPagePosts} />
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
