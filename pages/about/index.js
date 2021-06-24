@@ -26,7 +26,10 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <VideoWithCardCover src="/about-cover.jpeg">
+        <VideoWithCardCover
+          src="/about-cover.jpeg"
+          alt="cover photo of client and clinician using AAC"
+        >
           <h1>About us</h1>
           <p>
             We’re dedicated to supporting people with{" "}

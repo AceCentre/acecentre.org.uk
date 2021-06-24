@@ -1,11 +1,21 @@
 import styles from "./video-with-card-cover.module.css";
 import { ImageWithLoader as Image } from "../image";
 
-export const VideoWithCardCover = ({ children, src = "/about-cover.jpeg" }) => {
+export const VideoWithCardCover = ({
+  children,
+  src = "/about-cover.jpeg",
+  alt = "cover photo of client and clinician using AAC",
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.coverImageContainer}>
-        <Image src={src} layout="fill" objectFit="cover" objectPosition="top" />
+        <Image
+          src={src}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
+          alt={alt}
+        />
         <div className={styles.backgroundGradient} />
         <div className={styles.fullContainer}>
           <div className={styles.innerContainer}>
