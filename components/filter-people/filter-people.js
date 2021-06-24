@@ -47,7 +47,7 @@ const RadioGroup = (props) => {
 
   return (
     <div {...radioGroupProps} className={styles.innerContainer}>
-      <span {...labelProps}>{label}</span>
+      {label && <span {...labelProps}>{label}</span>}
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </div>
   );
