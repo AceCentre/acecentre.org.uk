@@ -30,6 +30,7 @@ jobs:
       GITHUB_SHA: ${{ github.sha }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
 
     steps:
       - name: Get Code
@@ -153,6 +154,7 @@ jobs:
     needs: [GetLighthousePaths, DeployNetlifyDraft, Cypress]
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         path: ${{ fromJson(needs.GetLighthousePaths.outputs.lighthousePaths) }}
     steps:

@@ -1,15 +1,17 @@
 import styles from "./description-and-quote.module.css";
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import { Avatar } from "@material-ui/core";
 
 export const DescriptionAndQuote = () => {
   return (
     <div className={styles.container}>
       <div className={styles.description}>
         <p>
-          Ace Centre is a registered charity (No. 1089313) providing support for
-          people with complex communications difficulties. We offer assessment,
-          training and information services across England, with a focus on
-          Augmentative and Alternative Communication (AAC) and Assistive
-          Technology (AT), delivered by our multi-disciplinary team of
+          <strong>Ace Centre</strong> is a registered charity (No. 1089313)
+          providing support for people with complex communications difficulties.
+          We offer assessment, training and information services across England,
+          with a focus on Augmentative and Alternative Communication (AAC) and
+          Assistive Technology (AT), delivered by our multi-disciplinary team of
           specialist teachers, occupational therapists, speech & language
           therapists with the support of technical and administrative staff.
         </p>
@@ -20,13 +22,23 @@ export const DescriptionAndQuote = () => {
           support.
         </p>
       </div>
-      <div>
-        <p>
-          &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Pellentesque gravida rutrum mattis. Aenean tincidunt neque id turpis
-          viverra pellentesque.&quot;
-        </p>
-        <p>- Anna Reeves DL CEO</p>
+      <div className={styles.quote}>
+        <Avatar className={styles.avatar}>
+          <FormatQuoteIcon className={styles.icon} />
+        </Avatar>
+        <div className={styles.quoteText}>
+          <p className={styles.quoteContent}>
+            &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque gravida rutrum mattis. Aenean tincidunt neque id turpis
+            viverra pellentesque.&quot;
+          </p>
+          <div>
+            <p>
+              <strong>Anna Reeves DL</strong>
+            </p>
+            <p>CEO</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { Avatar } from "@material-ui/core";
 import { VideoPopover } from "../video-popover/video-popover";
 import { useState } from "react";
 
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const FeaturedStory = ({
   summary,
