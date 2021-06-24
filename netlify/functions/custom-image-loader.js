@@ -22,6 +22,8 @@ function getImageType(buffer) {
 const IGNORED_FORMATS = new Set(["svg", "gif"]);
 const OUTPUT_FORMATS = new Set(["png", "jpg", "webp", "avif"]);
 
+const MAX_WIDTH = 1024;
+
 // Function used to mimic next/image
 const handler = async (event) => {
   console.log("");
@@ -30,7 +32,7 @@ const handler = async (event) => {
   const [, , url, w = 500, q = 75] = event.path.split("/");
   // Work-around a bug in redirect handling. Remove when fixed.
   const parsedUrl = decodeURIComponent(url).replace("+", "%20");
-  const width = parseInt(w);
+  const width = Math.min(parseInt(w), MAX_WIDTH);
 
   if (!width) {
     return {
@@ -134,7 +136,7 @@ const handler = async (event) => {
     .resize(width)
     .toBuffer({ resolveWithObject: true });
 
-  console.log("sharped");
+  console.log("sharped", info);
 
   if (imageBuffer.length > MAX_RESPONSE_SIZE) {
     return {
