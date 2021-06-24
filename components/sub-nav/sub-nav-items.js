@@ -6,7 +6,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "to learn more about us",
-      iconPath: "/phone.png",
+      iconPath: "/phone.svg",
       backgroundColour: "#bfdded",
       iconColour: "#84BADC",
       href: "/contact",
@@ -28,7 +28,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "to get started",
-      iconPath: "/phone.png",
+      iconPath: "/phone.svg",
       backgroundColour: "#bfdded",
       iconColour: "#84BADC",
       href: "/contact",
@@ -51,7 +51,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "for help with resources",
-      iconPath: "/phone.png",
+      iconPath: "/phone.svg",
       backgroundColour: "#bfdded",
       iconColour: "#84BADC",
       href: "/contact",
@@ -96,7 +96,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "to see how we can help",
-      iconPath: "/phone.png",
+      iconPath: "/phone.svg",
       backgroundColour: "#bfdded",
       iconColour: "#84BADC",
       href: "/contact",
@@ -126,7 +126,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "about our training options",
-      iconPath: "/phone.png",
+      iconPath: "/phone.svg",
       backgroundColour: "#bfdded",
       iconColour: "#84BADC",
       href: "/contact",
@@ -155,7 +155,7 @@ export const defaultNavItems = [
     cta: {
       primaryLine: "One-off donation",
       secondaryLine: "makes a difference",
-      iconPath: "/just-giving.png",
+      iconPath: "/just-giving.svg",
       backgroundColour: "#EFB3F3",
       iconColour: "#AA1FBD",
       href:
