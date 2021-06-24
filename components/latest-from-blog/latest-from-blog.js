@@ -1,7 +1,7 @@
 import { ChevronRight } from "@material-ui/icons";
 import Link from "next/link";
 import styles from "./latest-from-blog.module.css";
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 
 export const LatestFromBlog = ({ posts }) => {
   let imageCounter = 1;

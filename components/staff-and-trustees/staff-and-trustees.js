@@ -1,6 +1,6 @@
 import styles from "./staff-and-trustees.module.css";
 
-import Image from "next/image";
+import { ImageWithLoader as Image } from "../image";
 import { Button } from "../button/button";
 
 export const StaffAndTrustees = () => {

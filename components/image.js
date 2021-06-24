@@ -1,5 +1,10 @@
 import NextImage from "next/image";
+import { cloudinaryLoader } from "../lib/cloudinary-loader";
 import styles from "./image.module.css";
+
+export const ImageWithLoader = ({ ...props }) => {
+  return <NextImage {...props} loader={cloudinaryLoader} />;
+};
 
 export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
@@ -32,7 +37,7 @@ export const ImageSelector = ({ placeOnTop, ...props }) => {
 
   return (
     <div className={`${placeOnTop ? "" : styles.imageContainer}`}>
-      <NextImage {...props} />
+      <ImageWithLoader {...props} />
     </div>
   );
 };
