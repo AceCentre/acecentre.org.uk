@@ -82,14 +82,15 @@ const NoImage = ({ post }) => {
   } else {
     return (
       <div className={styles.fakeImageContainer}>
-        <div className={styles.fakeImageCover}>{post.title}</div>
+        <div className={styles.backgroundColorForLighthouse}></div>
         <Image
           src="/green-background.png"
           layout="fill"
           objectFit="cover"
           alt={`An thumbnail for the post: ${post.title}`}
-          className={styles.fakeImage}
+          // className={styles.fakeImage}
         />
+        <div className={styles.fakeImageCover}>{post.title}</div>
       </div>
     );
   }
