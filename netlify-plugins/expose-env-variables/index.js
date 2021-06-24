@@ -9,5 +9,6 @@ module.exports = {
     fs.appendFileSync(pathToEnv, `CONTEXT=${process.env.CONTEXT}\n`);
     fs.appendFileSync(pathToEnv, `REDIS_URL=${process.env.REDIS_URL}\n`);
     fs.appendFileSync(pathToEnv, `GITHUB_SHA=${process.env.GITHUB_SHA}\n`);
+    fs.appendFileSync(pathToEnv, `IMAGE_URL=${process.env.IMAGE_URL}\n`);
   },
 };
