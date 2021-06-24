@@ -17,14 +17,28 @@ const handler = async (event) => {
     ? `${process.env.DEPLOY_URL || `http://${event.headers.host}`}${parsedUrl}`
     : parsedUrl;
   console.log(
-    JSON.stringify({ url, w, q, parsedUrl, width, quality, imageUrl }, null, 2)
+    JSON.stringify(
+      {
+        url,
+        w,
+        q,
+        parsedUrl,
+        width,
+        quality,
+        imageUrl,
+        deployUrl: process.env.DEPLOY_URL,
+        host: event.headers.host,
+      },
+      null,
+      2
+    )
   );
   const imageData = await fetch(imageUrl);
   console.log("imageFetched");
   const bufferData = await imageData.buffer();
   console.log("Buffered data");
   const ext = path.extname(imageUrl);
-  const mimeType = ext === "jpg" ? `image/jpeg` : `image/${ext}`;
+  const mimeType = ext === "jpg" ? "image/jpeg" : `image/${ext}`;
 
   console.log(JSON.stringify({ ext, mimeType }, null, 2));
 
