@@ -1,15 +1,19 @@
 import Link from "next/link";
 import styles from "./staff-and-trustees.module.css";
 
+import Image from "next/image";
+import { Button } from "../button/button";
+
 export const StaffAndTrustees = () => {
   return (
     <div className={styles.container}>
       <div className={styles.peopleImage}>
-        <img
-          alt="placeholder"
-          width="100%"
-          height="100%"
-          src="/placeholder.jpeg"
+        <div className={styles.background} />
+        <Image
+          alt="A group photo of Ace Centre staff"
+          src="/group-photo.png"
+          layout="fill"
+          objectFit="cover"
         />
       </div>
       <div className={styles.peopleDescription}>
@@ -19,14 +23,17 @@ export const StaffAndTrustees = () => {
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
           pellentesque.
         </p>
-        <Link href="/about/staff">Meet the team</Link>
+        <div className={styles.buttonContainer}>
+          <Button href="/about/staff">Meet the team</Button>
+        </div>
       </div>
       <div className={styles.trusteeImage}>
-        <img
-          alt="placeholder"
-          width="100%"
-          height="100%"
-          src="/placeholder.jpeg"
+        <div className={styles.background} />
+        <Image
+          alt="A collage of head shots of trustees"
+          src="/trustee-collage.png"
+          layout="fill"
+          objectFit="cover"
         />
       </div>
       <div className={styles.trusteeDescription}>
@@ -36,7 +43,9 @@ export const StaffAndTrustees = () => {
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
           pellentesque.
         </p>
-        <Link href="/about/trustees">Meet the trustees</Link>
+        <div className={styles.buttonContainer}>
+          <Button href="/about/trustees">Meet the trustees</Button>
+        </div>
       </div>
     </div>
   );
