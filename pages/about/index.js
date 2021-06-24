@@ -3,6 +3,7 @@ import { DescriptionAndQuote } from "../../components/description-and-quote/desc
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { LatestFromBlog } from "../../components/latest-from-blog/latest-from-blog";
+import { OurFunding } from "../../components/our-funding/our-funding";
 import { OurVision } from "../../components/our-vision/our-vision";
 import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-trustees";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
@@ -32,6 +33,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
         </VideoWithCardCover>
         <DescriptionAndQuote />
         <OurVision />
+        <OurFunding />
         <FeaturedStory {...featuredStory} />
         <StaffAndTrustees />
 
@@ -43,7 +45,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("paul");
+  const featuredStory = await getSimpleStory("patrick");
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 

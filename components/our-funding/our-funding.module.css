@@ -1,11 +1,20 @@
 .container {
   margin: 0 auto;
   width: 90%;
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
+  text-align: center;
+  padding: 4rem 0;
 }
 
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .container {
-  }
+.container h2 {
+  font-size: 34px;
+  color: #333333;
+  font-weight: normal;
+  margin: 0;
+}
+
+.container p {
+  font-size: 18px;
+  margin: 0;
+  color: #333333;
 }
