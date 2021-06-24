@@ -1,6 +1,5 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { DescriptionAndQuote } from "../../components/description-and-quote/description-and-quote";
-import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { LatestFromBlog } from "../../components/latest-from-blog/latest-from-blog";
