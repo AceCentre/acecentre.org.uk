@@ -154,6 +154,7 @@ jobs:
     needs: [GetLighthousePaths, DeployNetlifyDraft, Cypress]
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         path: ${{ fromJson(needs.GetLighthousePaths.outputs.lighthousePaths) }}
     steps:
