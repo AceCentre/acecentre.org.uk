@@ -22,7 +22,7 @@ function getImageType(buffer) {
 const IGNORED_FORMATS = new Set(["svg", "gif"]);
 const OUTPUT_FORMATS = new Set(["png", "jpg", "webp", "avif"]);
 
-const MAX_WIDTH = 1024;
+const MAX_WIDTH = 760;
 
 // Function used to mimic next/image
 const handler = async (event) => {
