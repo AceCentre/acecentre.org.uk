@@ -58,12 +58,13 @@ const handler = async (event) => {
       process.env.DEPLOY_URL || `http://${event.headers.host}`
     }${parsedUrl}`;
   } else {
-    // Remote images need to be in the allowlist
-    const allowedDomains = process.env.NEXT_IMAGE_ALLOWED_DOMAINS
-      ? process.env.NEXT_IMAGE_ALLOWED_DOMAINS.split(",").map((domain) =>
-          domain.trim()
-        )
-      : [];
+    let allowedDomains = [];
+
+    if (process.env.NEXT_IMAGE_ALLOWED_DOMAINS) {
+      allowedDomains = process.env.NEXT_IMAGE_ALLOWED_DOMAINS.split(
+        ","
+      ).map((domain) => domain.trim());
+    }
 
     if (!allowedDomains.includes(new URL(parsedUrl).hostname)) {
       return {
