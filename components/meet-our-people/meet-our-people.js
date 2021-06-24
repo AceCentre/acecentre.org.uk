@@ -9,7 +9,7 @@ export const MeetOurPeople = () => {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.imageContainer}>
-          <Image src="/group-photo.png" layout="fill" />
+          <Image src="/group-photo.png" layout="fill" objectFit="cover" />
           <div className={styles.blueBackground}></div>
         </div>
         <div className={styles.quote}>

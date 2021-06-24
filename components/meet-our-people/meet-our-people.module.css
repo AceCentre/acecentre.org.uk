@@ -65,4 +65,8 @@
   .innerContainer {
     flex-direction: column;
   }
+
+  .innerContainer > div {
+    flex: auto;
+  }
 }
