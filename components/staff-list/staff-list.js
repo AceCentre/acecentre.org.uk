@@ -41,13 +41,23 @@ const StaffCard = ({ person }) => {
         onClick={() => setIsModelOpen(true)}
       >
         <div className={styles.imageContainer}>
-          <CropToSquareAroundFace
-            alt={`Head shot of ${person.name}`}
-            width={200}
-            height={200}
-            src={person.image.src}
-            className={styles.image}
-          />
+          {person.image ? (
+            <CropToSquareAroundFace
+              alt={`Head shot of ${person.name}`}
+              width={200}
+              height={200}
+              src={person.image.src}
+              className={styles.image}
+            />
+          ) : (
+            <CropToSquareAroundFace
+              alt={`Head shot of ${person.name}`}
+              width={200}
+              height={200}
+              src="/placeholder-avatar.png"
+              className={styles.image}
+            />
+          )}
         </div>
         <div className={styles.infoContainer}>
           <p className={styles.personName}>{person.name}</p>
@@ -177,13 +187,23 @@ const StaffDetail = ({ isModelOpen, onClose, person, location }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topContainer}>
             <div className={styles.imageContainer}>
-              <CropToSquareAroundFace
-                alt={`Head shot of ${person.name}`}
-                width={155}
-                height={155}
-                src={person.image.src}
-                className={styles.image}
-              />
+              {person.image ? (
+                <CropToSquareAroundFace
+                  alt={`Head shot of ${person.name}`}
+                  width={155}
+                  height={155}
+                  src={person.image.src}
+                  className={styles.image}
+                />
+              ) : (
+                <CropToSquareAroundFace
+                  alt={`Head shot of ${person.name}`}
+                  width={155}
+                  height={155}
+                  src="/placeholder-avatar.png"
+                  className={styles.image}
+                />
+              )}
             </div>
             <div className={styles.modalTop}>
               <p className={styles.modalName}>{person.name}</p>
