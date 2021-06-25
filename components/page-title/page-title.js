@@ -4,7 +4,7 @@ export const PageTitle = ({ heading, description }) => {
   return (
     <div className={styles.container}>
       <h1>
-        <img src={brushStroke} />
+        <img src={brushStroke} alt="A brush stroke" />
         {heading}
       </h1>
       <p>{description}</p>
