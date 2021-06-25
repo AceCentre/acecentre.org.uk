@@ -1,4 +1,3 @@
-import { Children } from "react";
 import styles from "./people-list.module.css";
 
 export const PeopleList = ({ peopleList, children }) => {
