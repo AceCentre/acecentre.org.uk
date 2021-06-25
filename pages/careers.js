@@ -19,11 +19,15 @@ export default function Careers() {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <VideoWithCardCover>
+        <VideoWithCardCover
+          src="/careers-cover.jpeg"
+          alt="A person using an AAC device"
+          objectPosition="50%"
+        >
           <h1>Work with us</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque gravida rutrum mattis.
+            Lorem ipsum dolor sit amet consectetur adipiscing elit{" "}
+            <strong>sed do eiusmod</strong> consectetur ipsum dolor
           </p>
         </VideoWithCardCover>
         <WorkingAtAce />
