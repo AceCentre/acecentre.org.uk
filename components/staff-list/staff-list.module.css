@@ -1,0 +1,69 @@
+.image {
+  border-radius: 50%;
+}
+
+.imageContainer {
+  padding: 0 29px;
+}
+
+.personName {
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+}
+
+.job {
+  color: #333333;
+  font-size: 16px;
+  margin: 0;
+}
+
+.location {
+  /* display: inline-block; */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #00537f;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.locationContainer {
+  padding: 10px;
+}
+
+.staffButton {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 29px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  gap: 1rem;
+}
+
+.staffButton:hover,
+.staffButton:focus {
+  background-color: #eeeeee;
+}
+
+.staffButton:hover > .imageContainer,
+.staffButton:focus > .imageContainer {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}

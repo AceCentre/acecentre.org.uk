@@ -2,7 +2,7 @@
   margin: 0 auto;
   padding-top: 2rem;
   width: 90%;
-  max-width: var(--containerMaxWidth);
+  max-width: 1024px;
 }
 
 .list {
@@ -11,8 +11,14 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
+}
+
+.personCard {
+  text-align: center;
+  width: 240px;
 }
 
 .personCard {

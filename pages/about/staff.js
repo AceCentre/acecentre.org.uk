@@ -34,7 +34,6 @@ export default function StaffPage({ allStaff }) {
         <MeetOurPeople />
         <FilterPeople onChange={setCurrentFilter} />
         <StaffList staffList={filteredStaff} />
-        <CareersAtAce />
       </main>
       <Footer currentYear={currentYear} />
     </>
