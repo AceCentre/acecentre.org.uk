@@ -19,7 +19,7 @@ export const JobsAndPeople = () => {
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
           pellentesque.
         </p>
-        <Link href="/jobs">View Jobs</Link>
+        <Link href="/careers">View Jobs</Link>
       </div>
       <div className={styles.peopleImage}>
         <img
