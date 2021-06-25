@@ -1,0 +1,149 @@
+.image {
+  border-radius: 50%;
+}
+
+.imageContainer {
+  padding: 0 29px;
+}
+
+.personName {
+  color: #333333;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+}
+
+.job {
+  color: #333333;
+  font-size: 16px;
+  margin: 0;
+}
+
+.location {
+  /* display: inline-block; */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #00537f;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.locationContainer {
+  padding: 10px 0;
+}
+
+.staffButton {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 29px 0;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  gap: 1rem;
+}
+
+.staffButton:hover,
+.staffButton:focus {
+  background-color: #eeeeee;
+}
+
+.staffButton:hover > .imageContainer,
+.staffButton:focus > .imageContainer {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
+
+.topContainer {
+  display: flex;
+  align-items: center;
+}
+.modalName {
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.longDescription > p {
+  color: #333333;
+  font-size: 16px;
+}
+
+.longDescription br {
+  display: block;
+  content: " ";
+  margin: 10px 0;
+}
+
+.modalJob {
+  color: #333333;
+  font-size: 16px;
+  margin: 0;
+}
+
+.modalTop {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.boldNumber {
+  font-weight: bold;
+}
+
+.phoneNumber {
+  display: flex;
+  gap: 0.5rem;
+  color: #333333;
+  font-family: Montserrat;
+  font-size: 28px;
+  align-items: center;
+}
+
+.phoneIcon.phoneIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.closeButton {
+  background: none;
+  border: 0;
+
+  color: #00537f;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  text-decoration: underline;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .topContainer {
+    flex-direction: column;
+  }
+}

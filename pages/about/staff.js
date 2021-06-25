@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CareersAtAce } from "../../components/careers-at-ace/careers-at-ace";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import {
   FilterPeople,
@@ -28,13 +27,12 @@ export default function StaffPage({ allStaff }) {
       </header>
       <main>
         <PageTitle
-          heading="Our people"
-          description="Our people are our greatest strength"
+          heading="Our team"
+          description="Our team is our greatest strength"
         />
         <MeetOurPeople />
         <FilterPeople onChange={setCurrentFilter} />
         <StaffList staffList={filteredStaff} />
-        <CareersAtAce />
       </main>
       <Footer currentYear={currentYear} />
     </>

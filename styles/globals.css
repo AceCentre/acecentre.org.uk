@@ -4,17 +4,24 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;
   min-width: fit-content;
-  position: relative;
 }
 
-header {
-  position: relative;
-  z-index: 2;
-}
+/* Make nav work on mobile and desktop  */
+@media (min-width: 760px) {
+  html,
+  body {
+    position: relative;
+  }
 
-main {
-  position: relative;
-  z-index: 1;
+  header {
+    position: relative;
+    z-index: 2;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 button {
