@@ -9,8 +9,8 @@ const Template = (args) => <PageTitle {...args} />;
 
 export const StaffPage = Template.bind({});
 StaffPage.args = {
-  heading: "Our people",
-  description: "Our people are our greatest strength",
+  heading: "Our team",
+  description: "Our team is our greatest strength",
 };
 
 export const TrusteesPage = Template.bind({});

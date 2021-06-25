@@ -1,12 +1,23 @@
 import NextImage from "next/image";
-import { cloudinaryLoader } from "../lib/cloudinary-loader";
+import { cloudinaryLoader, cropToSquareLoader } from "../lib/cloudinary-loader";
 import styles from "./image.module.css";
 
-export const ImageWithLoader = ({ ...props }) => {
-  return <NextImage {...props} loader={cloudinaryLoader} />;
+export const ImageWithLoader = ({ loader = cloudinaryLoader, ...props }) => {
+  return <NextImage {...props} loader={loader} />;
 };
 
-export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
+export const CropToSquareAroundFace = ({ ...props }) => {
+  return <NextImage {...props} loader={cropToSquareLoader} />;
+};
+
+export const Image = ({
+  width,
+  height,
+  maxWidth,
+  maxHeight,
+  loader = cloudinaryLoader,
+  ...rest
+}) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
   if (!maxHeight && !maxWidth) {
     console.warn("You haven't provided a maxHeight or maxWidth for your image");
@@ -25,9 +36,20 @@ export const Image = ({ width, height, maxWidth, maxHeight, ...rest }) => {
   const newWidth = Math.ceil(width * targetScale);
   const newHeight = Math.ceil(height * targetScale);
 
-  return <ImageSelector height={newHeight} width={newWidth} {...rest} />;
+  return (
+    <ImageSelector
+      loader={loader}
+      height={newHeight}
+      width={newWidth}
+      {...rest}
+    />
+  );
 };
-export const ImageSelector = ({ placeOnTop, ...props }) => {
+export const ImageSelector = ({
+  placeOnTop,
+  loader = cloudinaryLoader,
+  ...props
+}) => {
   // If we are on storybook we just use a normal image tag
   // Bear in mind that we will then do more optimizing for the
   // production build
@@ -37,7 +59,7 @@ export const ImageSelector = ({ placeOnTop, ...props }) => {
 
   return (
     <div className={`${placeOnTop ? "" : styles.imageContainer}`}>
-      <ImageWithLoader {...props} />
+      <ImageWithLoader loader={loader} {...props} />
     </div>
   );
 };
