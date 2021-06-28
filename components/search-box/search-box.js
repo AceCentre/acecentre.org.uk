@@ -21,7 +21,7 @@ export const SearchBox = ({
         <p className={styles.description}>{description}</p>
         <form action={searchEndpoint} method="GET" className={styles.form}>
           <Input
-            aria-label={ariaLabel}
+            ariaLabel={ariaLabel}
             name="searchText"
             placeholder={placeholder}
             white

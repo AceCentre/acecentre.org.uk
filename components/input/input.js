@@ -5,7 +5,14 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-export const Input = ({ maxWidth, children, placeholder, white, name }) => {
+export const Input = ({
+  maxWidth,
+  children,
+  placeholder,
+  white,
+  name,
+  ariaLabel,
+}) => {
   return (
     <>
       <InputGroup maxWidth={maxWidth}>
@@ -14,6 +21,7 @@ export const Input = ({ maxWidth, children, placeholder, white, name }) => {
           backgroundColor={white ? "white" : "#F5F5F5"}
           placeholder={placeholder}
           name={name}
+          aria-label={ariaLabel}
         />
         <InputRightElement>{children}</InputRightElement>
       </InputGroup>

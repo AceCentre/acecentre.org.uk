@@ -4,9 +4,9 @@ context("Blog Search", () => {
 
     cy.visit("/blog");
 
-    cy.findByRole("textbox", { name: "Search blog posts" }).type(searchText);
-
-    cy.findByRole("button", { name: "Search" }).click();
+    cy.findByRole("textbox", { name: "Search blog posts" }).type(
+      `${searchText}{enter}`
+    );
 
     cy.findByRole("heading", { name: /Results/i }).contains(searchText);
   });
