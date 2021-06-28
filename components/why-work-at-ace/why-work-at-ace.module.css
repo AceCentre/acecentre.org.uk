@@ -1,10 +1,42 @@
 .container {
   margin: 0 auto;
-  width: 90%;
-  max-width: var(--containerMaxWidth);
+  width: 100%;
+  max-width: 1540px;
+  background-color: #eeeeee;
+  padding: 4rem 0;
+  margin: 2rem 0;
 }
 
 .innerContainer {
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.titleName {
+  color: #00537f;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+.proBlock h3 {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.proBlock p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.proContainer {
   display: flex;
   justify-content: space-evenly;
   gap: 2rem;
@@ -12,8 +44,8 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .innerContainer {
-    gap: 0;
+  .proContainer {
+    gap: 1rem;
     flex-direction: column;
   }
 }

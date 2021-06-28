@@ -12,7 +12,7 @@ export const HowCanWeHelpCards = () => {
       <div className={styles.allCards}>
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
-            src="/getting-started.svg"
+            src="/getting-started-demo.svg"
             background="#F1D1D0"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
@@ -23,7 +23,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/resources.svg"
+            src="/getting-started-demo-2.svg"
             background="#F6EEC5"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"

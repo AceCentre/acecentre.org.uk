@@ -3,6 +3,8 @@
   width: 90%;
   margin: 0 auto;
 
+  padding-bottom: 3rem;
+
   grid-gap: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -19,6 +21,19 @@
   grid-area: peopleDescription;
 }
 
+.peopleDescription h2,
+.jobDescription h2 {
+  font-weight: normal;
+  margin: 0;
+  font-size: 34px;
+}
+
+.peopleDescription p,
+.jobDescription p {
+  margin: 0;
+  font-size: 16px;
+}
+
 .jobImage {
   grid-area: jobImage;
 }
@@ -27,9 +42,29 @@
   grid-area: jobDescription;
 }
 
-.jobImage > img,
-.peopleImage > img {
-  object-fit: cover;
+.jobDescription,
+.peopleDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.jobImage,
+.peopleImage {
+  position: relative;
+  height: 280px;
+}
+
+.blueBackground {
+  background-color: rgba(33, 107, 146, 0.25);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.buttonContainer {
+  margin: 1rem 0;
 }
 
 /** Mobile CSS */
