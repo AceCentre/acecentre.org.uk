@@ -42,7 +42,7 @@ export const Footer = ({ currentYear }) => {
           </div>
           <ul className={styles.list}>
             {sitemapList.map((item) => (
-              <li key={item.href}>
+              <li key={`sitemap-${item.href}`}>
                 <Link href={item.href}>
                   <a className={styles.flatListLink}>{item.title}</a>
                 </Link>

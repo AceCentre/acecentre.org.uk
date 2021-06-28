@@ -37,7 +37,7 @@ export const LatestFromBlog = ({ posts }) => {
       </div>
       <ul className={styles.list}>
         {postsWithoutImageCounters.map((post) => (
-          <BlogCard key={post.slug} post={post} />
+          <BlogCard key={`latest-${post.slug}`} post={post} />
         ))}
       </ul>
     </div>

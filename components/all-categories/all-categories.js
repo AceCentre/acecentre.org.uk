@@ -7,7 +7,7 @@ export const AllCategories = ({ blogCategories = [] }) => {
       <h2>All categories</h2>
       <ul className={styles.list}>
         {blogCategories.map((category) => (
-          <li key={category.href}>
+          <li key={`category-${category.slug}`}>
             <Link href={`/blog/category/${category.slug}`}>
               {category.title}
             </Link>

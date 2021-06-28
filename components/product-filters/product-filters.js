@@ -142,7 +142,7 @@ export const ProductFilters = ({
         <Select {...topLevelCategorySelectProps} placeholder="Select category">
           {categories.map((category) => {
             return (
-              <option value={category.slug} key={category.slug}>
+              <option value={category.slug} key={`category-${category.slug}`}>
                 {category.name}
               </option>
             );
@@ -155,7 +155,10 @@ export const ProductFilters = ({
         >
           {currentSubCategories.map((category) => {
             return (
-              <option value={category.slug} key={category.slug}>
+              <option
+                value={category.slug}
+                key={`subcategory-${category.slug}`}
+              >
                 {category.name}
               </option>
             );
@@ -164,7 +167,10 @@ export const ProductFilters = ({
         <Select {...priceRangeSelectProps} placeholder="Select price range">
           {priceRanges.map((priceRange) => {
             return (
-              <option value={priceRange.slug} key={priceRange.slug}>
+              <option
+                value={priceRange.slug}
+                key={`priceRange-${priceRange.slug}`}
+              >
                 {priceRange.name}
               </option>
             );
@@ -182,7 +188,7 @@ export const ProductFilters = ({
         >
           {ORDER_BY_OPTIONS.map((orderBy) => {
             return (
-              <option value={orderBy.slug} key={orderBy.slug}>
+              <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
                 {orderBy.title}
               </option>
             );
