@@ -22,7 +22,7 @@ export default function Home({ latestsPosts, blogCategories }) {
       </header>
       <main>
         <BlogSearch />
-        <FeaturedPosts title="Latest posts" posts={latestsPosts} />
+        <FeaturedPosts title="Latest articles" posts={latestsPosts} />
         <BlogCategoryGrid />
         <AllCategories blogCategories={blogCategories} />
       </main>
