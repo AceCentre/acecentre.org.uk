@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./latest-from-blog.module.css";
 import { ImageWithLoader as Image } from "../image";
 
-export const LatestFromBlog = ({ posts }) => {
+export const usePostsWithoutImageCounters = (posts) => {
   let imageCounter = 1;
   const postsWithoutImageCounters = posts.map((post) => {
     if (post.featuredImage) {
@@ -15,6 +15,12 @@ export const LatestFromBlog = ({ posts }) => {
     imageCounter++;
     return newPost;
   });
+
+  return postsWithoutImageCounters;
+};
+
+export const LatestFromBlog = ({ posts }) => {
+  const postsWithoutImageCounters = usePostsWithoutImageCounters(posts);
 
   return (
     <div className={styles.container}>
@@ -38,7 +44,7 @@ export const LatestFromBlog = ({ posts }) => {
   );
 };
 
-const BlogCard = ({ post }) => {
+export const BlogCard = ({ post, category = "blog" }) => {
   return (
     <li className={styles.flexItem}>
       <Link href={`/blog/${post.slug}`}>
@@ -55,7 +61,7 @@ const BlogCard = ({ post }) => {
           ) : (
             <NoImage post={post} />
           )}
-          <p className={styles.blogTag}>Blog</p>
+          <p className={styles.blogTag}>{category}</p>
           <div className={styles.postTitleContainer}>
             <p className={styles.postTitle}>{post.title}</p>
           </div>

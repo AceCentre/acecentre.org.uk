@@ -1,5 +1,6 @@
 .container {
   max-width: var(--containerMaxWidth);
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -7,9 +8,11 @@
   display: flex;
   gap: 1rem;
 
+  list-style-type: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 1rem;
+  gap: 30px;
+  padding: 0;
 }
 
 .listItem {
