@@ -1,4 +1,8 @@
 import styles from "./search-box.module.css";
+import { Input } from "../input/input";
+
+import SvgIcon from "@material-ui/core/SvgIcon";
+import SearchIcon from "@material-ui/icons/Search";
 
 export const SearchBox = ({
   title,
@@ -6,21 +10,26 @@ export const SearchBox = ({
   searchEndpoint,
   ariaLabel,
   placeholder,
-  searchButtonText,
 }) => {
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <div className={styles.titleContainer}>
+          <img width="41px" src="/dash-black.svg" alt="A brush stroke" />
+          <h1>{title}</h1>
+        </div>
+        <p className={styles.description}>{description}</p>
         <form action={searchEndpoint} method="GET" className={styles.form}>
-          <input
+          <Input
             aria-label={ariaLabel}
             name="searchText"
-            type="text"
             placeholder={placeholder}
-          />
-          <button type="submit">{searchButtonText}</button>
+            white
+          >
+            <SvgIcon>
+              <SearchIcon />
+            </SvgIcon>
+          </Input>
         </form>
       </div>
     </div>
