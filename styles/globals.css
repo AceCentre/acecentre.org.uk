@@ -38,12 +38,6 @@ button {
   --secondaryColour: #e3e3e3;
 }
 
-@media (max-width: 1024px) {
-  :root {
-    --containerMaxWidth: 760px;
-  }
-}
-
 .yt-lite {
   background-color: #000;
   position: relative;
