@@ -23,8 +23,7 @@ export default function Home({ latestsPosts, blogCategories }) {
       <main>
         <BlogSearch />
         <FeaturedPosts title="Latest articles" posts={latestsPosts} />
-        <BlogCategoryGrid />
-        <AllCategories blogCategories={blogCategories} />
+        <BlogCategoryGrid blogCategories={blogCategories} />
       </main>
       <Footer currentYear={currentYear} />
     </>
