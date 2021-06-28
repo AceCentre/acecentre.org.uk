@@ -15,7 +15,13 @@ export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
       {viewAllLink && <Link href={viewAllLink}>View All</Link>}
       <ul className={styles.postList}>
         {postsWithoutImageCounters.map((post) => {
-          return <BlogCard key={`card-${post.slug}`} post={post} />;
+          return (
+            <BlogCard
+              key={`card-${post.slug}`}
+              category={post.mainCategoryName}
+              post={post}
+            />
+          );
         })}
       </ul>
     </div>
