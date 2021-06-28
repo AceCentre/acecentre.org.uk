@@ -15,7 +15,7 @@ export default function ProductPage({ product }) {
       {product.image && <Image {...product.image} maxWidth={100} />}
 
       {product.gallery.map((image) => (
-        <Image key={image.src} {...image} maxWidth={100} />
+        <Image key={`image-${image.src}`} {...image} maxWidth={100} />
       ))}
 
       {product.instantDownloadAvailable && (

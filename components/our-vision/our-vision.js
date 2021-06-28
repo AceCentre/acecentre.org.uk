@@ -23,21 +23,21 @@ function useInterval(callback, delay) {
 }
 
 const WE_BELIEVE = [
-  <p key="1">
+  <p key="we-believe-1">
     We believe in <span>Equality.</span> Everyone has the right to communicate.
   </p>,
-  <p key="2">
+  <p key="we-believe-2">
     We believe in <span>Teamwork.</span> Working to find the best solution.
   </p>,
-  <p key="3">
+  <p key="we-believe-3">
     We believe in <span>The Individual.</span> The individual is at the centre
     of our services.
   </p>,
-  <p key="4">
+  <p key="we-believe-4">
     We believe in <span>Independence.</span> We provide an independent and
     unbiased service.
   </p>,
-  <p key="5">
+  <p key="we-believe-5">
     We believe in <span>Compassion.</span> We treat people we support with care,
     empathy and understanding.
   </p>,

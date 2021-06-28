@@ -9,7 +9,7 @@ export const AllStories = ({ stories }) => {
       <Link href="/stories/all">View all</Link>
       <ul className={styles.list}>
         {stories.map((story) => (
-          <li key={story.slug}>
+          <li key={`story-${story.slug}`}>
             <Link href={`/stories/${story.slug}`}>
               <a>
                 {story.image && (
