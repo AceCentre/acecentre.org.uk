@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
@@ -12,9 +11,11 @@ import {
 } from "../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
-import styles from "../../styles/index.module.css";
+import styles from "../../styles/blog-post.module.css";
 import redis from "../../lib/static-caching/redis";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
+import { BlogMeta } from "../../components/blog-meta/blog-meta";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
@@ -29,27 +30,25 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.container}>
-          <Link href={`/blog/category/${currentPost.featuredCategorySlug}`}>
-            <a>&lt; Back to {currentPost.featuredCategoryName}</a>
-          </Link>
-        </div>
-        <PageTitle
-          heading="From the AceCentre blog"
-          description={currentPost.title}
+        <BackToLink
+          href={`/blog/category/${currentPost.featuredCategorySlug}`}
+          where={currentPost.featuredCategoryName.toLowerCase()}
         />
-        <div className={styles.container}>
-          <p>
-            <i>{formattedDate}</i>
-          </p>
-        </div>
+        <PageTitle
+          heading="Ace Centre blog"
+          description={currentPost.title}
+          className={styles.pageTitle}
+        />
+        <BlogMeta date={formattedDate} />
+
         <div
-          className={styles.container}
+          className={styles.contentContainer}
           dangerouslySetInnerHTML={{ __html: currentPost.content }}
         ></div>
         <FeaturedPosts
           title={`More from ${currentPost.featuredCategoryName}`}
           posts={featuredPosts}
+          viewAllLink={`/blog/category/${currentPost.featuredCategorySlug}`}
         />
       </main>
 
