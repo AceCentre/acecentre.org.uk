@@ -1,4 +1,3 @@
-import { AllCategories } from "../../components/all-categories/all-categories";
 import { BlogCategoryGrid } from "../../components/blog-category-grid/blog-category-grid";
 import { BlogSearch } from "../../components/blog-search/blog-search";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
