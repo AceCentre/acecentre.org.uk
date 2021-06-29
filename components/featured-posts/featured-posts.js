@@ -6,7 +6,12 @@ import {
 
 import styles from "./featured-posts.module.css";
 
-export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
+export const FeaturedPosts = ({
+  title,
+  viewAllLink,
+  posts,
+  linkPrefix = "blog",
+}) => {
   const postsWithoutImageCounters = usePostsWithoutImageCounters(posts);
 
   return (
@@ -20,6 +25,7 @@ export const FeaturedPosts = ({ title, viewAllLink, posts }) => {
               key={`card-${post.slug}`}
               category={post.mainCategoryName}
               post={post}
+              linkPrefix={linkPrefix}
             />
           );
         })}
