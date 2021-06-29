@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FeaturedPosts } from "../../../components/featured-posts/featured-posts";
 import { Footer } from "../../../components/footer/footer";
 import { PageTitle } from "../../../components/page-title/page-title";
