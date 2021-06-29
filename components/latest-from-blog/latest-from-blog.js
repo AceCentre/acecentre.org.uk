@@ -44,10 +44,10 @@ export const LatestFromBlog = ({ posts }) => {
   );
 };
 
-export const BlogCard = ({ post, category = "blog" }) => {
+export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
   return (
     <li className={styles.flexItem}>
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/${linkPrefix}/${post.slug}`}>
         <a className={styles.listLink}>
           {post.featuredImage ? (
             <div className={styles.imageContainer}>
