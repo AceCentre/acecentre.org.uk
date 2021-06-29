@@ -46,6 +46,11 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install NPM deps
         run: yarn install
 
@@ -126,10 +131,20 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v2
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - run: yarn add --dev cypress
+
       - name: Cypress run
         with:
           config: baseUrl=${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
           record: true
+          install: false
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

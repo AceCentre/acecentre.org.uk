@@ -25,6 +25,7 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_URL: https://acecentreorguk.netlify.app
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
+          UPLOAD_TO_LH: true
         run: yarn lighthouse --collect.numberOfRuns=5
 
       - uses: actions/upload-artifact@v2

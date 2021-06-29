@@ -1,4 +1,8 @@
 import Link from "next/link";
+import {
+  BlogCard,
+  usePostsWithoutImageCounters,
+} from "../latest-from-blog/latest-from-blog";
 
 import styles from "./featured-posts.module.css";
 
@@ -8,30 +12,24 @@ export const FeaturedPosts = ({
   posts,
   linkPrefix = "blog",
 }) => {
+  const postsWithoutImageCounters = usePostsWithoutImageCounters(posts);
+
   return (
     <div className={styles.container}>
       {title && <h1>{title}</h1>}
       {viewAllLink && <Link href={viewAllLink}>View All</Link>}
-      <div className={styles.postList}>
-        {posts.map((post) => {
+      <ul className={styles.postList}>
+        {postsWithoutImageCounters.map((post) => {
           return (
-            // Should this be a list?
-            <Link key={post.slug} href={`/${linkPrefix}/${post.slug}`}>
-              <a className={styles.listItem}>
-                <div>
-                  <img
-                    alt="placeholder"
-                    width="100%"
-                    height="100%"
-                    src="/placeholder.jpeg"
-                  />
-                </div>
-                <h2>{post.title}</h2>
-              </a>
-            </Link>
+            <BlogCard
+              key={`card-${post.slug}`}
+              category={post.mainCategoryName}
+              post={post}
+              linkPrefix={linkPrefix}
+            />
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
