@@ -1,10 +1,9 @@
 .container {
-  margin: 0 auto;
   width: 100%;
   max-width: 1540px;
   background-color: #eeeeee;
   padding: 4rem 0;
-  margin: 2rem 0;
+  margin: 2rem auto;
 }
 
 .innerContainer {

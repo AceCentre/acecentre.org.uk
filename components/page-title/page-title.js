@@ -4,13 +4,10 @@ export const PageTitle = ({ heading, description }) => {
   return (
     <div className={styles.container}>
       <h1>
-        <img src={brushStroke} alt="A brush stroke" />
+        <img width="41px" height="48px" src="/dash.svg" alt="A brush stroke" />
         {heading}
       </h1>
       <p>{description}</p>
     </div>
   );
 };
-
-const brushStroke =
-  "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNTNweCIgaGVpZ2h0PSI0cHgiIHZpZXdCb3g9IjAgMCA1MyA0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPHRpdGxlPi08L3RpdGxlPgogICAgPGcgaWQ9IkFib3V0IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iT1VSLVBFT1BMRS0tLUV4dHJhLWxhcmdlOi1EZXNrdG9wcy0tLTEyLWNvbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE2NS4wMDAwMDAsIC0yNjIuMDAwMDAwKSIgZmlsbD0iIzAwNTM3RiI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNzkuODY3Njg3LDI2NS45OTI3NTcgQzE3MC40MDI3OTIsMjY1LjkwNDc1NyAxNjYuMzc1MTc3LDI2NC45ODA3NTcgMTY1LjE2Njg5MiwyNjMuNjYwNzU3IEMxNjQuNzY0MTMxLDI2My4yNjQ3NTcgMTY0Ljk2NTUxMSwyNjMuMDAwNzU3IDE2Ny4xODA3LDI2My4wNDQ3NTcgQzE3NC45OTM3NTQsMjYzLjEzOTU5NSAxODQuODg1ODY0LDI2Mi45MTY0NTMgMTkzLjI3MjA1MSwyNjIuNzgzMjk1IEMxOTYuNTU4MTM4LDI2Mi43MzExMTggMTk5LjYxMzAwMSwyNjIuNjkyNzU3IDIwMi4yMjA5NTEsMjYyLjY5Mjc1NyBDMjEyLjI4OTk4OSwyNjIuNjkyNzU3IDIxNi4xMTYyMjMsMjYzLjcwNDc1NyAyMTcuMzI0NTA4LDI2NC45ODA3NTcgQzIxNy43MjcyNjksMjY1LjM3Njc1NyAyMTcuMzI0NTA4LDI2NS42NDA3NTcgMjE1LjEwOTMxOSwyNjUuNTk2NzU3IEMyMDAuNDA4NTI0LDI2NS4zMzI3NTcgMTg5LjEzMTIwMiwyNjYuMDgwNzU3IDE3OS44Njc2ODcsMjY1Ljk5Mjc1NyBaIiBpZD0iLSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+";

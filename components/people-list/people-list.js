@@ -5,7 +5,7 @@ export const PeopleList = ({ peopleList, children }) => {
     <div className={styles.container}>
       <ul className={styles.list}>
         {peopleList.map((person) => (
-          <li key={person.name} className={styles.personCard}>
+          <li key={`person-${person.name}`} className={styles.personCard}>
             {children(person)}
           </li>
         ))}

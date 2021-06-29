@@ -1,4 +1,3 @@
-import { AllCategories } from "../../components/all-categories/all-categories";
 import { BlogCategoryGrid } from "../../components/blog-category-grid/blog-category-grid";
 import { BlogSearch } from "../../components/blog-search/blog-search";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -22,9 +21,8 @@ export default function Home({ latestsPosts, blogCategories }) {
       </header>
       <main>
         <BlogSearch />
-        <FeaturedPosts title="Latest posts" posts={latestsPosts} />
-        <BlogCategoryGrid />
-        <AllCategories blogCategories={blogCategories} />
+        <FeaturedPosts title="Latest articles" posts={latestsPosts} />
+        <BlogCategoryGrid blogCategories={blogCategories} />
       </main>
       <Footer currentYear={currentYear} />
     </>

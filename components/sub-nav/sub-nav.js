@@ -21,7 +21,7 @@ export const SubNav = ({ navItems, active }) => {
             <NavItem
               index={index}
               isActive={item.href === active}
-              key={item.href}
+              key={`subnav-item-${item.href}`}
               navItem={item}
             />
           ))}
@@ -96,7 +96,10 @@ const NavItem = ({ navItem, isActive }) => {
                 <ul className={styles.subList}>
                   {firstNavList.map((subItem) => {
                     return (
-                      <li className={styles.subListItem} key={subItem.href}>
+                      <li
+                        className={styles.subListItem}
+                        key={`subnav-item-first-${subItem.href}`}
+                      >
                         <Link href={subItem.href}>
                           <a className={styles.subNavLink}>
                             <Avatar className={styles.arrowAvatar}>
@@ -112,7 +115,10 @@ const NavItem = ({ navItem, isActive }) => {
                 <ul className={styles.subList}>
                   {secondNavList.map((subItem) => {
                     return (
-                      <li className={styles.subListItem} key={subItem.href}>
+                      <li
+                        className={styles.subListItem}
+                        key={`subnav-item-second-${subItem.href}`}
+                      >
                         <Link href={subItem.href}>
                           <a className={styles.subNavLink}>
                             <Avatar className={styles.arrowAvatar}>

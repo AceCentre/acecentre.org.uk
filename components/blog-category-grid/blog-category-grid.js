@@ -1,32 +1,42 @@
 import styles from "./blog-category-grid.module.css";
+import { ImageWithLoader as Image } from "../image";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Link from "next/link";
+import { Avatar } from "@material-ui/core";
 
-export const BlogCategoryGrid = () => {
+export const BlogCategoryGrid = ({ blogCategories }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.category1}>
-        <h2>Projects</h2>
-      </div>
-      <div className={styles.category2}>
-        <h2>Company news</h2>
-      </div>
-      <div className={styles.category3}>
-        <h2>Category1</h2>
-      </div>
-      <div className={styles.category4}>
-        <h2>Category2</h2>
-      </div>
-      <div className={styles.category5}>
-        <h2>Category3</h2>
-      </div>
-      <div className={styles.category6}>
-        <h2>Category4</h2>
-      </div>
-      <div className={styles.category7}>
-        <h2>Category5</h2>
-      </div>
-      <div className={styles.category8}>
-        <h2>Category6</h2>
-      </div>
+      <h2 className={styles.heading}>Browse articles by category</h2>
+      <ul className={styles.list}>
+        {blogCategories.map((category) => {
+          return (
+            <li
+              className={styles.listItem}
+              key={`browse-articles-${category.slug}`}
+            >
+              <Link href={`/blog/category/${category.slug}`}>
+                <a className={styles.link}>
+                  <Image
+                    src={category.featuredImage.src}
+                    alt={category.featuredImage.alt}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className={styles.blueBannerContainer}>
+                    <div className={styles.blueBanner}>
+                      <p>{category.title}</p>
+                      <Avatar className={styles.avatar}>
+                        <ArrowForwardIcon className={styles.icon} />
+                      </Avatar>
+                    </div>
+                  </div>
+                </a>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

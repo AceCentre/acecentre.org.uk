@@ -1,37 +1,44 @@
 .container {
   margin: 0 auto;
-  width: 90%;
-  max-width: var(--containerMaxWidth);
+  width: 100%;
+  max-width: 1540px;
 
-  background-color: var(--secondaryColour);
+  background-color: #bfdded;
   padding: 4rem 0;
   display: flex;
+
+  background-image: url("/wave.svg");
+  background-size: cover;
 }
 
 .innerContainer {
-  background-color: var(--primaryColour);
-
-  padding: 2rem;
   margin: 0 auto;
-  width: 75%;
-
-  text-align: center;
+  width: 90%;
+  max-width: 1024px;
 }
 
 .form {
-  display: flex;
-  padding: 0 3rem;
-  gap: 1rem;
+  padding-top: 3rem;
+  max-width: 640px;
 }
 
 .form > input {
   flex-grow: 1;
 }
 
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .form {
-    flex-direction: column;
-    padding: 0;
-  }
+.titleContainer {
+  font-family: "Yellowtail", cursive;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.titleContainer h1 {
+  margin: 0;
+}
+
+.description {
+  color: #00537f;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0;
 }

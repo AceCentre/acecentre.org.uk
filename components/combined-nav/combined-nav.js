@@ -157,7 +157,7 @@ const MenuContent = ({ defaultNavItems, cartCount }) => {
       <ul className={styles.menuContentList}>
         {defaultNavItems.map((navItem, index) => {
           return (
-            <li key={navItem.title}>
+            <li key={`navItem-${navItem.title}`}>
               <div className={styles.menuContentListItem}>
                 <ChakraButton
                   className={styles.menuContentListButton}
@@ -176,7 +176,7 @@ const MenuContent = ({ defaultNavItems, cartCount }) => {
                   <ul className={styles.subNavList}>
                     {navItem.subItems.map((item) => {
                       return (
-                        <li key={item.title}>
+                        <li key={`subNav-${item.title}`}>
                           <Link href={item.href}>
                             <a className={styles.subNavLink}>
                               <Avatar className={styles.arrowAvatar}>
