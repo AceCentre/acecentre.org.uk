@@ -1,0 +1,21 @@
+.container {
+  margin: 40px auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.backToLink {
+  color: #00537f;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.backToLink:hover {
+  text-decoration: underline;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
