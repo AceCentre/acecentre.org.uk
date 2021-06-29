@@ -33,6 +33,7 @@ export const BlogMeta = ({ date }) => {
           >
             <a
               target="_blank"
+              rel="noopener"
               aria-label="Twitter logo"
               className={styles.avatarLink}
             >
@@ -47,6 +48,7 @@ export const BlogMeta = ({ date }) => {
           >
             <a
               target="_blank"
+              rel="noopener"
               aria-label="LinkedIn logo"
               className={styles.avatarLink}
             >
@@ -60,6 +62,7 @@ export const BlogMeta = ({ date }) => {
           >
             <a
               target="_blank"
+              rel="noopener"
               aria-label="Facebook logo"
               className={styles.avatarLink}
             >
