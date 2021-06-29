@@ -15,6 +15,7 @@ import { writeToStaticCache } from "../../lib/static-caching/write";
 import styles from "../../styles/index.module.css";
 import redis from "../../lib/static-caching/redis";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
@@ -29,11 +30,17 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.container}>
-          <Link href={`/blog/category/${currentPost.featuredCategorySlug}`}>
-            <a>&lt; Back to {currentPost.featuredCategoryName}</a>
+        {/* <div className={styles.container}>
+          <Link>
+            <a className={styles.backToLink}>
+              &lt; Back to {currentPost.featuredCategoryName.toLowerCase()}
+            </a>
           </Link>
-        </div>
+        </div> */}
+        <BackToLink
+          href={`/blog/category/${currentPost.featuredCategorySlug}`}
+          where={currentPost.featuredCategoryName.toLowerCase()}
+        />
         <PageTitle
           heading="From the AceCentre blog"
           description={currentPost.title}
