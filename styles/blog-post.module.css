@@ -6,6 +6,15 @@
   font-size: 16px;
 }
 
+.contentContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 720px;
+
+  font-size: 16px;
+}
+
 .pageTitle {
   padding: 0;
+  max-width: 720px;
 }

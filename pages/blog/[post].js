@@ -42,12 +42,13 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <BlogMeta date={formattedDate} />
 
         <div
-          className={styles.container}
+          className={styles.contentContainer}
           dangerouslySetInnerHTML={{ __html: currentPost.content }}
         ></div>
         <FeaturedPosts
           title={`More from ${currentPost.featuredCategoryName}`}
           posts={featuredPosts}
+          viewAllLink={`/blog/category/${currentPost.featuredCategorySlug}`}
         />
       </main>
 
