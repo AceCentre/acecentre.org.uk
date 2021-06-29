@@ -13,7 +13,9 @@ const getTargetBaseUrl = () => {
 
 // On local just upload to temp storage
 const getUploadTarget = () => {
-  if (isProd) {
+  const uploadToServer = process.env.UPLOAD_TO_LH === "true" ? true : false;
+
+  if (uploadToServer) {
     return {
       target: "lhci",
       serverBaseUrl: "https://ace-lh-ci.herokuapp.com/",
