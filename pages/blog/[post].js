@@ -15,13 +15,14 @@ import styles from "../../styles/blog-post.module.css";
 import redis from "../../lib/static-caching/redis";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
+import { BlogMeta } from "../../components/blog-meta/blog-meta";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
-  // const publishedDate = new Date(currentPost.publishedDate);
-  // const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
+  const publishedDate = new Date(currentPost.publishedDate);
+  const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
 
   return (
     <>
@@ -38,6 +39,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
           description={currentPost.title}
           className={styles.pageTitle}
         />
+        <BlogMeta date={formattedDate} />
 
         <div
           className={styles.container}

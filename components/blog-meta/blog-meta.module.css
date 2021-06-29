@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.socials {
+  align-items: center;
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.roundedAvatar.roundedAvatar.roundedAvatar {
+  border-radius: 25%;
+  background-color: #eeeeee;
+}
+
+.logo {
+  color: #333333;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .socials {
+    margin-left: 0;
+  }
+
+  .shareText {
+    display: none;
+  }
+}
