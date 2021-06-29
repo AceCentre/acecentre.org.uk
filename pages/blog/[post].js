@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
@@ -12,7 +11,7 @@ import {
 } from "../../lib/posts/get-posts";
 import { readFromStaticCache } from "../../lib/static-caching/read";
 import { writeToStaticCache } from "../../lib/static-caching/write";
-import styles from "../../styles/index.module.css";
+import styles from "../../styles/blog-post.module.css";
 import redis from "../../lib/static-caching/redis";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -21,8 +20,8 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
-  const publishedDate = new Date(currentPost.publishedDate);
-  const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
+  // const publishedDate = new Date(currentPost.publishedDate);
+  // const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
 
   return (
     <>
@@ -30,26 +29,16 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        {/* <div className={styles.container}>
-          <Link>
-            <a className={styles.backToLink}>
-              &lt; Back to {currentPost.featuredCategoryName.toLowerCase()}
-            </a>
-          </Link>
-        </div> */}
         <BackToLink
           href={`/blog/category/${currentPost.featuredCategorySlug}`}
           where={currentPost.featuredCategoryName.toLowerCase()}
         />
         <PageTitle
-          heading="From the AceCentre blog"
+          heading="Ace Centre blog"
           description={currentPost.title}
+          className={styles.pageTitle}
         />
-        <div className={styles.container}>
-          <p>
-            <i>{formattedDate}</i>
-          </p>
-        </div>
+
         <div
           className={styles.container}
           dangerouslySetInnerHTML={{ __html: currentPost.content }}
