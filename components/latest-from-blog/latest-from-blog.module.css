@@ -46,6 +46,7 @@
 .flexItem {
   flex: 1 1 0;
   min-width: 280px;
+  max-width: 480px;
 }
 
 .listLink {
