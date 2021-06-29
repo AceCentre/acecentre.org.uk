@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FeaturedPosts } from "../../../components/featured-posts/featured-posts";
 import { Footer } from "../../../components/footer/footer";
 import { PageTitle } from "../../../components/page-title/page-title";
@@ -24,10 +23,8 @@ export default function CategoryPage({ posts, category }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.container}>
-          <Link href="/blog">&lt; Back to blog</Link>
-        </div>
-        <PageTitle description={category.title} heading="From the blog" />
+        <PageTitle description={category.title} heading="Ace Centre blog" />
+        <p className={styles.container}>{posts.length} articles</p>
         <FeaturedPosts posts={posts} />
       </main>
 
