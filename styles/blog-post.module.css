@@ -1,0 +1,22 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  font-size: 16px;
+}
+
+.contentContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 720px;
+
+  font-size: 16px;
+  margin-bottom: 3rem;
+}
+
+.pageTitle {
+  padding: 0;
+  padding-bottom: 1rem;
+  max-width: 720px;
+}

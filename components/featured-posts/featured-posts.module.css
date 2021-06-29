@@ -15,6 +15,40 @@
   padding: 0;
 }
 
+.viewAllLink {
+  color: #00537f;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: auto;
+}
+
+.viewAllLink:hover {
+  text-decoration: underline;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0;
+}
+
 .listItem {
   width: 220px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .titleContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .viewAllLink {
+    margin-left: 0;
+  }
 }

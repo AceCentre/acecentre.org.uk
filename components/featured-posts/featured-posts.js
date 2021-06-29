@@ -16,8 +16,14 @@ export const FeaturedPosts = ({
 
   return (
     <div className={styles.container}>
-      {title && <h1>{title}</h1>}
-      {viewAllLink && <Link href={viewAllLink}>View All</Link>}
+      <div className={styles.titleContainer}>
+        {title && <h2 className={styles.title}>{title}</h2>}
+        {viewAllLink && (
+          <Link href={viewAllLink}>
+            <a className={styles.viewAllLink}>View all &gt;</a>
+          </Link>
+        )}
+      </div>
       <ul className={styles.postList}>
         {postsWithoutImageCounters.map((post) => {
           return (

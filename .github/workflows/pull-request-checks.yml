@@ -138,7 +138,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: yarn add --dev cypress
+      - run: npm i cypress
 
       - name: Cypress run
         with:
