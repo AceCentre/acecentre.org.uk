@@ -1,0 +1,11 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  font-size: 16px;
+}
+
+.pageTitle {
+  padding: 0;
+}
