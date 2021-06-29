@@ -7,7 +7,7 @@ import { Avatar } from "@material-ui/core";
 export const BlogCategoryGrid = ({ blogCategories }) => {
   return (
     <div className={styles.container}>
-      <h3 className={styles.heading}>Browse articles by category</h3>
+      <h2 className={styles.heading}>Browse articles by category</h2>
       <ul className={styles.list}>
         {blogCategories.map((category) => {
           return (
@@ -19,6 +19,7 @@ export const BlogCategoryGrid = ({ blogCategories }) => {
                 <a className={styles.link}>
                   <Image
                     src={category.featuredImage.src}
+                    alt={category.featuredImage.alt}
                     layout="fill"
                     objectFit="cover"
                   />
@@ -30,7 +31,6 @@ export const BlogCategoryGrid = ({ blogCategories }) => {
                       </Avatar>
                     </div>
                   </div>
-                  {/* {category.title} */}
                 </a>
               </Link>
             </li>
