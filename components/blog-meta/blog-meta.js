@@ -19,7 +19,7 @@ export const BlogMeta = ({ date }) => {
     } else {
       setCurrentUrl(location.href);
     }
-  }, location.href);
+  });
 
   return (
     <div className={styles.container}>
