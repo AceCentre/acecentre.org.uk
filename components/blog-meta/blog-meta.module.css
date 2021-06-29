@@ -1,8 +1,7 @@
 .container {
   margin: 0 auto;
   width: 90%;
-  max-width: var(--containerMaxWidth);
-
+  max-width: 720px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
