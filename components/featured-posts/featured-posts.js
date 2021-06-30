@@ -11,11 +11,12 @@ export const FeaturedPosts = ({
   viewAllLink,
   posts,
   linkPrefix = "blog",
+  className = "",
 }) => {
   const postsWithoutImageCounters = usePostsWithoutImageCounters(posts);
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <div className={styles.titleContainer}>
         {title && <h2 className={styles.title}>{title}</h2>}
         {viewAllLink && (
