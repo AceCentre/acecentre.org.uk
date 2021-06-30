@@ -9,6 +9,7 @@ import styles from "./featured-posts.module.css";
 export const FeaturedPosts = ({
   title,
   viewAllLink,
+  viewAllText = "View all",
   posts,
   linkPrefix = "blog",
   className = "",
@@ -21,7 +22,7 @@ export const FeaturedPosts = ({
         {title && <h2 className={styles.title}>{title}</h2>}
         {viewAllLink && (
           <Link href={viewAllLink}>
-            <a className={styles.viewAllLink}>View all &gt;</a>
+            <a className={styles.viewAllLink}>{viewAllText} &gt;</a>
           </Link>
         )}
       </div>
