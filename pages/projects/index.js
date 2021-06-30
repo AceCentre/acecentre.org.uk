@@ -9,6 +9,8 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
 
+import styles from "../../styles/projects.module.css";
+
 export default function Home({ latestProjects }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -21,6 +23,7 @@ export default function Home({ latestProjects }) {
       <main>
         <ProjectsSearch />
         <FeaturedPosts
+          className={styles.container}
           title="Latest projects"
           viewAllLink="/projects/all"
           posts={latestProjects}
@@ -35,7 +38,14 @@ export default function Home({ latestProjects }) {
 
 export const getStaticProps = withGlobalProps(async () => {
   const latestProjects = await getAllProjects();
+
   if (!latestProjects) throw new Error("Could not get the latest projects");
 
-  return { props: { latestProjects: latestProjects.slice(0, 8) } };
+  return {
+    props: {
+      latestProjects: latestProjects
+        .slice(0, 6)
+        .map((x) => ({ ...x, mainCategoryName: "project" })),
+    },
+  };
 });
