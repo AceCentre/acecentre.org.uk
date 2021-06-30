@@ -16,8 +16,19 @@ jobs:
             const script = require('./scripts/calculate-deploy-key')
             return script(context);
 
+  GetUniqueBuildId:
+    runs-on: ubuntu-latest
+    outputs:
+      buildId: ${{ steps.time.outputs.dateTime }}
+    steps:
+      - name: Get Time
+        id: time
+        uses: Plabick/Remote-Time-Action@V1.0
+        with:
+          timezone: "GMT"
+
   DeployNetlifyDraft:
-    needs: CalculateDeployKey
+    needs: [CalculateDeployKey, GetUniqueBuildId]
     environment:
       name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
@@ -31,6 +42,8 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
+      DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
+      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
 
     steps:
       - name: Get Code
