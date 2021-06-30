@@ -43,9 +43,7 @@ export const getStaticProps = withGlobalProps(async () => {
 
   return {
     props: {
-      latestProjects: latestProjects
-        .slice(0, 6)
-        .map((x) => ({ ...x, mainCategoryName: "project" })),
+      latestProjects: latestProjects.slice(0, 6),
     },
   };
 });
