@@ -53,8 +53,6 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
   );
 }
 
-const CACHE_KEY = "ALL_FULL_PROJECTS";
-
 export async function getStaticPaths() {
   const allProjects = await getFullProjects();
 
