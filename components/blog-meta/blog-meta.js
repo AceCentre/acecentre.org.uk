@@ -10,7 +10,11 @@ import config from "../../lib/config";
 
 const SHARE_TEXT = "Checkout this awesome post";
 
-export const BlogMeta = ({ date }) => {
+export const BlogMeta = ({
+  date,
+  shareCta = "Share this article",
+  shareText = SHARE_TEXT,
+}) => {
   const [currentUrl, setCurrentUrl] = useState("");
 
   useEffect(() => {
@@ -27,9 +31,9 @@ export const BlogMeta = ({ date }) => {
 
       {currentUrl && (
         <div className={styles.socials}>
-          <span className={styles.shareText}>Share this article</span>
+          <span className={styles.shareText}>{shareCta}</span>
           <Link
-            href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${SHARE_TEXT}`}
+            href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`}
           >
             <a
               target="_blank"

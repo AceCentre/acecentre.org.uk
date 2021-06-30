@@ -107,7 +107,7 @@
   margin: 0;
   text-transform: uppercase;
   margin-top: -24px;
-  z-index: 10;
+  z-index: 1;
 }
 
 .fakeImageCover {
