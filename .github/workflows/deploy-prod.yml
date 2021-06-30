@@ -4,10 +4,25 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Everyday at 2AM
+    - cron: "0 2 * * *"
 
 jobs:
+  GetUniqueBuildId:
+    runs-on: ubuntu-latest
+    outputs:
+      buildId: ${{ steps.time.outputs.dateTime }}
+    steps:
+      - name: Get Time
+        id: time
+        uses: Plabick/Remote-Time-Action@V1.0
+        with:
+          timezone: "GMT"
+
   DeployNetlify:
     runs-on: ubuntu-latest
+    needs: [GetUniqueBuildId]
     environment:
       name: production
       url: https://acecentreorguk.netlify.app
@@ -17,6 +32,8 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       IMAGE_URL: https://acecentreorguk.netlify.app
+      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
+      DEPLOY_KEY: production
 
     steps:
       - name: Get Code

@@ -1,11 +1,6 @@
 import { Image } from "../../components/image";
 import { getAllProducts } from "../../lib/products/get-products";
-import { readFromStaticCache } from "../../lib/static-caching/read";
-import { writeToStaticCache } from "../../lib/static-caching/write";
 import config from "../../lib/config";
-import redis from "../../lib/static-caching/redis";
-
-const PRODUCT_CACHE_KEY = "products";
 
 export default function ProductPage({ product }) {
   return (
@@ -60,8 +55,6 @@ export default function ProductPage({ product }) {
 export async function getStaticPaths() {
   const allProducts = await getAllProducts();
 
-  await writeToStaticCache(PRODUCT_CACHE_KEY, allProducts, redis);
-
   const paths = allProducts.map((product) => ({
     params: { slug: product.slug },
   }));
@@ -73,7 +66,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allProducts = await readFromStaticCache(PRODUCT_CACHE_KEY, redis);
+  const allProducts = await getAllProducts();
   const product = allProducts.find(({ slug }) => slug === params.slug);
 
   if (!product) {
