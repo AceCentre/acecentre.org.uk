@@ -73,15 +73,6 @@ jobs:
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
 
-  WarmUpCache:
-    needs: DeployNetlifyDraft
-    runs-on: ubuntu-latest
-    steps:
-      - name: Warm up resources
-        run: curl ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}/resources/all
-      - name: Delay
-        run: sleep 20
-
   Jest:
     runs-on: ubuntu-latest
     env:
@@ -138,7 +129,7 @@ jobs:
         run: yarn run eslint .
 
   Cypress:
-    needs: [WarmUpCache, DeployNetlifyDraft]
+    needs: [DeployNetlifyDraft]
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -164,7 +155,6 @@ jobs:
         uses: cypress-io/github-action@v2
 
   GetLighthousePaths:
-    needs: [WarmUpCache, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     outputs:
       lighthousePaths: ${{ steps.get-paths.outputs.result }}
@@ -179,7 +169,7 @@ jobs:
             return paths;
 
   Lighthouse:
-    needs: [GetLighthousePaths, DeployNetlifyDraft, Cypress]
+    needs: [GetLighthousePaths, DeployNetlifyDraft]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
