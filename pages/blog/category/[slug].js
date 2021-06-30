@@ -7,10 +7,7 @@ import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 import { getAllCategories } from "../../../lib/posts/get-categories";
 import { getAllPostsForCategory } from "../../../lib/posts/get-posts";
-import { readFromStaticCache } from "../../../lib/static-caching/read";
-import { writeToStaticCache } from "../../../lib/static-caching/write";
 import styles from "../../../styles/index.module.css";
-import redis from "../../../lib/static-caching/redis";
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 
 export default function CategoryPage({ posts, category }) {
@@ -33,14 +30,10 @@ export default function CategoryPage({ posts, category }) {
   );
 }
 
-const CACHE_KEY = "blogCategories";
-
 export async function getStaticPaths() {
   const blogCategories = await getAllCategories();
 
   if (!blogCategories) throw new Error("Couldn't get categories");
-
-  await writeToStaticCache(CACHE_KEY, blogCategories, redis);
 
   return {
     paths: blogCategories.map((category) => ({
@@ -51,7 +44,9 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const blogCategories = await readFromStaticCache(CACHE_KEY, redis);
+  const blogCategories = await getAllCategories();
+  if (!blogCategories) throw new Error("Couldn't get categories");
+
   const currentCategory = blogCategories.find(
     (category) => category.slug === slug
   );
