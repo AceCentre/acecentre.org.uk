@@ -22,15 +22,17 @@ export const StoryHighlight = ({
       <div>
         <div className={styles.imageContainer}>
           <div className={styles.overlay}>
-            <button
-              className={styles.playButton}
-              onClick={() => setIsPopoverOpen(true)}
-              aria-label={`Play video about: ${title}`}
-            >
-              <Avatar className={styles.playAvatar}>
-                <PlayArrowIcon className={styles.playIcon} />
-              </Avatar>
-            </button>
+            {youtubeVideo && (
+              <button
+                className={styles.playButton}
+                onClick={() => setIsPopoverOpen(true)}
+                aria-label={`Play video about: ${title}`}
+              >
+                <Avatar className={styles.playAvatar}>
+                  <PlayArrowIcon className={styles.playIcon} />
+                </Avatar>
+              </button>
+            )}
             <OverlayCard
               className={styles.desktopCard}
               slug={slug}
@@ -46,6 +48,7 @@ export const StoryHighlight = ({
               src={featuredImage.src}
               layout="fill"
               objectFit="cover"
+              objectPosition="top"
             />
           </div>
         </div>
@@ -56,11 +59,13 @@ export const StoryHighlight = ({
           summary={summary}
         />
       </div>
-      <VideoPopover
-        youtubeUrl={youtubeVideo}
-        isPopoverOpen={isPopoverOpen}
-        onClose={() => setIsPopoverOpen(false)}
-      />
+      {youtubeVideo && (
+        <VideoPopover
+          youtubeUrl={youtubeVideo}
+          isPopoverOpen={isPopoverOpen}
+          onClose={() => setIsPopoverOpen(false)}
+        />
+      )}
     </>
   );
 };
