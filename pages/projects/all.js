@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
@@ -20,14 +21,10 @@ export default function AllProjects({ allProjects }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.container}>
-          <Link href="/projects">
-            <a>&lt; Back to research</a>
-          </Link>
-        </div>
+        <BackToLink href="/projects" where="projects" />
         <FeaturedPosts
           linkPrefix="projects"
-          title="All research projects"
+          title="All projects"
           posts={allProjects}
         />
       </main>
