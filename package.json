@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "jest",
+    "test": "jest --forceExit",
     "dev": "ENV=development next dev",
     "build": "yarn build:next",
     "build:next": "next build",
