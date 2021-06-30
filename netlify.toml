@@ -24,6 +24,9 @@
 [[plugins]]
   package = "/netlify-plugins/output-config"
 
+[[plugins]]
+  package = "/netlify-plugins/prefetch-data"
+
 [build]
   command = "yarn build"
 
