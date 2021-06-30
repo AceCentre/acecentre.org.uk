@@ -30,7 +30,7 @@ export default function SearchProjects({ allProjects }) {
           <FeaturedPosts
             title={`Results for: "${searchText}"`}
             posts={filteredProjects}
-            linkPrefix="research"
+            linkPrefix="projects"
           />
         )}
       </main>

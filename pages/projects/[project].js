@@ -25,7 +25,7 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
       </header>
       <main>
         <div className={styles.container}>
-          <Link href="/research">
+          <Link href="/projects">
             <a>&lt; Back to projects</a>
           </Link>
         </div>
@@ -45,7 +45,7 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
         <FeaturedPosts
           title="You might also be interested in"
           posts={featuredProjects}
-          linkPrefix="research"
+          linkPrefix="projects"
         />
       </main>
       <Footer currentYear={currentYear} />
