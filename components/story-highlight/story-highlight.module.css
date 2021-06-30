@@ -1,19 +1,178 @@
-.container {
-  margin: 0 auto;
+.imageContainer {
+  /* background-color: rgba(33, 107, 146, 1); */
+  /* background-image: linear-gradient(red, yellow); */
+
+  max-width: 1540px;
   width: 90%;
-  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+  position: relative;
 }
 
-.innerContainer {
+.nextImageContainer {
+  position: relative;
+  height: 500px;
+  width: 70%;
+  z-index: -1;
+}
+
+.image {
+  object-fit: cover;
+  width: 70%;
+  display: block;
+}
+
+.playButton {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  width: 60%;
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
   align-items: center;
+  justify-content: center;
 }
 
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .innerContainer {
+.desktopCard {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 20px,
+    #ffffff 20px
+  );
+
+  width: 40%;
+  align-self: flex-end;
+  padding: 0 50px 50px 50px;
+}
+
+.gradientCover {
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0) 40%,
+    rgba(51, 51, 51, 1) 70%
+  );
+  position: absolute;
+  height: 100%;
+}
+
+.backgroundOverlay {
+  background-color: rgba(33, 107, 146, 0.25);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+}
+
+.greenSpan {
+  color: #ffffff;
+  background: #00537f;
+  border-radius: 20px;
+  padding: 8px 18px;
+  display: inline-block;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  color: #333333;
+  font-size: 24px;
+}
+
+.cardDescription {
+  color: #333333;
+  font-size: 16px;
+}
+
+.cardLinkContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.readFullStory {
+}
+
+.allStories {
+  display: flex;
+  align-items: center;
+  color: #00537f;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.mobileCard {
+  display: none;
+}
+
+.playAvatar.playAvatar {
+  background-color: #00537f;
+  box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
+  height: 80px;
+  width: 80px;
+}
+
+.playIcon.playIcon {
+  font-size: 50px;
+}
+
+/* Mobile CSS */
+@media (max-width: 940px) {
+  .overlay {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .playButton {
+    height: 300px;
+  }
+
+  .desktopCard {
+    display: none;
+  }
+
+  .mobileCard {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 8px;
+    z-index: 10;
+    box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+    padding: 16px;
+  }
+
+  .gradientCover {
+    display: none;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .nextImageContainer {
+    width: 100%;
+    height: 300px;
+  }
+
+  .greenSpan {
+    display: none;
+  }
+}
+
+/* Mobile CSS */
+@media (max-width: 1024px) {
+  .playButton {
+    width: 40%;
+  }
+
+  .desktopCard {
+    width: 60%;
   }
 }
