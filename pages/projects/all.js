@@ -21,12 +21,12 @@ export default function AllProjects({ allProjects }) {
       </header>
       <main>
         <div className={styles.container}>
-          <Link href="/research">
+          <Link href="/projects">
             <a>&lt; Back to research</a>
           </Link>
         </div>
         <FeaturedPosts
-          linkPrefix="research"
+          linkPrefix="projects"
           title="All research projects"
           posts={allProjects}
         />

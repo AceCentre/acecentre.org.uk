@@ -22,9 +22,9 @@ export default function Home({ latestProjects }) {
         <ProjectsSearch />
         <FeaturedPosts
           title="Latest projects"
-          viewAllLink="/research/all"
+          viewAllLink="/projects/all"
           posts={latestProjects}
-          linkPrefix="research"
+          linkPrefix="projects"
         />
         <ResearchCta />
       </main>

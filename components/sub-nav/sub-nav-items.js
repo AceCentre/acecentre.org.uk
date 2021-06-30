@@ -18,7 +18,7 @@ export const defaultNavItems = [
       { title: "Work with us", href: "/careers" },
       { title: "People we support", href: "/stories" },
       { title: "Blog", href: "/blog" },
-      { title: "Projects", href: "/research" },
+      { title: "Projects", href: "/projects" },
     ],
   },
   {
@@ -123,7 +123,7 @@ export const defaultNavItems = [
         title: "Advice and information",
         href: "/service/advice-and-information",
       },
-      { title: "Research", href: "/research" },
+      { title: "Projects", href: "/projects" },
       { title: "Partnerships", href: "/services/partnerships" },
       { title: "AceCentre Learning", href: "/acecentre-learning" },
     ],
