@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
@@ -8,8 +7,6 @@ import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
-
-import styles from "../../styles/index.module.css";
 
 export default function AllProjects({ allProjects }) {
   const cartCount = useCartCount();
