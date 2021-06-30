@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
@@ -8,8 +7,10 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 
-import styles from "../../styles/index.module.css";
+import styles from "../../styles/project-detail.module.css";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
+import { BlogMeta } from "../../components/blog-meta/blog-meta";
 
 export default function CategoryPage({ currentProject, featuredProjects }) {
   const cartCount = useCartCount();
@@ -24,28 +25,23 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.container}>
-          <Link href="/projects">
-            <a>&lt; Back to projects</a>
-          </Link>
-        </div>
+        <BackToLink href="/projects" where="projects" />
         <PageTitle
-          heading="From the AceCentre projects"
+          heading="From Ace Centre projects"
           description={currentProject.title}
+          className={styles.pageTitle}
         />
-        <div className={styles.container}>
-          <p>
-            <i>{formattedDate}</i>
-          </p>
-        </div>
+        <BlogMeta date={formattedDate} shareCta="Share this project" />
         <div
           className={styles.container}
           dangerouslySetInnerHTML={{ __html: currentProject.content }}
         ></div>
         <FeaturedPosts
-          title="You might also be interested in"
+          title="More projects"
           posts={featuredProjects}
           linkPrefix="projects"
+          viewAllText="View all projects"
+          viewAllLink="/projects/all"
         />
       </main>
       <Footer currentYear={currentYear} />
@@ -83,7 +79,7 @@ export const getStaticProps = withGlobalProps(
     return {
       props: {
         currentProject,
-        featuredProjects: featuredProjects.slice(0, 4),
+        featuredProjects: featuredProjects.slice(0, 3),
       },
     };
   }

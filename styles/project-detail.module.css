@@ -1,0 +1,12 @@
+.pageTitle {
+  padding: 0;
+  padding-bottom: 1rem;
+  max-width: 720px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 720px;
+  font-size: 16px;
+}
