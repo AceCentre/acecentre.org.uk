@@ -16,7 +16,7 @@ export const Footer = ({ currentYear }) => {
         <div className={styles.topArea}>
           <Image
             alt="The AceCentre logo"
-            height={105}
+            height={101}
             width={225}
             maxHeight={100}
             src="/white-logo.png"
