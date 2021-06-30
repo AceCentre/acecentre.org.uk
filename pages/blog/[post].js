@@ -9,10 +9,7 @@ import {
   getAllFullPosts,
   getAllPostsForCategory,
 } from "../../lib/posts/get-posts";
-import { readFromStaticCache } from "../../lib/static-caching/read";
-import { writeToStaticCache } from "../../lib/static-caching/write";
 import styles from "../../styles/blog-post.module.css";
-import redis from "../../lib/static-caching/redis";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { BlogMeta } from "../../components/blog-meta/blog-meta";
@@ -57,12 +54,8 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
   );
 }
 
-const cacheKey = "ALL_FULL_POSTS";
-
 export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
-
-  await writeToStaticCache(cacheKey, allPosts, redis);
 
   return {
     paths: allPosts.map((post) => ({ params: { post: post.slug } })),
@@ -72,7 +65,8 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { post: postSlug } }) => {
-    const allPosts = await readFromStaticCache(cacheKey, redis);
+    const allPosts = await getAllFullPosts();
+
     const currentPost = allPosts.find((post) => post.slug === postSlug);
 
     const featuredPosts = (

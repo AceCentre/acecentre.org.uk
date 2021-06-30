@@ -11,8 +11,6 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
-import { readFromStaticCacheWithFallback } from "../../lib/static-caching/read";
-import redis from "../../lib/static-caching/redis";
 
 export default function AllResources({
   resources,
@@ -52,9 +50,6 @@ export default function AllResources({
   );
 }
 
-const CACHE_KEY_PRODUCTS = "PRODUCTS_FILTER";
-const CACHE_KEY_PRODUCT_CATEGORIES = "PRODUCT_CATEGORIES";
-
 // This will run every page run
 export const getServerSideProps = withGlobalProps(async (req) => {
   const page = req.query.page || 1;
@@ -65,21 +60,8 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const orderBy = req.query.orderby || ORDER_BY_OPTIONS[0].slug;
   const productsPerPage = 20;
 
-  const products = await readFromStaticCacheWithFallback(
-    CACHE_KEY_PRODUCTS,
-    redis,
-    async () => {
-      return await getAllProducts();
-    }
-  );
-
-  const productCategories = await readFromStaticCacheWithFallback(
-    CACHE_KEY_PRODUCT_CATEGORIES,
-    redis,
-    async () => {
-      return await getAllProductCategories();
-    }
-  );
+  const products = await getAllProducts();
+  const productCategories = await getAllProductCategories();
 
   const {
     results: filteredProducts,
