@@ -16,6 +16,7 @@ const PATHS_TO_TEST = [
   "/resources",
   "/resources/all",
   "/resources/all?page=2",
+  "/404",
 ];
 
 module.exports = PATHS_TO_TEST;
