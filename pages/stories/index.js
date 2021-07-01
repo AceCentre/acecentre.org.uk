@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { StoryHighlight } from "../../components/story-highlight/story-highlight";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
+import { WordsFrom } from "../../components/words-from/words-from";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -27,6 +28,7 @@ export default function StoriesLandingPage({
           description="Its not the work that we do here at the AceCentre that's amazing, it's the people we work with"
         />
         <StoryHighlight {...storyHighlight} />
+        <WordsFrom />
         <AllStories stories={featuredStories} />
       </main>
       <Footer currentYear={currentYear} />
