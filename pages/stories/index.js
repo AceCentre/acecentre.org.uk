@@ -13,6 +13,7 @@ import { getAllStories, getSimpleStory } from "../../lib/story/get-story";
 export default function StoriesLandingPage({
   featuredStories,
   storyHighlight,
+  wordsFrom,
 }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -28,7 +29,7 @@ export default function StoriesLandingPage({
           description="Its not the work that we do here at the AceCentre that's amazing, it's the people we work with"
         />
         <StoryHighlight {...storyHighlight} />
-        <WordsFrom />
+        <WordsFrom {...wordsFrom} />
         <AllStories stories={featuredStories} />
       </main>
       <Footer currentYear={currentYear} />
@@ -41,10 +42,12 @@ export const getStaticProps = withGlobalProps(async () => {
 
   const storyHighlight = await getSimpleStory("jess");
 
+  const wordsFrom = await getSimpleStory("glyn");
+
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
 
   const featuredStories = allStories.slice(0, 6);
 
-  return { props: { featuredStories, storyHighlight } };
+  return { props: { featuredStories, storyHighlight, wordsFrom } };
 });
