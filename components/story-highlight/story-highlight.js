@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { useState } from "react";
 import styles from "./story-highlight.module.css";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { Button } from "../button/button";
 import { Avatar } from "@material-ui/core";
@@ -52,12 +50,6 @@ export const StoryHighlight = ({
             />
           </div>
         </div>
-        <OverlayCard
-          className={styles.mobileCard}
-          slug={slug}
-          title={title}
-          summary={summary}
-        />
       </div>
       {youtubeVideo && (
         <VideoPopover
@@ -70,25 +62,24 @@ export const StoryHighlight = ({
   );
 };
 
-const OverlayCard = ({ title, summary, slug, className }) => {
+const makeBold = (item, keyword) => {
+  var re = new RegExp(keyword, "g");
+  return item.replace(re, "<strong>" + keyword + "</strong>");
+};
+
+const OverlayCard = ({ summary, slug, className, title }) => {
+  const boldedSummary = makeBold(summary, title);
+
   return (
     <div className={className}>
-      <p className={styles.greenSpan}>Stories</p>
-      <h2 className={styles.cardTitle}>{title}</h2>
       <div
         className={styles.cardDescription}
-        dangerouslySetInnerHTML={{ __html: summary }}
+        dangerouslySetInnerHTML={{ __html: boldedSummary }}
       ></div>
-      <div className={styles.cardLinkContainer}>
+      <div>
         <Button className={styles.readFullStory} href={`/stories/${slug}`}>
           Read full story
         </Button>
-        <Link href="/stories">
-          <a className={styles.allStories}>
-            All Stories
-            <ChevronRightIcon />
-          </a>
-        </Link>
       </div>
     </div>
   );
