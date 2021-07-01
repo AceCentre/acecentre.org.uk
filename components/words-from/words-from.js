@@ -5,26 +5,34 @@ import { ImageWithLoader as Image } from "../image";
 
 import { Button } from "../button/button";
 
-export const WordsFrom = ({ title, quote, featuredImage }) => {
+export const WordsFrom = ({ title, quote, featuredImage, slug }) => {
   return (
     <div className={styles.container}>
-      <h2>
+      <h2 className={styles.title}>
         Words from <strong>{title}</strong>
       </h2>
-      <div>
-        <div>
-          <Image {...featuredImage} />
-          <div />
+      <div className={styles.lowerContainer}>
+        <div className={styles.imageContainer}>
+          <Image
+            src={featuredImage.src}
+            alt={featuredImage.alt}
+            layout="fill"
+            objectFit="cover"
+            objectPosition={"50% 35%"}
+          />
+          <div className={styles.backgroundColor} />
         </div>
-        <div>
+        <div className={styles.quoteContainer}>
           <Avatar className={styles.avatar}>
             <FormatQuoteIcon className={styles.icon} />
           </Avatar>
-          <div>
+          <div className={styles.quoteTextContainer}>
             <div dangerouslySetInnerHTML={{ __html: quote }} />
             {/* This string includes a pronoun so won't work if we change this someone with
             different pronouns */}
-            <Button href="">Read his story</Button>
+            <div>
+              <Button href={`/stories/${slug}`}>Read his story</Button>
+            </div>
           </div>
         </div>
       </div>
