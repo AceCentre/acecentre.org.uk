@@ -44,44 +44,69 @@ export const LatestFromBlog = ({ posts }) => {
   );
 };
 
-export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
+export const Card = ({
+  noImagePostCount,
+  subtitle = "blog",
+  href,
+  featuredImage,
+  title,
+  background = false,
+  children,
+}) => {
   return (
     <li className={styles.flexItem}>
-      <Link href={`/${linkPrefix}/${post.slug}`}>
+      <Link href={href}>
         <a className={styles.listLink}>
-          {post.featuredImage ? (
+          {featuredImage ? (
             <div className={styles.imageContainer}>
               <Image
-                src={post.featuredImage.src}
-                alt={`An thumbnail for the post: ${post.title}`}
+                src={featuredImage.src}
+                alt={`An thumbnail for the post: ${title}`}
                 className={styles.image}
                 layout="fill"
               />
+              {background && <div className={styles.background} />}
             </div>
           ) : (
-            <NoImage post={post} />
+            <NoImage title={title} noImagePostCount={noImagePostCount} />
           )}
-          <p className={styles.blogTag}>{category}</p>
-          <div className={styles.postTitleContainer}>
-            <p className={styles.postTitle}>{post.title}</p>
-          </div>
+          <p className={styles.blogTag}>{subtitle}</p>
+          <div className={styles.postTitleContainer}>{children}</div>
         </a>
       </Link>
     </li>
   );
 };
 
-const NoImage = ({ post }) => {
-  if (post.noImagePostCount % 2 === 0) {
+export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
+  const href = `/${linkPrefix}/${post.slug}`;
+  const featuredImage = post.featuredImage;
+  const title = post.title;
+
+  return (
+    <Card
+      featuredImage={featuredImage}
+      title={title}
+      href={href}
+      subTitle={category}
+      noImagePostCount={post.noImagePostCount}
+    >
+      <p className={styles.postTitle}>{title}</p>
+    </Card>
+  );
+};
+
+const NoImage = ({ noImagePostCount, title }) => {
+  if (noImagePostCount % 2 === 0) {
     return (
       <div className={styles.fakeImageContainer}>
-        <div className={styles.blueCover}>{post.title}</div>
+        <div className={styles.blueCover}>{title}</div>
         <Image
           src="/generic-busy-office.jpeg"
           layout="fill"
           objectFit="cover"
           className={styles.fakeImage}
-          alt={`An thumbnail for the post: ${post.title}`}
+          alt={`An thumbnail for the post: ${title}`}
         />
       </div>
     );
@@ -93,10 +118,10 @@ const NoImage = ({ post }) => {
           src="/green-background.png"
           layout="fill"
           objectFit="cover"
-          alt={`An thumbnail for the post: ${post.title}`}
+          alt={`An thumbnail for the post: ${title}`}
           // className={styles.fakeImage}
         />
-        <div className={styles.fakeImageCover}>{post.title}</div>
+        <div className={styles.fakeImageCover}>{title}</div>
       </div>
     );
   }

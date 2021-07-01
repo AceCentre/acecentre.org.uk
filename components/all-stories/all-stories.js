@@ -1,28 +1,24 @@
-import Link from "next/link";
-import { Image } from "../image";
+import { Card } from "../latest-from-blog/latest-from-blog";
 import styles from "./all-stories.module.css";
 
 export const AllStories = ({ stories }) => {
   return (
     <div className={styles.container}>
-      <h2>More Stories</h2>
-      <Link href="/stories/all">View all</Link>
       <ul className={styles.list}>
         {stories.map((story) => (
-          <li key={`story-${story.slug}`}>
-            <Link href={`/stories/${story.slug}`}>
-              <a>
-                {story.image && (
-                  <Image
-                    alt={`${story.possessiveName} story`}
-                    {...story.image}
-                    maxWidth={250}
-                  />
-                )}
-                <p>{story.possessiveName} story</p>
-              </a>
-            </Link>
-          </li>
+          <Card
+            title={story.title}
+            featuredImage={story.image}
+            key={`story-${story.slug}`}
+            href={`/stories/${story.slug}`}
+            subtitle={"story"}
+            background
+          >
+            <div className={styles.content}>
+              <p className={styles.learnAbout}>Learn about</p>
+              <p className={styles.storyText}>{story.title}&apos;s story</p>
+            </div>
+          </Card>
         ))}
       </ul>
     </div>

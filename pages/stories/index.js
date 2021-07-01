@@ -47,7 +47,5 @@ export const getStaticProps = withGlobalProps(async () => {
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
 
-  const featuredStories = allStories.slice(0, 6);
-
-  return { props: { featuredStories, storyHighlight, wordsFrom } };
+  return { props: { featuredStories: allStories, storyHighlight, wordsFrom } };
 });
