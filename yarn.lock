@@ -3105,10 +3105,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@netlify/build@^12.17.0":
-  version "12.17.0"
-  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-12.17.0.tgz#63913a46ad0b469e3e6eacfd4bdaab382bdddbf7"
-  integrity sha512-niU8MjH6LiO1dcJSm9CKkWut3sR7QGyIimdIltgry2iC1SHNAj75HCbnQvddTHEz7+mg3FcC1T28LlsF7r3W0Q==
+"@netlify/build@^12.20.0":
+  version "12.20.0"
+  resolved "https://registry.yarnpkg.com/@netlify/build/-/build-12.20.0.tgz#763e46a7bd50de5f137150c4a4b0b72577a95175"
+  integrity sha512-YjHRRD5XaRefG2gWxId+yaztXPf0NHa5LQpD5V5mpYU58G1xPfvDcfPYPL3ufkwUd3SqQbSlPdIwRgRqi0va6A==
   dependencies:
     "@bugsnag/js" "^7.0.0"
     "@netlify/cache-utils" "^1.0.7"
@@ -3125,7 +3125,6 @@
     array-flat-polyfill "^1.0.1"
     chalk "^3.0.0"
     clean-stack "^2.2.0"
-    deepmerge "^4.2.2"
     dot-prop "^5.3.0"
     execa "^3.3.0"
     figures "^3.2.0"
@@ -3212,10 +3211,10 @@
     validate-npm-package-name "^3.0.0"
     yargs "^15.3.0"
 
-"@netlify/config@^9.3.0":
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-9.3.0.tgz#e7f7cbab8d2a39477464ee0e34b7d76e6d546adc"
-  integrity sha512-3h2ovTcbRFhLdiQuwsbsBfyyS80Vt1P5PEVcuhXxWFoKUjvvgykEp4Lt53pus1l8/jKVDssRdWulpSMS0yQMAw==
+"@netlify/config@^9.5.0":
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-9.5.0.tgz#874e7359a084969bb6bdf6d8ea5208a13ce7e5fa"
+  integrity sha512-Kt5xukNclUtraXVX1xnrseMwvIA1WnFjR6i4GuwgvM2MreS6zb5LIV5XGJ/vDCEpH9uxI609gj2iu9FNy543rA==
   dependencies:
     "@ungap/from-entries" "^0.2.1"
     array-flat-polyfill "^1.0.1"
@@ -3687,10 +3686,10 @@
   resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-7.3.3.tgz#a7ab7bd16cea040b836521a5afaf08fa36085e5f"
   integrity sha512-/tpvcWCjYUHtvdc/t/bX6pxaOoeYPhfPCyvUaSWP29YkRcdZmlhRaMsXudZhvXm8GBPBxmCOsf1Ye/FpkszOHw==
 
-"@octokit/openapi-types@^8.1.3":
-  version "8.1.3"
-  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-8.1.3.tgz#45fbb4b0e5a5d61b21aeef7f33d345e05766236b"
-  integrity sha512-iK7SfjjkGdIiopuKEMAzPxSagZtIzWjwfYFBFxLKIS4Q4S8rSLQk7EnlTok2/bNAz1BvxnGKPKe+auSiCIU5QQ==
+"@octokit/openapi-types@^8.1.4":
+  version "8.1.4"
+  resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-8.1.4.tgz#20684667b50176b5d24cdb89799a8a12d38c3775"
+  integrity sha512-NnGr4NNDqO5wjSDJo5nxrGtzZUwoT23YasqK2H4Pav/6vSgeVTxuqCL9Aeh+cWfTxDomj1M4Os5BrXFsvl7qiQ==
 
 "@octokit/plugin-paginate-rest@^2.6.2":
   version "2.13.5"
@@ -3712,12 +3711,12 @@
     "@octokit/types" "^6.16.5"
     deprecation "^2.3.1"
 
-"@octokit/plugin-rest-endpoint-methods@5.3.5":
-  version "5.3.5"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.3.5.tgz#2ad8dd6e0ee0e9db2a807879bf4ab7775834f27c"
-  integrity sha512-QL3vIDYbANwxfrWOFlgn0rkp1ojlZKccsTb0+9x9keG8XGIq4ZJhxgpyJASYIui1QqCV8JIfDiEqX2dzr7x8KA==
+"@octokit/plugin-rest-endpoint-methods@5.3.7":
+  version "5.3.7"
+  resolved "https://registry.yarnpkg.com/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.3.7.tgz#a55f9ad0a0f43256813dcb5c4a3c70dad582696a"
+  integrity sha512-LAgTLOsJ86ig2wYSpcSx+UWt7aQYYsEZ/Tf/pksAVQWKNcGuTVCDl9OUiPhQ7DZelNozYVWTO9Iyjd/soe4tug==
   dependencies:
-    "@octokit/types" "^6.17.1"
+    "@octokit/types" "^6.17.4"
     deprecation "^2.3.1"
 
 "@octokit/request-error@^2.0.5", "@octokit/request-error@^2.1.0":
@@ -3741,15 +3740,15 @@
     node-fetch "^2.6.1"
     universal-user-agent "^6.0.0"
 
-"@octokit/rest@18.6.4":
-  version "18.6.4"
-  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-18.6.4.tgz#450339a66122febd3af9f67911ba34eb469e0ef6"
-  integrity sha512-1q1H1rJIjOjGd9/qIWaQgLaxtWcQ5H0tdh1D7JHqdsxopGciIUfU15GOZQf5lhW1YeQnlILHFynhKaZpXDiwuA==
+"@octokit/rest@18.6.6":
+  version "18.6.6"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-18.6.6.tgz#5a20078a32d36752cef7cc1f5e40160c3a5055b2"
+  integrity sha512-kCLvz8MSh+KToXySdqUp80caBom1ZQmsX3gbT3osfbJy6fD86QObUjzAOD3D3Awz3X7ng24+lB+imvSr5EnM7g==
   dependencies:
     "@octokit/core" "^3.5.0"
     "@octokit/plugin-paginate-rest" "^2.6.2"
     "@octokit/plugin-request-log" "^1.0.2"
-    "@octokit/plugin-rest-endpoint-methods" "5.3.5"
+    "@octokit/plugin-rest-endpoint-methods" "5.3.7"
 
 "@octokit/rest@^18.0.0":
   version "18.6.1"
@@ -3768,12 +3767,12 @@
   dependencies:
     "@octokit/openapi-types" "^7.3.3"
 
-"@octokit/types@^6.17.1":
-  version "6.17.3"
-  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-6.17.3.tgz#af5aaae50bd9230ac502d288a937c0d8e9f2181a"
-  integrity sha512-l3JiWbtK95CTsHTuF8WpE0Raq9efWUUU88CiWiCxRgTsauUkIRmVYZoDZTwAHn1xAnPz0aezQynIo6igS9EqQA==
+"@octokit/types@^6.17.4":
+  version "6.17.4"
+  resolved "https://registry.yarnpkg.com/@octokit/types/-/types-6.17.4.tgz#5ec011bfe3d08b7605c7d92a15796c470ee541b6"
+  integrity sha512-Ghk/JC4zC/1al1GwH6p8jVX6pLdypSWmbnx6h79C/yo3DeaDd6MsNsBFlHu22KbkFh+CdcAzFqdP7UdPaPPmmA==
   dependencies:
-    "@octokit/openapi-types" "^8.1.3"
+    "@octokit/openapi-types" "^8.1.4"
 
 "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
@@ -14698,13 +14697,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-4.0.1.tgz#ff26b56e22bb14f4565216cae256793ce72e7b77"
-  integrity sha512-A2385h+ec1TrtkQ5OyZ3kOKs61t3n9aP3hvPsA2A12RhE2ES3jNsa8s/hFOP0W6e10IubmoF1bgvyCZqkBTXfw==
+netlify-cli@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-4.0.3.tgz#18fe130a4a0b55de68ee96edeb4bfa52e6bd60af"
+  integrity sha512-rm65ksxGE3Q5ef3ZJQQp8xsOB1hfHHJ6cGGZZ8aaqLs7Xl4pu8+lmZ28vcrBwXeKAW9y7xRwlX6j+Sm6kG4kcA==
   dependencies:
-    "@netlify/build" "^12.17.0"
-    "@netlify/config" "^9.3.0"
+    "@netlify/build" "^12.20.0"
+    "@netlify/config" "^9.5.0"
     "@netlify/framework-info" "^5.5.0"
     "@netlify/plugin-edge-handlers" "^1.11.19"
     "@netlify/plugins-list" "^2.18.1"
