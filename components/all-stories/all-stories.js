@@ -16,7 +16,7 @@ export const AllStories = ({ stories }) => {
           >
             <div className={styles.content}>
               <p className={styles.learnAbout}>Learn about</p>
-              <p className={styles.storyText}>{story.title}&apos;s story</p>
+              <p className={styles.storyText}>{story.possessiveName} story</p>
             </div>
           </Card>
         ))}
