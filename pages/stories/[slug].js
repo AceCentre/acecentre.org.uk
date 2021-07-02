@@ -6,6 +6,7 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllStories } from "../../lib/story/get-story";
 import { PageTitle } from "../../components/page-title/page-title";
+import { StoryCoverImage } from "../../components/story-cover-image/story-cover-image";
 
 export default function StoryDetail({ story }) {
   const cartCount = useCartCount();
@@ -23,6 +24,8 @@ export default function StoryDetail({ story }) {
           heading="People we support"
           description={`Meet ${story.title}`}
         />
+
+        <StoryCoverImage story={story} />
       </main>
       <Footer currentYear={currentYear} />
     </>
