@@ -30,7 +30,7 @@ export const ReadMoreStories = ({ stories }) => {
   return (
     <div>
       <div className={`${styles.titleContainer} ${styles.container}`}>
-        <h3 className={styles.readMoreTitle}>Read more stories</h3>
+        <h2 className={styles.readMoreTitle}>Read more stories</h2>
         <Link href="/stories">
           <a className={styles.viewAllLink}>View all &gt;</a>
         </Link>
