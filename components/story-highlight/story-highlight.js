@@ -1,31 +1,85 @@
-import Link from "next/link";
-
+import { useState } from "react";
 import styles from "./story-highlight.module.css";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import { Button } from "../button/button";
+import { Avatar } from "@material-ui/core";
+import { VideoPopover } from "../video-popover/video-popover";
+import { ImageWithLoader as Image } from "../image";
 
-export const StoryHighlight = () => {
+export const StoryHighlight = ({
+  summary,
+  title,
+  slug,
+  youtubeVideo,
+  featuredImage,
+}) => {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
   return (
-    <div className={styles.container}>
-      <h2>Words from Lisa</h2>
-      <div className={styles.innerContainer}>
-        <div>
-          <img
-            alt="placeholder"
-            width="100%"
-            height="100%"
-            src="/placeholder.jpeg"
-          />
+    <>
+      <div>
+        <div className={styles.imageContainer}>
+          <div className={styles.overlay}>
+            {youtubeVideo && (
+              <button
+                className={styles.playButton}
+                onClick={() => setIsPopoverOpen(true)}
+                aria-label={`Play video about: ${title}`}
+              >
+                <Avatar className={styles.playAvatar}>
+                  <PlayArrowIcon className={styles.playIcon} />
+                </Avatar>
+              </button>
+            )}
+            <OverlayCard
+              className={styles.desktopCard}
+              slug={slug}
+              title={title}
+              summary={summary}
+            />
+          </div>
+          <div className={styles.gradientCover}></div>
+          <div className={styles.backgroundOverlay}></div>
+          <div className={styles.nextImageContainer}>
+            <Image
+              alt={`An image of: ${title}`}
+              src={featuredImage.src}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top"
+            />
+          </div>
         </div>
-        <div>
-          <p>
-            &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque gravida rutrum mattis. Aenean tincidunt neque id turpis
-            viverra pellentesque.&quot;
-          </p>
-          <p>- Lisa</p>
-          <Link href="/stories/lisa">
-            <a>Read her story</a>
-          </Link>
-        </div>
+      </div>
+      {youtubeVideo && (
+        <VideoPopover
+          youtubeUrl={youtubeVideo}
+          isPopoverOpen={isPopoverOpen}
+          onClose={() => setIsPopoverOpen(false)}
+        />
+      )}
+    </>
+  );
+};
+
+const makeBold = (item, keyword) => {
+  var re = new RegExp(keyword, "g");
+  return item.replace(re, "<strong>" + keyword + "</strong>");
+};
+
+const OverlayCard = ({ summary, slug, className, title }) => {
+  const boldedSummary = makeBold(summary, title);
+
+  return (
+    <div className={className}>
+      <div
+        className={styles.cardDescription}
+        dangerouslySetInnerHTML={{ __html: boldedSummary }}
+      ></div>
+      <div>
+        <Button className={styles.readFullStory} href={`/stories/${slug}`}>
+          Read full story
+        </Button>
       </div>
     </div>
   );

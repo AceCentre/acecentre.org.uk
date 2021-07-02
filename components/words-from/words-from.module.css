@@ -1,0 +1,77 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  margin-top: -3rem;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.lowerContainer {
+  display: flex;
+  width: 100%;
+  gap: 3rem;
+}
+
+.lowerContainer > div {
+  flex: 1 1 0px;
+}
+
+.quoteContainer {
+  align-self: flex-end;
+  display: flex;
+  gap: 1rem;
+}
+
+.imageContainer {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+
+.backgroundColor {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(33, 107, 146, 0.25);
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background: #bfdded;
+}
+
+.icon.icon {
+  color: #5589b7;
+  font-size: 40px;
+}
+
+.quoteTextContainer {
+  color: #00537f;
+  font-size: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Mobile CSS */
+@media (max-width: 940px) {
+  .container {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .lowerContainer {
+    flex-direction: column;
+  }
+
+  .lowerContainer > div {
+    flex: auto;
+  }
+}

@@ -5,6 +5,7 @@ const PATHS_TO_TEST = [
   "/about/trustees",
   "/careers",
   "/stories",
+  "/stories/jess",
   "/blog",
   "/blog/category/general",
   "/blog/covid-19-update-clients-at-the-centre-of-our-covid-19-strategy",

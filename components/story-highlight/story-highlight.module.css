@@ -1,19 +1,146 @@
-.container {
-  margin: 0 auto;
+.imageContainer {
+  /* background-color: rgba(33, 107, 146, 1); */
+  /* background-image: linear-gradient(red, yellow); */
+
+  max-width: 1024px;
+  height: 600px;
   width: 90%;
-  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+  position: relative;
 }
 
-.innerContainer {
+.nextImageContainer {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  z-index: -1;
+}
+
+.image {
+  object-fit: cover;
+  width: 70%;
+  display: block;
+}
+
+.playButton {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  height: 500px;
+
+  width: 60%;
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
   align-items: center;
+  justify-content: center;
 }
 
-/** Mobile CSS */
-@media (max-width: 760px) {
-  .innerContainer {
+.desktopCard {
+  width: 40%;
+  align-self: flex-end;
+  margin-left: auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 50px;
+
+  margin-right: 40px;
+
+  background-color: #bfdded;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
+}
+
+.gradientCover {
+  width: 100%;
+
+  position: absolute;
+  height: 100%;
+}
+
+.backgroundOverlay {
+  background-color: rgba(33, 107, 146, 0.25);
+  width: 100%;
+  height: 500px;
+  position: absolute;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+}
+
+.greenSpan {
+  color: #ffffff;
+  background: #00537f;
+  border-radius: 20px;
+  padding: 8px 18px;
+  display: inline-block;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  color: #333333;
+  font-size: 24px;
+  margin: 0;
+}
+
+.cardDescription {
+  color: #00537f;
+  font-size: 32px;
+}
+
+.cardDescription p {
+  margin: 0;
+  line-height: 39px;
+}
+
+.cardLinkContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.allStories {
+  display: flex;
+  align-items: center;
+  color: #00537f;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.playAvatar.playAvatar {
+  background-color: #94c64e;
+  box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
+  height: 80px;
+  width: 80px;
+}
+
+.playIcon.playIcon {
+  font-size: 50px;
+}
+
+/* Mobile CSS */
+@media (max-width: 940px) {
+  .overlay {
     flex-direction: column;
+  }
+
+  .playButton {
+    width: 100%;
+  }
+
+  .desktopCard {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+@media (max-width: 560px) {
+  .imageContainer {
+    height: 800px;
   }
 }

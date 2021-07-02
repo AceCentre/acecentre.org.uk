@@ -103,6 +103,7 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
               isSearchOpen ? styles.buttonOpen : ""
             }`}
             variant="unstyled"
+            aria-label="Search button"
           >
             <SvgIcon className={styles.icon}>
               <SearchIcon />

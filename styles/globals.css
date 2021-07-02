@@ -7,7 +7,7 @@ body {
 }
 
 /* Make nav work on mobile and desktop  */
-@media (min-width: 760px) {
+@media (min-width: 760px) and (hover: hover) {
   html,
   body {
     position: relative;
