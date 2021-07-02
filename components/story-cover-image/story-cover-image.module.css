@@ -1,0 +1,48 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  position: relative;
+  height: 500px;
+}
+
+.blueBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 107, 146, 0.25);
+}
+.buttonContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playAvatar.playAvatar {
+  background-color: #00537f;
+  box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
+  height: 80px;
+  width: 80px;
+}
+
+.playIcon.playIcon {
+  font-size: 50px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

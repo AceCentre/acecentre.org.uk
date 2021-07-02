@@ -1,3 +1,4 @@
+import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
@@ -6,16 +7,11 @@ import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
-import { useQueryParamSearch } from "../../lib/use-search";
+import Fuse from "fuse.js";
 
-export default function SearchBlog({ allPosts }) {
+export default function SearchBlog({ allPosts, searchText }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
-  const {
-    loading,
-    filteredList: filteredPosts,
-    searchText,
-  } = useQueryParamSearch(allPosts, ["content", "title"], "searchText");
 
   return (
     <>
@@ -23,22 +19,34 @@ export default function SearchBlog({ allPosts }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        {loading ? (
-          <p>Searching......</p>
-        ) : (
-          <FeaturedPosts
-            title={`Results for: "${searchText}"`}
-            posts={filteredPosts}
-          />
-        )}
+        <BackToLink href="/blog" where="blog" />
+
+        <FeaturedPosts
+          title={`Results for: "${searchText}"`}
+          posts={allPosts}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getServerSideProps = withGlobalProps(async (req) => {
   const allPosts = await getAllFullPosts();
+  const searchText = req.query.searchText || false;
 
-  return { props: { allPosts } };
+  if (!searchText) {
+    return {
+      redirect: {
+        destination: "/projects",
+        permanent: false,
+      },
+    };
+  }
+
+  const fuse = new Fuse(allPosts, { keys: ["content", "title"] });
+  const results = fuse.search(searchText);
+  const filteredPosts = results.map((result) => result.item);
+
+  return { props: { allPosts: filteredPosts, searchText } };
 });
