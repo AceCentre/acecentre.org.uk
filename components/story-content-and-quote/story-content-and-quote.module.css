@@ -1,11 +1,55 @@
 .container {
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  display: grid;
+  grid-template-columns: minmax(2fr 2fr) 1fr;
+  grid-template-areas: "content content quote";
+  gap: 2rem;
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background: #bfdded;
+}
+
+.icon.icon {
+  color: #5589b7;
+  font-size: 40px;
+}
+
+.quoteContainer {
+  display: flex;
+  grid-area: quote;
+  width: 100%;
+  gap: 1rem;
+}
+
+.contentContainer {
+  grid-area: content;
+  width: 100%;
+}
+
+.quoteText {
+  margin: 0;
+  color: #00537f;
+  font-size: 22px;
+}
+
+.quoteName {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    gap: 0;
+
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "quote"
+      "content";
   }
 }
