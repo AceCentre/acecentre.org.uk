@@ -6,17 +6,12 @@ import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
-import { useQueryParamSearch } from "../../lib/use-search";
+import Fuse from "fuse.js";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
 
-export default function SearchProjects({ allProjects }) {
+export default function SearchProjects({ allProjects, searchText = "" }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
-
-  const {
-    loading,
-    filteredList: filteredProjects,
-    searchText,
-  } = useQueryParamSearch(allProjects, ["content", "title"], "searchText");
 
   return (
     <>
@@ -24,25 +19,37 @@ export default function SearchProjects({ allProjects }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        {loading ? (
-          <p>Searching......</p>
-        ) : (
-          <FeaturedPosts
-            title={`Results for: "${searchText}"`}
-            posts={filteredProjects}
-            linkPrefix="projects"
-          />
-        )}
+        <BackToLink href="/projects" where="projects" />
+        <FeaturedPosts
+          title={`Results for: "${searchText}"`}
+          posts={allProjects}
+          linkPrefix="projects"
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getServerSideProps = withGlobalProps(async (req) => {
   const allProjects = await getFullProjects();
+
+  const searchText = req.query.searchText || false;
+
+  if (!searchText) {
+    return {
+      redirect: {
+        destination: "/projects",
+        permanent: false,
+      },
+    };
+  }
 
   if (!allProjects) throw new Error("Could not get all the projects");
 
-  return { props: { allProjects } };
+  const fuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const results = fuse.search(searchText);
+  const filteredProjects = results.map((result) => result.item);
+
+  return { props: { allProjects: filteredProjects, searchText } };
 });
