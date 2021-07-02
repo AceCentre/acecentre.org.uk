@@ -19,8 +19,6 @@ export default function StoriesLandingPage({
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
-  console.log("render", config);
-
   return (
     <>
       <header>
