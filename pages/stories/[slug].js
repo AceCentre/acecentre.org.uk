@@ -5,6 +5,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllStories } from "../../lib/story/get-story";
+import { PageTitle } from "../../components/page-title/page-title";
 
 export default function StoryDetail({ story }) {
   const cartCount = useCartCount();
@@ -17,7 +18,12 @@ export default function StoryDetail({ story }) {
       <header>
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <PageTitle
+          heading="People we support"
+          description={`Meet ${story.title}`}
+        />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
