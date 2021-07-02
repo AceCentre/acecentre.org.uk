@@ -88,7 +88,7 @@ export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
       featuredImage={featuredImage}
       title={title}
       href={href}
-      subTitle={category}
+      subtitle={category}
       noImagePostCount={post.noImagePostCount}
     >
       <p className={styles.postTitle}>{title}</p>
