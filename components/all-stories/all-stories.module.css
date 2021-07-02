@@ -18,6 +18,29 @@
   text-align: center;
 }
 
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.readMoreTitle {
+  font-size: 34px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.viewAllLink {
+  color: #00537f;
+  font-size: 18px;
+  margin-left: auto;
+  text-decoration: none;
+}
+
+.viewAllLink:hover {
+  text-decoration: underline;
+}
+
 .learnAbout {
   font-size: 16px;
   color: #333333;
@@ -33,4 +56,15 @@
   font-size: 46px;
   font-family: "Yellowtail", cursive;
   margin: 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .titleContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .viewAllLink {
+    margin-left: 0;
+  }
 }

@@ -7,12 +7,11 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllStories } from "../../lib/story/get-story";
 import { PageTitle } from "../../components/page-title/page-title";
 import { StoryCoverImage } from "../../components/story-cover-image/story-cover-image";
+import { ReadMoreStories } from "../../components/all-stories/all-stories";
 
-export default function StoryDetail({ story }) {
+export default function StoryDetail({ story, featuredStories }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
-
-  console.log(story);
 
   return (
     <>
@@ -26,6 +25,8 @@ export default function StoryDetail({ story }) {
         />
 
         <StoryCoverImage story={story} />
+
+        <ReadMoreStories stories={featuredStories} />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -54,9 +55,14 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
 
   const currentStory = allStories.find((project) => project.slug === slug);
 
+  const featuredStories = allStories
+    .filter((story) => story.slug !== slug)
+    .slice(0, 3);
+
   return {
     props: {
       story: currentStory,
+      featuredStories,
     },
   };
 });
