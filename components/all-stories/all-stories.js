@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Card } from "../latest-from-blog/latest-from-blog";
 import styles from "./all-stories.module.css";
 
@@ -21,6 +22,20 @@ export const AllStories = ({ stories }) => {
           </Card>
         ))}
       </ul>
+    </div>
+  );
+};
+
+export const ReadMoreStories = ({ stories }) => {
+  return (
+    <div>
+      <div className={`${styles.titleContainer} ${styles.container}`}>
+        <h3 className={styles.readMoreTitle}>Read more stories</h3>
+        <Link href="/stories">
+          <a className={styles.viewAllLink}>View all &gt;</a>
+        </Link>
+      </div>
+      <AllStories stories={stories} />
     </div>
   );
 };
