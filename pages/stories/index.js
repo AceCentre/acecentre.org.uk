@@ -41,7 +41,6 @@ export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
   const storyHighlight = await getSimpleStory("jess");
-
   const wordsFrom = await getSimpleStory("glyn");
 
   if (!allStories)
