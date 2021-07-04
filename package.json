@@ -77,7 +77,7 @@
     "netlify-cli": "4.0.5",
     "netlify-plugin-cache-nextjs": "1.6.1",
     "next-sitemap": "1.6.124",
-    "nock": "13.1.0",
+    "nock": "13.1.1",
     "plop": "2.7.4",
     "storybook-css-modules-preset": "1.0.8"
   }
