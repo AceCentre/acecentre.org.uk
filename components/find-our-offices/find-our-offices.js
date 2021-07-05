@@ -21,7 +21,7 @@ export const FindOurOffices = () => {
           </p>
         </Card>
         <Card
-          image="/north-office.png"
+          image="/south-office.jpg"
           office="south"
           map="https://goo.gl/maps/ooVujm5S7heagPgW9"
         >
