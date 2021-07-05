@@ -3,10 +3,10 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { FormiumForm } from "@formium/react";
 import { formium } from "../../lib/formium";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { Form } from "../../components/form/form";
 
 export default function FormPage({ slug, form }) {
   const cartCount = useCartCount();
@@ -18,14 +18,7 @@ export default function FormPage({ slug, form }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <p>{slug}</p>
-        <FormiumForm
-          data={form}
-          onSubmit={async (values) => {
-            // Send form values to Formium
-            await formium.submitForm(slug, values);
-          }}
-        />
+        <Form form={form} slug={slug} formium={formium} />
       </main>
       <Footer currentYear={currentYear} />
     </>
