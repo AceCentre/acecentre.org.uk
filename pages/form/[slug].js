@@ -7,7 +7,6 @@ import { FormiumForm } from "@formium/react";
 import { formium } from "../../lib/formium";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { useState } from "react";
 
 export default function FormPage({ slug, form }) {
   const cartCount = useCartCount();
