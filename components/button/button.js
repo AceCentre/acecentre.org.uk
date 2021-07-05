@@ -6,11 +6,16 @@ export const Button = ({
   children,
   href,
   onClick = () => {},
+  newTab = false,
 }) => {
+  const newTabProps = newTab ? { target: "_blank", rel: "noopener" } : {};
+
   if (href)
     return (
       <Link href={href}>
-        <a className={`${styles.button} ${className}`}>{children}</a>
+        <a {...newTabProps} className={`${styles.button} ${className}`}>
+          {children}
+        </a>
       </Link>
     );
 

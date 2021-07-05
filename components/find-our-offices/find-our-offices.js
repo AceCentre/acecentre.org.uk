@@ -1,66 +1,62 @@
 import styles from "./find-our-offices.module.css";
 
-import Link from "next/link";
-
-import { Avatar } from "@material-ui/core";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { ImageWithLoader as Image } from "../image";
+import { Button } from "../button/button";
 
 export const FindOurOffices = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>How can we help you?</h2>
+      <h2 className={styles.heading}>Find our offices</h2>
       <ul className={styles.list}>
-        <Card>
-          <h3>Advice helpline</h3>
+        <Card
+          image="/north-office.png"
+          office="north"
+          map="https://goo.gl/maps/ix7KUYrJhmy7eRov9"
+        >
+          <h3>North office</h3>
           <p>
-            If you’re a teacher or carer looking for assistance call our advice
-            helpline number:
+            <span>Hollinwood Business Centre</span>
+            <span>Albert Street Oldham</span>
+            <span>OL8 3QL</span>
           </p>
-          <p className={styles.phoneNumber}>0800 048 7642</p>
-          <p className={styles.officeHours}>Office hours, Monday - Friday</p>
-          <Link href="mailto:enquiries@acecentre.org.uk">
-            <a className={styles.link}>Email us &gt;</a>
-          </Link>
         </Card>
-        <Card>
-          <h3>Technical Support</h3>
+        <Card
+          image="/north-office.png"
+          office="south"
+          map="https://goo.gl/maps/ooVujm5S7heagPgW9"
+        >
+          <h3>South office</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
+            <span>5 Hitching Court</span>
+            <span>Blacklands Way</span>
+            <span>Abingdon Business Park</span>
+            <span>Oxfordshire, OX14 1RG</span>
           </p>
-          <Link href="/tech-support">
-            <a className={styles.link}>Get technical support &gt;</a>
-          </Link>
-        </Card>
-        <Card>
-          <h3>Useful links</h3>
-          <ul className={styles.linkList}>
-            <UsefulLink href="/resources">Resources</UsefulLink>
-            <UsefulLink href="/getting-started">Getting started</UsefulLink>
-            <UsefulLink href="/partnerships">Partnerships</UsefulLink>
-            <UsefulLink href="/information-days">Information days</UsefulLink>
-          </ul>
         </Card>
       </ul>
     </div>
   );
 };
 
-const UsefulLink = ({ children, href }) => {
+const Card = ({ children, image, office, map }) => {
   return (
-    <li>
-      <Link href={href}>
-        <a className={styles.linkListLink}>
-          <Avatar className={styles.arrowAvatar}>
-            <ChevronRightIcon className={styles.avatarIcon} />
-          </Avatar>
-          {children}
-        </a>
-      </Link>
+    <li className={styles.listItem}>
+      <div className={styles.imageContainer}>
+        <Image
+          src={image}
+          alt={`The ${office} office`}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+      <div className={styles.bottomSection}>
+        <div className={styles.addressContainer}>{children}</div>
+        <div className={styles.buttonContainer}>
+          <Button href={map} newTab>
+            View map
+          </Button>
+        </div>
+      </div>
     </li>
   );
-};
-
-const Card = ({ children }) => {
-  return <li className={styles.listItem}>{children}</li>;
 };
