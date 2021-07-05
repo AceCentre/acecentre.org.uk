@@ -6,7 +6,9 @@ export const Button = ({
   children,
   href,
   onClick = () => {},
+  type,
   newTab = false,
+  ...props
 }) => {
   const newTabProps = newTab ? { target: "_blank", rel: "noopener" } : {};
 
@@ -18,6 +20,18 @@ export const Button = ({
         </a>
       </Link>
     );
+
+  if (type == "submit") {
+    return (
+      <button
+        type={type}
+        {...props}
+        className={`${styles.button} ${className}`}
+      >
+        {children}
+      </button>
+    );
+  }
 
   return (
     <button onClick={onClick} className={`${styles.button} ${className}`}>

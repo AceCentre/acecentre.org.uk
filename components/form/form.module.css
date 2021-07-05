@@ -4,6 +4,15 @@
   max-width: var(--containerMaxWidth);
 }
 
+.label {
+  display: block;
+  color: #333333;
+}
+
+.input.input {
+  border-radius: 25px;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
