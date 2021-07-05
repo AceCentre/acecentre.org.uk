@@ -18,6 +18,7 @@ const PATHS_TO_TEST = [
   "/resources/all",
   "/resources/all?page=2",
   "/404",
+  "/contact",
 ];
 
 module.exports = PATHS_TO_TEST;
