@@ -1,10 +1,13 @@
 import styles from "./form.module.css";
 import { FormiumForm, defaultComponents } from "@formium/react";
 import { memo, useState } from "react";
+import { Input as ChakraInput } from "@chakra-ui/react";
+import { Button } from "../button/button";
 
 const TextInput = memo(function TextInput({ type, ...props }) {
   if (type == "text") {
-    return <input type={type} {...props} />;
+    return <ChakraInput className={styles.input} {...props} />;
+    // return <input type={type} {...props} />;
   }
 
   if (type == "email") {
@@ -27,10 +30,18 @@ const FormControl = memo(function FormControl({
   error,
   label,
   labelFor,
+  required,
 }) {
+  console.log({ required });
+
   return (
     <div>
-      {label && <label htmlFor={labelFor}>{label}</label>}
+      {label && (
+        <label className={styles.label} htmlFor={labelFor}>
+          {label}
+          {required && "*"}
+        </label>
+      )}
       {description && <div>{description}</div>}
       {children}
       {error && <div>{error}</div>}
@@ -68,6 +79,10 @@ const Textarea = ({ ...props }) => {
   return <textarea {...props}></textarea>;
 };
 
+const SubmitButton = ({ ...props }) => {
+  return <Button {...props} />;
+};
+
 const myComponents = {
   ...defaultComponents,
   TextInput,
@@ -75,6 +90,7 @@ const myComponents = {
   Radio,
   Checkbox,
   Textarea,
+  SubmitButton,
 };
 
 export const Form = ({ form, formium, slug }) => {
