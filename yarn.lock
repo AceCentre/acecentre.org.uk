@@ -3230,10 +3230,10 @@
   resolved "https://registry.yarnpkg.com/@netlify/esbuild/-/esbuild-0.13.6.tgz#ef0fda98604e708528ef0a57e853c50a6fc987f2"
   integrity sha512-tiKmDcHM2riSVN79c0mJY/67EBDafXQAMitHuLiCDAMdtz3kfv+NqdVG5krgf5lWR8Uf8AeZrUW5Q9RP25REvw==
 
-"@netlify/framework-info@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@netlify/framework-info/-/framework-info-5.5.0.tgz#393c5ee64bb41d2daab3a0641bb1dccd17b422c4"
-  integrity sha512-kAGcUnFlJgP2lQXez1c0RKJNF1reoefLVXMzTTTCoKqt1OcfzQnWzgCT6rJbsS7wia02JoLAb7TrdMdpWDAGTg==
+"@netlify/framework-info@^5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@netlify/framework-info/-/framework-info-5.6.0.tgz#00589546ee55558bc7c33cfe13af75e48fe783cb"
+  integrity sha512-NjGejntulKj6mBnnJjrIfrM8QKaFaoko2TWNc61vatHlTG7BwYmoMHYcfsL3lm2SnGxL1KtUt382IIRD0I1g2A==
   dependencies:
     ajv "^8.0.0"
     filter-obj "^2.0.1"
@@ -14720,14 +14720,14 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-4.1.0.tgz#a1e6169a634a9d36a2f817d3b40eb9060077ae9a"
-  integrity sha512-9r7oDZ/HH4zuIUdyK9lArc7qCe81l5KJGqaaWvetD1tGgsWIMRSxYPXDVhNE1V187SnOCwuHjh0KAhDDOjiBIA==
+netlify-cli@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-4.1.1.tgz#21063039158410f2a627a30d111bf95e6b8bcd39"
+  integrity sha512-vB8D43GRLRDvt/t078RqwRxht72x+vR0jPWV5qDl0/RO4NjxKYb+1UWI0E3WyeBs+NqkZJpJy1ctPG19Upm62w==
   dependencies:
     "@netlify/build" "^13.0.0"
     "@netlify/config" "^10.0.0"
-    "@netlify/framework-info" "^5.5.0"
+    "@netlify/framework-info" "^5.6.0"
     "@netlify/plugin-edge-handlers" "^1.11.20"
     "@netlify/plugins-list" "^2.18.1"
     "@netlify/routing-local-proxy" "^0.30.2"
