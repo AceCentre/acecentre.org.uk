@@ -92,6 +92,7 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .list {
+    flex-direction: column;
   }
 }
