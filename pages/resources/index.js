@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer/footer";
 import { ResourceCategoriesGrid } from "../../components/resource-categories-grid/resource-categories-grid";
 import { ResourceCategoriesHighlight } from "../../components/resource-categories-highlight/resource-categories-highlight";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
+import { ResourcesTicks } from "../../components/resources-ticks/resources-ticks";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -21,6 +22,7 @@ export default function Resources({ popularResources, featuredResources }) {
       </header>
       <main>
         <ResourcesSearch />
+        <ResourcesTicks />
         <FeaturedPosts
           linkPrefix="resources"
           title="Popular resources"
