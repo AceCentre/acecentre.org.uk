@@ -72,7 +72,11 @@ export const Card = ({
               {background && <div className={styles.background} />}
             </div>
           ) : (
-            <NoImage title={title} noImagePostCount={noImagePostCount} />
+            <NoImage
+              imageContainerClassName={imageContainerClassName}
+              title={title}
+              noImagePostCount={noImagePostCount}
+            />
           )}
           <p className={styles.blogTag}>{subtitle}</p>
           <div className={styles.postTitleContainer}>{children}</div>
@@ -100,10 +104,12 @@ export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
   );
 };
 
-const NoImage = ({ noImagePostCount, title }) => {
+const NoImage = ({ noImagePostCount, title, imageContainerClassName = "" }) => {
   if (noImagePostCount % 2 === 0) {
     return (
-      <div className={styles.fakeImageContainer}>
+      <div
+        className={`${styles.fakeImageContainer} ${imageContainerClassName}`}
+      >
         <div className={styles.blueCover}>{title}</div>
         <Image
           src="/generic-busy-office.jpeg"
@@ -116,7 +122,9 @@ const NoImage = ({ noImagePostCount, title }) => {
     );
   } else {
     return (
-      <div className={styles.fakeImageContainer}>
+      <div
+        className={`${styles.fakeImageContainer} ${imageContainerClassName}`}
+      >
         <div className={styles.backgroundColorForLighthouse}></div>
         <Image
           src="/green-background.png"
