@@ -12,7 +12,7 @@ export const HowCanWeHelpCards = () => {
       <div className={styles.allCards}>
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
-            src="/getting-started-demo.svg"
+            src="/getting-started-demo-2.svg"
             background="#F1D1D0"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
@@ -23,8 +23,8 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/getting-started-demo-2.svg"
-            background="#F6EEC5"
+            src="/resources-demo-1.svg"
+            background="rgba(0,0,0,0)"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
             href="/resources"
@@ -35,12 +35,12 @@ export const HowCanWeHelpCards = () => {
 
         <div className={styles.aceCentreLearning}>
           <HowWeHelpCard
-            src="/acecentre-learning.svg"
-            background="#B0E8DE"
+            src="/resources-demo-2.svg"
+            background="#F6EEC5"
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
             href="/acecentre-learning"
-            iconColour="#8AD9CA"
+            iconColour="#F4DF74"
             alt="Group of icons to show 'AceCentre Learning'"
           />
         </div>

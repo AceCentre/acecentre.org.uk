@@ -1,0 +1,29 @@
+.splitColumns {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: grid;
+  grid-template-areas: "form form form giveUsACall";
+  gap: 3rem;
+}
+
+.form {
+  width: 100%;
+  grid-area: form;
+}
+
+.giveUsACall {
+  width: 100%;
+  grid-area: giveUsACall;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .splitColumns {
+    gap: 1rem;
+
+    grid-template-areas:
+      "form"
+      "giveUsACall";
+  }
+}
