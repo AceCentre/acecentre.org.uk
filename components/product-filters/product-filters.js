@@ -4,6 +4,10 @@ import { Select } from "@chakra-ui/react";
 import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
 import { ORDER_BY_OPTIONS } from "./order-by-options";
+import { PageTitle } from "../page-title/page-title";
+import { Input } from "../input/input";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useSearchController = ({
   defaultTopLevelValue,
@@ -119,82 +123,85 @@ export const ProductFilters = ({
   const currentSubCategories = selectedCategoryFull.subcategories || [];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>Resources</h1>
-        <form onSubmit={freeTextOnSubmit} className={styles.searchBox}>
-          <input
-            name="searchText"
-            type="text"
-            placeholder="What are you looking for?"
-          />
-          <button type="submit">Search</button>
+    <>
+      <PageTitle heading="Resources" description="Our resources">
+        <form onSubmit={freeTextOnSubmit}>
+          <Input name="searchText" white placeholder="Search for resources">
+            <SvgIcon>
+              <SearchIcon />
+            </SvgIcon>
+          </Input>
         </form>
+      </PageTitle>
+      <div className={styles.container}>
+        <div className={styles.subHeader}>
+          <h2>Filter Products</h2>
+          <a href="/resources/all" className={styles.resetLink}>
+            Reset filters
+          </a>
+        </div>
+        {searchText && <p>{`You searched for: "${searchText}"`}</p>}
+        <div className={styles.selectContainer}>
+          <Select
+            {...topLevelCategorySelectProps}
+            placeholder="Select category"
+          >
+            {categories.map((category) => {
+              return (
+                <option value={category.slug} key={`category-${category.slug}`}>
+                  {category.name}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            disabled={currentSubCategories.length === 0}
+            {...subcategorySelectProps}
+            placeholder="Select sub-category"
+          >
+            {currentSubCategories.map((category) => {
+              return (
+                <option
+                  value={category.slug}
+                  key={`subcategory-${category.slug}`}
+                >
+                  {category.name}
+                </option>
+              );
+            })}
+          </Select>
+          <Select {...priceRangeSelectProps} placeholder="Select price range">
+            {priceRanges.map((priceRange) => {
+              return (
+                <option
+                  value={priceRange.slug}
+                  key={`priceRange-${priceRange.slug}`}
+                >
+                  {priceRange.name}
+                </option>
+              );
+            })}
+          </Select>
+        </div>
+        <div className={styles.orderByArea}>
+          <p>{`${resourceCount} resources`}</p>
+          <Select
+            width={"50%"}
+            maxWidth={200}
+            className={styles.orderBySelect}
+            variant="unstyled"
+            {...orderByProps}
+          >
+            {ORDER_BY_OPTIONS.map((orderBy) => {
+              return (
+                <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
+                  {orderBy.title}
+                </option>
+              );
+            })}
+          </Select>
+        </div>
       </div>
-      <div className={styles.subHeader}>
-        <h2>Filter Products</h2>
-        <a href="/resources/all" className={styles.resetLink}>
-          Reset filters
-        </a>
-      </div>
-      {searchText && <p>{`You searched for: "${searchText}"`}</p>}
-      <div className={styles.selectContainer}>
-        <Select {...topLevelCategorySelectProps} placeholder="Select category">
-          {categories.map((category) => {
-            return (
-              <option value={category.slug} key={`category-${category.slug}`}>
-                {category.name}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          disabled={currentSubCategories.length === 0}
-          {...subcategorySelectProps}
-          placeholder="Select sub-category"
-        >
-          {currentSubCategories.map((category) => {
-            return (
-              <option
-                value={category.slug}
-                key={`subcategory-${category.slug}`}
-              >
-                {category.name}
-              </option>
-            );
-          })}
-        </Select>
-        <Select {...priceRangeSelectProps} placeholder="Select price range">
-          {priceRanges.map((priceRange) => {
-            return (
-              <option
-                value={priceRange.slug}
-                key={`priceRange-${priceRange.slug}`}
-              >
-                {priceRange.name}
-              </option>
-            );
-          })}
-        </Select>
-      </div>
-      <div className={styles.orderByArea}>
-        <p>{`${resourceCount} resources`}</p>
-        <Select
-          width={"50%"}
-          maxWidth={200}
-          className={styles.orderBySelect}
-          variant="unstyled"
-          {...orderByProps}
-        >
-          {ORDER_BY_OPTIONS.map((orderBy) => {
-            return (
-              <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
-                {orderBy.title}
-              </option>
-            );
-          })}
-        </Select>
-      </div>
-    </div>
+    </>
   );
 };
