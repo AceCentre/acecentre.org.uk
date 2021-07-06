@@ -83,6 +83,10 @@ const SubmitButton = ({ ...props }) => {
   return <Button {...props} />;
 };
 
+const Header = ({ page }) => {
+  return <h3 className={styles.title}>{page.title}</h3>;
+};
+
 const myComponents = {
   ...defaultComponents,
   TextInput,
@@ -91,26 +95,29 @@ const myComponents = {
   Checkbox,
   Textarea,
   SubmitButton,
+  Header,
 };
 
-export const Form = ({ form, formium, slug }) => {
+export const Form = ({ form, formium, slug, className }) => {
   const [success, setSuccess] = useState(false);
 
   return (
-    <div className={styles.container}>
+    <>
       {success ? (
         <p>Success!</p>
       ) : (
-        <FormiumForm
-          data={form}
-          components={myComponents}
-          onSubmit={async (values) => {
-            // Send form values to Formium
-            await formium.submitForm(slug, values);
-            setSuccess(true);
-          }}
-        />
+        <div className={className}>
+          <FormiumForm
+            data={form}
+            components={myComponents}
+            onSubmit={async (values) => {
+              // Send form values to Formium
+              await formium.submitForm(slug, values);
+              setSuccess(true);
+            }}
+          />
+        </div>
       )}
-    </div>
+    </>
   );
 };
