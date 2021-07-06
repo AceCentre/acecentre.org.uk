@@ -3,11 +3,9 @@
   width: 100%;
   max-width: 1540px;
 
-  background-color: #bfdded;
   padding: 4rem 0;
   display: flex;
 
-  background-image: url("/wave.svg");
   background-size: cover;
 }
 
@@ -37,7 +35,6 @@
 }
 
 .description {
-  color: #00537f;
   font-size: 34px;
   font-weight: bold;
   margin: 0;
