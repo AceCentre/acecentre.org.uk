@@ -1,7 +1,7 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { ResourceCategoriesGrid } from "../../components/resource-categories-grid/resource-categories-grid";
+import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
 import { ResourcesTicks } from "../../components/resources-ticks/resources-ticks";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
@@ -27,17 +27,9 @@ export default function Resources({
       <main>
         <ResourcesSearch />
         <ResourcesTicks />
-        <FeaturedPosts
-          linkPrefix="resources"
-          title="Popular resources"
-          posts={popularResources}
-        />
+        <ResourceList title="Popular resources" products={popularResources} />
         <ResourceCategoriesGrid productCategories={productCategories} />
-        <FeaturedPosts
-          linkPrefix="resources"
-          title="Featured resources"
-          posts={featuredResources}
-        />
+        <ResourceList title="Featured resources" products={featuredResources} />
       </main>
       <Footer currentYear={currentYear} />
     </>
