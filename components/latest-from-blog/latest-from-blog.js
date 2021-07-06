@@ -52,13 +52,17 @@ export const Card = ({
   title,
   background = false,
   children,
+  className = "",
+  imageContainerClassName = "",
 }) => {
   return (
-    <li className={styles.flexItem}>
+    <li className={`${styles.flexItem} ${className}`}>
       <Link href={href}>
         <a className={styles.listLink}>
           {featuredImage ? (
-            <div className={styles.imageContainer}>
+            <div
+              className={`${styles.imageContainer} ${imageContainerClassName}`}
+            >
               <Image
                 src={featuredImage.src}
                 alt={`An thumbnail for the post: ${title}`}
