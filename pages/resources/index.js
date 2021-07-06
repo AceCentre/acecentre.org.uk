@@ -47,7 +47,9 @@ export default function Resources({
 export const getStaticProps = withGlobalProps(async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
-    title: product.name,
+    title: htmlDecode(product.name),
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
     ...product,
   }));
   const productCategories = await getAllProductCategories();
@@ -55,9 +57,15 @@ export const getStaticProps = withGlobalProps(async () => {
   const featuredResources = allProducts
     .filter((resource) => resource.featured)
     .map((product) => ({
-      title: product.name,
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
       ...product,
     }));
 
   return { props: { popularResources, featuredResources, productCategories } };
 });
+
+function htmlDecode(input) {
+  return input.replace(/&amp;/g, "&");
+}
