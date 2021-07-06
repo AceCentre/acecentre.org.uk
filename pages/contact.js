@@ -9,6 +9,9 @@ import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { formium } from "../lib/formium";
+import { GiveUsACall } from "../components/give-us-a-call/give-us-a-call";
+
+import styles from "../styles/contact.module.css";
 
 export default function Contact({ slug, form }) {
   const cartCount = useCartCount();
@@ -25,7 +28,15 @@ export default function Contact({ slug, form }) {
           description="If you think Ace Centre can help you or someone you know please get in touch"
         />
         <ContactCards />
-        <Form form={form} slug={slug} formium={formium} />
+        <div className={styles.splitColumns}>
+          <Form
+            className={styles.form}
+            form={form}
+            slug={slug}
+            formium={formium}
+          />
+          <GiveUsACall className={styles.giveUsACall} />
+        </div>
         <FindOurOffices />
       </main>
       <Footer currentYear={currentYear} />
