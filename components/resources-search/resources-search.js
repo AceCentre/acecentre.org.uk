@@ -4,13 +4,16 @@ export const ResourcesSearch = () => {
   return (
     <SearchBox
       title={"Resources"}
-      description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-  gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-  pellentesque.`}
+      description={
+        "Get started with AAC, Free Symbol & Alphabet charts  for download"
+      }
       searchEndpoint={"/resources/all"}
       ariaLabel={"Search resources"}
-      placeholder={"What are you looking for?"}
+      placeholder={"Search for resources"}
       searchButtonText={"Search"}
+      backgroundColor="#F6EEC5"
+      backgroundImage="yellow-wave.svg"
+      textColor="#333333"
     />
   );
 };
