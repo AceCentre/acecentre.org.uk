@@ -32,12 +32,12 @@ export default function Resources({
         <ResourcesTicks />
         <ResourceList title="Popular resources" products={popularResources} />
 
+        <ResourceCategoriesGrid productCategories={productCategories} />
         <div className={styles.buttonContainer}>
           <Button className={styles.button} href="/resources/all">
-            All resources
+            View all resources
           </Button>
         </div>
-        <ResourceCategoriesGrid productCategories={productCategories} />
         <ResourceList title="Featured resources" products={featuredResources} />
       </main>
       <Footer currentYear={currentYear} />
