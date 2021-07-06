@@ -1,3 +1,4 @@
+import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { ResourceCategoriesGrid } from "../../components/resource-categories-grid/resource-categories-grid";
@@ -10,6 +11,8 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProductsByPopularity } from "../../lib/products/get-products";
+
+import styles from "../../styles/resources.module.css";
 
 export default function Resources({
   popularResources,
@@ -28,6 +31,12 @@ export default function Resources({
         <ResourcesSearch />
         <ResourcesTicks />
         <ResourceList title="Popular resources" products={popularResources} />
+
+        <div className={styles.buttonContainer}>
+          <Button className={styles.button} href="/resources/all">
+            All resources
+          </Button>
+        </div>
         <ResourceCategoriesGrid productCategories={productCategories} />
         <ResourceList title="Featured resources" products={featuredResources} />
       </main>
