@@ -1,27 +1,29 @@
 import styles from "./form.module.css";
 import { FormiumForm, defaultComponents } from "@formium/react";
 import { memo, useState } from "react";
-import { Input as ChakraInput } from "@chakra-ui/react";
+import {
+  Input as ChakraInput,
+  Textarea as ChakraTextarea,
+} from "@chakra-ui/react";
 import { Button } from "../button/button";
 
 const TextInput = memo(function TextInput({ type, ...props }) {
   if (type == "text") {
     return <ChakraInput className={styles.input} {...props} />;
-    // return <input type={type} {...props} />;
   }
 
   if (type == "email") {
-    return <input type={type} {...props} />;
+    return <ChakraInput className={styles.input} type={type} {...props} />;
   }
 
   if (type == "url") {
-    return <input type={type} {...props} />;
+    return <ChakraInput className={styles.input} type={type} {...props} />;
   }
 
   console.warn(
     `<TextInput /> doesn't have an implementation for specified type of ${type}.`
   );
-  return <input type={type} {...props} />;
+  return <ChakraInput className={styles.input} type={type} {...props} />;
 });
 
 const FormControl = memo(function FormControl({
@@ -32,19 +34,17 @@ const FormControl = memo(function FormControl({
   labelFor,
   required,
 }) {
-  console.log({ required });
-
   return (
-    <div>
+    <div className={styles.formControl}>
       {label && (
         <label className={styles.label} htmlFor={labelFor}>
           {label}
-          {required && "*"}
+          {required && "(*)"}:
         </label>
       )}
       {description && <div>{description}</div>}
       {children}
-      {error && <div>{error}</div>}
+      {error && <div className={styles.errorMessage}>{error}</div>}
     </div>
   );
 });
@@ -76,7 +76,7 @@ const Checkbox = ({ label, value, name, id, checked, onChange, ...props }) => {
 };
 
 const Textarea = ({ ...props }) => {
-  return <textarea {...props}></textarea>;
+  return <ChakraTextarea className={styles.textArea} {...props} />;
 };
 
 const SubmitButton = ({ ...props }) => {

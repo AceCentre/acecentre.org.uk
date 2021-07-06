@@ -13,6 +13,19 @@
   border-radius: 25px;
 }
 
+.textArea.textArea {
+  font-family: "Montserrat", sans-serif !important;
+  border-radius: 25px;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.formControl {
+  margin: 2rem 0;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
