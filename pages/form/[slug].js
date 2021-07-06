@@ -7,6 +7,7 @@ import { formium } from "../../lib/formium";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Form } from "../../components/form/form";
+import styles from "../../styles/form.module.css";
 
 export default function FormPage({ slug, form }) {
   const cartCount = useCartCount();
@@ -18,7 +19,9 @@ export default function FormPage({ slug, form }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <Form form={form} slug={slug} formium={formium} />
+        <div className={styles.container}>
+          <Form form={form} slug={slug} formium={formium} />
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
