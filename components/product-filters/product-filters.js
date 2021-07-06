@@ -8,6 +8,7 @@ import { PageTitle } from "../page-title/page-title";
 import { Input } from "../input/input";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import SearchIcon from "@material-ui/icons/Search";
+import { Button } from "../button/button";
 
 const useSearchController = ({
   defaultTopLevelValue,
@@ -134,12 +135,6 @@ export const ProductFilters = ({
         </form>
       </PageTitle>
       <div className={styles.container}>
-        <div className={styles.subHeader}>
-          <h2>Filter Products</h2>
-          <a href="/resources/all" className={styles.resetLink}>
-            Reset filters
-          </a>
-        </div>
         {searchText && <p>{`You searched for: "${searchText}"`}</p>}
         <div className={styles.selectContainer}>
           <Select
@@ -182,6 +177,7 @@ export const ProductFilters = ({
               );
             })}
           </Select>
+          <Button href="/resources/all"> Reset filters</Button>
         </div>
         <div className={styles.orderByArea}>
           <p>{`${resourceCount} resources`}</p>
