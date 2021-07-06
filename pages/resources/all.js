@@ -1,5 +1,4 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { Pagination } from "../../components/pagination/pagination";
 import { ORDER_BY_OPTIONS } from "../../components/product-filters/order-by-options";
