@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer/footer";
 import { Pagination } from "../../components/pagination/pagination";
 import { ORDER_BY_OPTIONS } from "../../components/product-filters/order-by-options";
 import { ProductFilters } from "../../components/product-filters/product-filters";
+import { ResourceList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -42,7 +43,7 @@ export default function AllResources({
           resourceCount={totalResourcesCount}
           searchText={searchText}
         />
-        <FeaturedPosts linkPrefix="resources" posts={resources} />
+        <ResourceList products={resources} />
         <Pagination currentPage={currentPage} pageCount={pageCount} />
       </main>
       <Footer currentYear={currentYear} />
@@ -78,7 +79,9 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   });
 
   const resources = filteredProducts.map((product) => ({
-    title: product.name,
+    title: htmlDecode(product.name),
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
     ...product,
   }));
   return {
@@ -96,3 +99,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     },
   };
 });
+
+function htmlDecode(input) {
+  return input.replace(/&amp;/g, "&");
+}
