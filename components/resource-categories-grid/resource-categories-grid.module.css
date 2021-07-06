@@ -76,5 +76,6 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    grid-template-columns: 1fr;
   }
 }
