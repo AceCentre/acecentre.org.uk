@@ -8,7 +8,6 @@ import { PageTitle } from "../page-title/page-title";
 import { Input } from "../input/input";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import SearchIcon from "@material-ui/icons/Search";
-import { Button } from "../button/button";
 
 const useSearchController = ({
   defaultTopLevelValue,
@@ -138,8 +137,11 @@ export const ProductFilters = ({
         {searchText && <p>{`You searched for: "${searchText}"`}</p>}
         <div className={styles.selectContainer}>
           <Select
+            borderRadius={25}
+            maxWidth={["100%", "100%", 150]}
+            backgroundColor="#F5F5F5"
             {...topLevelCategorySelectProps}
-            placeholder="Select category"
+            placeholder="Category"
           >
             {categories.map((category) => {
               return (
@@ -150,9 +152,12 @@ export const ProductFilters = ({
             })}
           </Select>
           <Select
+            maxWidth={["100%", "100%", 150]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
             disabled={currentSubCategories.length === 0}
             {...subcategorySelectProps}
-            placeholder="Select sub-category"
+            placeholder="Sub-category"
           >
             {currentSubCategories.map((category) => {
               return (
@@ -165,7 +170,13 @@ export const ProductFilters = ({
               );
             })}
           </Select>
-          <Select {...priceRangeSelectProps} placeholder="Select price range">
+          <Select
+            maxWidth={["100%", "100%", 150]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...priceRangeSelectProps}
+            placeholder="Price range"
+          >
             {priceRanges.map((priceRange) => {
               return (
                 <option
@@ -177,13 +188,12 @@ export const ProductFilters = ({
               );
             })}
           </Select>
-          <Button href="/resources/all"> Reset filters</Button>
         </div>
         <div className={styles.orderByArea}>
           <p>{`${resourceCount} resources`}</p>
           <Select
             width={"50%"}
-            maxWidth={200}
+            maxWidth={160}
             className={styles.orderBySelect}
             variant="unstyled"
             {...orderByProps}
