@@ -5,6 +5,12 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
+
+import { ResourcesImage } from "../../components/resources-image/resources-image";
+import { ResourcesDescription } from "../../components/resources-description/resources-description";
+import { ResourcesDownload } from "../../components/resources-download/resources-download";
+import { ResourcesShare } from "../../components/resources-share/resources-share";
 
 export default function ResourceDetail({ resource }) {
   const cartCount = useCartCount();
@@ -16,6 +22,15 @@ export default function ResourceDetail({ resource }) {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
+        <BackToLink where="all resources" href="/resources/all" />
+        <div>
+          <ResourcesImage />
+          <div>
+            <ResourcesDescription />
+            <ResourcesDownload />
+            <ResourcesShare />
+          </div>
+        </div>
         <pre>{JSON.stringify(resource, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
