@@ -12,6 +12,8 @@ import { ResourcesDescription } from "../../components/resources-description/res
 import { ResourcesDownload } from "../../components/resources-download/resources-download";
 import { ResourcesShare } from "../../components/resources-share/resources-share";
 
+import styles from "../../styles/resources-detail.module.css";
+
 export default function ResourceDetail({ resource }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
@@ -23,9 +25,11 @@ export default function ResourceDetail({ resource }) {
       </header>
       <main>
         <BackToLink where="all resources" href="/resources/all" />
-        <div>
-          <ResourcesImage />
-          <div>
+        <div className={styles.topArea}>
+          <div className={styles.leftTopArea}>
+            <ResourcesImage />
+          </div>
+          <div className={styles.rightTopArea}>
             <ResourcesDescription />
             <ResourcesDownload />
             <ResourcesShare />

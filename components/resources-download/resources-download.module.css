@@ -1,7 +1,5 @@
 .container {
-  margin: 0 auto;
-  width: 90%;
-  max-width: var(--containerMaxWidth);
+  width: 100%;
 }
 
 /** Mobile CSS */
