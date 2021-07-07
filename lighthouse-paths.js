@@ -17,6 +17,7 @@ const PATHS_TO_TEST = [
   "/resources",
   "/resources/all",
   "/resources/all?page=2",
+  "/resources/abc-with-core-words",
   "/404",
   "/contact",
   "/form/contact",
