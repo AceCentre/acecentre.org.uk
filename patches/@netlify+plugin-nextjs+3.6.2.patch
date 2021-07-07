@@ -1,12 +1,12 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..e9cf0d3 100644
+index fda529f..5217b53 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 @@ -3,6 +3,7 @@
  
  // Render function for the Next.js page
  const renderNextPage = require('./renderNextPage')
-+const config = require('../../../../../../lib/config')
++const config = require('../../../lib/config')
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
@@ -14,7 +14,7 @@ index fda529f..e9cf0d3 100644
    // Get the request URL
    const { path } = event
    console.log('[request]', path)
-+  console.log('This is ran', config)
++  console.log('This is ran', config, event)
  
    // Render the Next.js page
    const response = await renderNextPage({ event, context })
