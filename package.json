@@ -15,8 +15,8 @@
     "lighthouse": "lhci autorun",
     "plop": "plop",
     "build-sitemap": "next-sitemap",
-    "postinstall": "patch-package"
-
+    "patch": "patch-package",
+    "reverse-patch": "patch-package --reverse"
   },
   "dependencies": {
     "@chakra-ui/react": "1.6.4",
@@ -52,7 +52,6 @@
     "next-transpile-modules": "8.0.0",
     "node-fetch": "2.6.1",
     "patch-package": "^6.4.7",
-    "postinstall-postinstall": "^2.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-lite-youtube-embed": "2.0.3",
