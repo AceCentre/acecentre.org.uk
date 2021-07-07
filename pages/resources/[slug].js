@@ -33,7 +33,7 @@ export default function ResourceDetail({ resource }) {
           </div>
           <div className={styles.rightTopArea}>
             <ResourcesDescription resource={resource} />
-            <ResourcesDownload />
+            <ResourcesDownload resource={resource} />
             <ResourcesShare />
           </div>
         </div>
