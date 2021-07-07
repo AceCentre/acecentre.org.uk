@@ -1,5 +1,5 @@
 .container {
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
 }
@@ -8,18 +8,28 @@
   list-style: none;
   padding: 0;
   display: flex;
+  gap: 0.5rem;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .listItem {
-  border: 1px solid black;
   padding: 0.5rem 1rem;
+
+  color: #333333;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
-.selectedItem {
-  background: var(--primaryColour);
+.listItem:hover,
+.listItem:focus {
+  background-color: #f5f5f5;
+}
+
+.selectedItem.selectedItem {
+  background: #00537f;
+  color: #ffffff;
 }
 
 /** Mobile CSS */

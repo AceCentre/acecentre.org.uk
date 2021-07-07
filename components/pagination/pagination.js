@@ -32,25 +32,32 @@ export const Pagination = ({ pageCount, currentPage }) => {
     <div className={styles.container}>
       <ul className={styles.list}>
         {currentPageAsInt > 1 && (
-          <li className={styles.listItem}>
-            <Link href={changePageLink(currentPageAsInt - 1)}>Previous</Link>
+          <li>
+            <Link href={changePageLink(currentPageAsInt - 1)}>
+              <a className={styles.listItem}>Previous</a>
+            </Link>
           </li>
         )}
         {arrayOfNumbers.map((currentPageNumber) => (
-          <li
-            className={`${styles.listItem} ${
-              currentPageNumber === currentPageAsInt ? styles.selectedItem : ""
-            }`}
-            key={`page-${currentPageNumber}`}
-          >
+          <li key={`page-${currentPageNumber}`}>
             <Link href={changePageLink(currentPageNumber)}>
-              <a>{currentPageNumber}</a>
+              <a
+                className={`${styles.listItem} ${
+                  currentPageNumber === currentPageAsInt
+                    ? styles.selectedItem
+                    : ""
+                }`}
+              >
+                {currentPageNumber}
+              </a>
             </Link>
           </li>
         ))}
         {currentPageAsInt < pageCount && (
-          <li className={styles.listItem}>
-            <Link href={changePageLink(currentPageAsInt + 1)}>Next</Link>
+          <li>
+            <Link href={changePageLink(currentPageAsInt + 1)}>
+              <a className={styles.listItem}>Next</a>
+            </Link>
           </li>
         )}
       </ul>
