@@ -18,6 +18,8 @@ export default function ResourceDetail({ resource }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
+  console.log(resource);
+
   return (
     <>
       <header>
@@ -27,7 +29,7 @@ export default function ResourceDetail({ resource }) {
         <BackToLink where="all resources" href="/resources/all" />
         <div className={styles.topArea}>
           <div className={styles.leftTopArea}>
-            <ResourcesImage />
+            <ResourcesImage resource={resource} />
           </div>
           <div className={styles.rightTopArea}>
             <ResourcesDescription />
