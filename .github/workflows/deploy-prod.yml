@@ -36,6 +36,7 @@ jobs:
       DEPLOY_KEY: production
       NEXT_PUBLIC_FORMIUM_PROJECTID: ${{ secrets.NEXT_PUBLIC_FORMIUM_PROJECTID }}
       FORMIUM_TOKEN: ${{ secrets.FORMIUM_TOKEN }}
+      PROM_KEY: ${{ secrets.PROM_KEY }}
 
     steps:
       - name: Get Code
