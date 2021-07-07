@@ -32,12 +32,14 @@ export default function ResourceDetail({ resource }) {
             <ResourcesImage resource={resource} />
           </div>
           <div className={styles.rightTopArea}>
-            <ResourcesDescription />
+            <ResourcesDescription resource={resource} />
             <ResourcesDownload />
             <ResourcesShare />
           </div>
         </div>
-        <pre>{JSON.stringify(resource, null, 2)}</pre>
+        <pre style={{ whiteSpace: "pre-wrap" }}>
+          {JSON.stringify(resource, null, 2)}
+        </pre>
       </main>
       <Footer currentYear={currentYear} />
     </>
