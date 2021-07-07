@@ -46,6 +46,7 @@ jobs:
       IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
       DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
+      PROM_KEY: ${{ secrets.PROM_KEY }}
 
     steps:
       - name: Get Code
