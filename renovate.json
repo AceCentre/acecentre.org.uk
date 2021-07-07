@@ -6,6 +6,10 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchPackageNames": ["@netlify/plugin-nextjs"],
+      "automerge": false
     }
   ]
 }
