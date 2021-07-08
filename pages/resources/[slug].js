@@ -23,8 +23,6 @@ export default function ResourceDetail({ resource, relatedResources }) {
 
   const project = resource.projects[0] || null;
 
-  console.log(resource);
-
   return (
     <>
       <header>
