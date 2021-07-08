@@ -18,6 +18,8 @@ const PATHS_TO_TEST = [
   "/resources/all",
   "/resources/all?page=2",
   "/resources/abc-with-core-words",
+  "/resources/a5-communication-book-direct-access",
+  "/resources/look2talk",
   "/404",
   "/contact",
   "/form/contact",
