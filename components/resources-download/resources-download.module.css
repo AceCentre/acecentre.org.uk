@@ -11,6 +11,17 @@
   margin: 2rem 0;
 }
 
+.addToCartButtonContainer {
+  margin: 2rem 0;
+  margin-top: 0;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {

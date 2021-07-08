@@ -71,16 +71,19 @@ const SinglePurchasableProduct = ({ resource }) => {
   const { disabled, addToCart, error } = useAddToCart();
 
   return (
-    <div className={styles.downloadButtonContainer}>
-      <Button
-        disabled={disabled}
-        onClick={addToCart({
-          productId: resource.id,
-        })}
-      >
-        Add to cart
-      </Button>
-      {error && <p>Something went wrong adding this item to your cart</p>}
+    <div>
+      <p className={styles.price}>£{resource.price}</p>
+      <div className={styles.addToCartButtonContainer}>
+        <Button
+          disabled={disabled}
+          onClick={addToCart({
+            productId: resource.id,
+          })}
+        >
+          Add to cart
+        </Button>
+        {error && <p>Something went wrong adding this item to your cart</p>}
+      </div>
     </div>
   );
 };
