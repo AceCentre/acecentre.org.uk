@@ -25,6 +25,10 @@ export const ResourcesDownload = ({ resource }) => {
     return <SinglePurchasableProduct resource={resource} />;
   }
 
+  if (variations.length === 0 && resource.instantDownloadAvailable) {
+    return <SingleDownloadableProduct resource={resource} />;
+  }
+
   throw new Error(`Uh oh, looks like we cant render ${resource.slug}`);
 
   // return (
@@ -64,6 +68,16 @@ const useAddToCart = () => {
     addToCart,
     error,
   };
+};
+
+const SingleDownloadableProduct = ({ resource }) => {
+  return (
+    <div className={styles.downloadButtonContainer}>
+      <Button href={`${config.baseUrl}${resource.downloadUrl}`}>
+        Free download
+      </Button>
+    </div>
+  );
 };
 
 // A product that can be purchased and has no variations
