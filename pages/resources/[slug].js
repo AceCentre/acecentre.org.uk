@@ -13,12 +13,15 @@ import { ResourcesDownload } from "../../components/resources-download/resources
 import { ResourcesShare } from "../../components/resources-share/resources-share";
 
 import styles from "../../styles/resources-detail.module.css";
+import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
 
 export default function ResourceDetail({ resource }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   console.log(resource);
+
+  const project = resource.projects[0] || null;
 
   return (
     <>
@@ -37,6 +40,7 @@ export default function ResourceDetail({ resource }) {
             <ResourcesShare />
           </div>
         </div>
+        {project && <ProjectHighlight project={project} />}
         <pre style={{ whiteSpace: "pre-wrap" }}>
           {JSON.stringify(resource, null, 2)}
         </pre>
