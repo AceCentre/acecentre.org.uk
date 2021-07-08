@@ -113,18 +113,22 @@ const MixedVariations = ({ resource, variations }) => {
         </div>
       ) : (
         <div>
-          <div className={styles.addToCartButtonContainer}>
-            <Button
-              disabled={disabled}
-              onClick={addToCart({
-                productId: resource.id,
-                variationId: currentlySelectedFull.id,
-              })}
-            >
-              Add to cart
-            </Button>
-            {error && <p>Something went wrong adding this item to your cart</p>}
-          </div>
+          {currentlySelectedFull.inStock && (
+            <div className={styles.addToCartButtonContainer}>
+              <Button
+                disabled={disabled}
+                onClick={addToCart({
+                  productId: resource.id,
+                  variationId: currentlySelectedFull.id,
+                })}
+              >
+                Add to cart
+              </Button>
+              {error && (
+                <p>Something went wrong adding this item to your cart</p>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -158,17 +162,19 @@ const SinglePurchasableProduct = ({ resource }) => {
   return (
     <div>
       <Price resource={resource} />
-      <div className={styles.addToCartButtonContainer}>
-        <Button
-          disabled={disabled || !resource.inStock}
-          onClick={addToCart({
-            productId: resource.id,
-          })}
-        >
-          Add to cart
-        </Button>
-        {error && <p>Something went wrong adding this item to your cart</p>}
-      </div>
+      {resource.inStock && (
+        <div className={styles.addToCartButtonContainer}>
+          <Button
+            disabled={disabled}
+            onClick={addToCart({
+              productId: resource.id,
+            })}
+          >
+            Add to cart
+          </Button>
+          {error && <p>Something went wrong adding this item to your cart</p>}
+        </div>
+      )}
     </div>
   );
 };
