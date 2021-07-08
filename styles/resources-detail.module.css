@@ -8,6 +8,10 @@
   gap: 3rem;
 }
 
+.resourcesList {
+  margin: 3rem auto;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .topArea {

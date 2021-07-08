@@ -14,12 +14,11 @@ import { ResourcesShare } from "../../components/resources-share/resources-share
 
 import styles from "../../styles/resources-detail.module.css";
 import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
+import { ResourceList } from "../../components/resource-list/resource-list";
 
-export default function ResourceDetail({ resource }) {
+export default function ResourceDetail({ resource, relatedResources }) {
   const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
-
-  console.log(resource);
 
   const project = resource.projects[0] || null;
 
@@ -41,9 +40,13 @@ export default function ResourceDetail({ resource }) {
           </div>
         </div>
         {project && <ProjectHighlight project={project} />}
-        <pre style={{ whiteSpace: "pre-wrap" }}>
-          {JSON.stringify(resource, null, 2)}
-        </pre>
+        <ResourceList
+          className={styles.resourcesList}
+          title={"Other resources you might like"}
+          viewAllLink={"/resources/all"}
+          viewAllText="View all resources"
+          products={relatedResources}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -71,10 +74,40 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   if (!allProducts) throw new Error("Could not get all the products");
 
   const currentResource = allProducts.find((product) => product.slug === slug);
+  const currentCategory = currentResource.category.name;
+
+  const relatedResources = allProducts
+    .filter((product) => product.slug !== slug)
+    .map((product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    }))
+    .sort((a, b) => {
+      const catA = a.mainCategoryName;
+      const catB = b.mainCategoryName;
+
+      if (catA == currentCategory) {
+        return -1;
+      }
+
+      if (catB == currentCategory) {
+        return 1;
+      }
+
+      return 1;
+    })
+    .slice(0, 4);
 
   return {
     props: {
       resource: currentResource,
+      relatedResources,
     },
   };
 });
+
+function htmlDecode(input) {
+  return input.replace(/&amp;/g, "&");
+}
