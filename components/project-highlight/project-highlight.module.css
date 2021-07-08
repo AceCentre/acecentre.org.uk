@@ -1,0 +1,61 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 920px;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  display: flex;
+}
+
+.imageContainer {
+  position: relative;
+  height: 280px;
+  min-width: 280px;
+}
+
+.content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.topTitle {
+  width: 90%;
+  max-width: 920px;
+  margin: 2rem auto;
+  font-size: 34px;
+  text-align: center;
+
+  font-weight: normal;
+}
+
+.description p {
+  margin: 0;
+}
+
+.viewAllLink {
+  margin-top: auto;
+  color: #00537f;
+  font-size: 18px;
+
+  text-decoration: none;
+}
+
+.viewAllLink:hover,
+.viewAllLink:focus {
+  text-decoration: underline;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+  }
+}
