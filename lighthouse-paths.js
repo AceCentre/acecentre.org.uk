@@ -21,6 +21,7 @@ const PATHS_TO_TEST = [
   "/resources/a5-communication-book-direct-access",
   "/resources/look2talk",
   "/resources/you-matter",
+  "/resources/gridwiz",
   "/404",
   "/contact",
   "/form/contact",
