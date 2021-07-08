@@ -34,7 +34,11 @@ export const Button = ({
   }
 
   return (
-    <button onClick={onClick} className={`${styles.button} ${className}`}>
+    <button
+      onClick={onClick}
+      className={`${styles.button} ${className}`}
+      {...props}
+    >
       {children}
     </button>
   );
