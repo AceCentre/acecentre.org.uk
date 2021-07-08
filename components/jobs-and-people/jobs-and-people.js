@@ -24,7 +24,9 @@ export const JobsAndPeople = () => {
           pellentesque.
         </p>
         <div className={styles.buttonContainer}>
-          <Button href="https://indeed.co.uk">View jobs on indeed.co.uk</Button>
+          <Button href="https://uk.indeed.com/cmp/The-Ace-Centre">
+            View jobs on indeed.co.uk
+          </Button>
         </div>
       </div>
       <div className={styles.peopleImage}>
