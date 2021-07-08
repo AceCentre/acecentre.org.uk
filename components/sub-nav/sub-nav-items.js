@@ -172,7 +172,7 @@ export const defaultNavItems = [
     },
     subItems: [
       {
-        title: "Why support ace?",
+        title: "Why support Ace Centre?",
         href: "/get-involved",
       },
       {
