@@ -15,6 +15,7 @@ import { ResourcesShare } from "../../components/resources-share/resources-share
 import styles from "../../styles/resources-detail.module.css";
 import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
 import { ResourceList } from "../../components/resource-list/resource-list";
+import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
 
 export default function ResourceDetail({ resource, relatedResources }) {
   const cartCount = useCartCount();
@@ -39,6 +40,9 @@ export default function ResourceDetail({ resource, relatedResources }) {
             <ResourcesShare />
           </div>
         </div>
+        {resource.description && (
+          <ResourceFullDescription resource={resource} />
+        )}
         {project && <ProjectHighlight project={project} />}
         <ResourceList
           className={styles.resourcesList}
