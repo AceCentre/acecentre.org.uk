@@ -9,6 +9,10 @@ import { useRouter } from "next/dist/client/router";
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
 
+  if (resource.external) {
+    return <External resource={resource} />;
+  }
+
   if (variations.length > 0) {
     return <MixedVariations resource={resource} variations={variations} />;
   }
@@ -53,6 +57,16 @@ const useAddToCart = () => {
     addToCart,
     error,
   };
+};
+
+const External = ({ resource }) => {
+  return (
+    <div className={styles.downloadButtonContainer}>
+      <Button newTab href={resource.external.url}>
+        {resource.external.cta}
+      </Button>
+    </div>
+  );
 };
 
 const MixedVariations = ({ resource, variations }) => {
