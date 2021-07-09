@@ -5,18 +5,16 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { WhyWorkAtAce } from "../components/why-work-at-ace/why-work-at-ace";
 import { WorkingAtAce } from "../components/working-at-ace/working-at-ace";
-import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
 export default function Careers() {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <VideoWithCardCover

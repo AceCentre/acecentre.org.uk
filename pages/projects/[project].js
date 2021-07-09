@@ -2,7 +2,6 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
@@ -13,7 +12,6 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { BlogMeta } from "../../components/blog-meta/blog-meta";
 
 export default function CategoryPage({ currentProject, featuredProjects }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   const publishedDate = new Date(currentProject.publishedDate);
@@ -22,7 +20,7 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <BackToLink href="/projects" where="projects" />

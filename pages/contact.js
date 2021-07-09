@@ -5,7 +5,6 @@ import { Footer } from "../components/footer/footer";
 import { Form } from "../components/form/form";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { formium } from "../lib/formium";
@@ -14,13 +13,12 @@ import { GiveUsACall } from "../components/give-us-a-call/give-us-a-call";
 import styles from "../styles/contact.module.css";
 
 export default function Contact({ slug, form }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <PageTitle

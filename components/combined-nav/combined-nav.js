@@ -53,7 +53,7 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ cartCount, defaultNavItems }) => {
+export const CombinedNav = ({ defaultNavItems }) => {
   const {
     isMenuOpen,
     isSearchOpen,
@@ -65,7 +65,7 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
   return (
     <>
       <div className={styles.desktopContainer}>
-        <Nav numberOfItemsInCart={cartCount} />
+        <Nav />
         <SubNav navItems={defaultNavItems} />
       </div>
       <div

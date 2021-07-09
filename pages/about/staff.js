@@ -9,13 +9,11 @@ import { MeetOurPeople } from "../../components/meet-our-people/meet-our-people"
 import { PageTitle } from "../../components/page-title/page-title";
 import { StaffList } from "../../components/staff-list/staff-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllStaff } from "../../lib/staff/get-staff";
 
 export default function StaffPage({ allStaff }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
   const [currentFilter, setCurrentFilter] = useState(OPTIONS.ALL);
   const filteredStaff = allStaff.filter(staffFilters[currentFilter]);
@@ -23,7 +21,7 @@ export default function StaffPage({ allStaff }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <PageTitle
