@@ -1,6 +1,6 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
-import { ResourcesSearch } from "../../components/resources-search/resources-search";
+import { LearningSearch } from "../../components/learning-search/learning-search";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
@@ -16,7 +16,7 @@ export default function Learning() {
         <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <ResourcesSearch />
+        <LearningSearch />
       </main>
       <Footer currentYear={currentYear} />
     </>
