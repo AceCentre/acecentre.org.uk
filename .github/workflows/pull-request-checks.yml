@@ -46,6 +46,7 @@ jobs:
       IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
       DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
+      PROM_KEY: ${{ secrets.PROM_KEY }}
 
     steps:
       - name: Get Code
@@ -69,11 +70,17 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
+      - name: Patch deps
+        run: yarn patch
+
       - name: Run netlify build
         run: netlify build --context deploy-preview --debug
 
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
+
+      - name: Unpatch deps
+        run: yarn reverse-patch
 
   Jest:
     runs-on: ubuntu-latest

@@ -14,7 +14,9 @@
     "cypress:run": "cypress run",
     "lighthouse": "lhci autorun",
     "plop": "plop",
-    "build-sitemap": "next-sitemap"
+    "build-sitemap": "next-sitemap",
+    "patch": "patch-package",
+    "reverse-patch": "patch-package --reverse"
   },
   "dependencies": {
     "@chakra-ui/react": "1.6.5",
@@ -49,6 +51,8 @@
     "next-iron-session": "4.2.0",
     "next-transpile-modules": "8.0.0",
     "node-fetch": "2.6.1",
+    "patch-package": "^6.4.7",
+    "prom-client": "^13.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-lite-youtube-embed": "2.0.3",
