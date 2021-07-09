@@ -2,13 +2,11 @@ import Link from "next/link";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
 // pages/404.js
 export default function Custom404() {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
@@ -31,7 +29,7 @@ export default function Custom404() {
         }
       `}</style>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <span>404</span>

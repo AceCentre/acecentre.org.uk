@@ -5,7 +5,6 @@ import { ORDER_BY_OPTIONS } from "../../components/product-filters/order-by-opti
 import { ProductFilters } from "../../components/product-filters/product-filters";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
@@ -24,13 +23,12 @@ export default function AllResources({
   selectedPriceRange,
   selectedOrderBy,
 }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <ProductFilters
