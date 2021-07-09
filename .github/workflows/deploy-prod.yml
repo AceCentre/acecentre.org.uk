@@ -36,6 +36,7 @@ jobs:
       DEPLOY_KEY: production
       NEXT_PUBLIC_FORMIUM_PROJECTID: ${{ secrets.NEXT_PUBLIC_FORMIUM_PROJECTID }}
       FORMIUM_TOKEN: ${{ secrets.FORMIUM_TOKEN }}
+      PROM_KEY: ${{ secrets.PROM_KEY }}
 
     steps:
       - name: Get Code
@@ -59,8 +60,14 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
+      - name: Patch deps
+        run: yarn patch
+
       - name: Run netlify build
         run: netlify build --context production --debug
 
       - name: Run netlify deploy
         run: netlify deploy --prod
+
+      - name: Unpatch deps
+        run: yarn reverse-patch
