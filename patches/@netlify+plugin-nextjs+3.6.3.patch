@@ -1,26 +1,16 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..527f457 100644
+index fda529f..80aa993 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-@@ -3,6 +3,17 @@
+@@ -3,6 +3,7 @@
  
  // Render function for the Next.js page
  const renderNextPage = require('./renderNextPage')
 +const client = require('prom-client');
-+
-+let gateway = new client.Pushgateway(
-+  "https://metrics-2k9hs.ondigitalocean.app/metrics"
-+);
-+
-+const counter = new client.Counter({
-+  name: "function_call",
-+  help: "Function call counter",
-+  labelNames: ['context', 'path']
-+});
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
-@@ -13,7 +24,21 @@ const base = async (event, context) => {
+@@ -13,7 +14,34 @@ const base = async (event, context) => {
  
    // Get the request URL
    const { path } = event
@@ -34,6 +24,19 @@ index fda529f..527f457 100644
 +  }
 +
 +  const deployKey = process.env.DEPLOY_KEY || 'unknown';
++
++  // Create a gateway and register for every request
++  const registry = new client.Registry();
++  let gateway = new client.Pushgateway(
++    "https://metrics-2k9hs.ondigitalocean.app/metrics", {}, registry
++  );
++
++  const counter = new client.Counter({
++    name: "function_call",
++    help: "Function call counter",
++    labelNames: ['context', 'path'],
++    registers: [registry]
++  });
 +
 +  counter.inc({ context: deployKey, path: normalisedPath }); // Increment by 1
 +  
