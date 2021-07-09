@@ -1,5 +1,5 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..5189619 100644
+index fda529f..03f9c5a 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 @@ -3,6 +3,7 @@
@@ -10,7 +10,7 @@ index fda529f..5189619 100644
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
-@@ -15,6 +16,29 @@ const base = async (event, context) => {
+@@ -15,6 +16,26 @@ const base = async (event, context) => {
    const { path } = event
    console.log('[request]', path)
  
@@ -34,9 +34,6 @@ index fda529f..5189619 100644
 +  //   console.log('Pushed')
 +  // });
 +  
-+  
-+  let gateway = new client.Pushgateway(config.prometheus.host);
-+
    // Render the Next.js page
    const response = await renderNextPage({ event, context })
  
