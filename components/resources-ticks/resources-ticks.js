@@ -16,11 +16,24 @@ export const ResourcesTicks = () => {
   );
 };
 
-const Tick = ({ children }) => {
+export const LearningTicks = () => {
+  return (
+    <div className={styles.container}>
+      <ul className={styles.list}>
+        <Tick green>Over 100 courses</Tick>
+        <Tick green>On-demand and face-to-face</Tick>
+        <Tick green>Courses for any learning level</Tick>
+        <Tick green>Earn certificates</Tick>
+      </ul>
+    </div>
+  );
+};
+
+const Tick = ({ children, green = false }) => {
   return (
     <li className={styles.listItem}>
-      <Avatar className={styles.avatar}>
-        <CheckIcon className={styles.checkIcon} />
+      <Avatar className={`${styles.avatar} ${green ? styles.greenAvatar : ""}`}>
+        <CheckIcon />
       </Avatar>
       {children}
     </li>

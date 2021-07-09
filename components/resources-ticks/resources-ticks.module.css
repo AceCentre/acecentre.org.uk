@@ -26,6 +26,11 @@
   width: 30px;
 }
 
+.greenAvatar.greenAvatar {
+  background-color: #8ad9ca;
+  color: black;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
