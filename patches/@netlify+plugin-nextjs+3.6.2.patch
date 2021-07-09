@@ -1,31 +1,30 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..ead3e3e 100644
+index fda529f..4e6ce62 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-@@ -3,6 +3,7 @@
+@@ -3,6 +3,17 @@
  
  // Render function for the Next.js page
  const renderNextPage = require('./renderNextPage')
 +const client = require('prom-client');
++
++let gateway = new client.Pushgateway(
++  "https://metrics-2k9hs.ondigitalocean.app"
++);
++
++const counter = new client.Counter({
++  name: "function_call",
++  help: "Function call counter",
++  labelNames: ['context', 'path']
++});
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
-@@ -15,6 +16,25 @@ const base = async (event, context) => {
+@@ -15,6 +26,14 @@ const base = async (event, context) => {
    const { path } = event
    console.log('[request]', path)
  
-+  let gateway = new client.Pushgateway(
-+    "https://metrics-2k9hs.ondigitalocean.app"
-+  );
-+  
-+  const counter = new client.Counter({
-+    name: "function_call",
-+    help: "Function call counter",
-+    labelNames: ['context', 'path']
-+  });
-+
 +  const deployKey = process.env.DEPLOY_KEY || 'unknown';
-+
 +
 +  counter.inc({context: deployKey, path }); // Increment by 1
 +  
