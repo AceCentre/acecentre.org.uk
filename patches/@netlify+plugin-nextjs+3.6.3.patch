@@ -1,5 +1,5 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..4e6ce62 100644
+index fda529f..ff44ef5 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 @@ -3,6 +3,17 @@
@@ -20,18 +20,26 @@ index fda529f..4e6ce62 100644
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
-@@ -15,6 +26,14 @@ const base = async (event, context) => {
-   const { path } = event
-   console.log('[request]', path)
+@@ -13,7 +24,21 @@ const base = async (event, context) => {
  
+   // Get the request URL
+   const { path } = event
+-  console.log('[request]', path)
++  console.log('[request]', path, normalisedPath)
++
++  let normalisedPath = path;
++
++  if(path.includes("/_next/data")) {
++    normalisedPath = "/" + path.split("/_next/data/")[1].split("/").slice(1).join("/")
++  }
++
 +  const deployKey = process.env.DEPLOY_KEY || 'unknown';
 +
-+  counter.inc({context: deployKey, path }); // Increment by 1
++  counter.inc({ context: deployKey, path: normalisedPath }); // Increment by 1
 +  
 +  gateway.pushAdd({ jobName: "metric" }, function (err, resp, body) {
 +    console.log('Pushed')
 +  });
-+  
+   
    // Render the Next.js page
    const response = await renderNextPage({ event, context })
- 
