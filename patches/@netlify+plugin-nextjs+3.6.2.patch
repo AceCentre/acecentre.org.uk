@@ -1,5 +1,5 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..03f9c5a 100644
+index fda529f..ead3e3e 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 @@ -3,6 +3,7 @@
@@ -10,7 +10,7 @@ index fda529f..03f9c5a 100644
  
  const base = async (event, context) => {
    // x-forwarded-host is undefined on Netlify for proxied apps that need it
-@@ -15,6 +16,26 @@ const base = async (event, context) => {
+@@ -15,6 +16,25 @@ const base = async (event, context) => {
    const { path } = event
    console.log('[request]', path)
  
@@ -21,18 +21,17 @@ index fda529f..03f9c5a 100644
 +  const counter = new client.Counter({
 +    name: "function_call",
 +    help: "Function call counter",
-+    labelNames: ['context', 'path', 'from']
++    labelNames: ['context', 'path']
 +  });
 +
 +  const deployKey = process.env.DEPLOY_KEY || 'unknown';
 +
-+  console.log({ deployKey, path, event, context })
 +
-+  // counter.inc(); // Increment by 1
++  counter.inc({context: deployKey, path }); // Increment by 1
 +  
-+  // gateway.pushAdd({ jobName: "metric" }, function (err, resp, body) {
-+  //   console.log('Pushed')
-+  // });
++  gateway.pushAdd({ jobName: "metric" }, function (err, resp, body) {
++    console.log('Pushed')
++  });
 +  
    // Render the Next.js page
    const response = await renderNextPage({ event, context })
