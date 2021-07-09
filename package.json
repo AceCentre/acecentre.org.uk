@@ -35,7 +35,7 @@
     "@react-aria/visually-hidden": "3.2.2",
     "@react-stately/radio": "3.3.1",
     "@stripe/react-stripe-js": "1.4.1",
-    "@stripe/stripe-js": "1.15.1",
+    "@stripe/stripe-js": "1.16.0",
     "async-redis": "2.0.0",
     "etag": "1.8.1",
     "framer-motion": "4.1.17",
