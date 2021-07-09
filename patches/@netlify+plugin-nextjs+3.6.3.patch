@@ -1,5 +1,5 @@
 diff --git a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
-index fda529f..ff44ef5 100644
+index fda529f..527f457 100644
 --- a/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 +++ b/node_modules/@netlify/plugin-nextjs/src/lib/templates/functionBase.js
 @@ -3,6 +3,17 @@
@@ -25,9 +25,9 @@ index fda529f..ff44ef5 100644
    // Get the request URL
    const { path } = event
 -  console.log('[request]', path)
++  let normalisedPath = path;
 +  console.log('[request]', path, normalisedPath)
 +
-+  let normalisedPath = path;
 +
 +  if(path.includes("/_next/data")) {
 +    normalisedPath = "/" + path.split("/_next/data/")[1].split("/").slice(1).join("/")
