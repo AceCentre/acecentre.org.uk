@@ -11,6 +11,8 @@ function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
   const router = useRouter();
 
   useEffect(() => {
+    console.log("First render");
+
     const handleRouteChange = (url, { shallow }) => {
       console.log(
         `App is changing to ${url} ${
