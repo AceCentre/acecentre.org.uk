@@ -10,33 +10,48 @@ export const SearchBox = ({
   searchEndpoint,
   ariaLabel,
   placeholder,
+  backgroundColor = "#bfdded",
+  backgroundImage = "/wave.svg",
+  textColor = "#00537f",
 }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.innerContainer}>
-        <div className={styles.titleContainer}>
-          <img
-            width="41px"
-            height="48px"
-            src="/dash-black.svg"
-            alt="A brush stroke"
-          />
-          <h1>{title}</h1>
+    <>
+      <style jsx>{`
+        .container {
+          background-color: ${backgroundColor};
+          background-image: url(${backgroundImage});
+        }
+
+        .description {
+          color: ${textColor};
+        }
+      `}</style>
+      <div className={`${styles.container} container`}>
+        <div className={styles.innerContainer}>
+          <div className={styles.titleContainer}>
+            <img
+              width="41px"
+              height="48px"
+              src="/dash-black.svg"
+              alt="A brush stroke"
+            />
+            <h1>{title}</h1>
+          </div>
+          <p className={`${styles.description} description`}>{description}</p>
+          <form action={searchEndpoint} method="GET" className={styles.form}>
+            <Input
+              ariaLabel={ariaLabel}
+              name="searchText"
+              placeholder={placeholder}
+              white
+            >
+              <SvgIcon>
+                <SearchIcon />
+              </SvgIcon>
+            </Input>
+          </form>
         </div>
-        <p className={styles.description}>{description}</p>
-        <form action={searchEndpoint} method="GET" className={styles.form}>
-          <Input
-            ariaLabel={ariaLabel}
-            name="searchText"
-            placeholder={placeholder}
-            white
-          >
-            <SvgIcon>
-              <SearchIcon />
-            </SvgIcon>
-          </Input>
-        </form>
       </div>
-    </div>
+    </>
   );
 };

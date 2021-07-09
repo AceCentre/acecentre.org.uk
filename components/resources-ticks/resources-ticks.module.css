@@ -1,0 +1,33 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+.list {
+  padding: 0;
+  list-style-type: none;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.listItem {
+  display: flex;
+  font-size: 16px;
+  gap: 4px;
+  align-items: center;
+}
+
+.avatar.avatar {
+  background-color: #f4df74;
+  height: 30px;
+  width: 30px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
