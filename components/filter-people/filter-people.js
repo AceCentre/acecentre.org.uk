@@ -40,20 +40,23 @@ export const OPTIONS = {
 // RadioGroup is the same as in the previous example
 let RadioContext = createContext();
 
-const RadioGroup = (props) => {
+export const RadioGroup = ({ className = "", ...props }) => {
   let { children, label } = props;
   let state = useRadioGroupState(props);
   let { radioGroupProps, labelProps } = useRadioGroup(props, state);
 
   return (
-    <div {...radioGroupProps} className={styles.innerContainer}>
+    <div
+      {...radioGroupProps}
+      className={`${styles.innerContainer} ${className}`}
+    >
       {label && <span {...labelProps}>{label}</span>}
       <RadioContext.Provider value={state}>{children}</RadioContext.Provider>
     </div>
   );
 };
 
-const Radio = (props) => {
+export const Radio = (props) => {
   let { children } = props;
   let state = useContext(RadioContext);
   let ref = useRef(null);

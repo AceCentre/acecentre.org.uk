@@ -3,9 +3,17 @@
   max-width: 1024px;
   margin: 0 auto;
   padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-.container > h1 {
+.childContainer {
+  width: 60%;
+  margin-left: auto;
+}
+
+.container h1 {
   font-family: "Yellowtail", cursive;
   color: #00537f;
   font-weight: normal;
@@ -16,9 +24,23 @@
   margin: 0;
 }
 
-.container > p {
+.container p {
   color: #333333;
   font-size: 34px;
   margin: 0;
   font-weight: bold;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .childContainer {
+    width: 100%;
+    margin-left: 0;
+  }
 }

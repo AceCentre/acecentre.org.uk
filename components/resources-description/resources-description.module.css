@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 16px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

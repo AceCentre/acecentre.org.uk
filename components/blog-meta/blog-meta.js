@@ -15,8 +15,20 @@ export const BlogMeta = ({
   shareCta = "Share this article",
   shareText = SHARE_TEXT,
 }) => {
-  const [currentUrl, setCurrentUrl] = useState("");
+  return (
+    <div className={styles.container}>
+      <span>{date}</span>
+      <ShareButtons shareCta={shareCta} shareText={shareText} />
+    </div>
+  );
+};
 
+export const ShareButtons = ({
+  shareCta = "Share this article",
+  shareText = SHARE_TEXT,
+  className = "",
+}) => {
+  const [currentUrl, setCurrentUrl] = useState("");
   useEffect(() => {
     if (config.environment === "development") {
       setCurrentUrl("https://google.com");
@@ -25,58 +37,52 @@ export const BlogMeta = ({
     }
   });
 
+  if (!currentUrl) return null;
+
   return (
-    <div className={styles.container}>
-      <span>{date}</span>
+    <div className={`${styles.socials} ${className}`}>
+      <span className={styles.shareText}>{shareCta}</span>
+      <Link
+        href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`}
+      >
+        <a
+          target="_blank"
+          rel="noopener"
+          aria-label="Twitter logo"
+          className={styles.avatarLink}
+        >
+          <Avatar className={styles.roundedAvatar}>
+            <TwitterIcon className={styles.logo} />
+          </Avatar>
+        </a>
+      </Link>
 
-      {currentUrl && (
-        <div className={styles.socials}>
-          <span className={styles.shareText}>{shareCta}</span>
-          <Link
-            href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`}
-          >
-            <a
-              target="_blank"
-              rel="noopener"
-              aria-label="Twitter logo"
-              className={styles.avatarLink}
-            >
-              <Avatar className={styles.roundedAvatar}>
-                <TwitterIcon className={styles.logo} />
-              </Avatar>
-            </a>
-          </Link>
-
-          <Link
-            href={`https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`}
-          >
-            <a
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn logo"
-              className={styles.avatarLink}
-            >
-              <Avatar className={styles.roundedAvatar}>
-                <LinkedInIcon className={styles.logo} />
-              </Avatar>
-            </a>
-          </Link>
-          <Link
-            href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
-          >
-            <a
-              target="_blank"
-              rel="noopener"
-              aria-label="Facebook logo"
-              className={styles.avatarLink}
-            >
-              <Avatar className={styles.roundedAvatar}>
-                <FacebookIcon className={styles.logo} />
-              </Avatar>
-            </a>
-          </Link>
-        </div>
-      )}
+      <Link
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`}
+      >
+        <a
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn logo"
+          className={styles.avatarLink}
+        >
+          <Avatar className={styles.roundedAvatar}>
+            <LinkedInIcon className={styles.logo} />
+          </Avatar>
+        </a>
+      </Link>
+      <Link href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}>
+        <a
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook logo"
+          className={styles.avatarLink}
+        >
+          <Avatar className={styles.roundedAvatar}>
+            <FacebookIcon className={styles.logo} />
+          </Avatar>
+        </a>
+      </Link>
     </div>
   );
 };
