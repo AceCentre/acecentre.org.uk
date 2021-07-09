@@ -9,7 +9,7 @@ index fda529f..4e6ce62 100644
 +const client = require('prom-client');
 +
 +let gateway = new client.Pushgateway(
-+  "https://metrics-2k9hs.ondigitalocean.app"
++  "https://metrics-2k9hs.ondigitalocean.app/metrics"
 +);
 +
 +const counter = new client.Counter({
