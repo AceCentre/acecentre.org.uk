@@ -5,6 +5,7 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import { LearningTicks } from "../../components/resources-ticks/resources-ticks";
 
 export default function Learning() {
   const cartCount = useCartCount();
@@ -17,6 +18,7 @@ export default function Learning() {
       </header>
       <main>
         <LearningSearch />
+        <LearningTicks />
       </main>
       <Footer currentYear={currentYear} />
     </>
