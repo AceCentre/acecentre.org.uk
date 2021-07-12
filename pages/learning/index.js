@@ -13,7 +13,11 @@ import { CourseCategoriesGrid } from "../../components/course-categories-grid/co
 import styles from "../../styles/resources.module.css";
 import { Button } from "../../components/button/button";
 
-export default function Learning({ popularCourses, categories }) {
+export default function Learning({
+  popularCourses,
+  categories,
+  featuredCourses,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -31,6 +35,7 @@ export default function Learning({ popularCourses, categories }) {
             View all courses
           </Button>
         </div>
+        <CourseList title="Featured courses" products={featuredCourses} />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -40,6 +45,15 @@ export default function Learning({ popularCourses, categories }) {
 export const getStaticProps = withGlobalProps(async () => {
   const popularCourses = await getAllCoursesByPopularity();
   const categories = await getAllCourseCategories();
+  const featuredCourses = popularCourses.filter(
+    (course) => course.featured === true
+  );
 
-  return { props: { popularCourses: popularCourses.slice(0, 4), categories } };
+  return {
+    props: {
+      popularCourses: popularCourses.slice(0, 4),
+      categories,
+      featuredCourses,
+    },
+  };
 });
