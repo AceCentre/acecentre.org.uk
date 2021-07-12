@@ -14,6 +14,7 @@ import styles from "../../styles/resources.module.css";
 import { Button } from "../../components/button/button";
 import { LearningLevels } from "../../components/learning-levels/learning-levels";
 import { getLearningLevels } from "../../lib/products/get-learning-levels";
+import { BespokeTraining } from "../../components/bespoke-training/bespoke-training";
 
 export default function Learning({
   popularCourses,
@@ -40,6 +41,7 @@ export default function Learning({
         </div>
         <CourseList title="Featured courses" products={featuredCourses} />
         <LearningLevels levels={levels} />
+        <BespokeTraining />
       </main>
       <Footer currentYear={currentYear} />
     </>
