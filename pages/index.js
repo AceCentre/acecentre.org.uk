@@ -7,20 +7,18 @@ import { LandingPageCover } from "../components/landing-page-cover/landing-page-
 import { LatestFromBlog } from "../components/latest-from-blog/latest-from-blog";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
-import { useCartCount } from "../lib/cart/use-cart-count";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStory } from "../lib/story/get-story";
 
 export default function Home({ featuredStory, landingPagePosts }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <LandingPageCover />

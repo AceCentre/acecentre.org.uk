@@ -1,6 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -11,13 +10,12 @@ import { ReadMoreStories } from "../../components/all-stories/all-stories";
 import { StoryContentAndQuote } from "../../components/story-content-and-quote/story-content-and-quote";
 
 export default function StoryDetail({ story, featuredStories }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <PageTitle

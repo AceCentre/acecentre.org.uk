@@ -53,7 +53,7 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ cartCount, defaultNavItems }) => {
+export const CombinedNav = ({ defaultNavItems }) => {
   const {
     isMenuOpen,
     isSearchOpen,
@@ -65,7 +65,7 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
   return (
     <>
       <div className={styles.desktopContainer}>
-        <Nav numberOfItemsInCart={cartCount} />
+        <Nav />
         <SubNav navItems={defaultNavItems} />
       </div>
       <div
@@ -113,12 +113,7 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
       </div>
       {isDrawerOpen && (
         <div className={styles.drawer}>
-          {isMenuOpen && (
-            <MenuContent
-              defaultNavItems={defaultNavItems}
-              cartCount={cartCount}
-            />
-          )}
+          {isMenuOpen && <MenuContent defaultNavItems={defaultNavItems} />}
           {isSearchOpen && (
             <div className={styles.searchContainer}>
               <p className={styles.searchTagline}>Search our website</p>
@@ -136,7 +131,7 @@ export const CombinedNav = ({ cartCount, defaultNavItems }) => {
   );
 };
 
-const MenuContent = ({ defaultNavItems, cartCount }) => {
+const MenuContent = ({ defaultNavItems }) => {
   // No index will match -1
   const [currentlyOpen, setCurrentlyOpen] = useState(-1);
 
@@ -149,9 +144,6 @@ const MenuContent = ({ defaultNavItems, cartCount }) => {
       setCurrentlyOpen(index);
     }
   };
-
-  // Append the number of items in the cart if there is any items
-  const checkoutPostfix = cartCount ? ` (${cartCount})` : "";
 
   return (
     <>
@@ -231,7 +223,6 @@ const MenuContent = ({ defaultNavItems, cartCount }) => {
                   <ShoppingCartOutlinedIcon />
                 </SvgIcon>
                 Checkout
-                {checkoutPostfix}
               </a>
             </Link>
           </div>
