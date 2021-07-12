@@ -10,6 +10,9 @@ import { CourseList } from "../../components/course-list/course-list";
 import { getAllCourseCategories } from "../../lib/products/get-all-categories";
 import { CourseCategoriesGrid } from "../../components/course-categories-grid/course-categories-grid";
 
+import styles from "../../styles/resources.module.css";
+import { Button } from "../../components/button/button";
+
 export default function Learning({ popularCourses, categories }) {
   const { currentYear } = useGlobalProps();
 
@@ -23,6 +26,11 @@ export default function Learning({ popularCourses, categories }) {
         <LearningTicks />
         <CourseList title="Popular courses" products={popularCourses} />
         <CourseCategoriesGrid productCategories={categories} />
+        <div className={styles.buttonContainer}>
+          <Button className={styles.button} href="/learning/all">
+            View all courses
+          </Button>
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
