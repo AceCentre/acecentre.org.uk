@@ -24,7 +24,7 @@ export const BespokeTraining = () => {
       <div className={styles.imageContainer}>
         <Image
           alt="People standing around a whiteboard getting trained"
-          src={"/bespoke-training.jpeg"}
+          src="/bespoke-training.jpeg"
           layout="fill"
           objectFit="cover"
         />
