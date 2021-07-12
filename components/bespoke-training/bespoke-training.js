@@ -23,7 +23,8 @@ export const BespokeTraining = () => {
       </div>
       <div className={styles.imageContainer}>
         <Image
-          src={"./bespoke-training.jpeg"}
+          alt="People standing around a whiteboard getting trained"
+          src={"/bespoke-training.jpeg"}
           layout="fill"
           objectFit="cover"
         />
