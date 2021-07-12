@@ -6,7 +6,6 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
 import { ResourcesTicks } from "../../components/resources-ticks/resources-ticks";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
@@ -19,13 +18,12 @@ export default function Resources({
   featuredResources,
   productCategories,
 }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <ResourcesSearch />

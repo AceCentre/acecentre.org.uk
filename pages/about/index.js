@@ -8,7 +8,6 @@ import { OurVision } from "../../components/our-vision/our-vision";
 import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-trustees";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLandingPagePosts } from "../../lib/posts/get-posts";
@@ -17,13 +16,12 @@ import { getSimpleStory } from "../../lib/story/get-story";
 import styles from "../../styles/about.module.css";
 
 export default function Home({ featuredStory, landingPagePosts }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <VideoWithCardCover

@@ -1,0 +1,88 @@
+.container {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 660px;
+  text-align: center;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.body {
+  font-size: 16px;
+}
+
+.topSection {
+  text-align: center;
+}
+
+.topSection h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.topSection p {
+  font-size: 16px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+}
+
+.button {
+  background-color: #eeeeee;
+  border: none;
+  font-size: 16px;
+  color: #333333;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+}
+
+.selectedButton {
+  background-color: #00537f;
+  color: #ffffff;
+}
+
+.closeButton {
+  background: none;
+  border: 0;
+
+  color: #00537f;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  text-decoration: underline;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.focus strong {
+  font-weight: normal;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .list {
+    margin: 1rem 0;
+  }
+}

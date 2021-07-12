@@ -1,6 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -18,7 +17,6 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
 
 export default function ResourceDetail({ resource, relatedResources }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   const project = resource.projects[0] || null;
@@ -26,7 +24,7 @@ export default function ResourceDetail({ resource, relatedResources }) {
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <BackToLink where="all resources" href="/resources/all" />

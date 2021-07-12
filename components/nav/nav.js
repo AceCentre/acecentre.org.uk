@@ -11,12 +11,7 @@ import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
 
-export const Nav = ({ numberOfItemsInCart = 0 }) => {
-  // Append the number of items in the cart if there is any items
-  const checkoutPostfix = numberOfItemsInCart
-    ? ` (${numberOfItemsInCart})`
-    : "";
-
+export const Nav = () => {
   return (
     <FullWidthContainer>
       <InnerContainer>
@@ -38,7 +33,6 @@ export const Nav = ({ numberOfItemsInCart = 0 }) => {
               <ShoppingCartOutlinedIcon />
             </SvgIcon>
             Checkout
-            {checkoutPostfix}
           </NavLink>
 
           <NavLink href="tel:0800 080 3115">

@@ -2,7 +2,6 @@ import { FeaturedPosts } from "../../../components/featured-posts/featured-posts
 import { Footer } from "../../../components/footer/footer";
 import { PageTitle } from "../../../components/page-title/page-title";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
-import { useCartCount } from "../../../lib/cart/use-cart-count";
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 import { getAllCategories } from "../../../lib/posts/get-categories";
@@ -11,13 +10,12 @@ import styles from "../../../styles/index.module.css";
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 
 export default function CategoryPage({ posts, category }) {
-  const cartCount = useCartCount();
   const { currentYear } = useGlobalProps();
 
   return (
     <>
       <header>
-        <CombinedNav cartCount={cartCount} defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <PageTitle description={category.title} heading="Ace Centre blog" />
