@@ -5,8 +5,10 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { LearningTicks } from "../../components/resources-ticks/resources-ticks";
+import { getAllCoursesByPopularity } from "../../lib/products/get-courses";
+import { CourseList } from "../../components/course-list/course-list";
 
-export default function Learning() {
+export default function Learning({ popularCourses }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -17,10 +19,15 @@ export default function Learning() {
       <main>
         <LearningSearch />
         <LearningTicks />
+        <CourseList title="Popular courses" products={popularCourses} />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(async () => {
+  const popularCourses = await getAllCoursesByPopularity();
+
+  return { props: { popularCourses: popularCourses.slice(0, 4) } };
+});
