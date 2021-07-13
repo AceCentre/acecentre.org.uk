@@ -1,5 +1,8 @@
 import NextImage from "next/image";
-import { cropToSquareLoader, imageKitLoader } from "../lib/cloudinary-loader";
+import {
+  imageKitLoader,
+  cropToSquareLoaderImageKit,
+} from "../lib/image-loader";
 import styles from "./image.module.css";
 
 export const ImageWithLoader = ({ loader = imageKitLoader, ...props }) => {
@@ -7,7 +10,7 @@ export const ImageWithLoader = ({ loader = imageKitLoader, ...props }) => {
 };
 
 export const CropToSquareAroundFace = ({ ...props }) => {
-  return <NextImage {...props} loader={cropToSquareLoader} />;
+  return <NextImage {...props} loader={cropToSquareLoaderImageKit} />;
 };
 
 export const Image = ({
