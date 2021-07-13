@@ -1,0 +1,10 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.courseTitle {
+  font-size: 34px;
+  font-weight: bold;
+}

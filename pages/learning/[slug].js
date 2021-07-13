@@ -4,6 +4,10 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllCourses } from "../../lib/products/get-courses";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
+
+import styles from "../../styles/learning-detail.module.css";
+import { LearningDetailBox } from "../../components/learning-detail-box/learning-detail-box";
 
 export default function LearningDetail({ course }) {
   const { currentYear } = useGlobalProps();
@@ -15,7 +19,13 @@ export default function LearningDetail({ course }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <BackToLink href="/learning" where="courses" />
+        <div className={styles.container}>
+          <h2 className={styles.courseTitle}>{course.name}</h2>
+        </div>
+        <LearningDetailBox course={course} />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
