@@ -1,13 +1,16 @@
 import NextImage from "next/image";
-import { cloudinaryLoader, cropToSquareLoader } from "../lib/cloudinary-loader";
+import {
+  imageKitLoader,
+  cropToSquareLoaderImageKit,
+} from "../lib/image-loader";
 import styles from "./image.module.css";
 
-export const ImageWithLoader = ({ loader = cloudinaryLoader, ...props }) => {
+export const ImageWithLoader = ({ loader = imageKitLoader, ...props }) => {
   return <NextImage {...props} loader={loader} />;
 };
 
 export const CropToSquareAroundFace = ({ ...props }) => {
-  return <NextImage {...props} loader={cropToSquareLoader} />;
+  return <NextImage {...props} loader={cropToSquareLoaderImageKit} />;
 };
 
 export const Image = ({
@@ -15,7 +18,7 @@ export const Image = ({
   height,
   maxWidth,
   maxHeight,
-  loader = cloudinaryLoader,
+  loader = imageKitLoader,
   ...rest
 }) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
@@ -47,7 +50,7 @@ export const Image = ({
 };
 export const ImageSelector = ({
   placeOnTop,
-  loader = cloudinaryLoader,
+  loader = imageKitLoader,
   ...props
 }) => {
   // If we are on storybook we just use a normal image tag
