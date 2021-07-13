@@ -13,7 +13,7 @@ export const HowCanWeHelpCards = () => {
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
             src="/getting-started-demo-2.svg"
-            background="#F1D1D0"
+            background="rgba(0,0,0,0)"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
             href="/getting-started"
@@ -23,7 +23,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/resources-demo-1.svg"
+            src="/resources.png"
             background="rgba(0,0,0,0)"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
@@ -35,19 +35,19 @@ export const HowCanWeHelpCards = () => {
 
         <div className={styles.aceCentreLearning}>
           <HowWeHelpCard
-            src="/resources-demo-2.svg"
-            background="#F6EEC5"
+            src="/learning.png"
+            background="rgba(0,0,0,0)"
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
             href="/acecentre-learning"
-            iconColour="#F4DF74"
+            iconColour="#8AD9CA"
             alt="Group of icons to show 'AceCentre Learning'"
           />
         </div>
         <div className={styles.assessment}>
           <HowWeHelpCard
-            src="/assessments.svg"
-            background="#F4D4A4"
+            src="/assessment.png"
+            background="rgba(0,0,0,0)"
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
             href="/assessments"
