@@ -25,6 +25,10 @@ export default function LearningDetail({ course }) {
           <h2 className={styles.courseTitle}>{course.name}</h2>
         </div>
         <LearningDetailBox course={course} />
+        <div className={styles.contentBody}>
+          <div dangerouslySetInnerHTML={{ __html: course.content }} />
+          <div></div>
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
