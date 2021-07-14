@@ -31,7 +31,9 @@ export const LearningDetailBox = ({ course }) => {
           avatarClassName={styles.avatar}
           className={styles.shareButtons}
         />
-        <Button onClick={() => {}}>Book this course</Button>
+        <Button className={styles.bookButton} onClick={() => {}}>
+          Book this course
+        </Button>
       </div>
     </div>
   );

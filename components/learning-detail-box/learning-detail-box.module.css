@@ -17,6 +17,7 @@
 
 .rightHandSide {
   background-color: #bfdded;
+  padding: 0.5rem;
 }
 
 .bottomContainer {
@@ -63,6 +64,25 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .topContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .price {
+    margin: 0;
+  }
+
+  .shareButtons {
+    display: none;
+  }
+
+  .bottomContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bookButton {
+    padding: 1rem 3rem;
   }
 }
