@@ -26,6 +26,8 @@ export const LearningDetailBox = ({ course }) => {
       </div>
       <div className={styles.bottomContainer}>
         <ShareButtons
+          shareCta="Share this course"
+          shareText={`Check out ${course.title} on Ace Centre Learning`}
           avatarClassName={styles.avatar}
           className={styles.shareButtons}
         />
