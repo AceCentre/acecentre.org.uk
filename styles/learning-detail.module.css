@@ -17,3 +17,11 @@
   font-size: 34px;
   font-weight: bold;
 }
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .contentBody {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
