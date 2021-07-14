@@ -26,6 +26,7 @@ const PATHS_TO_TEST = [
   "/contact",
   "/form/contact",
   "/learning",
+  "/learning/communication-partners-i",
 ];
 
 module.exports = PATHS_TO_TEST;
