@@ -3,7 +3,6 @@ import styles from "./learning-detail-meta.module.css";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import EventIcon from "@material-ui/icons/Event";
 import LanguageIcon from "@material-ui/icons/Language";
-import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import CategoryIcon from "@material-ui/icons/Category";
 import ClassIcon from "@material-ui/icons/Class";
 import Link from "next/link";
@@ -33,10 +32,10 @@ export const LearningDetailMeta = ({ course }) => {
           <EventIcon className={styles.icon} />
         </MetaItem>
       )}
-      {course.level && (
+      {course.mainCategory && (
         <MetaItem
-          heading="Access"
-          subheading="Some text about access"
+          heading={course.mainCategory.name}
+          subheading={course.mainCategory.description}
           type="Course type"
         >
           <CategoryIcon className={styles.icon} />
