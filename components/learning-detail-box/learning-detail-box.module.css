@@ -1,7 +1,64 @@
 .container {
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+}
+
+.imageContainer {
+  position: relative;
+  min-height: 450px;
+  background-color: #f5f5f5;
+}
+
+.topContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.rightHandSide {
+  background-color: #bfdded;
+}
+
+.bottomContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  padding: 1rem;
+
+  background-color: #eeeeee;
+}
+
+.shareButtons {
+  margin-left: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tagLine {
+  color: #00537f;
+  font-size: 16px;
+  text-align: center;
+}
+
+.rightHandSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  color: #00537f;
+  font-size: 54px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.avatar.avatar.avatar {
+  background-color: white;
+  color: #333333;
 }
 
 /** Mobile CSS */

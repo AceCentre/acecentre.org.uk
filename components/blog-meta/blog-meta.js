@@ -24,6 +24,7 @@ export const BlogMeta = ({
 };
 
 export const ShareButtons = ({
+  avatarClassName = "",
   shareCta = "Share this article",
   shareText = SHARE_TEXT,
   className = "",
@@ -51,7 +52,7 @@ export const ShareButtons = ({
           aria-label="Twitter logo"
           className={styles.avatarLink}
         >
-          <Avatar className={styles.roundedAvatar}>
+          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
             <TwitterIcon className={styles.logo} />
           </Avatar>
         </a>
@@ -66,7 +67,7 @@ export const ShareButtons = ({
           aria-label="LinkedIn logo"
           className={styles.avatarLink}
         >
-          <Avatar className={styles.roundedAvatar}>
+          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
             <LinkedInIcon className={styles.logo} />
           </Avatar>
         </a>
@@ -78,7 +79,7 @@ export const ShareButtons = ({
           aria-label="Facebook logo"
           className={styles.avatarLink}
         >
-          <Avatar className={styles.roundedAvatar}>
+          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
             <FacebookIcon className={styles.logo} />
           </Avatar>
         </a>
