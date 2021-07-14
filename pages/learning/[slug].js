@@ -8,11 +8,10 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 import styles from "../../styles/learning-detail.module.css";
 import { LearningDetailBox } from "../../components/learning-detail-box/learning-detail-box";
+import { LearningDetailMeta } from "../../components/learning-detail-meta/learning-detail-meta";
 
 export default function LearningDetail({ course }) {
   const { currentYear } = useGlobalProps();
-
-  console.log(course);
 
   return (
     <>
@@ -27,7 +26,7 @@ export default function LearningDetail({ course }) {
         <LearningDetailBox course={course} />
         <div className={styles.contentBody}>
           <div dangerouslySetInnerHTML={{ __html: course.content }} />
-          <div></div>
+          <LearningDetailMeta course={course} />
         </div>
       </main>
       <Footer currentYear={currentYear} />
