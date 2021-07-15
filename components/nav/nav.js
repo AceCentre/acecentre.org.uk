@@ -43,11 +43,13 @@ export const Nav = () => {
           </NavLink>
         </NavList>
         <div className={styles.hideOnMediumScreens}>
-          <Input placeholder="Search" maxWidth={213}>
-            <SvgIcon>
-              <SearchIcon />
-            </SvgIcon>
-          </Input>
+          <form action="/search" method="GET">
+            <Input name="searchText" placeholder="Search" maxWidth={213}>
+              <SvgIcon>
+                <SearchIcon />
+              </SvgIcon>
+            </Input>
+          </form>
         </div>
         <div className={styles.hideOnMediumScreens}>
           <Button href="/donate" className={styles.donateButton}>
