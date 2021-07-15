@@ -51,6 +51,13 @@
   padding: 0 0.5rem;
 }
 
+.date {
+  color: #333333;
+  font-size: 16px;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
 .listItem {
   width: 220px;
 }

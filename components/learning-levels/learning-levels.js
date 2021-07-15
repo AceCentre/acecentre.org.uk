@@ -9,7 +9,7 @@ export const LearningLevels = ({ levels }) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} id="levels">
         <h2 className={styles.title}>Course learning levels</h2>
         <p className={styles.body}>
           Organised across four levels, providing a range of opportunities for

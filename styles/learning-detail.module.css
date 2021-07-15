@@ -1,0 +1,27 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.contentBody {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 2fr 1fr;
+}
+
+.courseTitle {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .contentBody {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
