@@ -14,11 +14,10 @@ import { LearningDetailBox } from "../../components/learning-detail-box/learning
 import { LearningDetailMeta } from "../../components/learning-detail-meta/learning-detail-meta";
 
 import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
+import { CourseList } from "../../components/course-list/course-list";
 
 export default function LearningDetail({ course, reviews, relatedCourses }) {
   const { currentYear } = useGlobalProps();
-
-  console.log(relatedCourses);
 
   return (
     <>
@@ -38,6 +37,11 @@ export default function LearningDetail({ course, reviews, relatedCourses }) {
           </div>
           <LearningDetailMeta course={course} />
         </div>
+        <CourseList
+          title="Other courses you might like"
+          products={relatedCourses}
+          showDate
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -81,7 +85,8 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       }
 
       return 1;
-    });
+    })
+    .slice(0, 4);
 
   const reviews = await getRandomReviews();
 
