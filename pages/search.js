@@ -7,10 +7,22 @@ import { withGlobalProps } from "../lib/global-props/inject";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { BackToLink } from "../components/back-to-link/back-to-link";
 
-import { getAllFullPosts } from "../lib/posts/get-posts";
+import { getAllFullPosts, getFullProjects } from "../lib/posts/get-posts";
 import Fuse from "fuse.js";
+import { getAllProducts } from "../lib/products/get-products";
+import { ResourceList } from "../components/resource-list/resource-list";
+import { CourseList } from "../components/course-list/course-list";
+import { getAllCourses } from "../lib/products/get-courses";
 
-export default function Search({ posts }) {
+import styles from "../styles/search.module.css";
+
+export default function Search({
+  blogPosts,
+  projects,
+  products,
+  courses,
+  searchText,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -20,7 +32,47 @@ export default function Search({ posts }) {
       </header>
       <main>
         <BackToLink href="/" where="home" />
-        <FeaturedPosts posts={posts} />
+        <div className={styles.container}>
+          <h1
+            className={styles.searchText}
+          >{`Results for: "${searchText}"`}</h1>
+        </div>
+        <div className={styles.resultsContainer}>
+          {blogPosts.length > 0 && (
+            <FeaturedPosts
+              title="Blog posts"
+              smallCards
+              posts={blogPosts}
+              viewAllLink={`/blog/search?searchText=${searchText}`}
+              viewAllText="Search all blog posts"
+            />
+          )}
+          {projects.length > 0 && (
+            <FeaturedPosts
+              title="Projects"
+              smallCards
+              posts={projects}
+              viewAllLink={`/projects/search?searchText=${searchText}`}
+              viewAllText="Search all projects"
+            />
+          )}
+          {products.length > 0 && (
+            <ResourceList
+              title="Resources"
+              products={products}
+              viewAllLink={`/resources/search?searchText=${searchText}`}
+              viewAllText="Search all resources"
+            />
+          )}
+          {courses.length > 0 && (
+            <CourseList
+              viewAllLink={`/learning/search?searchText=${searchText}`}
+              viewAllText="Search all courses"
+              title="Ace Centre Learning"
+              products={courses}
+            />
+          )}
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -40,9 +92,49 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   }
 
   const allPosts = await getAllFullPosts();
-  const fuse = new Fuse(allPosts, { keys: ["content", "title"] });
-  const results = fuse.search(searchText);
-  const filteredPosts = results.map((result) => result.item);
+  const blogFuse = new Fuse(allPosts, {
+    keys: ["content", "title"],
+  });
+  const blogResults = blogFuse.search(searchText);
+  const filteredPosts = blogResults.map((result) => result.item);
 
-  return { props: { posts: filteredPosts, searchText } };
+  const allProjects = await getFullProjects();
+  const projectsFuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const projectsResult = projectsFuse.search(searchText);
+  const filteredProjects = projectsResult.map((result) => result.item);
+
+  const allProducts = await getAllProducts();
+  const productsFuse = new Fuse(allProducts, {
+    keys: ["name", "description", "shortDescription"],
+  });
+  const productsResult = productsFuse.search(searchText);
+  const filteredProducts = productsResult.map((result) => result.item);
+
+  const allCourses = await getAllCourses();
+  const coursesFuse = new Fuse(allCourses, {
+    keys: ["name", "description", "shortDescription"],
+  });
+  const courseResults = coursesFuse.search(searchText);
+  const filteredCourses = courseResults.map((result) => result.item);
+
+  return {
+    props: {
+      blogPosts: filteredPosts.slice(0, 4),
+      projects: filteredProjects.slice(0, 4),
+      products: filteredProducts
+        .map((product) => ({
+          title: htmlDecode(product.name),
+          mainCategoryName: product.category.name,
+          featuredImage: product.image,
+          ...product,
+        }))
+        .slice(0, 4),
+      searchText,
+      courses: filteredCourses,
+    },
+  };
 });
+
+function htmlDecode(input) {
+  return input.replace(/&amp;/g, "&");
+}

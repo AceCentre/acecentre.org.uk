@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.searchText {
+  font-weight: normal;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
