@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-.avatar.avatar.avatar {
+.avatar.avatar.avatar.avatar {
   background-color: white;
   color: #333333;
 }
@@ -73,7 +73,7 @@
     margin: 0;
   }
 
-  .shareButtons {
+  .shareButtons.shareButtons.shareButtons {
     display: none;
   }
 
