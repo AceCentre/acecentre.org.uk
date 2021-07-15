@@ -126,7 +126,12 @@ export const ProductFilters = ({
     <>
       <PageTitle heading="Resources" description="Our resources">
         <form onSubmit={freeTextOnSubmit}>
-          <Input name="searchText" white placeholder="Search for resources">
+          <Input
+            name="searchText"
+            white
+            placeholder="Search for resources"
+            ariaLabel="Search resources"
+          >
             <SvgIcon>
               <SearchIcon />
             </SvgIcon>
