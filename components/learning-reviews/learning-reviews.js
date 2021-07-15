@@ -33,7 +33,7 @@ export const LearningReviews = ({ reviews }) => {
       <h2 className={styles.title}>Reviews of Ace Centre Learning</h2>
       <div className={styles.reviewContainer}>
         <button
-          name="Previous review"
+          aria-label="Previous review"
           onClick={prevReview}
           className={styles.button}
         >
@@ -46,7 +46,7 @@ export const LearningReviews = ({ reviews }) => {
           dangerouslySetInnerHTML={{ __html: currentReview.content }}
         />
         <button
-          name="Next review"
+          aria-label="Next review"
           onClick={nextReview}
           className={styles.button}
         >

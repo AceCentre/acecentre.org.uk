@@ -11,7 +11,11 @@ export const LearningDetailBox = ({ course }) => {
         <div className={styles.imageContainer}>
           <Image
             src={course.image.src}
-            alt={course.image.alt}
+            alt={
+              course.image.alt
+                ? course.image.alt
+                : `Thumbnail for ${course.title}`
+            }
             layout="fill"
             objectFit="contain"
           />
