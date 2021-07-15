@@ -132,6 +132,16 @@
   position: absolute;
 }
 
+.smallCards {
+  height: 255px;
+}
+
+.smallCardContainer {
+  /* width: 100%; */
+  min-width: 230px;
+  max-width: 350px;
+}
+
 .backgroundColorForLighthouse {
   background-color: rgba(0, 83, 127, 1);
   height: 100%;
