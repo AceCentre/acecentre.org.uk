@@ -86,7 +86,12 @@ export const Card = ({
   );
 };
 
-export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
+export const BlogCard = ({
+  post,
+  category = "blog",
+  linkPrefix = "blog",
+  smallCards = false,
+}) => {
   const href = `/${linkPrefix}/${post.slug}`;
   const featuredImage = post.featuredImage;
   const title = post.title;
@@ -98,6 +103,8 @@ export const BlogCard = ({ post, category = "blog", linkPrefix = "blog" }) => {
       href={href}
       subtitle={category}
       noImagePostCount={post.noImagePostCount}
+      imageContainerClassName={smallCards ? styles.smallCards : ""}
+      className={smallCards ? styles.smallCardContainer : ""}
     >
       <p className={styles.postTitle}>{title}</p>
     </Card>

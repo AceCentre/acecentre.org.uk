@@ -13,6 +13,7 @@ export const FeaturedPosts = ({
   posts,
   linkPrefix = "blog",
   className = "",
+  smallCards = false,
 }) => {
   const postsWithoutImageCounters = usePostsWithoutImageCounters(posts);
 
@@ -34,6 +35,7 @@ export const FeaturedPosts = ({
               category={post.mainCategoryName}
               post={post}
               linkPrefix={linkPrefix}
+              smallCards={smallCards}
             />
           );
         })}
