@@ -15,6 +15,7 @@ import { LearningDetailMeta } from "../../components/learning-detail-meta/learni
 
 import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
 import { CourseList } from "../../components/course-list/course-list";
+import { Certificate } from "../../components/certificate/certificate";
 
 export default function LearningDetail({ course, reviews, relatedCourses }) {
   const { currentYear } = useGlobalProps();
@@ -35,7 +36,10 @@ export default function LearningDetail({ course, reviews, relatedCourses }) {
             <div dangerouslySetInnerHTML={{ __html: course.content }} />
             <LearningReviews reviews={reviews} />
           </div>
-          <LearningDetailMeta course={course} />
+          <div>
+            <Certificate />
+            <LearningDetailMeta course={course} />
+          </div>
         </div>
         <CourseList
           title="Other courses you might like"
