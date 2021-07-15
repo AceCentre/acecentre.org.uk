@@ -3,15 +3,22 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { getAllCourses } from "../../lib/products/get-courses";
+import {
+  getAllCourses,
+  getRandomReviews,
+} from "../../lib/products/get-courses";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 import styles from "../../styles/learning-detail.module.css";
 import { LearningDetailBox } from "../../components/learning-detail-box/learning-detail-box";
 import { LearningDetailMeta } from "../../components/learning-detail-meta/learning-detail-meta";
 
-export default function LearningDetail({ course }) {
+import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
+
+export default function LearningDetail({ course, reviews }) {
   const { currentYear } = useGlobalProps();
+
+  console.log(reviews);
 
   return (
     <>
@@ -25,7 +32,10 @@ export default function LearningDetail({ course }) {
         </div>
         <LearningDetailBox course={course} />
         <div className={styles.contentBody}>
-          <div dangerouslySetInnerHTML={{ __html: course.content }} />
+          <div>
+            <div dangerouslySetInnerHTML={{ __html: course.content }} />
+            <LearningReviews reviews={reviews} />
+          </div>
           <LearningDetailMeta course={course} />
         </div>
       </main>
@@ -56,9 +66,12 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
 
   const currentCourse = allCourses.find((product) => product.slug === slug);
 
+  const reviews = await getRandomReviews();
+
   return {
     props: {
       course: currentCourse,
+      reviews,
     },
   };
 });
