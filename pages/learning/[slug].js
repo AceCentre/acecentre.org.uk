@@ -15,10 +15,10 @@ import { LearningDetailMeta } from "../../components/learning-detail-meta/learni
 
 import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
 
-export default function LearningDetail({ course, reviews }) {
+export default function LearningDetail({ course, reviews, relatedCourses }) {
   const { currentYear } = useGlobalProps();
 
-  console.log(reviews);
+  console.log(relatedCourses);
 
   return (
     <>
@@ -66,12 +66,30 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
 
   const currentCourse = allCourses.find((product) => product.slug === slug);
 
+  const relatedCourses = allCourses
+    .filter((course) => course.slug !== slug)
+    .sort((a, b) => {
+      const catA = a.mainCategoryName;
+      const catB = b.mainCategoryName;
+
+      if (catA == currentCourse.mainCategoryName) {
+        return -1;
+      }
+
+      if (catB == currentCourse.mainCategoryName) {
+        return 1;
+      }
+
+      return 1;
+    });
+
   const reviews = await getRandomReviews();
 
   return {
     props: {
       course: currentCourse,
       reviews,
+      relatedCourses,
     },
   };
 });
