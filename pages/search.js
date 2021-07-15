@@ -60,7 +60,7 @@ export default function Search({
             <ResourceList
               title="Resources"
               products={products}
-              viewAllLink={`/resources/search?searchText=${searchText}`}
+              viewAllLink={`/resources/all?searchText=${searchText}`}
               viewAllText="Search all resources"
             />
           )}
