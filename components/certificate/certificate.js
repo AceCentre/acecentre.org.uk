@@ -14,6 +14,7 @@ export const Certificate = () => {
           maxWidth={400}
           width={3508}
           height={2481}
+          alt="A certificate of attendance"
           src="/example-certificate.jpeg"
         />
       </div>
