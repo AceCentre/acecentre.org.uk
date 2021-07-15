@@ -52,6 +52,7 @@ export default function Search({
               title="Projects"
               smallCards
               posts={projects}
+              linkPrefix="projects"
               viewAllLink={`/projects/search?searchText=${searchText}`}
               viewAllText="Search all projects"
             />
