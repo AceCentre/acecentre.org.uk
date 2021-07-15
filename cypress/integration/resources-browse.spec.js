@@ -21,7 +21,9 @@ context("Resources Browse", () => {
     cy.visit("/resources/all");
 
     // Find the search box and then type 'a'
-    cy.get('input[name="searchText"]').type(`${searchText}{enter}`);
+    cy.findByRole("textbox", { name: "Search resources" }).type(
+      `${searchText}{enter}`
+    );
 
     cy.contains("You searched for").contains(searchText);
   });

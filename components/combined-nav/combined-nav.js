@@ -115,15 +115,21 @@ export const CombinedNav = ({ defaultNavItems }) => {
         <div className={styles.drawer}>
           {isMenuOpen && <MenuContent defaultNavItems={defaultNavItems} />}
           {isSearchOpen && (
-            <div className={styles.searchContainer}>
+            <form
+              action="/search"
+              method="GET"
+              className={styles.searchContainer}
+            >
               <p className={styles.searchTagline}>Search our website</p>
-              <Input white placeholder="Search">
+              <Input name="searchText" white placeholder="Search">
                 <SvgIcon>
                   <SearchIcon />
                 </SvgIcon>
               </Input>
-              <Button className={styles.donateButton}>Search</Button>
-            </div>
+              <Button type="submit" className={styles.donateButton}>
+                Search
+              </Button>
+            </form>
           )}
         </div>
       )}
