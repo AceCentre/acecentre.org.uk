@@ -11,6 +11,7 @@ export const CourseList = ({
   viewAllLink,
   viewAllText = "View all",
   products,
+  showDate = false,
   className = "",
 }) => {
   const productsWithoutImageCounters = usePostsWithoutImageCounters(products);
@@ -39,6 +40,7 @@ export const CourseList = ({
               title={product.title}
             >
               <p className={styles.productTitle}>{product.title}</p>
+              {showDate && <p className={styles.date}>{product.date.card}</p>}
             </Card>
           );
         })}

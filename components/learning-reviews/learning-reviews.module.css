@@ -1,0 +1,48 @@
+.container {
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 2rem;
+}
+
+.reviewContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.avatar.avatar {
+  height: 40px;
+  width: 40px;
+  background-color: #00537f;
+  color: white;
+}
+
+.quote {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+  text-align: center;
+}
+
+.quote ::before,
+.quote ::after {
+  content: '"';
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
