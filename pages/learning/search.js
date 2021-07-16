@@ -12,6 +12,7 @@ import { getAllCourses, LOCATIONS } from "../../lib/products/get-courses";
 import Fuse from "fuse.js";
 
 import { uniqBy, uniq } from "lodash";
+import { ORDER_BY_OPTIONS } from "../../components/course-filter/order-by-options";
 
 export default function LearningSearchPage({
   courses,
@@ -20,11 +21,14 @@ export default function LearningSearchPage({
   types,
   locations,
   prices,
+  orderByOptions,
   selectedLocation,
   selectedType,
   selectedCategory,
   selectedLevel,
   selectedPrice,
+  searchText,
+  selectedOrderBy,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -41,13 +45,17 @@ export default function LearningSearchPage({
           selectedType={selectedType}
           selectedLocation={selectedLocation}
           selectedPrice={selectedPrice}
+          selectedOrderBy={selectedOrderBy}
           allCategories={categories}
           allLevels={levels}
           allTypes={types}
           allLocations={locations}
           allPrices={prices}
+          allOrderBy={orderByOptions}
+          courseCount={courses.length}
+          searchText={searchText}
         />
-        <CourseList products={courses} />
+        <CourseList products={courses} showDate />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -109,6 +117,15 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       max: 9999999,
     },
   ];
+
+  /**
+   * All unique order by options
+   */
+
+  const orderByOptions = ORDER_BY_OPTIONS.map((x) => ({
+    slug: x.slug,
+    name: x.name,
+  }));
 
   /**
    * Free text search
@@ -186,6 +203,17 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     });
   }
 
+  /**
+   * orderBy
+   */
+  const selectedOrderBy = req.query.orderby || null;
+  const orderByFunction = ORDER_BY_OPTIONS.find(
+    (x) => x.slug === selectedOrderBy
+  );
+  if (orderByFunction) {
+    courses = courses.sort(orderByFunction.sort);
+  }
+
   return {
     props: {
       courses,
@@ -195,10 +223,13 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       selectedType,
       selectedLocation,
       selectedPrice,
+      selectedOrderBy,
       levels,
       types,
       locations,
       prices,
+      orderByOptions,
+      searchText,
     },
   };
 });
