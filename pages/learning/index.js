@@ -35,7 +35,7 @@ export default function Learning({
         <CourseList title="Popular courses" products={popularCourses} />
         <CourseCategoriesGrid productCategories={categories} />
         <div className={styles.buttonContainer}>
-          <Button className={styles.button} href="/learning/all">
+          <Button className={styles.button} href="/learning/search">
             View all courses
           </Button>
         </div>
