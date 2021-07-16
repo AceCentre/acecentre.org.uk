@@ -11,12 +11,16 @@ import { getAllCourses } from "../../lib/products/get-courses";
 
 import Fuse from "fuse.js";
 
-import { uniqBy } from "lodash";
+import { uniqBy, uniq } from "lodash";
 
 export default function LearningSearchPage({
   courses,
   categories,
+  levels,
+  types,
+  selectedType,
   selectedCategory,
+  selectedLevel,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -29,7 +33,11 @@ export default function LearningSearchPage({
         <BackToLink where="Ace Centre Learning" href="/learning" />
         <CourseFilter
           selectedCategory={selectedCategory}
+          selectedLevel={selectedLevel}
+          selectedType={selectedType}
           allCategories={categories}
+          allLevels={levels}
+          allTypes={types}
         />
         <CourseList products={courses} />
       </main>
@@ -40,10 +48,24 @@ export default function LearningSearchPage({
 
 export const getServerSideProps = withGlobalProps(async (req) => {
   let courses = await getAllCourses();
+
+  /**
+   * Get all unique categories
+   */
   const categories = uniqBy(
     courses.map((course) => course.mainCategory),
     "name"
   );
+
+  /**
+   * Get all unique levels
+   */
+  const levels = uniq(courses.map((x) => x.level).filter((x) => x != null));
+
+  /**
+   * All unique course types
+   */
+  const types = ["On-demand", "Scheduled"];
 
   /**
    * Free text search
@@ -70,5 +92,37 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     });
   }
 
-  return { props: { courses, categories, selectedCategory } };
+  /**
+   * Filter by level
+   */
+  const selectedLevel = req.query.level || null;
+  if (selectedLevel) {
+    courses = courses
+      .filter((course) => course.level !== null)
+      .filter(
+        (course) => course.level.toLowerCase() === selectedLevel.toLowerCase()
+      );
+  }
+
+  /**
+   * Filter by type
+   */
+  const selectedType = req.query.type || null;
+  if (selectedType.toLowerCase() === "On-demand".toLowerCase()) {
+    courses = courses.filter((course) => course.date.type === "On-demand");
+  } else if (selectedType.toLowerCase() == "Scheduled".toLowerCase()) {
+    courses = courses.filter((course) => course.date.type === "Scheduled");
+  }
+
+  return {
+    props: {
+      courses,
+      categories,
+      selectedCategory,
+      selectedLevel,
+      selectedType,
+      levels,
+      types,
+    },
+  };
 });

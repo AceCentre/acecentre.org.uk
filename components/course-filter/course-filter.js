@@ -8,7 +8,11 @@ import { useRouter } from "next/router";
 import { Select } from "@chakra-ui/react";
 import { useState } from "react";
 
-const useSearchController = ({ selectedCategory }) => {
+const useSearchController = ({
+  selectedCategory,
+  selectedLevel,
+  selectedType,
+}) => {
   const { query, push: pushNewUrl } = useRouter();
 
   const updateSearchParams = (newParams) => {
@@ -41,6 +45,20 @@ const useSearchController = ({ selectedCategory }) => {
     setCategory(event.target.value);
   };
 
+  const [level, setLevel] = useState(selectedLevel);
+
+  const onChangeLevel = (event) => {
+    updateSearchParams({ level: event.target.value });
+    setLevel(event.target.value);
+  };
+
+  const [type, setType] = useState(selectedType);
+
+  const onChangeType = (event) => {
+    updateSearchParams({ type: event.target.value });
+    setType(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -48,12 +66,34 @@ const useSearchController = ({ selectedCategory }) => {
       onChange: onChangeCategory,
       value: category,
     },
+    levelSelectProps: {
+      onChange: onChangeLevel,
+      value: level,
+    },
+    typeSelectProps: {
+      onChange: onChangeType,
+      value: type,
+    },
   };
 };
 
-export const CourseFilter = ({ allCategories, selectedCategory }) => {
-  const { freeTextOnSubmit, categorySelectProps } = useSearchController({
+export const CourseFilter = ({
+  allCategories,
+  allLevels,
+  allTypes,
+  selectedType = null,
+  selectedCategory = null,
+  selectedLevel = null,
+}) => {
+  const {
+    freeTextOnSubmit,
+    categorySelectProps,
+    levelSelectProps,
+    typeSelectProps,
+  } = useSearchController({
     selectedCategory,
+    selectedLevel,
+    selectedType,
   });
 
   return (
@@ -88,6 +128,36 @@ export const CourseFilter = ({ allCategories, selectedCategory }) => {
                 key={`category-${category.name}`}
               >
                 {category.name}
+              </option>
+            );
+          })}
+        </Select>
+        <Select
+          maxWidth={["100%", "100%", 160]}
+          borderRadius={25}
+          backgroundColor="#F5F5F5"
+          {...levelSelectProps}
+          placeholder="Level"
+        >
+          {allLevels.map((level) => {
+            return (
+              <option value={level.toLowerCase()} key={`level-${level}`}>
+                {level}
+              </option>
+            );
+          })}
+        </Select>
+        <Select
+          maxWidth={["100%", "100%", 160]}
+          borderRadius={25}
+          backgroundColor="#F5F5F5"
+          {...typeSelectProps}
+          placeholder="Type"
+        >
+          {allTypes.map((type) => {
+            return (
+              <option value={type.toLowerCase()} key={`type-${type}`}>
+                {type}
               </option>
             );
           })}
