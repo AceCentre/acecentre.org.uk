@@ -11,8 +11,16 @@ import { getAllCourses } from "../../lib/products/get-courses";
 
 import Fuse from "fuse.js";
 
-export default function LearningSearchPage({ courses }) {
+import { uniqBy } from "lodash";
+
+export default function LearningSearchPage({
+  courses,
+  categories,
+  selectedCategory,
+}) {
   const { currentYear } = useGlobalProps();
+
+  console.log(categories);
 
   return (
     <>
@@ -21,7 +29,10 @@ export default function LearningSearchPage({ courses }) {
       </header>
       <main>
         <BackToLink where="Ace Centre Learning" href="/learning" />
-        <CourseFilter />
+        <CourseFilter
+          selectedCategory={selectedCategory}
+          allCategories={categories}
+        />
         <CourseList products={courses} />
       </main>
       <Footer currentYear={currentYear} />
@@ -31,6 +42,10 @@ export default function LearningSearchPage({ courses }) {
 
 export const getServerSideProps = withGlobalProps(async (req) => {
   let courses = await getAllCourses();
+  const categories = uniqBy(
+    courses.map((course) => course.mainCategory),
+    "name"
+  );
 
   /**
    * Free text search
@@ -44,5 +59,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     courses = result.map((x) => x.item);
   }
 
-  return { props: { courses } };
+  const selectedCategory = req.query.category || null;
+
+  return { props: { courses, categories, selectedCategory } };
 });
