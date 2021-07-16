@@ -7,7 +7,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 
 import { CourseList } from "../../components/course-list/course-list";
-import { getAllCourses } from "../../lib/products/get-courses";
+import { getAllCourses, LOCATIONS } from "../../lib/products/get-courses";
 
 import Fuse from "fuse.js";
 
@@ -18,6 +18,8 @@ export default function LearningSearchPage({
   categories,
   levels,
   types,
+  locations,
+  selectedLocation,
   selectedType,
   selectedCategory,
   selectedLevel,
@@ -35,9 +37,11 @@ export default function LearningSearchPage({
           selectedCategory={selectedCategory}
           selectedLevel={selectedLevel}
           selectedType={selectedType}
+          selectedLocation={selectedLocation}
           allCategories={categories}
           allLevels={levels}
           allTypes={types}
+          allLocations={locations}
         />
         <CourseList products={courses} />
       </main>
@@ -66,6 +70,11 @@ export const getServerSideProps = withGlobalProps(async (req) => {
    * All unique course types
    */
   const types = ["On-demand", "Scheduled"];
+
+  /**
+   * All unique course locations
+   */
+  const locations = Object.values(LOCATIONS);
 
   /**
    * Free text search
@@ -108,10 +117,23 @@ export const getServerSideProps = withGlobalProps(async (req) => {
    * Filter by type
    */
   const selectedType = req.query.type || null;
-  if (selectedType.toLowerCase() === "On-demand".toLowerCase()) {
-    courses = courses.filter((course) => course.date.type === "On-demand");
-  } else if (selectedType.toLowerCase() == "Scheduled".toLowerCase()) {
-    courses = courses.filter((course) => course.date.type === "Scheduled");
+  if (selectedType) {
+    if (selectedType.toLowerCase() === "On-demand".toLowerCase()) {
+      courses = courses.filter((course) => course.date.type === "On-demand");
+    } else if (selectedType.toLowerCase() == "Scheduled".toLowerCase()) {
+      courses = courses.filter((course) => course.date.type === "Scheduled");
+    }
+  }
+
+  /**
+   * Filter by location
+   */
+  const selectedLocation = req.query.location || null;
+  if (selectedLocation) {
+    courses = courses.filter(
+      (course) =>
+        course.location.slug.toLowerCase() === selectedLocation.toLowerCase()
+    );
   }
 
   return {
@@ -121,8 +143,10 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       selectedCategory,
       selectedLevel,
       selectedType,
+      selectedLocation,
       levels,
       types,
+      locations,
     },
   };
 });
