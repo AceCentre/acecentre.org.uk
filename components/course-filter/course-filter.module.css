@@ -18,6 +18,7 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .selectContainer {
+    flex-direction: column;
   }
 }
