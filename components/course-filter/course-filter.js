@@ -13,6 +13,7 @@ const useSearchController = ({
   selectedLevel,
   selectedType,
   selectedLocation,
+  selectedPrice,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -67,6 +68,13 @@ const useSearchController = ({
     setLocation(event.target.value);
   };
 
+  const [price, setPrice] = useState(selectedPrice);
+
+  const onChangePrice = (event) => {
+    updateSearchParams({ price: event.target.value });
+    setPrice(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -86,6 +94,10 @@ const useSearchController = ({
       onChange: onChangeLocation,
       value: location,
     },
+    priceSelectProps: {
+      onChange: onChangePrice,
+      value: price,
+    },
   };
 };
 
@@ -94,10 +106,12 @@ export const CourseFilter = ({
   allLevels,
   allTypes,
   allLocations,
+  allPrices,
   selectedType = null,
   selectedCategory = null,
   selectedLevel = null,
   selectedLocation = null,
+  selectedPrice = null,
 }) => {
   const {
     freeTextOnSubmit,
@@ -105,11 +119,13 @@ export const CourseFilter = ({
     levelSelectProps,
     typeSelectProps,
     locationSelectProps,
+    priceSelectProps,
   } = useSearchController({
     selectedCategory,
     selectedLevel,
     selectedType,
     selectedLocation,
+    selectedPrice,
   });
 
   return (
@@ -189,6 +205,21 @@ export const CourseFilter = ({
             return (
               <option value={location.slug} key={`location-${location.slug}`}>
                 {location.title}
+              </option>
+            );
+          })}
+        </Select>
+        <Select
+          maxWidth={["100%", "100%", 160]}
+          borderRadius={25}
+          backgroundColor="#F5F5F5"
+          {...priceSelectProps}
+          placeholder="Price"
+        >
+          {allPrices.map((price) => {
+            return (
+              <option value={price.slug} key={`price-${price.slug}`}>
+                {price.name}
               </option>
             );
           })}

@@ -19,10 +19,12 @@ export default function LearningSearchPage({
   levels,
   types,
   locations,
+  prices,
   selectedLocation,
   selectedType,
   selectedCategory,
   selectedLevel,
+  selectedPrice,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -38,10 +40,12 @@ export default function LearningSearchPage({
           selectedLevel={selectedLevel}
           selectedType={selectedType}
           selectedLocation={selectedLocation}
+          selectedPrice={selectedPrice}
           allCategories={categories}
           allLevels={levels}
           allTypes={types}
           allLocations={locations}
+          allPrices={prices}
         />
         <CourseList products={courses} />
       </main>
@@ -75,6 +79,36 @@ export const getServerSideProps = withGlobalProps(async (req) => {
    * All unique course locations
    */
   const locations = Object.values(LOCATIONS);
+
+  /**
+   * All unique price ranges
+   */
+  const prices = [
+    {
+      slug: "0",
+      name: "Free",
+      min: 0,
+      max: 0.01,
+    },
+    {
+      slug: "<50",
+      name: "£0 - 50",
+      min: 0.01,
+      max: 50,
+    },
+    {
+      slug: ">50",
+      name: "£50 - £100",
+      min: 50,
+      max: 100,
+    },
+    {
+      slug: ">100",
+      name: "£100 +",
+      min: 100,
+      max: 9999999,
+    },
+  ];
 
   /**
    * Free text search
@@ -136,6 +170,22 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     );
   }
 
+  /**
+   * Filter by price
+   */
+  const selectedPrice = req.query.price || null;
+  let currentPriceRangeMeta = null;
+  if (selectedPrice) {
+    currentPriceRangeMeta = prices.find((x) => x.slug === selectedPrice);
+  }
+  if (currentPriceRangeMeta) {
+    courses = courses.filter(({ price }) => {
+      return (
+        price >= currentPriceRangeMeta.min && price < currentPriceRangeMeta.max
+      );
+    });
+  }
+
   return {
     props: {
       courses,
@@ -144,9 +194,11 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       selectedLevel,
       selectedType,
       selectedLocation,
+      selectedPrice,
       levels,
       types,
       locations,
+      prices,
     },
   };
 });
