@@ -125,13 +125,13 @@ export const defaultNavItems = [
       },
       { title: "Projects", href: "/projects" },
       { title: "Partnerships", href: "/services/partnerships" },
-      { title: "AceCentre Learning", href: "/acecentre-learning" },
+      { title: "Ace Centre Learning", href: "/learning" },
     ],
   },
   {
-    title: "AceCentre learning",
+    title: "Ace Centre learning",
     tagLine: "start learning",
-    href: "/acecentre-learning",
+    href: "/learning",
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "about our training options",
@@ -141,19 +141,19 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      { title: "AceCentre Learning", href: "/acecentre-learning" },
-      { title: "All courses", href: "/acecentre-learning/all" },
+      { title: "AceCentre Learning", href: "/learning" },
+      { title: "All courses", href: "/learning/search" },
       {
         title: "Access courses",
-        href: "/acecentre-learning/all?category=access",
+        href: "/learning/search?category=access",
       },
       {
         title: "Communication Courses",
-        href: "/acecentre-learning/all?category=communication",
+        href: "/learning/search?category=communication",
       },
       {
         title: "Education courses",
-        href: "/acecentre-learning/all?category=education",
+        href: "/learning/search?category=education",
       },
     ],
   },
