@@ -27,6 +27,7 @@ const PATHS_TO_TEST = [
   "/form/contact",
   "/learning",
   "/learning/communication-partners-i",
+  "/learning/search",
   "/search?searchText=look2talk",
 ];
 
