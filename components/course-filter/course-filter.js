@@ -14,6 +14,7 @@ const useSearchController = ({
   selectedType,
   selectedLocation,
   selectedPrice,
+  selectedOrderBy,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -75,6 +76,13 @@ const useSearchController = ({
     setPrice(event.target.value);
   };
 
+  const [orderBy, setOrderBy] = useState(selectedOrderBy);
+
+  const onChangeOrderBy = (event) => {
+    updateSearchParams({ orderby: event.target.value });
+    setOrderBy(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -98,6 +106,10 @@ const useSearchController = ({
       onChange: onChangePrice,
       value: price,
     },
+    orderBySelectProps: {
+      onChange: onChangeOrderBy,
+      value: orderBy,
+    },
   };
 };
 
@@ -107,11 +119,15 @@ export const CourseFilter = ({
   allTypes,
   allLocations,
   allPrices,
+  allOrderBy,
   selectedType = null,
   selectedCategory = null,
   selectedLevel = null,
   selectedLocation = null,
   selectedPrice = null,
+  selectedOrderBy = null,
+  courseCount = 0,
+  searchText,
 }) => {
   const {
     freeTextOnSubmit,
@@ -120,12 +136,14 @@ export const CourseFilter = ({
     typeSelectProps,
     locationSelectProps,
     priceSelectProps,
+    orderBySelectProps,
   } = useSearchController({
     selectedCategory,
     selectedLevel,
     selectedType,
     selectedLocation,
     selectedPrice,
+    selectedOrderBy,
   });
 
   return (
@@ -145,85 +163,107 @@ export const CourseFilter = ({
         </form>
       </PageTitle>
 
-      <div className={styles.selectContainer}>
-        <Select
-          maxWidth={["100%", "100%", 160]}
-          borderRadius={25}
-          backgroundColor="#F5F5F5"
-          {...categorySelectProps}
-          placeholder="Category"
-        >
-          {allCategories.map((category) => {
-            return (
-              <option
-                value={category.name.toLowerCase()}
-                key={`category-${category.name}`}
-              >
-                {category.name}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          maxWidth={["100%", "100%", 160]}
-          borderRadius={25}
-          backgroundColor="#F5F5F5"
-          {...levelSelectProps}
-          placeholder="Level"
-        >
-          {allLevels.map((level) => {
-            return (
-              <option value={level.toLowerCase()} key={`level-${level}`}>
-                {level}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          maxWidth={["100%", "100%", 160]}
-          borderRadius={25}
-          backgroundColor="#F5F5F5"
-          {...typeSelectProps}
-          placeholder="Type"
-        >
-          {allTypes.map((type) => {
-            return (
-              <option value={type.toLowerCase()} key={`type-${type}`}>
-                {type}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          maxWidth={["100%", "100%", 160]}
-          borderRadius={25}
-          backgroundColor="#F5F5F5"
-          {...locationSelectProps}
-          placeholder="Location"
-        >
-          {allLocations.map((location) => {
-            return (
-              <option value={location.slug} key={`location-${location.slug}`}>
-                {location.title}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          maxWidth={["100%", "100%", 160]}
-          borderRadius={25}
-          backgroundColor="#F5F5F5"
-          {...priceSelectProps}
-          placeholder="Price"
-        >
-          {allPrices.map((price) => {
-            return (
-              <option value={price.slug} key={`price-${price.slug}`}>
-                {price.name}
-              </option>
-            );
-          })}
-        </Select>
+      <div className={styles.container}>
+        {searchText && <p>{`You searched for: "${searchText}"`}</p>}
+        <div className={styles.selectContainer}>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...categorySelectProps}
+            placeholder="Category"
+          >
+            {allCategories.map((category) => {
+              return (
+                <option
+                  value={category.name.toLowerCase()}
+                  key={`category-${category.name}`}
+                >
+                  {category.name}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...levelSelectProps}
+            placeholder="Level"
+          >
+            {allLevels.map((level) => {
+              return (
+                <option value={level.toLowerCase()} key={`level-${level}`}>
+                  {level}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...typeSelectProps}
+            placeholder="Type"
+          >
+            {allTypes.map((type) => {
+              return (
+                <option value={type.toLowerCase()} key={`type-${type}`}>
+                  {type}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...locationSelectProps}
+            placeholder="Location"
+          >
+            {allLocations.map((location) => {
+              return (
+                <option value={location.slug} key={`location-${location.slug}`}>
+                  {location.title}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...priceSelectProps}
+            placeholder="Price"
+          >
+            {allPrices.map((price) => {
+              return (
+                <option value={price.slug} key={`price-${price.slug}`}>
+                  {price.name}
+                </option>
+              );
+            })}
+          </Select>
+        </div>
+        <div className={styles.orderByArea}>
+          <p>{`${courseCount} courses`}</p>
+          <Select
+            width={"50%"}
+            maxWidth={220}
+            className={styles.orderBySelect}
+            variant="unstyled"
+            {...orderBySelectProps}
+            placeholder="Order By"
+          >
+            {allOrderBy.map((orderBy) => {
+              return (
+                <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
+                  {orderBy.name}
+                </option>
+              );
+            })}
+          </Select>
+        </div>
       </div>
     </>
   );

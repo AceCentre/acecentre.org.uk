@@ -16,9 +16,69 @@
   padding: 1rem 0;
 }
 
+.subHeader {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.searchBox {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.resetLink {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.orderBySelect {
+  border: none;
+}
+
+.orderByArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .selectContainer {
     flex-direction: column;
+  }
+
+  .subHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .subHeader h2 {
+    margin: 0;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header h1 {
+    margin: 0;
+  }
+
+  .orderByArea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .orderByArea p {
+    margin-bottom: 0;
   }
 }
