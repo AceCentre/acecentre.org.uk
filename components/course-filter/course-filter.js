@@ -37,7 +37,7 @@ const useSearchController = ({ selectedCategory }) => {
   const [category, setCategory] = useState(selectedCategory);
 
   const onChangeCategory = (event) => {
-    updateSearchParams({ subcategory: event.target.value });
+    updateSearchParams({ category: event.target.value });
     setCategory(event.target.value);
   };
 
@@ -85,7 +85,7 @@ export const CourseFilter = ({ allCategories, selectedCategory }) => {
             return (
               <option
                 value={category.name.toLowerCase()}
-                key={`subcategory-${category.name}`}
+                key={`category-${category.name}`}
               >
                 {category.name}
               </option>

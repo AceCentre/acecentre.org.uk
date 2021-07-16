@@ -20,8 +20,6 @@ export default function LearningSearchPage({
 }) {
   const { currentYear } = useGlobalProps();
 
-  console.log(categories);
-
   return (
     <>
       <header>
@@ -59,7 +57,18 @@ export const getServerSideProps = withGlobalProps(async (req) => {
     courses = result.map((x) => x.item);
   }
 
+  /**
+   * Filter by category
+   */
   const selectedCategory = req.query.category || null;
+  if (selectedCategory) {
+    courses = courses.filter((course) => {
+      return (
+        course.mainCategory.name.toLowerCase() ===
+        selectedCategory.toLowerCase()
+      );
+    });
+  }
 
   return { props: { courses, categories, selectedCategory } };
 });
