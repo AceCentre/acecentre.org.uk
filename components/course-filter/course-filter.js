@@ -12,6 +12,7 @@ const useSearchController = ({
   selectedCategory,
   selectedLevel,
   selectedType,
+  selectedLocation,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -59,6 +60,13 @@ const useSearchController = ({
     setType(event.target.value);
   };
 
+  const [location, setLocation] = useState(selectedLocation);
+
+  const onChangeLocation = (event) => {
+    updateSearchParams({ location: event.target.value });
+    setLocation(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -74,6 +82,10 @@ const useSearchController = ({
       onChange: onChangeType,
       value: type,
     },
+    locationSelectProps: {
+      onChange: onChangeLocation,
+      value: location,
+    },
   };
 };
 
@@ -81,19 +93,23 @@ export const CourseFilter = ({
   allCategories,
   allLevels,
   allTypes,
+  allLocations,
   selectedType = null,
   selectedCategory = null,
   selectedLevel = null,
+  selectedLocation = null,
 }) => {
   const {
     freeTextOnSubmit,
     categorySelectProps,
     levelSelectProps,
     typeSelectProps,
+    locationSelectProps,
   } = useSearchController({
     selectedCategory,
     selectedLevel,
     selectedType,
+    selectedLocation,
   });
 
   return (
@@ -158,6 +174,21 @@ export const CourseFilter = ({
             return (
               <option value={type.toLowerCase()} key={`type-${type}`}>
                 {type}
+              </option>
+            );
+          })}
+        </Select>
+        <Select
+          maxWidth={["100%", "100%", 160]}
+          borderRadius={25}
+          backgroundColor="#F5F5F5"
+          {...locationSelectProps}
+          placeholder="Location"
+        >
+          {allLocations.map((location) => {
+            return (
+              <option value={location.slug} key={`location-${location.slug}`}>
+                {location.title}
               </option>
             );
           })}
