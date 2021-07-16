@@ -9,6 +9,8 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { CourseList } from "../../components/course-list/course-list";
 import { getAllCourses } from "../../lib/products/get-courses";
 
+import Fuse from "fuse.js";
+
 export default function LearningSearchPage({ courses }) {
   const { currentYear } = useGlobalProps();
 
@@ -27,8 +29,20 @@ export default function LearningSearchPage({ courses }) {
   );
 }
 
-export const getServerSideProps = withGlobalProps(async () => {
+export const getServerSideProps = withGlobalProps(async (req) => {
   let courses = await getAllCourses();
+
+  /**
+   * Free text search
+   */
+  const searchText = req.query.searchText || null;
+  if (searchText) {
+    const fuse = new Fuse(courses, {
+      keys: ["name", "description", "shortDescription"],
+    });
+    const result = fuse.search(searchText);
+    courses = result.map((x) => x.item);
+  }
 
   return { props: { courses } };
 });
