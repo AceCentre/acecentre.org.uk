@@ -1,11 +1,41 @@
 .container {
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.imageContainer {
+  position: relative;
+  min-height: 200px;
+}
+
+.button {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.description {
+  font-size: 16px;
+  margin: 2rem 0;
+}
+
+.rightHandSide {
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
