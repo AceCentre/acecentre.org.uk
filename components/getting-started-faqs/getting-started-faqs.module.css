@@ -1,7 +1,13 @@
 .container {
+  background: #eeeeee;
+  width: 100%;
+}
+
+.innerContainer {
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  padding: 3rem 0;
 }
 
 /** Mobile CSS */
