@@ -15,7 +15,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(138, 217, 202, 0.2);
 }
 
 .listItem {
@@ -40,7 +39,6 @@
 }
 
 .blueBanner {
-  background-color: rgba(138, 217, 202, 0.8);
   width: 100%;
   display: flex;
   align-items: center;
