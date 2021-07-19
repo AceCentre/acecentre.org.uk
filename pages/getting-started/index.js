@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import { GettingStartedGrid } from "../../components/getting-started-grid/getting-started-grid";
 
 export default function GettingStartedLanding() {
   const { currentYear } = useGlobalProps();
@@ -22,6 +23,7 @@ export default function GettingStartedLanding() {
           backgroundColor="#F1D1D0"
           textColor="#333333"
         />
+        <GettingStartedGrid />
       </main>
       <Footer currentYear={currentYear} />
     </>
