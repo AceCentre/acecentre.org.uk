@@ -12,6 +12,7 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { getAllCourses } from "../../lib/products/get-courses";
 import { CourseList } from "../../components/course-list/course-list";
 import { AacBooksCta } from "../../components/aac-books-cta/aac-books-cta";
+import { GettingStartedFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 
 export default function GettingStartedLanding({
   gettingStartedResources,
@@ -45,6 +46,7 @@ export default function GettingStartedLanding({
           viewAllLink="/learning/search?level=introductory"
         />
         <AacBooksCta />
+        <GettingStartedFaqs />
       </main>
       <Footer currentYear={currentYear} />
     </>
