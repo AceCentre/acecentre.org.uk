@@ -13,6 +13,7 @@ export const SearchBox = ({
   backgroundColor = "#bfdded",
   backgroundImage = "/wave.svg",
   textColor = "#00537f",
+  includeSearch = true,
 }) => {
   return (
     <>
@@ -38,18 +39,20 @@ export const SearchBox = ({
             <h1>{title}</h1>
           </div>
           <p className={`${styles.description} description`}>{description}</p>
-          <form action={searchEndpoint} method="GET" className={styles.form}>
-            <Input
-              ariaLabel={ariaLabel}
-              name="searchText"
-              placeholder={placeholder}
-              white
-            >
-              <SvgIcon>
-                <SearchIcon />
-              </SvgIcon>
-            </Input>
-          </form>
+          {includeSearch && (
+            <form action={searchEndpoint} method="GET" className={styles.form}>
+              <Input
+                ariaLabel={ariaLabel}
+                name="searchText"
+                placeholder={placeholder}
+                white
+              >
+                <SvgIcon>
+                  <SearchIcon />
+                </SvgIcon>
+              </Input>
+            </form>
+          )}
         </div>
       </div>
     </>
