@@ -47,7 +47,7 @@ const gridItems = [
     name: "Resources to get started",
     href: "/getting-started/resources-to-get-started",
     image: {
-      src: "/resources-to-get-started.jpeg",
+      src: "/resources/all?category=getting-started",
       alt: "Someone using a paper based communication device",
     },
   },
