@@ -29,6 +29,7 @@ const PATHS_TO_TEST = [
   "/learning/communication-partners-i",
   "/learning/search",
   "/search?searchText=look2talk",
+  "/getting-started",
 ];
 
 module.exports = PATHS_TO_TEST;
