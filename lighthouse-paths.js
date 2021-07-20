@@ -31,6 +31,7 @@ const PATHS_TO_TEST = [
   "/search?searchText=look2talk",
   "/getting-started",
   "/getting-started/finding-the-right-aid",
+  "/getting-started/how-can-i-access-my-computer",
 ];
 
 module.exports = PATHS_TO_TEST;
