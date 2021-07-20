@@ -19,28 +19,55 @@ export const CourseCategoriesGrid = ({ productCategories }) => {
   );
 };
 
-const CategorySquare = ({ category }) => {
+export const GridSquare = ({
+  href,
+  image,
+  name,
+  overlayColor = "rgba(138, 217, 202, 0.2)",
+  textBackground = "rgba(227,190,189,0.8)",
+}) => {
   return (
-    <li className={styles.listItem} key={`browse-articles-${category.slug}`}>
-      <Link href={`/resources/all?category=${category.slug}`}>
-        <a className={styles.link}>
-          <Image
-            src={category.image.src}
-            alt={category.image.alt}
-            layout="fill"
-            objectFit="cover"
-          />
-          <div className={styles.yellowTint} />
-          <div className={styles.blueBannerContainer}>
-            <div className={styles.blueBanner}>
-              <p>{category.name}</p>
-              <Avatar className={styles.avatar}>
-                <ArrowForwardIcon className={styles.icon} />
-              </Avatar>
+    <>
+      <style jsx>{`
+        .overlayTint {
+          background-color: ${overlayColor};
+        }
+
+        .banner {
+          background-color: ${textBackground};
+        }
+      `}</style>
+      <li className={styles.listItem} key={`browse-articles-${href}`}>
+        <Link href={href}>
+          <a className={styles.link}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              layout="fill"
+              objectFit="cover"
+            />
+            <div className={`${styles.yellowTint} overlayTint`} />
+            <div className={styles.blueBannerContainer}>
+              <div className={`${styles.blueBanner} banner`}>
+                <p>{name}</p>
+                <Avatar className={styles.avatar}>
+                  <ArrowForwardIcon className={styles.icon} />
+                </Avatar>
+              </div>
             </div>
-          </div>
-        </a>
-      </Link>
-    </li>
+          </a>
+        </Link>
+      </li>
+    </>
+  );
+};
+
+export const CategorySquare = ({ category }) => {
+  return (
+    <GridSquare
+      href={`/resources/all?category=${category.slug}`}
+      image={category.image}
+      name={category.name}
+    />
   );
 };
