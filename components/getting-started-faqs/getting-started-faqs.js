@@ -94,22 +94,12 @@ const FAQS = [
             here
           </a>
           .
-        </p>
-      </article>`,
+        </p>`,
   },
   {
     question:
       "Why do you recommend paper based resources alongside screen based solutions?",
     answer: `
-      <article
-        id="why-paper"
-        class="acc-content"
-        data-tab-content=""
-        role="tabpanel"
-        aria-labelledby="why-paper-label"
-        aria-hidden="false"
-        style="display: block;"
-      >
         <p>
           The world of communication aid technology has come on so far in the
           last few years that some people question whether there is still a role
@@ -143,21 +133,11 @@ const FAQS = [
           what’s important is the communication. Technology is just one tool
           among many that can help us to communicate.
         </p>
-      </article>
       `,
   },
   {
     question: "Can you offer training at my school or workplace?",
     answer: `
-      <article
-        id="training-school-workplace"
-        class="acc-content"
-        data-tab-content=""
-        role="tabpanel"
-        aria-labelledby="training-school-workplace-label"
-        aria-hidden="false"
-        style="display: block;"
-      >
         <p>
           Absolutely!&nbsp; You can find out about our training services 
           <a href="https://acecentre.org.uk/services/training/#bespoke-training">
@@ -173,21 +153,11 @@ const FAQS = [
           </a> 
           for more information.
         </p>
-      </article>
     `,
   },
   {
     question: "How do I get started with Symbol charts?",
     answer: `
-      <article
-        id="how-do-i-get-started-with-symbol-charts"
-        class="acc-content"
-        data-tab-content=""
-        role="tabpanel"
-        aria-labelledby="how-do-i-get-started-with-symbol-charts-label"
-        aria-hidden="false"
-        style="display: block;"
-      >
         <p>
           Getting started with low tech AAC is all about finding a way of
           bringing AAC into daily activities that are relevant for you and your
@@ -205,10 +175,7 @@ const FAQS = [
           them.&nbsp; That can only happen by you using them yourself as you
           talk to your child.&nbsp; You can see an example of this 
           <a href="https://www.youtube.com/watch?v=ieeREOclfPE&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=2">
-            in action h
-          </a>
-          <a href="https://www.youtube.com/watch?v=ieeREOclfPE&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=2">
-            ere
+            in action here
           </a>
           . You really are the key to getting started with AAC.&nbsp; Your skill
           at pointing to the symbols while talking to and playing with your
@@ -289,7 +256,6 @@ const FAQS = [
           the website with guidance on how you might use them, and some video
           examples too.
         </p>
-      </article>
     `,
   },
 ];
