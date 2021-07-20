@@ -3,44 +3,6 @@
   font-size: 30px;
 }
 
-.quote {
-  margin-top: 1rem;
-  display: flex;
-  gap: 0.5rem;
-  flex: 0 0 445px;
-  max-width: 90%;
-}
-
-.quoteText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.quoteText p {
-  margin: 0;
-}
-
-.avatar.avatar {
-  width: 60px;
-  height: 60px;
-  background: #bfdded;
-}
-
-.icon.icon {
-  color: #5589b7;
-  font-size: 40px;
-}
-
-.quoteContent {
-  color: #00537f;
-  font-size: 22px;
-}
-
-.buttonContainer {
-  margin: 2rem 0;
-}
-
 .bottomContainer {
   max-width: var(--containerMaxWidth);
   width: 90%;
