@@ -61,7 +61,7 @@
     "treeify-js": "1.0.8"
   },
   "devDependencies": {
-    "@babel/core": "7.14.6",
+    "@babel/core": "7.14.8",
     "@babel/register": "7.14.5",
     "@lhci/cli": "0.8.0",
     "@netlify/plugin-nextjs": "3.7.1",
