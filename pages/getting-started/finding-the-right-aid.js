@@ -35,8 +35,10 @@ export default function GettingStartedLanding({ story, resources }) {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div>
-            <h2>Which is the right communication aid for me?</h2>
-            <div>
+            <h2 className={styles.heading}>
+              Which is the right communication aid for me?
+            </h2>
+            <div className={styles.content}>
               <p>
                 Without doubt, AT such as communication aids can be
                 life-changing!&nbsp; The problem is that there is no ‘one size
