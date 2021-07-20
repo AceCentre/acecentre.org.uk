@@ -48,6 +48,7 @@
   display: grid;
   grid-template-columns: 6fr 5fr;
   grid-gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 /** Mobile CSS */
