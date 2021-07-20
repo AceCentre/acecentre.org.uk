@@ -1,5 +1,9 @@
 import styles from "./getting-started-faqs.module.css";
 
+import { Avatar } from "@material-ui/core";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+
 import {
   Accordion,
   AccordionItem,
@@ -7,21 +11,42 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+import { useState } from "react";
 
 export const GettingStartedFaqs = () => {
+  const [selected, setSelected] = useState([]);
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        <h2>FAQs</h2>
-        <p>Answering common queries and concerns.</p>
-        <Accordion allowMultipleExpanded allowZeroExpanded>
-          {FAQS.map((faq) => (
-            <AccordionItem key={faq.question}>
+        <h2 className={styles.faqTitle}>FAQs</h2>
+        <p className={styles.faqTagline}>
+          Answering common queries and concerns.
+        </p>
+        <Accordion
+          onChange={(selectedItems) => setSelected(selectedItems)}
+          allowMultipleExpanded
+          allowZeroExpanded
+        >
+          {FAQS.map((faq, index) => (
+            <AccordionItem uuid={index} key={faq.question}>
               <AccordionItemHeading>
-                <AccordionItemButton>{faq.question}</AccordionItemButton>
+                <AccordionItemButton className={styles.faqQuestion}>
+                  <Avatar className={styles.avatar}>
+                    {selected.includes(index) ? (
+                      <KeyboardArrowDownIcon className={styles.icon} />
+                    ) : (
+                      <ChevronRightIcon className={styles.icon} />
+                    )}
+                  </Avatar>
+                  {faq.question}
+                </AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
-                <div dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+                <div
+                  className={styles.faqAnswer}
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                ></div>
               </AccordionItemPanel>
             </AccordionItem>
           ))}

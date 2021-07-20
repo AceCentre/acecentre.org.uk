@@ -10,6 +10,37 @@
   padding: 3rem 0;
 }
 
+.faqTitle {
+  font-size: 44px;
+  font-weight: normal;
+}
+
+.faqTagline {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.faqQuestion {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faqAnswer {
+  font-size: 16px;
+}
+
+.avatar.avatar {
+  background-color: #94c64e;
+  color: #ffffff;
+}
+
+.icon.icon {
+  font-size: 3rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
