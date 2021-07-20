@@ -85,15 +85,15 @@ const FAQS = [
         </p>
         <p>
           If you would like to read some of the journal articles around this
-          area, there is a great list of relevant articles 
+          area, 
           <a href="http://praacticalaac.org/praactical/research-reviews-supporting-the-use-of-aac/">
-            here
+            there is a great list of relevant articles here.
           </a>
-          . You will also find a good summary of the issues and research 
+        </p>
+        <p>
           <a href="http://uk.dynavoxtech.com/implementation-toolkit/details.aspx?id=373">
-            here
+            You will also find a good summary of the issues and research here. 
           </a>
-          .
         </p>`,
   },
   {
@@ -120,12 +120,10 @@ const FAQS = [
           tech AAC. For example, someone might use their eyes to draw your
           attention to the box of cereal they would like you to pass them, make
           a sound to greet a friend, and use their high tech AAC device to have
-          a discussion around an issue that is important to them. Beth explains
-          this beautifully in her&nbsp;
+          a discussion around an issue that is important to them.
           <a href="http://aacbooks.net/books/UsingLowTechSymbolSystemsChildren/#movie1.1-beth">
-            video
+            Beth explains this beautifully in her video.
           </a>
-          .
         </p>
         <p>
           Janice Light and David McNaughton are well known researchers in the
@@ -139,11 +137,10 @@ const FAQS = [
     question: "Can you offer training at my school or workplace?",
     answer: `
         <p>
-          Absolutely!&nbsp; You can find out about our training services 
+          Absolutely!&nbsp; 
           <a href="https://acecentre.org.uk/services/training/#bespoke-training">
-            here
+            You can find out about our training services here.
           </a>
-          .
         </p>
         <p>
           We have also developed packages to support others to deliver
@@ -223,11 +220,11 @@ const FAQS = [
           child is at.&nbsp; This will enable you to demonstrate the next steps
           as you use the chart.&nbsp; It’s what we do all the time with speaking
           children – we repeat back what they say, adding an extra word.&nbsp;
-          We are all natural language teachers! You can see this in action 
+          We are all natural language teachers!
           <a href="https://www.youtube.com/watch?v=9WWpdtbwcwA&amp;index=13&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb">
-            here
+            You can see this in action here.
           </a>
-          .&nbsp; You can always blank off a few symbols if it feels too much
+          &nbsp; You can always blank off a few symbols if it feels too much
           and gradually reveal them.
         </p>
         <p>
