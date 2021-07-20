@@ -30,7 +30,7 @@ export const GettingStartedFaqs = () => {
         >
           {FAQS.map((faq, index) => (
             <AccordionItem uuid={index} key={faq.question}>
-              <AccordionItemHeading>
+              <AccordionItemHeading aria-level="3">
                 <AccordionItemButton className={styles.faqQuestion}>
                   <Avatar className={styles.avatar}>
                     {selected.includes(index) ? (

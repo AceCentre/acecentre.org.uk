@@ -13,11 +13,13 @@
 .faqTitle {
   font-size: 44px;
   font-weight: normal;
+  margin: 0;
 }
 
 .faqTagline {
   font-size: 18px;
   font-weight: 300;
+  margin-top: 0;
 }
 
 .faqQuestion {
@@ -26,10 +28,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin: 2rem 0;
 }
 
 .faqAnswer {
   font-size: 16px;
+  padding-left: calc(40px + 1rem);
 }
 
 .avatar.avatar {
