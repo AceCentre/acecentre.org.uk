@@ -14,6 +14,10 @@ import {
 import { useState } from "react";
 
 export const GettingStartedFaqs = () => {
+  return <GenericFaqs faqs={FAQS} />;
+};
+
+export const GenericFaqs = ({ faqs }) => {
   const [selected, setSelected] = useState([]);
 
   return (
@@ -28,7 +32,7 @@ export const GettingStartedFaqs = () => {
           allowMultipleExpanded
           allowZeroExpanded
         >
-          {FAQS.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <AccordionItem uuid={index} key={faq.question}>
               <AccordionItemHeading aria-level="3">
                 <AccordionItemButton className={styles.faqQuestion}>

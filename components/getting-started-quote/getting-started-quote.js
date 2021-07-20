@@ -6,6 +6,8 @@ import { Avatar } from "@material-ui/core";
 import { Button } from "../../components/button/button";
 
 export const GettingStartedQuote = ({ story }) => {
+  console.log(story);
+
   return (
     <div className={styles.quote}>
       <Avatar className={styles.avatar}>
