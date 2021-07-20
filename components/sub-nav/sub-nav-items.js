@@ -41,7 +41,7 @@ export const defaultNavItems = [
       },
       {
         title: "Accessing the computer",
-        href: "/getting-started/accessing-the-computer",
+        href: "/getting-started/how-can-i-access-my-computer",
       },
       {
         title: "Which is the right communication aid for me?",
