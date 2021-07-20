@@ -1,0 +1,52 @@
+.container {
+  background: #eeeeee;
+  width: 100%;
+}
+
+.innerContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding: 3rem 0;
+}
+
+.faqTitle {
+  font-size: 44px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.faqTagline {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.faqQuestion {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.faqAnswer {
+  font-size: 16px;
+  padding-left: calc(40px + 1rem);
+}
+
+.avatar.avatar {
+  background-color: #94c64e;
+  color: #ffffff;
+}
+
+.icon.icon {
+  font-size: 3rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
