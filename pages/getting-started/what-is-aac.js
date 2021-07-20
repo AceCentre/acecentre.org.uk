@@ -7,12 +7,12 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 
 import styles from "../../styles/finding-the-right-aid.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-import { CardHighlight } from "../../components/project-highlight/project-highlight";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { getAllProducts } from "../../lib/products/get-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { filterProducts } from "../../lib/products/filter-products";
 import { GettingStartedQuote } from "../../components/getting-started-quote/getting-started-quote";
+import { GenericFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 
 export default function GettingStartedLanding({ story, resources }) {
   const { currentYear } = useGlobalProps();
@@ -24,82 +24,49 @@ export default function GettingStartedLanding({ story, resources }) {
       </header>
       <main>
         <VideoWithCardCover
-          src="/finding-the-right-aid-cover.jpg"
-          alt="An individual using a head tracking AAC device"
+          src="/what-is-aac.jpeg"
+          alt="A woman wearing a tracking dot on her forehead"
         >
-          <h1>Which is the right communication aid for me?</h1>
+          <h1>What is AAC / AT?</h1>
           <p className={styles.description}>
-            The problem is that there is no ‘one size fits all’ communication
-            aid solution.
+            Assistive Technology is all about making life easier and helping
+            people to be more independent
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div>
-            <h2 className={styles.heading}>
-              Which is the right communication aid for me?
-            </h2>
+            <h2 className={styles.heading}>What is AAC / AT?</h2>
             <div className={styles.content}>
               <p>
-                Without doubt, AT such as communication aids can be
-                life-changing!&nbsp; The problem is that there is no ‘one size
-                fits all’ communication aid solution.&nbsp; It’s vital that an
-                assessment is carried out before a communication aid is chosen,
-                and we’re not just saying that to drum up business for
-                ourselves!
+                Well we do all love a good acronym!&nbsp; <strong>AT</strong>{" "}
+                stands for <strong>Assistive Technology</strong> and{" "}
+                <strong>AAC</strong> stands for{" "}
+                <strong>Augmentative and Alternative Communication</strong>
+                .&nbsp; They are basically what Ace Centre is all about.
               </p>
               <p>
-                Ace Centre offers an interdisciplinary assessment which enables
-                us to consider variables such as seating, mobility, access,
-                motivation, individual preference, educational / workplace needs
-                and cognitive levels.&nbsp; It’s essential to build up an
-                accurate picture of a person’s abilities before trying to
-                identify a suitable communication aid.
-              </p>
-              <CardHighlight
-                title="Our assessment services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                viewText="View service"
-                href="/services/assessment"
-              />
-              <p>
-                It also makes sense&nbsp;to try out a communication aid before
-                making a decision about purchase or provision. We have an
-                extensive loan library of equipment that we can call upon.&nbsp;
-                Sometimes the people that we assess need to trial more than one
-                option before we all feel in a position to make a decision on
-                the best way forward.
+                AT (Assistive Technology) is all about making life easier and
+                helping people to be more independent.&nbsp; It&nbsp;is any form
+                of software, hardware or system that helps a person to maintain,
+                improve or increase their capabilities.
               </p>
               <p>
-                Communication aids can most definitely improve quality of life,
-                but using AT to help fulfil potential is a lifelong journey that
-                requires teamwork throughout.&nbsp;&nbsp; Very few people manage
-                to get the most from AT in isolation:&nbsp; individuals,
-                families and professionals all need to work together from the
-                first step of identifying a need, through to
-                the&nbsp;ongoing&nbsp;support of the&nbsp;long-term goals of the
-                individual.
+                AT covers a really broad range of things.&nbsp; It might help
+                someone to continue to work by providing an alternative way of
+                controlling their computer, or it might enable someone to open
+                the windows and doors in their own home.
               </p>
               <p>
-                Once a communication aid has been purchased or provided,
-                everyone involved with the individual – family, carers,
-                teachers, therapists etc. – will need to know how to operate and
-                support use of the communication aid.&nbsp; Here we can offer
-                help through our training service. Not only do we give technical
-                skills training in the operation of the communication aid, but,
-                perhaps more importantly, we consider how to support and develop
-                its effective use.
+                AAC (Augmentative and Alternative Communication) is one, very
+                important, type of AT.&nbsp; AAC is there to help people with
+                communication challenges.&nbsp; It is all about providing
+                strategies and communication aids that support or replace
+                someone’s speech when they can’t rely upon it to
+                communicate.&nbsp; Communication aids that ‘talk’ are sometimes
+                called&nbsp;
+                <strong>Voice Output Communication Aids</strong>&nbsp;(VOCAs) or{" "}
+                <strong>Speech Output Devices</strong>.
               </p>
-              <p>
-                Skills and abilities change over time, and so too does
-                technology!&nbsp; With this in mind, ongoing review of the
-                suitability of a communication aid is essential.
-              </p>
-              <CardHighlight
-                title="Our training services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                viewText="View service"
-                href="/learning"
-              />
             </div>
           </div>
           <GettingStartedQuote story={story} />
@@ -109,14 +76,98 @@ export default function GettingStartedLanding({ story, resources }) {
           viewAllLink="/all?category=getting-started"
           products={resources}
         />
+        <GenericFaqs faqs={FAQS} />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
+const FAQS = [
+  {
+    question: "What are symbol based charts and books?",
+    answer: `
+        <p>
+          Symbol based charts and books enable someone to communicate by
+          pointing to or looking at pictures or special symbols printed on paper
+          or other materials.&nbsp; Charts and books can be tailor-made to suit
+          the individual and can be used everywhere as there are no batteries to
+          run low or screens to break.&nbsp; While you still need to learn what
+          the symbols mean, there is no need to be able to read or spell to
+          communicate.
+        </p>
+        `,
+  },
+  {
+    question: "What are alphabet charts?",
+    answer: `
+      <p>
+        Alphabet charts can provide a quick way of communicating for individuals
+        who are able to spell. They can be highly customised to meet the needs
+        of an individual, whether it’s ensuring that the letters are organised
+        in a familiar QWERTY layout or putting an image of the badge of
+        someone’s football team behind the letters. Like symbol based charts and
+        books, they can be used everywhere as there are no batteries to run low
+        or screens to break.
+      </p>
+    `,
+  },
+  {
+    question: "What are Simple Voice Output Communication Aids (VOCAs)?",
+    answer: `
+        <p>
+          The simplest VOCAs tend to be sturdy battery-powered devices with
+          built-in microphones for recording messages. They are sometimes known
+          as light tech communication aids. They can be a great introduction to
+          using a VOCA and can be a powerful tool for developing communication
+          skills.
+        </p>
+        <p>
+          These devices are easy to operate and quick to update and change. Some
+          can store words in ‘layers’, giving access to more vocabulary, but
+          they all tend to be fairly restricted in terms of the total amount of
+          vocabulary they can store. As they rely on pre-recorded speech, they
+          are intended to be used by people who are not able to spell what they
+          want to say.
+        </p>
+        <p>
+          Some simple VOCAs offer alternative ways of selecting messages for
+          those that find pressing the buttons difficult.
+        </p>
+      `,
+  },
+  {
+    question: "What are Complex Voice Output Communication Aids (VOCAs)?",
+    answer: `
+        <p>
+          Complex VOCAs tend to make use of synthetic (i.e. computer generated)
+          speech, although many offer the capacity to pre-record messages
+          too.&nbsp; Synthetic speech now sounds much less robotic than it did
+          in the past with more regional accents becoming available.&nbsp; The
+          great thing about synthetic speech is that you can say new things with
+          it – messages don’t have to be pre-recorded.
+        </p>
+        <p>
+          Complex VOCAs tend to be based around computer technology and have
+          touchscreens of varying sizes, although there are a few keyboard based
+          options around.&nbsp; Some are based around mainstream technology
+          while others are purpose built.
+        </p>
+        <p>
+          They are suitable for use by people who can spell, but most can also
+          be used by people who rely on symbols.&nbsp; &nbsp;Lots of options are
+          available for people who find using a touchscreen difficult.
+        </p>
+        <p>
+          Complex VOCAs often offer additional features such as access to email,
+          mobile phone and environmental control.
+        </p>
+        `,
+  },
+];
+
 export const getStaticProps = withGlobalProps(async () => {
-  const story = await getSimpleStory("glyn");
+  const story = await getSimpleStory("patrick");
 
   const products = await getAllProducts();
   const productCategories = await getAllProductCategories();
