@@ -1,0 +1,29 @@
+import styles from "./getting-started-quote.module.css";
+
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import { Avatar } from "@material-ui/core";
+
+import { Button } from "../../components/button/button";
+
+export const GettingStartedQuote = ({ story }) => {
+  console.log(story);
+
+  return (
+    <div className={styles.quote}>
+      <Avatar className={styles.avatar}>
+        <FormatQuoteIcon className={styles.icon} />
+      </Avatar>
+      <div className={styles.quoteText}>
+        <p className={styles.quoteContent}>&quot;{story.quote}&quot;</p>
+        <div>
+          <p>
+            <strong>{story.title}</strong>
+          </p>
+        </div>
+        <div className={styles.buttonContainer}>
+          <Button href={`/stories/${story.slug}`}>Read his story</Button>
+        </div>
+      </div>
+    </div>
+  );
+};

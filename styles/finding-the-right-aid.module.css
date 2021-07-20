@@ -1,0 +1,30 @@
+.description.description {
+  line-height: 39px;
+  font-size: 30px;
+}
+
+.bottomContainer {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.content {
+  font-size: 16px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .bottomContainer {
+    grid-template-columns: 1fr;
+  }
+}
