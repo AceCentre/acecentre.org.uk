@@ -4,17 +4,15 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
 
 import styles from "../../styles/finding-the-right-aid.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-import { Button } from "../../components/button/button";
 import { CardHighlight } from "../../components/project-highlight/project-highlight";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { getAllProducts } from "../../lib/products/get-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { filterProducts } from "../../lib/products/filter-products";
+import { GettingStartedQuote } from "../../components/getting-started-quote/getting-started-quote";
 
 export default function GettingStartedLanding({ story, resources }) {
   const { currentYear } = useGlobalProps();
@@ -102,22 +100,7 @@ export default function GettingStartedLanding({ story, resources }) {
               />
             </div>
           </div>
-          <div className={styles.quote}>
-            <Avatar className={styles.avatar}>
-              <FormatQuoteIcon className={styles.icon} />
-            </Avatar>
-            <div className={styles.quoteText}>
-              <p className={styles.quoteContent}>&quot;{story.quote}&quot;</p>
-              <div>
-                <p>
-                  <strong>{story.title}</strong>
-                </p>
-              </div>
-              <div className={styles.buttonContainer}>
-                <Button href={`/stories/${story.slug}`}>Read his story</Button>
-              </div>
-            </div>
-          </div>
+          <GettingStartedQuote story={story} />
         </div>
         <ResourceList
           title="Resources to get started"
