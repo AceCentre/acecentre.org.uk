@@ -32,6 +32,7 @@ const PATHS_TO_TEST = [
   "/getting-started",
   "/getting-started/finding-the-right-aid",
   "/getting-started/how-can-i-access-my-computer",
+  "/getting-started/what-is-aac",
 ];
 
 module.exports = PATHS_TO_TEST;
