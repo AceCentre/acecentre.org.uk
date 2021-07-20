@@ -1,6 +1,5 @@
 .container {
   margin: 0 auto;
-  width: 90%;
   max-width: 920px;
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
   display: flex;
