@@ -74,7 +74,6 @@
 
 .greenSpan {
   color: #ffffff;
-  background: #00537f;
   border-radius: 20px;
   padding: 8px 18px;
   display: inline-block;
@@ -113,7 +112,6 @@
 }
 
 .playAvatar.playAvatar {
-  background-color: #00537f;
   box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
   height: 80px;
   width: 80px;
@@ -121,6 +119,14 @@
 
 .playIcon.playIcon {
   font-size: 50px;
+}
+
+.nhsBackground.nhsBackground {
+  background-color: #005eb8;
+}
+
+.normalBackground.normalBackground {
+  background-color: #00537f;
 }
 
 /* Mobile CSS */

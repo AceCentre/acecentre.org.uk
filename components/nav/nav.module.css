@@ -37,6 +37,17 @@
   margin-left: 1rem;
 }
 
+.nhsButton {
+  margin-left: 1rem;
+  background-color: #005eb8;
+}
+
+.nhsTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
 .navLink {
   display: flex;
 

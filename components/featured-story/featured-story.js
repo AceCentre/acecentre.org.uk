@@ -16,6 +16,7 @@ export const FeaturedStory = ({
   slug,
   youtubeVideo,
   featuredImage,
+  nhs = false,
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -29,7 +30,11 @@ export const FeaturedStory = ({
               onClick={() => setIsPopoverOpen(true)}
               aria-label={`Play video about: ${title}`}
             >
-              <Avatar className={styles.playAvatar}>
+              <Avatar
+                className={`${styles.playAvatar} ${
+                  nhs ? styles.nhsBackground : styles.normalBackground
+                }`}
+              >
                 <PlayArrowIcon className={styles.playIcon} />
               </Avatar>
             </button>
@@ -38,6 +43,7 @@ export const FeaturedStory = ({
               slug={slug}
               title={title}
               summary={summary}
+              nhs={nhs}
             />
           </div>
           <div className={styles.gradientCover}></div>
@@ -56,6 +62,7 @@ export const FeaturedStory = ({
           slug={slug}
           title={title}
           summary={summary}
+          nhs={nhs}
         />
       </div>
       <VideoPopover
@@ -67,17 +74,28 @@ export const FeaturedStory = ({
   );
 };
 
-const OverlayCard = ({ title, summary, slug, className }) => {
+const OverlayCard = ({ title, summary, slug, className, nhs = false }) => {
   return (
     <div className={className}>
-      <p className={styles.greenSpan}>Stories</p>
+      <p
+        className={`${styles.greenSpan} ${
+          nhs ? styles.nhsBackground : styles.normalBackground
+        }`}
+      >
+        Stories
+      </p>
       <h2 className={styles.cardTitle}>{title}</h2>
       <div
         className={styles.cardDescription}
         dangerouslySetInnerHTML={{ __html: summary }}
       ></div>
       <div className={styles.cardLinkContainer}>
-        <Button className={styles.readFullStory} href={`/stories/${slug}`}>
+        <Button
+          className={`${styles.readFullStory} ${
+            nhs ? styles.nhsBackground : styles.normalBackground
+          }`}
+          href={`/stories/${slug}`}
+        >
           Read full story
         </Button>
         <Link href="/stories">

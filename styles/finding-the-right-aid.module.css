@@ -3,6 +3,14 @@
   font-size: 30px;
 }
 
+.heading {
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.content {
+  font-size: 16px;
+}
 .bottomContainer {
   max-width: var(--containerMaxWidth);
   width: 90%;
@@ -11,15 +19,6 @@
   grid-template-columns: 6fr 5fr;
   grid-gap: 1rem;
   margin-bottom: 2rem;
-}
-
-.heading {
-  font-size: 34px;
-  font-weight: normal;
-}
-
-.content {
-  font-size: 16px;
 }
 
 /** Mobile CSS */
