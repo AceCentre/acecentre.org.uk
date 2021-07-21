@@ -22,58 +22,58 @@ export const ServicesGrid = () => {
 const gridItems = [
   {
     name: "NHS Services",
-    href: "/getting-started/what-is-aac",
+    href: "/services/nhs",
     image: {
-      src: "/what-is-aac.jpeg",
-      alt: "A woman wearing a tracking dot on her forehead",
+      src: "/services/nhs.jpg",
+      alt: "A client communicating",
     },
   },
   {
     name: "Ace Centre Learning",
-    href: "/getting-started/how-can-i-access-my-computer",
+    href: "/learning",
     image: {
-      src: "/computer-access.jpeg",
-      alt: "Someone using a touch screen device to communicate",
+      src: "/services/learning.jpeg",
+      alt: "A room with people presenting at the front",
     },
   },
   {
     name: "Engineering",
-    href: "/getting-started/finding-the-right-aid",
+    href: "/services/engineering",
     image: {
-      src: "/right-aid.jpeg",
-      alt: "A communication device",
+      src: "/services/engineering.jpg",
+      alt: "An Ace Centre engineer using a 3D printer",
     },
   },
   {
     name: "Assessments",
-    href: "/getting-started/resources-to-get-started",
+    href: "/services/assessments",
     image: {
-      src: "/resources-to-get-started.jpeg",
-      alt: "Someone using a paper based communication device",
+      src: "/services/assessments.jpg",
+      alt: "Ace Centre staff helping a client use their communication device",
     },
   },
   {
     name: "Advice & Information",
-    href: "/getting-started/resources-to-get-started",
+    href: "/services/advice-information",
     image: {
-      src: "/resources-to-get-started.jpeg",
-      alt: "Someone using a paper based communication device",
+      src: "/services/advice.jpg",
+      alt: "A woman smiling whilst taking a call on a headset",
     },
   },
   {
     name: "Research",
-    href: "/getting-started/resources-to-get-started",
+    href: "/services/research",
     image: {
-      src: "/resources-to-get-started.jpeg",
-      alt: "Someone using a paper based communication device",
+      src: "/services/research.jpg",
+      alt: "A communication device",
     },
   },
   {
     name: "Partnerships",
-    href: "/getting-started/resources-to-get-started",
+    href: "/services/partnerships",
     image: {
-      src: "/resources-to-get-started.jpeg",
-      alt: "Someone using a paper based communication device",
+      src: "/services/partnership.jpg",
+      alt: "Two people looking at a communication device",
     },
   },
 ];
