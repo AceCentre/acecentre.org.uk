@@ -1,7 +1,7 @@
 import { GridSquare } from "../course-categories-grid/course-categories-grid";
 import styles from "./services-grid.module.css";
 
-export const ServicesGrid = () => {
+export const ServicesGrid = ({ gridItems = defaultGridItems }) => {
   return (
     <ul className={styles.container}>
       {gridItems.map((item) => (
@@ -19,7 +19,7 @@ export const ServicesGrid = () => {
   );
 };
 
-const gridItems = [
+const defaultGridItems = [
   {
     name: "NHS Services",
     href: "/services/nhs",
