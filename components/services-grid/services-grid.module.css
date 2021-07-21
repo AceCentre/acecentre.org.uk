@@ -1,0 +1,18 @@
+.container {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
