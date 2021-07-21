@@ -34,7 +34,7 @@ export default function NHSLanding() {
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
         </VideoWithCardCover>
-        <div>
+        <div className={styles.bottomContainer}>
           <div>
             <h2>NHS England assessments</h2>
             <p>

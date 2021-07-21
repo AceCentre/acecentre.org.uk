@@ -20,3 +20,20 @@
   color: #ffffff;
   font-size: 16px;
 }
+
+.bottomContainer {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .bottomContainer {
+    grid-template-columns: 1fr;
+  }
+}
