@@ -36,7 +36,7 @@ const gridItems = [
     name: "LAACES",
     href: "/services/nhs/laaces",
     image: {
-      src: "/services/laaces.jpeg",
+      src: "/services/laaces.jpg",
       alt:
         "Ace centre employee showing a client how to use a communication device",
     },
