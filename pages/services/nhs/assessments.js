@@ -10,7 +10,7 @@ export default function NHSLanding() {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} nhs />
       </header>
       <main></main>
       <Footer currentYear={currentYear} />
