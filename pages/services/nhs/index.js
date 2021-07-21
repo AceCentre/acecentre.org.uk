@@ -26,7 +26,7 @@ export default function NHSLanding() {
 const gridItems = [
   {
     name: "NHS England Assessment",
-    href: "/services/nhs/assessment",
+    href: "/services/nhs/assessments",
     image: {
       src: "/services/nhs-assessment.jpg",
       alt: "A client communicating",
