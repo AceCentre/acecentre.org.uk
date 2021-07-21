@@ -14,8 +14,10 @@ import { Avatar } from "@material-ui/core";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
+import { getSimpleStory } from "../../../lib/story/get-story";
+import { FeaturedStory } from "../../../components/featured-story/featured-story";
 
-export default function NHSLanding() {
+export default function NHSLanding({ featuredStory }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -160,10 +162,17 @@ export default function NHSLanding() {
             </div>
           </div>
         </div>
+        <FeaturedStory nhs {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(async () => {
+  const featuredStory = await getSimpleStory("paul");
+
+  return {
+    props: { featuredStory },
+  };
+});
