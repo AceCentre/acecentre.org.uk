@@ -6,7 +6,12 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 
+import ListAltIcon from "@material-ui/icons/ListAlt";
 import { CardHighlight } from "../../../components/project-highlight/project-highlight";
+
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import { Avatar } from "@material-ui/core";
+import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
 
@@ -35,7 +40,7 @@ export default function NHSLanding() {
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
-          <div>
+          <div className={styles.leftContent}>
             <h2>NHS England assessments</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -100,6 +105,59 @@ export default function NHSLanding() {
               viewText="Launch service checker"
               href="https://servicefinder.acecentre.net/"
             />
+          </div>
+          <div>
+            <div className={styles.serviceProvidedByContainer}>
+              <p>Service provided by:</p>
+              <Image
+                height={152}
+                width={290}
+                maxHeight={90}
+                src={"/nav-logo.png"}
+                alt="The AceCentre logo"
+              ></Image>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <FormatQuoteIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p className={styles.quoteContent}>
+                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod consectetur adipiscing elit, sed do
+                  eiusmodtempor incididunt &quot;
+                </p>
+                <div>
+                  <p>
+                    <strong>Anna Reeves DL</strong>
+                  </p>
+                  <p>CEO</p>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <ListAltIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p>
+                  <strong>NHS England referral form</strong>
+                </p>
+                <p>
+                  Ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tem por incididunt olor sit.
+                </p>
+                <div className={styles.downloadFormButtonContainer}>
+                  <Button
+                    className={styles.downloadFormButton}
+                    href="https://acecentre.org.uk/wp-content/uploads/2021/02/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx"
+                  >
+                    Download form
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
