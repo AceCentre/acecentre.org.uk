@@ -53,7 +53,7 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ defaultNavItems }) => {
+export const CombinedNav = ({ defaultNavItems, nhs = false }) => {
   const {
     isMenuOpen,
     isSearchOpen,
@@ -65,25 +65,39 @@ export const CombinedNav = ({ defaultNavItems }) => {
   return (
     <>
       <div className={styles.desktopContainer}>
-        <Nav />
-        <SubNav navItems={defaultNavItems} />
+        <Nav nhs={nhs} />
+        {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
       <div
         className={`${styles.mobileContainer} ${
           isDrawerOpen ? styles.noShadow : ""
         }`}
       >
-        <Link name="home" href="/">
-          <a>
-            <Image
-              height={152}
-              width={290}
-              maxHeight={50}
-              src={"/nav-logo.png"}
-              alt="The AceCentre logo"
-            ></Image>
-          </a>
-        </Link>
+        {nhs ? (
+          <Link name="home" href="/">
+            <a>
+              <Image
+                height={118}
+                width={293}
+                maxHeight={50}
+                src={"/nhs-logo.jpg"}
+                alt="The NHS logo"
+              ></Image>
+            </a>
+          </Link>
+        ) : (
+          <Link name="home" href="/">
+            <a>
+              <Image
+                height={152}
+                width={290}
+                maxHeight={50}
+                src={"/nav-logo.png"}
+                alt="The AceCentre logo"
+              ></Image>
+            </a>
+          </Link>
+        )}
         <div className={styles.buttonContainer}>
           <ChakraButton
             className={`${styles.navButton} ${styles.menuButton} ${

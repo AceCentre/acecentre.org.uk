@@ -25,6 +25,7 @@ export const GridSquare = ({
   name,
   overlayColor = "rgba(138, 217, 202, 0.2)",
   textBackground = "rgba(227,190,189,0.8)",
+  textColor = "#333333",
 }) => {
   return (
     <>
@@ -35,6 +36,10 @@ export const GridSquare = ({
 
         .banner {
           background-color: ${textBackground};
+        }
+
+        .textColor {
+          color: ${textColor};
         }
       `}</style>
       <li className={styles.listItem} key={`browse-articles-${href}`}>
@@ -49,7 +54,7 @@ export const GridSquare = ({
             <div className={`${styles.yellowTint} overlayTint`} />
             <div className={styles.blueBannerContainer}>
               <div className={`${styles.blueBanner} banner`}>
-                <p>{name}</p>
+                <p className="textColor">{name}</p>
                 <Avatar className={styles.avatar}>
                   <ArrowForwardIcon className={styles.icon} />
                 </Avatar>
