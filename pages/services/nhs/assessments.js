@@ -16,6 +16,7 @@ import { Image } from "../../../components/image";
 import styles from "../../../styles/nhs-assessment.module.css";
 import { getSimpleStory } from "../../../lib/story/get-story";
 import { FeaturedStory } from "../../../components/featured-story/featured-story";
+import { InformationDays } from "../../../components/information-days/information-days";
 
 export default function NHSLanding({ featuredStory }) {
   const { currentYear } = useGlobalProps();
@@ -162,6 +163,7 @@ export default function NHSLanding({ featuredStory }) {
             </div>
           </div>
         </div>
+        <InformationDays />
         <FeaturedStory nhs {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />
