@@ -73,17 +73,31 @@ export const CombinedNav = ({ defaultNavItems, nhs = false }) => {
           isDrawerOpen ? styles.noShadow : ""
         }`}
       >
-        <Link name="home" href="/">
-          <a>
-            <Image
-              height={152}
-              width={290}
-              maxHeight={50}
-              src={"/nav-logo.png"}
-              alt="The AceCentre logo"
-            ></Image>
-          </a>
-        </Link>
+        {nhs ? (
+          <Link name="home" href="/">
+            <a>
+              <Image
+                height={118}
+                width={293}
+                maxHeight={50}
+                src={"/nhs-logo.jpg"}
+                alt="The NHS logo"
+              ></Image>
+            </a>
+          </Link>
+        ) : (
+          <Link name="home" href="/">
+            <a>
+              <Image
+                height={152}
+                width={290}
+                maxHeight={50}
+                src={"/nav-logo.png"}
+                alt="The AceCentre logo"
+              ></Image>
+            </a>
+          </Link>
+        )}
         <div className={styles.buttonContainer}>
           <ChakraButton
             className={`${styles.navButton} ${styles.menuButton} ${
