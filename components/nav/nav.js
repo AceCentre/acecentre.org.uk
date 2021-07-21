@@ -11,29 +11,31 @@ import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
 
-export const Nav = () => {
+export const Nav = ({ nhs }) => {
   return (
     <FullWidthContainer>
       <InnerContainer>
-        <HomeButton />
+        <HomeButton nhs={nhs} />
         <NavList>
-          <NavLink href="/blog">Blog</NavLink>
+          {!nhs && (
+            <>
+              <NavLink href="/blog">Blog</NavLink>
+              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/my-acecentre">
+                <SvgIcon>
+                  <PersonOutlineOutlinedIcon />
+                </SvgIcon>
+                My AceCentre
+              </NavLink>
 
-          <NavLink href="/contact">Contact</NavLink>
-
-          <NavLink href="/my-acecentre">
-            <SvgIcon>
-              <PersonOutlineOutlinedIcon />
-            </SvgIcon>
-            My AceCentre
-          </NavLink>
-
-          <NavLink href="/checkout">
-            <SvgIcon>
-              <ShoppingCartOutlinedIcon />
-            </SvgIcon>
-            Checkout
-          </NavLink>
+              <NavLink href="/checkout">
+                <SvgIcon>
+                  <ShoppingCartOutlinedIcon />
+                </SvgIcon>
+                Checkout
+              </NavLink>
+            </>
+          )}
 
           <NavLink href="tel:0800 080 3115">
             <SvgIcon>
@@ -51,11 +53,19 @@ export const Nav = () => {
             </Input>
           </form>
         </div>
-        <div className={styles.hideOnMediumScreens}>
-          <Button href="/donate" className={styles.donateButton}>
-            Donate
-          </Button>
-        </div>
+        {nhs ? (
+          <div className={styles.hideOnMediumScreens}>
+            <Button href="/services" className={styles.nhsButton}>
+              View all services
+            </Button>
+          </div>
+        ) : (
+          <div className={styles.hideOnMediumScreens}>
+            <Button href="/donate" className={styles.donateButton}>
+              Donate
+            </Button>
+          </div>
+        )}
       </InnerContainer>
     </FullWidthContainer>
   );
@@ -79,7 +89,11 @@ const NavLink = ({ href, children, className }) => {
   );
 };
 
-const HomeButton = () => {
+const HomeButton = ({ nhs }) => {
+  if (nhs) {
+    return <NHSHomeButton />;
+  }
+
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
@@ -94,6 +108,26 @@ const HomeButton = () => {
           ></Image>
         </a>
       </Link>
+    </div>
+  );
+};
+
+const NHSHomeButton = () => {
+  return (
+    <div className={styles.homeImage}>
+      <Link name="home" href="/">
+        <a>
+          <Image
+            height={118}
+            width={293}
+            maxHeight={50}
+            src={"/nhs-logo.jpg"}
+            alt="The NHS logo"
+            placeOnTop
+          ></Image>
+        </a>
+      </Link>
+      <h1 className={styles.nhsTitle}>NHS England Assessment Service</h1>
     </div>
   );
 };

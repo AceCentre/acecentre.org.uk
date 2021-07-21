@@ -53,7 +53,7 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ defaultNavItems }) => {
+export const CombinedNav = ({ defaultNavItems, nhs = false }) => {
   const {
     isMenuOpen,
     isSearchOpen,
@@ -65,8 +65,8 @@ export const CombinedNav = ({ defaultNavItems }) => {
   return (
     <>
       <div className={styles.desktopContainer}>
-        <Nav />
-        <SubNav navItems={defaultNavItems} />
+        <Nav nhs={nhs} />
+        {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
       <div
         className={`${styles.mobileContainer} ${
