@@ -127,7 +127,7 @@ const NHSHomeButton = () => {
           ></Image>
         </a>
       </Link>
-      <h1 className={styles.nhsTitle}>NHS England Assessment Service</h1>
+      <p className={styles.nhsTitle}>NHS England Assessment Service</p>
     </div>
   );
 };
