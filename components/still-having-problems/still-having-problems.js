@@ -10,8 +10,8 @@ export const StillHavingProblems = () => {
         <Card>
           <h3>Get in touch</h3>
           <p>
-            Would you like to send our team and email? we normally respond
-            within X hours.
+            Send an email and a member of the Ace Centre team will be in touch
+            as soon as possible.
           </p>
           <Link href="/contact">
             <a className={`${styles.end} ${styles.contactUsLink}`}>
@@ -22,8 +22,7 @@ export const StillHavingProblems = () => {
         <Card>
           <h3>Give us a call</h3>
           <p>
-            If you’re a teacher or carer looking for assistance call our advice
-            helpline number:
+            Looking for assistance? Call our advice helpline number for support:
           </p>
           <div className={styles.end}>
             <p className={styles.phoneNumber}>
@@ -35,8 +34,7 @@ export const StillHavingProblems = () => {
         <Card>
           <h3>Remote support</h3>
           <p>
-            If you do need to get remote support from the Ace centre download
-            the app.
+            Download this app when remote support from the Ace Centre is needed.
           </p>
           <div className={`${styles.end} ${styles.button}`}>
             <Button href="https://get.teamviewer.com/ace_centre">
