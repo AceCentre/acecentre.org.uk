@@ -2,6 +2,7 @@ import styles from "./how-can-we-help-dropdown.module.css";
 
 import { Select } from "@chakra-ui/react";
 import { useState } from "react";
+import Link from "next/link";
 
 export const HowCanWeHelpDropdown = () => {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -43,11 +44,10 @@ export const HowCanWeHelpDropdown = () => {
 
 const productSupplier = (
   <>
-    <h3>Your product supplier</h3>
-    <p>You will need the device name and serial number.</p>
+    <h3>You should contact your product supplier</h3>
     <p>
-      You may need to be connected to the internet to troubleshoot by remote
-      access.
+      You will need the device name and serial number. You may need to be
+      connected to the internet to troubleshoot by remote access.
     </p>
   </>
 );
