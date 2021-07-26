@@ -15,7 +15,11 @@ export const HowCanWeHelpDropdown = () => {
 
   return (
     <div className={styles.container}>
-      <h2>How can we help you?</h2>
+      <h2 className={styles.title}>Who should you contact?</h2>
+      <p className={styles.tagline}>
+        Select your current issue from the dropdown below to find out who to
+        contact for advice.
+      </p>
       <Select
         maxWidth={900}
         width="100%"

@@ -5,7 +5,7 @@ import styles from "./still-having-problems.module.css";
 export const StillHavingProblems = () => {
   return (
     <div className={styles.container}>
-      <h2>Still having problems?</h2>
+      <h2 className={styles.title}>Still having problems?</h2>
       <ul className={styles.list}>
         <Card>
           <h3>Get in touch</h3>
