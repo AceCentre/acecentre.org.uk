@@ -1,0 +1,65 @@
+.container {
+  margin: 5rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.list h3 {
+  margin-top: 0;
+
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.cardContainer {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+.end {
+  margin-top: auto;
+}
+
+.phoneNumber {
+  margin: 0;
+}
+
+.officeHours {
+  margin: 0;
+}
+
+.button {
+  margin: 1rem 0;
+}
+
+.contactUsLink {
+  text-decoration: none;
+  color: #345979;
+}
+
+.contactUsLink:hover,
+.contactUsLink:focus {
+  text-decoration: underline;
+}
+
+/** Mobile CSS */
+@media (max-width: 840px) {
+  .list {
+    flex-direction: column;
+  }
+}

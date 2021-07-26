@@ -1,0 +1,32 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.tagline {
+  margin-top: 0;
+}
+
+.title {
+  margin-bottom: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.link {
+  text-decoration: none;
+  color: #345979;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
