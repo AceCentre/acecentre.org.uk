@@ -172,7 +172,9 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
               and a detailed quotation.
             </p>
             <div className={styles.pricingButton}>
-              <Button href="/pricing">Download pricing</Button>
+              <Button newTab href="/engineering-pricing.pdf">
+                Download pricing
+              </Button>
             </div>
           </div>
         </div>
