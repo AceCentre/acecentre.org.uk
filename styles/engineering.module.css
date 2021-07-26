@@ -1,3 +1,31 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.listAvatar.listAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #94c64e;
+}
+
+.inlineCard {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+  margin: 1rem 0;
+}
+
+.inlineCard h2 {
+  margin-top: 0;
+}
+
 .cardTitle.cardTitle {
   font-size: 16px;
   font-weight: bold;
@@ -33,7 +61,6 @@
   gap: 0.5rem;
   flex: 0 0 445px;
   max-width: 90%;
-  border-bottom: 1px solid #dfdfdf;
 }
 
 .quoteText {
@@ -49,16 +76,17 @@
 .avatar.avatar {
   width: 60px;
   height: 60px;
-  background: #005eb8;
+  background: #bfdded;
 }
 
 .icon.icon {
-  color: #ffffff;
+  color: #5589b7;
   font-size: 40px;
 }
 
 .quoteContent {
-  color: #005eb8;
+  color: #00537f;
+
   font-size: 22px;
 }
 

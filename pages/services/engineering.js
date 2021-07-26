@@ -6,12 +6,10 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import { CardHighlight } from "../../components/project-highlight/project-highlight";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { Avatar } from "@material-ui/core";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
-import { Image } from "../../components/image";
 
 import styles from "../../styles/engineering.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -44,82 +42,108 @@ export default function EngineeringPage({ featuredStory }) {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>NHS England assessments</h2>
+            <h2>
+              Building and creating individual solutions – we don’t believe in
+              ‘can’t’
+            </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Our highly skilled multi-disciplinary team designs and develop
+              innovative assistive technology solutions. We use the latest tools
+              for design and manufacture to maximise the simplicity and
+              effectiveness of the solution and minimise costs. We’re completely
+              client-focussed and understand the challenging requirements of
+              assistive technologies.
             </p>
-            <h2>The referral form</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              In addition to supporting our work providing the NHS England
+              Specialised AAC Service in the North West and Thames Valley and
+              Wessex, we provide a wide range of services directly to
+              individuals and families, charities, service providers, education
+              and commercial organisations.
             </p>
-            <h2>Video support</h2>
+            <h2>We specialise in:</h2>
+            <ul className={styles.list}>
+              <ListItem>Developing bespoke assistive technologies</ListItem>
+              <ListItem>
+                Providing consultancy at early stage product development
+              </ListItem>
+              <ListItem>
+                Rapid design iteration from concept to production using the
+                latest 3D Computer Aided Design (CAD) software
+              </ListItem>
+              <ListItem>
+                Manufacture of components using our in-house state of the art
+                Selective Laser Sintering (SLS) and Fused Deposition Modelling
+                (FDM) 3D printers and CNC machine.
+              </ListItem>
+              <ListItem>
+                Development of electronic devices for access to technology using
+                low-cost development boards
+              </ListItem>
+            </ul>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Whilst these technologies sound complex, they help us to keep
+              things simple! We consider all options during development,
+              including solutions that are already available.
             </p>
-            <h2>Prior to the assessment</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <h2>Who should be involved?</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <h2>The venue</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <h2>Length of assessment</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <h2>What happens at the assessment?</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <h2>Following the assessment</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
-            </p>
-            <CardHighlight
-              title="Check where our services are available"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              viewText="Launch service checker"
-              href="https://servicefinder.acecentre.net/"
-            />
+            <div className={styles.inlineCard}>
+              <h2>Individuals and families</h2>
+              <ul className={styles.list}>
+                <ListItem>Design and development of bespoke solutions</ListItem>
+                <ListItem>
+                  Advice on how to develop or manufacture a solution you’ve come
+                  up with
+                </ListItem>
+                <ListItem>
+                  Signposting to useful organisations or developing and
+                  implementing access solutions to mainstream devices; using a
+                  powerchair joystick to control a tablet for example.
+                </ListItem>
+                <ListItem>
+                  Mounting and positioning assistive technologies and access
+                  devices.
+                </ListItem>
+                <ListItem>Simply helping with ideas!</ListItem>
+              </ul>
+            </div>
+            <div className={styles.inlineCard}>
+              <h2>Charities and service providers</h2>
+              <ul className={styles.list}>
+                <ListItem>
+                  Integration of assistive technologies to enhance access to
+                  work, education or leisure activities
+                </ListItem>
+                <ListItem>Training and competency development</ListItem>
+                <ListItem>
+                  Carrying out or supporting assessments of complex access to
+                  assistive technologies such as powered mobility, environmental
+                  control and computer access
+                </ListItem>
+                <ListItem>
+                  Mounting and positioning assistive technologies and access
+                  devices.
+                </ListItem>
+                <ListItem>Consultancy for regulatory compliance</ListItem>
+              </ul>
+            </div>
+            <div className={styles.inlineCard}>
+              <h2>Commercial organisations</h2>
+              <ul className={styles.list}>
+                <ListItem>Early stage advice</ListItem>
+                <ListItem>
+                  Supporting your product development programme with a
+                  multi-disciplinary team with wide-ranging skills and knowledge
+                  of assistive technology
+                </ListItem>
+                <ListItem>Training and development</ListItem>
+                <ListItem>Targeted user testing and focus groups</ListItem>
+                <ListItem>
+                  Consultancy for national and European regulatory compliance
+                </ListItem>
+              </ul>
+            </div>
           </div>
           <div>
-            <div className={styles.serviceProvidedByContainer}>
-              <p>Service provided by:</p>
-              <Image
-                height={152}
-                width={290}
-                maxHeight={90}
-                src={"/nav-logo.png"}
-                alt="The AceCentre logo"
-              ></Image>
-            </div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <FormatQuoteIcon className={styles.icon} />
@@ -138,29 +162,6 @@ export default function EngineeringPage({ featuredStory }) {
                 </div>
               </div>
             </div>
-
-            <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <p>
-                  <strong>NHS England referral form</strong>
-                </p>
-                <p>
-                  Ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tem por incididunt olor sit.
-                </p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button
-                    className={styles.downloadFormButton}
-                    href="https://acecentre.org.uk/wp-content/uploads/2021/02/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx"
-                  >
-                    Download form
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <InformationDays />
@@ -170,6 +171,17 @@ export default function EngineeringPage({ featuredStory }) {
     </>
   );
 }
+
+const ListItem = ({ children }) => {
+  return (
+    <li className={styles.listItem}>
+      <Avatar className={styles.listAvatar}>
+        <ChevronRightIcon />
+      </Avatar>
+      {children}
+    </li>
+  );
+};
 
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
