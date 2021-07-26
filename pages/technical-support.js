@@ -6,6 +6,7 @@ import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { PageTitle } from "../components/page-title/page-title";
 import { HowCanWeHelpDropdown } from "../components/how-can-we-help-dropdown/how-can-we-help-dropdown";
+import { StillHavingProblems } from "../components/still-having-problems/still-having-problems";
 
 export default function TechnicalSupport() {
   const { currentYear } = useGlobalProps();
@@ -21,6 +22,7 @@ export default function TechnicalSupport() {
           description="Get technical support from the Ace Centre"
         />
         <HowCanWeHelpDropdown />
+        <StillHavingProblems />
       </main>
       <Footer currentYear={currentYear} />
     </>
