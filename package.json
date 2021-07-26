@@ -81,7 +81,7 @@
     "jest": "27.0.6",
     "jest-css-modules-transform": "4.3.0",
     "mock-fs": "5.0.0",
-    "netlify-cli": "5.2.4",
+    "netlify-cli": "5.2.6",
     "netlify-plugin-cache-nextjs": "1.6.1",
     "next-sitemap": "1.6.140",
     "nock": "13.1.1",
