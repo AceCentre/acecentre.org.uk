@@ -27,7 +27,7 @@ export const HowCanWeHelpDropdown = () => {
         borderRadius={25}
         backgroundColor="#F5F5F5"
         onChange={onChange}
-        placeholder="Select the question you are having problems with"
+        placeholder="Select your issue."
       >
         {HOW_CAN_WE_HELP.map((entry) => {
           return (
