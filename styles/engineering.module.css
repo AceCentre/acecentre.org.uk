@@ -22,6 +22,10 @@
   margin: 1rem 0;
 }
 
+.extraSpacing {
+  margin: 5rem 0;
+}
+
 .inlineCard h2 {
   margin-top: 0;
 }
@@ -96,6 +100,10 @@
 
 .downloadFormButton {
   background-color: #005eb8;
+}
+
+.pricingButton {
+  margin-top: 2rem;
 }
 
 .serviceProvidedByContainer {
