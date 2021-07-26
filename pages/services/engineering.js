@@ -13,7 +13,7 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import { Avatar } from "@material-ui/core";
 import { Image } from "../../components/image";
 
-import styles from "../../styles/nhs-assessment.module.css";
+import styles from "../../styles/engineering.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { InformationDays } from "../../components/information-days/information-days";
@@ -24,19 +24,20 @@ export default function EngineeringPage({ featuredStory }) {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} nhs />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
         <VideoWithCardCover
-          src="/services/nhs-assessment-cover.jpg"
-          alt="A child laughing"
+          src="/services/engineering.jpg"
+          alt="An engineering using a 3D printer"
         >
-          <h1 className={styles.cardTitle}>NHS England Assessment</h1>
+          <h1 className={styles.cardTitle}>Engineering</h1>
           <p className={styles.cardDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
-            eiusmod tempor incididunt ut labore.
+            Engineering: Innovation, design and technology for everyone.
           </p>
-          <Button className={styles.cardButton}>Make an online enquiry</Button>
+          <Button className={styles.cardButton}>
+            Enquire about engineering
+          </Button>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
