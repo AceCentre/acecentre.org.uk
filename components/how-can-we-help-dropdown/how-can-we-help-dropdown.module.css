@@ -15,6 +15,16 @@
   font-weight: bold;
 }
 
+.link {
+  text-decoration: none;
+  color: #5589b7;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
