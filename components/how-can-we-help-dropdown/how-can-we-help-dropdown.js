@@ -75,7 +75,7 @@ const aceCentreOrLocalService = (
     <h3>You should contact Ace Centre or your local AAC professional.</h3>
     <p>
       <Link href="/contact">
-        <a className={styles.link}>Contact the Ace Centre &gt;</a>
+        <a className={styles.link}>Contact Ace Centre &gt;</a>
       </Link>
     </p>
     <p>
@@ -96,7 +96,7 @@ const aceCentre = (
   <>
     <h3>You should contact Ace Centre.</h3>
     <Link href="/contact">
-      <a className={styles.link}>Contact the Ace Centre &gt;</a>
+      <a className={styles.link}>Contact Ace Centre &gt;</a>
     </Link>
     <p>
       Call us on: <strong>0800 080 3115</strong>
