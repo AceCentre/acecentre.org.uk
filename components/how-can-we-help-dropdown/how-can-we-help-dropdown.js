@@ -44,10 +44,62 @@ export const HowCanWeHelpDropdown = () => {
 
 const productSupplier = (
   <>
-    <h3>You should contact your product supplier</h3>
+    <h3>You should contact your product supplier.</h3>
     <p>
-      You will need the device name and serial number. You may need to be
-      connected to the internet to troubleshoot by remote access.
+      You will find the name and contact details of your product supplier on
+      your provision of equipment form.
+    </p>
+    <p>
+      You will need to know your device name and serial number. You may need to
+      be connected to the internet to troubleshoot by remote access.
+    </p>
+  </>
+);
+
+const productSupplierOrLocalService = (
+  <>
+    <h3>You should contact your product supplier or local AAC professional.</h3>
+    <p>
+      You will find the name and contact details of your product supplier and
+      local AAC professional on your provision of equipment form.
+    </p>
+    <p>
+      You will need to know your device name and serial number. You may need to
+      be connected to the internet to troubleshoot by remote access.
+    </p>
+  </>
+);
+
+const aceCentreOrLocalService = (
+  <>
+    <h3>You should contact Ace Centre or your local AAC professional.</h3>
+    <p>
+      <Link href="/contact">
+        <a className={styles.link}>Contact the Ace Centre &gt;</a>
+      </Link>
+    </p>
+    <p>
+      Call us on: <strong>0800 080 3115</strong>
+    </p>
+    <p>
+      You will find the name and contact details of your product supplier and
+      local AAC professional on your provision of equipment form.
+    </p>
+    <p>
+      You will need to know your device name and serial number. You may need to
+      be connected to the internet to troubleshoot by remote access.
+    </p>
+  </>
+);
+
+const aceCentre = (
+  <>
+    <h3>You should contact Ace Centre.</h3>
+    <Link href="/contact">
+      <a className={styles.link}>Contact the Ace Centre &gt;</a>
+    </Link>
+    <p>
+      Call us on: <strong>0800 080 3115</strong>
     </p>
   </>
 );
@@ -83,45 +135,45 @@ const HOW_CAN_WE_HELP = [
   {
     question:
       "You need help to personalise the content of your communication software.",
-    answer: productSupplier,
+    answer: productSupplierOrLocalService,
   },
   {
     question:
       "You have difficulties with your device accessories (e.g. eye gaze, switch, joystick, mounting).",
-    answer: productSupplier,
+    answer: aceCentreOrLocalService,
   },
   {
     question:
       "You need support to use your device for functional communication.",
-    answer: productSupplier,
+    answer: aceCentreOrLocalService,
   },
   {
     question: "You need additional training.",
-    answer: productSupplier,
+    answer: aceCentreOrLocalService,
   },
   {
     question: "Your needs have changed and you need review.",
-    answer: productSupplier,
+    answer: aceCentreOrLocalService,
   },
   {
     question: "Your device is lost, stolen or damaged.",
-    answer: productSupplier,
+    answer: aceCentre,
   },
   {
     question: "You change address or your contact details change.",
-    answer: productSupplier,
+    answer: aceCentre,
   },
   {
     question: "You no longer need the equipment.",
-    answer: productSupplier,
+    answer: aceCentre,
   },
   {
     question:
       "You do not have a local AAC service/professional to support you, or you have been discharged from your local service.",
-    answer: productSupplier,
+    answer: aceCentre,
   },
   {
     question: "Your supplier/local AAC service cannot help you.",
-    answer: productSupplier,
+    answer: aceCentre,
   },
 ];
