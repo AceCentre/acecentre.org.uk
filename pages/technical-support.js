@@ -4,6 +4,8 @@ import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
+import { PageTitle } from "../components/page-title/page-title";
+import { HowCanWeHelpDropdown } from "../components/how-can-we-help-dropdown/how-can-we-help-dropdown";
 
 export default function TechnicalSupport() {
   const { currentYear } = useGlobalProps();
@@ -13,7 +15,13 @@ export default function TechnicalSupport() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <PageTitle
+          heading="Technical support"
+          description="Get technical support from the Ace Centre"
+        />
+        <HowCanWeHelpDropdown />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
