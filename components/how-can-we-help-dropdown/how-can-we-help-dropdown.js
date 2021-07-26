@@ -156,7 +156,7 @@ const SUPPLIERS = [
       <p>
         <Link href="https://uk.tobiidynavox.com/pages/contact-us">
           <a target="_blank" rel="noopener" className={styles.link}>
-            Contact Tobbii Dynavox &gt;
+            Contact Tobii Dynavox &gt;
           </a>
         </Link>
       </p>
