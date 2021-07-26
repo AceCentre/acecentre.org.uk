@@ -11,8 +11,16 @@
   gap: 1rem;
 }
 
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .list h3 {
   margin-top: 0;
+
+  font-size: 24px;
+  margin-bottom: 0.5rem;
 }
 
 .cardContainer {
