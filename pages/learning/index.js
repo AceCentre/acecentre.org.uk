@@ -33,7 +33,12 @@ export default function Learning({
         <LearningSearch />
         <LearningTicks />
         <CourseList title="Popular courses" products={popularCourses} />
-        <CourseCategoriesGrid productCategories={categories} />
+        <CourseCategoriesGrid
+          productCategories={categories}
+          overlayColor="rgba(138,217,202,0.2)"
+          textBackground="rgba(138,217,202,0.8)"
+          textColor="#ffffff"
+        />
         <div className={styles.buttonContainer}>
           <Button className={styles.button} href="/learning/search">
             View all courses
