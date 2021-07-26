@@ -14,9 +14,10 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "../../styles/engineering.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
-import { InformationDays } from "../../components/information-days/information-days";
+import { getAllFullPosts } from "../../lib/posts/get-posts";
+import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 
-export default function EngineeringPage({ featuredStory }) {
+export default function EngineeringPage({ featuredStory, allPosts }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -163,9 +164,30 @@ export default function EngineeringPage({ featuredStory }) {
               </div>
             </div>
           </div>
+          <div>
+            <h2>Pricing</h2>
+            <p>
+              We’ve provided below our standard pricing and guide pricing for
+              additional services. Please do get in touch for more information
+              and a detailed quotation.
+            </p>
+            <div className={styles.pricingButton}>
+              <Button href="/pricing">Download pricing</Button>
+            </div>
+          </div>
         </div>
-        <InformationDays />
-        <FeaturedStory {...featuredStory} />
+        <div className={styles.extraSpacing}>
+          <FeaturedStory {...featuredStory} />
+        </div>
+        {allPosts.length > 0 && (
+          <div className={styles.extraSpacing}>
+            <FeaturedPosts
+              title="Engineering on the blog"
+              posts={allPosts}
+              smallCards
+            />
+          </div>
+        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -185,8 +207,13 @@ const ListItem = ({ children }) => {
 
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
+  const unfilteredPosts = await getAllFullPosts();
+
+  const allPosts = unfilteredPosts
+    .filter((x) => x.mainCategoryName === "engineering")
+    .slice(0, 4);
 
   return {
-    props: { featuredStory },
+    props: { featuredStory, allPosts },
   };
 });
