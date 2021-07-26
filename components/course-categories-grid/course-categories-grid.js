@@ -4,12 +4,20 @@ import { Avatar } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 
-export const CourseCategoriesGrid = ({ productCategories }) => {
+export const CourseCategoriesGrid = ({
+  productCategories,
+  overlayColor = "rgba(138, 217, 202, 0.2)",
+  textBackground = "rgba(227,190,189,0.8)",
+  textColor = "#333333",
+}) => {
   return (
     <ul className={styles.container}>
       {productCategories.map((category) => {
         return (
           <CategorySquare
+            overlayColor={overlayColor}
+            textBackground={textBackground}
+            textColor={textColor}
             key={`category-square-${category.name}`}
             category={category}
           />
@@ -67,12 +75,20 @@ export const GridSquare = ({
   );
 };
 
-export const CategorySquare = ({ category }) => {
+export const CategorySquare = ({
+  category,
+  overlayColor = "rgba(138, 217, 202, 0.2)",
+  textBackground = "rgba(227,190,189,0.8)",
+  textColor = "#333333",
+}) => {
   return (
     <GridSquare
       href={`/resources/all?category=${category.slug}`}
       image={category.image}
       name={category.name}
+      overlayColor={overlayColor}
+      textBackground={textBackground}
+      textColor={textColor}
     />
   );
 };
