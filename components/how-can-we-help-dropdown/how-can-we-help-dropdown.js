@@ -37,8 +37,41 @@ export const HowCanWeHelpDropdown = () => {
           );
         })}
       </Select>
-      {selectedQuestion && <p>{selectedQuestion.answer}</p>}
+      {selectedQuestion && <div>{selectedQuestion.answer}</div>}
     </div>
+  );
+};
+
+const ProductSupplier = () => {
+  const [selectedSupplier, setSelectedSupplier] = useState(null);
+
+  const onChange = (event) => {
+    const supplier = SUPPLIERS.find((q) => q.supplier === event.target.value);
+    setSelectedSupplier(supplier);
+  };
+
+  return (
+    <>
+      <h3>Already know your supplier?</h3>
+      <p>Choose your supplier from the dropdown below for useful links.</p>
+      <Select
+        maxWidth={200}
+        width="100%"
+        borderRadius={25}
+        backgroundColor="#F5F5F5"
+        onChange={onChange}
+        placeholder="Select your supplier."
+      >
+        {SUPPLIERS.map((entry) => {
+          return (
+            <option value={entry.supplier} key={`suppliers-${entry.supplier}`}>
+              {entry.supplier}
+            </option>
+          );
+        })}
+      </Select>
+      {selectedSupplier && <div>{selectedSupplier.resources}</div>}
+    </>
   );
 };
 
@@ -53,6 +86,7 @@ const productSupplier = (
       You will need to know your device name and serial number. You may need to
       be connected to the internet to troubleshoot by remote access.
     </p>
+    <ProductSupplier />
   </>
 );
 
@@ -67,6 +101,7 @@ const productSupplierOrLocalService = (
       You will need to know your device name and serial number. You may need to
       be connected to the internet to troubleshoot by remote access.
     </p>
+    <ProductSupplier />
   </>
 );
 
@@ -103,6 +138,55 @@ const aceCentre = (
     </p>
   </>
 );
+
+const SUPPLIERS = [
+  {
+    supplier: "Smartbox",
+    resources: (
+      <p>
+        <Link href="https://thinksmartbox.com/smart-support/">
+          <a className={styles.link}>Smartbox support centre &gt;</a>
+        </Link>
+      </p>
+    ),
+  },
+  {
+    supplier: "Tobii Dynavox",
+    resources: (
+      <p>
+        <Link href="https://uk.tobiidynavox.com/pages/contact-us">
+          <a target="_blank" rel="noopener" className={styles.link}>
+            Contact Tobbii Dynavox &gt;
+          </a>
+        </Link>
+      </p>
+    ),
+  },
+  {
+    supplier: "Liberator",
+    resources: (
+      <p>
+        <Link href="https://www.liberator.co.uk/support">
+          <a target="_blank" rel="noopener" className={styles.link}>
+            Liberator support centre &gt;
+          </a>
+        </Link>
+      </p>
+    ),
+  },
+  {
+    supplier: "Techcess",
+    resources: (
+      <p>
+        <Link href="https://www.techcess.co.uk/support/">
+          <a target="_blank" rel="noopener" className={styles.link}>
+            Techess support page &gt;
+          </a>
+        </Link>
+      </p>
+    ),
+  },
+];
 
 const HOW_CAN_WE_HELP = [
   { question: "The device is not working properly.", answer: productSupplier },
