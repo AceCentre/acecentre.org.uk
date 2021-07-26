@@ -37,7 +37,7 @@ export default function GettingStartedLanding({
         <GettingStartedGrid />
         <ResourceList
           title="Resources to get started"
-          viewAllLink="/all?category=getting-started"
+          viewAllLink="/resources/all?category=getting-started"
           products={gettingStartedResources}
         />
         <CourseList
