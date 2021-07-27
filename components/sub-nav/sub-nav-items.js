@@ -101,7 +101,7 @@ export const defaultNavItems = [
   {
     title: "Services",
     tagLine: "what we do",
-    href: "/service",
+    href: "/services",
     cta: {
       primaryLine: "Contact us",
       secondaryLine: "to see how we can help",
