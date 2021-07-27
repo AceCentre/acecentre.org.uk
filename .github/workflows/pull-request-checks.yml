@@ -38,8 +38,6 @@ jobs:
       deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
     env:
       REDIS_URL: ${{ secrets.REDIS_URL }}
-      NEXT_PUBLIC_FORMIUM_PROJECTID: ${{ secrets.NEXT_PUBLIC_FORMIUM_PROJECTID }}
-      FORMIUM_TOKEN: ${{ secrets.FORMIUM_TOKEN }}
       GITHUB_SHA: ${{ github.sha }}
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
