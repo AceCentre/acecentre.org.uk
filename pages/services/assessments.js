@@ -25,8 +25,9 @@ export default function EngineeringPage() {
       </header>
       <main>
         <VideoWithCardCover
-          src="/services/engineering.jpg"
-          alt="An engineering using a 3D printer"
+          src="/assessments.jpg"
+          alt="Two people talking, one using AAC"
+          objectPosition="top"
         >
           <h1 className={styles.cardTitle}>Assessments</h1>
           <p className={styles.cardDescription}>
