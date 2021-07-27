@@ -12,13 +12,5 @@ module.exports = {
     fs.appendFileSync(pathToEnv, `DEPLOY_KEY=${process.env.DEPLOY_KEY}\n`);
     fs.appendFileSync(pathToEnv, `PROM_KEY=${process.env.PROM_KEY}\n`);
     fs.appendFileSync(pathToEnv, `IMAGE_URL=${process.env.IMAGE_URL}\n`);
-    fs.appendFileSync(
-      pathToEnv,
-      `NEXT_PUBLIC_FORMIUM_PROJECTID=${process.env.NEXT_PUBLIC_FORMIUM_PROJECTID}\n`
-    );
-    fs.appendFileSync(
-      pathToEnv,
-      `FORMIUM_TOKEN=${process.env.FORMIUM_TOKEN}\n`
-    );
   },
 };
