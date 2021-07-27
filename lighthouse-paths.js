@@ -35,6 +35,7 @@ const PATHS_TO_TEST = [
   "/getting-started/what-is-aac",
   "/services",
   "/services/self-funded-assessments",
+  "/services/partnerships",
   "/services/assessments",
   "/services/engineering",
   "/services/nhs",
