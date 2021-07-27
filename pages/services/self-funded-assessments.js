@@ -6,7 +6,6 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
