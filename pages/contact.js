@@ -11,8 +11,9 @@ import { formium } from "../lib/formium";
 import { GiveUsACall } from "../components/give-us-a-call/give-us-a-call";
 
 import styles from "../styles/contact.module.css";
+import { ALL_FORMS, MsForm } from "../components/ms-form";
 
-export default function Contact({ slug, form }) {
+export default function Contact({ form }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -27,12 +28,7 @@ export default function Contact({ slug, form }) {
         />
         <ContactCards />
         <div className={styles.splitColumns}>
-          <Form
-            className={styles.form}
-            form={form}
-            slug={slug}
-            formium={formium}
-          />
+          <MsForm className={styles.form} form={form} />
           <GiveUsACall className={styles.giveUsACall} />
         </div>
         <FindOurOffices />
@@ -44,7 +40,7 @@ export default function Contact({ slug, form }) {
 
 export const getStaticProps = withGlobalProps(async () => {
   const slug = "contact";
-  const form = await formium.getFormBySlug(slug);
+  const form = ALL_FORMS.find((current) => current.slug === slug);
 
   return { props: { slug, form } };
 });
