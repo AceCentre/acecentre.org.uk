@@ -12,7 +12,6 @@ import { Avatar } from "@material-ui/core";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/assessments.module.css";
-import Link from "next/link";
 import { InformationDays } from "../../components/information-days/information-days";
 
 export default function EngineeringPage() {
@@ -142,16 +141,5 @@ export default function EngineeringPage() {
     </>
   );
 }
-
-const ListItem = ({ children }) => {
-  return (
-    <li className={styles.listItem}>
-      <Avatar className={styles.listAvatar}>
-        <ChevronRightIcon />
-      </Avatar>
-      {children}
-    </li>
-  );
-};
 
 export const getStaticProps = withGlobalProps();
