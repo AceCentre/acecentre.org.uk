@@ -2,6 +2,7 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
+import { WaysToGetInvolved } from "../../components/ways-to-get-involved/ways-to-get-involved";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 
@@ -25,6 +26,7 @@ export default function GetInvolved() {
             intervention
           </p>
         </VideoWithCardCover>
+        <WaysToGetInvolved />
       </main>
       <Footer currentYear={currentYear} />
     </>
