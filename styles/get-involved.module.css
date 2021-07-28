@@ -1,0 +1,27 @@
+.columns {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.left {
+  margin-top: -4rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 1024px) {
+  .left {
+    margin-top: 0;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
