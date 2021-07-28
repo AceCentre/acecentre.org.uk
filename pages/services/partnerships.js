@@ -27,8 +27,8 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
       </header>
       <main>
         <VideoWithCardCover
-          src="/services/engineering.jpg"
-          alt="An engineering using a 3D printer"
+          src="/services/partnership.jpg"
+          alt="Two Ace Centre staff members looking at an AAC device"
         >
           <h1 className={styles.cardTitle}>Partnerships</h1>
           <p className={styles.cardDescription}>
