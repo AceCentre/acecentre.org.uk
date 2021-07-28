@@ -2,6 +2,7 @@ import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
+import { OtherWaysToDonate } from "../../components/other-ways-to-donate/other-ways-to-donate";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { WhatMoneyCanDo } from "../../components/what-money-can-do/what-money-can-do";
@@ -21,8 +22,8 @@ export default function GetInvolved({ featuredStory }) {
       </header>
       <main>
         <VideoWithCardCover
-          src="/services/partnership.jpg"
-          alt="Two Ace Centre staff members looking at an AAC device"
+          src="/donate.jpg"
+          alt="A client using an AAC device"
         >
           <h1 className={styles.cardTitle}>Donate</h1>
           <p className={styles.cardDescription}>
@@ -54,6 +55,7 @@ export default function GetInvolved({ featuredStory }) {
           <div className={styles.right}></div>
         </div>
         <WhatMoneyCanDo />
+        <OtherWaysToDonate />
         <FeaturedStory {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />
