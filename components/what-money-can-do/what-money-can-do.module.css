@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  margin-bottom: 2rem;
 }
 
 .imageContainer {
@@ -57,5 +58,7 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
