@@ -43,6 +43,7 @@ const PATHS_TO_TEST = [
   "/services/nhs",
   "/services/nhs/assessments",
   "/technical-support",
+  "/get-involved",
 ];
 
 module.exports = PATHS_TO_TEST;
