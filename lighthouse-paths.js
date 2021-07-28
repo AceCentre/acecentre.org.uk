@@ -38,6 +38,8 @@ const PATHS_TO_TEST = [
   "/services/partnerships",
   "/services/assessments",
   "/services/engineering",
+  "/services/advice-information",
+
   "/services/nhs",
   "/services/nhs/assessments",
   "/technical-support",
