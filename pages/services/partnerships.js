@@ -14,10 +14,8 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "../../styles/partnerships.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
-import { getAllFullPosts } from "../../lib/posts/get-posts";
-import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 
-export default function EngineeringPage({ featuredStory, allPosts }) {
+export default function EngineeringPage({ featuredStory }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -140,15 +138,6 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
         <div className={styles.extraSpacing}>
           <FeaturedStory {...featuredStory} />
         </div>
-        {allPosts.length > 0 && (
-          <div className={styles.extraSpacing}>
-            <FeaturedPosts
-              title="Engineering on the blog"
-              posts={allPosts}
-              smallCards
-            />
-          </div>
-        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -168,13 +157,8 @@ const ListItem = ({ children }) => {
 
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
-  const unfilteredPosts = await getAllFullPosts();
-
-  const allPosts = unfilteredPosts
-    .filter((x) => x.mainCategoryName === "engineering")
-    .slice(0, 4);
 
   return {
-    props: { featuredStory, allPosts },
+    props: { featuredStory },
   };
 });
