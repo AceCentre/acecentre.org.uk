@@ -8,6 +8,7 @@ export const Button = ({
   onClick = () => {},
   type,
   newTab = false,
+  disabled = false,
   ...props
 }) => {
   const newTabProps = newTab ? { target: "_blank", rel: "noopener" } : {};
@@ -26,7 +27,10 @@ export const Button = ({
       <button
         type={type}
         {...props}
-        className={`${styles.button} ${className}`}
+        className={`${styles.button} ${className} ${
+          disabled ? styles.disabled : ""
+        }`}
+        disabled={disabled}
       >
         {children}
       </button>
@@ -36,7 +40,10 @@ export const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`${styles.button} ${className}`}
+      className={`${styles.button} ${className} ${
+        disabled ? styles.disabled : ""
+      }`}
+      disabled={disabled}
       {...props}
     >
       {children}

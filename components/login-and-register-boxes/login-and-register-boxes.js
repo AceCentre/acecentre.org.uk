@@ -7,30 +7,61 @@ import {
 } from "@chakra-ui/react";
 import { Button } from "../button/button";
 import Link from "next/link";
+import { useState } from "react";
+
+const useLoginValidation = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  return {
+    // Disable submit when nothing is entered
+    submitDisabled: email.length === 0 || password.length === 0,
+    onChange: (event) => {
+      const id = event.target.id;
+      const newValue = event.target.value;
+
+      if (id === "email") {
+        setEmail(newValue);
+      } else if (id === "password") {
+        setPassword(newValue);
+      }
+    },
+  };
+};
 
 export const LoginAndRegisterBoxes = () => {
+  const {
+    onChange: loginOnChange,
+    submitDisabled: loginSubmitDisabled,
+  } = useLoginValidation();
+
   return (
     <div className={styles.container}>
       <div>
         <h2>Login</h2>
         <Card>
-          <form className={styles.form}>
+          <form className={styles.form} onChange={loginOnChange}>
             <Input
               maxWidth="100%"
               placeholder="john@smith.com"
-              name="Email address"
+              name="email"
               ariaLabel="Email address"
               id="email"
             />
             <Input
               maxWidth="100%"
               placeholder="Enter your password"
-              name="Password"
+              name="password"
               ariaLabel="Password"
+              id="password"
               type="password"
             />
             <div className={styles.buttonContainer}>
-              <Button className={styles.button} type="submit">
+              <Button
+                className={styles.button}
+                type="submit"
+                disabled={loginSubmitDisabled}
+              >
                 Log in
               </Button>
             </div>
