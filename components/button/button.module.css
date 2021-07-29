@@ -9,3 +9,8 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+.disabled {
+  background-color: #eeeeee;
+  cursor: auto;
+}
