@@ -2,7 +2,9 @@ import { Link } from "@material-ui/core";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
+import { FundraisingIdeas } from "../../components/fundraising-ideas/fundraising-ideas";
 import { GenericFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
+import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -19,6 +21,11 @@ export default function GetInvolved() {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
+        <PageTitle
+          heading="Fundraise"
+          description="As a charity we depend on donations for vital services"
+        />
+        <FundraisingIdeas />
         <GenericFaqs faqs={FAQS} />
       </main>
       <Footer currentYear={currentYear} />
