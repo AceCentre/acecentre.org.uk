@@ -46,6 +46,7 @@ const PATHS_TO_TEST = [
   "/get-involved",
   "/get-involved/donate",
   "/get-involved/fundraise",
+  "/login",
 ];
 
 module.exports = PATHS_TO_TEST;
