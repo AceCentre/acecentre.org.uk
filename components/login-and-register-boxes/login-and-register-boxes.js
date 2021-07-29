@@ -7,46 +7,32 @@ import {
 } from "@chakra-ui/react";
 import { Button } from "../button/button";
 import Link from "next/link";
-import { useState } from "react";
-
-const useLoginValidation = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  return {
-    // Disable submit when nothing is entered
-    submitDisabled: email.length === 0 || password.length === 0,
-    onChange: (event) => {
-      const id = event.target.id;
-      const newValue = event.target.value;
-
-      if (id === "email") {
-        setEmail(newValue);
-      } else if (id === "password") {
-        setPassword(newValue);
-      }
-    },
-  };
-};
+import { useLogin } from "../../lib/auth/hooks";
 
 export const LoginAndRegisterBoxes = () => {
   const {
     onChange: loginOnChange,
     submitDisabled: loginSubmitDisabled,
-  } = useLoginValidation();
+    onSubmit: loginOnSubmit,
+    error: loginError,
+  } = useLogin();
 
   return (
     <div className={styles.container}>
       <div>
         <h2>Login</h2>
         <Card>
-          <form className={styles.form} onChange={loginOnChange}>
+          <form
+            className={styles.form}
+            onSubmit={loginOnSubmit}
+            onChange={loginOnChange}
+          >
             <Input
               maxWidth="100%"
               placeholder="john@smith.com"
-              name="email"
-              ariaLabel="Email address"
-              id="email"
+              name="username"
+              ariaLabel="Username or email address"
+              id="username"
             />
             <Input
               maxWidth="100%"
@@ -56,6 +42,7 @@ export const LoginAndRegisterBoxes = () => {
               id="password"
               type="password"
             />
+            {loginError && <p className={styles.loginError}>{loginError}</p>}
             <div className={styles.buttonContainer}>
               <Button
                 className={styles.button}
@@ -106,7 +93,7 @@ const Input = ({ placeholder, name, ariaLabel, id, type }) => {
   return (
     <>
       <FormControl className={styles.formControl} id={id}>
-        <FormLabel>{name}</FormLabel>
+        <FormLabel>{ariaLabel}</FormLabel>
         <ChakraInput
           className={styles.input}
           backgroundColor={"#F5F5F5"}
