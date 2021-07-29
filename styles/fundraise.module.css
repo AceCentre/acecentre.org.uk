@@ -1,3 +1,7 @@
 .buttonContainer {
   margin-top: 2rem;
 }
+
+.extraSpacing {
+  padding: 2rem 0;
+}

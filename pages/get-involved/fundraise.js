@@ -1,6 +1,7 @@
 import { Link } from "@material-ui/core";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { FundraisingIdeas } from "../../components/fundraising-ideas/fundraising-ideas";
 import { GenericFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
@@ -8,11 +9,11 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getSimpleStory } from "../../lib/story/get-story";
+import { getAllFullPosts } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/fundraise.module.css";
 
-export default function GetInvolved() {
+export default function GetInvolved({ allPosts }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -26,6 +27,15 @@ export default function GetInvolved() {
           description="As a charity we depend on donations for vital services"
         />
         <FundraisingIdeas />
+        {allPosts.length > 0 && (
+          <div className={styles.extraSpacing}>
+            <FeaturedPosts
+              title="Fundraising on the blog"
+              posts={allPosts}
+              smallCards
+            />
+          </div>
+        )}
         <GenericFaqs faqs={FAQS} />
       </main>
       <Footer currentYear={currentYear} />
@@ -123,7 +133,13 @@ const FAQS = [
 ];
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("paul");
+  const unfilteredPosts = await getAllFullPosts();
 
-  return { props: { featuredStory } };
+  const allPosts = unfilteredPosts
+    .filter((x) => x.mainCategoryName === "Fundraising")
+    .slice(0, 4);
+
+  return {
+    props: { allPosts },
+  };
 });
