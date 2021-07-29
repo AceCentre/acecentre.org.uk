@@ -1,5 +1,10 @@
 import styles from "./login-and-register-boxes.module.css";
-import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
+import {
+  Input as ChakraInput,
+  FormControl,
+  FormLabel,
+  Checkbox,
+} from "@chakra-ui/react";
 import { Button } from "../button/button";
 import Link from "next/link";
 
@@ -53,7 +58,8 @@ export const LoginAndRegisterBoxes = () => {
               ariaLabel="Password"
               type="password"
             />
-            <div className={styles.buttonContainer}>
+            <Checkbox>Email me about Ace related news and events</Checkbox>
+            <div>
               <Button className={styles.button} type="submit">
                 Register
               </Button>
