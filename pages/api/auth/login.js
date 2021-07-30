@@ -42,7 +42,7 @@ async function handler(req, res) {
 
     const user = {
       authToken: queryResponse.login.authToken,
-      refreshToken: queryResponse.login.authToken,
+      refreshToken: queryResponse.login.refreshToken,
       userId: queryResponse.login.user.id,
       customerId: queryResponse.login.customer.id,
       wooSessionToken: queryResponse.login.user.wooSessionToken,
