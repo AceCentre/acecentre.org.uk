@@ -22,11 +22,11 @@ export default function OrdersPage() {
         <Table
           headings={["ID", "Date", "Status", "Cost", "Quantity"]}
           rows={[
-            [123456, new Date(), "Completed", "£100", "1"],
-            [123456, new Date(), "Completed", "£100", "1"],
-            [123456, new Date(), "Completed", "£100", "1"],
-            [123456, new Date(), "Completed", "£100", "1"],
-            [123456, new Date(), "Completed", "£100", "1"],
+            [123456, "today", "Completed", "£100", "1"],
+            [123456, "today", "Completed", "£100", "1"],
+            [123456, "today", "Completed", "£100", "1"],
+            [123456, "today", "Completed", "£100", "1"],
+            [123456, "today", "Completed", "£100", "1"],
           ]}
         />
       </main>
