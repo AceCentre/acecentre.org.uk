@@ -7,11 +7,11 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { useLogout } from "../lib/auth/hooks";
 import withSession from "../lib/auth/with-session";
 import { useGlobalProps } from "../lib/global-props/hook";
+import { getOrderCount } from "../lib/products/get-orders";
 
 import styles from "../styles/my-acecentre.module.css";
 
-// eslint-disable-next-line no-unused-vars
-export default function LoginPage({ user }) {
+export default function LoginPage({ orderCount }) {
   const { currentYear } = useGlobalProps();
   const { doLogout, logoutAllowed, error: logoutError } = useLogout();
 
@@ -42,7 +42,7 @@ export default function LoginPage({ user }) {
           />
           <DashboardCard
             title="My orders"
-            count={15}
+            count={orderCount}
             linkText="View your orders"
             linkUrl="/my-acecentre/orders"
           />
@@ -84,7 +84,12 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
+  const orderCount = await getOrderCount(req, user);
+
   return {
-    props: { user: { userId: user.userId, customerId: user.customerId } },
+    props: {
+      user: { userId: user.userId, customerId: user.customerId },
+      orderCount,
+    },
   };
 });
