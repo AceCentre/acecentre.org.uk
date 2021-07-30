@@ -41,7 +41,7 @@ export const getStaticProps = withGlobalProps(async () => {
 
   return {
     props: {
-      latestProjects: latestProjects.slice(0, 6),
+      latestProjects: latestProjects.slice(0, 3),
     },
   };
 });

@@ -1,0 +1,47 @@
+.container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.container > :nth-child(1),
+.container > :nth-child(2) {
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 1rem;
+}
+
+.fact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #bfdded;
+  color: #5589b7;
+}
+
+.icon.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.unit {
+  font-size: 18px;
+  margin: 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

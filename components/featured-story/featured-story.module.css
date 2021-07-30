@@ -3,7 +3,7 @@
   /* background-image: linear-gradient(red, yellow); */
 
   max-width: 1540px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -131,6 +131,10 @@
 
 /* Mobile CSS */
 @media (max-width: 940px) {
+  .imageContainer {
+    width: 90%;
+  }
+
   .overlay {
     flex-direction: column;
     align-items: center;
