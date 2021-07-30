@@ -33,11 +33,36 @@ export default function LoginPage({ user }) {
           </div>
         </PageTitle>
         <div className={styles.grid}>
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
-          <DashboardCard />
+          <DashboardCard
+            title="My courses"
+            count={6}
+            linkText="View your courses"
+            linkUrl="/my-acecentre/courses"
+          />
+          <DashboardCard
+            title="My resources"
+            count={15}
+            linkText="View your resources"
+            linkUrl="/my-acecentre/resources"
+          />
+          <DashboardCard
+            description=""
+            title="Addresses"
+            linkText="Manage addresses"
+            linkUrl="/my-acecentre/addresses"
+          />
+          <DashboardCard
+            description=""
+            title="Payment methods"
+            linkText="Manage payment methods"
+            linkUrl="/my-acecentre/payment"
+          />
+          <DashboardCard
+            description=""
+            title="Account details"
+            linkText="Manage details"
+            linkUrl="/my-acecentre/details"
+          />
         </div>
         <pre>{JSON.stringify(user, null, 2)}</pre>
       </main>
