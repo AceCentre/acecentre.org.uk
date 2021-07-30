@@ -4,6 +4,13 @@
   max-width: var(--containerMaxWidth);
 }
 
+.container tr {
+  padding: 10rem;
+}
+.container th {
+  text-align: left;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
