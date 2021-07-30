@@ -1,0 +1,31 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.outerContainer {
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 5rem 0;
+}
+
+.title {
+  margin-top: 0;
+  font-size: 34px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
