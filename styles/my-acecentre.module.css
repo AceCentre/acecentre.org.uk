@@ -1,0 +1,20 @@
+.button {
+  padding: 1rem 2rem;
+}
+
+.buttonContainer {
+  text-align: right;
+}
+
+.error.error {
+  color: red;
+  font-size: 14px;
+  padding-top: 1rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .buttonContainer {
+    text-align: left;
+  }
+}

@@ -1,0 +1,60 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.outerContainer {
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 3rem 0;
+}
+
+.title {
+  font-size: 34px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.listAvatar.listAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #94c64e;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.inlineCard {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+  margin: 1rem 0;
+  background-color: white;
+}
+
+.inlineCard h3 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

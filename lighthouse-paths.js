@@ -35,11 +35,18 @@ const PATHS_TO_TEST = [
   "/getting-started/what-is-aac",
   "/services",
   "/services/self-funded-assessments",
+  "/services/partnerships",
   "/services/assessments",
   "/services/engineering",
+  "/services/advice-information",
+  "/services/research",
   "/services/nhs",
   "/services/nhs/assessments",
   "/technical-support",
+  "/get-involved",
+  "/get-involved/donate",
+  "/get-involved/fundraise",
+  "/login",
 ];
 
 module.exports = PATHS_TO_TEST;
