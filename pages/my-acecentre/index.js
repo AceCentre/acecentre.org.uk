@@ -1,15 +1,15 @@
-import { Button } from "../components/button/button";
-import { CombinedNav } from "../components/combined-nav/combined-nav";
-import { DashboardCard } from "../components/dashboard-card/dashboard-card";
-import { Footer } from "../components/footer/footer";
-import { PageTitle } from "../components/page-title/page-title";
-import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
-import { useLogout } from "../lib/auth/hooks";
-import withSession from "../lib/auth/with-session";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { getOrderCount } from "../lib/products/get-orders";
+import { Button } from "../../components/button/button";
+import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { DashboardCard } from "../../components/dashboard-card/dashboard-card";
+import { Footer } from "../../components/footer/footer";
+import { PageTitle } from "../../components/page-title/page-title";
+import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
+import { useLogout } from "../../lib/auth/hooks";
+import withSession from "../../lib/auth/with-session";
+import { useGlobalProps } from "../../lib/global-props/hook";
+import { getOrderCount } from "../../lib/products/get-orders";
 
-import styles from "../styles/my-acecentre.module.css";
+import styles from "../../styles/my-acecentre.module.css";
 
 export default function LoginPage({ orderCount }) {
   const { currentYear } = useGlobalProps();
@@ -28,7 +28,7 @@ export default function LoginPage({ orderCount }) {
               onClick={doLogout}
               disabled={!logoutAllowed}
             >
-              Logout
+              a Logout
             </Button>
             {logoutError && <p className={styles.error}>{logoutError}</p>}
           </div>
@@ -85,6 +85,15 @@ export const getServerSideProps = withSession(async function ({ req }) {
   }
 
   const orderCount = await getOrderCount(req, user);
+
+  if (orderCount === null) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
