@@ -1,4 +1,4 @@
-import { Link } from "@material-ui/core";
+import Link from "next/link";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
