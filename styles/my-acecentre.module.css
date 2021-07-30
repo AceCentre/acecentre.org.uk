@@ -13,7 +13,8 @@
 }
 
 .grid {
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 2rem;
   width: 90%;
   max-width: var(--containerMaxWidth);
   gap: 1rem;
