@@ -1,5 +1,6 @@
 import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
+import { DashboardCard } from "../components/dashboard-card/dashboard-card";
 import { Footer } from "../components/footer/footer";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
@@ -31,6 +32,13 @@ export default function LoginPage({ user }) {
             {logoutError && <p className={styles.error}>{logoutError}</p>}
           </div>
         </PageTitle>
+        <div className={styles.grid}>
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+          <DashboardCard />
+        </div>
         <pre>{JSON.stringify(user, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
