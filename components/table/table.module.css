@@ -2,13 +2,24 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  border-collapse: collapse;
+  margin-bottom: 2rem;
 }
 
-.container tr {
-  padding: 10rem;
+.container td {
+  padding: 20px;
 }
 .container th {
+  padding: 20px;
+
   text-align: left;
+}
+
+.container table,
+.container th,
+.container td {
+  border: 1px solid #dfdfdf;
+  border-collapse: collapse;
 }
 
 /** Mobile CSS */
