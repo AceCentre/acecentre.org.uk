@@ -10,6 +10,7 @@ import { useGlobalProps } from "../lib/global-props/hook";
 
 import styles from "../styles/my-acecentre.module.css";
 
+// eslint-disable-next-line no-unused-vars
 export default function LoginPage({ user }) {
   const { currentYear } = useGlobalProps();
   const { doLogout, logoutAllowed, error: logoutError } = useLogout();
@@ -40,10 +41,10 @@ export default function LoginPage({ user }) {
             linkUrl="/my-acecentre/courses"
           />
           <DashboardCard
-            title="My resources"
+            title="My orders"
             count={15}
-            linkText="View your resources"
-            linkUrl="/my-acecentre/resources"
+            linkText="View your orders"
+            linkUrl="/my-acecentre/orders"
           />
           <DashboardCard
             description=""
@@ -64,7 +65,6 @@ export default function LoginPage({ user }) {
             linkUrl="/my-acecentre/details"
           />
         </div>
-        <pre>{JSON.stringify(user, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
     </>
