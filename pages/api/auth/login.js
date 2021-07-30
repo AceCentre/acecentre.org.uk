@@ -1,4 +1,4 @@
-import request, { gql } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import config from "../../../lib/config";
 
@@ -27,7 +27,15 @@ async function handler(req, res) {
   const password = body.password;
 
   try {
-    const queryResponse = await request(ENDPOINT, LOGIN_MUTATION, {
+    let headers = {};
+
+    if (req.socket.remoteAddress)
+      headers["X-Forwarded-For"] = req.socket.remoteAddress;
+
+    const client = new GraphQLClient(ENDPOINT, {
+      headers,
+    });
+    const { data: queryResponse } = await client.rawRequest(LOGIN_MUTATION, {
       username,
       password,
     });

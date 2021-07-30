@@ -12,7 +12,7 @@ export const HowCanWeHelpCards = () => {
       <div className={styles.allCards}>
         <div className={styles.gettingStarted}>
           <HowWeHelpCard
-            src="/getting-started-demo-2.svg"
+            src="/graphics/getting-started.svg"
             background="rgba(0,0,0,0)"
             headline="Getting started with AAC and AT"
             secondaryLine="New to AAC and AT? Learn more with our guide to getting started"
@@ -23,7 +23,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.resources}>
           <HowWeHelpCard
-            src="/resources.png"
+            src="/graphics/resources.svg"
             background="rgba(0,0,0,0)"
             headline="Resources"
             secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
@@ -35,7 +35,7 @@ export const HowCanWeHelpCards = () => {
 
         <div className={styles.aceCentreLearning}>
           <HowWeHelpCard
-            src="/learning.png"
+            src="/graphics/learning.svg"
             background="rgba(0,0,0,0)"
             headline="AceCentre Learning"
             secondaryLine="Find the right training for your specific needs"
@@ -46,7 +46,7 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.assessment}>
           <HowWeHelpCard
-            src="/assessment.png"
+            src="/graphics/assessment.svg"
             background="rgba(0,0,0,0)"
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
@@ -57,8 +57,8 @@ export const HowCanWeHelpCards = () => {
         </div>
         <div className={styles.helpline}>
           <HowWeHelpCard
-            src="/advice-line.svg"
-            background="#BFDDED"
+            src="/graphics/helpline.svg"
+            background="rgba(0,0,0,0)"
             headline="Free Advice Line"
             secondaryLine="Call us on 0800 048 7642
             Office hours, Monday - Friday"
@@ -94,7 +94,7 @@ const HowWeHelpCard = ({
         <a className={styles.cardContainer}>
           <div className="imageBackground">
             <div className={styles.cardImageContainer}>
-              <Image alt={alt} src={src} layout="fill" objectFit="cover" />
+              <Image alt={alt} src={src} layout="fill" objectFit="contain" />
             </div>
             {iconColour && (
               <Avatar

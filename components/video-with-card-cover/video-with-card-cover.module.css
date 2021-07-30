@@ -32,13 +32,14 @@
   color: #00537f;
   font-size: 32px;
   margin: 0;
+  line-height: 39px;
 }
 
 .coverImageContainer {
   position: relative;
   height: 500px;
   max-width: 1540px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 

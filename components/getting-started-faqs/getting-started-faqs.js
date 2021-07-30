@@ -32,28 +32,28 @@ export const GenericFaqs = ({ faqs }) => {
           allowMultipleExpanded
           allowZeroExpanded
         >
-          {faqs.map((faq, index) => (
-            <AccordionItem uuid={index} key={faq.question}>
-              <AccordionItemHeading aria-level="3">
-                <AccordionItemButton className={styles.faqQuestion}>
-                  <Avatar className={styles.avatar}>
-                    {selected.includes(index) ? (
-                      <KeyboardArrowDownIcon className={styles.icon} />
-                    ) : (
-                      <ChevronRightIcon className={styles.icon} />
-                    )}
-                  </Avatar>
-                  {faq.question}
-                </AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel>
-                <div
-                  className={styles.faqAnswer}
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}
-                ></div>
-              </AccordionItemPanel>
-            </AccordionItem>
-          ))}
+          {faqs.map((faq, index) => {
+            const uuid = index + 1;
+            return (
+              <AccordionItem uuid={uuid} key={faq.question}>
+                <AccordionItemHeading aria-level="3">
+                  <AccordionItemButton className={styles.faqQuestion}>
+                    <Avatar className={styles.avatar}>
+                      {selected.includes(uuid) ? (
+                        <KeyboardArrowDownIcon className={styles.icon} />
+                      ) : (
+                        <ChevronRightIcon className={styles.icon} />
+                      )}
+                    </Avatar>
+                    {faq.question}
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  <div className={styles.faqAnswer}>{faq.answer}</div>
+                </AccordionItemPanel>
+              </AccordionItem>
+            );
+          })}
         </Accordion>
       </div>
     </div>
@@ -63,7 +63,8 @@ export const GenericFaqs = ({ faqs }) => {
 const FAQS = [
   {
     question: "Won’t using AAC hold back speech development?",
-    answer: `
+    answer: (
+      <>
         <p>
           This is a really common anxiety. However, all the research suggests
           that far from holding speech back, using AAC can even encourage it.
@@ -89,21 +90,24 @@ const FAQS = [
         </p>
         <p>
           If you would like to read some of the journal articles around this
-          area, 
+          area,
           <a href="http://praacticalaac.org/praactical/research-reviews-supporting-the-use-of-aac/">
             there is a great list of relevant articles here.
           </a>
         </p>
         <p>
           <a href="http://uk.dynavoxtech.com/implementation-toolkit/details.aspx?id=373">
-            You will also find a good summary of the issues and research here. 
+            You will also find a good summary of the issues and research here.
           </a>
-        </p>`,
+        </p>
+      </>
+    ),
   },
   {
     question:
       "Why do you recommend paper based resources alongside screen based solutions?",
-    answer: `
+    answer: (
+      <>
         <p>
           The world of communication aid technology has come on so far in the
           last few years that some people question whether there is still a role
@@ -135,30 +139,34 @@ const FAQS = [
           what’s important is the communication. Technology is just one tool
           among many that can help us to communicate.
         </p>
-      `,
+      </>
+    ),
   },
   {
     question: "Can you offer training at my school or workplace?",
-    answer: `
+    answer: (
+      <>
         <p>
-          Absolutely!&nbsp; 
+          Absolutely!&nbsp;
           <a href="https://acecentre.org.uk/services/training/#bespoke-training">
             You can find out about our training services here.
           </a>
         </p>
         <p>
           We have also developed packages to support others to deliver
-          training.&nbsp; See 
+          training.&nbsp; See
           <a href="https://acecentre.org.uk/resources/you-matter/">
             You Matter
-          </a> 
+          </a>
           for more information.
         </p>
-    `,
+      </>
+    ),
   },
   {
     question: "How do I get started with Symbol charts?",
-    answer: `
+    answer: (
+      <>
         <p>
           Getting started with low tech AAC is all about finding a way of
           bringing AAC into daily activities that are relevant for you and your
@@ -174,7 +182,7 @@ const FAQS = [
           join in, that’s great, but don’t force them to use the symbols.&nbsp;
           They need to become really familiar with the symbols and how to use
           them.&nbsp; That can only happen by you using them yourself as you
-          talk to your child.&nbsp; You can see an example of this 
+          talk to your child.&nbsp; You can see an example of this
           <a href="https://www.youtube.com/watch?v=ieeREOclfPE&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=2">
             in action here
           </a>
@@ -186,11 +194,11 @@ const FAQS = [
           The example charts are designed to be accessed by pointing to the
           symbols.&nbsp; However, you could cut the symbols out and arrange them
           on an E-tran frame for eye pointing communicators.&nbsp; You can see
-          an example of symbols being 
+          an example of symbols being
           <a href="https://www.youtube.com/watch?v=cuwgD8YZD3k&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=11">
             selected on an E-tran here
           </a>
-          . You could also scan through the symbols for those using 
+          . You could also scan through the symbols for those using
           <a href="https://www.youtube.com/watch?v=NY2D59MpxBw&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=12">
             listener mediated scanning
           </a>
@@ -198,8 +206,8 @@ const FAQS = [
           offer the symbols.
         </p>
         <p>
-          The communication charts in the 
-          <a href="https://acecentre.org.uk/resources/">Resources section</a> 
+          The communication charts in the
+          <a href="https://acecentre.org.uk/resources/">Resources section</a>
           are available in three different symbols sets – PCS (Picture
           Communication Symbols), Widgit and Symbolstix. &nbsp;&nbsp;No one
           symbol set is ‘better’ than another, it’s more a case of looking
@@ -228,8 +236,8 @@ const FAQS = [
           <a href="https://www.youtube.com/watch?v=9WWpdtbwcwA&amp;index=13&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb">
             You can see this in action here.
           </a>
-          &nbsp; You can always blank off a few symbols if it feels too much
-          and gradually reveal them.
+          &nbsp; You can always blank off a few symbols if it feels too much and
+          gradually reveal them.
         </p>
         <p>
           On a practical note, if you have access to a laminator, you may want
@@ -248,7 +256,7 @@ const FAQS = [
         </p>
         <p>
           You will find much more information about all of the above issues in
-          the new resource 
+          the new resource
           <a href="http://aacbooks.net/book2/">
             Getting Started with AAC:&nbsp; Using low tech symbol based systems
             with children
@@ -257,6 +265,7 @@ const FAQS = [
           the website with guidance on how you might use them, and some video
           examples too.
         </p>
-    `,
+      </>
+    ),
   },
 ];
