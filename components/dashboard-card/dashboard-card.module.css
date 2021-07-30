@@ -1,6 +1,47 @@
 .card {
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.count {
+  margin-left: auto;
+  color: #ffffff;
+
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  background-color: #94c64e;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #345979;
+  margin-top: auto;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
 }
 
 /** Mobile CSS */

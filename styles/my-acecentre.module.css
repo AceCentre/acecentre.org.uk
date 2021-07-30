@@ -47,4 +47,14 @@
   .buttonContainer {
     text-align: left;
   }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "fourth"
+      "fifth";
+  }
 }
