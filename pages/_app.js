@@ -5,15 +5,31 @@ import { SSRProvider } from "@react-aria/ssr";
 
 import { GlobalsContext } from "../lib/global-props/context";
 
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+
+import { useEffect } from "react";
+
+const theme = createTheme();
+
 function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
+  useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <GlobalsContext.Provider value={globalProps}>
       <DefaultHead />
-      <ChakraProvider resetCSS={false}>
-        <SSRProvider>
-          <Component {...pageProps} />
-        </SSRProvider>
-      </ChakraProvider>
+      <ThemeProvider theme={theme}>
+        <ChakraProvider resetCSS={false}>
+          <SSRProvider>
+            <Component {...pageProps} />
+          </SSRProvider>
+        </ChakraProvider>
+      </ThemeProvider>
     </GlobalsContext.Provider>
   );
 }
