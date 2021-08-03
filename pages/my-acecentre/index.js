@@ -7,11 +7,12 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useLogout } from "../../lib/auth/hooks";
 import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
+import { getCourseCount } from "../../lib/products/get-courses";
 import { getOrderCount } from "../../lib/products/get-orders";
 
 import styles from "../../styles/my-acecentre.module.css";
 
-export default function LoginPage({ orderCount }) {
+export default function LoginPage({ orderCount, courseCount }) {
   const { currentYear } = useGlobalProps();
   const { doLogout, logoutAllowed, error: logoutError } = useLogout();
 
@@ -36,7 +37,7 @@ export default function LoginPage({ orderCount }) {
         <div className={styles.grid}>
           <DashboardCard
             title="My courses"
-            count={6}
+            count={courseCount}
             linkText="View your courses"
             linkUrl="/my-acecentre/courses"
           />
@@ -85,8 +86,9 @@ export const getServerSideProps = withSession(async function ({ req }) {
   }
 
   const orderCount = await getOrderCount(req, user);
+  const courseCount = await getCourseCount(req, user);
 
-  if (orderCount === null) {
+  if (orderCount === null || courseCount === null) {
     return {
       redirect: {
         destination: "/login",
@@ -99,6 +101,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     props: {
       user: { userId: user.userId, customerId: user.customerId },
       orderCount,
+      courseCount,
     },
   };
 });
