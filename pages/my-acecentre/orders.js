@@ -7,8 +7,6 @@ import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { getOrders } from "../../lib/products/get-orders";
 
-// import styles from "../../styles/my-acecentre.module.css";
-
 export default function OrdersPage({ orders }) {
   const { currentYear } = useGlobalProps();
 
