@@ -2,28 +2,36 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
-  border-collapse: collapse;
   margin-bottom: 2rem;
 }
 
-.container td {
+.table td {
   padding: 20px;
 }
-.container th {
+.table th {
   padding: 20px;
 
   text-align: left;
 }
 
-.container table,
-.container th,
-.container td {
+.table {
+  border-collapse: collapse;
+}
+
+.table table,
+.table th,
+.table td {
   border: 1px solid #dfdfdf;
   border-collapse: collapse;
 }
 
+.buttonContainer {
+  margin: 2rem auto;
+  margin-bottom: 1rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .table {
   }
 }
