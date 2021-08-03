@@ -28,7 +28,7 @@ export default function LoginPage({ orderCount }) {
               onClick={doLogout}
               disabled={!logoutAllowed}
             >
-              a Logout
+              Logout
             </Button>
             {logoutError && <p className={styles.error}>{logoutError}</p>}
           </div>
