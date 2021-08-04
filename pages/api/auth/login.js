@@ -65,17 +65,18 @@ async function handler(req, res) {
       return res.send({
         success: false,
         error: firstError.message,
-        rawError: error,
-        rawErrorString: JSON.stringify(error, null, 2),
       });
     }
+    if (error.response && error.response.error) {
+      return res.send({
+        success: false,
+        error: error.response.error,
+      });
+    }
+
     return res.send({
       success: false,
-      error,
-      rawError: error.toString(),
-      rawErrorString: JSON.stringify(error, null, 2),
-      req: JSON.stringify(req),
-      headers,
+      error: "Swallowing the error because we cant parse it",
     });
   }
 }
