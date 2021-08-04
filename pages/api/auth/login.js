@@ -58,7 +58,12 @@ async function handler(req, res) {
   } catch (error) {
     if (error.response && error.response.errors && error.response.errors) {
       const firstError = error.response.errors[0];
-      return res.send({ success: false, error: firstError.message });
+      return res.send({
+        success: false,
+        error: firstError.message,
+        rawError: error,
+        rawErrorString: JSON.stringify(error, null, 2),
+      });
     }
     return res.send({ success: false, error });
   }
