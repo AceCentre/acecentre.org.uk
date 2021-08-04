@@ -4149,16 +4149,7 @@
     "@react-aria/utils" "^3.8.0"
     "@react-types/shared" "^3.6.0"
 
-"@react-aria/interactions@3.5.0", "@react-aria/interactions@^3.4.0", "@react-aria/interactions@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.5.0.tgz#40eeb2d668f324956feb753b3594ddca06e08393"
-  integrity sha512-EL5GWpzM9UHU17LztwgL/tF3H2tLG375CD64kieCgSfsRcCSlC3pavnPy9jbS8levdBQ2qo9e2xfoX5VtfJisw==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/utils" "^3.8.1"
-    "@react-types/shared" "^3.7.0"
-
-"@react-aria/interactions@^3.5.1":
+"@react-aria/interactions@3.5.1", "@react-aria/interactions@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.5.1.tgz#4dc94af662f718ad985fad31440b11cef90109db"
   integrity sha512-NLzYmHljXEqiUqr+PqszwFchGWUQc+kXWMI8N8vBra7HbPAej9so2iPU6hvn1k/3+b02kjt/2mqTrlN1T+HeGw==
@@ -4166,6 +4157,15 @@
     "@babel/runtime" "^7.6.2"
     "@react-aria/utils" "^3.8.2"
     "@react-types/shared" "^3.8.0"
+
+"@react-aria/interactions@^3.4.0", "@react-aria/interactions@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.5.0.tgz#40eeb2d668f324956feb753b3594ddca06e08393"
+  integrity sha512-EL5GWpzM9UHU17LztwgL/tF3H2tLG375CD64kieCgSfsRcCSlC3pavnPy9jbS8levdBQ2qo9e2xfoX5VtfJisw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@react-aria/utils" "^3.8.1"
+    "@react-types/shared" "^3.7.0"
 
 "@react-aria/label@^3.1.2":
   version "3.1.2"
