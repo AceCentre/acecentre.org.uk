@@ -70,6 +70,7 @@ async function handler(req, res) {
       error,
       rawError: error.toString(),
       rawErrorString: JSON.stringify(error, null, 2),
+      req: JSON.stringify(req),
     });
   }
 }
