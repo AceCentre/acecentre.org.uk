@@ -14,9 +14,6 @@
   package = "netlify-plugin-cache-nextjs"
 
 [[plugins]]
-  package = "/netlify-plugins/storybook"
-
-[[plugins]]
   package = "/netlify-plugins/sitemap"
 
 [[plugins]]
