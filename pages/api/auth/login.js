@@ -26,11 +26,15 @@ async function handler(req, res) {
   const username = body.username;
   const password = body.password;
 
+  let headers = {};
   try {
-    let headers = {};
-
-    if (req.socket.remoteAddress)
+    if (req && req.socket && req.socket.remoteAddress) {
       headers["X-Forwarded-For"] = req.socket.remoteAddress;
+    }
+
+    if (req && req.headers && req.headers["client-ip"]) {
+      headers["X-Forwarded-For"] = req.headers["client-ip"];
+    }
 
     const client = new GraphQLClient(ENDPOINT, {
       headers,
@@ -71,6 +75,7 @@ async function handler(req, res) {
       rawError: error.toString(),
       rawErrorString: JSON.stringify(error, null, 2),
       req: JSON.stringify(req),
+      headers,
     });
   }
 }
