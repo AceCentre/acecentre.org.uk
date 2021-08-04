@@ -65,7 +65,12 @@ async function handler(req, res) {
         rawErrorString: JSON.stringify(error, null, 2),
       });
     }
-    return res.send({ success: false, error });
+    return res.send({
+      success: false,
+      error,
+      rawError: error.toString(),
+      rawErrorString: JSON.stringify(error, null, 2),
+    });
   }
 }
 
