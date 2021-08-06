@@ -64,7 +64,7 @@ jobs:
         run: yarn patch
 
       - name: Run netlify build
-        run: netlify build --context production --debug
+        run: netlify build --context production
 
       - name: Run netlify deploy
         run: netlify deploy --prod

@@ -26,11 +26,15 @@ async function handler(req, res) {
   const username = body.username;
   const password = body.password;
 
+  let headers = {};
   try {
-    let headers = {};
-
-    if (req.socket.remoteAddress)
+    if (req && req.socket && req.socket.remoteAddress) {
       headers["X-Forwarded-For"] = req.socket.remoteAddress;
+    }
+
+    if (req && req.headers && req.headers["client-ip"]) {
+      headers["X-Forwarded-For"] = req.headers["client-ip"];
+    }
 
     const client = new GraphQLClient(ENDPOINT, {
       headers,
@@ -42,7 +46,7 @@ async function handler(req, res) {
 
     const user = {
       authToken: queryResponse.login.authToken,
-      refreshToken: queryResponse.login.authToken,
+      refreshToken: queryResponse.login.refreshToken,
       userId: queryResponse.login.user.id,
       customerId: queryResponse.login.customer.id,
       wooSessionToken: queryResponse.login.user.wooSessionToken,
@@ -58,9 +62,22 @@ async function handler(req, res) {
   } catch (error) {
     if (error.response && error.response.errors && error.response.errors) {
       const firstError = error.response.errors[0];
-      return res.send({ success: false, error: firstError.message });
+      return res.send({
+        success: false,
+        error: firstError.message,
+      });
     }
-    return res.send({ success: false, error });
+    if (error.response && error.response.error) {
+      return res.send({
+        success: false,
+        error: error.response.error,
+      });
+    }
+
+    return res.send({
+      success: false,
+      error: "Swallowing the error because we cant parse it",
+    });
   }
 }
 

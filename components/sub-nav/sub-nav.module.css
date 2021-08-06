@@ -1,3 +1,17 @@
+.rotated {
+  transform: rotate(90deg);
+}
+
+.animate.animate {
+  transition: transform 0.4s ease-in-out;
+}
+
+@media (prefers-reduced-motion) {
+  .animate.animate {
+    transition: none;
+  }
+}
+
 .activeItem {
   background-color: #ffffff;
 }
@@ -12,6 +26,7 @@
 
 .listItem {
   padding: 1rem 6px;
+  padding-left: 10px;
 }
 
 .innerContainer {
@@ -21,7 +36,7 @@
 
 .subNavInnerContainer {
   align-items: center;
-  padding: 60px 0;
+  padding: 20px 0;
   display: flex;
   margin: 0 auto;
   width: 1024px;
