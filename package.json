@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "1.6.5",
-    "@emotion/react": "11.4.0",
+    "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
     "@formium/client": "0.1.4",
     "@formium/react": "0.2.0",
