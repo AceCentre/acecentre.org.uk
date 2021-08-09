@@ -6,6 +6,7 @@ import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { getMyCourses } from "../../lib/products/get-courses";
 import config from "../../lib/config";
+import { PageTitle } from "../../components/page-title/page-title";
 
 export default function CoursesPage({ courses }) {
   const { currentYear } = useGlobalProps();
@@ -16,6 +17,10 @@ export default function CoursesPage({ courses }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
+        <PageTitle
+          heading="My courses"
+          description="A summary of your courses"
+        />
         <MyCourseList courses={courses} />
       </main>
       <Footer currentYear={currentYear} />
