@@ -11,11 +11,13 @@ export const DashboardCard = ({
   linkText = "View your courses",
   linkUrl = "https://example.com",
 }) => {
+  const countAsInt = parseInt(count);
+
   return (
     <div className={styles.card}>
       <div className={styles.titleRow}>
         <h2 className={styles.title}>{title}</h2>
-        {count && <div className={styles.count}>{count}</div>}
+        {countAsInt > 0 && <div className={styles.count}>{count}</div>}
       </div>
       <p className={styles.description}>{description}</p>
       <Link href={linkUrl}>
