@@ -40,7 +40,7 @@ export const AddressField = ({ title }) => {
         maxWidth="100%"
         placeholder="Flat 1"
         name="addressLine2"
-        ariaLabel="Address Line 2 (Optional)"
+        ariaLabel="Address Line 2 (optional)"
         id="addressLine2"
       />
       <Input
