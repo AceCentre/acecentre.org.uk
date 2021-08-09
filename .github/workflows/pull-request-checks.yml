@@ -1,5 +1,8 @@
 name: Pull Request Checks
 on: [pull_request, workflow_dispatch]
+concurrency:
+  group: pull-request-checks-${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
   CalculateDeployKey:
     runs-on: ubuntu-latest

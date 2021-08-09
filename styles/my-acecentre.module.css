@@ -1,3 +1,14 @@
+.instructions {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding-bottom: 1rem;
+}
+
+.pageTitle {
+  padding-bottom: 0.5rem;
+}
+
 .button {
   padding: 1rem 2rem;
 }
