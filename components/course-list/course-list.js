@@ -48,3 +48,31 @@ export const CourseList = ({
     </div>
   );
 };
+
+export const MyCourseList = ({ courses }) => {
+  const coursesWithoutImageCounters = usePostsWithoutImageCounters(courses);
+
+  return (
+    <div className={`${styles.container}`}>
+      <ul className={styles.postList}>
+        {coursesWithoutImageCounters.map((course) => {
+          return (
+            <Card
+              className={styles.card}
+              imageContainerClassName={styles.imageContainer}
+              href={course.href}
+              key={`my-courses-card-${course.slug}`}
+              noImagePostCount={course.noImagePostCount}
+              subtitle={course.mainCategoryName}
+              featuredImage={course.featuredImage}
+              title={course.title}
+            >
+              <p className={styles.productTitle}>{course.title}</p>
+              <p className={styles.date}>{course.date.card}</p>
+            </Card>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
