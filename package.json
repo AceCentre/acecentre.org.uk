@@ -19,7 +19,7 @@
     "reverse-patch": "patch-package --reverse"
   },
   "dependencies": {
-    "@chakra-ui/react": "1.6.5",
+    "@chakra-ui/react": "1.6.6",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
     "@formium/client": "0.1.4",
