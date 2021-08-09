@@ -22,7 +22,7 @@ export const defaultNavItems = [
     ],
   },
   {
-    title: "Getting started",
+    title: "Getting Started",
     href: "/getting-started",
     tagLine: "how to get started",
     cta: {
@@ -129,7 +129,7 @@ export const defaultNavItems = [
     ],
   },
   {
-    title: "Ace Centre learning",
+    title: "Ace Centre Learning",
     tagLine: "start learning",
     href: "/learning",
     cta: {
@@ -158,7 +158,7 @@ export const defaultNavItems = [
     ],
   },
   {
-    title: "Get involved",
+    title: "Get Involved",
     tagLine: "get involved",
     href: "/get-involved",
     cta: {

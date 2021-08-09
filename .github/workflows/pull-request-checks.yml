@@ -1,5 +1,8 @@
 name: Pull Request Checks
 on: [pull_request, workflow_dispatch]
+concurrency:
+  group: pull-request-checks-${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
   CalculateDeployKey:
     runs-on: ubuntu-latest
@@ -72,7 +75,7 @@ jobs:
         run: yarn patch
 
       - name: Run netlify build
-        run: netlify build --context deploy-preview --debug
+        run: netlify build --context deploy-preview
 
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
