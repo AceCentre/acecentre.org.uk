@@ -1,0 +1,15 @@
+.splitColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  gap: 1rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .splitColumns {
+    grid-template-columns: 1fr;
+  }
+}
