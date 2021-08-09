@@ -8,6 +8,8 @@ import { getMyCourses } from "../../lib/products/get-courses";
 import config from "../../lib/config";
 import { PageTitle } from "../../components/page-title/page-title";
 
+import styles from "../../styles/my-acecentre.module.css";
+
 export default function CoursesPage({ courses }) {
   const { currentYear } = useGlobalProps();
 
@@ -20,7 +22,11 @@ export default function CoursesPage({ courses }) {
         <PageTitle
           heading="My courses"
           description="A summary of your courses"
+          className={styles.pageTitle}
         />
+        <div className={styles.instructions}>
+          <p>Click on the course you want to begin</p>
+        </div>
         <MyCourseList courses={courses} />
       </main>
       <Footer currentYear={currentYear} />
