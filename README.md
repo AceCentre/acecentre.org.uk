@@ -15,14 +15,14 @@ Front-end for acecentre.org.uk built using NextJS. Sits on top of a wordpress ba
 
 Before getting started make sure that you have the following installed:
 
-* Node (LTS)
-* Yarn (`npm i -g yarn`)
+- Node (LTS)
+- Yarn (`npm i -g yarn`)
 
 Make sure to install the dependencies using `yarn install`
-   
+
 ### Running in Dev Mode
 
-You can run the NextJS app by doing `yarn start`. You can then see the website at localhost:3000](http://localhost:3000)
+You can run the NextJS app by doing `yarn dev`. You can then see the website at localhost:3000](http://localhost:3000)
 
 ### Storybook
 
@@ -48,7 +48,7 @@ This project uses the automation in Netlify to deploy the website. This means th
 
 On every pull request we will run the following tests:
 
-* Jest
-* Cypress
-* Lighthouse
-* ESLint
+- Jest
+- Cypress
+- Lighthouse
+- ESLint

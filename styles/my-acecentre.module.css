@@ -1,3 +1,14 @@
+.instructions {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding-bottom: 1rem;
+}
+
+.pageTitle {
+  padding-bottom: 0.5rem;
+}
+
 .button {
   padding: 1rem 2rem;
 }
@@ -12,9 +23,50 @@
   padding-top: 1rem;
 }
 
+.grid {
+  margin: auto;
+  margin-bottom: 2rem;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "first first first second second second"
+    "third third fourth fourth fifth fifth";
+}
+
+.grid > :nth-child(1) {
+  grid-area: first;
+}
+
+.grid > :nth-child(2) {
+  grid-area: second;
+}
+.grid > :nth-child(3) {
+  grid-area: third;
+}
+.grid > :nth-child(4) {
+  grid-area: fourth;
+}
+.grid > :nth-child(5) {
+  grid-area: fifth;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .buttonContainer {
     text-align: left;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "first"
+      "second"
+      "third"
+      "fourth"
+      "fifth";
   }
 }
