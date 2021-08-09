@@ -1,6 +1,26 @@
 .container {
 }
 
+.form {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+  margin-bottom: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.twoWide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {

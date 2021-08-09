@@ -4,12 +4,13 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
-  gap: 1rem;
+  gap: 3rem;
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .splitColumns {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
