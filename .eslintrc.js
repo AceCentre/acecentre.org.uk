@@ -14,6 +14,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
+  parser: "@babel/eslint-parser",
   plugins: ["react", "jest", "cypress"],
   rules: {
     indent: ["error", 2],
