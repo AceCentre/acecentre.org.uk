@@ -50,6 +50,62 @@ const useAddressSubmit = (addressType) => {
       address["email"] = elements.email.value || "";
     }
 
+    if (!address.firstName) {
+      setSubmitDisabled(false);
+      setErrorMessage("First name is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.lastName) {
+      setSubmitDisabled(false);
+      setErrorMessage("Last name is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.country) {
+      setSubmitDisabled(false);
+      setErrorMessage("Country is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.address1) {
+      setSubmitDisabled(false);
+      setErrorMessage("Address Line 1 is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.city) {
+      setSubmitDisabled(false);
+      setErrorMessage("City is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.postcode) {
+      setSubmitDisabled(false);
+      setErrorMessage("Postcode is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.phone && addressType === "billing") {
+      setSubmitDisabled(false);
+      setErrorMessage("Phone is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.email && addressType === "billing") {
+      setSubmitDisabled(false);
+      setErrorMessage("Email is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
     const submit = async () => {
       try {
         const response = await fetch("/api/auth/addresses", {
