@@ -55,12 +55,6 @@ export default function LoginPage({ orderCount, courseCount }) {
           />
           <DashboardCard
             description=""
-            title="Payment methods"
-            linkText="Manage payment methods"
-            linkUrl="/my-acecentre/payment"
-          />
-          <DashboardCard
-            description=""
             title="Account details"
             linkText="Manage details"
             linkUrl="/my-acecentre/details"
