@@ -26,19 +26,19 @@ const useAddressSubmit = (addressType) => {
       address["company"] = elements.company.value || "";
     }
     if (elements.country) {
-      address["country"] = elements.country.value || "";
+      address["country"] = elements.country.value || null;
     }
     if (elements.addressLine1) {
-      address["addressLine1"] = elements.addressLine1.value || "";
+      address["address1"] = elements.addressLine1.value || "";
     }
     if (elements.addressLine2) {
-      address["addressLine2"] = elements.addressLine2.value || "";
+      address["address2"] = elements.addressLine2.value || "";
     }
     if (elements.city) {
       address["city"] = elements.city.value || "";
     }
     if (elements.county) {
-      address["county"] = elements.county.value || "";
+      address["state"] = elements.county.value || "";
     }
     if (elements.postcode) {
       address["postcode"] = elements.postcode.value || "";
@@ -127,9 +127,9 @@ export const AddressField = ({
       <Input
         maxWidth="100%"
         placeholder="John Smith Inc."
-        name="companyName"
+        name="company"
         ariaLabel="Company name (optional)"
-        id="companyName"
+        id="company"
         defaultValue={details.company}
       />
       {billing ? (
@@ -203,14 +203,7 @@ export const AddressField = ({
         id="city"
         defaultValue={details.city}
       />
-      <Input
-        maxWidth="100%"
-        placeholder="Greater Manchester"
-        name="county"
-        ariaLabel="County (optional)"
-        id="county"
-        defaultValue={details.state}
-      />
+
       <Input
         maxWidth="100%"
         placeholder="OL8 3QL"
