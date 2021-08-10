@@ -1,11 +1,12 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
+import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
 // import styles from "../../styles/my-acecentre.module.css";
 
-export default function CoursesPage() {
+export default function DetailsPage() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -13,7 +14,12 @@ export default function CoursesPage() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main></main>
+      <main>
+        <PageTitle
+          heading="My details"
+          description="A summary of your account details"
+        />
+      </main>
       <Footer currentYear={currentYear} />
     </>
   );
