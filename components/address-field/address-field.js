@@ -309,7 +309,7 @@ const Input = ({ placeholder, name, ariaLabel, id, type, defaultValue }) => {
           name={name}
           aria-label={ariaLabel}
           type={type}
-          defaultValue={defaultValue}
+          defaultValue={defaultValue === null ? "" : defaultValue}
         />
       </FormControl>
     </>
