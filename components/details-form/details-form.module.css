@@ -30,6 +30,21 @@
   text-decoration: underline;
 }
 
+.success,
+.error {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
