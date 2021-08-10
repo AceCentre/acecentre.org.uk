@@ -6,12 +6,17 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
+import { getAddresses } from "../../lib/auth/get-user";
 import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
 
 import styles from "../../styles/addresses.module.css";
 
-export default function Addresses() {
+export default function Addresses({
+  billingDetails,
+  shippingDetails,
+  countries,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -25,8 +30,8 @@ export default function Addresses() {
           description="Manage your billing and shipping address"
         />
         <div className={styles.splitColumns}>
-          <BillingDetails />
-          <ShippingDetails />
+          <BillingDetails details={billingDetails} countries={countries} />
+          <ShippingDetails details={shippingDetails} countries={countries} />
         </div>
       </main>
       <Footer currentYear={currentYear} />
@@ -46,8 +51,12 @@ export const getServerSideProps = withSession(async function ({ req }) {
       },
     };
   }
+  const { billingDetails, shippingDetails, countries } = await getAddresses(
+    req,
+    user
+  );
 
   return {
-    props: {},
+    props: { billingDetails, shippingDetails, countries },
   };
 });
