@@ -1,4 +1,5 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
+import { DetailsForm } from "../../components/details-form/details-form";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
@@ -19,6 +20,7 @@ export default function DetailsPage() {
           heading="My details"
           description="A summary of your account details"
         />
+        <DetailsForm />
       </main>
       <Footer currentYear={currentYear} />
     </>
