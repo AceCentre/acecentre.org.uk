@@ -34,7 +34,7 @@
   grid-template-rows: auto;
   grid-template-areas:
     "first first first second second second"
-    "third third fourth fourth fifth fifth";
+    "third third third fourth fourth fourth";
 }
 
 .grid > :nth-child(1) {
