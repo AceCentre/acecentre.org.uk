@@ -118,7 +118,7 @@ const useAddressSubmit = (addressType) => {
         if (parsed.success) {
           setSubmitDisabled(false);
           setErrorMessage(null);
-          setSuccessMessage("Successfully update details");
+          setSuccessMessage("Successfully updated details");
           return;
         }
 
