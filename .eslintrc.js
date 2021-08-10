@@ -24,4 +24,9 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // Next means we don't need this
     "react/prop-types": "off", // We don't use prop types
   },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };
