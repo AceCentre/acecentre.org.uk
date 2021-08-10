@@ -28,7 +28,10 @@ class NextNProgress extends React.Component {
   routeChangeEnd = (_, { shallow }) => {
     if (!shallow || this.props.showOnShallow) {
       clearTimeout(this.progressBarTimeout);
-      NProgress.done(true);
+
+      if (NProgress.isStarted()) {
+        NProgress.done(true);
+      }
     }
   };
 
