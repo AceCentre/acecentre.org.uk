@@ -63,7 +63,7 @@ export const LoginAndRegisterBoxes = () => {
               </Button>
             </div>
           </form>
-          <Link href="/forgot-password">
+          <Link href="/my-acecentre/forgot-password">
             <a className={styles.link}>Forgot your password?</a>
           </Link>
         </Card>

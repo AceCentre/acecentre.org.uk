@@ -5,6 +5,23 @@
   padding-bottom: 1rem;
 }
 
+.changePasswordContainer {
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 540px;
+
+  text-align: center;
+}
+
+.changePasswordIcon.changePasswordIcon {
+  font-size: 6rem;
+}
+
+.changePasswordContainer p {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
 .pageTitle {
   padding-bottom: 0.5rem;
 }
