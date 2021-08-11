@@ -78,7 +78,7 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem, isActive }) => {
+const NavItem = ({ navItem }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
   if (navItem.subItems.length > 10) throw new Error("Too many subitems");
