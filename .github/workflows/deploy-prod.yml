@@ -35,6 +35,8 @@ jobs:
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
       DEPLOY_KEY: production
       PROM_KEY: ${{ secrets.PROM_KEY }}
+      MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
+      MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
 
     steps:
       - name: Get Code

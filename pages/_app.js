@@ -8,6 +8,7 @@ import { GlobalsContext } from "../lib/global-props/context";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { useEffect } from "react";
+import NextNProgress from "../components/progress-bar";
 
 const theme = createTheme();
 
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
       <ThemeProvider theme={theme}>
         <ChakraProvider resetCSS={false}>
           <SSRProvider>
+            <NextNProgress />
             <Component {...pageProps} />
           </SSRProvider>
         </ChakraProvider>

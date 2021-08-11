@@ -5,6 +5,10 @@ on:
   pull_request:
     types: [closed]
 
+concurrency:
+  group: pull-request-checks-${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   # Set deployment to inactive when we merge a PR
   PostMerge:
