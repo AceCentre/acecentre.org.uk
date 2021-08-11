@@ -4,7 +4,7 @@ import config from "../../../lib/config";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
-const LOGIN_MUTATION = gql`
+export const LOGIN_MUTATION = gql`
   mutation($username: String!, $password: String!) {
     login(input: { username: $username, password: $password }) {
       authToken
