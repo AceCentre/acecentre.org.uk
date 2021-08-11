@@ -11,6 +11,7 @@ export const LOGIN_MUTATION = gql`
       refreshToken
       user {
         id
+        username
         wooSessionToken
       }
       customer {
@@ -48,6 +49,7 @@ async function handler(req, res) {
       authToken: queryResponse.login.authToken,
       refreshToken: queryResponse.login.refreshToken,
       userId: queryResponse.login.user.id,
+      username: queryResponse.login.user.username,
       customerId: queryResponse.login.customer.id,
       wooSessionToken: queryResponse.login.user.wooSessionToken,
     };
