@@ -7,6 +7,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
 import styles from "../../styles/my-acecentre.module.css";
+import { changePassword } from "../../lib/auth/get-user";
 
 export default function ChangePassword() {
   const { currentYear } = useGlobalProps();
@@ -42,9 +43,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
     };
   }
 
-  console.log(user);
-
-  // await changePassword(req, user);
+  await changePassword(req, user);
 
   return { props: {} };
 });
