@@ -2,13 +2,12 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { formium } from "../../lib/formium";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { Form } from "../../components/form/form";
 import styles from "../../styles/form.module.css";
+import { ALL_FORMS, MsForm } from "../../components/ms-form";
 
-export default function FormPage({ slug, form }) {
+export default function FormPage({ form }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -18,7 +17,7 @@ export default function FormPage({ slug, form }) {
       </header>
       <main>
         <div className={styles.container}>
-          <Form form={form} slug={slug} formium={formium} />
+          <MsForm form={form} />
         </div>
       </main>
       <Footer currentYear={currentYear} />
@@ -27,8 +26,7 @@ export default function FormPage({ slug, form }) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await formium.findForms();
-  const paths = data.map((form) => ({ params: { slug: form.slug } }));
+  const paths = ALL_FORMS.map((form) => ({ params: { slug: form.slug } }));
 
   return {
     paths,
@@ -37,7 +35,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const form = await formium.getFormBySlug(slug);
+  const form = ALL_FORMS.find((current) => current.slug === slug);
 
   return {
     props: {
