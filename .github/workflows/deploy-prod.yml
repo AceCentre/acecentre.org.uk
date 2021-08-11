@@ -37,6 +37,8 @@ jobs:
       NEXT_PUBLIC_FORMIUM_PROJECTID: ${{ secrets.NEXT_PUBLIC_FORMIUM_PROJECTID }}
       FORMIUM_TOKEN: ${{ secrets.FORMIUM_TOKEN }}
       PROM_KEY: ${{ secrets.PROM_KEY }}
+      MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
+      MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
 
     steps:
       - name: Get Code
