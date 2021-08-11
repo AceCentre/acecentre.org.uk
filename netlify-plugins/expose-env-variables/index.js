@@ -12,6 +12,16 @@ module.exports = {
     fs.appendFileSync(pathToEnv, `DEPLOY_KEY=${process.env.DEPLOY_KEY}\n`);
     fs.appendFileSync(pathToEnv, `PROM_KEY=${process.env.PROM_KEY}\n`);
     fs.appendFileSync(pathToEnv, `IMAGE_URL=${process.env.IMAGE_URL}\n`);
+
+    fs.appendFileSync(
+      pathToEnv,
+      `MAILCHIMP_SERVER=${process.env.MAILCHIMP_SERVER}\n`
+    );
+    fs.appendFileSync(
+      pathToEnv,
+      `MAILCHIMP_API_KEY=${process.env.MAILCHIMP_API_KEY}\n`
+    );
+
     fs.appendFileSync(
       pathToEnv,
       `NEXT_PUBLIC_FORMIUM_PROJECTID=${process.env.NEXT_PUBLIC_FORMIUM_PROJECTID}\n`
