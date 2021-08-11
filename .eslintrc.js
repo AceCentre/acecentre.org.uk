@@ -14,6 +14,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
+  parser: "@babel/eslint-parser",
   plugins: ["react", "jest", "cypress"],
   rules: {
     indent: ["error", 2],
@@ -22,5 +23,10 @@ module.exports = {
     semi: ["error", "always"],
     "react/react-in-jsx-scope": "off", // Next means we don't need this
     "react/prop-types": "off", // We don't use prop types
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };
