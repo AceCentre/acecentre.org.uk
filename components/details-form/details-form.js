@@ -139,7 +139,7 @@ export const DetailsForm = ({ details }) => {
         id="email"
         defaultValue={details.email}
       />
-      <Link href="/forgot-password">
+      <Link href="/my-acecentre/change-password">
         <a className={styles.link}>Send password reset email</a>
       </Link>
       <div>
