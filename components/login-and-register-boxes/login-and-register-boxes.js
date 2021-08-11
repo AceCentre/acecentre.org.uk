@@ -47,8 +47,9 @@ export const LoginAndRegisterBoxes = () => {
               maxWidth="100%"
               placeholder="Enter your password"
               name="password"
-              ariaLabel="Password"
-              id="password"
+              label="Password"
+              ariaLabel="Login Password"
+              id="login-password"
               type="password"
             />
             {loginError && <p className={styles.loginError}>{loginError}</p>}
@@ -90,8 +91,9 @@ export const LoginAndRegisterBoxes = () => {
               maxWidth="100%"
               placeholder="Enter your password"
               name="password"
-              ariaLabel="Password"
-              id="password"
+              label="Password"
+              ariaLabel="Register Password"
+              id="register-password"
               type="password"
             />
             {registerPasswordError && (
@@ -119,11 +121,13 @@ export const LoginAndRegisterBoxes = () => {
   );
 };
 
-const Input = ({ placeholder, name, ariaLabel, id, type }) => {
+const Input = ({ placeholder, name, ariaLabel, id, type, label }) => {
+  const visibleLabel = label || ariaLabel;
+
   return (
     <>
       <FormControl className={styles.formControl} id={id}>
-        <FormLabel>{ariaLabel}</FormLabel>
+        <FormLabel>{visibleLabel}</FormLabel>
         <ChakraInput
           className={styles.input}
           backgroundColor={"#F5F5F5"}
