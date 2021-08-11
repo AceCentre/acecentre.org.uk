@@ -71,6 +71,7 @@ async function handler(req, res) {
       userId: loginResponse.login.user.id,
       customerId: loginResponse.login.customer.id,
       wooSessionToken: loginResponse.login.user.wooSessionToken,
+      username: loginResponse.login.user.username,
     };
 
     req.session.set("user", user);
