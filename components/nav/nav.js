@@ -28,7 +28,7 @@ export const Nav = ({ nhs }) => {
                 My AceCentre
               </NavLink>
 
-              <NavLink href="/checkout">
+              <NavLink href="/basket">
                 <SvgIcon>
                   <ShoppingCartOutlinedIcon />
                 </SvgIcon>

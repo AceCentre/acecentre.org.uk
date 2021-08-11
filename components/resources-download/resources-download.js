@@ -44,7 +44,7 @@ const useAddToCart = () => {
       .then(async (result) => {
         const response = await result.json();
         console.log(response);
-        router.push("/checkout");
+        router.push("/basket");
       })
       .catch((err) => {
         setError(true);
