@@ -6,11 +6,13 @@ import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Link from "next/link";
 import { useState } from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+
 import styles from "./sub-nav.module.css";
+import { NavCta } from "../nav-cta/nav-cta";
 
 export { defaultNavItems } from "./sub-nav-items";
 
-export const SubNav = ({ navItems }) => {
+export const SubNav = ({ navItems, active }) => {
   return (
     <FullWidthContainer>
       <InnerContainer>
@@ -18,6 +20,7 @@ export const SubNav = ({ navItems }) => {
           {navItems.map((item, index) => (
             <NavItem
               index={index}
+              isActive={item.href === active}
               key={`subnav-item-${item.href}`}
               navItem={item}
             />
@@ -75,18 +78,13 @@ const useHighlight = () => {
   };
 };
 
-const NavItem = ({ navItem }) => {
+const NavItem = ({ navItem, isActive }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
   if (navItem.subItems.length > 10) throw new Error("Too many subitems");
 
-  const centrePoint = Math.ceil(navItem.subItems.length / 2);
-
-  const firstNavList = navItem.subItems.slice(0, centrePoint);
-  const secondNavList = navItem.subItems.slice(
-    centrePoint,
-    navItem.subItems.length
-  );
+  const firstNavList = navItem.subItems.slice(0, 5);
+  const secondNavList = navItem.subItems.slice(5, 10);
 
   return (
     <li
@@ -112,44 +110,52 @@ const NavItem = ({ navItem }) => {
       {isHighlighted && (
         <nav className={styles.subNav}>
           <div className={styles.subNavInnerContainer}>
-            <ul className={styles.subList}>
-              {firstNavList.map((subItem) => {
-                return (
-                  <li
-                    className={styles.subListItem}
-                    key={`subnav-item-first-${subItem.href}`}
-                  >
-                    <Link href={subItem.href}>
-                      <a className={styles.subNavLink}>
-                        <Avatar className={styles.arrowAvatar}>
-                          <ArrowForwardIcon />
-                        </Avatar>
-                        {subItem.title}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-            <ul className={styles.subList}>
-              {secondNavList.map((subItem) => {
-                return (
-                  <li
-                    className={styles.subListItem}
-                    key={`subnav-item-second-${subItem.href}`}
-                  >
-                    <Link href={subItem.href}>
-                      <a className={styles.subNavLink}>
-                        <Avatar className={styles.arrowAvatar}>
-                          <ArrowForwardIcon />
-                        </Avatar>
-                        {subItem.title}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className={styles.navContainer}>
+              <p className={styles.explore}>{navItem.tagLine}</p>
+              <div className={styles.listContainer}>
+                <ul className={styles.subList}>
+                  {firstNavList.map((subItem) => {
+                    return (
+                      <li
+                        className={styles.subListItem}
+                        key={`subnav-item-first-${subItem.href}`}
+                      >
+                        <Link href={subItem.href}>
+                          <a className={styles.subNavLink}>
+                            <Avatar className={styles.arrowAvatar}>
+                              <ArrowForwardIcon />
+                            </Avatar>
+                            {subItem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <ul className={styles.subList}>
+                  {secondNavList.map((subItem) => {
+                    return (
+                      <li
+                        className={styles.subListItem}
+                        key={`subnav-item-second-${subItem.href}`}
+                      >
+                        <Link href={subItem.href}>
+                          <a className={styles.subNavLink}>
+                            <Avatar className={styles.arrowAvatar}>
+                              <ArrowForwardIcon />
+                            </Avatar>
+                            {subItem.title}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+            <div>
+              <NavCta {...navItem.cta} />
+            </div>
           </div>
         </nav>
       )}
