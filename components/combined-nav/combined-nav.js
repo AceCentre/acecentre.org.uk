@@ -237,7 +237,7 @@ const MenuContent = ({ defaultNavItems }) => {
         </li>
         <li>
           <div className={styles.menuContentListItem}>
-            <Link href="/checkout">
+            <Link href="/basket">
               <a className={styles.subNavLink}>
                 <SvgIcon>
                   <ShoppingCartOutlinedIcon />
