@@ -44,9 +44,22 @@ const useHighlight = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const [timeout, storeTimeout] = useState(null);
+
   let { hoverProps } = useHover({
     onHoverChange: (latestHovered) => {
-      setIsHovered(latestHovered);
+      if (latestHovered === true) {
+        clearTimeout(timeout);
+        const newTimeout = setTimeout(() => {
+          setIsHovered(true);
+        }, 400);
+        storeTimeout(newTimeout);
+      }
+
+      if (latestHovered === false) {
+        clearTimeout(timeout);
+        setIsHovered(latestHovered);
+      }
     },
   });
 
