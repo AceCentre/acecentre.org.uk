@@ -21,14 +21,5 @@ module.exports = {
       pathToEnv,
       `MAILCHIMP_API_KEY=${process.env.MAILCHIMP_API_KEY}\n`
     );
-
-    fs.appendFileSync(
-      pathToEnv,
-      `NEXT_PUBLIC_FORMIUM_PROJECTID=${process.env.NEXT_PUBLIC_FORMIUM_PROJECTID}\n`
-    );
-    fs.appendFileSync(
-      pathToEnv,
-      `FORMIUM_TOKEN=${process.env.FORMIUM_TOKEN}\n`
-    );
   },
 };
