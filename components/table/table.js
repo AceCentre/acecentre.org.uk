@@ -98,24 +98,32 @@ const demo = [
     type: "Resource",
     quantity: 1,
     price: "£25",
+    resourceHref:
+      "/resources/understanding-features-of-electronic-text-based-aac",
   },
   {
     name: "Developing & Using a Communication Book",
     type: "Resource",
     quantity: 1,
     price: "£25",
+    resourceHref:
+      "/resources/understanding-features-of-electronic-text-based-aac",
   },
   {
     name: "Developing & Using a Communication Book",
     type: "Resource",
     quantity: 1,
     price: "£25",
+    resourceHref:
+      "/resources/understanding-features-of-electronic-text-based-aac",
   },
   {
     name: "Developing & Using a Communication Book",
     type: "Resource",
     quantity: 1,
     price: "£25",
+    resourceHref:
+      "/resources/understanding-features-of-electronic-text-based-aac",
   },
 ];
 
@@ -133,7 +141,11 @@ export const BasketTable = () => {
         return (
           <tr key={line.name}>
             <td>{line.type}</td>
-            <td>{line.name}</td>
+            <td>
+              <Link href={line.resourceHref}>
+                <a className={styles.link}>{line.name}</a>
+              </Link>
+            </td>
             <td>
               <QuantityInput
                 placeholder="0"
