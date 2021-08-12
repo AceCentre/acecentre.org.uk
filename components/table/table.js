@@ -3,6 +3,7 @@ import { Button } from "../button/button";
 import styles from "./table.module.css";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import Link from "next/link";
+import { Input as ChakraInput, FormControl } from "@chakra-ui/react";
 
 export const OrderTable = ({ orders }) => {
   const [detailActive, setDetailActive] = useState(null);
@@ -87,6 +88,84 @@ const OrderDetailTable = ({ order, onClose }) => {
           <Button onClick={onClose}>Close order</Button>
         </div>
       </table>
+    </>
+  );
+};
+
+const demo = [
+  {
+    name: "Developing & Using a Communication Book",
+    type: "Resource",
+    quantity: 1,
+    price: "£25",
+  },
+  {
+    name: "Developing & Using a Communication Book",
+    type: "Resource",
+    quantity: 1,
+    price: "£25",
+  },
+  {
+    name: "Developing & Using a Communication Book",
+    type: "Resource",
+    quantity: 1,
+    price: "£25",
+  },
+  {
+    name: "Developing & Using a Communication Book",
+    type: "Resource",
+    quantity: 1,
+    price: "£25",
+  },
+];
+
+export const BasketTable = () => {
+  return (
+    <table className={`${styles.container} ${styles.table}`}>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+
+      {demo.map((line) => {
+        return (
+          <tr key={line.name}>
+            <td>{line.type}</td>
+            <td>{line.name}</td>
+            <td>
+              <QuantityInput
+                placeholder="0"
+                name="quantity"
+                ariaLabel={`Quantity for ${line.name}`}
+                defaultValue={line.quantity}
+              />
+            </td>
+            <td>{line.price}</td>
+          </tr>
+        );
+      })}
+    </table>
+  );
+};
+
+const QuantityInput = ({ placeholder, name, ariaLabel, id, defaultValue }) => {
+  return (
+    <>
+      <FormControl className={styles.formControl} id={id}>
+        <ChakraInput
+          width="80px"
+          className={styles.input}
+          backgroundColor={"#F5F5F5"}
+          placeholder={placeholder}
+          name={name}
+          type="number"
+          aria-label={ariaLabel}
+          textAlign="center"
+          defaultValue={defaultValue === null ? "" : defaultValue}
+        />
+      </FormControl>
     </>
   );
 };
