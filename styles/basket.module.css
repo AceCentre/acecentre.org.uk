@@ -5,3 +5,8 @@
   margin-bottom: 2rem;
   text-align: right;
 }
+
+.error {
+  font-weight: bold;
+  color: red;
+}
