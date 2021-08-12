@@ -1,5 +1,6 @@
 import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
+import { CouponArea } from "../components/coupon-area/coupon-area";
 import { Footer } from "../components/footer/footer";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
@@ -28,6 +29,7 @@ export default function Basket({ rawBasket }) {
           <Button onClick={() => {}}>Update quantities</Button>
         </div>
         <TotalsTable />
+        <CouponArea />
         <pre>{JSON.stringify(rawBasket, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
