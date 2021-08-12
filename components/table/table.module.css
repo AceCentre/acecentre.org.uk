@@ -29,6 +29,16 @@
   margin-bottom: 1rem;
 }
 
+.link {
+  text-decoration: none;
+  color: #00537f;
+}
+
+.link:focus,
+.link:hover {
+  text-decoration: underline;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .table {
