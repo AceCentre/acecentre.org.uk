@@ -150,6 +150,26 @@ export const BasketTable = () => {
   );
 };
 
+export const TotalsTable = () => {
+  return (
+    <table className={`${styles.container} ${styles.table}`}>
+      <tr>
+        <td>Subtotal</td>
+        <td>£302</td>
+      </tr>
+      <tr>
+        <td>Shipping</td>
+        <td>£6.50</td>
+      </tr>
+
+      <tr>
+        <td>Total</td>
+        <td>£309</td>
+      </tr>
+    </table>
+  );
+};
+
 const QuantityInput = ({ placeholder, name, ariaLabel, id, defaultValue }) => {
   return (
     <>
