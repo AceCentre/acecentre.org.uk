@@ -11,7 +11,7 @@ import { useGlobalProps } from "../lib/global-props/hook";
 
 import styles from "../styles/basket.module.css";
 
-export default function Basket({ rawBasket }) {
+export default function Basket({ lines }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -24,13 +24,13 @@ export default function Basket({ rawBasket }) {
           heading="Checkout"
           description="Here's a summary of your order"
         />
-        <BasketTable />
+        <BasketTable lines={lines} />
         <div className={styles.rightAlign}>
           <Button onClick={() => {}}>Update quantities</Button>
         </div>
         <TotalsTable />
         <CouponArea />
-        <pre>{JSON.stringify(rawBasket, null, 2)}</pre>
+        <pre>{JSON.stringify(lines, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -38,11 +38,11 @@ export default function Basket({ rawBasket }) {
 }
 
 export const getServerSideProps = withSession(async function ({ req }) {
-  const rawBasket = await getCart(req);
+  const { lines } = await getCart(req);
 
   return {
     props: {
-      rawBasket: JSON.parse(JSON.stringify(rawBasket)),
+      lines,
     },
   };
 });
