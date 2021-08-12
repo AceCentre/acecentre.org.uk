@@ -96,7 +96,7 @@ const OrderDetailTable = ({ order, onClose }) => {
   );
 };
 
-export const BasketTable = ({ lines }) => {
+export const BasketTable = ({ lines, onQuantityChange }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
@@ -123,6 +123,7 @@ export const BasketTable = ({ lines }) => {
                     name="quantity"
                     ariaLabel={`Quantity for ${line.name}`}
                     defaultValue={line.quantity}
+                    onChange={onQuantityChange(line)}
                   />
                 ) : (
                   <>{line.quantity}</>
@@ -166,7 +167,14 @@ export const TotalsTable = () => {
   );
 };
 
-const QuantityInput = ({ placeholder, name, ariaLabel, id, defaultValue }) => {
+const QuantityInput = ({
+  placeholder,
+  name,
+  ariaLabel,
+  id,
+  defaultValue,
+  onChange,
+}) => {
   return (
     <>
       <FormControl className={styles.formControl} id={id}>
@@ -180,6 +188,8 @@ const QuantityInput = ({ placeholder, name, ariaLabel, id, defaultValue }) => {
           aria-label={ariaLabel}
           textAlign="center"
           defaultValue={defaultValue === null ? "" : defaultValue}
+          onChange={onChange}
+          min={0}
         />
       </FormControl>
     </>
