@@ -8,10 +8,10 @@ export const CouponArea = () => {
       <div className={styles.voucherInput}>
         <Input
           maxWidth="100%"
-          placeholder="John"
-          name="firstName"
-          ariaLabel="First name"
-          id="firstName"
+          placeholder="VALID VOUCHER"
+          name="voucher"
+          ariaLabel="Voucher"
+          id="voucher"
         />
         <Button>Apply Voucher</Button>
       </div>
