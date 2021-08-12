@@ -39,6 +39,28 @@
   text-decoration: underline;
 }
 
+.tableHeader {
+  color: #00537f;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.rightAlignText {
+  text-align: right;
+}
+
+.shipping p {
+  margin: 0;
+}
+
+.cost {
+  color: #00537f;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .table {
