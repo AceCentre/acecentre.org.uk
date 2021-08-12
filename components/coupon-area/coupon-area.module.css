@@ -2,6 +2,26 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.voucherInput {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-right: auto;
+  align-items: center;
+}
+
+.button {
+  white-space: nowrap;
+}
+
+.checkoutContainer {
+  /* margin-left: auto; */
 }
 
 /** Mobile CSS */
