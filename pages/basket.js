@@ -1,3 +1,4 @@
+import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { PageTitle } from "../components/page-title/page-title";
@@ -6,6 +7,8 @@ import { BasketTable } from "../components/table/table";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
 import { getCart } from "../lib/cart/get";
 import { useGlobalProps } from "../lib/global-props/hook";
+
+import styles from "../styles/basket.module.css";
 
 export default function Basket({ rawBasket }) {
   const { currentYear } = useGlobalProps();
@@ -21,6 +24,9 @@ export default function Basket({ rawBasket }) {
           description="Here's a summary of your order"
         />
         <BasketTable />
+        <div className={styles.rightAlign}>
+          <Button onClick={() => {}}>Update quantities</Button>
+        </div>
         <pre>{JSON.stringify(rawBasket, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
