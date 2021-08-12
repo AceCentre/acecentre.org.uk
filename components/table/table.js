@@ -96,42 +96,7 @@ const OrderDetailTable = ({ order, onClose }) => {
   );
 };
 
-const demo = [
-  {
-    name: "Developing & Using a Communication Book",
-    type: "Resource",
-    quantity: 1,
-    price: "£25",
-    resourceHref:
-      "/resources/understanding-features-of-electronic-text-based-aac",
-  },
-  {
-    name: "Developing & Using a Communication Book",
-    type: "Resource",
-    quantity: 1,
-    price: "£25",
-    resourceHref:
-      "/resources/understanding-features-of-electronic-text-based-aac",
-  },
-  {
-    name: "Developing & Using a Communication Book",
-    type: "Resource",
-    quantity: 1,
-    price: "£25",
-    resourceHref:
-      "/resources/understanding-features-of-electronic-text-based-aac",
-  },
-  {
-    name: "Developing & Using a Communication Book",
-    type: "Resource",
-    quantity: 1,
-    price: "£25",
-    resourceHref:
-      "/resources/understanding-features-of-electronic-text-based-aac",
-  },
-];
-
-export const BasketTable = () => {
+export const BasketTable = ({ lines }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
@@ -142,7 +107,7 @@ export const BasketTable = () => {
           <th>Price</th>
         </tr>
 
-        {demo.map((line) => {
+        {lines.map((line) => {
           return (
             <tr key={line.name}>
               <td>{line.type}</td>
@@ -151,13 +116,17 @@ export const BasketTable = () => {
                   <a className={styles.link}>{line.name}</a>
                 </Link>
               </td>
-              <td>
-                <QuantityInput
-                  placeholder="0"
-                  name="quantity"
-                  ariaLabel={`Quantity for ${line.name}`}
-                  defaultValue={line.quantity}
-                />
+              <td className={styles.center}>
+                {line.allowQuantityEditing ? (
+                  <QuantityInput
+                    placeholder="0"
+                    name="quantity"
+                    ariaLabel={`Quantity for ${line.name}`}
+                    defaultValue={line.quantity}
+                  />
+                ) : (
+                  <>{line.quantity}</>
+                )}
               </td>
               <td>{line.price}</td>
             </tr>
