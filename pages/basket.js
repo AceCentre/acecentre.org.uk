@@ -8,11 +8,19 @@ import { BasketTable, TotalsTable } from "../components/table/table";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
 import { getCart } from "../lib/cart/get";
 import { useGlobalProps } from "../lib/global-props/hook";
+import { useUpdateCart } from "../lib/use-update-cart";
 
 import styles from "../styles/basket.module.css";
 
 export default function Basket({ lines }) {
   const { currentYear } = useGlobalProps();
+
+  const {
+    onQuantityChange,
+    sendUpdate,
+    updateButtonDisabled,
+    error,
+  } = useUpdateCart(lines);
 
   return (
     <>
@@ -24,9 +32,12 @@ export default function Basket({ lines }) {
           heading="Checkout"
           description="Here's a summary of your order"
         />
-        <BasketTable lines={lines} />
+        <BasketTable onQuantityChange={onQuantityChange} lines={lines} />
         <div className={styles.rightAlign}>
-          <Button onClick={() => {}}>Update quantities</Button>
+          {error && <p className={styles.error}>{error}</p>}
+          <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
+            Update quantities
+          </Button>
         </div>
         <TotalsTable />
         <CouponArea />
