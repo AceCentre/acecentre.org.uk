@@ -17,33 +17,35 @@ export const OrderTable = ({ orders }) => {
   return (
     <>
       <table className={`${styles.container} ${styles.table}`}>
-        <tr>
-          <th>ID</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th>Cost</th>
-          <th>Details</th>
-        </tr>
-        {orders.map((order) => {
-          const date = new Date(order.date);
-          const formattedDate = new Intl.DateTimeFormat("en-GB", {
-            dateStyle: "medium",
-          }).format(date);
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Cost</th>
+            <th>Details</th>
+          </tr>
+          {orders.map((order) => {
+            const date = new Date(order.date);
+            const formattedDate = new Intl.DateTimeFormat("en-GB", {
+              dateStyle: "medium",
+            }).format(date);
 
-          return (
-            <tr key={`row-${order.name}`}>
-              <td>#{order.id}</td>
-              <td>{formattedDate}</td>
-              <td>{order.status}</td>
-              <td>{order.cost}</td>
-              <td>
-                <Button onClick={() => setDetailActive(order.id)}>
-                  Details
-                </Button>
-              </td>
-            </tr>
-          );
-        })}
+            return (
+              <tr key={`row-${order.name}`}>
+                <td>#{order.id}</td>
+                <td>{formattedDate}</td>
+                <td>{order.status}</td>
+                <td>{order.cost}</td>
+                <td>
+                  <Button onClick={() => setDetailActive(order.id)}>
+                    Details
+                  </Button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
       <Modal size="6xl" isCentered isOpen={!!detailActive} onClose={onClose}>
         <ModalOverlay />
@@ -64,29 +66,31 @@ const OrderDetailTable = ({ order, onClose }) => {
     <>
       <h2>Order #{order.id}</h2>
       <table className={styles.table}>
-        <tr>
-          <th>Type</th>
-          <th>Name</th>
-          <th>Quantity</th>
-          <th>Price</th>
-        </tr>
-        {order.lines.map((line) => {
-          return (
-            <tr key={line.name}>
-              <td>{line.type}</td>
-              <td>
-                <Link href={line.href}>
-                  <a>{line.name}</a>
-                </Link>
-              </td>
-              <td>{line.quantity}</td>
-              <td>{line.total}</td>
-            </tr>
-          );
-        })}
-        <div className={styles.buttonContainer}>
-          <Button onClick={onClose}>Close order</Button>
-        </div>
+        <tbody>
+          <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          {order.lines.map((line) => {
+            return (
+              <tr key={line.name}>
+                <td>{line.type}</td>
+                <td>
+                  <Link href={line.href}>
+                    <a>{line.name}</a>
+                  </Link>
+                </td>
+                <td>{line.quantity}</td>
+                <td>{line.total}</td>
+              </tr>
+            );
+          })}
+          <div className={styles.buttonContainer}>
+            <Button onClick={onClose}>Close order</Button>
+          </div>
+        </tbody>
       </table>
     </>
   );
@@ -130,34 +134,36 @@ const demo = [
 export const BasketTable = () => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
 
-      {demo.map((line) => {
-        return (
-          <tr key={line.name}>
-            <td>{line.type}</td>
-            <td>
-              <Link href={line.resourceHref}>
-                <a className={styles.link}>{line.name}</a>
-              </Link>
-            </td>
-            <td>
-              <QuantityInput
-                placeholder="0"
-                name="quantity"
-                ariaLabel={`Quantity for ${line.name}`}
-                defaultValue={line.quantity}
-              />
-            </td>
-            <td>{line.price}</td>
-          </tr>
-        );
-      })}
+        {demo.map((line) => {
+          return (
+            <tr key={line.name}>
+              <td>{line.type}</td>
+              <td>
+                <Link href={line.resourceHref}>
+                  <a className={styles.link}>{line.name}</a>
+                </Link>
+              </td>
+              <td>
+                <QuantityInput
+                  placeholder="0"
+                  name="quantity"
+                  ariaLabel={`Quantity for ${line.name}`}
+                  defaultValue={line.quantity}
+                />
+              </td>
+              <td>{line.price}</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   );
 };
@@ -165,19 +171,28 @@ export const BasketTable = () => {
 export const TotalsTable = () => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
-      <tr>
-        <td>Subtotal</td>
-        <td>£302</td>
-      </tr>
-      <tr>
-        <td>Shipping</td>
-        <td>£6.50</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td className={styles.tableHeader}>Subtotal</td>
+          <td className={`${styles.cost} ${styles.rightAlignText}`}>£302</td>
+        </tr>
+        <tr>
+          <td className={styles.tableHeader}>Shipping</td>
+          <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+            <p className={`${styles.cost} ${styles.bold}`}>£6.50</p>
+            <p>Shipping options will be updated during checkout.</p>
+          </td>
+        </tr>
 
-      <tr>
-        <td>Total</td>
-        <td>£309</td>
-      </tr>
+        <tr>
+          <td className={styles.tableHeader}>Total</td>
+          <td
+            className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
+          >
+            £309
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 };
