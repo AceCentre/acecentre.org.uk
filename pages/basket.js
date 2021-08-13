@@ -13,7 +13,13 @@ import { useUpdateCart } from "../lib/use-update-cart";
 
 import styles from "../styles/basket.module.css";
 
-export default function Basket({ lines, subtotal, shipping, total }) {
+export default function Basket({
+  lines,
+  subtotal,
+  shipping,
+  total,
+  discountTotal,
+}) {
   const { currentYear } = useGlobalProps();
 
   const {
@@ -47,7 +53,12 @@ export default function Basket({ lines, subtotal, shipping, total }) {
             Update quantities
           </Button>
         </div>
-        <TotalsTable subtotal={subtotal} total={total} shipping={shipping} />
+        <TotalsTable
+          discountTotal={discountTotal}
+          subtotal={subtotal}
+          total={total}
+          shipping={shipping}
+        />
         <CouponArea
           isApplyVoucherDisabled={isApplyVoucherDisabled}
           applyCoupon={applyCoupon}
@@ -62,7 +73,9 @@ export default function Basket({ lines, subtotal, shipping, total }) {
 }
 
 export const getServerSideProps = withSession(async function ({ req }) {
-  const { lines, subtotal, shipping, total } = await getCart(req);
+  const { lines, subtotal, shipping, total, discountTotal } = await getCart(
+    req
+  );
 
   return {
     props: {
@@ -70,6 +83,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       subtotal,
       shipping,
       total,
+      discountTotal,
     },
   };
 });
