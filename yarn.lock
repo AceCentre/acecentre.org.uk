@@ -3142,7 +3142,7 @@
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
   integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
 
-"@netlify/build@^18.2.4":
+"@netlify/build@^18.2.5":
   version "18.2.5"
   resolved "https://registry.yarnpkg.com/@netlify/build/-/build-18.2.5.tgz#74f0e26188e2f3986d46a96d158d8269040f822f"
   integrity sha512-ACe4c5R8Pkf+HRD6hKlHqm5ZMFkAVsyDmwHPWuu6W+XWZcoYuSVMei0H2sZ/7diM0VuiQt4zhkcngabqOVgs/g==
@@ -3268,10 +3268,10 @@
     validate-npm-package-name "^3.0.0"
     yargs "^15.3.0"
 
-"@netlify/config@^15.1.4":
-  version "15.1.6"
-  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-15.1.6.tgz#1092c4f23c82326acd19b4c446499f3fc3ccba4d"
-  integrity sha512-mpChNOGl+1EXe+abHgw/pN6FHC1oMTbvq7CL4OMuuWEvjszlPT5e9Ac4a7lFWsUBcNLRf/lozgImb77PPj1fOw==
+"@netlify/config@^15.1.6":
+  version "15.1.7"
+  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-15.1.7.tgz#d08211f74c3f34e33a0e454ef7d28610fe9ebb5b"
+  integrity sha512-MKf3G/3HuItOgLUibZjxJeheK+hDin1ALMH3jxt0ob1BWSmza1SlCX+SmbPrYciXfcYfZhu070g0BedBW93XBA==
   dependencies:
     "@ungap/from-entries" "^0.2.1"
     array-flat-polyfill "^1.0.1"
@@ -3290,7 +3290,7 @@
     make-dir "^3.1.0"
     map-obj "^4.0.0"
     netlify "^8.0.0"
-    netlify-headers-parser "^2.1.0"
+    netlify-headers-parser "^2.1.1"
     netlify-redirect-parser "^10.0.0"
     omit.js "^2.0.2"
     p-locate "^4.1.0"
@@ -14709,13 +14709,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-netlify-cli@6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-6.3.1.tgz#8b0b690cf54f30d529faddb373bcc760a0c84729"
-  integrity sha512-ZQNDtcRU/LQu7nWAY/3AG4jxE28yxmPvPycmCgH8213mFyOlXYlRYgu3I+SerA0YTee2XYc/DuyF8Ga2/x/5Qw==
+netlify-cli@6.3.3:
+  version "6.3.3"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-6.3.3.tgz#5562eeae651be8d247965c276a934734d22f026a"
+  integrity sha512-SS6q6CZstw1VWGZ8+VTyCu7B+aw0Jsoe3VNAZGTo3JxuhutmpDDkw1oyhLx0sjA6E+jq4/goqN7m7ivh9H4Qdw==
   dependencies:
-    "@netlify/build" "^18.2.4"
-    "@netlify/config" "^15.1.4"
+    "@netlify/build" "^18.2.5"
+    "@netlify/config" "^15.1.6"
     "@netlify/framework-info" "^5.8.0"
     "@netlify/local-functions-proxy" "^1.1.1"
     "@netlify/plugin-edge-handlers" "^1.11.22"
@@ -14789,7 +14789,7 @@ netlify-cli@6.3.1:
     minimist "^1.2.5"
     multiparty "^4.2.1"
     netlify "^8.0.0"
-    netlify-redirect-parser "^9.1.0"
+    netlify-redirect-parser "^10.0.0"
     netlify-redirector "^0.2.1"
     node-fetch "^2.6.0"
     node-version-alias "^1.0.1"
@@ -14836,7 +14836,7 @@ netlify-headers-parser@^1.0.0:
     path-exists "^4.0.0"
     toml "^3.0.0"
 
-netlify-headers-parser@^2.1.0:
+netlify-headers-parser@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/netlify-headers-parser/-/netlify-headers-parser-2.1.1.tgz#7b349cdd62476ae1b3ad9630d96cbe8801f11ee9"
   integrity sha512-zIVVKf2+5Y/m/dx1+uLdh4xrqf7X6sDFKhFj/RHeyBS8ArqnyAF9vkm3uS0WqByfMpBTmpqZKNXPlJ8dTNihWQ==
@@ -14867,16 +14867,6 @@ netlify-redirect-parser@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/netlify-redirect-parser/-/netlify-redirect-parser-8.2.0.tgz#cf4eb0b0e960468857407005a69618fc244e4b9d"
   integrity sha512-XaCojsgAKs19vlT2C4CEs4bp166bBsgA/brt10x2HLsgp4tF3dSacClPfZgGknyHB1MnMK8j3SFp9yq6rYm8CQ==
-  dependencies:
-    filter-obj "^2.0.2"
-    is-plain-obj "^2.1.0"
-    path-exists "^4.0.0"
-    toml "^3.0.0"
-
-netlify-redirect-parser@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/netlify-redirect-parser/-/netlify-redirect-parser-9.1.0.tgz#b70f00d8897632fe7a525dbf79531e56499cc391"
-  integrity sha512-YORCj4Qeimv7VixnNHtTt3i0EfyWYG0rYb68EcQpwJ+nG1mRWmybW2WwYcKI5jRIaKTNZeDwsWS+yuGpRfcu0A==
   dependencies:
     filter-obj "^2.0.2"
     is-plain-obj "^2.1.0"
