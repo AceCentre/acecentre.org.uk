@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-right: auto;
   align-items: center;
   white-space: nowrap;
 }
@@ -23,7 +22,12 @@
 }
 
 .checkoutContainer {
-  /* margin-left: auto; */
+  margin-left: auto;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
 }
 
 /** Mobile CSS */
