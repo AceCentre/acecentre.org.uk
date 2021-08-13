@@ -65,7 +65,6 @@ export default function Basket({
           onCouponChange={onCouponChange}
           error={couponError}
         />
-        <pre>{JSON.stringify(lines, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
     </>
