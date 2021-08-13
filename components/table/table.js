@@ -145,7 +145,7 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
   );
 };
 
-export const TotalsTable = ({ subtotal, shipping, total }) => {
+export const TotalsTable = ({ subtotal, shipping, total, discountTotal }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
@@ -155,6 +155,14 @@ export const TotalsTable = ({ subtotal, shipping, total }) => {
             {subtotal}
           </td>
         </tr>
+        {discountTotal !== "£0.00" && (
+          <tr>
+            <td className={styles.tableHeader}>Discount </td>
+            <td className={`${styles.rightAlignText} ${styles.cost} `}>
+              -{discountTotal}
+            </td>
+          </tr>
+        )}
         <tr>
           <td className={styles.tableHeader}>Shipping</td>
           <td className={`${styles.rightAlignText} ${styles.shipping}`}>
@@ -162,7 +170,6 @@ export const TotalsTable = ({ subtotal, shipping, total }) => {
             <p>Shipping options will be updated during checkout.</p>
           </td>
         </tr>
-
         <tr>
           <td className={styles.tableHeader}>Total</td>
           <td
