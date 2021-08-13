@@ -27,7 +27,7 @@ export const CouponArea = ({
         {error && <p className={styles.error}>{error}</p>}
       </div>
       <div className={styles.checkoutContainer}>
-        <Button className={styles.button} onClick={() => {}}>
+        <Button className={styles.button} href="/checkout">
           Checkout
         </Button>
       </div>
