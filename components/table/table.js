@@ -101,7 +101,7 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
         <tr>
-          <th>Type</th>
+          <th className={styles.hideOnMobile}>Type</th>
           <th>Name</th>
           <th>Quantity</th>
           <th>Price</th>
@@ -110,7 +110,7 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
         {lines.map((line) => {
           return (
             <tr key={line.name}>
-              <td>{line.type}</td>
+              <td className={styles.hideOnMobile}>{line.type}</td>
               <td>
                 <Link href={line.resourceHref}>
                   <a className={styles.link}>{line.name}</a>
