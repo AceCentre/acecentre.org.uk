@@ -7,17 +7,35 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
+import { CombinedNav } from "../components/combined-nav/combined-nav";
+import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
+import { Footer } from "../components/footer/footer";
+import { useGlobalProps } from "../lib/global-props/hook";
+import withSession from "../lib/auth/with-session";
 
 export default function Checkout() {
+  const { currentYear } = useGlobalProps();
+
   return (
     <>
-      <h1>Checkout</h1>
-      <Elements stripe={loadStripe(config.stripeApiKey)}>
-        <CheckoutForm />
-      </Elements>
+      <header>
+        <CombinedNav defaultNavItems={defaultNavItems} />
+      </header>
+      <main>
+        <Elements stripe={loadStripe(config.stripeApiKey)}>
+          <CheckoutForm />
+        </Elements>
+      </main>
+      <Footer currentYear={currentYear} />
     </>
   );
 }
+
+export const getServerSideProps = withSession(async function () {
+  return {
+    props: {},
+  };
+});
 
 const CheckoutForm = () => {
   // This loads up the Stripe object
