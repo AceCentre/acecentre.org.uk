@@ -8,6 +8,7 @@ import { BasketTable, TotalsTable } from "../components/table/table";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
 import { getCart } from "../lib/cart/get";
 import { useGlobalProps } from "../lib/global-props/hook";
+import { useCoupon } from "../lib/use-coupon";
 import { useUpdateCart } from "../lib/use-update-cart";
 
 import styles from "../styles/basket.module.css";
@@ -19,8 +20,15 @@ export default function Basket({ lines, subtotal, shipping, total }) {
     onQuantityChange,
     sendUpdate,
     updateButtonDisabled,
-    error,
+    error: updateCartError,
   } = useUpdateCart(lines);
+
+  const {
+    applyCoupon,
+    onCouponChange,
+    isApplyVoucherDisabled,
+    error: couponError,
+  } = useCoupon();
 
   return (
     <>
@@ -34,13 +42,18 @@ export default function Basket({ lines, subtotal, shipping, total }) {
         />
         <BasketTable onQuantityChange={onQuantityChange} lines={lines} />
         <div className={styles.rightAlign}>
-          {error && <p className={styles.error}>{error}</p>}
+          {updateCartError && <p className={styles.error}>{updateCartError}</p>}
           <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
             Update quantities
           </Button>
         </div>
         <TotalsTable subtotal={subtotal} total={total} shipping={shipping} />
-        <CouponArea />
+        <CouponArea
+          isApplyVoucherDisabled={isApplyVoucherDisabled}
+          applyCoupon={applyCoupon}
+          onCouponChange={onCouponChange}
+          error={couponError}
+        />
         <pre>{JSON.stringify(lines, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
