@@ -145,18 +145,20 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
   );
 };
 
-export const TotalsTable = () => {
+export const TotalsTable = ({ subtotal, shipping, total }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
         <tr>
           <td className={styles.tableHeader}>Subtotal</td>
-          <td className={`${styles.cost} ${styles.rightAlignText}`}>£302</td>
+          <td className={`${styles.cost} ${styles.rightAlignText}`}>
+            {subtotal}
+          </td>
         </tr>
         <tr>
           <td className={styles.tableHeader}>Shipping</td>
           <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-            <p className={`${styles.cost} ${styles.bold}`}>£6.50</p>
+            <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
             <p>Shipping options will be updated during checkout.</p>
           </td>
         </tr>
@@ -166,7 +168,7 @@ export const TotalsTable = () => {
           <td
             className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
           >
-            £309
+            {total}
           </td>
         </tr>
       </tbody>
