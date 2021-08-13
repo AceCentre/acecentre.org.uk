@@ -14,6 +14,9 @@ import { useGlobalProps } from "../lib/global-props/hook";
 import withSession from "../lib/auth/with-session";
 import { getCart } from "../lib/cart/get";
 import { OrderSummaryTable } from "../components/table/table";
+import Link from "next/link";
+
+import styles from "../styles/checkout.module.css";
 
 export default function Checkout({
   lines,
@@ -30,6 +33,12 @@ export default function Checkout({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
+        <div className={styles.tableLabel}>
+          <h3>Order summary</h3>
+          <Link href="/basket">
+            <a className={styles.editBasket}>Edit basket</a>
+          </Link>
+        </div>
         <OrderSummaryTable
           lines={lines}
           subtotal={subtotal}

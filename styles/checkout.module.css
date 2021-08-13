@@ -1,0 +1,19 @@
+.tableLabel {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: flex;
+  align-items: center;
+}
+
+.editBasket {
+  margin-left: auto;
+  color: #345979;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.editBasket:hover,
+.editBasket:focus {
+  text-decoration: underline;
+}
