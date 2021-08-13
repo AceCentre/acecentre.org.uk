@@ -33,5 +33,10 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    flex-direction: column;
+  }
+
+  .checkoutContainer {
+    margin-top: 2rem;
   }
 }

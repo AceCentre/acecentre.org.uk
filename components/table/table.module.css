@@ -69,4 +69,8 @@
 @media (max-width: 760px) {
   .table {
   }
+
+  .hideOnMobile {
+    display: none;
+  }
 }
