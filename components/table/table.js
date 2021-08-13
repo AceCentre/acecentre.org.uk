@@ -96,6 +96,77 @@ const OrderDetailTable = ({ order, onClose }) => {
   );
 };
 
+export const OrderSummaryTable = ({
+  lines,
+  subtotal,
+  shipping,
+  total,
+  discountTotal,
+}) => {
+  return (
+    <>
+      <table
+        className={`${styles.container} ${styles.table} ${styles.noMargin}`}
+      >
+        <tbody>
+          <tr>
+            <th className={styles.hideOnMobile}>Type</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+
+          {lines.map((line) => {
+            return (
+              <tr key={line.name}>
+                <td className={styles.hideOnMobile}>{line.type}</td>
+                <td>
+                  <Link href={line.resourceHref}>
+                    <a className={styles.link}>{line.name}</a>
+                  </Link>
+                </td>
+                <td className={styles.center}>{line.quantity}</td>
+                <td>{line.price}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <table className={`${styles.container} ${styles.table}`}>
+        <tr>
+          <td className={styles.tableHeader}>Subtotal</td>
+          <td className={`${styles.cost} ${styles.rightAlignText}`}>
+            {subtotal}
+          </td>
+        </tr>
+        {discountTotal !== "£0.00" && (
+          <tr>
+            <td className={styles.tableHeader}>Discount </td>
+            <td className={`${styles.rightAlignText} ${styles.cost} `}>
+              -{discountTotal}
+            </td>
+          </tr>
+        )}
+        <tr>
+          <td className={styles.tableHeader}>Shipping</td>
+          <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+            <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
+            <p>Shipping options will be updated during checkout.</p>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.tableHeader}>Total</td>
+          <td
+            className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
+          >
+            {total}
+          </td>
+        </tr>
+      </table>
+    </>
+  );
+};
+
 export const BasketTable = ({ lines, onQuantityChange }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>

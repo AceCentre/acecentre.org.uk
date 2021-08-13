@@ -12,8 +12,16 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { Footer } from "../components/footer/footer";
 import { useGlobalProps } from "../lib/global-props/hook";
 import withSession from "../lib/auth/with-session";
+import { getCart } from "../lib/cart/get";
+import { OrderSummaryTable } from "../components/table/table";
 
-export default function Checkout() {
+export default function Checkout({
+  lines,
+  subtotal,
+  shipping,
+  total,
+  discountTotal,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -22,6 +30,13 @@ export default function Checkout() {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
+        <OrderSummaryTable
+          lines={lines}
+          subtotal={subtotal}
+          shipping={shipping}
+          total={total}
+          discountTotal={discountTotal}
+        />
         <Elements stripe={loadStripe(config.stripeApiKey)}>
           <CheckoutForm />
         </Elements>
@@ -31,9 +46,19 @@ export default function Checkout() {
   );
 }
 
-export const getServerSideProps = withSession(async function () {
+export const getServerSideProps = withSession(async function ({ req }) {
+  const { lines, subtotal, shipping, total, discountTotal } = await getCart(
+    req
+  );
+
   return {
-    props: {},
+    props: {
+      lines,
+      subtotal,
+      shipping,
+      total,
+      discountTotal,
+    },
   };
 });
 

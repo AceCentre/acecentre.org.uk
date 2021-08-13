@@ -29,6 +29,15 @@
   margin-bottom: 1rem;
 }
 
+.noMargin.noMargin {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.noMargin.noMargin tr {
+  border-bottom: none;
+}
+
 .link {
   text-decoration: none;
   color: #00537f;
