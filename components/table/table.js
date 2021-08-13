@@ -126,7 +126,14 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
                     onChange={onQuantityChange(line)}
                   />
                 ) : (
-                  <>{line.quantity}</>
+                  <QuantityInput
+                    placeholder="0"
+                    name="quantity"
+                    ariaLabel={`Quantity for ${line.name}`}
+                    defaultValue={line.quantity}
+                    onChange={onQuantityChange(line)}
+                    max={1}
+                  />
                 )}
               </td>
               <td>{line.price}</td>
@@ -174,6 +181,7 @@ const QuantityInput = ({
   id,
   defaultValue,
   onChange,
+  max,
 }) => {
   return (
     <>
@@ -190,6 +198,7 @@ const QuantityInput = ({
           defaultValue={defaultValue === null ? "" : defaultValue}
           onChange={onChange}
           min={0}
+          max={max}
         />
       </FormControl>
     </>
