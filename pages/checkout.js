@@ -31,7 +31,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
 
   for (const requiredField of requiredFields) {
-    if (billingDetails[requiredField.key] === "") {
+    if (!billingDetails[requiredField.key]) {
       missingFields.push(requiredField);
     }
   }
@@ -42,6 +42,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
 const useCheckoutForm = () => {
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
+  const [deliveryError, setDeliveryError] = useState(null);
 
   const differentAddressOnChange = (event) => {
     setShowFullDelivery(event.target.checked);
@@ -49,6 +50,8 @@ const useCheckoutForm = () => {
 
   const checkoutSubmit = (event) => {
     event.preventDefault();
+    setBillingError(null);
+    setDeliveryError(null);
 
     const billingDetails = {
       firstName: event.target.firstNameBilling.value,
@@ -61,10 +64,10 @@ const useCheckoutForm = () => {
       state: event.target.countyBilling.value,
       postcode: event.target.postcodeBilling.value,
       phone: event.target.phoneBilling.value,
-      email: event.target.email.value,
+      email: event.target.emailBilling.value,
     };
 
-    const missingFields = getMissingRequiredFields(billingDetails, [
+    const missingBillingFields = getMissingRequiredFields(billingDetails, [
       { key: "firstName", name: "First name" },
       { key: "lastName", name: "Last name" },
       { key: "country", name: "Country" },
@@ -75,8 +78,42 @@ const useCheckoutForm = () => {
       { key: "email", name: "Email address" },
     ]);
 
-    if (missingFields.length > 0) {
-      setBillingError(`${missingFields[0].name} is a required field`);
+    if (missingBillingFields.length > 0) {
+      setBillingError(`${missingBillingFields[0].name} is a required field`);
+    }
+
+    let missingDeliveryFields = [];
+    let deliveryDetails = {
+      firstName: event.target?.firstNameDelivery?.value || "",
+      lastName: event.target?.lastNameDelivery?.value || "",
+      company: event.target?.companyDelivery?.value || "",
+      country: event.target?.countryDelivery?.value || "",
+      addressLine1: event.target?.addressLine1Delivery?.value || "",
+      addressLine2: event.target?.addressLine2Delivery?.value || "",
+      city: event.target?.cityDelivery?.value || "",
+      state: event.target?.countyDelivery?.value || "",
+      postcode: event.target?.postcodeDelivery?.value || "",
+      notes: event.target?.orderNotesDelivery?.value || "",
+    };
+
+    if (showFullDelivery) {
+      missingDeliveryFields = getMissingRequiredFields(deliveryDetails, [
+        { key: "firstName", name: "First name" },
+        { key: "lastName", name: "Last name" },
+        { key: "country", name: "Country" },
+        { key: "addressLine1", name: "Address Line 1" },
+        { key: "city", name: "Town / City" },
+        { key: "postcode", name: "Postcode" },
+      ]);
+    }
+
+    if (missingDeliveryFields.length > 0) {
+      setDeliveryError(`${missingDeliveryFields[0].name} is a required field`);
+    }
+
+    if (missingBillingFields.length > 0 || missingDeliveryFields.length > 0) {
+      window.scrollTo(0, 0);
+      return;
     }
   };
 
@@ -84,6 +121,7 @@ const useCheckoutForm = () => {
     showFullDelivery,
     differentAddressOnChange,
     billingError,
+    deliveryError,
     checkoutSubmit,
   };
 };
@@ -105,6 +143,7 @@ export default function Checkout({
     differentAddressOnChange,
     checkoutSubmit,
     billingError,
+    deliveryError,
   } = useCheckoutForm();
 
   return (
@@ -140,6 +179,7 @@ export default function Checkout({
               showFullDelivery={showFullDelivery}
               deliveryDetails={deliveryDetails}
               countries={countries}
+              deliveryError={deliveryError}
             />
 
             <div className={styles.tableLabel}>
