@@ -13,6 +13,13 @@
   text-decoration: none;
 }
 
+.placeOrderButtonContainer {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  text-align: right;
+}
+
 .editBasket:hover,
 .editBasket:focus {
   text-decoration: underline;
