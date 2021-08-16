@@ -18,6 +18,7 @@ import Link from "next/link";
 
 import styles from "../styles/checkout.module.css";
 import { CardBox } from "../components/card-box/card-box";
+import { Button } from "../components/button/button";
 
 export default function Checkout({
   lines,
@@ -51,6 +52,9 @@ export default function Checkout({
           />
 
           <CardBox />
+          <div className={styles.placeOrderButtonContainer}>
+            <Button onClick={() => {}}>Place order</Button>
+          </div>
         </Elements>
       </main>
       <Footer currentYear={currentYear} />
