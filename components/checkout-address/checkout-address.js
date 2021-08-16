@@ -13,7 +13,7 @@ export const DeliveryDetails = ({
   countries,
 }) => {
   return (
-    <div className={styles.outerContainer}>
+    <div className={`${styles.outerContainer} ${styles.delivery}`}>
       <h2>Delivery details</h2>
       <div className={styles.container}>
         {showFullDelivery ? (
