@@ -143,10 +143,11 @@ export const DeliveryDetails = ({
   );
 };
 
-export const BillingDetails = ({ countries, billingDetails }) => {
+export const BillingDetails = ({ countries, billingDetails, billingError }) => {
   return (
     <div className={styles.outerContainer}>
       <h2>Billing details</h2>
+      {billingError && <p className={styles.error}>{billingError}</p>}
       <div className={styles.container}>
         <div className={styles.list}>
           <div className={styles.twoWide}>
