@@ -14,6 +14,17 @@
   margin: 0;
 }
 
+.cardElementContainer {
+  margin: 1rem 0;
+  margin-bottom: 0;
+}
+
+.cardElement {
+  padding: 1rem;
+  background: white;
+  border-radius: 1rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
