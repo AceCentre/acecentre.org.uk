@@ -11,10 +11,12 @@ export const DeliveryDetails = ({
   showFullDelivery,
   deliveryDetails,
   countries,
+  deliveryError,
 }) => {
   return (
     <div className={`${styles.outerContainer} ${styles.delivery}`}>
       <h2>Delivery details</h2>
+      {deliveryError && <p className={styles.error}>{deliveryError}</p>}
       <div className={styles.container}>
         {showFullDelivery ? (
           <>
@@ -118,7 +120,7 @@ export const DeliveryDetails = ({
                   className={styles.textArea}
                   backgroundColor={"#F5F5F5"}
                   placeholder={"Special delivery notes"}
-                  name="orderNotes"
+                  name="orderNotesDelivery"
                   aria-label="Order notes (optional)"
                   resize="none"
                 />
@@ -132,7 +134,7 @@ export const DeliveryDetails = ({
               className={styles.textArea}
               backgroundColor={"#F5F5F5"}
               placeholder={"Special delivery notes"}
-              name="orderNotes"
+              name="orderNotesDelivery"
               aria-label="Order notes (optional)"
               resize="none"
             />
