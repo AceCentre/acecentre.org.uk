@@ -37,9 +37,6 @@ const useAddressSubmit = (addressType) => {
     if (elements.city) {
       address["city"] = elements.city.value || "";
     }
-    if (elements.county) {
-      address["state"] = elements.county.value || "";
-    }
     if (elements.postcode) {
       address["postcode"] = elements.postcode.value || "";
     }
@@ -48,6 +45,9 @@ const useAddressSubmit = (addressType) => {
     }
     if (elements.email) {
       address["email"] = elements.email.value || "";
+    }
+    if (elements.county) {
+      address["state"] = elements.county.value || "";
     }
 
     if (!address.firstName) {
@@ -88,6 +88,13 @@ const useAddressSubmit = (addressType) => {
     if (!address.postcode) {
       setSubmitDisabled(false);
       setErrorMessage("Postcode is a required field.");
+      setSuccessMessage(null);
+      return;
+    }
+
+    if (!address.state) {
+      setSubmitDisabled(false);
+      setErrorMessage("County is a required field.");
       setSuccessMessage(null);
       return;
     }
@@ -258,6 +265,14 @@ export const AddressField = ({
         ariaLabel="Town / City"
         id="city"
         defaultValue={details.city}
+      />
+      <Input
+        maxWidth="100%"
+        placeholder="Greater Manchester"
+        name="county"
+        ariaLabel="County"
+        id="county"
+        defaultValue={details.state}
       />
 
       <Input
