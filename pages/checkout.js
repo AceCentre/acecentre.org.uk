@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Elements,
   CardElement,
@@ -19,6 +19,23 @@ import Link from "next/link";
 import styles from "../styles/checkout.module.css";
 import { CardBox } from "../components/card-box/card-box";
 import { Button } from "../components/button/button";
+import { BackToLink } from "../components/back-to-link/back-to-link";
+import {
+  BillingDetails,
+  DeliveryDetails,
+} from "../components/checkout-address/checkout-address";
+import { getAddresses } from "../lib/auth/get-user";
+import { Checkbox } from "@chakra-ui/react";
+
+const useCheckoutForm = () => {
+  const [showFullDelivery, setShowFullDelivery] = useState(false);
+
+  const differentAddressOnChange = (event) => {
+    setShowFullDelivery(event.target.checked);
+  };
+
+  return { showFullDelivery, differentAddressOnChange };
+};
 
 export default function Checkout({
   lines,
@@ -26,8 +43,13 @@ export default function Checkout({
   shipping,
   total,
   discountTotal,
+  countries,
+  billingDetails,
+  deliveryDetails,
 }) {
   const { currentYear } = useGlobalProps();
+
+  const { showFullDelivery, differentAddressOnChange } = useCheckoutForm();
 
   return (
     <>
@@ -35,14 +57,40 @@ export default function Checkout({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        {" "}
         <Elements stripe={loadStripe(config.stripeApiKey)}>
+          <BackToLink where="basket" href="/basket" />
+
+          <BillingDetails
+            countries={countries}
+            billingDetails={billingDetails}
+          />
+
+          <div className={styles.checkbox}>
+            <Checkbox name="mailingList" id="mailingList">
+              Email me about Ace related news and events
+            </Checkbox>
+            <Checkbox
+              name="differentAddress"
+              id="differentAddress"
+              onChange={differentAddressOnChange}
+            >
+              Deliver to a different address?
+            </Checkbox>
+          </div>
+
+          <DeliveryDetails
+            showFullDelivery={showFullDelivery}
+            deliveryDetails={deliveryDetails}
+            countries={countries}
+          />
+
           <div className={styles.tableLabel}>
             <h3>Order summary</h3>
             <Link href="/basket">
               <a className={styles.editBasket}>Edit basket</a>
             </Link>
           </div>
+
           <OrderSummaryTable
             lines={lines}
             subtotal={subtotal}
@@ -66,6 +114,11 @@ export const getServerSideProps = withSession(async function ({ req }) {
   const { lines, subtotal, shipping, total, discountTotal } = await getCart(
     req
   );
+  const user = req.session.get("user") || { customerId: "" };
+  const { countries, billingDetails, shippingDetails } = await getAddresses(
+    req,
+    user
+  );
 
   return {
     props: {
@@ -74,6 +127,9 @@ export const getServerSideProps = withSession(async function ({ req }) {
       shipping,
       total,
       discountTotal,
+      countries,
+      billingDetails,
+      deliveryDetails: shippingDetails,
     },
   };
 });

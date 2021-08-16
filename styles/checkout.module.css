@@ -19,6 +19,15 @@
   max-width: var(--containerMaxWidth);
   text-align: right;
 }
+.checkbox {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: flex;
+
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .editBasket:hover,
 .editBasket:focus {
