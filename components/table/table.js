@@ -133,35 +133,37 @@ export const OrderSummaryTable = ({
         </tbody>
       </table>
       <table className={`${styles.container} ${styles.table}`}>
-        <tr>
-          <td className={styles.tableHeader}>Subtotal</td>
-          <td className={`${styles.cost} ${styles.rightAlignText}`}>
-            {subtotal}
-          </td>
-        </tr>
-        {discountTotal !== "£0.00" && (
+        <tbody>
           <tr>
-            <td className={styles.tableHeader}>Discount </td>
-            <td className={`${styles.rightAlignText} ${styles.cost} `}>
-              -{discountTotal}
+            <td className={styles.tableHeader}>Subtotal</td>
+            <td className={`${styles.cost} ${styles.rightAlignText}`}>
+              {subtotal}
             </td>
           </tr>
-        )}
-        <tr>
-          <td className={styles.tableHeader}>Shipping</td>
-          <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-            <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
-            <p>Shipping options will be updated during checkout.</p>
-          </td>
-        </tr>
-        <tr>
-          <td className={styles.tableHeader}>Total</td>
-          <td
-            className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
-          >
-            {total}
-          </td>
-        </tr>
+          {discountTotal !== "£0.00" && (
+            <tr>
+              <td className={styles.tableHeader}>Discount </td>
+              <td className={`${styles.rightAlignText} ${styles.cost} `}>
+                -{discountTotal}
+              </td>
+            </tr>
+          )}
+          <tr>
+            <td className={styles.tableHeader}>Shipping</td>
+            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+              <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
+              <p>Shipping options will be updated during checkout.</p>
+            </td>
+          </tr>
+          <tr>
+            <td className={styles.tableHeader}>Total</td>
+            <td
+              className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
+            >
+              {total}
+            </td>
+          </tr>
+        </tbody>
       </table>
     </>
   );
