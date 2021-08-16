@@ -27,14 +27,65 @@ import {
 import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
 
+const getMissingRequiredFields = (billingDetails, requiredFields) => {
+  const missingFields = [];
+
+  for (const requiredField of requiredFields) {
+    if (billingDetails[requiredField.key] === "") {
+      missingFields.push(requiredField);
+    }
+  }
+
+  return missingFields;
+};
+
 const useCheckoutForm = () => {
   const [showFullDelivery, setShowFullDelivery] = useState(false);
+  const [billingError, setBillingError] = useState(null);
 
   const differentAddressOnChange = (event) => {
     setShowFullDelivery(event.target.checked);
   };
 
-  return { showFullDelivery, differentAddressOnChange };
+  const checkoutSubmit = (event) => {
+    event.preventDefault();
+
+    const billingDetails = {
+      firstName: event.target.firstNameBilling.value,
+      lastName: event.target.lastNameBilling.value,
+      company: event.target.companyBilling.value,
+      country: event.target.countryBilling.value,
+      addressLine1: event.target.addressLine1Billing.value,
+      addressLine2: event.target.addressLine2Billing.value,
+      city: event.target.cityBilling.value,
+      state: event.target.countyBilling.value,
+      postcode: event.target.postcodeBilling.value,
+      phone: event.target.phoneBilling.value,
+      email: event.target.email.value,
+    };
+
+    const missingFields = getMissingRequiredFields(billingDetails, [
+      { key: "firstName", name: "First name" },
+      { key: "lastName", name: "Last name" },
+      { key: "country", name: "Country" },
+      { key: "addressLine1", name: "Address Line 1" },
+      { key: "city", name: "Town / City" },
+      { key: "postcode", name: "Postcode" },
+      { key: "phone", name: "Phone number" },
+      { key: "email", name: "Email address" },
+    ]);
+
+    if (missingFields.length > 0) {
+      setBillingError(`${missingFields[0].name} is a required field`);
+    }
+  };
+
+  return {
+    showFullDelivery,
+    differentAddressOnChange,
+    billingError,
+    checkoutSubmit,
+  };
 };
 
 export default function Checkout({
@@ -49,7 +100,12 @@ export default function Checkout({
 }) {
   const { currentYear } = useGlobalProps();
 
-  const { showFullDelivery, differentAddressOnChange } = useCheckoutForm();
+  const {
+    showFullDelivery,
+    differentAddressOnChange,
+    checkoutSubmit,
+    billingError,
+  } = useCheckoutForm();
 
   return (
     <>
@@ -57,53 +113,56 @@ export default function Checkout({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <Elements stripe={loadStripe(config.stripeApiKey)}>
-          <BackToLink where="basket" href="/basket" />
+        <form onSubmit={checkoutSubmit}>
+          <Elements stripe={loadStripe(config.stripeApiKey)}>
+            <BackToLink where="basket" href="/basket" />
 
-          <BillingDetails
-            countries={countries}
-            billingDetails={billingDetails}
-          />
+            <BillingDetails
+              countries={countries}
+              billingDetails={billingDetails}
+              billingError={billingError}
+            />
 
-          <div className={styles.checkbox}>
-            <Checkbox name="mailingList" id="mailingList">
-              Email me about Ace related news and events
-            </Checkbox>
-            <Checkbox
-              name="differentAddress"
-              id="differentAddress"
-              onChange={differentAddressOnChange}
-            >
-              Deliver to a different address?
-            </Checkbox>
-          </div>
+            <div className={styles.checkbox}>
+              <Checkbox name="mailingList" id="mailingList">
+                Email me about Ace related news and events
+              </Checkbox>
+              <Checkbox
+                name="differentAddress"
+                id="differentAddress"
+                onChange={differentAddressOnChange}
+              >
+                Deliver to a different address?
+              </Checkbox>
+            </div>
 
-          <DeliveryDetails
-            showFullDelivery={showFullDelivery}
-            deliveryDetails={deliveryDetails}
-            countries={countries}
-          />
+            <DeliveryDetails
+              showFullDelivery={showFullDelivery}
+              deliveryDetails={deliveryDetails}
+              countries={countries}
+            />
 
-          <div className={styles.tableLabel}>
-            <h3>Order summary</h3>
-            <Link href="/basket">
-              <a className={styles.editBasket}>Edit basket</a>
-            </Link>
-          </div>
+            <div className={styles.tableLabel}>
+              <h3>Order summary</h3>
+              <Link href="/basket">
+                <a className={styles.editBasket}>Edit basket</a>
+              </Link>
+            </div>
 
-          <OrderSummaryTable
-            lines={lines}
-            subtotal={subtotal}
-            shipping={shipping}
-            total={total}
-            discountTotal={discountTotal}
-          />
+            <OrderSummaryTable
+              lines={lines}
+              subtotal={subtotal}
+              shipping={shipping}
+              total={total}
+              discountTotal={discountTotal}
+            />
 
-          <CardBox />
-          <div className={styles.placeOrderButtonContainer}>
-            <Button onClick={() => {}}>Place order</Button>
-          </div>
-        </Elements>
+            <CardBox />
+            <div className={styles.placeOrderButtonContainer}>
+              <Button onClick={() => {}}>Place order</Button>
+            </div>
+          </Elements>
+        </form>
       </main>
       <Footer currentYear={currentYear} />
     </>
