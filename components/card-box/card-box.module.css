@@ -1,0 +1,21 @@
+.container {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  background: #eeeeee;
+  padding: 30px;
+}
+
+.container p {
+  margin: 0;
+}
+
+.container h3 {
+  margin: 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

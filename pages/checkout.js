@@ -17,6 +17,7 @@ import { OrderSummaryTable } from "../components/table/table";
 import Link from "next/link";
 
 import styles from "../styles/checkout.module.css";
+import { CardBox } from "../components/card-box/card-box";
 
 export default function Checkout({
   lines,
@@ -33,21 +34,23 @@ export default function Checkout({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <div className={styles.tableLabel}>
-          <h3>Order summary</h3>
-          <Link href="/basket">
-            <a className={styles.editBasket}>Edit basket</a>
-          </Link>
-        </div>
-        <OrderSummaryTable
-          lines={lines}
-          subtotal={subtotal}
-          shipping={shipping}
-          total={total}
-          discountTotal={discountTotal}
-        />
+        {" "}
         <Elements stripe={loadStripe(config.stripeApiKey)}>
-          <CheckoutForm />
+          <div className={styles.tableLabel}>
+            <h3>Order summary</h3>
+            <Link href="/basket">
+              <a className={styles.editBasket}>Edit basket</a>
+            </Link>
+          </div>
+          <OrderSummaryTable
+            lines={lines}
+            subtotal={subtotal}
+            shipping={shipping}
+            total={total}
+            discountTotal={discountTotal}
+          />
+
+          <CardBox />
         </Elements>
       </main>
       <Footer currentYear={currentYear} />
@@ -71,6 +74,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
   };
 });
 
+// eslint-disable-next-line no-unused-vars
 const CheckoutForm = () => {
   // This loads up the Stripe object
   const stripe = useStripe();
