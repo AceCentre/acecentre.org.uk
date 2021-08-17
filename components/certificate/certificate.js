@@ -1,6 +1,6 @@
 import styles from "./certificate.module.css";
 
-import { ImageWithLoader as Image } from "../image";
+import { Image } from "../image";
 
 export const Certificate = () => {
   return (

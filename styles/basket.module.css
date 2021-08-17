@@ -1,0 +1,12 @@
+.rightAlign {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  margin-bottom: 2rem;
+  text-align: right;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+}
