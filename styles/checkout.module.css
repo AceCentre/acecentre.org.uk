@@ -6,6 +6,14 @@
   align-items: center;
 }
 
+.error {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  font-weight: bold;
+  color: red;
+}
+
 .editBasket {
   margin-left: auto;
   color: #345979;
