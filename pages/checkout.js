@@ -179,7 +179,6 @@ const useCheckoutForm = () => {
         const parsed = await response.json();
 
         if (parsed.success === true) {
-          setAllowSubmit(true);
           router.push("/my-acecentre/orders");
           return;
         }
