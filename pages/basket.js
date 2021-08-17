@@ -42,29 +42,46 @@ export default function Basket({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <PageTitle
-          heading="Checkout"
-          description="Here's a summary of your order"
-        />
-        <BasketTable onQuantityChange={onQuantityChange} lines={lines} />
-        <div className={styles.rightAlign}>
-          {updateCartError && <p className={styles.error}>{updateCartError}</p>}
-          <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
-            Update quantities
-          </Button>
-        </div>
-        <TotalsTable
-          discountTotal={discountTotal}
-          subtotal={subtotal}
-          total={total}
-          shipping={shipping}
-        />
-        <CouponArea
-          isApplyVoucherDisabled={isApplyVoucherDisabled}
-          applyCoupon={applyCoupon}
-          onCouponChange={onCouponChange}
-          error={couponError}
-        />
+        {lines.length > 0 ? (
+          <>
+            <PageTitle
+              heading="Checkout"
+              description="Here's a summary of your order"
+            />
+            <BasketTable onQuantityChange={onQuantityChange} lines={lines} />
+            <div className={styles.rightAlign}>
+              {updateCartError && (
+                <p className={styles.error}>{updateCartError}</p>
+              )}
+              <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
+                Update quantities
+              </Button>
+            </div>
+            <TotalsTable
+              discountTotal={discountTotal}
+              subtotal={subtotal}
+              total={total}
+              shipping={shipping}
+            />
+            <CouponArea
+              isApplyVoucherDisabled={isApplyVoucherDisabled}
+              applyCoupon={applyCoupon}
+              onCouponChange={onCouponChange}
+              error={couponError}
+            />
+          </>
+        ) : (
+          <div className={styles.emptyCart}>
+            <h1>Your basket is currently empty</h1>
+            <p>
+              Add some resources or courses to your basket then come back to
+              checkout
+            </p>
+            <div className={styles.allResourcesButton}>
+              <Button href="/resources">See our resources</Button>
+            </div>
+          </div>
+        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
