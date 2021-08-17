@@ -42,6 +42,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
 };
 
 const useCheckoutForm = () => {
+  const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
@@ -62,6 +63,7 @@ const useCheckoutForm = () => {
     setDeliveryError(null);
     setCardError(null);
     setGeneralError(null);
+    setAllowSubmit(false);
 
     const billingDetails = {
       firstName: event.target.firstNameBilling.value,
@@ -89,6 +91,7 @@ const useCheckoutForm = () => {
     ]);
 
     if (missingBillingFields.length > 0) {
+      setAllowSubmit(true);
       setBillingError(`${missingBillingFields[0].name} is a required field`);
     }
 
@@ -118,6 +121,7 @@ const useCheckoutForm = () => {
     }
 
     if (missingDeliveryFields.length > 0) {
+      setAllowSubmit(true);
       setDeliveryError(`${missingDeliveryFields[0].name} is a required field`);
     }
 
@@ -154,6 +158,7 @@ const useCheckoutForm = () => {
       );
 
       if (sourceError && sourceError.message) {
+        setAllowSubmit(true);
         setCardError(sourceError.message);
         return;
       }
@@ -174,14 +179,15 @@ const useCheckoutForm = () => {
         const parsed = await response.json();
 
         if (parsed.success === true) {
+          setAllowSubmit(true);
           router.push("/my-acecentre/orders");
           return;
         }
 
         if (parsed.error) {
           setGeneralError(parsed.error);
+          setAllowSubmit(true);
           window.scrollTo(0, 0);
-
           return;
         }
 
@@ -189,6 +195,7 @@ const useCheckoutForm = () => {
       } catch (error) {
         window.scrollTo(0, 0);
         setGeneralError(error.message);
+        setAllowSubmit(true);
       }
     };
 
@@ -203,6 +210,7 @@ const useCheckoutForm = () => {
     checkoutSubmit,
     cardError,
     generalError,
+    allowSubmit,
   };
 };
 
@@ -260,6 +268,7 @@ const CheckoutForm = ({
     deliveryError,
     cardError,
     generalError,
+    allowSubmit,
   } = useCheckoutForm();
 
   return (
@@ -311,7 +320,9 @@ const CheckoutForm = ({
 
       <CardBox cardError={cardError} />
       <div className={styles.placeOrderButtonContainer}>
-        <Button onClick={() => {}}>Place order</Button>
+        <Button disabled={!allowSubmit} type="submit">
+          Place order
+        </Button>
       </div>
     </form>
   );
