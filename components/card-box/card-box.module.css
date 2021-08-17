@@ -25,6 +25,11 @@
   border-radius: 1rem;
 }
 
+.error {
+  color: red;
+  font-weight: bold;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
