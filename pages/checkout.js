@@ -27,6 +27,7 @@ import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
+import { useRouter } from "next/dist/client/router";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -45,7 +46,8 @@ const useCheckoutForm = () => {
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
-  const [generalError, setGeneralError] = useState("Uh oh");
+  const [generalError, setGeneralError] = useState(null);
+  const router = useRouter();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -66,8 +68,8 @@ const useCheckoutForm = () => {
       lastName: event.target.lastNameBilling.value,
       company: event.target.companyBilling.value,
       country: event.target.countryBilling.value,
-      addressLine1: event.target.addressLine1Billing.value,
-      addressLine2: event.target.addressLine2Billing.value,
+      address1: event.target.addressLine1Billing.value,
+      address2: event.target.addressLine2Billing.value,
       city: event.target.cityBilling.value,
       state: event.target.countyBilling.value,
       postcode: event.target.postcodeBilling.value,
@@ -79,7 +81,7 @@ const useCheckoutForm = () => {
       { key: "firstName", name: "First name" },
       { key: "lastName", name: "Last name" },
       { key: "country", name: "Country" },
-      { key: "addressLine1", name: "Address Line 1" },
+      { key: "address1", name: "Address Line 1" },
       { key: "city", name: "Town / City" },
       { key: "postcode", name: "Postcode" },
       { key: "phone", name: "Phone number" },
@@ -96,8 +98,8 @@ const useCheckoutForm = () => {
       lastName: event.target?.lastNameDelivery?.value || "",
       company: event.target?.companyDelivery?.value || "",
       country: event.target?.countryDelivery?.value || "",
-      addressLine1: event.target?.addressLine1Delivery?.value || "",
-      addressLine2: event.target?.addressLine2Delivery?.value || "",
+      address1: event.target?.addressLine1Delivery?.value || "",
+      address2: event.target?.addressLine2Delivery?.value || "",
       city: event.target?.cityDelivery?.value || "",
       state: event.target?.countyDelivery?.value || "",
       postcode: event.target?.postcodeDelivery?.value || "",
@@ -109,7 +111,7 @@ const useCheckoutForm = () => {
         { key: "firstName", name: "First name" },
         { key: "lastName", name: "Last name" },
         { key: "country", name: "Country" },
-        { key: "addressLine1", name: "Address Line 1" },
+        { key: "address1", name: "Address Line 1" },
         { key: "city", name: "Town / City" },
         { key: "postcode", name: "Postcode" },
       ]);
@@ -163,14 +165,15 @@ const useCheckoutForm = () => {
             source,
             billingDetails,
             deliveryDetails,
-            showFullDelivery,
+            shipToDifferentAddress: showFullDelivery,
+            orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
           }),
         });
 
         const parsed = await response.json();
 
         if (parsed.success === true) {
-          // Do success thing
+          router.push("/my-acecentre/orders");
           return;
         }
 
