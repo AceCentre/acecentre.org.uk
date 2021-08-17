@@ -45,6 +45,7 @@ const useCheckoutForm = () => {
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
+  const [generalError, setGeneralError] = useState("Uh oh");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -58,6 +59,7 @@ const useCheckoutForm = () => {
     setBillingError(null);
     setDeliveryError(null);
     setCardError(null);
+    setGeneralError(null);
 
     const billingDetails = {
       firstName: event.target.firstNameBilling.value,
@@ -154,6 +156,31 @@ const useCheckoutForm = () => {
         setCardError(sourceError.message);
         return;
       }
+
+      try {
+        const response = await fetch("/api/cart/checkout", {
+          method: "POST",
+        });
+
+        const parsed = await response.json();
+
+        if (parsed.success === true) {
+          // Do success thing
+          return;
+        }
+
+        if (parsed.error) {
+          setGeneralError(parsed.error);
+          window.scrollTo(0, 0);
+
+          return;
+        }
+
+        throw new Error("An error occurred");
+      } catch (error) {
+        window.scrollTo(0, 0);
+        setGeneralError(error.message);
+      }
     };
 
     submit();
@@ -166,6 +193,7 @@ const useCheckoutForm = () => {
     deliveryError,
     checkoutSubmit,
     cardError,
+    generalError,
   };
 };
 
@@ -222,11 +250,14 @@ const CheckoutForm = ({
     billingError,
     deliveryError,
     cardError,
+    generalError,
   } = useCheckoutForm();
 
   return (
     <form onSubmit={checkoutSubmit}>
       <BackToLink where="basket" href="/basket" />
+
+      {generalError && <p className={styles.error}>{generalError}</p>}
 
       <BillingDetails
         countries={countries}
