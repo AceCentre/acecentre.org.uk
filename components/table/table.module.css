@@ -19,8 +19,7 @@
 }
 
 .table table,
-.table th,
-.table td {
+.table tr {
   border: 1px solid #dfdfdf;
   border-collapse: collapse;
 }
@@ -30,8 +29,57 @@
   margin-bottom: 1rem;
 }
 
+.noMargin.noMargin {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.noMargin.noMargin tr {
+  border-bottom: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #00537f;
+}
+
+.link:focus,
+.link:hover {
+  text-decoration: underline;
+}
+
+.tableHeader {
+  color: #00537f;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.rightAlignText {
+  text-align: right;
+}
+
+.shipping p {
+  margin: 0;
+}
+
+.cost {
+  color: #00537f;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .table {
+  }
+
+  .hideOnMobile {
+    display: none;
   }
 }

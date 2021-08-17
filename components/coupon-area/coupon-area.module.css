@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.voucherInput {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.button {
+  white-space: nowrap;
+}
+
+.checkoutContainer {
+  margin-left: auto;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .checkoutContainer {
+    margin-top: 2rem;
+  }
+}
