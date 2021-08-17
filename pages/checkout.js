@@ -179,8 +179,16 @@ const useCheckoutForm = () => {
         const parsed = await response.json();
 
         if (parsed.success === true) {
-          router.push("/my-acecentre/orders");
-          return;
+          const databaseId =
+            parsed?.result?.checkout?.order?.databaseId || null;
+
+          if (databaseId) {
+            router.push(`/order/${databaseId}`);
+            return;
+          } else {
+            router.push("/my-acecentre/orders");
+            return;
+          }
         }
 
         if (parsed.error) {
