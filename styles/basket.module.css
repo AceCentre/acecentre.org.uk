@@ -10,3 +10,14 @@
   font-weight: bold;
   color: red;
 }
+
+.allResourcesButton {
+  margin-top: 2rem;
+}
+
+.emptyCart {
+  margin: 4rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  text-align: center;
+}
