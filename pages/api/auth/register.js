@@ -23,7 +23,7 @@ mailchimp.setConfig({
   server: config.mailchimp.server,
 });
 
-async function addToMailingList(email) {
+export async function addToMailingList(email) {
   await mailchimp.lists.addListMember("ec5a06da07", {
     email_address: email,
     status: "subscribed",

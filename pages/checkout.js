@@ -167,6 +167,7 @@ const useCheckoutForm = () => {
             deliveryDetails,
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
+            addToMailingList: event.target.mailingList.checked,
           }),
         });
 
