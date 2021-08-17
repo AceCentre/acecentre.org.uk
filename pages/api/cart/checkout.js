@@ -1,6 +1,8 @@
 import withSession from "../../../lib/auth/with-session";
 import { checkout } from "../../../lib/cart/checkout";
+import { clientRequest } from "../../../lib/client-request";
 import { addToMailingList } from "../auth/register";
+import { EMPTY_CART } from "./update";
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -12,8 +14,7 @@ async function handler(req, res) {
     }
 
     const result = await checkout(req, body);
-
-    // Delete cart
+    await clientRequest(req, EMPTY_CART);
 
     res.send({ success: true, result });
     return;
