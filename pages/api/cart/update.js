@@ -12,7 +12,7 @@ const FILL_CART = gql`
   }
 `;
 
-const EMPTY_CART = gql`
+export const EMPTY_CART = gql`
   mutation EmptyCart {
     emptyCart(input: {}) {
       cart {
