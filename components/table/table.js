@@ -32,7 +32,7 @@ export const OrderTable = ({ orders }) => {
             }).format(date);
 
             return (
-              <tr key={`row-${order.name}`}>
+              <tr key={`row-${order.id}`}>
                 <td>#{order.id}</td>
                 <td>{formattedDate}</td>
                 <td>{order.status}</td>
@@ -87,11 +87,11 @@ const OrderDetailTable = ({ order, onClose }) => {
               </tr>
             );
           })}
-          <div className={styles.buttonContainer}>
-            <Button onClick={onClose}>Close order</Button>
-          </div>
         </tbody>
       </table>
+      <div className={styles.buttonContainer}>
+        <Button onClick={onClose}>Close order</Button>
+      </div>
     </>
   );
 };
