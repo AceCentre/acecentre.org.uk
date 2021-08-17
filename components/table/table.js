@@ -52,7 +52,13 @@ export const OrderTable = ({ orders }) => {
         <ModalContent>
           <ModalBody>
             {selected && (
-              <OrderDetailTable order={selected} onClose={onClose} />
+              <>
+                <h2>Order #{selected.id}</h2>
+                <OrderDetailTable order={selected} onClose={onClose} />
+                <div className={styles.buttonContainer}>
+                  <Button onClick={onClose}>Close order</Button>
+                </div>
+              </>
             )}
           </ModalBody>
         </ModalContent>
@@ -61,38 +67,32 @@ export const OrderTable = ({ orders }) => {
   );
 };
 
-const OrderDetailTable = ({ order, onClose }) => {
+export const OrderDetailTable = ({ order }) => {
   return (
-    <>
-      <h2>Order #{order.id}</h2>
-      <table className={styles.table}>
-        <tbody>
-          <tr>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-          {order.lines.map((line) => {
-            return (
-              <tr key={line.name}>
-                <td>{line.type}</td>
-                <td>
-                  <Link href={line.href}>
-                    <a>{line.name}</a>
-                  </Link>
-                </td>
-                <td>{line.quantity}</td>
-                <td>{line.total}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className={styles.buttonContainer}>
-        <Button onClick={onClose}>Close order</Button>
-      </div>
-    </>
+    <table className={styles.table}>
+      <tbody>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        {order.lines.map((line) => {
+          return (
+            <tr key={line.name}>
+              <td>{line.type}</td>
+              <td>
+                <Link href={line.href}>
+                  <a>{line.name}</a>
+                </Link>
+              </td>
+              <td>{line.quantity}</td>
+              <td>{line.total}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 
