@@ -150,7 +150,6 @@ const useCheckoutForm = () => {
           },
         }
       );
-      console.log({ source, sourceError });
 
       if (sourceError && sourceError.message) {
         setCardError(sourceError.message);
@@ -160,6 +159,12 @@ const useCheckoutForm = () => {
       try {
         const response = await fetch("/api/cart/checkout", {
           method: "POST",
+          body: JSON.stringify({
+            source,
+            billingDetails,
+            deliveryDetails,
+            showFullDelivery,
+          }),
         });
 
         const parsed = await response.json();
