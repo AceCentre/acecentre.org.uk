@@ -4,8 +4,9 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
+import { getOrder } from "../../lib/products/get-orders";
 
-export default function OrderPage({ orderId }) {
+export default function OrderPage({ orderId, order }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -15,6 +16,7 @@ export default function OrderPage({ orderId }) {
       </header>
       <main>
         <PageTitle heading="Order details" description={`Order #${orderId}`} />
+        <pre>{JSON.stringify(order, null, 2)}</pre>
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -22,9 +24,11 @@ export default function OrderPage({ orderId }) {
 }
 
 export const getServerSideProps = withSession(
-  async ({ params: { id: orderId } }) => {
+  async ({ params: { id: orderId }, req }) => {
+    const order = await getOrder(req, orderId);
+
     return {
-      props: { orderId },
+      props: { orderId, order },
     };
   }
 );
