@@ -145,7 +145,12 @@ export const DeliveryDetails = ({
   );
 };
 
-export const BillingDetails = ({ countries, billingDetails, billingError }) => {
+export const BillingDetails = ({
+  countries,
+  billingDetails,
+  billingError,
+  reducedInfo,
+}) => {
   return (
     <div className={styles.outerContainer}>
       <h2>Billing details</h2>
@@ -170,78 +175,89 @@ export const BillingDetails = ({ countries, billingDetails, billingError }) => {
               defaultValue={billingDetails.lastName}
             />
           </div>
-          <Input
-            maxWidth="100%"
-            placeholder="Company Inc"
-            name="companyBilling"
-            ariaLabel="Company (optional)"
-            id="company"
-            defaultValue={billingDetails.company}
-          />
-          <FormControl className={styles.formControl} id="country">
-            <FormLabel>Country</FormLabel>
-            <Select
-              maxWidth={900}
-              width="100%"
-              borderRadius={4}
-              backgroundColor="#F5F5F5"
-              name="countryBilling"
-              aria-label="Country"
-              placeholder="Select your country."
-              defaultValue={billingDetails.country}
-            >
-              {countries.map((country) => {
-                return (
-                  <option value={country.name} key={`country-${country.name}`}>
-                    {country.description}
-                  </option>
-                );
-              })}
-            </Select>
-          </FormControl>
-          <Input
-            maxWidth="100%"
-            placeholder="21 Manchester Street"
-            name="addressLine1Billing"
-            ariaLabel="Address Line 1"
-            id="addressLine1"
-            defaultValue={billingDetails.address1}
-          />
-          <Input
-            maxWidth="100%"
-            placeholder="Flat 2"
-            name="addressLine2Billing"
-            ariaLabel="Address Line 2 (optional)"
-            id="addressLine2"
-            defaultValue={billingDetails.address2}
-          />
+          {!reducedInfo && (
+            <>
+              <Input
+                maxWidth="100%"
+                placeholder="Company Inc"
+                name="companyBilling"
+                ariaLabel="Company (optional)"
+                id="company"
+                defaultValue={billingDetails.company}
+              />
+              <FormControl className={styles.formControl} id="country">
+                <FormLabel>Country</FormLabel>
+                <Select
+                  maxWidth={900}
+                  width="100%"
+                  borderRadius={4}
+                  backgroundColor="#F5F5F5"
+                  name="countryBilling"
+                  aria-label="Country"
+                  placeholder="Select your country."
+                  defaultValue={billingDetails.country}
+                >
+                  {countries.map((country) => {
+                    return (
+                      <option
+                        value={country.name}
+                        key={`country-${country.name}`}
+                      >
+                        {country.description}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+              <Input
+                maxWidth="100%"
+                placeholder="21 Manchester Street"
+                name="addressLine1Billing"
+                ariaLabel="Address Line 1"
+                id="addressLine1"
+                defaultValue={billingDetails.address1}
+              />
+              <Input
+                maxWidth="100%"
+                placeholder="Flat 2"
+                name="addressLine2Billing"
+                ariaLabel="Address Line 2 (optional)"
+                id="addressLine2"
+                defaultValue={billingDetails.address2}
+              />
 
-          <Input
-            maxWidth="100%"
-            placeholder="Manchester"
-            name="cityBilling"
-            ariaLabel="Town / City"
-            id="city"
-            defaultValue={billingDetails.city}
-          />
+              <Input
+                maxWidth="100%"
+                placeholder="Manchester"
+                name="cityBilling"
+                ariaLabel="Town / City"
+                id="city"
+                defaultValue={billingDetails.city}
+              />
+            </>
+          )}
         </div>
         <div className={styles.list}>
-          <Input
-            maxWidth="100%"
-            placeholder="Greater Manchester"
-            name="countyBilling"
-            ariaLabel="County (optional)"
-            id="county"
-            defaultValue={billingDetails.state}
-          />
-          <Input
-            maxWidth="100%"
-            placeholder="OL8 3QL"
-            name="postcodeBilling"
-            ariaLabel="Postcode"
-            id="postcode"
-            defaultValue={billingDetails.postcode}
-          />
+          {!reducedInfo && (
+            <>
+              <Input
+                maxWidth="100%"
+                placeholder="Greater Manchester"
+                name="countyBilling"
+                ariaLabel="County (optional)"
+                id="county"
+                defaultValue={billingDetails.state}
+              />
+              <Input
+                maxWidth="100%"
+                placeholder="OL8 3QL"
+                name="postcodeBilling"
+                ariaLabel="Postcode"
+                id="postcode"
+                defaultValue={billingDetails.postcode}
+              />
+            </>
+          )}
           <Input
             maxWidth="100%"
             placeholder="07415489657"
