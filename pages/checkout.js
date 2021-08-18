@@ -22,6 +22,7 @@ import { BackToLink } from "../components/back-to-link/back-to-link";
 import {
   BillingDetails,
   DeliveryDetails,
+  NewUserDetails,
 } from "../components/checkout-address/checkout-address";
 import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
@@ -48,10 +49,16 @@ const useCheckoutForm = (freeCheckout) => {
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
+  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
+  const [createAccountError, setCreateAccountError] = useState(null);
   const router = useRouter();
 
   const stripe = useStripe();
   const elements = useElements();
+
+  const checkboxOnChange = (event) => {
+    setWantsToCreateAnAccount(event.target.checked);
+  };
 
   const differentAddressOnChange = (event) => {
     setShowFullDelivery(event.target.checked);
@@ -63,7 +70,31 @@ const useCheckoutForm = (freeCheckout) => {
     setDeliveryError(null);
     setCardError(null);
     setGeneralError(null);
+    setCreateAccountError(null);
     setAllowSubmit(false);
+
+    let accountDetails = { createAccount: false };
+
+    if (wantsToCreateAnAccount) {
+      const password = event.target.password.value;
+      const passwordConfirm = event.target.passwordConfirm.value;
+
+      if (password !== passwordConfirm) {
+        setCreateAccountError("Passwords do not match");
+        setAllowSubmit(true);
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      if (password.length < 0) {
+        setCreateAccountError("Password must be at least 8 characters");
+        setAllowSubmit(true);
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      accountDetails = { createAccount: true, password };
+    }
 
     let billingDetails = {};
     let requiredBillingFields = [];
@@ -180,7 +211,7 @@ const useCheckoutForm = (freeCheckout) => {
         });
 
         source = result.source;
-        const sourceError = result.sourceError;
+        const sourceError = result.error;
 
         if (sourceError && sourceError.message) {
           setAllowSubmit(true);
@@ -199,6 +230,7 @@ const useCheckoutForm = (freeCheckout) => {
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
+            accountDetails,
           }),
         });
 
@@ -245,6 +277,9 @@ const useCheckoutForm = (freeCheckout) => {
     cardError,
     generalError,
     allowSubmit,
+    wantsToCreateAnAccount,
+    checkboxOnChange,
+    createAccountError,
   };
 };
 
@@ -258,6 +293,7 @@ export default function Checkout({
   billingDetails,
   deliveryDetails,
   needsDelivered,
+  existingUser,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -278,6 +314,7 @@ export default function Checkout({
             billingDetails={billingDetails}
             deliveryDetails={deliveryDetails}
             needsDelivered={needsDelivered}
+            existingUser={existingUser}
           />
         </Elements>
       </main>
@@ -296,6 +333,7 @@ const CheckoutForm = ({
   billingDetails,
   deliveryDetails,
   needsDelivered,
+  existingUser,
 }) => {
   const {
     showFullDelivery,
@@ -306,6 +344,9 @@ const CheckoutForm = ({
     cardError,
     generalError,
     allowSubmit,
+    checkboxOnChange,
+    wantsToCreateAnAccount,
+    createAccountError,
   } = useCheckoutForm(isFree(total));
 
   return (
@@ -344,6 +385,14 @@ const CheckoutForm = ({
         deliveryError={deliveryError}
         needsDelivered={needsDelivered}
       />
+
+      {!existingUser && (
+        <NewUserDetails
+          checkboxOnChange={checkboxOnChange}
+          createAccountError={createAccountError}
+          wantsToCreateAnAccount={wantsToCreateAnAccount}
+        />
+      )}
 
       <div className={styles.tableLabel}>
         <h3>Order summary</h3>
@@ -410,6 +459,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       billingDetails,
       deliveryDetails: shippingDetails,
       needsDelivered,
+      existingUser: !!(user.authToken && user.refreshToken),
     },
   };
 });
