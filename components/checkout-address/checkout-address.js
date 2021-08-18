@@ -11,10 +11,14 @@ import { Checkbox } from "@chakra-ui/react";
 export const NewUserDetails = ({
   checkboxOnChange,
   wantsToCreateAnAccount,
+  createAccountError,
 }) => {
   return (
     <div className={`${styles.outerContainer} ${styles.createAccount}`}>
       <h2>Create an account</h2>
+      {createAccountError && (
+        <p className={styles.error}>{createAccountError}</p>
+      )}
       <div className={styles.container}>
         <div className={styles.list}>
           <Checkbox

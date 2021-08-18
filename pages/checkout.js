@@ -50,6 +50,7 @@ const useCheckoutForm = (freeCheckout) => {
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
   const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
+  const [createAccountError, setCreateAccountError] = useState(null);
   const router = useRouter();
 
   const stripe = useStripe();
@@ -69,7 +70,31 @@ const useCheckoutForm = (freeCheckout) => {
     setDeliveryError(null);
     setCardError(null);
     setGeneralError(null);
+    setCreateAccountError(null);
     setAllowSubmit(false);
+
+    let accountDetails = { createAccount: false };
+
+    if (wantsToCreateAnAccount) {
+      const password = event.target.password.value;
+      const passwordConfirm = event.target.passwordConfirm.value;
+
+      if (password !== passwordConfirm) {
+        setCreateAccountError("Passwords do not match");
+        setAllowSubmit(true);
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      if (password.length < 0) {
+        setCreateAccountError("Password must be at least 8 characters");
+        setAllowSubmit(true);
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      accountDetails = { createAccount: true, password };
+    }
 
     let billingDetails = {};
     let requiredBillingFields = [];
@@ -186,7 +211,7 @@ const useCheckoutForm = (freeCheckout) => {
         });
 
         source = result.source;
-        const sourceError = result.sourceError;
+        const sourceError = result.error;
 
         if (sourceError && sourceError.message) {
           setAllowSubmit(true);
@@ -205,6 +230,7 @@ const useCheckoutForm = (freeCheckout) => {
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
+            accountDetails,
           }),
         });
 
@@ -253,6 +279,7 @@ const useCheckoutForm = (freeCheckout) => {
     allowSubmit,
     wantsToCreateAnAccount,
     checkboxOnChange,
+    createAccountError,
   };
 };
 
@@ -319,6 +346,7 @@ const CheckoutForm = ({
     allowSubmit,
     checkboxOnChange,
     wantsToCreateAnAccount,
+    createAccountError,
   } = useCheckoutForm(isFree(total));
 
   return (
@@ -362,10 +390,12 @@ const CheckoutForm = ({
       <NewUserDetails
         checkboxOnChange={checkboxOnChange}
         wantsToCreateAnAccount={wantsToCreateAnAccount}
+        createAccountError={createAccountError}
       />
       {!existingUser && (
         <NewUserDetails
           checkboxOnChange={checkboxOnChange}
+          createAccountError={createAccountError}
           wantsToCreateAnAccount={wantsToCreateAnAccount}
         />
       )}
