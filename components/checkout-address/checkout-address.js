@@ -6,6 +6,49 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
+import { Checkbox } from "@chakra-ui/react";
+
+export const NewUserDetails = ({
+  checkboxOnChange,
+  wantsToCreateAnAccount,
+}) => {
+  return (
+    <div className={`${styles.outerContainer} ${styles.createAccount}`}>
+      <h2>Create an account</h2>
+      <div className={styles.container}>
+        <div className={styles.list}>
+          <Checkbox
+            name="createAccount"
+            id="createAccount"
+            onChange={checkboxOnChange}
+          >
+            Create an account?
+          </Checkbox>
+          {wantsToCreateAnAccount && (
+            <>
+              <Input
+                maxWidth="100%"
+                placeholder="Password"
+                name="password"
+                ariaLabel="Password"
+                id="password"
+                type="password"
+              />
+              <Input
+                maxWidth="100%"
+                placeholder="Confirm Password"
+                name="passwordConfirm"
+                ariaLabel="Confirm password"
+                id="passwordConfirm"
+                type="password"
+              />
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const DeliveryDetails = ({
   showFullDelivery,
