@@ -291,6 +291,7 @@ const CheckoutForm = ({
         countries={countries}
         billingDetails={billingDetails}
         billingError={billingError}
+        reducedInfo={isFree(total)}
       />
 
       <div className={styles.checkbox}>
