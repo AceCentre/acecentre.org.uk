@@ -279,6 +279,8 @@ const CheckoutForm = ({
     allowSubmit,
   } = useCheckoutForm();
 
+  console.log(total);
+
   return (
     <form onSubmit={checkoutSubmit}>
       <BackToLink where="basket" href="/basket" />
@@ -326,7 +328,9 @@ const CheckoutForm = ({
         discountTotal={discountTotal}
       />
 
-      <CardBox cardError={cardError} />
+      {/* Only show the card box for paid products */}
+      {!isFree(total) && <CardBox cardError={cardError} />}
+
       <div className={styles.placeOrderButtonContainer}>
         <Button disabled={!allowSubmit} type="submit">
           Place order
@@ -335,6 +339,8 @@ const CheckoutForm = ({
     </form>
   );
 };
+
+const isFree = (total) => total === "£0.00";
 
 export const getServerSideProps = withSession(async function ({ req }) {
   const { lines, subtotal, shipping, total, discountTotal } = await getCart(
