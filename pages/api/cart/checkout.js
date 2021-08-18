@@ -1,5 +1,5 @@
 import withSession from "../../../lib/auth/with-session";
-import { checkout } from "../../../lib/cart/checkout";
+import { checkout, updateCustomer } from "../../../lib/cart/checkout";
 import { clientRequest } from "../../../lib/client-request";
 import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
@@ -14,6 +14,7 @@ async function handler(req, res) {
       await addToMailingList(body.billingDetails.email);
     }
 
+    await updateCustomer(req, body);
     result = await checkout(req, body);
     await clientRequest(req, EMPTY_CART);
 
