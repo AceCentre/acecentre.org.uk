@@ -386,12 +386,6 @@ const CheckoutForm = ({
         needsDelivered={needsDelivered}
       />
 
-      {/* CommentThisOut */}
-      <NewUserDetails
-        checkboxOnChange={checkboxOnChange}
-        wantsToCreateAnAccount={wantsToCreateAnAccount}
-        createAccountError={createAccountError}
-      />
       {!existingUser && (
         <NewUserDetails
           checkboxOnChange={checkboxOnChange}
