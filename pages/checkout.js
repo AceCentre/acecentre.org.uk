@@ -41,7 +41,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   return missingFields;
 };
 
-const useCheckoutForm = () => {
+const useCheckoutForm = (freeCheckout) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
@@ -65,30 +65,54 @@ const useCheckoutForm = () => {
     setGeneralError(null);
     setAllowSubmit(false);
 
-    const billingDetails = {
-      firstName: event.target.firstNameBilling.value,
-      lastName: event.target.lastNameBilling.value,
-      company: event.target.companyBilling.value,
-      country: event.target.countryBilling.value,
-      address1: event.target.addressLine1Billing.value,
-      address2: event.target.addressLine2Billing.value,
-      city: event.target.cityBilling.value,
-      state: event.target.countyBilling.value,
-      postcode: event.target.postcodeBilling.value,
-      phone: event.target.phoneBilling.value,
-      email: event.target.emailBilling.value,
-    };
+    let billingDetails = {};
+    let requiredBillingFields = [];
 
-    const missingBillingFields = getMissingRequiredFields(billingDetails, [
-      { key: "firstName", name: "First name" },
-      { key: "lastName", name: "Last name" },
-      { key: "country", name: "Country" },
-      { key: "address1", name: "Address Line 1" },
-      { key: "city", name: "Town / City" },
-      { key: "postcode", name: "Postcode" },
-      { key: "phone", name: "Phone number" },
-      { key: "email", name: "Email address" },
-    ]);
+    // If its a paid product we need way more info
+    if (!freeCheckout) {
+      billingDetails = {
+        firstName: event.target.firstNameBilling.value,
+        lastName: event.target.lastNameBilling.value,
+        company: event.target.companyBilling.value,
+        country: event.target.countryBilling.value,
+        address1: event.target.addressLine1Billing.value,
+        address2: event.target.addressLine2Billing.value,
+        city: event.target.cityBilling.value,
+        state: event.target.countyBilling.value,
+        postcode: event.target.postcodeBilling.value,
+        phone: event.target.phoneBilling.value,
+        email: event.target.emailBilling.value,
+      };
+      requiredBillingFields = [
+        { key: "firstName", name: "First name" },
+        { key: "lastName", name: "Last name" },
+        { key: "country", name: "Country" },
+        { key: "address1", name: "Address Line 1" },
+        { key: "city", name: "Town / City" },
+        { key: "postcode", name: "Postcode" },
+        { key: "phone", name: "Phone number" },
+        { key: "email", name: "Email address" },
+      ];
+    } else {
+      // We need less info on a free product
+      billingDetails = {
+        firstName: event.target.firstNameBilling.value,
+        lastName: event.target.lastNameBilling.value,
+        phone: event.target.phoneBilling.value,
+        email: event.target.emailBilling.value,
+      };
+      requiredBillingFields = [
+        { key: "firstName", name: "First name" },
+        { key: "lastName", name: "Last name" },
+        { key: "phone", name: "Phone number" },
+        { key: "email", name: "Email address" },
+      ];
+    }
+
+    const missingBillingFields = getMissingRequiredFields(
+      billingDetails,
+      requiredBillingFields
+    );
 
     if (missingBillingFields.length > 0) {
       setAllowSubmit(true);
@@ -135,32 +159,34 @@ const useCheckoutForm = () => {
       throw Error("Stripe or Elements is undefined");
     }
 
-    // Extract the payment data from our <CardElement/> component
-    const cardElements = elements.getElement(CardElement);
-
-    // Guard against an undefined value
-    if (!cardElements) {
-      throw Error("cardElements not found");
-    }
-
     const submit = async () => {
-      // Create the Source object
-      const { source, error: sourceError } = await stripe.createSource(
-        cardElements,
-        {
+      let source = {};
+      if (!freeCheckout) {
+        // Extract the payment data from our <CardElement/> component
+        const cardElements = elements.getElement(CardElement);
+
+        // Guard against an undefined value
+        if (!cardElements) {
+          throw Error("cardElements not found");
+        }
+        // Create the Source object
+        const result = await stripe.createSource(cardElements, {
           type: "card",
           owner: {
             email: billingDetails.email,
             name: billingDetails.firstName + " " + billingDetails.lastName,
             phone: billingDetails.phone,
           },
-        }
-      );
+        });
 
-      if (sourceError && sourceError.message) {
-        setAllowSubmit(true);
-        setCardError(sourceError.message);
-        return;
+        source = result.source;
+        const sourceError = result.sourceError;
+
+        if (sourceError && sourceError.message) {
+          setAllowSubmit(true);
+          setCardError(sourceError.message);
+          return;
+        }
       }
 
       try {
@@ -277,7 +303,7 @@ const CheckoutForm = ({
     cardError,
     generalError,
     allowSubmit,
-  } = useCheckoutForm();
+  } = useCheckoutForm(isFree(total));
 
   return (
     <form onSubmit={checkoutSubmit}>
