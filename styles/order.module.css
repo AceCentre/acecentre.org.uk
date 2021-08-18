@@ -1,0 +1,6 @@
+.tableContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  margin-bottom: 3rem;
+}

@@ -179,8 +179,17 @@ const useCheckoutForm = () => {
         const parsed = await response.json();
 
         if (parsed.success === true) {
-          router.push("/my-acecentre/orders");
-          return;
+          const id = parsed?.result?.order?.id || null;
+          const order = parsed?.result?.order;
+
+          if (id) {
+            localStorage.setItem(`order-${id}`, JSON.stringify(order));
+            router.push(`/order/${id}`);
+            return;
+          } else {
+            router.push("/my-acecentre/orders");
+            return;
+          }
         }
 
         if (parsed.error) {
@@ -336,6 +345,15 @@ export const getServerSideProps = withSession(async function ({ req }) {
     req,
     user
   );
+
+  if (lines.length === 0) {
+    return {
+      redirect: {
+        destination: "/basket",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {
