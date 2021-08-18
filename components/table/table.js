@@ -102,6 +102,7 @@ export const OrderSummaryTable = ({
   shipping,
   total,
   discountTotal,
+  needsDelivered,
 }) => {
   return (
     <>
@@ -148,13 +149,15 @@ export const OrderSummaryTable = ({
               </td>
             </tr>
           )}
-          <tr>
-            <td className={styles.tableHeader}>Shipping</td>
-            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-              <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
-              <p>Shipping options will be updated during checkout.</p>
-            </td>
-          </tr>
+          {needsDelivered && (
+            <tr>
+              <td className={styles.tableHeader}>Shipping</td>
+              <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+                <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
+                <p>Shipping options will be updated during checkout.</p>
+              </td>
+            </tr>
+          )}
           <tr>
             <td className={styles.tableHeader}>Total</td>
             <td
@@ -218,7 +221,13 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
   );
 };
 
-export const TotalsTable = ({ subtotal, shipping, total, discountTotal }) => {
+export const TotalsTable = ({
+  subtotal,
+  shipping,
+  total,
+  discountTotal,
+  needsDelivered,
+}) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
       <tbody>
@@ -236,13 +245,15 @@ export const TotalsTable = ({ subtotal, shipping, total, discountTotal }) => {
             </td>
           </tr>
         )}
-        <tr>
-          <td className={styles.tableHeader}>Shipping</td>
-          <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-            <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
-            <p>Shipping options will be updated during checkout.</p>
-          </td>
-        </tr>
+        {needsDelivered && (
+          <tr>
+            <td className={styles.tableHeader}>Shipping</td>
+            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+              <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
+              <p>Shipping options will be updated during checkout.</p>
+            </td>
+          </tr>
+        )}
         <tr>
           <td className={styles.tableHeader}>Total</td>
           <td

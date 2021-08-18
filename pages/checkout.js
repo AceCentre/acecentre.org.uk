@@ -325,13 +325,16 @@ const CheckoutForm = ({
         <Checkbox name="mailingList" id="mailingList">
           Email me about Ace related news and events
         </Checkbox>
-        <Checkbox
-          name="differentAddress"
-          id="differentAddress"
-          onChange={differentAddressOnChange}
-        >
-          Deliver to a different address?
-        </Checkbox>
+
+        {needsDelivered && (
+          <Checkbox
+            name="differentAddress"
+            id="differentAddress"
+            onChange={differentAddressOnChange}
+          >
+            Deliver to a different address?
+          </Checkbox>
+        )}
       </div>
 
       <DeliveryDetails
@@ -355,6 +358,7 @@ const CheckoutForm = ({
         shipping={shipping}
         total={total}
         discountTotal={discountTotal}
+        needsDelivered={needsDelivered}
       />
 
       {/* Only show the card box for paid products */}

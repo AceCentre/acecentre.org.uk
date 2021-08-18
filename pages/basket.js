@@ -19,6 +19,7 @@ export default function Basket({
   shipping,
   total,
   discountTotal,
+  needsDelivered,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -58,6 +59,7 @@ export default function Basket({
               </Button>
             </div>
             <TotalsTable
+              needsDelivered={needsDelivered}
               discountTotal={discountTotal}
               subtotal={subtotal}
               total={total}
@@ -89,9 +91,14 @@ export default function Basket({
 }
 
 export const getServerSideProps = withSession(async function ({ req }) {
-  const { lines, subtotal, shipping, total, discountTotal } = await getCart(
-    req
-  );
+  const {
+    lines,
+    subtotal,
+    shipping,
+    total,
+    discountTotal,
+    needsDelivered,
+  } = await getCart(req);
 
   return {
     props: {
@@ -100,6 +107,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       shipping,
       total,
       discountTotal,
+      needsDelivered,
     },
   };
 });
