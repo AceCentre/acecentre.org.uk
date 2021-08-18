@@ -257,6 +257,7 @@ export default function Checkout({
   countries,
   billingDetails,
   deliveryDetails,
+  needsDelivered,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -276,6 +277,7 @@ export default function Checkout({
             countries={countries}
             billingDetails={billingDetails}
             deliveryDetails={deliveryDetails}
+            needsDelivered={needsDelivered}
           />
         </Elements>
       </main>
@@ -293,6 +295,7 @@ const CheckoutForm = ({
   countries,
   billingDetails,
   deliveryDetails,
+  needsDelivered,
 }) => {
   const {
     showFullDelivery,
@@ -322,13 +325,16 @@ const CheckoutForm = ({
         <Checkbox name="mailingList" id="mailingList">
           Email me about Ace related news and events
         </Checkbox>
-        <Checkbox
-          name="differentAddress"
-          id="differentAddress"
-          onChange={differentAddressOnChange}
-        >
-          Deliver to a different address?
-        </Checkbox>
+
+        {needsDelivered && (
+          <Checkbox
+            name="differentAddress"
+            id="differentAddress"
+            onChange={differentAddressOnChange}
+          >
+            Deliver to a different address?
+          </Checkbox>
+        )}
       </div>
 
       <DeliveryDetails
@@ -336,6 +342,7 @@ const CheckoutForm = ({
         deliveryDetails={deliveryDetails}
         countries={countries}
         deliveryError={deliveryError}
+        needsDelivered={needsDelivered}
       />
 
       <div className={styles.tableLabel}>
@@ -351,6 +358,7 @@ const CheckoutForm = ({
         shipping={shipping}
         total={total}
         discountTotal={discountTotal}
+        needsDelivered={needsDelivered}
       />
 
       {/* Only show the card box for paid products */}
@@ -368,9 +376,14 @@ const CheckoutForm = ({
 const isFree = (total) => total === "£0.00";
 
 export const getServerSideProps = withSession(async function ({ req }) {
-  const { lines, subtotal, shipping, total, discountTotal } = await getCart(
-    req
-  );
+  const {
+    lines,
+    subtotal,
+    shipping,
+    total,
+    discountTotal,
+    needsDelivered,
+  } = await getCart(req);
   const user = req.session.get("user") || { customerId: "" };
   const { countries, billingDetails, shippingDetails } = await getAddresses(
     req,
@@ -396,6 +409,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       countries,
       billingDetails,
       deliveryDetails: shippingDetails,
+      needsDelivered,
     },
   };
 });

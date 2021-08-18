@@ -12,10 +12,11 @@ export const DeliveryDetails = ({
   deliveryDetails,
   countries,
   deliveryError,
+  needsDelivered,
 }) => {
   return (
     <div className={`${styles.outerContainer} ${styles.delivery}`}>
-      <h2>Delivery details</h2>
+      <h2>{needsDelivered ? "Delivery details" : "Additional Information"}</h2>
       {deliveryError && <p className={styles.error}>{deliveryError}</p>}
       <div className={styles.container}>
         {showFullDelivery ? (
