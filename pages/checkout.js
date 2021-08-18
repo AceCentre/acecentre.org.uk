@@ -279,8 +279,6 @@ const CheckoutForm = ({
     allowSubmit,
   } = useCheckoutForm();
 
-  console.log(total);
-
   return (
     <form onSubmit={checkoutSubmit}>
       <BackToLink where="basket" href="/basket" />
