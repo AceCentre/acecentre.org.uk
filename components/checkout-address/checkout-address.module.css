@@ -14,6 +14,10 @@
   margin: 3rem auto;
 }
 
+.createAccount {
+  margin: 3rem auto;
+}
+
 .twoWide {
   display: grid;
   grid-template-columns: 1fr 1fr;
