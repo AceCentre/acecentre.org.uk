@@ -45,14 +45,17 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   return missingFields;
 };
 
-const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
+const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
-  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
+  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(
+    groupPurchaseLines.length > 0 && !existingUser
+  );
+
   const [createAccountError, setCreateAccountError] = useState(null);
 
   const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {
@@ -280,6 +283,7 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
             accountDetails,
+            groupPurchaseEmails,
           }),
         });
 
@@ -403,7 +407,7 @@ const CheckoutForm = ({
     createAccountError,
     emailsChanged,
     groupPurchaseErrors,
-  } = useCheckoutForm(isFree(total), groupPurchaseLines);
+  } = useCheckoutForm(isFree(total), groupPurchaseLines, existingUser);
 
   return (
     <form onSubmit={checkoutSubmit}>
@@ -442,6 +446,7 @@ const CheckoutForm = ({
           checkboxOnChange={checkboxOnChange}
           createAccountError={createAccountError}
           wantsToCreateAnAccount={wantsToCreateAnAccount}
+          forceOn={groupPurchaseLines.length > 0}
         />
       )}
 

@@ -14,6 +14,7 @@ export const NewUserDetails = ({
   checkboxOnChange,
   wantsToCreateAnAccount,
   createAccountError,
+  forceOn,
 }) => {
   return (
     <div className={`${styles.outerContainer} ${styles.createAccount}`}>
@@ -23,13 +24,15 @@ export const NewUserDetails = ({
       )}
       <div className={styles.container}>
         <div className={styles.list}>
-          <Checkbox
-            name="createAccount"
-            id="createAccount"
-            onChange={checkboxOnChange}
-          >
-            Create an account?
-          </Checkbox>
+          {!forceOn && (
+            <Checkbox
+              name="createAccount"
+              id="createAccount"
+              onChange={checkboxOnChange}
+            >
+              Create an account?
+            </Checkbox>
+          )}
           {wantsToCreateAnAccount && (
             <>
               <Input
