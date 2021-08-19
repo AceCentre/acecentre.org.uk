@@ -56,7 +56,11 @@ export const NewUserDetails = ({
   );
 };
 
-export const CollectEmails = ({ currentLine, emailsChanged = () => {} }) => {
+export const CollectEmails = ({
+  currentLine,
+  emailsChanged = () => {},
+  error,
+}) => {
   const [emails, setEmails] = useState(Array(currentLine.quantity).fill(""));
 
   const onEmailChange = (index) => (event) => {
@@ -80,6 +84,7 @@ export const CollectEmails = ({ currentLine, emailsChanged = () => {} }) => {
             course content
           </i>
         </p>
+        {error && <p className={styles.error}>{error}</p>}
         <div className={styles.container}>
           <div className={styles.list}>
             {/* This is so meh but its the cleanest option */}
