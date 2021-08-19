@@ -7,6 +7,8 @@ import {
 } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
 import { Checkbox } from "@chakra-ui/react";
+import { useState } from "react";
+import { cloneDeep } from "lodash";
 
 export const NewUserDetails = ({
   checkboxOnChange,
@@ -51,6 +53,51 @@ export const NewUserDetails = ({
         </div>
       </div>
     </div>
+  );
+};
+
+export const CollectEmails = ({ currentLine, emailsChanged = () => {} }) => {
+  const [emails, setEmails] = useState(Array(currentLine.quantity).fill(""));
+
+  const onEmailChange = (index) => (event) => {
+    console.log("ran");
+    let emailsCopy = cloneDeep(emails);
+    emailsCopy[index] = event.target.value;
+    setEmails(emailsCopy);
+    emailsChanged(emailsCopy);
+  };
+
+  return (
+    <>
+      <div className={`${styles.outerContainer} ${styles.createAccount}`}>
+        <h2>{currentLine.name} - Group purchase</h2>
+        <p>
+          Enter the email addresses for the individuals you want to be given
+          access to the course
+        </p>
+        <p>
+          <i>
+            Check these emails carefully as they will be used to access the
+            course content
+          </i>
+        </p>
+        <div className={styles.container}>
+          <div className={styles.list}>
+            {/* This is so meh but its the cleanest option */}
+            {emails.map((value, index) => (
+              <Input
+                maxWidth="100%"
+                placeholder="learner@academy.co.uk"
+                ariaLabel={`Student email ${index + 1}`}
+                key={`input-${index}-${currentLine.key}`}
+                onChange={onEmailChange(index)}
+                defaultValue={value}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
@@ -337,7 +384,15 @@ export const CheckoutAddress = () => {
   );
 };
 
-const Input = ({ placeholder, name, ariaLabel, id, type, defaultValue }) => {
+const Input = ({
+  placeholder,
+  name,
+  ariaLabel,
+  id,
+  type,
+  defaultValue,
+  onChange = () => {},
+}) => {
   return (
     <>
       <FormControl className={styles.formControl} id={id}>
@@ -349,6 +404,7 @@ const Input = ({ placeholder, name, ariaLabel, id, type, defaultValue }) => {
           name={name}
           aria-label={ariaLabel}
           type={type}
+          onChange={onChange}
           defaultValue={defaultValue === null ? "" : defaultValue}
         />
       </FormControl>

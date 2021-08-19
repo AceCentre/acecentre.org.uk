@@ -23,6 +23,7 @@ import {
   BillingDetails,
   DeliveryDetails,
   NewUserDetails,
+  CollectEmails,
 } from "../components/checkout-address/checkout-address";
 import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
@@ -294,6 +295,7 @@ export default function Checkout({
   deliveryDetails,
   needsDelivered,
   existingUser,
+  groupPurchaseLines,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -315,6 +317,7 @@ export default function Checkout({
             deliveryDetails={deliveryDetails}
             needsDelivered={needsDelivered}
             existingUser={existingUser}
+            groupPurchaseLines={groupPurchaseLines}
           />
         </Elements>
       </main>
@@ -334,6 +337,7 @@ const CheckoutForm = ({
   deliveryDetails,
   needsDelivered,
   existingUser,
+  groupPurchaseLines,
 }) => {
   const {
     showFullDelivery,
@@ -352,16 +356,13 @@ const CheckoutForm = ({
   return (
     <form onSubmit={checkoutSubmit}>
       <BackToLink where="basket" href="/basket" />
-
       {generalError && <p className={styles.error}>{generalError}</p>}
-
       <BillingDetails
         countries={countries}
         billingDetails={billingDetails}
         billingError={billingError}
         reducedInfo={isFree(total)}
       />
-
       <div className={styles.checkbox}>
         <Checkbox name="mailingList" id="mailingList">
           Email me about Ace related news and events
@@ -377,7 +378,6 @@ const CheckoutForm = ({
           </Checkbox>
         )}
       </div>
-
       <DeliveryDetails
         showFullDelivery={showFullDelivery}
         deliveryDetails={deliveryDetails}
@@ -385,7 +385,6 @@ const CheckoutForm = ({
         deliveryError={deliveryError}
         needsDelivered={needsDelivered}
       />
-
       {!existingUser && (
         <NewUserDetails
           checkboxOnChange={checkboxOnChange}
@@ -394,6 +393,11 @@ const CheckoutForm = ({
         />
       )}
 
+      {groupPurchaseLines.map((currentLine) => {
+        return (
+          <CollectEmails key={currentLine.key} currentLine={currentLine} />
+        );
+      })}
       <div className={styles.tableLabel}>
         <h3>Order summary</h3>
         <Link href="/basket">
@@ -409,10 +413,8 @@ const CheckoutForm = ({
         discountTotal={discountTotal}
         needsDelivered={needsDelivered}
       />
-
       {/* Only show the card box for paid products */}
       {!isFree(total) && <CardBox cardError={cardError} />}
-
       <div className={styles.placeOrderButtonContainer}>
         <Button disabled={!allowSubmit} type="submit">
           Place order
@@ -448,9 +450,12 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
+  const groupPurchaseLines = lines.filter((x) => x.groupPurchase);
+
   return {
     props: {
       lines,
+      groupPurchaseLines,
       subtotal,
       shipping,
       total,
