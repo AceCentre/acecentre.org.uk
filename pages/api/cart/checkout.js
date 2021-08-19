@@ -20,7 +20,21 @@ async function handler(req, res) {
     }
 
     await updateCustomer(req, body);
-    result = await checkout(req, body);
+
+    let uniqueCohortTag;
+    let cohortNames;
+    if (Object.keys(body.groupPurchaseEmails).length > 0) {
+      uniqueCohortTag = new Date().toTimeString();
+      cohortNames = Object.keys(body.groupPurchaseEmails).map((x) => {
+        return {
+          productId: parseInt(x),
+          cohortName: `${uniqueCohortTag} => ${x}`,
+        };
+      });
+      result = await checkout(req, body, cohortNames);
+    } else {
+      result = await checkout(req, body);
+    }
 
     if (
       body.accountDetails.createAccount &&
