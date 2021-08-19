@@ -54,13 +54,19 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
   const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
   const [createAccountError, setCreateAccountError] = useState(null);
 
-  const defaultGroupPurchases = useMemo(() => {
+  const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {
     let defaultGroupPurchases = {};
+    let emptyEmailErrors = {};
     for (const line of groupPurchaseLines) {
       defaultGroupPurchases[line.key] = Array(line.quantity).fill("");
+      emptyEmailErrors[line.key] = null;
     }
-    return defaultGroupPurchases;
+    return { defaultGroupPurchases, emptyEmailErrors };
   });
+
+  const [groupPurchaseErrors, setGroupPurchaseErrors] = useState(
+    emptyEmailErrors
+  );
 
   const [groupPurchaseEmails, setGroupPurchaseEmails] = useState(
     defaultGroupPurchases
@@ -93,6 +99,7 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
     setGeneralError(null);
     setCreateAccountError(null);
     setAllowSubmit(false);
+    setGroupPurchaseErrors(emptyEmailErrors);
 
     let accountDetails = { createAccount: false };
 
@@ -302,6 +309,7 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
     checkboxOnChange,
     createAccountError,
     emailsChanged,
+    groupPurchaseErrors,
   };
 };
 
@@ -373,6 +381,7 @@ const CheckoutForm = ({
     wantsToCreateAnAccount,
     createAccountError,
     emailsChanged,
+    groupPurchaseErrors,
   } = useCheckoutForm(isFree(total), groupPurchaseLines);
 
   return (
@@ -421,6 +430,7 @@ const CheckoutForm = ({
             key={currentLine.key}
             currentLine={currentLine}
             emailsChanged={emailsChanged(currentLine.key)}
+            error={groupPurchaseErrors[currentLine.key]}
           />
         );
       })}
