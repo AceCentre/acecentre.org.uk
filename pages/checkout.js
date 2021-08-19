@@ -31,6 +31,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
 import { useRouter } from "next/dist/client/router";
 import { cloneDeep } from "lodash";
+import { validateEmail } from "../lib/auth/hooks";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -210,6 +211,26 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
 
     if (missingBillingFields.length > 0 || missingDeliveryFields.length > 0) {
       window.scrollTo(0, 0);
+      return;
+    }
+
+    let currentErrors = cloneDeep(emptyEmailErrors);
+    let errorState = false;
+    Object.entries(groupPurchaseEmails).map(([key, currentEmails]) => {
+      const invalidEmails = currentEmails.filter((x) => !validateEmail(x));
+
+      console.log(invalidEmails);
+
+      if (invalidEmails.length > 0) {
+        currentErrors[key] = "All emails must be valid";
+        errorState = true;
+      }
+    });
+
+    if (errorState) {
+      setGroupPurchaseErrors(currentErrors);
+      window.scrollTo(0, 0);
+      setAllowSubmit(true);
       return;
     }
 
