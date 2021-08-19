@@ -60,7 +60,6 @@ export const CollectEmails = ({ currentLine, emailsChanged = () => {} }) => {
   const [emails, setEmails] = useState(Array(currentLine.quantity).fill(""));
 
   const onEmailChange = (index) => (event) => {
-    console.log("ran");
     let emailsCopy = cloneDeep(emails);
     emailsCopy[index] = event.target.value;
     setEmails(emailsCopy);

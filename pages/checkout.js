@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   CardElement,
   useStripe,
@@ -30,6 +30,7 @@ import { Checkbox } from "@chakra-ui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
 import { useRouter } from "next/dist/client/router";
+import { cloneDeep } from "lodash";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -43,7 +44,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   return missingFields;
 };
 
-const useCheckoutForm = (freeCheckout) => {
+const useCheckoutForm = (freeCheckout, groupPurchaseLines) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
@@ -52,6 +53,19 @@ const useCheckoutForm = (freeCheckout) => {
   const [generalError, setGeneralError] = useState(null);
   const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
   const [createAccountError, setCreateAccountError] = useState(null);
+
+  const defaultGroupPurchases = useMemo(() => {
+    let defaultGroupPurchases = {};
+    for (const line of groupPurchaseLines) {
+      defaultGroupPurchases[line.key] = Array(line.quantity).fill("");
+    }
+    return defaultGroupPurchases;
+  });
+
+  const [groupPurchaseEmails, setGroupPurchaseEmails] = useState(
+    defaultGroupPurchases
+  );
+
   const router = useRouter();
 
   const stripe = useStripe();
@@ -63,6 +77,12 @@ const useCheckoutForm = (freeCheckout) => {
 
   const differentAddressOnChange = (event) => {
     setShowFullDelivery(event.target.checked);
+  };
+
+  const emailsChanged = (key) => (newEmails) => {
+    const emails = cloneDeep(groupPurchaseEmails);
+    emails[key] = newEmails;
+    setGroupPurchaseEmails(emails);
   };
 
   const checkoutSubmit = (event) => {
@@ -281,6 +301,7 @@ const useCheckoutForm = (freeCheckout) => {
     wantsToCreateAnAccount,
     checkboxOnChange,
     createAccountError,
+    emailsChanged,
   };
 };
 
@@ -351,7 +372,8 @@ const CheckoutForm = ({
     checkboxOnChange,
     wantsToCreateAnAccount,
     createAccountError,
-  } = useCheckoutForm(isFree(total));
+    emailsChanged,
+  } = useCheckoutForm(isFree(total), groupPurchaseLines);
 
   return (
     <form onSubmit={checkoutSubmit}>
@@ -395,7 +417,11 @@ const CheckoutForm = ({
 
       {groupPurchaseLines.map((currentLine) => {
         return (
-          <CollectEmails key={currentLine.key} currentLine={currentLine} />
+          <CollectEmails
+            key={currentLine.key}
+            currentLine={currentLine}
+            emailsChanged={emailsChanged(currentLine.key)}
+          />
         );
       })}
       <div className={styles.tableLabel}>
