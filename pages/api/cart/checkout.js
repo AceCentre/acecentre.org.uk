@@ -44,12 +44,12 @@ async function handler(req, res) {
       result = await checkout(req, body, cohortNames);
 
       for (let current of cohortNames) {
-        const temp = await addUserToCohort(
+        const addUserResult = await addUserToCohort(
           req,
           current.cohortName,
           body.groupPurchaseEmails[current.productId]
         );
-        console.log(temp);
+        console.log(addUserResult);
       }
     } else {
       result = await checkout(req, body);
