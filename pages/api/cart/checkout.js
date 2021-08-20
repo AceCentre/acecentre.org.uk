@@ -42,15 +42,6 @@ async function handler(req, res) {
         };
       });
       result = await checkout(req, body, cohortNames);
-
-      for (let current of cohortNames) {
-        const addUserResult = await addUserToCohort(
-          req,
-          current.cohortName,
-          body.groupPurchaseEmails[current.productId]
-        );
-        console.log(addUserResult);
-      }
     } else {
       result = await checkout(req, body);
     }
@@ -61,6 +52,17 @@ async function handler(req, res) {
       body.accountDetails.password
     ) {
       await login(req, body);
+    }
+
+    if (Object.keys(body.groupPurchaseEmails).length > 0) {
+      for (let current of cohortNames) {
+        const addUserResult = await addUserToCohort(
+          req,
+          current.cohortName,
+          body.groupPurchaseEmails[current.productId]
+        );
+        console.log(addUserResult);
+      }
     }
 
     await clientRequest(req, EMPTY_CART);
