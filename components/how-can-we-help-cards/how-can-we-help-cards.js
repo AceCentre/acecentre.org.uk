@@ -26,7 +26,7 @@ export const HowCanWeHelpCards = () => {
             src="/graphics/resources.svg"
             background="rgba(0,0,0,0)"
             headline="Resources"
-            secondaryLine="Resources to help you get started with AAC, free symbol & alphabet charts"
+            secondaryLine="A collection of AAC and AT resources created by the Ace Centre"
             href="/resources"
             iconColour="#F4DF74"
             alt="Group of icons to show 'resources'"
