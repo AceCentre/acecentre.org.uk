@@ -5,9 +5,19 @@ import { LOGIN_MUTATION } from "../auth/login";
 import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
-import { GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
+
+const ADD_USERS_TO_COHORT = gql`
+  mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
+    addUsersToCohort(
+      input: { input: { cohortName: $cohortName, newUsers: $newUsers } }
+    ) {
+      success
+    }
+  }
+`;
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -32,6 +42,15 @@ async function handler(req, res) {
         };
       });
       result = await checkout(req, body, cohortNames);
+
+      for (let current of cohortNames) {
+        const temp = await addUserToCohort(
+          req,
+          current.cohortName,
+          body.groupPurchaseEmails[current.productId]
+        );
+        console.log(temp);
+      }
     } else {
       result = await checkout(req, body);
     }
@@ -63,6 +82,19 @@ async function handler(req, res) {
     return;
   }
 }
+
+const addUserToCohort = async (req, cohortName, emails) => {
+  const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
+    cohortName,
+    newUsers: emails.map((x) => ({
+      email: x,
+      firstName: "John",
+      lastName: "Smith",
+    })),
+  });
+
+  return result;
+};
 
 const login = async (req, body) => {
   let headers = {};
