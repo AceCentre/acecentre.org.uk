@@ -18,9 +18,9 @@ export const StaffAndTrustees = () => {
       <div className={styles.peopleDescription}>
         <h2>Our team</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          A multi-disciplinary team of specialist teachers, occupational
+          therapists, speech & language therapists with the support of technical
+          and administrative staff.
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/about/staff">Meet the team</Button>
