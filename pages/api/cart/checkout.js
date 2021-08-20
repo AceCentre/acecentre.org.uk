@@ -86,10 +86,10 @@ async function handler(req, res) {
 const addUserToCohort = async (req, cohortName, emails) => {
   const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
     cohortName,
-    newUsers: emails.map((x) => ({
-      email: x,
-      firstName: "John",
-      lastName: "Smith",
+    newUsers: emails.map((email) => ({
+      email,
+      firstName: email.split(/@/)[0],
+      lastName: email.split(/@/)[1],
     })),
   });
 
