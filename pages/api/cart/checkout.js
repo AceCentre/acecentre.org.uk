@@ -68,6 +68,8 @@ async function handler(req, res) {
     res.send({ success: true, result });
     return;
   } catch (error) {
+    console.log(error);
+
     const errors = error?.response?.errors || [];
     const mainError = errors[0] || null;
     const errorMessage = mainError?.message || "An error has occurred";
