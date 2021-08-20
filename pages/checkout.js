@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   CardElement,
   useStripe,
@@ -23,12 +23,15 @@ import {
   BillingDetails,
   DeliveryDetails,
   NewUserDetails,
+  CollectEmails,
 } from "../components/checkout-address/checkout-address";
 import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
 import { useRouter } from "next/dist/client/router";
+import { cloneDeep } from "lodash";
+import { validateEmail } from "../lib/auth/hooks";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -42,15 +45,37 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   return missingFields;
 };
 
-const useCheckoutForm = (freeCheckout) => {
+const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
-  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(false);
+  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(
+    groupPurchaseLines.length > 0 && !existingUser
+  );
+
   const [createAccountError, setCreateAccountError] = useState(null);
+
+  const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {
+    let defaultGroupPurchases = {};
+    let emptyEmailErrors = {};
+    for (const line of groupPurchaseLines) {
+      defaultGroupPurchases[line.key] = Array(line.quantity).fill("");
+      emptyEmailErrors[line.key] = null;
+    }
+    return { defaultGroupPurchases, emptyEmailErrors };
+  });
+
+  const [groupPurchaseErrors, setGroupPurchaseErrors] = useState(
+    emptyEmailErrors
+  );
+
+  const [groupPurchaseEmails, setGroupPurchaseEmails] = useState(
+    defaultGroupPurchases
+  );
+
   const router = useRouter();
 
   const stripe = useStripe();
@@ -64,6 +89,12 @@ const useCheckoutForm = (freeCheckout) => {
     setShowFullDelivery(event.target.checked);
   };
 
+  const emailsChanged = (key) => (newEmails) => {
+    const emails = cloneDeep(groupPurchaseEmails);
+    emails[key] = newEmails;
+    setGroupPurchaseEmails(emails);
+  };
+
   const checkoutSubmit = (event) => {
     event.preventDefault();
     setBillingError(null);
@@ -72,6 +103,7 @@ const useCheckoutForm = (freeCheckout) => {
     setGeneralError(null);
     setCreateAccountError(null);
     setAllowSubmit(false);
+    setGroupPurchaseErrors(emptyEmailErrors);
 
     let accountDetails = { createAccount: false };
 
@@ -185,6 +217,26 @@ const useCheckoutForm = (freeCheckout) => {
       return;
     }
 
+    let currentErrors = cloneDeep(emptyEmailErrors);
+    let errorState = false;
+    Object.entries(groupPurchaseEmails).map(([key, currentEmails]) => {
+      const invalidEmails = currentEmails.filter((x) => !validateEmail(x));
+
+      console.log(invalidEmails);
+
+      if (invalidEmails.length > 0) {
+        currentErrors[key] = "All emails must be valid";
+        errorState = true;
+      }
+    });
+
+    if (errorState) {
+      setGroupPurchaseErrors(currentErrors);
+      window.scrollTo(0, 0);
+      setAllowSubmit(true);
+      return;
+    }
+
     // Guard against stripe or elements not being available
     if (!stripe || !elements) {
       throw Error("Stripe or Elements is undefined");
@@ -231,6 +283,7 @@ const useCheckoutForm = (freeCheckout) => {
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
             accountDetails,
+            groupPurchaseEmails,
           }),
         });
 
@@ -280,6 +333,8 @@ const useCheckoutForm = (freeCheckout) => {
     wantsToCreateAnAccount,
     checkboxOnChange,
     createAccountError,
+    emailsChanged,
+    groupPurchaseErrors,
   };
 };
 
@@ -294,6 +349,7 @@ export default function Checkout({
   deliveryDetails,
   needsDelivered,
   existingUser,
+  groupPurchaseLines,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -315,6 +371,7 @@ export default function Checkout({
             deliveryDetails={deliveryDetails}
             needsDelivered={needsDelivered}
             existingUser={existingUser}
+            groupPurchaseLines={groupPurchaseLines}
           />
         </Elements>
       </main>
@@ -334,6 +391,7 @@ const CheckoutForm = ({
   deliveryDetails,
   needsDelivered,
   existingUser,
+  groupPurchaseLines,
 }) => {
   const {
     showFullDelivery,
@@ -347,21 +405,20 @@ const CheckoutForm = ({
     checkboxOnChange,
     wantsToCreateAnAccount,
     createAccountError,
-  } = useCheckoutForm(isFree(total));
+    emailsChanged,
+    groupPurchaseErrors,
+  } = useCheckoutForm(isFree(total), groupPurchaseLines, existingUser);
 
   return (
     <form onSubmit={checkoutSubmit}>
       <BackToLink where="basket" href="/basket" />
-
       {generalError && <p className={styles.error}>{generalError}</p>}
-
       <BillingDetails
         countries={countries}
         billingDetails={billingDetails}
         billingError={billingError}
         reducedInfo={isFree(total)}
       />
-
       <div className={styles.checkbox}>
         <Checkbox name="mailingList" id="mailingList">
           Email me about Ace related news and events
@@ -377,7 +434,6 @@ const CheckoutForm = ({
           </Checkbox>
         )}
       </div>
-
       <DeliveryDetails
         showFullDelivery={showFullDelivery}
         deliveryDetails={deliveryDetails}
@@ -385,15 +441,25 @@ const CheckoutForm = ({
         deliveryError={deliveryError}
         needsDelivered={needsDelivered}
       />
-
       {!existingUser && (
         <NewUserDetails
           checkboxOnChange={checkboxOnChange}
           createAccountError={createAccountError}
           wantsToCreateAnAccount={wantsToCreateAnAccount}
+          forceOn={groupPurchaseLines.length > 0}
         />
       )}
 
+      {groupPurchaseLines.map((currentLine) => {
+        return (
+          <CollectEmails
+            key={currentLine.key}
+            currentLine={currentLine}
+            emailsChanged={emailsChanged(currentLine.key)}
+            error={groupPurchaseErrors[currentLine.key]}
+          />
+        );
+      })}
       <div className={styles.tableLabel}>
         <h3>Order summary</h3>
         <Link href="/basket">
@@ -409,10 +475,8 @@ const CheckoutForm = ({
         discountTotal={discountTotal}
         needsDelivered={needsDelivered}
       />
-
       {/* Only show the card box for paid products */}
       {!isFree(total) && <CardBox cardError={cardError} />}
-
       <div className={styles.placeOrderButtonContainer}>
         <Button disabled={!allowSubmit} type="submit">
           Place order
@@ -448,9 +512,12 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
+  const groupPurchaseLines = lines.filter((x) => x.groupPurchase);
+
   return {
     props: {
       lines,
+      groupPurchaseLines,
       subtotal,
       shipping,
       total,

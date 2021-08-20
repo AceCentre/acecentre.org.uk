@@ -5,9 +5,19 @@ import { LOGIN_MUTATION } from "../auth/login";
 import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
-import { GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
+
+const ADD_USERS_TO_COHORT = gql`
+  mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
+    addUsersToCohort(
+      input: { input: { cohortName: $cohortName, newUsers: $newUsers } }
+    ) {
+      success
+    }
+  }
+`;
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -20,7 +30,30 @@ async function handler(req, res) {
     }
 
     await updateCustomer(req, body);
-    result = await checkout(req, body);
+
+    let uniqueCohortTag;
+    let cohortNames;
+    if (Object.keys(body.groupPurchaseEmails).length > 0) {
+      uniqueCohortTag = new Date().toTimeString();
+      cohortNames = Object.keys(body.groupPurchaseEmails).map((x) => {
+        return {
+          productId: parseInt(x),
+          cohortName: `${uniqueCohortTag} => ${x}`,
+        };
+      });
+      result = await checkout(req, body, cohortNames);
+
+      for (let current of cohortNames) {
+        const addUserResult = await addUserToCohort(
+          req,
+          current.cohortName,
+          body.groupPurchaseEmails[current.productId]
+        );
+        console.log(addUserResult);
+      }
+    } else {
+      result = await checkout(req, body);
+    }
 
     if (
       body.accountDetails.createAccount &&
@@ -35,6 +68,8 @@ async function handler(req, res) {
     res.send({ success: true, result });
     return;
   } catch (error) {
+    console.log(error);
+
     const errors = error?.response?.errors || [];
     const mainError = errors[0] || null;
     const errorMessage = mainError?.message || "An error has occurred";
@@ -49,6 +84,19 @@ async function handler(req, res) {
     return;
   }
 }
+
+const addUserToCohort = async (req, cohortName, emails) => {
+  const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
+    cohortName,
+    newUsers: emails.map((email) => ({
+      email,
+      firstName: email.split(/@/)[0],
+      lastName: email.split(/@/)[1],
+    })),
+  });
+
+  return result;
+};
 
 const login = async (req, body) => {
   let headers = {};
