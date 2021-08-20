@@ -28,7 +28,7 @@ export const ResourcesDownload = ({ resource }) => {
   throw new Error(`Uh oh, looks like we cant render ${resource.slug}`);
 };
 
-const useAddToCart = () => {
+export const useAddToCart = () => {
   const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState(false);
   const router = useRouter();
