@@ -19,9 +19,8 @@ export const WaysToGetInvolved = () => {
           <div>
             <h3>Fundraise</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae.
+              As a charity we depend on donations for vital services, from
+              baking caked to running marathons, find out ways you can help.
             </p>
             <Button>Find out more</Button>
           </div>
