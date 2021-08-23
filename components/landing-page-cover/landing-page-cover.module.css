@@ -62,11 +62,27 @@
   height: 80px;
   background: #94c64e;
   box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
+  transition: all 0.3s ease;
+}
+
+.ctaButton.ctaButton:hover .ctaAvatar,
+.ctaButton.ctaButton:focus .ctaAvatar {
+  width: 100px;
+  height: 100px;
+  margin-top: -10px;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.14);
+}
+
+.ctaButton.ctaButton:hover .ctaIcon,
+.ctaButton.ctaButton:focus .ctaIcon {
+  height: 80px;
+  width: 80px;
 }
 
 .ctaIcon.ctaIcon.ctaIcon {
   height: 60px;
   width: 60px;
+  transition: all 0.3s ease;
 }
 
 /** Mobile CSS */
