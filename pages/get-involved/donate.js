@@ -27,9 +27,9 @@ export default function GetInvolved({ featuredStory }) {
         >
           <h1 className={styles.cardTitle}>Donate</h1>
           <p className={styles.cardDescription}>
-            Give children and adults with physical or learning disabilities, or
-            language disorders need prompt and free access to advice,
-            information and support
+            As a relatively small charity we depend on regular giving to be able
+            to continue to offer high quality services that are effective for
+            those who use them.
           </p>
           <Button className={styles.cardButton}>Make a donation</Button>
           <p className={styles.cardContact}>

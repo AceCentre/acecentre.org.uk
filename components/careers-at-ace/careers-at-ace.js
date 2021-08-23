@@ -13,7 +13,7 @@ export const CareersAtAce = () => {
         />
       </div>
       <div>
-        <h2>Careers at AceCentre</h2>
+        <h2>Careers at Ace Centre</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra

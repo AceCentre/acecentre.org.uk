@@ -17,10 +17,7 @@ export const InformationDays = () => {
       </div>
       <div className={styles.right}>
         <h2>Information days</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p>A useful first step in any effective assessment process</p>
         <div className={styles.buttonContainer}>
           <Button className={styles.button} href="/information-days">
             Find out more

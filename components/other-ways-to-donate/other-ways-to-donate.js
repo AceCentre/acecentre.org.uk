@@ -61,8 +61,9 @@ export const OtherWaysToDonate = () => {
           <div className={styles.inlineCard}>
             <h3>Donate today</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna.
+              Choose to help Ace Centre and ensure we can continue to provides
+              services and support to children and adults with severe
+              communication difficulties.
             </p>
             <Button>Get in touch online</Button>
             <p>

@@ -43,7 +43,7 @@ export default function EngineeringPage({ featuredStory }) {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>Partnerships with AceCentre</h2>
+            <h2>Partnerships with Ace Centre</h2>
             <p>
               We achieve positive outcomes for our clients by drawing on the
               skills of our multidisciplinary team of teachers, speech and
@@ -92,25 +92,25 @@ export default function EngineeringPage({ featuredStory }) {
             <div className={styles.inlineCard}>
               <h2>Education</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Work closely with our consultants to form a development plan
+                targeting your school or college’s AAC and AT needs, resulting
+                in clear and measurable outcomes.
               </p>
             </div>
             <div className={styles.inlineCard}>
               <h2>Health</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Partner with our team to evaluate your service’s current local
+                AAC and AT offering, working together to create a plan of
+                bespoke and targeted supports to meet your development needs.
               </p>
             </div>
             <div className={styles.inlineCard}>
               <h2>Companies</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Our multi-disciplinary team will lead you through creating a
+                continuous improvement plan to up-skill staff and establishing a
+                lasting system of work to support people in your care.
               </p>
             </div>
           </div>
@@ -121,15 +121,16 @@ export default function EngineeringPage({ featuredStory }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;We have been partnering with ACE for several years. They
+                  are always responsive to our changing needs and add value to
+                  the services we can offer to the people we support.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Kitty Stewart</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Senior Speech and Language Therapist</p>
+                  <p>Guernsey Adult and Community Services Partnership</p>
                 </div>
               </div>
             </div>

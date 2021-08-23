@@ -26,14 +26,14 @@ export default function GetInvolved({ featuredStory }) {
         >
           <h1>Get involved</h1>
           <p>
-            We’re ensuring that people with the severest communication
-            challenges continue to benefit from professional assessment and
-            intervention
+            Your support is vital ensure our ongoing work to give children and
+            adults access to the advice, information and support they need to
+            fulfil their potential.
           </p>
         </VideoWithCardCover>
         <div className={styles.columns}>
           <div className={styles.left}>
-            <h2>Why support AceCentre?</h2>
+            <h2>Why support Ace Centre?</h2>
             <p>
               Staffed by teams of teachers, therapists and technicians, Ace
               Centre offers many years experience and expertise in Assistive
