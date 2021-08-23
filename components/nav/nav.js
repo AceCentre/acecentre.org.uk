@@ -61,7 +61,7 @@ export const Nav = ({ nhs }) => {
           </div>
         ) : (
           <div className={styles.hideOnMediumScreens}>
-            <Button href="/donate" className={styles.donateButton}>
+            <Button href="/get-involved/donate" className={styles.donateButton}>
               Donate
             </Button>
           </div>
