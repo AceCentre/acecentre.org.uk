@@ -10,9 +10,8 @@ export const WaysToGetInvolved = () => {
           <div>
             <h3>Donate</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae.
+              Help to ensure we can continue to offer free information and
+              helpline services to everyone who needs them
             </p>
             <Button>Find out more</Button>
           </div>
