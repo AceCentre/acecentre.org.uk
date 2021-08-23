@@ -12,7 +12,10 @@ import NextNProgress from "../components/progress-bar";
 
 const theme = createTheme();
 
-function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
+function MyApp({
+  Component,
+  pageProps: { globalProps = {}, seo = {}, ...pageProps },
+}) {
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -23,7 +26,7 @@ function MyApp({ Component, pageProps: { globalProps = {}, ...pageProps } }) {
 
   return (
     <GlobalsContext.Provider value={globalProps}>
-      <DefaultHead />
+      <DefaultHead {...seo} />
       <ThemeProvider theme={theme}>
         <ChakraProvider resetCSS={false}>
           <SSRProvider>
