@@ -108,9 +108,9 @@ export default function EngineeringPage({ featuredStory }) {
             <div className={styles.inlineCard}>
               <h2>Companies</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Our multi-disciplinary team will lead you through creating a
+                continuous improvement plan to up-skill staff and establishing a
+                lasting system of work to support people in your care.
               </p>
             </div>
           </div>
