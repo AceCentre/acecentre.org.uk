@@ -53,10 +53,10 @@ export default function EngineeringPage({
           <div className={styles.leftContent}>
             <h2>Advice & information</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Whether you are just starting out or you are an experienced AAC
+              /AT user ready to move on, we offer remote and face to face
+              support so you can chat about your needs with members of the Ace
+              Centre team.
             </p>
             <h2>Free Advice Line</h2>
             <p>
