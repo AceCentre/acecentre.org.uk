@@ -121,15 +121,16 @@ export default function EngineeringPage({ featuredStory }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;We have been partnering with ACE for several years. They
+                  are always responsive to our changing needs and add value to
+                  the services we can offer to the people we support.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Kitty Stewart</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Senior Speech and Language Therapist</p>
+                  <p>Guernsey Adult and Community Services Partnership</p>
                 </div>
               </div>
             </div>
