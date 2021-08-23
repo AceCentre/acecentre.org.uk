@@ -38,9 +38,8 @@ export const StaffAndTrustees = () => {
       <div className={styles.trusteeDescription}>
         <h2>Our Trustees</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          A passionate team helping to steer and oversee the Ace Centre
+          direction.
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/about/trustees">Meet the trustees</Button>
