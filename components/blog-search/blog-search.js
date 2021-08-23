@@ -5,7 +5,7 @@ export const BlogSearch = () => {
     <SearchBox
       title={"Ace Centre blog"}
       description={
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit do eiusmod tempor incididunt ut labore et dolore."
+        "Keep up to date with news on what we're up to and how you can get involved"
       }
       searchEndpoint={"/blog/search"}
       ariaLabel={"Search blog posts"}

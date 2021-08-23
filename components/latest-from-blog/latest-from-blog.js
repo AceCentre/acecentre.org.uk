@@ -27,7 +27,7 @@ export const LatestFromBlog = ({ posts }) => {
       <h1 className={styles.title}>Latest from the blog</h1>
       <div className={styles.tagLineContainer}>
         <p className={styles.tagLine}>
-          Read the latest from AceCentre company news to project updates
+          Read the latest from Ace Centre news to project updates
         </p>
         <Link href="/blog">
           <a className={styles.visitBlogLink}>

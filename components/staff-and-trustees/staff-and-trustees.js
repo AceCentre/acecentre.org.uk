@@ -18,9 +18,9 @@ export const StaffAndTrustees = () => {
       <div className={styles.peopleDescription}>
         <h2>Our team</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          A multi-disciplinary team of specialist teachers, occupational
+          therapists, speech & language therapists with the support of technical
+          and administrative staff.
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/about/staff">Meet the team</Button>
@@ -38,9 +38,8 @@ export const StaffAndTrustees = () => {
       <div className={styles.trusteeDescription}>
         <h2>Our Trustees</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          A passionate team helping to steer and oversee the Ace Centre
+          direction.
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/about/trustees">Meet the trustees</Button>

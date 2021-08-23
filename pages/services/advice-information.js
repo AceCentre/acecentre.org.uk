@@ -39,8 +39,8 @@ export default function EngineeringPage({
         >
           <h1 className={styles.cardTitle}>Advice & Information</h1>
           <p className={styles.cardDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
-            eiusmod tempor incididunt ut labore.
+            The Ace Centre team offer you AAC and AT support at any and every
+            stage of your journey
           </p>
           <Button className={styles.cardButton}>
             Book information day apppointment
@@ -53,10 +53,10 @@ export default function EngineeringPage({
           <div className={styles.leftContent}>
             <h2>Advice & information</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Whether you are just starting out or you are an experienced AAC
+              /AT user ready to move on, we offer remote and face to face
+              support so you can chat about your needs with members of the Ace
+              Centre team.
             </p>
             <h2>Free Advice Line</h2>
             <p>
@@ -123,15 +123,17 @@ export default function EngineeringPage({
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;Met with these amazing people today. At an emotional
+                  stage in our story they gave us hope for the future for our
+                  lovely son who is unlikely to speak. Can’t wait to get started
+                  with ‘modelling’ (now I finally know what it is!) and allow
+                  him to learn his own special way of talking. &quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Katie Lees</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Parent, who attended our Information Day services</p>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ export const Footer = ({ currentYear }) => {
       <div className={styles.innerContainer}>
         <div className={styles.topArea}>
           <Image
-            alt="The AceCentre logo"
+            alt="The Ace Centre logo"
             height={101}
             width={225}
             maxHeight={100}
@@ -107,7 +107,7 @@ export const Footer = ({ currentYear }) => {
             </li>
           </ul>
           <p className={styles.copyright}>
-            © Copyright AceCentre {currentYear}
+            © Copyright Ace Centre {currentYear}
           </p>
         </div>
       </div>

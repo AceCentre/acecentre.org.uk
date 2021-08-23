@@ -23,10 +23,7 @@ export const ContactCards = () => {
         </Card>
         <Card>
           <h3>Technical Support</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
+          <p>What to do when you&apos;re having device problems</p>
           <Link href="/tech-support">
             <a className={styles.link}>Get technical support &gt;</a>
           </Link>

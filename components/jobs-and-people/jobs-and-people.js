@@ -19,9 +19,8 @@ export const JobsAndPeople = () => {
       <div className={styles.jobDescription}>
         <h2>Job opportunities</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          If you are smart, interested in making a difference, and want to work
+          with an awesome team and just as amazing technology then get in touch
         </p>
         <div className={styles.buttonContainer}>
           <Button href="https://uk.indeed.com/cmp/The-Ace-Centre">
@@ -42,9 +41,9 @@ export const JobsAndPeople = () => {
       <div className={styles.peopleDescription}>
         <h2>Meet the team</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          A multi-disciplinary team of specialist teachers, occupational
+          therapists, speech & language therapists with the support of technical
+          and administrative staff.
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/about/staff">Meet the team</Button>

@@ -7,7 +7,10 @@ export const WhatWeDo = () => {
   return (
     <div className={styles.container}>
       <h1>More ways we can help</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+      <p>
+        Ace Centre provides a range of services to support children and adults
+        with severe communication difficulties
+      </p>
       <div className={styles.list}>
         <ul className={styles.unstyledList}>
           <li>
