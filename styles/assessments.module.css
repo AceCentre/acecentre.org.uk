@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.linkList a {
+  color: #345979;
+}
+
 .normalWeight {
   font-weight: normal;
 }
