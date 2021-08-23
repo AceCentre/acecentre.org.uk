@@ -16945,10 +16945,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-lite-youtube-embed@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.0.3.tgz#24a272e4832826252f98a4b122b8c50a25dd117f"
-  integrity sha512-jeNw1i1LROdYVoxBiVRBNoqddzP91S+V84Z14Sralbw+0IWkDNo70xLD2Suk6j+es+h8y3/WykeiGiPw/THZQw==
+react-lite-youtube-embed@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.0.5.tgz#e9f2f749e9660549d87b01d90a42fcc0d5c8ed42"
+  integrity sha512-ULMeE9QHsUUxYzuiKFgBF0atEcNprmVGkBfECeOIJceMsSTu1xmNJynqEoYkoFgAMcAHSR+qA/yvMXTlkd8E3g==
 
 react-native-get-random-values@^1.4.0:
   version "1.7.0"
