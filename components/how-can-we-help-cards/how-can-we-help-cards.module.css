@@ -22,6 +22,22 @@
   padding-top: 1rem;
 }
 
+.cardContainer:hover .arrowAvatar,
+.cardContainer:focus .arrowAvatar {
+  width: 60px;
+  height: 60px;
+}
+
+.cardContainer:hover .arrowIcon,
+.cardContainer:focus .arrowIcon {
+  width: 45px;
+  height: 48px;
+}
+
+.arrowIcon.arrowIcon {
+  transition: all 0.3s ease;
+}
+
 .cardHeadline {
   font-weight: bold;
 }
@@ -95,8 +111,9 @@
 
 .allCards {
   text-align: center;
+  margin: 2rem auto;
 
-  grid-gap: 1rem;
+  grid-gap: 3rem;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -112,6 +129,7 @@
   bottom: 0;
   margin: 1rem;
   color: #333333;
+  transition: all 0.3s ease;
 }
 
 /* Mobile CSS */

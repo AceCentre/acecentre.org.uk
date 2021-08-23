@@ -64,6 +64,7 @@ export const HowCanWeHelpCards = () => {
             Office hours, Monday - Friday"
             href="tel:08000487642"
             alt="Group of icons to show 'Free Advice Line'"
+            iconColour="#5AA8D1"
           />
         </div>
       </div>
@@ -101,7 +102,7 @@ const HowWeHelpCard = ({
                 style={{ backgroundColor: iconColour }}
                 className={styles.arrowAvatar}
               >
-                <ArrowForward />
+                <ArrowForward className={styles.arrowIcon} />
               </Avatar>
             )}
           </div>
