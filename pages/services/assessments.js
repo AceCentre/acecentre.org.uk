@@ -8,7 +8,7 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
-
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/assessments.module.css";
@@ -31,8 +31,8 @@ export default function EngineeringPage() {
         >
           <h1 className={styles.cardTitle}>Assessments</h1>
           <p className={styles.cardDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
-            eiusmod tempor incididunt ut labore.
+            Independent interdisciplinary assessments to identify appropriate
+            AAC and AT resources
           </p>
           <Button className={styles.cardButton}>Make an online enquiry</Button>
           <p className={styles.cardContact}>
@@ -94,9 +94,9 @@ export default function EngineeringPage() {
                 NHS England funded assessments
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt olor sit amet, consectetur adit labore
-                et dolore magna aliqua.
+                Learn more about how the Ace Centre can provide assessment,
+                provision of equipment and long-term equipment maintenance
+                support.
               </p>
               <Link href="/services/nhs/assessments">
                 <a className={styles.link}>View service &gt;</a>
@@ -109,9 +109,8 @@ export default function EngineeringPage() {
                 England funded assessments
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt olor sit amet, consectetur adit labore
-                et dolore magna aliqua.
+                Learn about the Ace Centre's partnership approach to assessment,
+                identifying need, ongoing review and provision of support.
               </p>
               <Link href="/services/self-funded-assessments">
                 <a className={styles.link}>View service &gt;</a>
@@ -126,47 +125,23 @@ export default function EngineeringPage() {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;Ace Centre were amazing, they really helped me
+                  communicate and regain my confidence! &quot;
                 </p>
-                <div>
-                  <p>
-                    <strong>Anna Reeves DL</strong>
-                  </p>
-                  <p>CEO</p>
-                </div>
               </div>
             </div>
 
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <h3>Self-assessment referral form</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt olor sit.
-                </p>
-                <div className={styles.downloadButtonContainer}>
-                  <Button>Download form</Button>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
+                <AssignmentIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
                 <h3>NHS England referral form</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt olor sit.
-                </p>
+                <p>Get the latest Specialised AAC Services Referral Form</p>
                 <div className={styles.downloadButtonContainer}>
-                  <Button>Download form</Button>
+                  <Button href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx">
+                    Download form
+                  </Button>
                 </div>
               </div>
             </div>
