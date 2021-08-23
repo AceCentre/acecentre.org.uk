@@ -5,7 +5,7 @@ export const ResourcesSearch = () => {
     <SearchBox
       title={"Resources"}
       description={
-        "Get started with AAC, Free Symbol & Alphabet charts  for download"
+        "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT"
       }
       searchEndpoint={"/resources/all"}
       ariaLabel={"Search resources"}

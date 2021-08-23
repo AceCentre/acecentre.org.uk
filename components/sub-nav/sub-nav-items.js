@@ -141,7 +141,7 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      { title: "AceCentre Learning", href: "/learning" },
+      { title: "Ace Centre Learning", href: "/learning" },
       { title: "All courses", href: "/learning/search" },
       {
         title: "Access courses",

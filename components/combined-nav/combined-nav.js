@@ -93,7 +93,7 @@ export const CombinedNav = ({ defaultNavItems, nhs = false }) => {
                 width={290}
                 maxHeight={50}
                 src={"/nav-logo.png"}
-                alt="The AceCentre logo"
+                alt="The Ace Centre logo"
               ></Image>
             </a>
           </Link>
@@ -230,7 +230,7 @@ const MenuContent = ({ defaultNavItems }) => {
                 <SvgIcon>
                   <PersonOutlineOutlinedIcon />
                 </SvgIcon>
-                My AceCentre
+                My Ace Centre
               </a>
             </Link>
           </div>

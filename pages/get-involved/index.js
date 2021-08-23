@@ -33,7 +33,7 @@ export default function GetInvolved({ featuredStory }) {
         </VideoWithCardCover>
         <div className={styles.columns}>
           <div className={styles.left}>
-            <h2>Why support AceCentre?</h2>
+            <h2>Why support Ace Centre?</h2>
             <p>
               Staffed by teams of teachers, therapists and technicians, Ace
               Centre offers many years experience and expertise in Assistive

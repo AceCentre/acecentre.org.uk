@@ -18,8 +18,8 @@ export const ResearchCta = () => {
       <div className={styles.researchDescription}>
         <h2>Our dedication to research</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          We focus on projects with a marked or lasting impact while developing
+          new products or services.
         </p>
       </div>
       <div className={styles.resourcesImage}>
@@ -34,8 +34,8 @@ export const ResearchCta = () => {
       <div className={styles.resourcesDescription}>
         <h2>Our resources</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ace Centre produce a wide range of resources and publications designed
+          to help families and professionals
         </p>
         <div className={styles.buttonContainer}>
           <Button href="/resources">View resources</Button>

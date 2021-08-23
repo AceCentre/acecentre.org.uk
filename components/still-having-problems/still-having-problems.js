@@ -34,7 +34,7 @@ export const StillHavingProblems = () => {
         <Card>
           <h3>Remote support</h3>
           <p>
-            Download this app when remote support from the Ace Centre is needed.
+            Download this app when remote support from the Ace Centre is needed
           </p>
           <div className={`${styles.end} ${styles.button}`}>
             <Button href="https://get.teamviewer.com/ace_centre">

@@ -5,7 +5,7 @@ export const ProjectsSearch = () => {
     <SearchBox
       title={"Projects"}
       description={
-        "Research projects enhance achievement and good practice in the field; directly, through the development of AT &  AAC"
+        "Directly enhancing achievements and good practice through the development of AT and AAC"
       }
       searchEndpoint={"/projects/search"}
       ariaLabel={"Search research projects"}
