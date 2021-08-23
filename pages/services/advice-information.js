@@ -123,15 +123,17 @@ export default function EngineeringPage({
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;Met with these amazing people today. At an emotional
+                  stage in our story they gave us hope for the future for our
+                  lovely son who is unlikely to speak. Can’t wait to get started
+                  with ‘modelling’ (now I finally know what it is!) and allow
+                  him to learn his own special way of talking. &quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Katie Lees</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Parent, who attended our Information Day services</p>
                 </div>
               </div>
             </div>
