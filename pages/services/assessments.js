@@ -109,8 +109,9 @@ export default function EngineeringPage() {
                 England funded assessments
               </h2>
               <p>
-                Learn about the Ace Centre's partnership approach to assessment,
-                identifying need, ongoing review and provision of support.
+                Learn about the Ace Centre&apos;s partnership approach to
+                assessment, identifying need, ongoing review and provision of
+                support.
               </p>
               <Link href="/services/self-funded-assessments">
                 <a className={styles.link}>View service &gt;</a>
