@@ -92,17 +92,17 @@ export default function EngineeringPage({ featuredStory }) {
             <div className={styles.inlineCard}>
               <h2>Education</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Work closely with our consultants to form a development plan
+                targeting your school or college’s AAC and AT needs, resulting
+                in clear and measurable outcomes.
               </p>
             </div>
             <div className={styles.inlineCard}>
               <h2>Health</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
+                Partner with our team to evaluate your service’s current local
+                AAC and AT offering, working together to create a plan of
+                bespoke and targeted supports to meet your development needs.
               </p>
             </div>
             <div className={styles.inlineCard}>
