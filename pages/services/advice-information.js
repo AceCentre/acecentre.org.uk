@@ -39,8 +39,8 @@ export default function EngineeringPage({
         >
           <h1 className={styles.cardTitle}>Advice & Information</h1>
           <p className={styles.cardDescription}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
-            eiusmod tempor incididunt ut labore.
+            The Ace Centre team offer you AAC and AT support at any and every
+            stage of your journey
           </p>
           <Button className={styles.cardButton}>
             Book information day apppointment
