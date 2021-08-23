@@ -12,6 +12,7 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/assessments.module.css";
 import { InformationDays } from "../../components/information-days/information-days";
+import Link from "next/link";
 
 export default function EngineeringPage() {
   const { currentYear } = useGlobalProps();
@@ -89,54 +90,117 @@ export default function EngineeringPage() {
             </p>
             <h2>The referral form</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              A completed referral form is required in support of any assessment
+              requested. The referral form is available:
+            </p>
+            <ul className={styles.linkList}>
+              <li>
+                <Link href="/docs/ReferralFormWord.doc">In Word format</Link>
+              </li>
+              <li>
+                <Link href="/docs/ReferralFormPdf.pdf">In PDF format</Link>
+              </li>
+              <li>On request from our telephone helpline (0800 080 3115)</li>
+              <li>On request by email to: enquiries@acecentre.org.uk</li>
+            </ul>
+            <p>
+              The referral form should be completed in as much detail as
+              possible to support the assessment and training team in planning
+              and preparing for the assessment. It may help if the individual
+              and all those who support him/her meet together to discuss the
+              aims of the assessment prior to completing the referral.
             </p>
             <h2>Video support</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              A recent video of the individual is requested to support the
+              referral. This will help the assessment and training team in
+              planning for the assessment and determining what equipment may be
+              required.
             </p>
+            <p>Ideally, the video should aim to show the individual:</p>
+            <ul>
+              <li>
+                Interacting and communicating with others (showing any resources
+                they use)
+              </li>
+              <li>Accessing a computer or other technology</li>
+              <li>
+                Completing activities that demonstrate the physical movements
+                they are capable of
+              </li>
+              <li>In the typical range of positions they work in</li>
+            </ul>
             <h2>Prior to the assessment</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              A service delivery meeting is held once a month to discuss and
+              allocate any received referrals. Once your completed referral form
+              is received it will be discussed at the next scheduled service
+              delivery meeting and 2 members of the assessment and training team
+              will be allocated to complete the assessment. They will then make
+              the necessary arrangements for the assessment and confirm this in
+              writing to those people identified on the referral form.
             </p>
             <h2>Who should be involved?</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
+              Ace Centre recognises the benefits of a partnership approach when
+              completing assessments. The individual, family members and any
+              professionals identified on the referral form will be invited to
+              the assessment unless otherwise stated. This may include the local
+              Speech and Language Therapist, Occupational Therapist, Teacher
+              and/or Support Worker depending upon the individual’s needs.
             </p>
             <h2>The venue</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
+              Assessments are typically completed in an environment familiar to
+              the individual. This may be the person’s home, school/college, day
+              centre or work place.
             </p>
             <h2>Length of assessment</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
+              The length of time required for the assessment will vary but
+              typically takes place over the course of a day. On some occasions
+              it may be necessary to make a second visit and this will be
+              included in the initial cost. The timings for the assessment will
+              be agreed with the referrer initially and subject to modification
+              as necessary dependent on individual needs.
             </p>
             <h2>What happens at the assessment?</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
+              Two members of the assessment and training team will facilitate
+              the assessment. The session will typically commence with a general
+              discussion with everyone concerned providing an opportunity to
+              share any relevant information and identify aims and expectations.
+            </p>
+            <p>
+              During the assessment the individual will have an opportunity to
+              demonstrate any resources they are currently using and they will
+              be supported in trying out alternative resources and strategies
+              that might be suitable. It may be necessary to work for short
+              periods, with breaks to set up different equipment and work within
+              the individuals levels of attention motivation and stamina.
+            </p>
+            <p>
+              At the end of the assessment it is useful if the group meet
+              together again to discuss the assessment and consider potential
+              recommendations and reach shared conclusions and appropriate
+              solutions.
             </p>
             <h2>Following the assessment</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud.
+              Arrangements will be made for the loan of any recommended
+              equipment to allow a period of further evaluation. Following this
+              a comprehensive report will be compiled and sent to all those
+              involved in the assessment. The report will summarise the
+              assessment, outline conclusions reached and provide
+              recommendations. The report will also include details of any
+              software or hardware recommended with prices / suppliers and
+              follow up action and/or training recommendations as appropriate.
+            </p>
+            <p>
+              Please Note: Ace Centre do not supply equipment. Once equipment
+              recommendations have been made following assessment, it is the
+              responsibility of the individual and those providing support to
+              seek funding for the equipment and order it.
             </p>
           </div>
           <div>
