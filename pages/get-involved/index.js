@@ -26,9 +26,9 @@ export default function GetInvolved({ featuredStory }) {
         >
           <h1>Get involved</h1>
           <p>
-            We’re ensuring that people with the severest communication
-            challenges continue to benefit from professional assessment and
-            intervention
+            Your support is vital ensure our ongoing work to give children and
+            adults access to the advice, information and support they need to
+            fulfil their potential.
           </p>
         </VideoWithCardCover>
         <div className={styles.columns}>
