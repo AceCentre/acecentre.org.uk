@@ -92,6 +92,7 @@
 
   .card {
     margin-top: -1rem;
+    padding: 38px 20px;
   }
 
   .tagLine {
@@ -99,6 +100,10 @@
   }
 
   .image {
+    height: 250px;
+  }
+
+  .imageContainer {
     height: 250px;
   }
 }
