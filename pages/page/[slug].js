@@ -11,8 +11,6 @@ import { PageContent } from "../../components/page-content/page-content";
 export default function GenericPage({ page }) {
   const { currentYear } = useGlobalProps();
 
-  console.log(page.content);
-
   return (
     <>
       <header>
@@ -30,13 +28,25 @@ export default function GenericPage({ page }) {
 }
 
 const ALL_PAGES = [
-  "privacy",
-  "ace-centre-privacy-policy-2",
-  "safeguarding-policies",
+  {
+    slug: "privacy",
+    description:
+      "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
+  },
+  {
+    slug: "ace-centre-privacy-policy-2",
+    description:
+      "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our service users.",
+  },
+  {
+    slug: "safeguarding-policies",
+    description:
+      "At Ace Centre, we regard safeguarding of our clients a top priority.",
+  },
 ];
 
 export async function getStaticPaths() {
-  const paths = ALL_PAGES.map((slug) => ({ params: { slug } }));
+  const paths = ALL_PAGES.map((page) => ({ params: { slug: page.slug } }));
 
   return {
     paths,
@@ -46,10 +56,16 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const page = await getPage(slug);
+  const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
+
   return {
     props: {
       slug,
       page,
+      seo: {
+        title: page.title,
+        description: hardCodedPage.description,
+      },
     },
   };
 });
