@@ -19,9 +19,8 @@ export const JobsAndPeople = () => {
       <div className={styles.jobDescription}>
         <h2>Job opportunities</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
-          pellentesque.
+          If you are smart, interested in making a difference, and want to work
+          with an awesome team and just as amazing technology then get in touch
         </p>
         <div className={styles.buttonContainer}>
           <Button href="https://uk.indeed.com/cmp/The-Ace-Centre">
