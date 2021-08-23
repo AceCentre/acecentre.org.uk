@@ -26,11 +26,10 @@ export const WaysToGetInvolved = () => {
             <Button>Find out more</Button>
           </div>
           <div>
-            <h3>Volunteer</h3>
+            <h3>Sponsor</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae.
+              Corporate sponsorship should not be one way, our aim is to work
+              with the business community to the benefit of both parties.
             </p>
             <Button>Find out more</Button>
           </div>
