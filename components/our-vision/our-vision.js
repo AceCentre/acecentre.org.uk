@@ -74,9 +74,9 @@ export const OurVision = () => {
         <div>
           <h2>Your outcome</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
+            Feeling secure and confident about getting appropriate communication
+            support and advice when needed, knowing your abilities and
+            experience are valued.
           </p>
         </div>
       </div>

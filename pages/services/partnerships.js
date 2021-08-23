@@ -43,7 +43,7 @@ export default function EngineeringPage({ featuredStory }) {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>Partnerships with AceCentre</h2>
+            <h2>Partnerships with Ace Centre</h2>
             <p>
               We achieve positive outcomes for our clients by drawing on the
               skills of our multidisciplinary team of teachers, speech and

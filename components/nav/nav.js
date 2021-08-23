@@ -103,7 +103,7 @@ const HomeButton = ({ nhs }) => {
             width={290}
             maxHeight={50}
             src={"/nav-logo.png"}
-            alt="The AceCentre logo"
+            alt="The Ace Centre logo"
             placeOnTop
           ></Image>
         </a>

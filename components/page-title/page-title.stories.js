@@ -16,5 +16,5 @@ StaffPage.args = {
 export const TrusteesPage = Template.bind({});
 TrusteesPage.args = {
   heading: "Our trustees",
-  description: "Meet the AceCentre trustees",
+  description: "Meet the Ace Centre trustees",
 };

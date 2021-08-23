@@ -158,7 +158,7 @@ export default function NHSLanding({ featuredStory }) {
                 width={290}
                 maxHeight={90}
                 src={"/nav-logo.png"}
-                alt="The AceCentre logo"
+                alt="The Ace Centre logo"
               ></Image>
             </div>
             <div className={styles.quote}>

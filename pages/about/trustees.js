@@ -18,7 +18,7 @@ export default function AllTrusteesPage({ allTrustees }) {
       <main>
         <PageTitle
           heading="Our trustees"
-          description="Meet the AceCentre trustees."
+          description="The Ace Centre is hugely thankful for our Trustees who help steer and oversee the organisation direction. Meet our amazing team"
         />
 
         <TrusteeList trusteeList={allTrustees} />

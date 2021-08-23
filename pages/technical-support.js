@@ -19,7 +19,7 @@ export default function TechnicalSupport() {
       <main>
         <PageTitle
           heading="Technical support"
-          description="Get technical support from the Ace Centre"
+          description="What to do when you need help"
         />
         <HowCanWeHelpDropdown />
         <StillHavingProblems />

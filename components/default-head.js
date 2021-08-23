@@ -4,7 +4,7 @@ export const DefaultHead = () => {
   return (
     // TODO Fill this out
     <Head>
-      <title>AceCentre</title>
+      <title>Ace Centre</title>
       <link rel="icon" href="/favicon.ico" />
       <meta
         name="Description"
