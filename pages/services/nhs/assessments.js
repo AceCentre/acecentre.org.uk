@@ -46,19 +46,31 @@ export default function NHSLanding({ featuredStory }) {
           <div className={styles.leftContent}>
             <h2>NHS England assessments</h2>
             <p>
-              Ace Centre is commissioned by NHS England to provide specialised
-              AAC services across the North West and Wessex & Thames Valley NHSE
-              specialised commissioning regions. These services are for children
-              and adults who need AAC and meet NHSE eligibility criteria.
+              Ace Centre is commissioned by NHS England to provide{" "}
+              <Link href="https://www.england.nhs.uk/commissioning/wp-content/uploads/sites/12/2016/03/aac-serv-spec-jan-2016.pdf">
+                specialised AAC services
+              </Link>{" "}
+              across the North West and Wessex & Thames Valley NHSE specialised
+              commissioning regions. These services are for children and adults
+              who need AAC and meet{" "}
+              <Link href="/docs/NHS Eligibility guidance and decision chart.pdf">
+                NHSE eligibility criteria.
+              </Link>
             </p>
 
             <h2>The referral form</h2>
             <p>
               Referrals for an assessment are accepted for people who meet NHSE
               eligibility criteria from publicly funded health, education and
-              social care professionals. Please read our guidance documentation
+              social care professionals. Please read our{" "}
+              <Link href="/docs/Ace-Centre-Guidance-Notes-V3-2019-with-appendices.pdf">
+                guidance documentation
+              </Link>{" "}
               and complete all sections with detailed information and supporting
-              evidence using this referral form.
+              evidence using this{" "}
+              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx">
+                referral form.
+              </Link>
             </p>
             <p>
               Please complete an Equipment Only Request Form if you, or the team
