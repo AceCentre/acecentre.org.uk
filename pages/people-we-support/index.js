@@ -44,5 +44,16 @@ export const getStaticProps = withGlobalProps(async () => {
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
 
-  return { props: { featuredStories: allStories, storyHighlight, wordsFrom } };
+  return {
+    props: {
+      featuredStories: allStories,
+      storyHighlight,
+      wordsFrom,
+      seo: {
+        title: "People we support",
+        description:
+          "It’s not the work that we do here at the Ace Centre that’s amazing, it’s the people that we work with. Time after time we’re humbled and inspired by their sheer tenacity and desire to communicate.",
+      },
+    },
+  };
 });
