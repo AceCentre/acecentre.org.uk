@@ -1,14 +1,12 @@
 import Head from "next/head";
 
-const defaultTitle = "Charity specialising in AAC & Assistive Technology";
+const defaultTitle =
+  "Ace Centre | Charity specialising in AAC & Assistive Technology";
 const defaultDescription =
   "Ace Centre is a charity specialising in Augmentative and Alternative Communication (AAC) and Assistive Technology (AT). Free Advice Line 0800 080 3115";
 
-export const DefaultHead = ({
-  title = defaultTitle,
-  description = defaultDescription,
-}) => {
-  const fullTitle = `Ace Centre | ${title}`;
+export const DefaultHead = ({ title, description = defaultDescription }) => {
+  const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
 
   return (
     // TODO Fill this out
