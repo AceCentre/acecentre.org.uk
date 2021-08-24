@@ -7,3 +7,23 @@
   max-width: 1540px;
   position: relative;
 }
+
+.coverImage {
+  /* I'm sorry for using !important. I promise there is a good reason for it.
+  next/image injects its styles via JS so they end up with element.style precedence
+  which we cant override via the cascade. */
+  object-position: center -100px !important;
+}
+
+/** Mobile CSS */
+@media (max-width: 1024px) {
+  .coverImage {
+    object-position: center !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .coverImage {
+    object-position: -100px center !important;
+  }
+}
