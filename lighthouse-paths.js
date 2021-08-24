@@ -3,7 +3,7 @@ const PATHS_TO_TEST = [
   "/about",
   "/about/staff",
   "/about/trustees",
-  "/careers",
+  "/work-with-us",
   "/stories",
   "/stories/jess",
   "/blog",

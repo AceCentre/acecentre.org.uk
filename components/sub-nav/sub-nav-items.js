@@ -15,7 +15,7 @@ export const defaultNavItems = [
       { title: "About us", href: "/about" },
       { title: "Our team", href: "/about/staff" },
       { title: "Our trustees", href: "/about/trustees" },
-      { title: "Work with us", href: "/careers" },
+      { title: "Work with us", href: "/work-with-us" },
       { title: "People we support", href: "/stories" },
       { title: "Blog", href: "/blog" },
       { title: "Projects", href: "/projects" },
