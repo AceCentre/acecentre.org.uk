@@ -24,7 +24,7 @@ export const ContactCards = () => {
         <Card>
           <h3>Technical Support</h3>
           <p>What to do when you&apos;re having device problems</p>
-          <Link href="/tech-support">
+          <Link href="/technical-support">
             <a className={styles.link}>Get technical support &gt;</a>
           </Link>
         </Card>

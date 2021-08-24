@@ -121,7 +121,7 @@ export const defaultNavItems = [
       },
       {
         title: "Advice and information",
-        href: "/service/advice-and-information",
+        href: "/services/advice-information",
       },
       { title: "Projects", href: "/projects" },
       { title: "Partnerships", href: "/services/partnerships" },
@@ -177,14 +177,9 @@ export const defaultNavItems = [
       },
       {
         title: "Donate",
-        href:
-          "https://www.justgiving.com/onecheckout/donation/direct/charity/139889",
+        href: "/get-involved/donate",
       },
       { title: "Fundraise", href: "/get-involved/fundraise" },
-      {
-        title: "Volunteer",
-        href: "/get-involved/Volunteer",
-      },
     ],
   },
 ];

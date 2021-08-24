@@ -65,6 +65,7 @@
 }
 
 .overlay {
+  margin: 3rem auto;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -107,6 +108,11 @@
   font-size: 16px;
 }
 
+.allStories:hover,
+.allStories:focus {
+  text-decoration: underline;
+}
+
 .mobileCard {
   display: none;
 }
@@ -115,6 +121,7 @@
   box-shadow: 0 2px 19px 0 rgba(0, 0, 0, 0.14);
   height: 80px;
   width: 80px;
+  transition: transform 0.3s ease;
 }
 
 .playIcon.playIcon {
@@ -127,6 +134,11 @@
 
 .normalBackground.normalBackground {
   background-color: #00537f;
+}
+
+.playButton:hover .playAvatar,
+.playButton:focus .playAvatar {
+  transform: scale(1.2);
 }
 
 /* Mobile CSS */

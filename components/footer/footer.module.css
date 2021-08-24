@@ -85,6 +85,10 @@
   flex-grow: 1;
 }
 
+.flatList > :first-child {
+  padding-left: 0;
+}
+
 .flatListLink {
   color: #ffffff;
   text-decoration: none;
