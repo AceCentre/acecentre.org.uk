@@ -25,6 +25,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
       </header>
       <main>
         <VideoWithCardCover
+          objectPosition="0px -100px"
           src="/about-cover.jpeg"
           alt="cover photo of client and clinician using AAC"
         >
