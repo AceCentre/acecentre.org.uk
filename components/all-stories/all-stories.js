@@ -11,7 +11,7 @@ export const AllStories = ({ stories }) => {
             title={story.title}
             featuredImage={story.image}
             key={`story-${story.slug}`}
-            href={`/stories/${story.slug}`}
+            href={`/people-we-support/case-study/${story.slug}`}
             subtitle={"story"}
             background
           >
@@ -31,7 +31,7 @@ export const ReadMoreStories = ({ stories }) => {
     <div>
       <div className={`${styles.titleContainer} ${styles.container}`}>
         <h2 className={styles.readMoreTitle}>Read more stories</h2>
-        <Link href="/stories">
+        <Link href="/people-we-support">
           <a className={styles.viewAllLink}>View all &gt;</a>
         </Link>
       </div>

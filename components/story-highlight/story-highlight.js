@@ -77,7 +77,10 @@ const OverlayCard = ({ summary, slug, className, title }) => {
         dangerouslySetInnerHTML={{ __html: boldedSummary }}
       ></div>
       <div>
-        <Button className={styles.readFullStory} href={`/stories/${slug}`}>
+        <Button
+          className={styles.readFullStory}
+          href={`/people-we-support/case-study/${slug}`}
+        >
           Read full story
         </Button>
       </div>
