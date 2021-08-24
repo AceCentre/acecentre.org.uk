@@ -62,6 +62,9 @@ export const getStaticProps = withGlobalProps(async () => {
     props: {
       featuredStory,
       landingPagePosts,
+      seo: {
+        title: "About",
+      },
     },
   };
 });
