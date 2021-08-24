@@ -46,101 +46,119 @@ export default function NHSLanding({ featuredStory }) {
           <div className={styles.leftContent}>
             <h2>NHS England assessments</h2>
             <p>
-              If you meet criteria and your permanent place of residence is in
-              the North West or the Thames Valley & Wessex regions, you can
-              apply to Ace Centre for assessment, provision of equipment and
-              long-term maintenance support.
+              Ace Centre is commissioned by NHS England to provide specialised
+              AAC services across the North West and Wessex & Thames Valley NHSE
+              specialised commissioning regions. These services are for children
+              and adults who need AAC and meet NHSE eligibility criteria.
             </p>
-            <p>
-              If you live outside the North West or Thames Valley & Wessex
-              regions, you will need to contact the NHS Specialised AAC Service
-              operating in your region.{" "}
-              <Link href="http://www.communicationmatters.org.uk/page/contacts-assessment-services-all">
-                Click here to find out which service you need to contact
-              </Link>
-            </p>
-            <p>
-              <Link href="/docs/NhsEligibilityAce.pdf">
-                Further information on the NHS England Eligibility criteria can
-                be found in this document
-              </Link>
-            </p>
+
             <h2>The referral form</h2>
+            <p>
+              Referrals for an assessment are accepted for people who meet NHSE
+              eligibility criteria from publicly funded health, education and
+              social care professionals. Please read our guidance documentation
+              and complete all sections with detailed information and supporting
+              evidence using this referral form.
+            </p>
+            <p>
+              Please complete an Equipment Only Request Form if you, or the team
+              working with you, are confident you know the best AAC system. This
+              means you do not need a full assessment from Ace Centre.
+            </p>
+            <p>
+              Please read the guidance document for the form. It is expected
+              that you will have trialled at least three systems and gained
+              enough clinical information to enable you to complete all relevant
+              fields on the form.
+            </p>
+
+            <h2>Video support</h2>
+            <p>
+              A recent video of the individual is requested to support the
+              referral. This will help the assessment and training team to plan
+              for the assessment and determine what equipment may be required.
+              Ideally, the video should aim to show the individual:
+            </p>
             <ul>
-              <li>Please use the forms below to make a referral.</li>
               <li>
-                Read all guidance documentation and complete all fields in order
-                to avoid delay
+                Interacting and communicating with others (showing any resources
+                they use)
               </li>
+              <li>Accessing a computer or other technology</li>
               <li>
-                If possible, referral forms should be completed by a Speech and
-                Language Therapist or someone knowledgeable in the field of AAC.
+                Completing activities that demonstrate the physical movements
+                they are capable of
               </li>
-              <li>
-                Please note: any referral forms received without a valid NHS
-                Number and full GP details cannot be accepted.
-              </li>
+              <li>In the typical range of positions they work in</li>
             </ul>
             <p>
-              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx">
-                Download our NHS England Specialised AAC Services Referral Form
-                (Word format)
-              </Link>
+              Further information can be found in our Video Guidelines Form.
+            </p>
+            <h2>Prior to the assessment</h2>
+            <p>
+              Once your completed referral form has been received and accepted
+              as eligible for Specialised BNHSE AAC services it will be
+              allocated to two members of the assessment and training team who
+              will complete the assessment. They will then make the necessary
+              arrangements for the assessment and confirm this in writing to the
+              individual being referred and their referrer.
+            </p>
+            <h2>Who should be involved?</h2>
+            <p>
+              Ace Centre recognises and values the benefits of a partnership
+              approach when completing assessments. The individual, family
+              members and any professionals identified on the referral form will
+              be invited to the assessment unless otherwise stated. This may
+              include the individual’s Speech and Language Therapist,
+              Occupational Therapist, Teacher and/or Support Worker depending
+              upon the individual’s needs.
+            </p>
+            <h2>The venue</h2>
+            <p>
+              Assessments are typically completed in an environment familiar to
+              the individual. This may be the person’s home, school/college, day
+              centre or workplace. However, your assessment appointment may be
+              offered at Ace Centre offices, where this is possible and
+              practicable.
+            </p>
+            <h2>Length of assessment</h2>
+            <p>
+              The length of time required for the initial assessment appointment
+              will vary but typically takes place over the course of a day. On
+              some occasions it may be necessary to make subsequent visits. The
+              timings for the assessment will be agreed with the referrer
+              initially and subject to modification if necessary.
+            </p>
+            <h2>What happens at the assessment?</h2>
+            <p>
+              Typically, two members of the assessment and training team will
+              facilitate the assessment. The session will commence with a
+              general discussion with everyone concerned providing an
+              opportunity to share any relevant information and agree aims and
+              expectations.
             </p>
             <p>
-              <Link href="/docs/Ace-Centre-Guidance-Notes-V3-2019-with-appendices.pdf">
-                Please read the guidance document for the form.
-              </Link>
+              During the assessment the individual will have an opportunity to
+              demonstrate any resources they currently use and they will be
+              supported in trying out alternative resources and strategies that
+              might be suitable. It may be necessary to work for short periods,
+              with breaks to set up different equipment and work within the
+              individual’s levels of attention, motivation and stamina.
             </p>
             <p>
-              It is important to use the latest version of the NHS Referral Form
-              – this is currently v3.2 2021. The latest version of this form,
-              and the corresponding Guidance Notes, will always be accessible
-              from this page.
+              At the end of the assessment, it is useful for the group meet
+              again to discuss and consider potential recommendations in order
+              to reach shared conclusions and appropriate solutions.
             </p>
-            <h2>Equipment Only Requests</h2>
+            <h2>Following the assessment</h2>
             <p>
-              <Link href="/docs/Equipment-Only-Request-Form-v-180118-3.docx">
-                Please complete an Equipment Only Request Form
-              </Link>{" "}
-              if you, or the team working with you, are confident you know the
-              best AAC system. This means you do not need a full assessment from
-              Ace Centre.
-            </p>
-            <p>
-              <Link href="/docs/Equipment-Only-Request-Form-Guidance-Notes-v181217.pdf">
-                Please read the guidance document
-              </Link>{" "}
-              for the form. It is expected that you will have trialled at least
-              three systems and gained enough clinical information to enable you
-              to complete all relevant fields on the form.
-            </p>
-            <h2>More Information</h2>
-            <p>
-              Ace Centre will acknowledge all referrals in writing within 10
-              days of receipt.
-            </p>
-            <p>
-              The acknowledgment will be sent to the main contact on the
-              submitted form and will advise on eligibility for the requested
-              service or notify the contact that further information is
-              required.
-            </p>
-            <p>
-              Please note: If someone does not meet the eligibility criteria
-              they should contact the Ace Centre to find out the many other ways
-              we can offer support.
-            </p>
-            <p>
-              Environmental control and computer access needs should be met by
-              the relevant commissioned service.{" "}
-              <Link href="http://www.communicationmatters.org.uk/page/aac-commissioning-england">
-                For information on those services please see here.
-              </Link>
-            </p>
-            <p>
-              If you have questions or difficulty downloading any of these
-              documents, please contact our free helpline on 0800 080 3115
+              The identified equipment will be purchased and a date will be
+              agreed for the installation and initial training in its use with
+              the individual and their team. Information will be given about
+              what to do in the event of equipment failure and Ace Centre will
+              contact you in the future to undertake a Planned Preventative
+              Maintenance (PPM) Check to ensure the equipment is operating
+              safely.
             </p>
             {/* Commenting this out because its broken */}
             {/* <CardHighlight
@@ -199,7 +217,7 @@ export default function NHSLanding({ featuredStory }) {
             </div>
           </div>
         </div>
-        <InformationDays />
+        <InformationDays nhs />
         <FeaturedStory nhs {...featuredStory} />
       </main>
       <Footer currentYear={currentYear} />

@@ -3,7 +3,7 @@ import styles from "./information-days.module.css";
 import { Button } from "../button/button";
 import { ImageWithLoader as Image } from "../image";
 
-export const InformationDays = () => {
+export const InformationDays = ({ nhs = false }) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -19,7 +19,10 @@ export const InformationDays = () => {
         <h2>Information days</h2>
         <p>A useful first step in any effective assessment process</p>
         <div className={styles.buttonContainer}>
-          <Button className={styles.button} href="/information-days">
+          <Button
+            className={`${styles.button} ${nhs ? styles.nhs : ""}`}
+            href="/information-days"
+          >
             Find out more
           </Button>
         </div>

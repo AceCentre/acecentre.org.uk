@@ -30,6 +30,10 @@
   margin-top: 2rem;
 }
 
+.nhs.nhs {
+  background-color: #005eb8;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
