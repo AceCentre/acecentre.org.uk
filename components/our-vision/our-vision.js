@@ -48,7 +48,7 @@ const SWITCH_TAGLILNE = 10 * 1000;
 
 export const OurVision = () => {
   const [sloganIndex, setSloganIndex] = useState(0);
-  const [prevSloganIndex, setPrevSloganIndex] = useState(0);
+  const [prevSloganIndex, setPrevSloganIndex] = useState(-1);
 
   useInterval(() => {
     const newIndex = (sloganIndex + 1) % WE_BELIEVE.length;
