@@ -29,9 +29,9 @@ export const MeetOurPeople = () => {
             </p>
             <div>
               <p>
-                <strong>Anna Reeves DL</strong>
+                <strong>Stephen Carroll</strong>
               </p>
-              <p>CEO</p>
+              <p>Business Director</p>
             </div>
           </div>
         </div>
