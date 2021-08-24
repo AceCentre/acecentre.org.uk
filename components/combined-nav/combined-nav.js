@@ -261,7 +261,7 @@ const MenuContent = ({ defaultNavItems }) => {
         </li>
       </ul>
       <div>
-        <Button className={styles.donateButton} href="/donate">
+        <Button className={styles.donateButton} href="/get-involved/donate">
           Donate
         </Button>
       </div>

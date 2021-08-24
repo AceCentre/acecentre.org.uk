@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest --forceExit",
     "dev": "ENV=development next dev",
+    "dev:cache": "USE_DATA_FETCHING_CACHE=true ENV=development next dev",
     "build": "yarn build:next",
     "build:next": "next build",
     "start": "next start",

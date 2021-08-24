@@ -24,7 +24,7 @@ export const LandingPageCover = () => {
         <div className={styles.card}>
           <p className={styles.tagLine}>
             We work with people of all ages to overcome{" "}
-            <strong>communication challenges</strong>
+            <strong>communication challenges </strong>
             with <strong>
               Augmentative and Alternative Communication
             </strong>{" "}

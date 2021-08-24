@@ -36,7 +36,7 @@ export const Footer = ({ currentYear }) => {
             <Link href="/contact">
               <a className={styles.helpAndSupportLink}>Contact us</a>
             </Link>
-            <Link href="/support">
+            <Link href="/technical-support">
               <a className={styles.helpAndSupportLink}>Technical Support</a>
             </Link>
           </div>
@@ -86,22 +86,22 @@ export const Footer = ({ currentYear }) => {
         <div className={styles.bottomSection}>
           <ul className={styles.flatList}>
             <li className={styles.flatListItem}>
-              <Link href="/newsletter">
+              <Link href="https://mailchi.mp/acecentre/newsletter-signup">
                 <a className={styles.flatListLink}>Newsletter</a>
               </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/sitemap">
+              <Link href="/sitemap.xml">
                 <a className={styles.flatListLink}>Sitemap</a>
               </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/privacy-policy">
+              <Link href="/page/privacy">
                 <a className={styles.flatListLink}>Privacy Policy</a>
               </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/safeguarding">
+              <Link href="/page/safeguarding-policies">
                 <a className={styles.flatListLink}>Safeguarding</a>
               </Link>
             </li>
@@ -138,7 +138,7 @@ const sitemapList = [
   },
   {
     title: "Ace Centre Learning",
-    href: "/acecentre-learning",
+    href: "/learning",
   },
   {
     title: "Get involved",

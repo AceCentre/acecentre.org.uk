@@ -21,11 +21,23 @@ const normalLoader = loaders[imageLoaders.normal];
 const squareLoader = loaders[imageLoaders.square];
 
 export const ImageWithLoader = ({ loader = normalLoader, ...props }) => {
-  return <NextImage {...props} loader={loader} />;
+  return (
+    <NextImage
+      unoptimized={!!imageLoaders.unoptimized}
+      {...props}
+      loader={loader}
+    />
+  );
 };
 
 export const CropToSquareAroundFace = ({ ...props }) => {
-  return <NextImage {...props} loader={squareLoader} />;
+  return (
+    <NextImage
+      unoptimized={!!imageLoaders.unoptimized}
+      {...props}
+      loader={squareLoader}
+    />
+  );
 };
 
 export const Image = ({

@@ -66,7 +66,7 @@ export const WhatWeDo = () => {
             </Link>
           </li>
           <li>
-            <Link href="/services/advice-and-information">
+            <Link href="/services/advice-information">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
                   <ArrowForward />
