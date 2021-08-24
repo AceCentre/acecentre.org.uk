@@ -31,7 +31,9 @@ export const WordsFrom = ({ title, quote, featuredImage, slug }) => {
             {/* This string includes a pronoun so won't work if we change this someone with
             different pronouns */}
             <div>
-              <Button href={`/stories/${slug}`}>Read his story</Button>
+              <Button href={`/people-we-support/case-study/${slug}`}>
+                Read his story
+              </Button>
             </div>
           </div>
         </div>

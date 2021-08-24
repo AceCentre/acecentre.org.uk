@@ -1,13 +1,13 @@
-import { Footer } from "../../components/footer/footer";
-import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
-import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { getAllStories } from "../../lib/story/get-story";
-import { PageTitle } from "../../components/page-title/page-title";
-import { StoryCoverImage } from "../../components/story-cover-image/story-cover-image";
-import { ReadMoreStories } from "../../components/all-stories/all-stories";
-import { StoryContentAndQuote } from "../../components/story-content-and-quote/story-content-and-quote";
+import { Footer } from "../../../components/footer/footer";
+import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
+import { useGlobalProps } from "../../../lib/global-props/hook";
+import { withGlobalProps } from "../../../lib/global-props/inject";
+import { CombinedNav } from "../../../components/combined-nav/combined-nav";
+import { getAllStories } from "../../../lib/story/get-story";
+import { PageTitle } from "../../../components/page-title/page-title";
+import { StoryCoverImage } from "../../../components/story-cover-image/story-cover-image";
+import { ReadMoreStories } from "../../../components/all-stories/all-stories";
+import { StoryContentAndQuote } from "../../../components/story-content-and-quote/story-content-and-quote";
 
 export default function StoryDetail({ story, featuredStories }) {
   const { currentYear } = useGlobalProps();
