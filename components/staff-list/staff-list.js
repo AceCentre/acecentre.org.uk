@@ -60,7 +60,7 @@ const StaffCard = ({ person }) => {
           )}
         </div>
         <div className={styles.infoContainer}>
-          <p className={styles.personName}>{person.name}</p>
+          <p className={styles.personName}>{person.firstName}</p>
           <p className={styles.job}>{person.role.trim()}</p>
           <div className={styles.locationContainer}>
             <span className={styles.location}>{location}</span>
