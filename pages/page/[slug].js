@@ -34,7 +34,7 @@ const ALL_PAGES = [
       "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
   },
   {
-    slug: "ace-centre-privacy-policy-2",
+    slug: "ace-centre-privacy-policy-3",
     description:
       "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our service users.",
   },
