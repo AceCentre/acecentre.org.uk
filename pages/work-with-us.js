@@ -8,6 +8,8 @@ import { WorkingAtAce } from "../components/working-at-ace/working-at-ace";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
+import styles from "../styles/work-with-us.module.css";
+
 export default function Careers() {
   const { currentYear } = useGlobalProps();
 
@@ -20,12 +22,12 @@ export default function Careers() {
         <VideoWithCardCover
           src="/careers-cover.jpeg"
           alt="A person using an AAC device"
-          objectPosition="50%"
+          imageClassName={styles.coverImage}
         >
           <h1>Work with us</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit{" "}
-            <strong>sed do eiusmod</strong> consectetur ipsum dolor
+            Do you enjoy supporting people with complex communication
+            difficulties? <strong>Then join us now.</strong>
           </p>
         </VideoWithCardCover>
         <WorkingAtAce />
@@ -37,4 +39,13 @@ export default function Careers() {
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(() => {
+  return {
+    props: {
+      seo: {
+        title: "Work with us",
+        description: "The latest vacancies and jobs available at Ace Centre",
+      },
+    },
+  };
+});
