@@ -189,7 +189,17 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { story, resources } };
+  return {
+    props: {
+      story,
+      resources,
+      seo: {
+        title: "What is AAC?",
+        description:
+          "AT stands for Assistive Technology and AAC stands for Augmentative and Alternative Communication.",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {

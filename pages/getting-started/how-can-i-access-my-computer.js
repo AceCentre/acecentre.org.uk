@@ -126,7 +126,17 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { story, resources } };
+  return {
+    props: {
+      story,
+      resources,
+      seo: {
+        title: "How can I access my computer better?",
+        description:
+          "Access to screen based technology such as computers and tablets is vitally important. It’s about more than controlling a communication aid effectively, although that is pretty crucial!  It’s also about being able to engage with digital age – be that government websites, banking, learning resources, games and social media.",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {

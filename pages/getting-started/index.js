@@ -83,6 +83,11 @@ export const getStaticProps = withGlobalProps(async () => {
     props: {
       gettingStartedResources: resources,
       gettingStartedCourses,
+      seo: {
+        title: "Getting started",
+        description:
+          "Learn about Augmentative and Alternative Communication (AAC) and how it can help",
+      },
     },
   };
 });
