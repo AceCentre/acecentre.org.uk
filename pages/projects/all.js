@@ -32,5 +32,14 @@ export const getStaticProps = withGlobalProps(async () => {
   const allProjects = await getAllProjects();
   if (!allProjects) throw new Error("Could not get the latest projects");
 
-  return { props: { allProjects } };
+  return {
+    props: {
+      allProjects,
+      seo: {
+        title: "Projects",
+        description:
+          "Ace Centre works with companies, universities and other charities to investigate issues, trial new products and find solutions for individuals.",
+      },
+    },
+  };
 });
