@@ -23,7 +23,7 @@ export default function StoryDetail({ story, featuredStories }) {
           description={`Meet ${story.title}`}
         />
 
-        <StoryCoverImage story={story} />
+        {story.image && <StoryCoverImage story={story} />}
 
         <StoryContentAndQuote story={story} />
 

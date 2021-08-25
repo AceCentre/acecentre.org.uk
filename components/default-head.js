@@ -15,16 +15,19 @@ const loaders = {
 
 const imageLoader = loaders[imageLoaders.normal];
 
+const defaultImage = {
+  src: "/facebook-logo.jpeg",
+  width: 601,
+  height: 289,
+};
+
 export const DefaultHead = ({
   title,
   description = defaultDescription,
-  image = {
-    src: "/facebook-logo.jpeg",
-    width: 601,
-    height: 289,
-  },
+  image: specificImage,
 }) => {
   const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
+  const image = specificImage || defaultImage;
 
   return (
     // TODO Fill this out
