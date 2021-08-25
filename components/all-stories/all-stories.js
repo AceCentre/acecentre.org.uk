@@ -8,7 +8,7 @@ export const AllStories = ({ stories, className = "" }) => {
       <ul className={styles.list}>
         {stories.map((story) => (
           <Card
-            title={story.title}
+            title={`Read ${story.possessiveName} story`}
             featuredImage={story.image}
             key={`story-${story.slug}`}
             href={`/people-we-support/case-study/${story.slug}`}
