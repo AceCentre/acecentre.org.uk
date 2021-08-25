@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import config from "../../lib/config";
 
-const SHARE_TEXT = "Checkout this awesome post";
+const SHARE_TEXT = "Checkout this post from Ace Centre";
 
 export const BlogMeta = ({
   date,

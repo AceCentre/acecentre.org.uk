@@ -51,16 +51,16 @@ const StaffCard = ({ person }) => {
             />
           ) : (
             <CropToSquareAroundFace
-              alt={`Head shot of ${person.name}`}
+              alt={`Placeholder head shot for ${person.name}`}
               width={200}
               height={200}
-              src="/placeholder-avatar.png"
-              className={styles.image}
+              src="/account_circle_black_48dp.svg"
+              className={`${styles.image} ${styles.placeholder}`}
             />
           )}
         </div>
         <div className={styles.infoContainer}>
-          <p className={styles.personName}>{person.name}</p>
+          <p className={styles.personName}>{person.firstName}</p>
           <p className={styles.job}>{person.role.trim()}</p>
           <div className={styles.locationContainer}>
             <span className={styles.location}>{location}</span>
@@ -98,11 +98,11 @@ const TrusteeCard = ({ person }) => {
             />
           ) : (
             <CropToSquareAroundFace
-              alt={`Head shot of ${person.name}`}
+              alt={`Placeholder head shot for ${person.name}`}
               width={200}
               height={200}
-              src="/placeholder-avatar.png"
-              className={styles.image}
+              src="/account_circle_black_48dp.svg"
+              className={`${styles.image} ${styles.placeholder}`}
             />
           )}
         </div>
@@ -144,11 +144,11 @@ const TrusteeDetail = ({ isModelOpen, onClose, person }) => {
                 />
               ) : (
                 <CropToSquareAroundFace
-                  alt={`Head shot of ${person.name}`}
+                  alt={`Placeholder head shot for ${person.name}`}
                   width={200}
                   height={200}
-                  src="/placeholder-avatar.png"
-                  className={styles.image}
+                  src="/account_circle_black_48dp.svg"
+                  className={`${styles.image} ${styles.placeholder}`}
                 />
               )}
             </div>
@@ -197,11 +197,11 @@ const StaffDetail = ({ isModelOpen, onClose, person, location }) => {
                 />
               ) : (
                 <CropToSquareAroundFace
-                  alt={`Head shot of ${person.name}`}
-                  width={155}
-                  height={155}
-                  src="/placeholder-avatar.png"
-                  className={styles.image}
+                  alt={`Placeholder head shot for ${person.name}`}
+                  width={200}
+                  height={200}
+                  src="/account_circle_black_48dp.svg"
+                  className={`${styles.image} ${styles.placeholder}`}
                 />
               )}
             </div>

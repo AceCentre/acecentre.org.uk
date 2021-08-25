@@ -146,4 +146,8 @@
   .topContainer {
     flex-direction: column;
   }
+
+  .modalTop {
+    text-align: center;
+  }
 }

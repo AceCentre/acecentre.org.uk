@@ -19,7 +19,9 @@ export const GettingStartedQuote = ({ story }) => {
           </p>
         </div>
         <div className={styles.buttonContainer}>
-          <Button href={`/stories/${story.slug}`}>Read his story</Button>
+          <Button href={`/people-we-support/case-study/${story.slug}`}>
+            Read his story
+          </Button>
         </div>
       </div>
     </div>

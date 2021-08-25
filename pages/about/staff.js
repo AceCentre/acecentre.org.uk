@@ -40,7 +40,16 @@ export default function StaffPage({ allStaff }) {
 export const getStaticProps = withGlobalProps(async () => {
   const allStaff = await getAllStaff();
 
-  return { props: { allStaff } };
+  return {
+    props: {
+      allStaff,
+      seo: {
+        title: "Our Team",
+        description:
+          "Ace Centre is a multi-disciplinary team of specialist teachers, occupational therapists, speech & language therapists with the support of technical and administrative staff.",
+      },
+    },
+  };
 });
 
 const staffFilters = {

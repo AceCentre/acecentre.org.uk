@@ -28,15 +28,15 @@ export const DescriptionAndQuote = () => {
         </Avatar>
         <div className={styles.quoteText}>
           <p className={styles.quoteContent}>
-            &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque gravida rutrum mattis. Aenean tincidunt neque id turpis
-            viverra pellentesque.&quot;
+            &quot;The help Ace Centre gave me throughout my education kept me
+            motivated and enabled me to get into the place I most wanted to
+            study, Imperial College London.&quot;
           </p>
           <div>
             <p>
-              <strong>Anna Reeves DL</strong>
+              <strong>Claire</strong>
             </p>
-            <p>CEO</p>
+            <p>Physics Student</p>
           </div>
         </div>
       </div>

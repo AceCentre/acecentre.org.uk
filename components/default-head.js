@@ -1,14 +1,33 @@
 import Head from "next/head";
 
-const defaultTitle = "Charity specialising in AAC & Assistive Technology";
+import { imageLoaders } from "../lib/config";
+import { cloudinaryLoader, imageKitLoader } from "../lib/image-loader";
+
+const defaultTitle =
+  "Ace Centre | Charity specialising in AAC & Assistive Technology";
 const defaultDescription =
   "Ace Centre is a charity specialising in Augmentative and Alternative Communication (AAC) and Assistive Technology (AT). Free Advice Line 0800 080 3115";
 
+const loaders = {
+  cloudinaryLoader,
+  imageKitLoader,
+};
+
+const imageLoader = loaders[imageLoaders.normal];
+
+const defaultImage = {
+  src: "/facebook-logo.jpeg",
+  width: 601,
+  height: 289,
+};
+
 export const DefaultHead = ({
-  title = defaultTitle,
+  title,
   description = defaultDescription,
+  image: specificImage,
 }) => {
-  const fullTitle = `Ace Centre | ${title}`;
+  const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
+  const image = specificImage || defaultImage;
 
   return (
     // TODO Fill this out
@@ -63,9 +82,12 @@ export const DefaultHead = ({
       ></meta>
 
       {/* Image */}
-      <meta property="og:image" content="/facebook-logo.jpeg" />
-      <meta property="og:image:width" content="601" />
-      <meta property="og:image:height" content="289" />
+      <meta
+        property="og:image"
+        content={imageLoader({ src: image.src, width: image.width })}
+      />
+      <meta property="og:image:width" content={image.width} />
+      <meta property="og:image:height" content={image.height} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary"></meta>

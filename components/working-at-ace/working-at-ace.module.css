@@ -63,9 +63,16 @@
 .title {
   font-size: 34px;
   font-weight: normal;
+  margin-top: -20px;
 }
 
 /** Mobile CSS */
+@media (max-width: 950px) {
+  .title {
+    margin-top: 2rem;
+  }
+}
+
 @media (max-width: 760px) {
   .innerContainer {
     flex-direction: column;

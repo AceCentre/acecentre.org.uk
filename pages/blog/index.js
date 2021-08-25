@@ -9,6 +9,8 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllCategories } from "../../lib/posts/get-categories";
 import { getAllPostCards } from "../../lib/posts/get-posts";
 
+import styles from "../../styles/blog.module.css";
+
 export default function Home({ latestsPosts, blogCategories }) {
   const { currentYear } = useGlobalProps();
 
@@ -19,7 +21,11 @@ export default function Home({ latestsPosts, blogCategories }) {
       </header>
       <main>
         <BlogSearch />
-        <FeaturedPosts title="Latest articles" posts={latestsPosts} />
+        <FeaturedPosts
+          className={styles.featuredPosts}
+          title="Latest articles"
+          posts={latestsPosts}
+        />
         <BlogCategoryGrid blogCategories={blogCategories} />
       </main>
       <Footer currentYear={currentYear} />
@@ -36,5 +42,15 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!blogCategories) throw new Error("Couldn't get the blog categories");
 
-  return { props: { latestsPosts: latestsPosts.slice(0, 6), blogCategories } };
+  return {
+    props: {
+      latestsPosts: latestsPosts.slice(0, 6),
+      blogCategories,
+      seo: {
+        title: "Blog",
+        description:
+          "Keep up to date with news on what we're up to and how you can get involved",
+      },
+    },
+  };
 });

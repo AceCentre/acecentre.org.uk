@@ -29,7 +29,11 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
           description={currentProject.title}
           className={styles.pageTitle}
         />
-        <BlogMeta date={formattedDate} shareCta="Share this project" />
+        <BlogMeta
+          date={formattedDate}
+          shareText="Checkout out this project from Ace Centre"
+          shareCta="Share this project"
+        />
         <div
           className={styles.container}
           dangerouslySetInnerHTML={{ __html: currentProject.content }}
@@ -78,6 +82,11 @@ export const getStaticProps = withGlobalProps(
       props: {
         currentProject,
         featuredProjects: featuredProjects.slice(0, 3),
+        seo: {
+          title: currentProject.title,
+          description: currentProject.description,
+          image: currentProject.featuredImage,
+        },
       },
     };
   }

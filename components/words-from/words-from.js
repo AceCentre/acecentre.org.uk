@@ -5,17 +5,17 @@ import { ImageWithLoader as Image } from "../image";
 
 import { Button } from "../button/button";
 
-export const WordsFrom = ({ title, quote, featuredImage, slug }) => {
+export const WordsFrom = ({ shortTitle, quote, featuredImage, slug }) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
-        Words from <strong>{title}</strong>
+        Words from <strong>{shortTitle}</strong>
       </h2>
       <div className={styles.lowerContainer}>
         <div className={styles.imageContainer}>
           <Image
             src={featuredImage.src}
-            alt={featuredImage.alt}
+            alt={`Image of ${shortTitle}`}
             layout="fill"
             objectFit="cover"
             objectPosition={"50% 35%"}
@@ -27,11 +27,13 @@ export const WordsFrom = ({ title, quote, featuredImage, slug }) => {
             <FormatQuoteIcon className={styles.icon} />
           </Avatar>
           <div className={styles.quoteTextContainer}>
-            <div dangerouslySetInnerHTML={{ __html: quote }} />
+            <div>&quot;{quote}&quot;</div>
             {/* This string includes a pronoun so won't work if we change this someone with
             different pronouns */}
             <div>
-              <Button href={`/stories/${slug}`}>Read his story</Button>
+              <Button href={`/people-we-support/case-study/${slug}`}>
+                Read his story
+              </Button>
             </div>
           </div>
         </div>

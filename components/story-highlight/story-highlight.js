@@ -12,6 +12,7 @@ export const StoryHighlight = ({
   slug,
   youtubeVideo,
   featuredImage,
+  imageClassName = "",
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -47,6 +48,7 @@ export const StoryHighlight = ({
               layout="fill"
               objectFit="cover"
               objectPosition="top"
+              className={imageClassName}
             />
           </div>
         </div>
@@ -77,7 +79,10 @@ const OverlayCard = ({ summary, slug, className, title }) => {
         dangerouslySetInnerHTML={{ __html: boldedSummary }}
       ></div>
       <div>
-        <Button className={styles.readFullStory} href={`/stories/${slug}`}>
+        <Button
+          className={styles.readFullStory}
+          href={`/people-we-support/case-study/${slug}`}
+        >
           Read full story
         </Button>
       </div>

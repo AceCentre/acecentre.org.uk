@@ -51,5 +51,15 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
 
   const posts = await getAllPostsForCategory(currentCategory.title);
 
-  return { props: { category: currentCategory, posts } };
+  return {
+    props: {
+      category: currentCategory,
+      posts,
+      seo: {
+        title: `${currentCategory.title} on the Blog`,
+        description:
+          "Keep up to date with news on what we're up to and how you can get involved",
+      },
+    },
+  };
 });

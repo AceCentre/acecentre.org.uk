@@ -10,28 +10,27 @@ export const WhyWorkAtAce = () => {
         <div className={styles.proContainer}>
           <div className={styles.proBlock}>
             <h3>Benefits</h3>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt.
-            </p>
+            <ul>
+              <li>Company pension</li>
+              <li>Supportive work environment</li>
+              <li>On-site parking</li>
+              <li>Time set aside for personal development</li>
+            </ul>
           </div>
           <div className={styles.proBlock}>
             <h3>Experience</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt.
+              Gain deep understanding of the AAC and AT field by working with
+              clients who use AAC/AT in their daily lives and gain experience in
+              providing invaluable support to them.
             </p>
           </div>
           <div className={styles.proBlock}>
-            <h3>Growth</h3>
+            <h3>Development</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
+              Spend time developing and updating your skills and knowledge in
+              the field of AT and AAC. Regularly participate in local, regional,
+              national and international networking.
             </p>
           </div>
         </div>
