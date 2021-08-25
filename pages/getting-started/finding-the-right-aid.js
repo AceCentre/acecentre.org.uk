@@ -138,7 +138,17 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { story, resources } };
+  return {
+    props: {
+      story,
+      resources,
+      seo: {
+        title: "Which is the right communication aid for me?",
+        description:
+          "Without doubt, AT such as communication aids can be life-changing!  The problem is that there is no ‘one size fits all’ communication aid solution.",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {
