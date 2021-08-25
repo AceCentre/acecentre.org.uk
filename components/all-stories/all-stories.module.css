@@ -4,6 +4,16 @@
   max-width: var(--containerMaxWidth);
 }
 
+.readMoreContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.readMoreAll {
+  margin: 2rem auto;
+}
+
 .list {
   list-style-type: none;
   padding: 0;

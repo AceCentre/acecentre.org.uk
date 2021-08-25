@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Card } from "../latest-from-blog/latest-from-blog";
 import styles from "./all-stories.module.css";
 
-export const AllStories = ({ stories }) => {
+export const AllStories = ({ stories, className = "" }) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <ul className={styles.list}>
         {stories.map((story) => (
           <Card
@@ -29,13 +29,13 @@ export const AllStories = ({ stories }) => {
 export const ReadMoreStories = ({ stories }) => {
   return (
     <div>
-      <div className={`${styles.titleContainer} ${styles.container}`}>
+      <div className={`${styles.titleContainer} ${styles.readMoreContainer}`}>
         <h2 className={styles.readMoreTitle}>Read more stories</h2>
         <Link href="/people-we-support">
           <a className={styles.viewAllLink}>View all &gt;</a>
         </Link>
       </div>
-      <AllStories stories={stories} />
+      <AllStories stories={stories} className={styles.readMoreAll} />
     </div>
   );
 };
