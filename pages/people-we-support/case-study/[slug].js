@@ -64,6 +64,10 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     props: {
       story: currentStory,
       featuredStories,
+      seo: {
+        title: currentStory.title,
+        description: currentStory.shortDescription,
+      },
     },
   };
 });
