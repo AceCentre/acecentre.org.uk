@@ -67,6 +67,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       seo: {
         title: currentStory.title,
         description: currentStory.shortDescription,
+        image: currentStory.image,
       },
     },
   };
