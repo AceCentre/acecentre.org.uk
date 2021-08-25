@@ -78,6 +78,7 @@ export const getStaticProps = withGlobalProps(
         seo: {
           title: currentPost.title,
           description: currentPost.description,
+          image: currentPost.featuredImage,
         },
       },
     };
