@@ -9,6 +9,8 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllStories, getSimpleStory } from "../../lib/story/get-story";
 
+import styles from "../../styles/people-we-support.module.css";
+
 export default function StoriesLandingPage({
   featuredStories,
   storyHighlight,
@@ -26,7 +28,10 @@ export default function StoriesLandingPage({
           heading="People we support"
           description="Its not the work that we do here at the Ace Centre that's amazing, it's the people we work with"
         />
-        <StoryHighlight {...storyHighlight} />
+        <StoryHighlight
+          imageClassName={styles.highlightImage}
+          {...storyHighlight}
+        />
         <WordsFrom {...wordsFrom} />
         <AllStories stories={featuredStories} />
       </main>
@@ -39,7 +44,7 @@ export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
   const storyHighlight = await getSimpleStory("jess");
-  const wordsFrom = await getSimpleStory("glyn");
+  const wordsFrom = await getSimpleStory("paul");
 
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");

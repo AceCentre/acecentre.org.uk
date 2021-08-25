@@ -2,7 +2,7 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
-  margin-top: -3rem;
+  margin-top: -4rem;
 }
 
 .title {
@@ -21,7 +21,7 @@
 }
 
 .quoteContainer {
-  align-self: flex-end;
+  align-self: center;
   display: flex;
   gap: 1rem;
 }

@@ -12,6 +12,7 @@ export const StoryHighlight = ({
   slug,
   youtubeVideo,
   featuredImage,
+  imageClassName = "",
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -47,6 +48,7 @@ export const StoryHighlight = ({
               layout="fill"
               objectFit="cover"
               objectPosition="top"
+              className={imageClassName}
             />
           </div>
         </div>
