@@ -78,6 +78,11 @@ export const getStaticProps = withGlobalProps(
       props: {
         currentProject,
         featuredProjects: featuredProjects.slice(0, 3),
+        seo: {
+          title: currentProject.title,
+          description: currentProject.description,
+          image: currentProject.featuredImage,
+        },
       },
     };
   }

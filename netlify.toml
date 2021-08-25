@@ -13,11 +13,6 @@
   status = 301
 
 [[redirects]]
-  from = "/services/research"
-  to = "/projects"
-  status = 301
-
-[[redirects]]
   from = "/project/*"
   to = "/projects/:splat"
   status = 301
