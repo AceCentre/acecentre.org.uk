@@ -17,6 +17,17 @@
   to = "/projects/:splat"
   status = 301
 
+[[redirects]]
+  from = "/news/*"
+  to = "/blog/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/news"
+  to = "/blog"
+  status = 301
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
