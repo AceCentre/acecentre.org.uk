@@ -167,7 +167,7 @@ const FAQS = [
 ];
 
 export const getStaticProps = withGlobalProps(async () => {
-  const story = await getSimpleStory("patrick");
+  const story = await getSimpleStory("glyn");
 
   const products = await getAllProducts();
   const productCategories = await getAllProductCategories();
