@@ -49,5 +49,15 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const results = fuse.search(searchText);
   const filteredProjects = results.map((result) => result.item);
 
-  return { props: { allProjects: filteredProjects, searchText } };
+  return {
+    props: {
+      allProjects: filteredProjects,
+      searchText,
+      seo: {
+        title: "Projects",
+        description:
+          "Ace Centre works with companies, universities and other charities to investigate issues, trial new products and find solutions for individuals.",
+      },
+    },
+  };
 });
