@@ -36,5 +36,15 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!blogCategories) throw new Error("Couldn't get the blog categories");
 
-  return { props: { latestsPosts: latestsPosts.slice(0, 6), blogCategories } };
+  return {
+    props: {
+      latestsPosts: latestsPosts.slice(0, 6),
+      blogCategories,
+      seo: {
+        title: "Blog",
+        description:
+          "Keep up to date with news on what we're up to and how you can get involved",
+      },
+    },
+  };
 });
