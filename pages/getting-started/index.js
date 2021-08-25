@@ -14,6 +14,8 @@ import { CourseList } from "../../components/course-list/course-list";
 import { AacBooksCta } from "../../components/aac-books-cta/aac-books-cta";
 import { GettingStartedFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 
+import styles from "../../styles/getting-started.module.css";
+
 export default function GettingStartedLanding({
   gettingStartedResources,
   gettingStartedCourses,
@@ -39,11 +41,13 @@ export default function GettingStartedLanding({
           title="Resources to get started"
           viewAllLink="/resources/all?category=getting-started"
           products={gettingStartedResources}
+          className={styles.resourcesList}
         />
         <CourseList
           products={gettingStartedCourses}
           title="Ace Centre Learning Courses to get started"
           viewAllLink="/learning/search?level=introductory"
+          className={styles.resourcesList}
         />
         <AacBooksCta />
         <GettingStartedFaqs />
