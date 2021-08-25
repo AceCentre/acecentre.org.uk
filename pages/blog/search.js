@@ -46,5 +46,15 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const results = fuse.search(searchText);
   const filteredPosts = results.map((result) => result.item);
 
-  return { props: { allPosts: filteredPosts, searchText } };
+  return {
+    props: {
+      allPosts: filteredPosts,
+      searchText,
+      seo: {
+        title: "Blog",
+        description:
+          "Keep up to date with news on what we're up to and how you can get involved",
+      },
+    },
+  };
 });
