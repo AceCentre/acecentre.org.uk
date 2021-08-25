@@ -24,9 +24,9 @@ export const ResearchCta = () => {
       </div>
       <div className={styles.resourcesImage}>
         <Image
-          src="/our-resources.png"
+          src="/graphics/resources.svg"
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
           objectPosition="top"
           alt="Gear, calendar and file icons"
         />

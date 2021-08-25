@@ -75,6 +75,11 @@
     grid-template-areas:
       "researchImage"
       "researchDescription"
+      "gap"
+      "gap"
+      "gap"
+      "gap"
+      "gap"
       "resourcesImage"
       "resourcesDescription";
   }
