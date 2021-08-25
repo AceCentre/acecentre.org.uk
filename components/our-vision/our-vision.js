@@ -38,8 +38,8 @@ const WE_BELIEVE = [
     unbiased service.
   </p>,
   <p key="we-believe-5">
-    We believe in <span>Compassion.</span> We treat people we support with care,
-    empathy and understanding.
+    We believe in <span>Compassion.</span> We treat people with care, empathy
+    and understanding.
   </p>,
 ];
 
@@ -48,8 +48,11 @@ const SWITCH_TAGLILNE = 10 * 1000;
 
 export const OurVision = () => {
   const [sloganIndex, setSloganIndex] = useState(0);
+  const [prevSloganIndex, setPrevSloganIndex] = useState(-1);
+
   useInterval(() => {
     const newIndex = (sloganIndex + 1) % WE_BELIEVE.length;
+    setPrevSloganIndex(sloganIndex);
     setSloganIndex(newIndex);
   }, SWITCH_TAGLILNE);
 
@@ -80,7 +83,20 @@ export const OurVision = () => {
           </p>
         </div>
       </div>
-      <div className={styles.weBelieveTagLine}>{WE_BELIEVE[sloganIndex]}</div>
+      <div className={styles.weBelieveWrapper}>
+        {WE_BELIEVE.map((current, index) => {
+          return (
+            <div
+              key={`we-believe-wrapper-${index}`}
+              className={`${styles.weBelieveTagLine} ${
+                index === sloganIndex ? styles.active : ""
+              } ${index === prevSloganIndex ? styles.prev : ""}`}
+            >
+              {current}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

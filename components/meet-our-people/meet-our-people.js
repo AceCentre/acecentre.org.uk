@@ -23,15 +23,16 @@ export const MeetOurPeople = () => {
           </Avatar>
           <div className={styles.quoteText}>
             <p className={styles.quoteContent}>
-              &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque gravida rutrum mattis. Aenean tincidunt neque id
-              turpis viverra pellentesque.&quot;
+              &quot;Ace Centres greatest strength and biggest asset is its
+              people. Our friendly and professional team have a wealth of
+              specialist knowledge and experience. We work closely together as a
+              team to enable us to help others and achieve great results.&quot;
             </p>
             <div>
               <p>
-                <strong>Anna Reeves DL</strong>
+                <strong>Stephen Carroll</strong>
               </p>
-              <p>CEO</p>
+              <p>Business Director</p>
             </div>
           </div>
         </div>

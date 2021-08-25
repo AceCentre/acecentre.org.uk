@@ -19,7 +19,7 @@ export const CareersAtAce = () => {
           gravida rutrum mattis. Aenean tincidunt neque id turpis viverra
           pellentesque.
         </p>
-        <Link href="/careers">
+        <Link href="/work-with-us">
           <a className={styles.findYourJob}>Find your ideal job</a>
         </Link>
       </div>

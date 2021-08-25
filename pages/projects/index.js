@@ -42,6 +42,11 @@ export const getStaticProps = withGlobalProps(async () => {
   return {
     props: {
       latestProjects: latestProjects.slice(0, 3),
+      seo: {
+        title: "Projects",
+        description:
+          "Ace Centre works with companies, universities and other charities to investigate issues, trial new products and find solutions for individuals.",
+      },
     },
   };
 });

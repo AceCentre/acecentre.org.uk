@@ -5,6 +5,10 @@ import { Avatar } from "@material-ui/core";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 
+const isPortrait = ({ width, height }) => {
+  return height > width;
+};
+
 export const StoryCoverImage = ({ story }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -15,8 +19,8 @@ export const StoryCoverImage = ({ story }) => {
           src={story.image.src}
           alt={story.image.alt}
           layout="fill"
+          objectFit={isPortrait(story.image) ? "contain" : "cover"}
           objectPosition="top"
-          objectFit="cover"
         />
         <div className={styles.blueBackground} />
 

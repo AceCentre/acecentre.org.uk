@@ -7,6 +7,7 @@ export const VideoWithCardCover = ({
   alt = "cover photo of client and clinician using AAC",
   objectPosition = "top",
   nhs = false,
+  imageClassName = "",
 }) => {
   return (
     <>
@@ -23,6 +24,7 @@ export const VideoWithCardCover = ({
             objectFit="cover"
             objectPosition={objectPosition}
             alt={alt}
+            className={imageClassName}
           />
           <div className={styles.backgroundGradient} />
           <div className={styles.fullContainer}>

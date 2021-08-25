@@ -1,7 +1,17 @@
 .container {
-  margin: 2rem auto;
+  margin: 7rem auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+}
+
+.readMoreContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.readMoreAll {
+  margin: 2rem auto;
 }
 
 .list {
@@ -11,7 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 1rem;
+  gap: 3rem;
 
   align-items: center;
 

@@ -94,11 +94,11 @@ const OverlayCard = ({ title, summary, slug, className, nhs = false }) => {
           className={`${styles.readFullStory} ${
             nhs ? styles.nhsBackground : styles.normalBackground
           }`}
-          href={`/stories/${slug}`}
+          href={`/people-we-support/case-study/${slug}`}
         >
           Read full story
         </Button>
-        <Link href="/stories">
+        <Link href="/people-we-support">
           <a className={styles.allStories}>
             All Stories
             <ChevronRightIcon />

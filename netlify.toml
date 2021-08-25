@@ -7,6 +7,27 @@
   external_node_modules = ["@ampproject/toolbox-optimizer"]
   node_bundler = "esbuild"
 
+[[redirects]]
+  from = "/trustees"
+  to = "/about/trustees"
+  status = 301
+
+[[redirects]]
+  from = "/project/*"
+  to = "/projects/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/news/*"
+  to = "/blog/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/news"
+  to = "/blog"
+  status = 301
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
