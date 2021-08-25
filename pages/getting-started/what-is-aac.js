@@ -26,6 +26,8 @@ export default function GettingStartedLanding({ story, resources }) {
         <VideoWithCardCover
           src="/what-is-aac.jpeg"
           alt="A woman wearing a tracking dot on her forehead"
+          imageClassName={styles.whatIsAacImage}
+          heightClass={styles.whatIsAacCover}
         >
           <h1>What is AAC / AT?</h1>
           <p className={styles.description}>
@@ -34,7 +36,7 @@ export default function GettingStartedLanding({ story, resources }) {
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
-          <div>
+          <div className={styles.allContent}>
             <h2 className={styles.heading}>What is AAC / AT?</h2>
             <div className={styles.content}>
               <p>
@@ -69,7 +71,7 @@ export default function GettingStartedLanding({ story, resources }) {
               </p>
             </div>
           </div>
-          <GettingStartedQuote story={story} />
+          <GettingStartedQuote pronoun="his" story={story} />
         </div>
         <ResourceList
           title="Resources to get started"
