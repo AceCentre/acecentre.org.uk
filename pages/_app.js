@@ -9,12 +9,13 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { useEffect } from "react";
 import NextNProgress from "../components/progress-bar";
+import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
 const theme = createTheme();
 
 function MyApp({
   Component,
-  pageProps: { globalProps = {}, seo = {}, ...pageProps },
+  pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
 }) {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -31,7 +32,11 @@ function MyApp({
         <ChakraProvider resetCSS={false}>
           <SSRProvider>
             <NextNProgress />
-            <Component {...pageProps} />
+            {uncaughtError ? (
+              <UncaughtError error={uncaughtError} />
+            ) : (
+              <Component {...pageProps} />
+            )}
           </SSRProvider>
         </ChakraProvider>
       </ThemeProvider>
