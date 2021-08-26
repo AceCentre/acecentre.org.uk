@@ -160,6 +160,13 @@ export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
 
   return {
-    props: { featuredStory },
+    props: {
+      featuredStory,
+      seo: {
+        title: "Services",
+        description:
+          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+      },
+    },
   };
 });

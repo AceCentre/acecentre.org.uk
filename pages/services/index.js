@@ -23,4 +23,14 @@ export default function ServicesLanding() {
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(() => {
+  return {
+    props: {
+      seo: {
+        title: "Services",
+        description:
+          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+      },
+    },
+  };
+});

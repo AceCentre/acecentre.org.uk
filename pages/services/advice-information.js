@@ -189,7 +189,15 @@ export const getStaticProps = withGlobalProps(async () => {
   }));
 
   return {
-    props: { featuredStory, gettingStartedResources: resources },
+    props: {
+      featuredStory,
+      gettingStartedResources: resources,
+      seo: {
+        title: "Services",
+        description:
+          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+      },
+    },
   };
 });
 
