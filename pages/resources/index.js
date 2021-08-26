@@ -62,7 +62,18 @@ export const getStaticProps = withGlobalProps(async () => {
       ...product,
     }));
 
-  return { props: { popularResources, featuredResources, productCategories } };
+  return {
+    props: {
+      popularResources,
+      featuredResources,
+      productCategories,
+      seo: {
+        title: "Resources",
+        description:
+          "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {
