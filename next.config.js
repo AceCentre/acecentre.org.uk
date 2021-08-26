@@ -1,10 +1,6 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
-const { enableBundleAnalyzer } = require("./lib/config");
-
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: enableBundleAnalyzer,
-});
+const { environment } = require("./lib/config");
 
 const SentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -13,12 +9,15 @@ const SentryWebpackPluginOptions = {
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
 
+  deploy: {
+    env: environment,
+  },
   silent: true, // Suppresses all logs
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-const moduleExports = withBundleAnalyzer({
+const moduleExports = {
   target: "serverless",
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
@@ -27,7 +26,7 @@ const moduleExports = withBundleAnalyzer({
   images: {
     domains: ["acecentre.org.uk", "internal.acecentre.org.uk"],
   },
-});
+};
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
