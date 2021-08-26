@@ -13,7 +13,7 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/advice-information.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-import { FeaturedStory } from "../../components/featured-story/featured-story";
+// import { FeaturedStory } from "../../components/featured-story/featured-story";
 import Link from "next/link";
 import { InformationDays } from "../../components/information-days/information-days";
 import { getAllProducts } from "../../lib/products/get-products";
@@ -22,7 +22,7 @@ import { filterProducts } from "../../lib/products/filter-products";
 import { ResourceList } from "../../components/resource-list/resource-list";
 
 export default function EngineeringPage({
-  featuredStory,
+  // featuredStory,
   gettingStartedResources,
 }) {
   const { currentYear } = useGlobalProps();
@@ -36,15 +36,19 @@ export default function EngineeringPage({
         <VideoWithCardCover
           src="/services/advice.jpg"
           alt="Ace Centre employee smiling whilst wearing a headset"
+          imageClassName={styles.coverImage}
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Advice & Information</h1>
           <p className={styles.cardDescription}>
             The Ace Centre team offer you AAC and AT support at any and every
             stage of your journey
           </p>
-          <Button className={styles.cardButton}>
-            Book information day apppointment
-          </Button>
+          <div className={styles.cardButton}>
+            <Button href="/information-days">
+              Book information day appointment
+            </Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -145,9 +149,9 @@ export default function EngineeringPage({
           products={gettingStartedResources}
         />
         <InformationDays />
-        <div className={styles.extraSpacing}>
+        {/* <div className={styles.extraSpacing}>
           <FeaturedStory {...featuredStory} />
-        </div>
+        </div> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -191,11 +195,11 @@ export const getStaticProps = withGlobalProps(async () => {
   return {
     props: {
       featuredStory,
-      gettingStartedResources: resources,
+      gettingStartedResources: resources.slice(0, 4),
       seo: {
-        title: "Services",
+        title: "Advice & Information",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "Whether you are just starting out or you are an experienced AAC /AT user ready to move on, we offer remote and face to face support so you can chat about your needs with members of the Ace Centre team.",
       },
     },
   };
