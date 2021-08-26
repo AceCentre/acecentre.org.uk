@@ -112,6 +112,6 @@ jobs:
       - name: Run Lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_URL: ${{ needs.DeployNetlifyDraft.outputs.deploy-url }}
+          BASE_URL: ${{ needs.DeployNetlify.outputs.deploy-url }}
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
-        run: yarn lighthouse --collect.url=${{ needs.DeployNetlifyDraft.outputs.deploy-url }}${{ matrix.path }}
+        run: yarn lighthouse --collect.url=${{ needs.DeployNetlify.outputs.deploy-url }}${{ matrix.path }}
