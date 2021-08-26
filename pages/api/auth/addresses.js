@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import { clientRequest } from "../../../lib/client-request";
+import { withSentry } from "@sentry/nextjs";
 
 const UPDATE_BILLING = gql`
   mutation UpdateBilling($input: CustomerAddressInput!, $customerId: ID!) {
@@ -51,4 +52,4 @@ async function handler(req, res) {
   }
 }
 
-export default withSession(handler);
+export default withSentry(withSession(handler));

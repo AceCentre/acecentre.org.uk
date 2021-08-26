@@ -1,5 +1,6 @@
 import withSession from "../../../lib/auth/with-session";
 import { addToCart } from "../../../lib/cart/add";
+import { withSentry } from "@sentry/nextjs";
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -15,4 +16,4 @@ async function handler(req, res) {
   res.send({ success: true, result });
 }
 
-export default withSession(handler);
+export default withSentry(withSession(handler));
