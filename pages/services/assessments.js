@@ -28,13 +28,16 @@ export default function EngineeringPage() {
           src="/assessments.jpg"
           alt="Two people talking, one using AAC"
           objectPosition="top"
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Assessments</h1>
           <p className={styles.cardDescription}>
             Independent interdisciplinary assessments to identify appropriate
             AAC and AT resources
           </p>
-          <Button className={styles.cardButton}>Make an online enquiry</Button>
+          <div className={styles.cardButton}>
+            <Button href="/contact">Make an online enquiry</Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -47,17 +50,6 @@ export default function EngineeringPage() {
               family and involved professionals to identify and achieve goals to
               support the development of communication and learning, and
               facilitate greater independence.
-            </p>
-            <h2>Type of assessments</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation.
-            </p>
-            <p>
-              Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit, sed do eiusmod
             </p>
 
             <h2>Am I eligible for an NHS England assessment?</h2>
@@ -170,9 +162,9 @@ export const getStaticProps = withGlobalProps(() => {
   return {
     props: {
       seo: {
-        title: "Services",
+        title: "Assessments",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "Our assessment and training team will work with the individual, family and involved professionals to identify and achieve goals to support the development of communication and learning, and facilitate greater independence.",
       },
     },
   };
