@@ -5,6 +5,7 @@ import styles from "./resources-download.module.css";
 import { Button } from "../button/button";
 import config from "../../lib/config";
 import { useRouter } from "next/dist/client/router";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
@@ -118,13 +119,7 @@ const MixedVariations = ({ resource, variations }) => {
       {showFreePrice && <Price resource={currentlySelectedFull} />}
 
       {currentlySelectedFull.instantDownloadAvailable ? (
-        <div className={styles.downloadButtonContainer}>
-          <Button
-            href={`${config.baseUrl}${currentlySelectedFull.downloadUrl}`}
-          >
-            Free download
-          </Button>
-        </div>
+        <SingleDownloadableProduct resource={currentlySelectedFull} />
       ) : (
         <div>
           {currentlySelectedFull.inStock && (
@@ -160,12 +155,86 @@ const Price = ({ resource }) => {
 };
 
 const SingleDownloadableProduct = ({ resource }) => {
+  const [modelOpen, setModelOpen] = useState(false);
+
+  const onClose = () => setModelOpen(false);
+
   return (
-    <div className={styles.downloadButtonContainer}>
-      <Button href={`${config.baseUrl}${resource.downloadUrl}`}>
-        Free download
-      </Button>
+    <>
+      <div className={styles.downloadButtonContainer}>
+        <Button
+          onClick={() => {
+            setModelOpen(true);
+          }}
+          href={`${config.baseUrl}${resource.downloadUrl}`}
+        >
+          Free download
+        </Button>
+      </div>
+      <Modal
+        scrollBehavior="inside"
+        size="3xl"
+        isCentered
+        isOpen={modelOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody style={{ padding: "2rem" }}>
+            <div className={styles.topSection}>
+              <h2>Free download complete</h2>
+              <p>Here&apos;s how you can support us</p>
+            </div>
+
+            <div className={styles.donateContainer}>
+              <Button href="/get-involved/donate">
+                Make a one-off donation
+              </Button>
+            </div>
+            <div className={styles.newsletterContainer}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style type="text/css">
+	#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+	#mergeRow-gdpr {margin-top: 20px;}
+	#mergeRow-gdpr fieldset label {font-weight: normal;}
+  #mc-embedded-subscribe#mc-embedded-subscribe {
+    background-color: #00537F;
+  }
+	#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+</style>
+<div id="mc_embed_signup">
+<form action="https://acecentre.us7.list-manage.com/subscribe/post?u=d05eb11e79c97878b9f10fd9c&amp;id=ec5a06da07" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Sign up to our newsletter</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d05eb11e79c97878b9f10fd9c_ec5a06da07" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
     </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->`,
+                }}
+              ></div>
+            </div>
+            <div className={styles.bottomContainer}>
+              <button className={styles.closeButton} onClick={onClose}>
+                Close window
+              </button>
+            </div>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 

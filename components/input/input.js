@@ -23,7 +23,7 @@ export const Input = ({
           name={name}
           aria-label={ariaLabel}
         />
-        <InputRightElement>{children}</InputRightElement>
+        <InputRightElement zIndex={1}>{children}</InputRightElement>
       </InputGroup>
     </>
   );

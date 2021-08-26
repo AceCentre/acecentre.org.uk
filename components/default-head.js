@@ -23,11 +23,12 @@ const defaultImage = {
 
 export const DefaultHead = ({
   title,
-  description = defaultDescription,
+  description: specificDescription,
   image: specificImage,
 }) => {
   const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
   const image = specificImage || defaultImage;
+  const description = specificDescription || defaultDescription;
 
   return (
     // TODO Fill this out

@@ -6,11 +6,10 @@ export const ResourcesTicks = () => {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        <Tick>Over 200 resources</Tick>
-        <Tick>Over 200 resources</Tick>
-        <Tick>Over 200 resources</Tick>
-        <Tick>Over 200 resources</Tick>
-        <Tick>Over 200 resources</Tick>
+        <Tick>Over 100 resources</Tick>
+        <Tick>Created by industry experts</Tick>
+        <Tick>For beginners and experts</Tick>
+        <Tick>Download instantly</Tick>
       </ul>
     </div>
   );

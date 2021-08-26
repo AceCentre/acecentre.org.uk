@@ -28,7 +28,13 @@ export default function Resources({
       <main>
         <ResourcesSearch />
         <ResourcesTicks />
-        <ResourceList title="Popular resources" products={popularResources} />
+        <ResourceList
+          className={styles.resourcesList}
+          title="Popular resources"
+          products={popularResources}
+          viewAllLink="/resources/all"
+          viewAllText="View all resources"
+        />
 
         <ResourceCategoriesGrid productCategories={productCategories} />
         <div className={styles.buttonContainer}>
@@ -36,7 +42,13 @@ export default function Resources({
             View all resources
           </Button>
         </div>
-        <ResourceList title="Featured resources" products={featuredResources} />
+        <ResourceList
+          className={styles.featuredResources}
+          title="Featured resources"
+          products={featuredResources}
+          viewAllLink="/resources/all"
+          viewAllText="View all resources"
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -62,7 +74,18 @@ export const getStaticProps = withGlobalProps(async () => {
       ...product,
     }));
 
-  return { props: { popularResources, featuredResources, productCategories } };
+  return {
+    props: {
+      popularResources,
+      featuredResources,
+      productCategories,
+      seo: {
+        title: "Resources",
+        description:
+          "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {
