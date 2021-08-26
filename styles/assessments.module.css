@@ -61,6 +61,7 @@
 
 .cardButton.cardButton {
   margin: 1rem 0;
+  margin-top: 1.5rem;
 }
 
 .cardContact.cardContact {
@@ -153,5 +154,9 @@
 @media (max-width: 760px) {
   .bottomContainer {
     grid-template-columns: 1fr;
+  }
+
+  .coverHeight {
+    height: 800px;
   }
 }
