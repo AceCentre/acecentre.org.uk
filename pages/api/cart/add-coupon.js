@@ -1,7 +1,6 @@
 import { gql } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import { clientRequest } from "../../../lib/client-request";
-import { withSentry } from "@sentry/nextjs";
 
 const APPLY_COUPON = gql`
   mutation applyCoupon($currentCoupon: String!) {
@@ -33,4 +32,4 @@ async function handler(req, res) {
   res.send({ success: true });
 }
 
-export default withSentry(withSession(handler));
+export default withSession(handler);
