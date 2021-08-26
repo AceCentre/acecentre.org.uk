@@ -5,7 +5,7 @@ import { Avatar } from "@material-ui/core";
 
 import { Button } from "../../components/button/button";
 
-export const GettingStartedQuote = ({ story }) => {
+export const GettingStartedQuote = ({ story, pronoun = "their" }) => {
   return (
     <div className={styles.quote}>
       <Avatar className={styles.avatar}>
@@ -20,7 +20,7 @@ export const GettingStartedQuote = ({ story }) => {
         </div>
         <div className={styles.buttonContainer}>
           <Button href={`/people-we-support/case-study/${story.slug}`}>
-            Read his story
+            Read {pronoun} story
           </Button>
         </div>
       </div>

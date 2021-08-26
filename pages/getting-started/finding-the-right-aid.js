@@ -26,6 +26,7 @@ export default function GettingStartedLanding({ story, resources }) {
         <VideoWithCardCover
           src="/finding-the-right-aid-cover.jpg"
           alt="An individual using a head tracking AAC device"
+          imageClassName={styles.findingTheRightAidCover}
         >
           <h1>Which is the right communication aid for me?</h1>
           <p className={styles.description}>
@@ -34,7 +35,7 @@ export default function GettingStartedLanding({ story, resources }) {
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
-          <div>
+          <div className={styles.allContent}>
             <h2 className={styles.heading}>
               Which is the right communication aid for me?
             </h2>
@@ -57,9 +58,9 @@ export default function GettingStartedLanding({ story, resources }) {
               </p>
               <CardHighlight
                 title="Our assessment services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                description="Our assessment and training team will work with the individual, family and involved professionals to identify and achieve goals to support the development of communication and learning, and facilitate greater independence."
                 viewText="View service"
-                href="/services/assessment"
+                href="/services/assessments"
               />
               <p>
                 It also makes sense&nbsp;to try out a communication aid before
@@ -96,18 +97,19 @@ export default function GettingStartedLanding({ story, resources }) {
               </p>
               <CardHighlight
                 title="Our training services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                description="Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication."
                 viewText="View service"
                 href="/learning"
               />
             </div>
           </div>
-          <GettingStartedQuote story={story} />
+          <GettingStartedQuote pronoun="his" story={story} />
         </div>
         <ResourceList
           title="Resources to get started"
           viewAllLink="/all?category=getting-started"
           products={resources}
+          className={styles.resourcesList}
         />
       </main>
       <Footer currentYear={currentYear} />
@@ -138,7 +140,17 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { story, resources } };
+  return {
+    props: {
+      story,
+      resources,
+      seo: {
+        title: "Which is the right communication aid for me?",
+        description:
+          "Without doubt, AT such as communication aids can be life-changing!  The problem is that there is no ‘one size fits all’ communication aid solution.",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {
