@@ -36,7 +36,6 @@
     "@react-aria/radio": "3.1.5",
     "@react-aria/visually-hidden": "3.2.3",
     "@react-stately/radio": "3.3.2",
-    "@sentry/nextjs": "^6.11.0",
     "@stripe/react-stripe-js": "1.4.1",
     "@stripe/stripe-js": "1.17.1",
     "async-redis": "2.0.0",
