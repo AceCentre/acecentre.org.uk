@@ -21,5 +21,16 @@ module.exports = {
       pathToEnv,
       `MAILCHIMP_API_KEY=${process.env.MAILCHIMP_API_KEY}\n`
     );
+
+    fs.appendFileSync(pathToEnv, `SENTRY_URL=${process.env.SENTRY_URL}\n`);
+    fs.appendFileSync(pathToEnv, `SENTRY_ORG=${process.env.SENTRY_ORG}\n`);
+    fs.appendFileSync(
+      pathToEnv,
+      `SENTRY_PROJECT=${process.env.SENTRY_PROJECT}\n`
+    );
+    fs.appendFileSync(
+      pathToEnv,
+      `SENTRY_AUTH_TOKEN=${process.env.SENTRY_AUTH_TOKEN}\n`
+    );
   },
 };

@@ -50,6 +50,10 @@ jobs:
       PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+      SENTRY_URL: ${{ secrets.SENTRY_URL }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
     steps:
       - name: Get Code
