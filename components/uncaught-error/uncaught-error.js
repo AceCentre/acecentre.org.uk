@@ -1,4 +1,4 @@
-import { Link } from "@chakra-ui/react";
+import Link from "next/link";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { CombinedNav } from "../combined-nav/combined-nav";
 import { Footer } from "../footer/footer";
@@ -37,7 +37,7 @@ export const UncaughtError = ({ error }) => {
           An error happened while trying to perform the operation. Please try
           again or{" "}
           <Link href="/contact">
-            <a>contact Us</a>
+            <a>Contact Us</a>
           </Link>
         </p>
       </main>
