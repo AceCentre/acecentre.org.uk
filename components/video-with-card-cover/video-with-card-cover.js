@@ -8,6 +8,7 @@ export const VideoWithCardCover = ({
   objectPosition = "top",
   nhs = false,
   imageClassName = "",
+  heightClass = "",
 }) => {
   return (
     <>
@@ -16,7 +17,7 @@ export const VideoWithCardCover = ({
           background: ${nhs ? "#005EB8" : "#bfdded"};
         }
       `}</style>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${heightClass}`}>
         <div className={styles.coverImageContainer}>
           <Image
             src={src}
@@ -27,7 +28,7 @@ export const VideoWithCardCover = ({
             className={imageClassName}
           />
           <div className={styles.backgroundGradient} />
-          <div className={styles.fullContainer}>
+          <div className={`${styles.fullContainer} ${heightClass}`}>
             <div className={styles.innerContainer}>
               <div className={`${styles.card} cardColor`}>{children}</div>
             </div>

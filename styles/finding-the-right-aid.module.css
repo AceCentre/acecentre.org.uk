@@ -3,6 +3,24 @@
   font-size: 30px;
 }
 
+.resourcesList.resourcesList {
+  margin: 3rem auto;
+}
+
+.findingTheRightAidCover {
+  transform: scaleX(-1);
+  object-position: center -40px !important;
+}
+
+.allContent {
+  margin-top: -4rem;
+}
+
+.whatIsAacImage {
+  transform: scaleX(-1);
+  object-position: center center !important;
+}
+
 .heading {
   font-size: 34px;
   font-weight: normal;
@@ -25,5 +43,28 @@
 @media (max-width: 760px) {
   .bottomContainer {
     grid-template-columns: 1fr;
+  }
+
+  .whatIsAacImage {
+    object-position: center center !important;
+  }
+
+  .whatIsAacCover {
+    height: 800px;
+  }
+
+  .computerAccessCover {
+    height: 700px;
+  }
+}
+
+@media (max-width: 940px) {
+  .allContent {
+    margin-top: 0;
+  }
+
+  .findingTheRightAidCover {
+    transform: scaleX(-1);
+    object-position: center center !important;
   }
 }

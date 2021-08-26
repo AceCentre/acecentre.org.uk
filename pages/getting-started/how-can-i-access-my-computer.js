@@ -26,6 +26,7 @@ export default function GettingStartedLanding({ story, resources }) {
         <VideoWithCardCover
           src="/computer-access.jpeg"
           alt="Someone using a touch screen device to communicate"
+          heightClass={styles.computerAccessCover}
         >
           <h1>How can I access my computer better?</h1>
           <p className={styles.description}>
@@ -34,7 +35,7 @@ export default function GettingStartedLanding({ story, resources }) {
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
-          <div>
+          <div className={styles.allContent}>
             <h2 className={styles.heading}>
               How can I access my computer better?
             </h2>
@@ -64,9 +65,9 @@ export default function GettingStartedLanding({ story, resources }) {
               </p>
               <CardHighlight
                 title="Our assessment services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                description="Our assessment and training team will work with the individual, family and involved professionals to identify and achieve goals to support the development of communication and learning, and facilitate greater independence."
                 viewText="View service"
-                href="/services/assessment"
+                href="/services/assessments"
               />
               <p>
                 It’s not just about expensive solutions.&nbsp; With each new
@@ -84,18 +85,19 @@ export default function GettingStartedLanding({ story, resources }) {
 
               <CardHighlight
                 title="My Computer My Way (AbilityNet)"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                description="Your step-by-step guide to individual adjustments you can make to your computer, laptop, tablet or smart phone to make it easier to use."
                 viewText="Go to AbilityNet"
                 href="https://mcmw.abilitynet.org.uk/"
               />
             </div>
           </div>
-          <GettingStartedQuote story={story} />
+          <GettingStartedQuote pronoun="her" story={story} />
         </div>
         <ResourceList
           title="Resources to get started"
           viewAllLink="/all?category=getting-started"
           products={resources}
+          className={styles.resourcesList}
         />
       </main>
       <Footer currentYear={currentYear} />
@@ -126,7 +128,17 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  return { props: { story, resources } };
+  return {
+    props: {
+      story,
+      resources,
+      seo: {
+        title: "How can I access my computer better?",
+        description:
+          "Access to screen based technology such as computers and tablets is vitally important. It’s about more than controlling a communication aid effectively, although that is pretty crucial!  It’s also about being able to engage with digital age – be that government websites, banking, learning resources, games and social media.",
+      },
+    },
+  };
 });
 
 function htmlDecode(input) {
