@@ -82,7 +82,7 @@
     "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-jest": "24.4.0",
     "eslint-plugin-react": "7.24.0",
-    "fast-xml-parser": "^3.19.0",
+    "fast-xml-parser": "3.19.0",
     "jest": "27.0.6",
     "jest-css-modules-transform": "4.3.0",
     "mock-fs": "5.0.0",
