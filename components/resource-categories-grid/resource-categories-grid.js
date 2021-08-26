@@ -28,7 +28,7 @@ const CategorySquare = ({ category }) => {
             src={category.image.src}
             alt={category.image.alt}
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
           />
           <div className={styles.yellowTint} />
           <div className={styles.blueBannerContainer}>

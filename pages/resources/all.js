@@ -93,6 +93,11 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       selectedSubcategory: subcategory,
       selectedPriceRange: priceRange,
       selectedOrderBy: orderBy,
+      seo: {
+        title: "Resources",
+        description:
+          "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
+      },
     },
   };
 });

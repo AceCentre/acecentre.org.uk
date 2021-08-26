@@ -16,7 +16,11 @@ export const Button = ({
   if (href)
     return (
       <Link href={href}>
-        <a {...newTabProps} className={`${styles.button} ${className}`}>
+        <a
+          {...newTabProps}
+          onClick={onClick}
+          className={`${styles.button} ${className}`}
+        >
           {children}
         </a>
       </Link>
