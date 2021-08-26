@@ -1,6 +1,5 @@
 import { resetPassword } from "../../../lib/auth/get-user";
 import withSession from "../../../lib/auth/with-session";
-import { withSentry } from "@sentry/nextjs";
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -13,4 +12,4 @@ async function handler(req, res) {
   });
 }
 
-export default withSentry(withSession(handler));
+export default withSession(handler);

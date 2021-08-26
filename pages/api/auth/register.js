@@ -3,7 +3,6 @@ import withSession from "../../../lib/auth/with-session";
 import config from "../../../lib/config";
 import { LOGIN_MUTATION } from "./login";
 import mailchimp from "@mailchimp/mailchimp_marketing";
-import { withSentry } from "@sentry/nextjs";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
@@ -102,4 +101,4 @@ const normaliseError = (errorMessage) => {
   return errorMessage;
 };
 
-export default withSentry(withSession(handler));
+export default withSession(handler);
