@@ -5,8 +5,23 @@
   padding: 0;
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
+}
+
+.container > :nth-child(odd) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.container > :nth-child(even) {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.container > :last-child:nth-child(odd) {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }
 
 /** Mobile CSS */
@@ -14,5 +29,20 @@
   .container {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .container > :nth-child(odd) {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  .container > :nth-child(even) {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  .container > :last-child:nth-child(odd) {
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
 }
