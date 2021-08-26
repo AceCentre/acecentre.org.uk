@@ -106,6 +106,11 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     props: {
       resource: currentResource,
       relatedResources,
+      seo: {
+        title: "Resources",
+        description:
+          "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
+      },
     },
   };
 });
