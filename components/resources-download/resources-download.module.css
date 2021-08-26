@@ -2,6 +2,16 @@
   width: 100%;
 }
 
+.newsletterContainer {
+  margin: 1rem auto;
+}
+
+.donateContainer {
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid #dfdfdf;
+}
+
 .radioGroup {
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -20,6 +30,39 @@
   font-weight: bold;
   font-size: 32px;
   margin-bottom: 0.5rem;
+}
+
+.closeButton {
+  background: none;
+  border: 0;
+
+  color: #00537f;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  text-decoration: underline;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.topSection {
+  text-align: center;
+}
+
+.topSection h2,
+.topSection p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
 }
 
 /** Mobile CSS */
