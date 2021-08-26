@@ -27,6 +27,7 @@ export default function EngineeringPage({ featuredStory }) {
         <VideoWithCardCover
           src="/services/partnership.jpg"
           alt="Two Ace Centre staff members looking at an AAC device"
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Partnerships</h1>
           <p className={styles.cardDescription}>
@@ -34,9 +35,9 @@ export default function EngineeringPage({ featuredStory }) {
             augmentative communication (AAC) and assistive technology (AT)
             needs.
           </p>
-          <Button className={styles.cardButton}>
-            Enquire about partnerships
-          </Button>
+          <div className={styles.cardButton}>
+            <Button href="/contact">Enquire about partnerships</Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -84,7 +85,7 @@ export default function EngineeringPage({ featuredStory }) {
               options from our range of services.
             </p>
             <div className={styles.pricingButton}>
-              <Button newTab href="/engineering-pricing.pdf">
+              <Button newTab href="/partnership-pricing.pdf">
                 Download pricing
               </Button>
             </div>
@@ -163,9 +164,9 @@ export const getStaticProps = withGlobalProps(async () => {
     props: {
       featuredStory,
       seo: {
-        title: "Services",
+        title: "Partnerships",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "We achieve positive outcomes for our clients by drawing on the skills of our multidisciplinary team of teachers, speech and language therapists, occupational therapists, technical engineers and technicians.",
       },
     },
   };

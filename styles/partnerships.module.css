@@ -43,6 +43,7 @@
 
 .cardButton.cardButton {
   margin: 1rem 0;
+  margin-top: 1.5rem;
 }
 
 .cardContact.cardContact {
@@ -121,11 +122,19 @@
   .leftContent {
     margin-top: 0;
   }
+
+  .coverHeight {
+    height: 800px;
+  }
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
   .bottomContainer {
     grid-template-columns: 1fr;
+  }
+
+  .coverHeight {
+    height: 1000px;
   }
 }
