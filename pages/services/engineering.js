@@ -29,14 +29,16 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
         <VideoWithCardCover
           src="/services/engineering.jpg"
           alt="An engineering using a 3D printer"
+          imageClassName={styles.coverImage}
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Engineering</h1>
           <p className={styles.cardDescription}>
             Engineering: Innovation, design and technology for everyone.
           </p>
-          <Button className={styles.cardButton}>
-            Enquire about engineering
-          </Button>
+          <div className={styles.cardButton}>
+            <Button href="/contact">Enquire about engineering</Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -208,7 +210,7 @@ const ListItem = ({ children }) => {
 };
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("paul");
+  const featuredStory = await getSimpleStory("patrick");
   const unfilteredPosts = await getAllFullPosts();
 
   const allPosts = unfilteredPosts
@@ -220,9 +222,9 @@ export const getStaticProps = withGlobalProps(async () => {
       featuredStory,
       allPosts,
       seo: {
-        title: "Services",
+        title: "Engineering",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "Our highly skilled multi-disciplinary team designs and develop innovative assistive technology solutions. We use the latest tools for design and manufacture to maximise the simplicity and effectiveness of the solution and minimise costs.",
       },
     },
   };
