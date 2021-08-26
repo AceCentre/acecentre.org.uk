@@ -197,7 +197,7 @@ export const getStaticProps = withGlobalProps(async () => {
       featuredStory,
       gettingStartedResources: resources.slice(0, 4),
       seo: {
-        title: "Advice & Information",
+        title: "Advice & information",
         description:
           "Whether you are just starting out or you are an experienced AAC /AT user ready to move on, we offer remote and face to face support so you can chat about your needs with members of the Ace Centre team.",
       },
