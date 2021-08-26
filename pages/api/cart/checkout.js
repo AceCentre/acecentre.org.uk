@@ -6,6 +6,7 @@ import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
 import { gql, GraphQLClient } from "graphql-request";
+import { withSentry } from "@sentry/nextjs";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
@@ -136,4 +137,4 @@ const login = async (req, body) => {
   await req.session.save();
 };
 
-export default withSession(handler);
+export default withSentry(withSession(handler));

@@ -1,6 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import config from "../../../lib/config";
+import { withSentry } from "@sentry/nextjs";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
@@ -83,4 +84,4 @@ async function handler(req, res) {
   }
 }
 
-export default withSession(handler);
+export default withSentry(withSession(handler));

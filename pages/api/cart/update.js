@@ -1,6 +1,7 @@
 import { gql } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import { clientRequest } from "../../../lib/client-request";
+import { withSentry } from "@sentry/nextjs";
 
 const FILL_CART = gql`
   mutation FillCart($items: [CartItemInput]!) {
@@ -45,4 +46,4 @@ async function handler(req, res) {
   res.send({ success: true });
 }
 
-export default withSession(handler);
+export default withSentry(withSession(handler));
