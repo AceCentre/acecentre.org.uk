@@ -9,7 +9,15 @@
 }
 
 .left {
-  margin-top: -4rem;
+  margin-top: -9rem;
+}
+
+.coverImage {
+  transform: scaleX(-1);
+}
+
+.coverHeight {
+  height: 700px;
 }
 
 /** Mobile CSS */
@@ -39,6 +47,10 @@
   font-size: 16px;
 }
 
+.featuredImageContainer {
+  padding-bottom: 3rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .columns {
@@ -47,10 +59,10 @@
   }
 
   .coverHeight {
-    height: 800px;
+    height: 1000px;
   }
 
   .coverImage {
-    object-position: 0px center !important;
+    object-position: right center !important;
   }
 }

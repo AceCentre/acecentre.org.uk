@@ -65,7 +65,9 @@ export const OtherWaysToDonate = () => {
               services and support to children and adults with severe
               communication difficulties.
             </p>
-            <Button>Get in touch online</Button>
+            <div className={styles.buttonContainer}>
+              <Button href="/contact">Get in touch online</Button>
+            </div>
             <p>
               or call us on <strong>0800 048 7642</strong>
             </p>
