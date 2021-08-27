@@ -1,6 +1,6 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Facts } from "../../components/facts/facts";
-import { FeaturedStory } from "../../components/featured-story/featured-story";
+// import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
@@ -11,7 +11,7 @@ import { getSimpleStory } from "../../lib/story/get-story";
 
 import styles from "../../styles/get-involved.module.css";
 
-export default function GetInvolved({ featuredStory }) {
+export default function GetInvolved() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -23,6 +23,8 @@ export default function GetInvolved({ featuredStory }) {
         <VideoWithCardCover
           src="/get-involved.jpg"
           alt="Client getting fitted with a new AAC device"
+          heightClass={styles.coverHeight}
+          imageClassName={styles.coverImage}
         >
           <h1>Get involved</h1>
           <p>
@@ -63,7 +65,7 @@ export default function GetInvolved({ featuredStory }) {
           </div>
         </div>
         <WaysToGetInvolved />
-        <FeaturedStory {...featuredStory} />
+        {/* <FeaturedStory {...featuredStory} /> */}
       </main>
       <Footer currentYear={currentYear} />
     </>

@@ -4,10 +4,25 @@
   max-width: var(--containerMaxWidth);
 }
 
+.buttonContainer {
+  margin-top: auto;
+  padding: 1rem 0;
+  padding-top: 1.5rem;
+}
+
 .outerContainer {
   width: 100%;
   background-color: #eeeeee;
   padding: 5rem 0;
+}
+
+.element {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.element h3 {
+  margin: 0;
 }
 
 .title {
