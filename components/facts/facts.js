@@ -9,7 +9,7 @@ import { Avatar } from "@material-ui/core";
 export const Facts = () => {
   return (
     <div className={styles.container}>
-      <Fact number="20+" unit="Partnerships">
+      <Fact number="70+" unit="Partnerships">
         <SupervisorAccountIcon className={styles.icon} />
       </Fact>
       <Fact number="30+" unit="Years">
