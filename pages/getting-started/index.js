@@ -85,7 +85,7 @@ export const getStaticProps = withGlobalProps(async () => {
 
   return {
     props: {
-      gettingStartedResources: resources,
+      gettingStartedResources: resources.slice(0, 4),
       gettingStartedCourses,
       seo: {
         title: "Getting started",
