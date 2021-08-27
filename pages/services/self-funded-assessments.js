@@ -10,7 +10,7 @@ import { Avatar } from "@material-ui/core";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
-import styles from "../../styles/assessments.module.css";
+import styles from "../../styles/self-funded-assessments.module.css";
 import { InformationDays } from "../../components/information-days/information-days";
 import Link from "next/link";
 
@@ -26,7 +26,8 @@ export default function EngineeringPage() {
         <VideoWithCardCover
           src="/self-funded-assessments.jpg"
           alt="An Ace Centre staff member showing a client how to use their device"
-          objectPosition="center"
+          imageClassName={styles.coverImage}
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Self-funded assessments</h1>
           <p className={styles.cardDescription}>
@@ -34,7 +35,11 @@ export default function EngineeringPage() {
             identify and achieve goals to support the development of
             communication, learning, and greater independence.
           </p>
-          <Button className={styles.cardButton}>Make an online enquiry</Button>
+          <div className={styles.cardButton}>
+            <Button href="/contact" className={styles.cardButton}>
+              Make an online enquiry
+            </Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -227,12 +232,11 @@ export default function EngineeringPage() {
               </Avatar>
               <div className={styles.quoteText}>
                 <h3>Self-assessment referral form</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt olor sit.
-                </p>
+                <p>Get the latest referral form</p>
                 <div className={styles.downloadButtonContainer}>
-                  <Button>Download form</Button>
+                  <Button href="/docs/ReferralFormPdf.pdf">
+                    Download form
+                  </Button>
                 </div>
               </div>
             </div>
@@ -249,9 +253,9 @@ export const getStaticProps = withGlobalProps(() => {
   return {
     props: {
       seo: {
-        title: "Services",
+        title: "Self-funded assessments",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "We offer independent interdisciplinary assessments to identify appropriate assistive technology resources for people with physical and/or communication impairments to support their communication and learning.",
       },
     },
   };
