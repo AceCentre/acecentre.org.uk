@@ -244,9 +244,9 @@ export const getStaticProps = withGlobalProps(async () => {
     props: {
       featuredStory,
       seo: {
-        title: "Services",
+        title: "NHS Assessments",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "Ace Centre is commissioned by NHS England to provide specialised AAC services across the North West and Wessex & Thames Valley NHSE specialised commissioning regions.",
       },
     },
   };
