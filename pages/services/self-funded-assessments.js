@@ -36,9 +36,7 @@ export default function EngineeringPage() {
             communication, learning, and greater independence.
           </p>
           <div className={styles.cardButton}>
-            <Button href="/contact" className={styles.cardButton}>
-              Make an online enquiry
-            </Button>
+            <Button href="/contact">Make an online enquiry</Button>
           </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
