@@ -1,5 +1,5 @@
 .container {
-  margin-top: 1rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -43,5 +43,7 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+    margin-top: 1rem;
+    grid-template-columns: 1fr;
   }
 }

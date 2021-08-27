@@ -4,7 +4,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 6fr 5fr;
-  grid-gap: 1rem;
+  grid-gap: 4rem;
   margin-bottom: 2rem;
 }
 
@@ -42,5 +42,14 @@
 @media (max-width: 760px) {
   .columns {
     grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .coverHeight {
+    height: 800px;
+  }
+
+  .coverImage {
+    object-position: 0px center !important;
   }
 }
