@@ -23,9 +23,9 @@ export const WaysToGetInvolved = () => {
               As a charity we depend on donations for vital services, from
               baking caked to running marathons, find out ways you can help.
             </p>
-            <div className={styles.buttonContainer}>
+            {/* <div className={styles.buttonContainer}>
               <Button href="/get-involved/fundraise">Find out more</Button>
-            </div>
+            </div> */}
           </div>
           <div className={styles.element}>
             <h3>Sponsor</h3>
@@ -33,9 +33,9 @@ export const WaysToGetInvolved = () => {
               Corporate sponsorship should not be one way, our aim is to work
               with the business community to the benefit of both parties.
             </p>
-            <div className={styles.buttonContainer}>
+            {/* <div className={styles.buttonContainer}>
               <Button href="/get-involved/sponsor">Find out more</Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
