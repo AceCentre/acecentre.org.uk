@@ -13,11 +13,11 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/research.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-import { FeaturedStory } from "../../components/featured-story/featured-story";
+// import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { getAllProjects } from "../../lib/posts/get-posts";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 
-export default function EngineeringPage({ featuredStory, latestProjects }) {
+export default function EngineeringPage({ latestProjects }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -29,13 +29,17 @@ export default function EngineeringPage({ featuredStory, latestProjects }) {
         <VideoWithCardCover
           src="/services/research.jpg"
           alt="A communication device"
+          imageClassName={styles.coverImage}
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Research</h1>
           <p className={styles.cardDescription}>
             Our research and development projects enhance achievement and good
             practice in the field
           </p>
-          <Button className={styles.cardButton}>Enquire about research</Button>
+          <div className={styles.cardButton}>
+            <Button href="/contact">Enquire about research</Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -103,9 +107,9 @@ export default function EngineeringPage({ featuredStory, latestProjects }) {
           linkPrefix="projects"
         />
 
-        <div className={styles.extraSpacing}>
+        {/* <div className={styles.extraSpacing}>
           <FeaturedStory {...featuredStory} />
-        </div>
+        </div> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -132,9 +136,9 @@ export const getStaticProps = withGlobalProps(async () => {
       featuredStory,
       latestProjects: latestProjects.slice(0, 6),
       seo: {
-        title: "Services",
+        title: "Research",
         description:
-          "Ace Centre provides a range of services to support children and adults with severe communication difficulties.",
+          "Research and development projects enhance achievement and good practice in the field; directly, through the development of AT & AAC, and indirectly through awareness raising, skills building and informing government policy. Service-users with communication disabilities are involved throughout.",
       },
     },
   };

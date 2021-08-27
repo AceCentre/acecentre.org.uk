@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.coverImage {
+  object-position: center center !important;
+}
+
 .link {
   text-decoration: none;
   color: #00537f;
@@ -53,6 +57,7 @@
 
 .cardButton.cardButton {
   margin: 1rem 0;
+  margin-top: 1.5rem;
 }
 
 .cardContact.cardContact {
@@ -130,6 +135,10 @@
 @media (max-width: 1024px) {
   .leftContent {
     margin-top: 0;
+  }
+
+  .coverHeight {
+    height: 800px;
   }
 }
 
