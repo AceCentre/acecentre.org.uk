@@ -123,7 +123,7 @@ export const defaultNavItems = [
         title: "Advice and information",
         href: "/services/advice-information",
       },
-      { title: "Projects", href: "/projects" },
+      { title: "Research", href: "/services/research" },
       { title: "Partnerships", href: "/services/partnerships" },
       { title: "Ace Centre Learning", href: "/learning" },
     ],
