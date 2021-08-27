@@ -28,6 +28,13 @@
   status = 301
 
 
+[[redirects]]
+  from = "/getting-started/faqs-frequently-asked-questions"
+  to = "/getting-started"
+  status = 301
+
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
