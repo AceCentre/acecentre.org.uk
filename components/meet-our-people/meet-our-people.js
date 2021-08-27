@@ -23,7 +23,7 @@ export const MeetOurPeople = () => {
           </Avatar>
           <div className={styles.quoteText}>
             <p className={styles.quoteContent}>
-              &quot;Ace Centres greatest strength and biggest asset is its
+              &quot;Ace Centre&apos;s greatest strength and biggest asset is its
               people. Our friendly and professional team have a wealth of
               specialist knowledge and experience. We work closely together as a
               team to enable us to help others and achieve great results.&quot;
