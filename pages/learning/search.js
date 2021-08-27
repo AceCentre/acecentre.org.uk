@@ -230,6 +230,11 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       prices,
       orderByOptions,
       searchText,
+      seo: {
+        title: "Ace Centre Learning",
+        description:
+          "Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication.",
+      },
     },
   };
 });
