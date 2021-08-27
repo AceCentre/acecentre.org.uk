@@ -179,7 +179,6 @@ export const defaultNavItems = [
         title: "Donate",
         href: "/get-involved/donate",
       },
-      { title: "Fundraise", href: "/get-involved/fundraise" },
     ],
   },
 ];
