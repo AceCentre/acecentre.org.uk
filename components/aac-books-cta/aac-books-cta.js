@@ -16,7 +16,7 @@ export const AacBooksCta = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <div className={styles.button}>
-          <Button href="/resources/all?category=ebook">
+          <Button href="/resources/getting-started-aac">
             View the E-book series
           </Button>
         </div>
