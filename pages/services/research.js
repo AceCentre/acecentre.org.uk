@@ -85,15 +85,17 @@ export default function EngineeringPage({ latestProjects }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;As having direct involvement with a large number of
+                  individuals with complex disabilities Ace Centre is uniquely
+                  positioned to identify research and development gaps and
+                  understand the need and how technology can and should support
+                  people in the real world&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Will Wade</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Senior AAC Consultant</p>
                 </div>
               </div>
             </div>
