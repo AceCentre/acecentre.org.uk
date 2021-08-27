@@ -94,6 +94,11 @@ module.exports = {
         // https://github.com/AceCentre/acecentre.org.uk/issues/108
         "csp-xss": "off",
 
+        // While these are useful, they are triggered by youtube embeds. At some point we should switch out
+        // the native youtube embeds for youtube-lite
+        "font-display": "off",
+        "third-party-facades": "off",
+
         ...getExtraAssertions(),
       },
     },
