@@ -88,6 +88,10 @@
   .leftContent {
     margin-top: 0;
   }
+
+  .coverHeight {
+    height: 800px;
+  }
 }
 
 /** Mobile CSS */

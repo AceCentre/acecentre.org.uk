@@ -14,11 +14,11 @@ import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
 import { getSimpleStory } from "../../../lib/story/get-story";
-import { FeaturedStory } from "../../../components/featured-story/featured-story";
+// import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
 
-export default function NHSLanding({ featuredStory }) {
+export default function NHSLanding() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -31,6 +31,7 @@ export default function NHSLanding({ featuredStory }) {
           src="/services/nhs-assessment-cover.jpg"
           alt="A child laughing"
           nhs
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>NHS England Assessment</h1>
           <p className={styles.cardDescription}>
@@ -230,7 +231,7 @@ export default function NHSLanding({ featuredStory }) {
           </div>
         </div>
         <InformationDays nhs />
-        <FeaturedStory nhs {...featuredStory} />
+        {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
