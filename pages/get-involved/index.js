@@ -75,5 +75,14 @@ export default function GetInvolved() {
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
 
-  return { props: { featuredStory } };
+  return {
+    props: {
+      featuredStory,
+      seo: {
+        title: "Get involved",
+        description:
+          "By supporting Ace Centre you help ensure that people with the severest communication challenges continue to benefit from professional assessment and intervention. Whilst we often make use of low-tech gadgets and techniques we also need to be able to provide expensive solutions for those who need them.",
+      },
+    },
+  };
 });
