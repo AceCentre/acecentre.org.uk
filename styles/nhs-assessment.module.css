@@ -13,7 +13,11 @@
 .cardButton.cardButton {
   background-color: #ffffff;
   color: #005eb8;
+}
+
+.cardButtonContainer {
   margin: 1rem 0;
+  margin-top: 1.5rem;
 }
 
 .cardContact.cardContact {

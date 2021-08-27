@@ -38,7 +38,11 @@ export default function NHSLanding() {
             Specialist AAC Service supporting the North West and Thames Valley &
             Wessex regions
           </p>
-          <Button className={styles.cardButton}>Make an online enquiry</Button>
+          <div className={styles.cardButtonContainer}>
+            <Button href="/contact" className={styles.cardButton}>
+              Make an online enquiry
+            </Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
