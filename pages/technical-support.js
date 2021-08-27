@@ -29,4 +29,13 @@ export default function TechnicalSupport() {
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalProps(async () => {
+  return {
+    props: {
+      seo: {
+        title: "Technical support",
+        description: "What to do when you need help",
+      },
+    },
+  };
+});

@@ -40,5 +40,15 @@ export const getStaticProps = withGlobalProps(async () => {
   const slug = "contact";
   const form = ALL_FORMS.find((current) => current.slug === slug);
 
-  return { props: { slug, form } };
+  return {
+    props: {
+      slug,
+      form,
+      seo: {
+        title: "Contact us",
+        description:
+          "If you think Ace Centre can help you or someone you know please get in touch",
+      },
+    },
+  };
 });
