@@ -19,7 +19,7 @@ export const LearningTicks = () => {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        <Tick green>Over 100 courses</Tick>
+        <Tick green>Over 100 courses run</Tick>
         <Tick green>On-demand and face-to-face</Tick>
         <Tick green>Courses for any learning level</Tick>
         <Tick green>Earn certificates</Tick>
