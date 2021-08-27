@@ -5,8 +5,8 @@ export const ALL_FORMS = [
     slug: "contact",
     title: "Contact form",
     url:
-      "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUM09NTDlHMUIxSEZMV1dNNVdNMURCOFIxSS4u&embed=true",
-    height: 920,
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURFpIVDBIVjdTMExFTFZDR1lQNURZQTE0RCQlQCN0PWcu&embed=true",
+    height: 1750,
   },
 ];
 
