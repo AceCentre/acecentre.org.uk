@@ -7,6 +7,12 @@
   gap: 3rem;
 }
 
+.inlineForm {
+  width: 90%;
+  text-align: center;
+  margin: 3rem auto;
+}
+
 .form {
   width: 100%;
   grid-area: form;
