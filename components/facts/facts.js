@@ -15,7 +15,7 @@ export const Facts = () => {
       <Fact number="30+" unit="Years">
         <EventNoteIcon className={styles.icon} />
       </Fact>
-      <Fact number="1,000+" unit="Assessments">
+      <Fact number="3,400+" unit="Referrals">
         <AccessibleIcon className={styles.icon} />
       </Fact>
       <Fact number="100+" unit="Resources">
