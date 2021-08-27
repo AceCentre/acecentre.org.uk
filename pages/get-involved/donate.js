@@ -10,7 +10,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { getSimpleStory } from "../../lib/story/get-story";
 
-import styles from "../../styles/get-involved.module.css";
+import styles from "../../styles/donate.module.css";
 
 export default function GetInvolved({ featuredStory }) {
   const { currentYear } = useGlobalProps();
@@ -24,6 +24,8 @@ export default function GetInvolved({ featuredStory }) {
         <VideoWithCardCover
           src="/donate.jpg"
           alt="A client using an AAC device"
+          imageClassName={styles.coverImage}
+          heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Donate</h1>
           <p className={styles.cardDescription}>
@@ -31,7 +33,11 @@ export default function GetInvolved({ featuredStory }) {
             to continue to offer high quality services that are effective for
             those who use them.
           </p>
-          <Button className={styles.cardButton}>Make a donation</Button>
+          <div className={styles.cardButton}>
+            <Button href="https://www.justgiving.com/onecheckout/donation/direct/charity/139889">
+              Make a donation
+            </Button>
+          </div>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -56,7 +62,9 @@ export default function GetInvolved({ featuredStory }) {
         </div>
         <WhatMoneyCanDo />
         <OtherWaysToDonate />
-        <FeaturedStory {...featuredStory} />
+        <div className={styles.featuredImageContainer}>
+          <FeaturedStory {...featuredStory} />
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -66,5 +74,14 @@ export default function GetInvolved({ featuredStory }) {
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
 
-  return { props: { featuredStory } };
+  return {
+    props: {
+      featuredStory,
+      seo: {
+        title: "Donate",
+        description:
+          "Ace Centre is a professionally run charity working with NHS and other partners. In order to maintain and expand our services we need to raise our own funds.",
+      },
+    },
+  };
 });
