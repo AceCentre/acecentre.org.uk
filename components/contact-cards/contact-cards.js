@@ -33,7 +33,7 @@ export const ContactCards = () => {
           <ul className={styles.linkList}>
             <UsefulLink href="/resources">Resources</UsefulLink>
             <UsefulLink href="/getting-started">Getting started</UsefulLink>
-            <UsefulLink href="/partnerships">Partnerships</UsefulLink>
+            <UsefulLink href="/services/partnerships">Partnerships</UsefulLink>
             <UsefulLink href="/information-days">Information days</UsefulLink>
           </ul>
         </Card>
