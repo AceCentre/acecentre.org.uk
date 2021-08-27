@@ -12,8 +12,11 @@ export const AacBooksCta = () => {
       <div className={styles.rightHandSide}>
         <h2 className={styles.title}>Get started with AAC Books</h2>
         <p className={styles.description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Three books have been designed to help families and professionals
+          alike to get started with Augmentative and Alternative Communication
+          (AAC). These have been edited by the Ace Centre, a UK charity
+          providing information, advice and support for individuals who require
+          technology to communicate.
         </p>
         <div className={styles.button}>
           <Button href="/resources/getting-started-aac">
