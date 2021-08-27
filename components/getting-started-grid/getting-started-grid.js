@@ -21,7 +21,7 @@ export const GettingStartedGrid = () => {
 const gridItems = [
   {
     name: "What is AAC / What is AT?",
-    href: "/getting-started/what-is-aac",
+    href: "/getting-started/what-is-aac-what-is-at",
     image: {
       src: "/what-is-aac.jpeg",
       alt: "A woman wearing a tracking dot on her forehead",
@@ -29,7 +29,7 @@ const gridItems = [
   },
   {
     name: "How can I access my computer better?",
-    href: "/getting-started/how-can-i-access-my-computer",
+    href: "/getting-started/i-difficulty-accessing-computer-i",
     image: {
       src: "/computer-access.jpeg",
       alt: "Someone using a touch screen device to communicate",
@@ -37,7 +37,7 @@ const gridItems = [
   },
   {
     name: "Which is the right communication aid for me?",
-    href: "/getting-started/finding-the-right-aid",
+    href: "/getting-started/find-right-communication-aid",
     image: {
       src: "/right-aid.jpeg",
       alt: "A communication device",

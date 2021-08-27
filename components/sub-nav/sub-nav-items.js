@@ -37,15 +37,15 @@ export const defaultNavItems = [
       { title: "Getting started with AAC and AT", href: "/getting-started" },
       {
         title: "What is AAC / What is AT?",
-        href: "/getting-started/what-is-aac",
+        href: "/getting-started/what-is-aac-what-is-at",
       },
       {
         title: "Accessing the computer",
-        href: "/getting-started/how-can-i-access-my-computer",
+        href: "/getting-started/i-difficulty-accessing-computer-i",
       },
       {
         title: "Which is the right communication aid for me?",
-        href: "/getting-started/finding-the-right-aid",
+        href: "/getting-started/find-right-communication-aid",
       },
       {
         title: "Resources to get started",
