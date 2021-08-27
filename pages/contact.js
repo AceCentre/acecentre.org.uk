@@ -6,7 +6,6 @@ import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
-import { GiveUsACall } from "../components/give-us-a-call/give-us-a-call";
 
 import styles from "../styles/contact.module.css";
 import { ALL_FORMS, MsForm } from "../components/ms-form";
@@ -25,9 +24,8 @@ export default function Contact({ form }) {
           description="If you think Ace Centre can help you or someone you know please get in touch"
         />
         <ContactCards />
-        <div className={styles.splitColumns}>
+        <div className={styles.inlineForm}>
           <MsForm className={styles.form} form={form} />
-          <GiveUsACall className={styles.giveUsACall} />
         </div>
         <FindOurOffices />
       </main>
