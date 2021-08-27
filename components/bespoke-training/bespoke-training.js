@@ -15,7 +15,7 @@ export const BespokeTraining = () => {
           requirements.
         </p>
         <div className={styles.button}>
-          <Button href="/form/bespoke-training">Make an online enquiry</Button>
+          <Button href="/contact">Make an online enquiry</Button>
         </div>
         <p>
           or call our advice line on <strong>0800 048 7642</strong>
