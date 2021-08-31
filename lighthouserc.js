@@ -99,6 +99,11 @@ module.exports = {
         "font-display": "off",
         "third-party-facades": "off",
 
+        // I really don't like disabling this but the forms iframe causes these
+        // to fail. Ideally we would ignore it from the office origin
+        "errors-in-console": "off",
+        "unminified-javascript": "off",
+
         ...getExtraAssertions(),
       },
     },
