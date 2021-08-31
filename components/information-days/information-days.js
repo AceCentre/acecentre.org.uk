@@ -16,12 +16,12 @@ export const InformationDays = ({ nhs = false }) => {
         <div className={styles.overlay}></div>
       </div>
       <div className={styles.right}>
-        <h2>Information days</h2>
+        <h2>Information appointments</h2>
         <p>A useful first step in any effective assessment process</p>
         <div className={styles.buttonContainer}>
           <Button
             className={`${styles.button} ${nhs ? styles.nhs : ""}`}
-            href="/information-days"
+            href="/information-appointments"
           >
             Find out more
           </Button>

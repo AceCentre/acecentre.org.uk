@@ -54,7 +54,7 @@ export default function EngineeringPage() {
             </p>
             <p>
               If you plan to go with an Ace Centre self-funded assessment
-              service we recommend you attend a free one-hour information day
+              service we recommend you attend a free one-hour information
               appointment. These appointments are a useful first step in any
               effective assessment process.
             </p>
