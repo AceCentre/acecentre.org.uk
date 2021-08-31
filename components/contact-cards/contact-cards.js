@@ -12,8 +12,7 @@ export const ContactCards = () => {
         <Card>
           <h3>Advice helpline</h3>
           <p>
-            If you’re a teacher or carer looking for assistance call our advice
-            helpline number:
+            If you’re looking for assistance call our advice helpline number:
           </p>
           <p className={styles.phoneNumber}>0800 048 7642</p>
           <p className={styles.officeHours}>
