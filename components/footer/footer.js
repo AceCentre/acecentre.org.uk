@@ -31,7 +31,9 @@ export const Footer = ({ currentYear }) => {
                 0800 048 7642
               </a>
             </Link>
-            <p className={styles.officeHours}>Office hours, Monday - Friday</p>
+            <p className={styles.officeHours}>
+              Office hours, 9AM - 5PM, Monday - Friday
+            </p>
             <p className={styles.helpAndSupport}>Help and support:</p>
             <Link href="/contact">
               <a className={styles.helpAndSupportLink}>Contact us</a>
