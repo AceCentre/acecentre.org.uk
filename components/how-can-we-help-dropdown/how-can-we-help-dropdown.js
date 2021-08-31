@@ -155,7 +155,7 @@ const SUPPLIERS = [
     resources: (
       <p>
         <Link href="https://uk.tobiidynavox.com/pages/contact-us">
-          <a target="_blank" rel="noopener" className={styles.link}>
+          <a target="_blank" rel="noreferrer" className={styles.link}>
             Contact Tobii Dynavox &gt;
           </a>
         </Link>
@@ -167,7 +167,7 @@ const SUPPLIERS = [
     resources: (
       <p>
         <Link href="https://www.liberator.co.uk/support">
-          <a target="_blank" rel="noopener" className={styles.link}>
+          <a target="_blank" rel="noreferrer" className={styles.link}>
             Liberator support centre &gt;
           </a>
         </Link>
@@ -179,7 +179,7 @@ const SUPPLIERS = [
     resources: (
       <p>
         <Link href="https://www.techcess.co.uk/support/">
-          <a target="_blank" rel="noopener" className={styles.link}>
+          <a target="_blank" rel="noreferrer" className={styles.link}>
             Techess support page &gt;
           </a>
         </Link>

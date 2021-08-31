@@ -48,7 +48,7 @@ export const ShareButtons = ({
       >
         <a
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           aria-label="Twitter logo"
           className={styles.avatarLink}
         >
@@ -63,7 +63,7 @@ export const ShareButtons = ({
       >
         <a
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           aria-label="LinkedIn logo"
           className={styles.avatarLink}
         >
@@ -75,7 +75,7 @@ export const ShareButtons = ({
       <Link href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}>
         <a
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
           aria-label="Facebook logo"
           className={styles.avatarLink}
         >

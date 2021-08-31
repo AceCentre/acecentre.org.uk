@@ -11,7 +11,7 @@ export const Button = ({
   disabled = false,
   ...props
 }) => {
-  const newTabProps = newTab ? { target: "_blank", rel: "noopener" } : {};
+  const newTabProps = newTab ? { target: "_blank", rel: "noreferrer" } : {};
 
   if (href)
     return (
