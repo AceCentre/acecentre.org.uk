@@ -26,7 +26,7 @@ export default function StoriesLandingPage({
       <main>
         <PageTitle
           heading="People we support"
-          description="Its not the work that we do here at the Ace Centre that's amazing, it's the people we work with"
+          description="Its not the work that we do here at Ace Centre that's amazing, it's the people we work with"
         />
         <StoryHighlight
           imageClassName={styles.highlightImage}
