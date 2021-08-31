@@ -59,6 +59,52 @@ export const NewUserDetails = ({
   );
 };
 
+export const CollectDelegatedEmail = ({
+  currentLine,
+  error,
+  emailChanged,
+  changeDelegation,
+}) => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  return (
+    <div className={`${styles.outerContainer} ${styles.createAccount}`}>
+      <h2>{currentLine.name} - Delegated learner</h2>
+      <p>
+        By default we will assume the user purchasing the course is the person
+        who will be enrolled on the course.
+      </p>
+      <p>
+        If this is not the case, then check the box below and enter the email
+        address of the person you want to be enrolled
+      </p>
+      <div className={styles.checkboxContainer}>
+        <Checkbox
+          name="registerAnotherUser"
+          onChange={(event) => {
+            setIsChecked(event.target.checked);
+            changeDelegation(event.target.checked);
+          }}
+        >
+          Would you like to enroll a different user onto the course?
+        </Checkbox>
+      </div>
+      {error && <p className={styles.error}>{error}</p>}
+      {isChecked && (
+        <>
+          <Input
+            maxWidth="100%"
+            placeholder="learner@academy.co.uk"
+            ariaLabel={"Student email"}
+            key={`input-${currentLine.key}`}
+            onChange={emailChanged}
+          />
+        </>
+      )}
+    </div>
+  );
+};
+
 export const CollectEmails = ({
   currentLine,
   emailsChanged = () => {},

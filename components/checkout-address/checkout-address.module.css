@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+.checkboxContainer {
+  margin: 1rem auto;
+}
 
 .outerContainer {
   margin: 0 auto;
