@@ -76,7 +76,7 @@ export const defaultNavItems = [
         href: "/resources/all?category=supporting-language",
       },
       {
-        title: "Supporting Access",
+        title: "Supporting access",
         href: "/resources/all?category=supporting-access",
       },
       {
