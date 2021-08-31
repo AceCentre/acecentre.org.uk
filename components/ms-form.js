@@ -8,6 +8,13 @@ export const ALL_FORMS = [
       "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURFpIVDBIVjdTMExFTFZDR1lQNURZQTE0RCQlQCN0PWcu&embed=true",
     height: 1750,
   },
+  {
+    slug: "information-appointment-feedback",
+    title: "Information appointment feedback",
+    height: 3700,
+    url:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUQkFTRzlKOUFHR0hEMU9PNzdFR0U3RlgyTiQlQCN0PWcu&embed=true",
+  },
 ];
 
 export const MsForm = ({ form, className = "" }) => {
@@ -30,7 +37,7 @@ export const MsForm = ({ form, className = "" }) => {
 
         @media (max-width: 800px) {
           .iframe {
-            height: ${form.height + 100}px;
+            height: ${form.height * 1.2}px;
           }
         }
       `}</style>
