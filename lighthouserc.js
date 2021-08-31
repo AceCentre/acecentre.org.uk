@@ -103,6 +103,8 @@ module.exports = {
         // to fail. Ideally we would ignore it from the office origin
         "errors-in-console": "off",
         "unminified-javascript": "off",
+        "valid-source-maps": "off",
+        "unminified-css": "off",
 
         ...getExtraAssertions(),
       },
