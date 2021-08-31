@@ -3,6 +3,7 @@ import {
   Card,
   usePostsWithoutImageCounters,
 } from "../latest-from-blog/latest-from-blog";
+import { CourseMeta } from "../learning-detail-box/learning-detail-box";
 
 import styles from "./course-list.module.css";
 
@@ -13,6 +14,7 @@ export const CourseList = ({
   products,
   showDate = false,
   className = "",
+  withMeta = false,
 }) => {
   const productsWithoutImageCounters = usePostsWithoutImageCounters(products);
 
@@ -40,7 +42,15 @@ export const CourseList = ({
               title={product.title}
             >
               <p className={styles.productTitle}>{product.title}</p>
-              {showDate && <p className={styles.date}>{product.date.card}</p>}
+              {withMeta ? (
+                <CourseMeta course={product} withCost />
+              ) : (
+                <>
+                  {showDate && (
+                    <p className={styles.date}>{product.date.card}</p>
+                  )}
+                </>
+              )}
             </Card>
           );
         })}
