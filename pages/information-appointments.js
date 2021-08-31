@@ -79,7 +79,7 @@ export default function Contact() {
               className={"info-frame"}
               dangerouslySetInnerHTML={{
                 __html:
-                  "<iframe src='https://outlook.office365.com/owa/calendar/AceCentre@acecentre.org.uk/bookings/s/Bki6azf24k--6merN0obQA2' width='100%' height='100%' scrolling='yes' style='border:0'></iframe>",
+                  "<iframe title='Book an information appointment' src='https://outlook.office365.com/owa/calendar/AceCentre@acecentre.org.uk/bookings/s/Bki6azf24k--6merN0obQA2' width='100%' height='100%' scrolling='yes' style='border:0'></iframe>",
               }}
             ></div>
           </>
