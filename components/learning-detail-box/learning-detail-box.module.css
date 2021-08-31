@@ -1,3 +1,32 @@
+.list {
+  list-style-type: none;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+.bulletAvatar.bulletAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #00537f;
+}
+
+.icon.icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
 .container {
   margin: 2rem auto;
   width: 90%;

@@ -4,6 +4,8 @@ import { ImageWithLoader as Image } from "../image";
 import { Button } from "../button/button";
 import { ShareButtons } from "../blog-meta/blog-meta";
 import { useAddToCart } from "../resources-download/resources-download";
+import { Avatar } from "@material-ui/core";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 export const LearningDetailBox = ({ course }) => {
   const { disabled, addToCart, error } = useAddToCart();
@@ -30,6 +32,7 @@ export const LearningDetailBox = ({ course }) => {
               <p className={styles.tagLine}>From Ace Centre Learning</p>
             </div>
             <p className={styles.price}>{getPriceText(course.price)}</p>
+            <CourseMeta course={course} />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -52,6 +55,32 @@ export const LearningDetailBox = ({ course }) => {
       </div>
       <p className={styles.error}>{error}</p>
     </>
+  );
+};
+
+const CourseMeta = ({ course }) => {
+  const dateText =
+    course?.date?.type === "Scheduled"
+      ? `Runs on: ${course.date.tagline}`
+      : "On-demand";
+
+  return (
+    <ul className={styles.list}>
+      <MetaListItem>{dateText}</MetaListItem>
+      <MetaListItem>{course.level} level</MetaListItem>
+      <MetaListItem>{course.location.tagline}</MetaListItem>
+    </ul>
+  );
+};
+
+const MetaListItem = ({ children }) => {
+  return (
+    <li className={styles.listItem}>
+      <Avatar className={styles.bulletAvatar}>
+        <ChevronRightIcon className={styles.icon}></ChevronRightIcon>
+      </Avatar>
+      {children}
+    </li>
   );
 };
 
