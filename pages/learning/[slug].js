@@ -100,9 +100,12 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       reviews,
       relatedCourses,
       seo: {
-        title: "Ace Centre Learning",
-        description:
-          "Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication.",
+        title: currentCourse.title,
+        image: currentCourse.image,
+        description: currentCourse.shortDescription.replace(
+          /(<([^>]+)>)/gi,
+          ""
+        ),
       },
     },
   };
