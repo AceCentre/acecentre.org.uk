@@ -39,7 +39,7 @@ export const HowCanWeHelpCards = () => {
             background="rgba(0,0,0,0)"
             headline="Ace Centre Learning"
             secondaryLine="Find the right training for your specific needs"
-            href="/acecentre-learning"
+            href="/learning"
             iconColour="#8AD9CA"
             alt="Group of icons to show 'AceCentre Learning'"
           />
