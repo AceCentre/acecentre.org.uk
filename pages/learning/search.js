@@ -55,7 +55,7 @@ export default function LearningSearchPage({
           courseCount={courses.length}
           searchText={searchText}
         />
-        <CourseList products={courses} showDate />
+        <CourseList products={courses} showDate withMeta />
       </main>
       <Footer currentYear={currentYear} />
     </>

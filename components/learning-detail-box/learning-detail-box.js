@@ -32,7 +32,7 @@ export const LearningDetailBox = ({ course }) => {
               <p className={styles.tagLine}>From Ace Centre Learning</p>
             </div>
             <p className={styles.price}>{getPriceText(course.price)}</p>
-            <CourseMeta course={course} />
+            <CourseMeta course={course} bold />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -58,7 +58,7 @@ export const LearningDetailBox = ({ course }) => {
   );
 };
 
-const CourseMeta = ({ course }) => {
+export const CourseMeta = ({ course, bold = false, withCost = false }) => {
   const dateText =
     course?.date?.type === "Scheduled"
       ? `Runs on: ${course.date.tagline}`
@@ -66,16 +66,19 @@ const CourseMeta = ({ course }) => {
 
   return (
     <ul className={styles.list}>
-      <MetaListItem>{dateText}</MetaListItem>
-      <MetaListItem>{course.level} level</MetaListItem>
-      <MetaListItem>{course.location.tagline}</MetaListItem>
+      {withCost && (
+        <MetaListItem bold={bold}>{getPriceText(course.price)}</MetaListItem>
+      )}
+      <MetaListItem bold={bold}>{dateText}</MetaListItem>
+      <MetaListItem bold={bold}>{course.level} level</MetaListItem>
+      <MetaListItem bold={bold}>{course.location.tagline}</MetaListItem>
     </ul>
   );
 };
 
-const MetaListItem = ({ children }) => {
+const MetaListItem = ({ children, bold }) => {
   return (
-    <li className={styles.listItem}>
+    <li className={`${bold ? styles.bold : ""} ${styles.listItem}`}>
       <Avatar className={styles.bulletAvatar}>
         <ChevronRightIcon className={styles.icon}></ChevronRightIcon>
       </Avatar>
