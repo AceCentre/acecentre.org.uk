@@ -24,6 +24,7 @@ import {
   DeliveryDetails,
   NewUserDetails,
   CollectEmails,
+  CollectDelegatedEmail,
 } from "../components/checkout-address/checkout-address";
 import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/react";
@@ -45,7 +46,12 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
   return missingFields;
 };
 
-const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
+const useCheckoutForm = (
+  freeCheckout,
+  groupPurchaseLines,
+  existingUser,
+  delegatedLearningLines
+) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [billingError, setBillingError] = useState(null);
@@ -76,10 +82,35 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
     defaultGroupPurchases
   );
 
+  const [delegatedLearningErrors, setDelegatedLearningErrors] = useState(() => {
+    let defaultErrors = {};
+    for (const line of delegatedLearningLines) {
+      defaultErrors[line.key] = null;
+    }
+
+    return defaultErrors;
+  });
+
   const router = useRouter();
 
   const stripe = useStripe();
   const elements = useElements();
+
+  const [delegatedLearningEmails, setDelegatedLearningEmails] = useState({});
+
+  const delegatedLearningEmailChanged = (key) => (event) => {
+    const emails = cloneDeep(delegatedLearningEmails);
+    emails[key] = event.target.value;
+    setDelegatedLearningEmails(emails);
+  };
+
+  const [isDelegating, setIsDelegating] = useState({});
+
+  const changeDelegation = (key) => (newIsDelegating) => {
+    const allIsDelegating = cloneDeep(isDelegating);
+    allIsDelegating[key] = newIsDelegating;
+    setIsDelegating(allIsDelegating);
+  };
 
   const checkboxOnChange = (event) => {
     setWantsToCreateAnAccount(event.target.checked);
@@ -219,6 +250,8 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
 
     let currentErrors = cloneDeep(emptyEmailErrors);
     let errorState = false;
+    let currentDelegationErrors = cloneDeep(delegatedLearningErrors);
+
     Object.entries(groupPurchaseEmails).map(([key, currentEmails]) => {
       const invalidEmails = currentEmails.filter((x) => !validateEmail(x));
 
@@ -230,8 +263,20 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
       }
     });
 
+    Object.entries(isDelegating).map(([key, isDelegatingCurrent]) => {
+      if (isDelegatingCurrent) {
+        const currentEmail = delegatedLearningEmails[key] || "";
+
+        if (!validateEmail(currentEmail)) {
+          currentDelegationErrors[key] = "All emails must be valid";
+          errorState = true;
+        }
+      }
+    });
+
     if (errorState) {
       setGroupPurchaseErrors(currentErrors);
+      setDelegatedLearningErrors(currentDelegationErrors);
       window.scrollTo(0, 0);
       setAllowSubmit(true);
       return;
@@ -272,6 +317,13 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
         }
       }
 
+      let delegatedEmailsAsGroupPurchases = {};
+      Object.entries(isDelegating).forEach(([key, isDelegatingCurrent]) => {
+        if (isDelegatingCurrent) {
+          delegatedEmailsAsGroupPurchases[key] = [delegatedLearningEmails[key]];
+        }
+      });
+
       try {
         const response = await fetch("/api/cart/checkout", {
           method: "POST",
@@ -283,7 +335,10 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
             accountDetails,
-            groupPurchaseEmails,
+            groupPurchaseEmails: {
+              ...groupPurchaseEmails,
+              ...delegatedEmailsAsGroupPurchases,
+            },
           }),
         });
 
@@ -335,6 +390,9 @@ const useCheckoutForm = (freeCheckout, groupPurchaseLines, existingUser) => {
     createAccountError,
     emailsChanged,
     groupPurchaseErrors,
+    delegatedLearningEmailChanged,
+    delegatedLearningErrors,
+    changeDelegation,
   };
 };
 
@@ -350,6 +408,7 @@ export default function Checkout({
   needsDelivered,
   existingUser,
   groupPurchaseLines,
+  delegatedLearningLines,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -372,6 +431,7 @@ export default function Checkout({
             needsDelivered={needsDelivered}
             existingUser={existingUser}
             groupPurchaseLines={groupPurchaseLines}
+            delegatedLearningLines={delegatedLearningLines}
           />
         </Elements>
       </main>
@@ -392,6 +452,7 @@ const CheckoutForm = ({
   needsDelivered,
   existingUser,
   groupPurchaseLines,
+  delegatedLearningLines,
 }) => {
   const {
     showFullDelivery,
@@ -407,7 +468,22 @@ const CheckoutForm = ({
     createAccountError,
     emailsChanged,
     groupPurchaseErrors,
-  } = useCheckoutForm(isFree(total), groupPurchaseLines, existingUser);
+    delegatedLearningEmailChanged,
+    delegatedLearningErrors,
+    changeDelegation,
+  } = useCheckoutForm(
+    isFree(total),
+    groupPurchaseLines,
+    existingUser,
+    delegatedLearningLines
+  );
+
+  console.log({
+    lines,
+    groupPurchaseLines,
+    delegatedLearningLines,
+    delegatedLearningErrors,
+  });
 
   return (
     <form onSubmit={checkoutSubmit}>
@@ -460,6 +536,19 @@ const CheckoutForm = ({
           />
         );
       })}
+
+      {delegatedLearningLines.map((currentLine) => {
+        return (
+          <CollectDelegatedEmail
+            key={currentLine.key}
+            currentLine={currentLine}
+            emailChanged={delegatedLearningEmailChanged(currentLine.key)}
+            error={delegatedLearningErrors[currentLine.key]}
+            changeDelegation={changeDelegation(currentLine.key)}
+          />
+        );
+      })}
+
       <div className={styles.tableLabel}>
         <h3>Order summary</h3>
         <Link href="/basket">
@@ -512,7 +601,13 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
-  const groupPurchaseLines = lines.filter((x) => x.groupPurchase);
+  const groupPurchaseLines = lines.filter(
+    (x) => x.groupPurchase && x.quantity > 1
+  );
+
+  const delegatedLearningLines = lines.filter(
+    (x) => x.groupPurchase && x.quantity == 1
+  );
 
   return {
     props: {
@@ -527,6 +622,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       deliveryDetails: shippingDetails,
       needsDelivered,
       existingUser: !!(user.authToken && user.refreshToken),
+      delegatedLearningLines,
     },
   };
 });
