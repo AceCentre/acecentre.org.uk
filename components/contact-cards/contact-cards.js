@@ -34,7 +34,9 @@ export const ContactCards = () => {
             <UsefulLink href="/resources">Resources</UsefulLink>
             <UsefulLink href="/getting-started">Getting started</UsefulLink>
             <UsefulLink href="/services/partnerships">Partnerships</UsefulLink>
-            <UsefulLink href="/information-days">Information days</UsefulLink>
+            <UsefulLink href="/information-appointments">
+              Information appointments
+            </UsefulLink>
           </ul>
         </Card>
       </ul>

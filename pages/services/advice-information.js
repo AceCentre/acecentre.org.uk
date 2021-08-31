@@ -45,8 +45,8 @@ export default function EngineeringPage({
             stage of your journey
           </p>
           <div className={styles.cardButton}>
-            <Button href="/information-days">
-              Book information day appointment
+            <Button href="/information-appointments">
+              Book information appointment
             </Button>
           </div>
           <p className={styles.cardContact}>
@@ -73,7 +73,7 @@ export default function EngineeringPage({
               pleased to help you find solutions
             </p>
             <p>For professionals, service users, carers or others.</p>
-            <h2>Information day appointments:</h2>
+            <h2>Information appointments:</h2>
             <ul className={styles.list}>
               <ListItem>Free</ListItem>
               <ListItem>Twice a month</ListItem>
@@ -109,7 +109,7 @@ export default function EngineeringPage({
             </p>
 
             <div className={styles.inlineCard}>
-              <h2>Information day feedback</h2>
+              <h2>Information appointment feedback</h2>
               <p>
                 We will use the information you provide solely to monitor and
                 evaluate our services, and we will not share the data with
@@ -137,7 +137,9 @@ export default function EngineeringPage({
                   <p>
                     <strong>Katie Lees</strong>
                   </p>
-                  <p>Parent, who attended our Information Day services</p>
+                  <p>
+                    Parent, who attended our Information Appointment service
+                  </p>
                 </div>
               </div>
             </div>
