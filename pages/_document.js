@@ -72,4 +72,6 @@ MyDocument.getInitialProps = async (ctx) => {
   };
 };
 
+MyDocument.displayName = "MyDocument";
+
 export default MyDocument;
