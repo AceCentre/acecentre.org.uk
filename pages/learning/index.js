@@ -32,7 +32,13 @@ export default function Learning({
       <main>
         <LearningSearch />
         <LearningTicks />
-        <CourseList title="Popular courses" products={popularCourses} />
+        <CourseList
+          className={styles.courseList}
+          viewAllLink="/learning/search"
+          viewAllText="View all courses"
+          title="Popular courses"
+          products={popularCourses}
+        />
         <CourseCategoriesGrid
           productCategories={categories}
           overlayColor="rgba(138,217,202,0.2)"
@@ -44,7 +50,12 @@ export default function Learning({
             View all courses
           </Button>
         </div>
-        <CourseList title="Featured courses" products={featuredCourses} />
+        <CourseList
+          viewAllLink="/learning/search"
+          viewAllText="View all courses"
+          title="Featured courses"
+          products={featuredCourses}
+        />
         <LearningLevels levels={levels} />
         <BespokeTraining />
       </main>
