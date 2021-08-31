@@ -1,0 +1,9 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.container > :first-child {
+  margin-top: 0;
+}

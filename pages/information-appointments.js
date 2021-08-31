@@ -5,7 +5,7 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
-// import styles from "../styles/information-appointments.module.css";
+import styles from "../styles/information-appointments.module.css";
 
 export default function Contact() {
   const { currentYear } = useGlobalProps();
@@ -20,6 +20,69 @@ export default function Contact() {
           heading="Information appointment"
           description="Book in for an informal chat about your needs with members of the Ace Centre team."
         />
+        <div className={styles.container}>
+          {/* <p>
+            Whether you are just starting out or you are an experienced AAC /AT
+            user ready to move on, book in for an informal chat about your needs
+            with members of the Ace Centre team.
+          </p>
+          <p>
+            Please note that this appointment is NOT an assessment, but instead
+            it is an opportunity to reflect on a range of AAC / AT-related
+            issues with members of our service delivery team.
+          </p>
+          <p>
+            At Ace Centre, we believe that information should be accessible to
+            all, up-to-date, unbiased and, ideally, free at source to people in
+            need.
+          </p>
+          <h2>Booking an appointment</h2> */}
+          <p>
+            To book your appointment complete the form below. Follow the
+            following steps:
+          </p>
+          <ol>
+            <li>
+              Select the time and date that you want to have the appointment. It
+              will automatically select the next available date in the selected
+              month.
+            </li>
+            <li>Fill in your details so we can contact you if we need to.</li>
+            <li>
+              Answer all the questions about the appointment so we can come
+              prepared with all the information you might need
+            </li>
+          </ol>
+          <p>
+            If you prefer you can{" "}
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://outlook.office365.com/owa/calendar/AceCentre@acecentre.org.uk/bookings/s/Bki6azf24k--6merN0obQA2"
+            >
+              click this link to open the booking form in a new page
+            </a>
+          </p>
+          <>
+            <style jsx>{`
+              .info-frame {
+                height: 3100px;
+              }
+
+              @media (max-width: 1132px) {
+                .info-frame {
+                  height: 3700px;
+                }
+              }
+            `}</style>
+            <div
+              className={"info-frame"}
+              dangerouslySetInnerHTML={{
+                __html: `<iframe src='https://outlook.office365.com/owa/calendar/AceCentre@acecentre.org.uk/bookings/s/Bki6azf24k--6merN0obQA2' width='100%' height='100%' scrolling='yes' style='border:0'></iframe>`,
+              }}
+            ></div>
+          </>
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
