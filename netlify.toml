@@ -37,6 +37,11 @@
   to = "/learning"
   status = 301
 
+[[redirects]]
+  from = "/services/information"
+  from = "/services/advice-information"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
