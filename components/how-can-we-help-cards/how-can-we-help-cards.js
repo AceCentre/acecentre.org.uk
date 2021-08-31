@@ -50,7 +50,7 @@ export const HowCanWeHelpCards = () => {
             background="rgba(0,0,0,0)"
             headline="Assessments"
             secondaryLine="We offer independent interdisciplinary assessments"
-            href="/assessments"
+            href="/services/assessments"
             iconColour="#F2AB3F"
             alt="Group of icons to show 'Assessments'"
           />
