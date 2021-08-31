@@ -39,9 +39,14 @@
 
 [[redirects]]
   from = "/services/information"
-  from = "/services/advice-information"
+  to = "/services/advice-information"
   status = 301
 
+[[redirects]]
+  from = "/services/information/feedback/"
+  to = "/form/information-appointment-feedback"
+  status = 301
+  
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
