@@ -12,7 +12,9 @@ export const GiveUsACall = ({ className }) => {
         </SvgIcon>
         0800 048 7642
       </p>
-      <p className={styles.officeHours}>Office hours, Monday - Friday</p>
+      <p className={styles.officeHours}>
+        Office hours, 9AM - 5PM, Monday - Friday
+      </p>
     </div>
   );
 };

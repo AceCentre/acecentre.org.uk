@@ -16,7 +16,9 @@ export const ContactCards = () => {
             helpline number:
           </p>
           <p className={styles.phoneNumber}>0800 048 7642</p>
-          <p className={styles.officeHours}>Office hours, Monday - Friday</p>
+          <p className={styles.officeHours}>
+            Office hours, 9AM - 5PM, Monday - Friday
+          </p>
           <Link href="mailto:enquiries@acecentre.org.uk">
             <a className={styles.link}>Email us &gt;</a>
           </Link>
