@@ -40,7 +40,10 @@ async function handler(req, res) {
     .filter((item) => item.quantity > 0);
 
   await clientRequest(req, EMPTY_CART);
-  await clientRequest(req, FILL_CART, { items });
+
+  if (items.length > 0) {
+    await clientRequest(req, FILL_CART, { items });
+  }
 
   res.send({ success: true });
 }
