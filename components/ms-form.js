@@ -6,7 +6,7 @@ export const ALL_FORMS = [
     title: "Contact form",
     url:
       "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURFpIVDBIVjdTMExFTFZDR1lQNURZQTE0RCQlQCN0PWcu&embed=true",
-    height: 1750,
+    height: 2000,
   },
   {
     slug: "information-appointment-feedback",
