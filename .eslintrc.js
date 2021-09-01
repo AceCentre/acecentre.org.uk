@@ -23,6 +23,7 @@ module.exports = {
     semi: ["error", "always"],
     "react/react-in-jsx-scope": "off", // Next means we don't need this
     "react/prop-types": "off", // We don't use prop types
+    "react/display-name": "off", // This fails even when we have a name, it also doesn't really matter
   },
   settings: {
     react: {
