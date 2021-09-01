@@ -15,6 +15,13 @@ export const ALL_FORMS = [
     url:
       "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUQkFTRzlKOUFHR0hEMU9PNzdFR0U3RlgyTiQlQCN0PWcu&embed=true",
   },
+  {
+    slug: "learning-enquiry",
+    title: "Ace Centre Learning enquiry",
+    height: 1400,
+    url:
+      "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrGI3PLISoyxPjhhaQvSfizZUNzREN0xLSUdDUURMMVdJUFhaMUVLWjRKSy4u&embed=true",
+  },
 ];
 
 export const MsForm = ({ form, className = "" }) => {
