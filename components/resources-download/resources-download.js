@@ -79,10 +79,6 @@ const MixedVariations = ({ resource, variations }) => {
   );
 
   const onChange = (value) => {
-    console.log(
-      "changed to: ",
-      variations.find((x) => x.slug == value)
-    );
     setCurrentlySelected(value);
   };
 

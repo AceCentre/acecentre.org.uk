@@ -255,8 +255,6 @@ const useCheckoutForm = (
     Object.entries(groupPurchaseEmails).map(([key, currentEmails]) => {
       const invalidEmails = currentEmails.filter((x) => !validateEmail(x));
 
-      console.log(invalidEmails);
-
       if (invalidEmails.length > 0) {
         currentErrors[key] = "All emails must be valid";
         errorState = true;
@@ -477,13 +475,6 @@ const CheckoutForm = ({
     existingUser,
     delegatedLearningLines
   );
-
-  console.log({
-    lines,
-    groupPurchaseLines,
-    delegatedLearningLines,
-    delegatedLearningErrors,
-  });
 
   return (
     <form onSubmit={checkoutSubmit}>
