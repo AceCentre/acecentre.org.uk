@@ -9,6 +9,24 @@
   margin-top: auto;
 }
 
+.closeButton {
+  background: none;
+  border: none;
+  margin-left: auto;
+  font-size: 16px;
+  color: #00537f;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  text-decoration: underline;
+}
+
+.titleRow {
+  display: flex;
+}
+
 .listItem {
   display: flex;
   align-items: center;
@@ -99,6 +117,21 @@
 .avatar.avatar.avatar.avatar {
   background-color: white;
   color: #333333;
+}
+
+.bookButtonContainer {
+  text-align: center;
+}
+
+.formControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+.formControl label {
+  margin: 0;
 }
 
 /** Mobile CSS */
