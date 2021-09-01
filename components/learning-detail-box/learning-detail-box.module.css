@@ -134,6 +134,10 @@
   margin: 0;
 }
 
+.learningLevelContainer {
+  margin: 1rem auto;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .topContainer {

@@ -42,6 +42,9 @@ export const LearningDetailBox = ({ course }) => {
               <p className={styles.tagLine}>From Ace Centre Learning</p>
             </div>
             <p className={styles.price}>{getPriceText(course.price)}</p>
+            <div className={styles.learningLevelContainer}>
+              <LearningLevel course={course} />
+            </div>
             <CourseMeta course={course} bold />
           </div>
         </div>
@@ -187,6 +190,85 @@ const QuantityInput = ({
         />
       </FormControl>
     </>
+  );
+};
+
+const levelsToNumberOfCircles = {
+  introductory: 1,
+  developing: 2,
+  enhanced: 3,
+  specialist: 4,
+};
+
+const LearningLevel = ({ course }) => {
+  const circles = [1, 2, 3, 4];
+  const circleSize = 20;
+  const fullCircleWidth = circleSize * 2;
+  const circleSpace = 10;
+  const totalWidth =
+    fullCircleWidth * circles.length + circleSpace * (circles.length - 1);
+  const levelNumber = levelsToNumberOfCircles[course.level.toLowerCase()];
+  const extraPadding = 6;
+
+  return (
+    <svg
+      width={totalWidth + extraPadding}
+      height={circleSize * 2 + extraPadding}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        {circles.map((circle, index) => {
+          const toFill = index < levelNumber;
+
+          return (
+            <ellipse
+              key={`circle-${circle}`}
+              id={`circle-${circle}`}
+              ry={circleSize}
+              rx={circleSize}
+              cy={circleSize + extraPadding / 2}
+              cx={
+                circleSize +
+                circleSize * 2 * index +
+                circleSpace * index +
+                extraPadding / 2
+              }
+              stroke="#00537F"
+              strokeWidth={2}
+              fill={toFill ? "#94C64E" : "white"}
+            />
+          );
+        })}
+
+        {/* <ellipse
+          ry={circleSize}
+          rx={circleSize}
+          id="circle2"
+          cy={circleSize}
+          cx="40"
+          stroke="#000"
+          fill="#fff"
+        />
+        <ellipse
+          ry={circleSize}
+          rx={circleSize}
+          id="circle3"
+          cy={circleSize}
+          cx="60"
+          stroke="#000"
+          fill="#fff"
+        />
+        <ellipse
+          ry={circleSize}
+          rx={circleSize}
+          id="circle3"
+          cy={circleSize}
+          cx="80"
+          stroke="#000"
+          fill="#fff"
+        /> */}
+      </g>
+    </svg>
   );
 };
 
