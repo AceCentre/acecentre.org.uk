@@ -32,8 +32,6 @@ const useChangeDetails = () => {
       details["email"] = elements.email.value || "";
     }
 
-    console.log(details);
-
     if (!details.firstName) {
       setButtonDisabled(false);
       setErrorMessage("First name is a required field.");
