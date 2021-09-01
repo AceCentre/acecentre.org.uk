@@ -41,6 +41,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     props: {
       slug,
       form,
+      seo: { title: form.title },
     },
   };
 });
