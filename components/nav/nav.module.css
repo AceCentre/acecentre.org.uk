@@ -19,6 +19,12 @@
   align-items: center;
 }
 
+.noStyleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .homeImage {
   flex-grow: 1;
 }
