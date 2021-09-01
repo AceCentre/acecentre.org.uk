@@ -57,7 +57,7 @@ export const GridSquare = ({
               src={image.src}
               alt={image.alt}
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
             />
             <div className={`${styles.yellowTint} overlayTint`} />
             <div className={styles.blueBannerContainer}>
