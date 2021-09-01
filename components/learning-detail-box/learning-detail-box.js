@@ -118,8 +118,7 @@ export const LearningDetailBox = ({ course }) => {
                   ordering at least {quantityForPurchaseOrder}{" "}
                   {quantityForPurchaseOrder > 1 ? "seats" : "seat"} for this
                   course to qualify for a purchase order. To request a purchase
-                  order fill{" "}
-                  <Link href="/contact">contact us via this form.</Link>
+                  order <Link href="/contact">contact us via this form.</Link>
                 </p>
               </>
             )}
