@@ -68,7 +68,7 @@
     "@babel/core": "7.15.0",
     "@babel/register": "7.15.3",
     "@lhci/cli": "0.8.0",
-    "@netlify/plugin-nextjs": "3.8.0",
+    "@netlify/plugin-nextjs": "3.9.0",
     "@storybook/addon-actions": "6.3.7",
     "@storybook/addon-essentials": "6.3.7",
     "@storybook/addon-links": "6.3.7",
