@@ -50,7 +50,8 @@ const useCheckoutForm = (
   freeCheckout,
   groupPurchaseLines,
   existingUser,
-  delegatedLearningLines
+  delegatedLearningLines,
+  numberOfCourses
 ) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
@@ -59,7 +60,7 @@ const useCheckoutForm = (
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
   const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(
-    groupPurchaseLines.length > 0 && !existingUser
+    numberOfCourses > 0 && !existingUser
   );
 
   const [createAccountError, setCreateAccountError] = useState(null);
@@ -452,6 +453,10 @@ const CheckoutForm = ({
   groupPurchaseLines,
   delegatedLearningLines,
 }) => {
+  const numberOfCourses = lines.filter(
+    (line) => line.type.toLowerCase() === "course"
+  ).length;
+
   const {
     showFullDelivery,
     differentAddressOnChange,
@@ -473,7 +478,8 @@ const CheckoutForm = ({
     isFree(total),
     groupPurchaseLines,
     existingUser,
-    delegatedLearningLines
+    delegatedLearningLines,
+    numberOfCourses
   );
 
   return (
@@ -513,7 +519,7 @@ const CheckoutForm = ({
           checkboxOnChange={checkboxOnChange}
           createAccountError={createAccountError}
           wantsToCreateAnAccount={wantsToCreateAnAccount}
-          forceOn={groupPurchaseLines.length > 0}
+          forceOn={numberOfCourses > 0}
         />
       )}
 
