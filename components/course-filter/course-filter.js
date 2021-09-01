@@ -156,9 +156,11 @@ export const CourseFilter = ({
             placeholder="What do you want to learn?"
             ariaLabel="Search courses"
           >
-            <SvgIcon>
-              <SearchIcon />
-            </SvgIcon>
+            <button type="submit" className={styles.noStyleButton}>
+              <SvgIcon>
+                <SearchIcon />
+              </SvgIcon>
+            </button>
           </Input>
         </form>
       </PageTitle>

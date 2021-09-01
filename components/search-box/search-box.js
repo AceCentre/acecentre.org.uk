@@ -47,9 +47,11 @@ export const SearchBox = ({
                 placeholder={placeholder}
                 white
               >
-                <SvgIcon>
-                  <SearchIcon />
-                </SvgIcon>
+                <button className={styles.noStyleButton} type="submit">
+                  <SvgIcon>
+                    <SearchIcon />
+                  </SvgIcon>
+                </button>
               </Input>
             </form>
           )}

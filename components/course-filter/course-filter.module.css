@@ -47,6 +47,12 @@
   justify-content: space-between;
 }
 
+.noStyleButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .selectContainer {
