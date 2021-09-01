@@ -4,6 +4,11 @@
   margin: 0 auto;
 }
 
+.learningLevelContainer {
+  text-align: center;
+  /* margin-top: auto; */
+}
+
 .postList {
   display: flex;
   gap: 1rem;
@@ -64,6 +69,19 @@
 
 .imageContainer {
   height: 255px;
+}
+
+.flexCardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.metaContainer {
+  justify-self: flex-end;
+}
+.bottomSectionOfCard {
+  margin-top: auto;
 }
 
 /** Mobile CSS */

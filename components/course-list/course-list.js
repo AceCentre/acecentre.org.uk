@@ -3,7 +3,10 @@ import {
   Card,
   usePostsWithoutImageCounters,
 } from "../latest-from-blog/latest-from-blog";
-import { CourseMeta } from "../learning-detail-box/learning-detail-box";
+import {
+  CourseMeta,
+  LearningLevel,
+} from "../learning-detail-box/learning-detail-box";
 
 import styles from "./course-list.module.css";
 
@@ -42,15 +45,20 @@ export const CourseList = ({
               title={product.title}
             >
               <p className={styles.productTitle}>{product.title}</p>
-              {withMeta ? (
-                <CourseMeta course={product} withCost />
-              ) : (
-                <>
-                  {showDate && (
-                    <p className={styles.date}>{product.date.card}</p>
-                  )}
-                </>
-              )}
+              <div className={styles.bottomSectionOfCard}>
+                <div className={styles.learningLevelContainer}>
+                  <LearningLevel course={product} size={10} />
+                </div>
+                {withMeta ? (
+                  <CourseMeta course={product} withCost />
+                ) : (
+                  <>
+                    {showDate && (
+                      <p className={styles.date}>{product.date.card}</p>
+                    )}
+                  </>
+                )}
+              </div>
             </Card>
           );
         })}

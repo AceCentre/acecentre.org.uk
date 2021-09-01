@@ -200,9 +200,9 @@ const levelsToNumberOfCircles = {
   specialist: 4,
 };
 
-const LearningLevel = ({ course }) => {
+export const LearningLevel = ({ course, size = 20 }) => {
   const circles = [1, 2, 3, 4];
-  const circleSize = 20;
+  const circleSize = size;
   const fullCircleWidth = circleSize * 2;
   const circleSpace = 10;
   const totalWidth =
@@ -213,7 +213,7 @@ const LearningLevel = ({ course }) => {
   return (
     <svg
       width={totalWidth + extraPadding}
-      height={circleSize * 2 + extraPadding}
+      height={circleSize * 2 + extraPadding + 8}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g>
