@@ -83,7 +83,7 @@ export const CategorySquare = ({
 }) => {
   return (
     <GridSquare
-      href={`/resources/all?category=${category.slug}`}
+      href={`/learning/search?category=${category.slug}`}
       image={category.image}
       name={category.name}
       overlayColor={overlayColor}
