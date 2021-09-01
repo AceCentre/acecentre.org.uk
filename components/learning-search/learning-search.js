@@ -7,7 +7,7 @@ export const LearningSearch = () => {
       description={
         "Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication."
       }
-      searchEndpoint={"/learning/all"}
+      searchEndpoint={"/learning/search"}
       ariaLabel={"Search learning"}
       placeholder={"What do you want to learn?"}
       searchButtonText={"Search"}
