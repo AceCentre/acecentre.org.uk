@@ -5,10 +5,20 @@ import { Button } from "../button/button";
 import { ShareButtons } from "../blog-meta/blog-meta";
 import { useAddToCart } from "../resources-download/resources-download";
 import { Avatar } from "@material-ui/core";
+import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
+
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { useState } from "react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import Link from "next/link";
 
 export const LearningDetailBox = ({ course }) => {
   const { disabled, addToCart, error } = useAddToCart();
+  const [isModalOpen, toggleModal] = useState(false);
+
+  const purchaseOrderMin = 250;
+  const price = parseInt(course.price);
+  const quantityForPurchaseOrder = Math.ceil(purchaseOrderMin / price);
 
   return (
     <>
@@ -45,15 +55,138 @@ export const LearningDetailBox = ({ course }) => {
           <Button
             className={styles.bookButton}
             disabled={disabled}
-            onClick={addToCart({
-              productId: course.id,
-            })}
+            onClick={() => {
+              toggleModal(true);
+            }}
           >
             Book this course
           </Button>
         </div>
       </div>
       <p className={styles.error}>{error}</p>
+      <Modal
+        scrollBehavior="inside"
+        size="3xl"
+        isCentered
+        isOpen={isModalOpen}
+        onClose={() => toggleModal(false)}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody style={{ padding: "2rem" }}>
+            <div className={styles.titleRow}>
+              <h2>Booking this course</h2>
+              <button
+                className={styles.closeButton}
+                onClick={() => toggleModal(false)}
+              >
+                Close window
+              </button>
+            </div>
+            <h3>Bulk purchase</h3>
+            {course.groupPurchase && course.allowQuantityEditing ? (
+              <p>
+                This course can be purchased for multiple people. Select the
+                number of seats you want to add to your basket. At checkout you
+                will be prompted to enter the emails of everyone you want to
+                take part in the course. They will then be sent an email with
+                instructions on how to login to the course.
+              </p>
+            ) : (
+              <p>This course does not offer bulk purchase.</p>
+            )}
+            <h3>Delegated purchase</h3>
+            {course.groupPurchase ? (
+              <p>
+                This course can be purchased for someone else. At checkout it
+                will ask you if you would like to delegate the course to someone
+                else. Tick the checkbox and enter the email of the person you
+                want to take the course. They will then receive an email with
+                instructions of how to login to the course.
+              </p>
+            ) : (
+              <p>
+                This course does not offer delegated purchase. The person taking
+                the course must be the one to purchase it.
+              </p>
+            )}
+            {price > 0 && (
+              <>
+                <h3>Purchase order</h3>
+                <p>
+                  We only offer purchase orders on orders over £250. You must be
+                  ordering at least {quantityForPurchaseOrder}{" "}
+                  {quantityForPurchaseOrder > 1 ? "seats" : "seat"} for this
+                  course to qualify for a purchase order. To request a purchase
+                  order fill{" "}
+                  <Link href="/contact">contact us via this form.</Link>
+                </p>
+              </>
+            )}
+            <form
+              className={styles.bookButtonContainer}
+              onSubmit={(event) => {
+                event.preventDefault();
+
+                const quantity = event?.target?.quantity?.value || 1;
+
+                addToCart({
+                  productId: course.id,
+                  quantity,
+                })(event);
+              }}
+            >
+              {course.allowQuantityEditing && (
+                <QuantityInput
+                  placeholder="0"
+                  name="quantity"
+                  ariaLabel={`Quantity for ${course.name}`}
+                  defaultValue={1}
+                />
+              )}
+              <Button
+                className={styles.bookButton}
+                disabled={disabled}
+                type="submit"
+              >
+                Book this course
+              </Button>
+            </form>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+
+const QuantityInput = ({
+  placeholder,
+  name,
+  ariaLabel,
+  id,
+  defaultValue,
+  onChange,
+  max,
+}) => {
+  return (
+    <>
+      <FormControl className={styles.formControl} id={id}>
+        <FormLabel>Quantity:</FormLabel>
+        <ChakraInput
+          width="80px"
+          className={styles.input}
+          backgroundColor={"#F5F5F5"}
+          placeholder={placeholder}
+          name={name}
+          type="number"
+          aria-label={ariaLabel}
+          textAlign="center"
+          defaultValue={defaultValue === null ? "" : defaultValue}
+          onChange={onChange}
+          min={1}
+          max={max}
+        />
+      </FormControl>
     </>
   );
 };
