@@ -24,6 +24,10 @@ body {
   }
 }
 
+a {
+  color: #00537f;
+}
+
 button {
   font-family: "Montserrat", sans-serif !important;
 }
