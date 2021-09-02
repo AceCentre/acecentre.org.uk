@@ -62,6 +62,7 @@ const useCheckoutForm = (
   const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(
     numberOfCourses > 0 && !existingUser
   );
+  const [tsAndCsError, setTsAndCsError] = useState(null);
 
   const [createAccountError, setCreateAccountError] = useState(null);
 
@@ -135,6 +136,7 @@ const useCheckoutForm = (
     setGeneralError(null);
     setCreateAccountError(null);
     setAllowSubmit(false);
+    setTsAndCsError(null);
     setGroupPurchaseErrors(emptyEmailErrors);
 
     let accountDetails = { createAccount: false };
@@ -281,6 +283,14 @@ const useCheckoutForm = (
       return;
     }
 
+    const hasAgreedToTsAndCs = event.target.tsAndCs.checked;
+    if (!hasAgreedToTsAndCs) {
+      setTsAndCsError("You must agree to the terms and conditions");
+      setAllowSubmit(true);
+
+      return;
+    }
+
     // Guard against stripe or elements not being available
     if (!stripe || !elements) {
       throw Error("Stripe or Elements is undefined");
@@ -392,6 +402,7 @@ const useCheckoutForm = (
     delegatedLearningEmailChanged,
     delegatedLearningErrors,
     changeDelegation,
+    tsAndCsError,
   };
 };
 
@@ -474,6 +485,7 @@ const CheckoutForm = ({
     delegatedLearningEmailChanged,
     delegatedLearningErrors,
     changeDelegation,
+    tsAndCsError,
   } = useCheckoutForm(
     isFree(total),
     groupPurchaseLines,
@@ -564,6 +576,15 @@ const CheckoutForm = ({
       {/* Only show the card box for paid products */}
       {!isFree(total) && <CardBox cardError={cardError} />}
       <div className={styles.placeOrderButtonContainer}>
+        <div>
+          {tsAndCsError && <p className={styles.error}>{tsAndCsError}</p>}
+          <Checkbox name="tsAndCs" id="tsAndCs">
+            I have read and agree to the website{" "}
+            <Link href="/page/purchase-terms-and-conditions">
+              terms and conditions
+            </Link>
+          </Checkbox>
+        </div>
         <Button disabled={!allowSubmit} type="submit">
           Place order
         </Button>
