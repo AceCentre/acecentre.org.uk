@@ -104,17 +104,18 @@
 }
 
 .blogTag {
-  color: #ffffff;
-  background: #00537f;
+  color: #000000;
+  background: #94c64e;
   border-radius: 20px;
-  padding: 8px 18px;
+  padding: 6px 12px;
   display: inline-block;
   margin: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin-top: -24px;
   z-index: 1;
   max-width: 80%;
   text-align: center;
+  /* border: 4px solid #94c64e; */
 }
 
 .background {
