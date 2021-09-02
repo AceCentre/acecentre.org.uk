@@ -43,6 +43,10 @@ const ALL_PAGES = [
     description:
       "At Ace Centre, we regard safeguarding of our clients a top priority.",
   },
+  {
+    slug: "purchase-terms-and-conditions",
+    description: "Terms and Conditions for all purchases made",
+  },
 ];
 
 export async function getStaticPaths() {
