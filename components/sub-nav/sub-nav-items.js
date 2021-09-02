@@ -148,7 +148,7 @@ export const defaultNavItems = [
         href: "/learning/search?category=access",
       },
       {
-        title: "Communication Courses",
+        title: "Communication courses",
         href: "/learning/search?category=communication",
       },
       {
