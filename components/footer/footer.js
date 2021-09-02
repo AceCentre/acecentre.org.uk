@@ -93,7 +93,7 @@ export const Footer = ({ currentYear }) => {
               </Link>
             </li>
             <li className={styles.flatListItem}>
-              <Link href="/sitemap.xml">
+              <Link href="/sitemap">
                 <a className={styles.flatListLink}>Sitemap</a>
               </Link>
             </li>
