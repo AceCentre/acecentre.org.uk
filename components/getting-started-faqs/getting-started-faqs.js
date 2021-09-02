@@ -70,10 +70,10 @@ const FAQS = [
           that far from holding speech back, using AAC can even encourage it.
         </p>
         <p>
-          For example, when
+          For example, when{" "}
           <a href="http://www.citeulike.org/user/acecentre/article/13924559">
             Diane Millar, Janice Light and Ralph Schlosser
-          </a>
+          </a>{" "}
           analysed the literature in 2006, they found that following the
           introduction of AAC, no cases demonstrated a decrease in speech
           production, some showed no change, and most demonstrated gains in
@@ -90,7 +90,7 @@ const FAQS = [
         </p>
         <p>
           If you would like to read some of the journal articles around this
-          area,
+          area,{" "}
           <a href="http://praacticalaac.org/praactical/research-reviews-supporting-the-use-of-aac/">
             there is a great list of relevant articles here.
           </a>
@@ -128,7 +128,7 @@ const FAQS = [
           tech AAC. For example, someone might use their eyes to draw your
           attention to the box of cereal they would like you to pass them, make
           a sound to greet a friend, and use their high tech AAC device to have
-          a discussion around an issue that is important to them.
+          a discussion around an issue that is important to them.{" "}
           <a href="http://aacbooks.net/books/UsingLowTechSymbolSystemsChildren/#movie1.1-beth">
             Beth explains this beautifully in her video.
           </a>
@@ -182,7 +182,7 @@ const FAQS = [
           join in, that’s great, but don’t force them to use the symbols.&nbsp;
           They need to become really familiar with the symbols and how to use
           them.&nbsp; That can only happen by you using them yourself as you
-          talk to your child.&nbsp; You can see an example of this
+          talk to your child.&nbsp; You can see an example of this{" "}
           <a href="https://www.youtube.com/watch?v=ieeREOclfPE&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=2">
             in action here
           </a>
@@ -194,11 +194,11 @@ const FAQS = [
           The example charts are designed to be accessed by pointing to the
           symbols.&nbsp; However, you could cut the symbols out and arrange them
           on an E-tran frame for eye pointing communicators.&nbsp; You can see
-          an example of symbols being
+          an example of symbols being{" "}
           <a href="https://www.youtube.com/watch?v=cuwgD8YZD3k&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=11">
             selected on an E-tran here
           </a>
-          . You could also scan through the symbols for those using
+          . You could also scan through the symbols for those using{" "}
           <a href="https://www.youtube.com/watch?v=NY2D59MpxBw&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb&amp;index=12">
             listener mediated scanning
           </a>
@@ -206,7 +206,7 @@ const FAQS = [
           offer the symbols.
         </p>
         <p>
-          The communication charts in the
+          The communication charts in the{" "}
           <a href="https://acecentre.org.uk/resources/">Resources section</a>
           are available in three different symbols sets – PCS (Picture
           Communication Symbols), Widgit and Symbolstix. &nbsp;&nbsp;No one
@@ -232,7 +232,7 @@ const FAQS = [
           child is at.&nbsp; This will enable you to demonstrate the next steps
           as you use the chart.&nbsp; It’s what we do all the time with speaking
           children – we repeat back what they say, adding an extra word.&nbsp;
-          We are all natural language teachers!
+          We are all natural language teachers!{" "}
           <a href="https://www.youtube.com/watch?v=9WWpdtbwcwA&amp;index=13&amp;list=PLWWQ5nlUD_ttEtnbmILMp0e35-Dic2JUb">
             You can see this in action here.
           </a>
@@ -256,7 +256,7 @@ const FAQS = [
         </p>
         <p>
           You will find much more information about all of the above issues in
-          the new resource
+          the new resource{" "}
           <a href="http://aacbooks.net/book2/">
             Getting Started with AAC:&nbsp; Using low tech symbol based systems
             with children
