@@ -25,7 +25,7 @@ export const Nav = ({ nhs }) => {
                 <SvgIcon>
                   <PersonOutlineOutlinedIcon />
                 </SvgIcon>
-                My AceCentre
+                My Ace Centre
               </NavLink>
 
               <NavLink href="/basket">

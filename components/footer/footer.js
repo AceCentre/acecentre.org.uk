@@ -147,7 +147,7 @@ const sitemapList = [
     href: "/get-involved",
   },
   {
-    title: "My AceCentre",
+    title: "My Ace Centre",
     href: "/my-acecentre",
   },
 ];
