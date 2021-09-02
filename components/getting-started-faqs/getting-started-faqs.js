@@ -154,10 +154,10 @@ const FAQS = [
         </p>
         <p>
           We have also developed packages to support others to deliver
-          training.&nbsp; See
+          training.&nbsp; See{" "}
           <a href="https://acecentre.org.uk/resources/you-matter/">
             You Matter
-          </a>
+          </a>{" "}
           for more information.
         </p>
       </>
