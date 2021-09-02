@@ -207,7 +207,8 @@ export const LearningLevel = ({ course, size = 20 }) => {
   const circleSpace = 10;
   const totalWidth =
     fullCircleWidth * circles.length + circleSpace * (circles.length - 1);
-  const levelNumber = levelsToNumberOfCircles[course.level.toLowerCase()];
+  const level = course.level || "introductory";
+  const levelNumber = levelsToNumberOfCircles[level.toLowerCase()];
   const extraPadding = 6;
 
   return (
