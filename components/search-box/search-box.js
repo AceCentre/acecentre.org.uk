@@ -47,7 +47,11 @@ export const SearchBox = ({
                 placeholder={placeholder}
                 white
               >
-                <button className={styles.noStyleButton} type="submit">
+                <button
+                  className={styles.noStyleButton}
+                  type="submit"
+                  aria-label="Search"
+                >
                   <SvgIcon>
                     <SearchIcon />
                   </SvgIcon>
