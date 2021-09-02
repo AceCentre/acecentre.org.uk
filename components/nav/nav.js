@@ -47,7 +47,11 @@ export const Nav = ({ nhs }) => {
         <div className={styles.hideOnMediumScreens}>
           <form action="/search" method="GET">
             <Input name="searchText" placeholder="Search" maxWidth={213}>
-              <button type="submit" className={styles.noStyleButton}>
+              <button
+                type="submit"
+                className={styles.noStyleButton}
+                aria-label="Search"
+              >
                 <SvgIcon>
                   <SearchIcon />
                 </SvgIcon>

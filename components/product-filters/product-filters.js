@@ -132,7 +132,11 @@ export const ProductFilters = ({
             placeholder="Search for resources"
             ariaLabel="Search resources"
           >
-            <button type="submit" className={styles.noStyleButton}>
+            <button
+              aria-label="Search"
+              type="submit"
+              className={styles.noStyleButton}
+            >
               <SvgIcon>
                 <SearchIcon />
               </SvgIcon>
