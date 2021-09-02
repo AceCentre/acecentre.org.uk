@@ -1,0 +1,13 @@
+.sitemapContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.sitemapContainer p {
+  margin: 0.25rem 0;
+}
+
+.sitemapContainer ul {
+  margin-top: 0;
+}
