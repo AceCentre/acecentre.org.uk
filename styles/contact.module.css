@@ -7,6 +7,27 @@
   gap: 3rem;
 }
 
+.changingPlaceImage {
+  position: relative;
+  height: 200px;
+}
+
+.officeInfoContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.imageContainer {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin-bottom: 2rem;
+}
+
 .inlineForm {
   width: 90%;
   text-align: center;
@@ -23,6 +44,38 @@
   grid-area: giveUsACall;
 }
 
+.officePageTitle {
+  padding-top: 0;
+}
+
+.youtubeVideo {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.address p {
+  margin: 0;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.imageGrid > * {
+  text-align: center;
+}
+
+.changingPlaceTitle {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  margin-top: 3rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .splitColumns {
@@ -31,5 +84,13 @@
     grid-template-areas:
       "form"
       "giveUsACall";
+  }
+
+  .imageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .officeInfoContainer {
+    grid-template-columns: 1fr;
   }
 }

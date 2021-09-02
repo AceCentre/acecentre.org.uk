@@ -8,11 +8,7 @@ export const FindOurOffices = () => {
     <div className={styles.container}>
       <h2 className={styles.heading}>Find our offices</h2>
       <ul className={styles.list}>
-        <Card
-          image="/north-office.png"
-          office="north"
-          map="https://goo.gl/maps/ix7KUYrJhmy7eRov9"
-        >
+        <Card image="/north-office.png" office="north" map="/contact/oldham">
           <h3>North office</h3>
           <p>
             <span>Hollinwood Business Centre</span>
@@ -20,11 +16,7 @@ export const FindOurOffices = () => {
             <span>OL8 3QL</span>
           </p>
         </Card>
-        <Card
-          image="/south-office.jpg"
-          office="south"
-          map="https://goo.gl/maps/ooVujm5S7heagPgW9"
-        >
+        <Card image="/south-office.jpg" office="south" map="/contact/abingdon">
           <h3>South office</h3>
           <p>
             <span>5 Hitching Court</span>
@@ -52,9 +44,7 @@ const Card = ({ children, image, office, map }) => {
       <div className={styles.bottomSection}>
         <div className={styles.addressContainer}>{children}</div>
         <div className={styles.buttonContainer}>
-          <Button href={map} newTab>
-            View map
-          </Button>
+          <Button href={map}>More details</Button>
         </div>
       </div>
     </li>
