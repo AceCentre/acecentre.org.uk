@@ -51,7 +51,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
   const coursesWithLink = courses.map((course) => {
     return {
       ...course,
-      href: `${config.baseUrl}?mdl_course_id=${course.moodleCourseId}`,
+      href: `/api/moodle?mdl_course_id=${course.moodleCourseId}`,
     };
   });
 
