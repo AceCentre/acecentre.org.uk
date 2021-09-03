@@ -15,7 +15,7 @@ export const HowCanWeHelpCards = () => {
             src="/graphics/getting-started.svg"
             background="rgba(0,0,0,0)"
             headline="Getting started with AAC and AT"
-            secondaryLine="Learn more with our guide to getting started"
+            secondaryLine="Learn more with our guides to getting started"
             href="/getting-started"
             iconColour="#E3BEBD"
             alt="Group of icons to show 'getting started'"
