@@ -67,7 +67,7 @@ async function handler(req, res) {
 
       if (config.environment !== "development") {
         currentUrl =
-          "https" +
+          "https://" +
           req.netlifyFunctionParams.event.rawUrl
             .replace("https://", "")
             .split("/")[0];
