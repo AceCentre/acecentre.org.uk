@@ -53,7 +53,7 @@ async function handler(req, res) {
         currentUrl =
           "https" +
           req.netlifyFunctionParams.event.rawUrl
-            .replace("https://")
+            .replace("https://", "")
             .split("/")[0];
 
         cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
