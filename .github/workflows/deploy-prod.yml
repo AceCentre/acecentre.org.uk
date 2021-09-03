@@ -43,6 +43,8 @@ jobs:
       PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
 
     steps:
       - name: Get Code
