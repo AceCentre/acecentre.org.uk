@@ -5,7 +5,6 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { getMyCourses } from "../../lib/products/get-courses";
-import config from "../../lib/config";
 import { PageTitle } from "../../components/page-title/page-title";
 
 import styles from "../../styles/my-acecentre.module.css";
