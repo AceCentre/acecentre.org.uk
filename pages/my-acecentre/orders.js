@@ -25,7 +25,7 @@ export default function OrdersPage({ orders }) {
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async function ({ req }) {
+export const getServerSideProps = withSession(async function ({ req, res }) {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -37,7 +37,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
-  const orders = await getOrders(req, user);
+  const orders = await getOrders(req, res, user);
 
   if (orders === null) {
     return {

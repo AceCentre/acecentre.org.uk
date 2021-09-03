@@ -29,7 +29,7 @@ export default function DetailsPage({ details }) {
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async ({ req }) => {
+export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -41,7 +41,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
     };
   }
 
-  const details = await getUserDetails(req, user);
+  const details = await getUserDetails(req, res, user);
 
   return { props: { details } };
 });

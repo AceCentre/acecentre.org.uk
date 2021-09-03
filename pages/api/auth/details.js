@@ -16,7 +16,7 @@ async function handler(req, res) {
   const body = JSON.parse(req.body);
   const user = req.session.get("user");
 
-  await clientRequest(req, UPDATE_DETAILS, {
+  await clientRequest(req, res, UPDATE_DETAILS, {
     input: {
       id: user.userId,
       firstName: body.details.firstName,

@@ -31,7 +31,7 @@ export default function ChangePassword() {
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async ({ req }) => {
+export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -43,7 +43,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
     };
   }
 
-  await changePassword(req, user);
+  await changePassword(req, res, user);
 
   return { props: {} };
 });

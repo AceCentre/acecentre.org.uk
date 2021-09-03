@@ -23,6 +23,7 @@ async function handler(req, res) {
   for (let current of cohortNames) {
     const addUserResult = await addUserToCohort(
       req,
+      res,
       current.cohortName,
       body.groupPurchaseEmails[current.productId]
     );
@@ -40,8 +41,8 @@ const sendSlackMessage = async (message) => {
   });
 };
 
-const addUserToCohort = async (req, cohortName, emails) => {
-  const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
+const addUserToCohort = async (req, res, cohortName, emails) => {
+  const result = await clientRequest(req, res, ADD_USERS_TO_COHORT, {
     cohortName,
     newUsers: emails.map((email) => ({
       email,
