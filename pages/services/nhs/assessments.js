@@ -109,7 +109,8 @@ export default function NHSLanding() {
               <li>In the typical range of positions they work in</li>
             </ul>
             <p>
-              Further information can be found in our Video Guidelines Form.
+              Further information can be found in our{" "}
+              <a href="/Video Guidelines.docx">Video Guidelines Form.</a>
             </p>
             <h2>Prior to the assessment</h2>
             <p>
