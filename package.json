@@ -69,7 +69,7 @@
   "devDependencies": {
     "@babel/core": "7.15.4",
     "@babel/register": "7.15.3",
-    "@lhci/cli": "0.8.0",
+    "@lhci/cli": "0.8.1",
     "@netlify/plugin-nextjs": "3.9.0",
     "@storybook/addon-actions": "6.3.7",
     "@storybook/addon-essentials": "6.3.7",
