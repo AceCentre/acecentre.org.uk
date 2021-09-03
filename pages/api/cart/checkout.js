@@ -5,19 +5,10 @@ import { LOGIN_MUTATION } from "../auth/login";
 import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
-import { gql, GraphQLClient } from "graphql-request";
+import { GraphQLClient } from "graphql-request";
+import fetch from "node-fetch";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
-
-const ADD_USERS_TO_COHORT = gql`
-  mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
-    addUsersToCohort(
-      input: { input: { cohortName: $cohortName, newUsers: $newUsers } }
-    ) {
-      success
-    }
-  }
-`;
 
 async function handler(req, res) {
   const body = JSON.parse(req.body);
@@ -55,14 +46,27 @@ async function handler(req, res) {
     }
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
-      for (let current of cohortNames) {
-        const addUserResult = await addUserToCohort(
-          req,
-          current.cohortName,
-          body.groupPurchaseEmails[current.productId]
-        );
-        console.log(addUserResult);
+      let currentUrl = "http://localhost:3000";
+      let cookieHeader = req.headers.cookie;
+
+      if (config.environment !== "development") {
+        currentUrl =
+          "https" +
+          req.netlifyFunctionParams.event.rawUrl
+            .replace("https://")
+            .split("/")[0];
+
+        cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
       }
+
+      await fetch(`${currentUrl}/api/cart/add-to-cohort-background`, {
+        method: "POST",
+        headers: { cookie: cookieHeader },
+        body: JSON.stringify({
+          groupPurchaseEmails: body.groupPurchaseEmails,
+          cohortNames,
+        }),
+      });
     }
 
     await clientRequest(req, EMPTY_CART);
@@ -86,19 +90,6 @@ async function handler(req, res) {
     return;
   }
 }
-
-const addUserToCohort = async (req, cohortName, emails) => {
-  const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
-    cohortName,
-    newUsers: emails.map((email) => ({
-      email,
-      firstName: email.split(/@/)[0],
-      lastName: email.split(/@/)[1],
-    })),
-  });
-
-  return result;
-};
 
 const login = async (req, body) => {
   let headers = {};
