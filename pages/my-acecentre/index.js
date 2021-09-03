@@ -40,12 +40,14 @@ export default function LoginPage({ orderCount, courseCount }) {
             count={courseCount}
             linkText="View your courses"
             linkUrl="/my-acecentre/courses"
+            description="View a list of all the courses you are enrolled on. Select a course to be taken to the Moodle site for that course"
           />
           <DashboardCard
             title="My orders"
             count={orderCount}
             linkText="View your orders"
             linkUrl="/my-acecentre/orders"
+            description="View a list of your orders. You can view all the purchase information for the transaction"
           />
           <DashboardCard
             description=""
