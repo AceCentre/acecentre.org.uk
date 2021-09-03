@@ -30,8 +30,9 @@ export const WaysToGetInvolved = () => {
           <div className={styles.element}>
             <h3>Sponsor</h3>
             <p>
-              Corporate sponsorship should not be one way, our aim is to work
-              with the business community to the benefit of both parties.
+              Corporate sponsorship should not be a one way relationship, our
+              aim is to work with the business community to the benefit of both
+              parties.
             </p>
             {/* <div className={styles.buttonContainer}>
               <Button href="/get-involved/sponsor">Find out more</Button>
