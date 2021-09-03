@@ -21,7 +21,7 @@ export const WaysToGetInvolved = () => {
             <h3>Fundraise</h3>
             <p>
               As a charity we depend on donations for vital services, from
-              baking caked to running marathons, find out ways you can help.
+              baking cakes to running marathons, find out ways you can help.
             </p>
             {/* <div className={styles.buttonContainer}>
               <Button href="/get-involved/fundraise">Find out more</Button>

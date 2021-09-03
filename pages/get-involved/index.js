@@ -37,7 +37,7 @@ export default function GetInvolved() {
           <div className={styles.left}>
             <h2>Why support Ace Centre?</h2>
             <p>
-              Staffed by teams of teachers, therapists and technicians, Ace
+              Staffed by a team of teachers, therapists and technicians, Ace
               Centre offers many years experience and expertise in Assistive
               Technology (AT), particularly Augmentative and Alternative
               Communication (AAC). The charity also provides a range of general
