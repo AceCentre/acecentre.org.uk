@@ -11,16 +11,23 @@ import fetch from "node-fetch";
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
 async function handler(req, res) {
+  console.log("-------");
+  console.log("Checkout began");
   const body = JSON.parse(req.body);
 
   let result;
   try {
     // Add to mailing list
     if (body.addToMailingList) {
+      console.log("Started adding to the mailing list");
+
       await addToMailingList(body.billingDetails.email);
+      console.log("Added to the mailing list");
     }
+    console.log("Started updating Customer");
 
     await updateCustomer(req, body);
+    console.log("Updated Customer");
 
     let uniqueCohortTag;
     let cohortNames;
@@ -32,9 +39,15 @@ async function handler(req, res) {
           cohortName: `${uniqueCohortTag} => ${x}`,
         };
       });
+      console.log("Started checking out with cohort");
+
       result = await checkout(req, body, cohortNames);
+      console.log("Checked out with cohort");
     } else {
+      console.log("Started checking out without cohort");
+
       result = await checkout(req, body);
+      console.log("Checked out without cohort");
     }
 
     if (
@@ -42,7 +55,10 @@ async function handler(req, res) {
       body.billingDetails.email &&
       body.accountDetails.password
     ) {
+      console.log("Started logging In");
+
       await login(req, body);
+      console.log("Logged In");
     }
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
@@ -59,6 +75,7 @@ async function handler(req, res) {
         cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
       }
 
+      console.log("Started adding to cohort");
       await fetch(`${currentUrl}/api/cart/add-to-cohort-background`, {
         method: "POST",
         headers: { cookie: cookieHeader },
@@ -67,9 +84,13 @@ async function handler(req, res) {
           cohortNames,
         }),
       });
+      console.log("Added to cohort");
     }
 
+    console.log("Started emptying cart");
     await clientRequest(req, EMPTY_CART);
+    console.log("Emptied cart");
+    console.log("-------");
 
     res.send({ success: true, result });
     return;
@@ -86,6 +107,7 @@ async function handler(req, res) {
       return;
     }
 
+    console.log("-------");
     res.send({ success: false, error: errorMessage });
     return;
   }
