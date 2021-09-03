@@ -69,7 +69,7 @@ export default function LoginPage({ orderCount, courseCount }) {
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async function ({ req }) {
+export const getServerSideProps = withSession(async function ({ req, res }) {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -81,8 +81,8 @@ export const getServerSideProps = withSession(async function ({ req }) {
     };
   }
 
-  const orderCount = await getOrderCount(req, user);
-  const courseCount = await getCourseCount(req, user);
+  const orderCount = await getOrderCount(req, res, user);
+  const courseCount = await getCourseCount(req, res, user);
 
   if (orderCount === null || courseCount === null) {
     return {

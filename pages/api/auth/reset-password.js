@@ -5,7 +5,7 @@ async function handler(req, res) {
   const body = JSON.parse(req.body);
   const username = body.username;
 
-  await resetPassword(req, username);
+  await resetPassword(req, res, username);
 
   res.send({
     success: true,

@@ -35,7 +35,7 @@ export default function CoursesPage({ courses }) {
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async ({ req }) => {
+export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -47,7 +47,7 @@ export const getServerSideProps = withSession(async ({ req }) => {
     };
   }
 
-  const courses = await getMyCourses(req, user);
+  const courses = await getMyCourses(req, res, user);
   const coursesWithLink = courses.map((course) => {
     return {
       ...course,

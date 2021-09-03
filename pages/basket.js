@@ -90,7 +90,7 @@ export default function Basket({
   );
 }
 
-export const getServerSideProps = withSession(async function ({ req }) {
+export const getServerSideProps = withSession(async function ({ req, res }) {
   const {
     lines,
     subtotal,
@@ -98,7 +98,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     total,
     discountTotal,
     needsDelivered,
-  } = await getCart(req);
+  } = await getCart(req, res);
 
   return {
     props: {
