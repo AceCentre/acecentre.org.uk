@@ -1,6 +1,9 @@
 import { gql } from "graphql-request";
 import withSession from "../../../lib/auth/with-session";
 import { clientRequest } from "../../../lib/client-request";
+import { App } from "@slack/bolt";
+import TurndownService from "turndown";
+import config from "../../../lib/config";
 
 const ADD_USERS_TO_COHORT = gql`
   mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
@@ -12,21 +15,30 @@ const ADD_USERS_TO_COHORT = gql`
   }
 `;
 
+const app = new App(config.slack);
+
 async function handler(req, res) {
   const body = JSON.parse(req.body);
   const cohortNames = body.cohortNames;
-
   for (let current of cohortNames) {
     const addUserResult = await addUserToCohort(
       req,
       current.cohortName,
       body.groupPurchaseEmails[current.productId]
     );
-    console.log(addUserResult);
+    await sendSlackMessage(addUserResult.msg);
   }
-
   await res.send({ success: true });
 }
+
+const sendSlackMessage = async (message) => {
+  const turndownService = new TurndownService();
+  const markdown = turndownService.turndown(message);
+  await app.client.chat.postMessage({
+    channel: "C02E0MC3HB2",
+    text: markdown,
+  });
+};
 
 const addUserToCohort = async (req, cohortName, emails) => {
   const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
