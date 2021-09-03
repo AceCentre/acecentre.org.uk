@@ -45,7 +45,7 @@ export const LearningDetailBox = ({ course }) => {
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
             </div>
-            <CourseMeta course={course} bold />
+            <CourseMeta course={course} bold withStockCount />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -57,7 +57,7 @@ export const LearningDetailBox = ({ course }) => {
           />
           <Button
             className={styles.bookButton}
-            disabled={disabled}
+            disabled={disabled || !course.inStock}
             onClick={() => {
               toggleModal(true);
             }}
@@ -144,6 +144,7 @@ export const LearningDetailBox = ({ course }) => {
                   name="quantity"
                   ariaLabel={`Quantity for ${course.name}`}
                   defaultValue={1}
+                  max={course.stockQuantity || 99}
                 />
               )}
               <Button
@@ -273,7 +274,12 @@ export const LearningLevel = ({ course, size = 20 }) => {
   );
 };
 
-export const CourseMeta = ({ course, bold = false, withCost = false }) => {
+export const CourseMeta = ({
+  course,
+  bold = false,
+  withCost = false,
+  withStockCount = false,
+}) => {
   const dateText =
     course?.date?.type === "Scheduled"
       ? `Runs on: ${course.date.tagline}`
@@ -281,6 +287,9 @@ export const CourseMeta = ({ course, bold = false, withCost = false }) => {
 
   return (
     <ul className={styles.list}>
+      {withStockCount && (
+        <MetaListItem bold={bold}>{getStockText(course)}</MetaListItem>
+      )}
       {withCost && (
         <MetaListItem bold={bold}>{getPriceText(course.price)}</MetaListItem>
       )}
@@ -289,6 +298,14 @@ export const CourseMeta = ({ course, bold = false, withCost = false }) => {
       <MetaListItem bold={bold}>{course.location.tagline}</MetaListItem>
     </ul>
   );
+};
+
+const getStockText = (course) => {
+  // Stock quantity is 0 if the course is full
+  if (!course.stockQuantity && course.inStock) return "Places available";
+  if (!course.stockQuantity) return "No places remaining";
+  if (course.stockQuantity === 1) return "1 place remaining";
+  return `${course.stockQuantity} places remaining`;
 };
 
 const MetaListItem = ({ children, bold }) => {
