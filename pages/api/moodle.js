@@ -30,7 +30,7 @@ const handler = async (req, res) => {
     return;
   }
 
-  res.status(302).setHeader("location", result.headers.get("location")).send();
+  res.redirect(result.headers.get("location"));
   return;
 };
 
