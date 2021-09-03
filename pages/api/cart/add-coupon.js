@@ -17,7 +17,7 @@ async function handler(req, res) {
   const currentCoupon = body.currentCoupon || "";
 
   try {
-    await clientRequest(req, res, APPLY_COUPON, {
+    await clientRequest(req, APPLY_COUPON, {
       currentCoupon: currentCoupon.toLowerCase(),
     });
   } catch (error) {

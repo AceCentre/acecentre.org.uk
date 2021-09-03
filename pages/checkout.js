@@ -595,7 +595,7 @@ const CheckoutForm = ({
 
 const isFree = (total) => total === "£0.00";
 
-export const getServerSideProps = withSession(async function ({ req, res }) {
+export const getServerSideProps = withSession(async function ({ req }) {
   const {
     lines,
     subtotal,
@@ -603,11 +603,10 @@ export const getServerSideProps = withSession(async function ({ req, res }) {
     total,
     discountTotal,
     needsDelivered,
-  } = await getCart(req, res);
+  } = await getCart(req);
   const user = req.session.get("user") || { customerId: "" };
   const { countries, billingDetails, shippingDetails } = await getAddresses(
     req,
-    res,
     user
   );
 

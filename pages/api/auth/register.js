@@ -60,15 +60,10 @@ async function handler(req, res) {
       password,
     });
 
-    const {
-      data: loginResponse,
-      headers: responseHeaders,
-    } = await client.rawRequest(LOGIN_MUTATION, {
+    const { data: loginResponse } = await client.rawRequest(LOGIN_MUTATION, {
       username: email,
       password,
     });
-
-    res.setHeader("set-cookie", responseHeaders.get("set-cookie"));
 
     const user = {
       authToken: loginResponse.login.authToken,

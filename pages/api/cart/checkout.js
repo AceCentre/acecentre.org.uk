@@ -26,7 +26,7 @@ async function handler(req, res) {
     }
     console.log("Started updating Customer");
 
-    await updateCustomer(req, res, body);
+    await updateCustomer(req, body);
     console.log("Updated Customer");
 
     let uniqueCohortTag;
@@ -41,12 +41,12 @@ async function handler(req, res) {
       });
       console.log("Started checking out with cohort");
 
-      result = await checkout(req, res, body, cohortNames);
+      result = await checkout(req, body, cohortNames);
       console.log("Checked out with cohort");
     } else {
       console.log("Started checking out without cohort");
 
-      result = await checkout(req, res, body);
+      result = await checkout(req, body);
       console.log("Checked out without cohort");
     }
 
@@ -57,7 +57,7 @@ async function handler(req, res) {
     ) {
       console.log("Started logging In");
 
-      await login(req, res, body);
+      await login(req, body);
       console.log("Logged In");
     }
 
@@ -88,7 +88,7 @@ async function handler(req, res) {
     }
 
     console.log("Started emptying cart");
-    await clientRequest(req, res, EMPTY_CART);
+    await clientRequest(req, EMPTY_CART);
     console.log("Emptied cart");
     console.log("-------");
 
@@ -113,7 +113,7 @@ async function handler(req, res) {
   }
 }
 
-const login = async (req, res, body) => {
+const login = async (req, body) => {
   let headers = {};
   if (req && req.socket && req.socket.remoteAddress) {
     headers["X-Forwarded-For"] = req.socket.remoteAddress;
@@ -127,15 +127,10 @@ const login = async (req, res, body) => {
     headers,
   });
 
-  const {
-    data: loginResponse,
-    headers: responseHeaders,
-  } = await client.rawRequest(LOGIN_MUTATION, {
+  const { data: loginResponse } = await client.rawRequest(LOGIN_MUTATION, {
     username: body.billingDetails.email,
     password: body.accountDetails.password,
   });
-
-  res.setHeader("set-cookie", responseHeaders.get("set-cookie"));
 
   const user = {
     authToken: loginResponse.login.authToken,

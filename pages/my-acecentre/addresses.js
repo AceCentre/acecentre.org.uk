@@ -40,7 +40,7 @@ export default function Addresses({
 }
 
 // Redirect if you are signed in
-export const getServerSideProps = withSession(async function ({ req, res }) {
+export const getServerSideProps = withSession(async function ({ req }) {
   const user = req.session.get("user");
 
   if (!user || !user.authToken) {
@@ -53,7 +53,6 @@ export const getServerSideProps = withSession(async function ({ req, res }) {
   }
   const { billingDetails, shippingDetails, countries } = await getAddresses(
     req,
-    res,
     user
   );
 
