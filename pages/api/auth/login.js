@@ -40,15 +40,10 @@ async function handler(req, res) {
     const client = new GraphQLClient(ENDPOINT, {
       headers,
     });
-    const {
-      data: queryResponse,
-      headers: responseHeaders,
-    } = await client.rawRequest(LOGIN_MUTATION, {
+    const { data: queryResponse } = await client.rawRequest(LOGIN_MUTATION, {
       username,
       password,
     });
-
-    res.setHeader("set-cookie", responseHeaders.get("set-cookie"));
 
     const user = {
       authToken: queryResponse.login.authToken,
@@ -80,8 +75,6 @@ async function handler(req, res) {
         error: error.response.error,
       });
     }
-
-    console.log(error);
 
     return res.send({
       success: false,

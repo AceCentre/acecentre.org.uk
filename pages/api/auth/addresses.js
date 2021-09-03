@@ -28,7 +28,7 @@ async function handler(req, res) {
   const user = req.session.get("user");
 
   if (addressType === "billing") {
-    await clientRequest(req, res, UPDATE_BILLING, {
+    await clientRequest(req, UPDATE_BILLING, {
       input: { ...body.address, overwrite: true },
       customerId: user.customerId,
     });
@@ -37,7 +37,7 @@ async function handler(req, res) {
       success: true,
     });
   } else if (addressType === "shipping") {
-    await clientRequest(req, res, UPDATE_SHIPPING, {
+    await clientRequest(req, UPDATE_SHIPPING, {
       input: { ...body.address, overwrite: true },
       customerId: user.customerId,
     });
