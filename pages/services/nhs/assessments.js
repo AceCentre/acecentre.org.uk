@@ -65,6 +65,14 @@ export default function NHSLanding() {
             </p>
 
             <AssessmentEligibility nhs />
+            <p>
+              If you don&apos;t fit this criteria you can still get an Ace
+              Centre assessment.{" "}
+              <Link href="/services/assessments">
+                See our self-funded assessments page for more details.
+              </Link>
+            </p>
+
             <h2>The referral form</h2>
             <p>
               Referrals for an assessment are accepted for people who meet NHSE
