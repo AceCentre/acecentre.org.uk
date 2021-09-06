@@ -1,6 +1,4 @@
 import styles from "./other-ways-to-donate.module.css";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { Avatar } from "@material-ui/core";
 import { Button } from "../button/button";
 
 export const OtherWaysToDonate = () => {
@@ -75,16 +73,5 @@ export const OtherWaysToDonate = () => {
         </div>
       </div>
     </div>
-  );
-};
-
-const ListItem = ({ children }) => {
-  return (
-    <li className={styles.listItem}>
-      <Avatar className={styles.listAvatar}>
-        <ChevronRightIcon />
-      </Avatar>
-      {children}
-    </li>
   );
 };
