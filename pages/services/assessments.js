@@ -52,34 +52,7 @@ export default function EngineeringPage() {
               facilitate greater independence.
             </p>
 
-            <h2>Am I eligible for an NHS England assessment?</h2>
-            <p>
-              To be eligible for the NHS England Specialised AAC Services, a
-              person must:
-            </p>
-            <ul className={styles.list}>
-              <ListItem>Be resident in England</ListItem>
-              <ListItem>Be registered with a GP practice in England</ListItem>
-              <ListItem>
-                Have a severe/complex communication difficulty associated with a
-                range of physical, cognitive, learning, or sensory deficits
-              </ListItem>
-              <ListItem>
-                Have a clear discrepancy between their level of understanding
-                and their ability to speak
-              </ListItem>
-              <ListItem>
-                Be able to understand the purpose of a communication aid
-              </ListItem>
-              <ListItem>
-                Have developed beyond cause and effect understanding
-              </ListItem>
-              <ListItem>
-                Link ideas/ semantic categories and syntactic functions beyond
-                basic requests.
-              </ListItem>
-            </ul>
-
+            <AssessmentEligibility />
             <div className={styles.inlineCard}>
               <h2>
                 I am <span className={styles.normalWeight}>eligible for</span>{" "}
@@ -147,10 +120,50 @@ export default function EngineeringPage() {
   );
 }
 
-const ListItem = ({ children }) => {
+export const AssessmentEligibility = ({ nhs = false }) => {
+  return (
+    <>
+      <h2>Am I eligible for an NHS England assessment?</h2>
+      <p>
+        To be eligible for the NHS England Specialised AAC Services, a person
+        must:
+      </p>
+      <ul className={styles.list}>
+        <ListItem nhs={nhs}>Be resident in England</ListItem>
+        <ListItem nhs={nhs}>
+          Be registered with a GP practice in England
+        </ListItem>
+        <ListItem nhs={nhs}>
+          Have a severe/complex communication difficulty associated with a range
+          of physical, cognitive, learning, or sensory deficits
+        </ListItem>
+        <ListItem nhs={nhs}>
+          Have a clear discrepancy between their level of understanding and
+          their ability to speak
+        </ListItem>
+        <ListItem nhs={nhs}>
+          Be able to understand the purpose of a communication aid
+        </ListItem>
+        <ListItem nhs={nhs}>
+          Have developed beyond cause and effect understanding
+        </ListItem>
+        <ListItem nhs={nhs}>
+          Link ideas/ semantic categories and syntactic functions beyond basic
+          requests.
+        </ListItem>
+      </ul>
+    </>
+  );
+};
+
+const ListItem = ({ children, nhs = false }) => {
   return (
     <li className={styles.listItem}>
-      <Avatar className={styles.listAvatar}>
+      <Avatar
+        className={`${styles.listAvatar} ${
+          nhs ? styles.nhsAvatar : styles.normalAvatar
+        }`}
+      >
         <ChevronRightIcon />
       </Avatar>
       {children}

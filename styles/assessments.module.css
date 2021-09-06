@@ -31,6 +31,13 @@
 .listAvatar.listAvatar {
   width: 20px;
   height: 20px;
+}
+
+.nhsAvatar.nhsAvatar {
+  background-color: #005eb8;
+}
+
+.normalAvatar.normalAvatar {
   background-color: #94c64e;
 }
 

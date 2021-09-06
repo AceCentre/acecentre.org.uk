@@ -17,6 +17,7 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
+import { AssessmentEligibility } from "../assessments";
 
 export default function NHSLanding() {
   const { currentYear } = useGlobalProps();
@@ -63,6 +64,7 @@ export default function NHSLanding() {
               </Link>
             </p>
 
+            <AssessmentEligibility nhs />
             <h2>The referral form</h2>
             <p>
               Referrals for an assessment are accepted for people who meet NHSE
