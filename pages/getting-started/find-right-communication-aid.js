@@ -96,7 +96,7 @@ export default function GettingStartedLanding({ story, resources }) {
                 suitability of a communication aid is essential.
               </p>
               <CardHighlight
-                title="Our training services"
+                title="Ace Centre Learning"
                 description="Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication."
                 viewText="View service"
                 href="/learning"
