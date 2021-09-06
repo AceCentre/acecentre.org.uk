@@ -9,6 +9,7 @@ export const CourseCategoriesGrid = ({
   overlayColor = "rgba(138, 217, 202, 0.2)",
   textBackground = "rgba(227,190,189,0.8)",
   textColor = "#333333",
+  objectFit = "cover",
 }) => {
   return (
     <ul className={styles.container}>
@@ -20,6 +21,7 @@ export const CourseCategoriesGrid = ({
             textColor={textColor}
             key={`category-square-${category.name}`}
             category={category}
+            objectFit={objectFit}
           />
         );
       })}
@@ -34,6 +36,7 @@ export const GridSquare = ({
   overlayColor = "rgba(138, 217, 202, 0.2)",
   textBackground = "rgba(227,190,189,0.8)",
   textColor = "#333333",
+  objectFit = "cover",
 }) => {
   return (
     <>
@@ -57,7 +60,7 @@ export const GridSquare = ({
               src={image.src}
               alt={image.alt}
               layout="fill"
-              objectFit="contain"
+              objectFit={objectFit}
             />
             <div className={`${styles.yellowTint} overlayTint`} />
             <div className={styles.blueBannerContainer}>
@@ -80,6 +83,7 @@ export const CategorySquare = ({
   overlayColor = "rgba(138, 217, 202, 0.2)",
   textBackground = "rgba(227,190,189,0.8)",
   textColor = "#333333",
+  objectFit = "cover",
 }) => {
   return (
     <GridSquare
@@ -89,6 +93,7 @@ export const CategorySquare = ({
       overlayColor={overlayColor}
       textBackground={textBackground}
       textColor={textColor}
+      objectFit={objectFit}
     />
   );
 };
