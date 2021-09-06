@@ -8,7 +8,7 @@ export const ResourcesTicks = () => {
       <ul className={styles.list}>
         <Tick>Over 100 resources</Tick>
         <Tick>Created by industry experts</Tick>
-        <Tick>For beginners and experts</Tick>
+        <Tick>For beginners to experts</Tick>
         <Tick>Download instantly</Tick>
       </ul>
     </div>
