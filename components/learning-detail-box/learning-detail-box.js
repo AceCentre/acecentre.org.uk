@@ -292,14 +292,14 @@ export const CourseMeta = ({
 
   return (
     <ul className={styles.list}>
-      {withStockCount && (
-        <MetaListItem bold={bold}>{getStockText(course)}</MetaListItem>
-      )}
       {withCost && (
         <MetaListItem bold={bold}>{getPriceText(course.price)}</MetaListItem>
       )}
-      <MetaListItem bold={bold}>{dateText}</MetaListItem>
       <MetaListItem bold={bold}>{course.level} level</MetaListItem>
+      {withStockCount && (
+        <MetaListItem bold={bold}>{getStockText(course)}</MetaListItem>
+      )}
+      <MetaListItem bold={bold}>{dateText}</MetaListItem>
       <MetaListItem bold={bold}>{course.location.tagline}</MetaListItem>
     </ul>
   );
