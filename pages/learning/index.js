@@ -44,6 +44,7 @@ export default function Learning({
           overlayColor="rgba(138,217,202,0.2)"
           textBackground="rgba(138,217,202,0.8)"
           textColor="#ffffff"
+          objectFit={"contain"}
         />
         <div className={styles.buttonContainer}>
           <Button className={styles.button} href="/learning/search">
