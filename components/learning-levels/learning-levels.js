@@ -3,6 +3,7 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 
 import { Button } from "../button/button";
 import { useState } from "react";
+import { LearningLevelRaw } from "../learning-detail-box/learning-detail-box";
 
 export const LearningLevels = ({ levels }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,7 +20,7 @@ export const LearningLevels = ({ levels }) => {
         </p>
         <Button onClick={() => setModalOpen(true)}>View learning levels</Button>
       </div>
-      <Popup
+      <LearningLevelPopup
         isModelOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         levels={levels}
@@ -28,8 +29,13 @@ export const LearningLevels = ({ levels }) => {
   );
 };
 
-const Popup = ({ isModelOpen, onClose, levels }) => {
-  const [selected, setSelected] = useState(levels[0].slug);
+export const LearningLevelPopup = ({
+  isModelOpen,
+  onClose,
+  levels,
+  defaultLevel = 1,
+}) => {
+  const [selected, setSelected] = useState(levels[defaultLevel - 1].slug);
   const fullSelected = levels.find((current) => current.slug == selected);
 
   return (
@@ -71,7 +77,11 @@ const Popup = ({ isModelOpen, onClose, levels }) => {
             })}
           </ul>
           <div>
+            <div className={styles.learningLevelCircles}>
+              <LearningLevelRaw level={fullSelected.level} size={15} />
+            </div>
             <h3>{fullSelected.subheading}</h3>
+
             <div
               dangerouslySetInnerHTML={{
                 __html: fullSelected.intro

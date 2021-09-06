@@ -7,8 +7,14 @@ import CategoryIcon from "@material-ui/icons/Category";
 import DesktopWindowsIcon from "@material-ui/icons/DesktopWindows";
 import ClassIcon from "@material-ui/icons/Class";
 import Link from "next/link";
+import { LearningLevelPopup } from "../learning-levels/learning-levels";
+import { levelsToNumberOfCircles } from "../learning-detail-box/learning-detail-box";
+import { useState } from "react";
+import { Button } from "../button/button";
 
-export const LearningDetailMeta = ({ course }) => {
+export const LearningDetailMeta = ({ course, levels }) => {
+  const [isModelOpen, setIsModelOpen] = useState(false);
+
   return (
     <div className={styles.container}>
       {course.location && (
@@ -42,12 +48,19 @@ export const LearningDetailMeta = ({ course }) => {
         <MetaItem
           heading={course.level}
           subheading="Learn about course learning levels"
-          href="/learning#levels"
+          onClick={() => setIsModelOpen(true)}
           type="Course level"
+          buttonText="Learn more"
         >
           <ClassIcon className={styles.icon} />
         </MetaItem>
       )}
+      <LearningLevelPopup
+        defaultLevel={levelsToNumberOfCircles[course.level.toLowerCase()]}
+        isModelOpen={isModelOpen}
+        onClose={() => setIsModelOpen(false)}
+        levels={levels}
+      />
     </div>
   );
 };
@@ -64,7 +77,15 @@ const LocationIcon = ({ locationTitle }) => {
   if (locationTitle) return <HomeWorkIcon className={styles.icon} />;
 };
 
-const MetaItem = ({ children, heading, subheading, type, href }) => {
+const MetaItem = ({
+  children,
+  heading,
+  subheading,
+  type,
+  href,
+  onClick,
+  buttonText,
+}) => {
   return (
     <div className={styles.metaItem}>
       <p className={styles.type}>{type}</p>
@@ -78,6 +99,11 @@ const MetaItem = ({ children, heading, subheading, type, href }) => {
             </Link>
           ) : (
             <p className={styles.subheading}>{subheading}</p>
+          )}
+          {onClick && buttonText && (
+            <div className={styles.buttonContainer}>
+              <Button onClick={onClick}>{buttonText}</Button>
+            </div>
           )}
         </div>
       </div>

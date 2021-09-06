@@ -59,6 +59,10 @@
   text-decoration: underline;
 }
 
+.buttonContainer {
+  margin-top: 1rem;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
