@@ -47,16 +47,16 @@ export const OtherWaysToDonate = () => {
             </p>
           </div>
           <div>
-            <h3>Leave a gift in your will</h3>
-            <ul className={styles.list}>
-              <ListItem>What are the benefits of making a will?</ListItem>
-              <ListItem>How do I leave a gift in my will?</ListItem>
-              <ListItem>
-                I already have a will, do I need to make a new one, or can I
-                just amend it?
-              </ListItem>
-              <ListItem>What next?</ListItem>
-            </ul>
+            <h3>Amazon Smile</h3>
+            <p>
+              With Amazon Smile you can shop on Amazon and they will make a
+              donation every time you make an eligible purchase.
+            </p>
+            <div className={styles.buttonContainer}>
+              <Button href="https://smile.amazon.co.uk/ch/1089313-0">
+                Find out more
+              </Button>
+            </div>
           </div>
           <div className={styles.inlineCard}>
             <h3>Donate today</h3>
