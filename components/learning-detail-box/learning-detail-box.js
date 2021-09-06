@@ -194,7 +194,7 @@ const QuantityInput = ({
   );
 };
 
-const levelsToNumberOfCircles = {
+export const levelsToNumberOfCircles = {
   introductory: 1,
   developing: 2,
   enhanced: 3,
@@ -202,14 +202,19 @@ const levelsToNumberOfCircles = {
 };
 
 export const LearningLevel = ({ course, size = 20 }) => {
+  const level = course.level || "introductory";
+  const levelNumber = levelsToNumberOfCircles[level.toLowerCase()];
+
+  return <LearningLevelRaw level={levelNumber} size={size} />;
+};
+
+export const LearningLevelRaw = ({ level, size = 20 }) => {
   const circles = [1, 2, 3, 4];
   const circleSize = size;
   const fullCircleWidth = circleSize * 2;
   const circleSpace = 10;
   const totalWidth =
     fullCircleWidth * circles.length + circleSpace * (circles.length - 1);
-  const level = course.level || "introductory";
-  const levelNumber = levelsToNumberOfCircles[level.toLowerCase()];
   const extraPadding = 6;
 
   return (
@@ -220,7 +225,7 @@ export const LearningLevel = ({ course, size = 20 }) => {
     >
       <g>
         {circles.map((circle, index) => {
-          const toFill = index < levelNumber;
+          const toFill = index < level;
 
           return (
             <ellipse

@@ -16,8 +16,14 @@ import { LearningDetailMeta } from "../../components/learning-detail-meta/learni
 import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
 import { CourseList } from "../../components/course-list/course-list";
 import { Certificate } from "../../components/certificate/certificate";
+import { getLearningLevels } from "../../lib/products/get-learning-levels";
 
-export default function LearningDetail({ course, reviews, relatedCourses }) {
+export default function LearningDetail({
+  course,
+  reviews,
+  relatedCourses,
+  levels,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -38,7 +44,7 @@ export default function LearningDetail({ course, reviews, relatedCourses }) {
           </div>
           <div>
             <Certificate />
-            <LearningDetailMeta course={course} />
+            <LearningDetailMeta course={course} levels={levels} />
           </div>
         </div>
         <CourseList
@@ -93,12 +99,14 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     .slice(0, 4);
 
   const reviews = await getRandomReviews();
+  const levels = await getLearningLevels();
 
   return {
     props: {
       course: currentCourse,
       reviews,
       relatedCourses,
+      levels,
       seo: {
         title: currentCourse.title,
         image: currentCourse.image,
