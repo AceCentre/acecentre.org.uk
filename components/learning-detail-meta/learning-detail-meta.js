@@ -4,6 +4,7 @@ import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import EventIcon from "@material-ui/icons/Event";
 import LanguageIcon from "@material-ui/icons/Language";
 import CategoryIcon from "@material-ui/icons/Category";
+import DesktopWindowsIcon from "@material-ui/icons/DesktopWindows";
 import ClassIcon from "@material-ui/icons/Class";
 import Link from "next/link";
 
@@ -16,11 +17,7 @@ export const LearningDetailMeta = ({ course }) => {
           subheading={course.location.tagline}
           type="Location"
         >
-          {course.location.title === "Online course" ? (
-            <LanguageIcon className={styles.icon} />
-          ) : (
-            <HomeWorkIcon className={styles.icon} />
-          )}
+          <LocationIcon locationTitle={course.location.title} />
         </MetaItem>
       )}
       {course.date && (
@@ -53,6 +50,18 @@ export const LearningDetailMeta = ({ course }) => {
       )}
     </div>
   );
+};
+
+const LocationIcon = ({ locationTitle }) => {
+  if (locationTitle === "Online course") {
+    return <LanguageIcon className={styles.icon} />;
+  }
+
+  if (locationTitle === "Webinar") {
+    return <DesktopWindowsIcon className={styles.icon} />;
+  }
+
+  if (locationTitle) return <HomeWorkIcon className={styles.icon} />;
 };
 
 const MetaItem = ({ children, heading, subheading, type, href }) => {
