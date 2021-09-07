@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package version="3.0" xml:lang="en" unique-identifier="pub-id" prefix="cc: http://creativecommons.org/ns# rendition: http://www.idpf.org/vocab/rendition/# kotobee: https://www.kotobee.com/vocab# ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/" xmlns="http://www.idpf.org/2007/opf">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+        <dc:title id="title">Paper-based resources to support communication for adults with progressive conditions	</dc:title>
+
+        <dc:identifier id="pub-id">urn:uuid:938a5c8c-b66c-22ec-f96c-2887fc50dc98</dc:identifier>
+        <meta name="cover" content="img0" />
+
+        <dc:creator>Ace Centre</dc:creator>
+        <dc:publisher>Ace Centre</dc:publisher>
+        <dc:rights>No rights specified</dc:rights>
+        <dc:language>en-GB</dc:language>
+        <dc:description>Paper-based resources to support communication for adults with progressive conditions	</dc:description>
+        <meta property="dcterms:modified">2021-09-06T16:49:02Z</meta>
+        <meta property="rendition:layout">pre-paginated</meta>
+        <meta property="rendition:orientation">auto</meta>
+        <meta property="ibooks:interactive">true</meta>
+        <meta property="ibooks:specified-fonts">false</meta>
+        <meta property="kotobee:version">1.7.2</meta>
+        <meta property="kotobee:build">1617</meta>
+
+    </metadata>
+    <manifest>
+        <item id="html0" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-1.xhtml" media-type="application/xhtml+xml"/>
+<item id="html1" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-2.xhtml" media-type="application/xhtml+xml"/>
+<item id="html2" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-3.xhtml" media-type="application/xhtml+xml"/>
+<item id="html3" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-4.xhtml" media-type="application/xhtml+xml"/>
+<item id="html4" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-5.xhtml" media-type="application/xhtml+xml"/>
+<item id="html5" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-6.xhtml" media-type="application/xhtml+xml"/>
+<item id="html6" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-7.xhtml" media-type="application/xhtml+xml"/>
+<item id="html7" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-8.xhtml" media-type="application/xhtml+xml"/>
+<item id="html8" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-9.xhtml" media-type="application/xhtml+xml"/>
+<item id="html9" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-10.xhtml" media-type="application/xhtml+xml"/>
+<item id="html10" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-11.xhtml" media-type="application/xhtml+xml"/>
+<item id="html11" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-12.xhtml" media-type="application/xhtml+xml"/>
+<item id="html12" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-13.xhtml" media-type="application/xhtml+xml"/>
+<item id="html13" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-14.xhtml" media-type="application/xhtml+xml"/>
+<item id="html14" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-15.xhtml" media-type="application/xhtml+xml"/>
+<item id="html15" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-16.xhtml" media-type="application/xhtml+xml"/>
+<item id="html16" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-17.xhtml" media-type="application/xhtml+xml"/>
+<item id="html17" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-18.xhtml" media-type="application/xhtml+xml"/>
+<item id="html18" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-19.xhtml" media-type="application/xhtml+xml"/>
+<item id="html19" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-20.xhtml" media-type="application/xhtml+xml"/>
+<item id="html20" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-21.xhtml" media-type="application/xhtml+xml"/>
+<item id="html21" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-22.xhtml" media-type="application/xhtml+xml"/>
+<item id="html22" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-23.xhtml" media-type="application/xhtml+xml"/>
+<item id="html23" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-24.xhtml" media-type="application/xhtml+xml"/>
+<item id="html24" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-25.xhtml" media-type="application/xhtml+xml"/>
+<item id="html25" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-26.xhtml" media-type="application/xhtml+xml"/>
+<item id="html26" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-27.xhtml" media-type="application/xhtml+xml"/>
+<item id="html27" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-28.xhtml" media-type="application/xhtml+xml"/>
+<item id="html28" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-29.xhtml" media-type="application/xhtml+xml"/>
+<item id="html29" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-30.xhtml" media-type="application/xhtml+xml"/>
+<item id="html30" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-31.xhtml" media-type="application/xhtml+xml"/>
+<item id="html31" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-32.xhtml" media-type="application/xhtml+xml"/>
+<item id="html32" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-33.xhtml" media-type="application/xhtml+xml"/>
+<item id="html33" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-34.xhtml" media-type="application/xhtml+xml"/>
+<item id="html34" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-35.xhtml" media-type="application/xhtml+xml"/>
+<item id="html35" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-36.xhtml" media-type="application/xhtml+xml"/>
+<item id="html36" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-37.xhtml" media-type="application/xhtml+xml"/>
+<item id="html37" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-38.xhtml" media-type="application/xhtml+xml"/>
+<item id="html38" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-39.xhtml" media-type="application/xhtml+xml"/>
+<item id="html39" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-40.xhtml" media-type="application/xhtml+xml"/>
+<item id="html40" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-41.xhtml" media-type="application/xhtml+xml"/>
+<item id="html41" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-42.xhtml" media-type="application/xhtml+xml"/>
+<item id="html42" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-43.xhtml" media-type="application/xhtml+xml"/>
+<item id="html43" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-44.xhtml" media-type="application/xhtml+xml"/>
+<item id="html44" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-45.xhtml" media-type="application/xhtml+xml"/>
+<item id="html45" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-46.xhtml" media-type="application/xhtml+xml"/>
+<item id="html46" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-47.xhtml" media-type="application/xhtml+xml"/>
+<item id="html47" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-48.xhtml" media-type="application/xhtml+xml"/>
+<item id="html48" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-49.xhtml" media-type="application/xhtml+xml"/>
+<item id="html49" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-50.xhtml" media-type="application/xhtml+xml"/>
+<item id="html50" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-51.xhtml" media-type="application/xhtml+xml"/>
+<item id="html51" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-52.xhtml" media-type="application/xhtml+xml"/>
+<item id="html52" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-53.xhtml" media-type="application/xhtml+xml"/>
+<item id="html53" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-54.xhtml" media-type="application/xhtml+xml"/>
+<item id="html54" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-55.xhtml" media-type="application/xhtml+xml"/>
+<item id="html55" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-56.xhtml" media-type="application/xhtml+xml"/>
+<item id="html56" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-57.xhtml" media-type="application/xhtml+xml"/>
+<item id="html57" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-58.xhtml" media-type="application/xhtml+xml"/>
+<item id="html58" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-59.xhtml" media-type="application/xhtml+xml"/>
+<item id="html59" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-60.xhtml" media-type="application/xhtml+xml"/>
+<item id="html60" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-61.xhtml" media-type="application/xhtml+xml"/>
+<item id="html61" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-62.xhtml" media-type="application/xhtml+xml"/>
+<item id="html62" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-63.xhtml" media-type="application/xhtml+xml"/>
+<item id="html63" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-64.xhtml" media-type="application/xhtml+xml"/>
+<item id="html64" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-65.xhtml" media-type="application/xhtml+xml"/>
+<item id="html65" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-66.xhtml" media-type="application/xhtml+xml"/>
+<item id="html66" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-67.xhtml" media-type="application/xhtml+xml"/>
+<item id="html67" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-68.xhtml" media-type="application/xhtml+xml"/>
+<item id="html68" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-69.xhtml" media-type="application/xhtml+xml"/>
+<item id="html69" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-70.xhtml" media-type="application/xhtml+xml"/>
+<item id="html70" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-71.xhtml" media-type="application/xhtml+xml"/>
+<item id="html71" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-72.xhtml" media-type="application/xhtml+xml"/>
+<item id="html72" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-73.xhtml" media-type="application/xhtml+xml"/>
+<item id="html73" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-74.xhtml" media-type="application/xhtml+xml"/>
+<item id="html74" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-75.xhtml" media-type="application/xhtml+xml"/>
+<item id="contents" href="xhtml/raw/contents.xhtml"  properties="nav" media-type="application/xhtml+xml"/>
+<item id="ncx" href="xhtml/raw/contents.ncx"  media-type="application/x-dtbncx+xml"/>
+<item id="img0" href="../OEBPS/image/1.png" properties="cover-image" media-type="image/png"/>
+
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="html0" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html1" properties="rendition:layout-reflowable"/>
+<itemref idref="html2" properties="rendition:layout-reflowable"/>
+<itemref idref="html3" properties="rendition:layout-reflowable"/>
+<itemref idref="html4" properties="rendition:layout-reflowable"/>
+<itemref idref="html5" properties="rendition:layout-reflowable"/>
+<itemref idref="html6" properties="rendition:layout-reflowable"/>
+<itemref idref="html7" properties="rendition:layout-reflowable"/>
+<itemref idref="html8" properties="rendition:layout-reflowable"/>
+<itemref idref="html9" properties="rendition:layout-reflowable"/>
+<itemref idref="html10" properties="rendition:layout-reflowable"/>
+<itemref idref="html11" properties="rendition:layout-reflowable"/>
+<itemref idref="html12" properties="rendition:layout-reflowable"/>
+<itemref idref="html13" properties="rendition:layout-reflowable"/>
+<itemref idref="html14" properties="rendition:layout-reflowable"/>
+<itemref idref="html15" properties="rendition:layout-reflowable"/>
+<itemref idref="html16" properties="rendition:layout-reflowable"/>
+<itemref idref="html17" properties="rendition:layout-reflowable"/>
+<itemref idref="html18" properties="rendition:layout-reflowable"/>
+<itemref idref="html19" properties="rendition:layout-reflowable"/>
+<itemref idref="html20" properties="rendition:layout-reflowable"/>
+<itemref idref="html21" properties="rendition:layout-reflowable"/>
+<itemref idref="html22" properties="rendition:layout-reflowable"/>
+<itemref idref="html23" properties="rendition:layout-reflowable"/>
+<itemref idref="html24" properties="rendition:layout-reflowable"/>
+<itemref idref="html25" properties="rendition:layout-reflowable"/>
+<itemref idref="html26" properties="rendition:layout-reflowable"/>
+<itemref idref="html27" properties="rendition:layout-reflowable"/>
+<itemref idref="html28" properties="rendition:layout-reflowable"/>
+<itemref idref="html29" properties="rendition:layout-reflowable"/>
+<itemref idref="html30" properties="rendition:layout-reflowable"/>
+<itemref idref="html31" properties="rendition:layout-reflowable"/>
+<itemref idref="html32" properties="rendition:layout-reflowable"/>
+<itemref idref="html33" properties="rendition:layout-reflowable"/>
+<itemref idref="html34" properties="rendition:layout-reflowable"/>
+<itemref idref="html35" properties="rendition:layout-reflowable"/>
+<itemref idref="html36" properties="rendition:layout-reflowable"/>
+<itemref idref="html37" properties="rendition:layout-reflowable"/>
+<itemref idref="html38" properties="rendition:layout-reflowable"/>
+<itemref idref="html39" properties="rendition:layout-reflowable"/>
+<itemref idref="html40" properties="rendition:layout-reflowable"/>
+<itemref idref="html41" properties="rendition:layout-reflowable"/>
+<itemref idref="html42" properties="rendition:layout-reflowable"/>
+<itemref idref="html43" properties="rendition:layout-reflowable"/>
+<itemref idref="html44" properties="rendition:layout-reflowable"/>
+<itemref idref="html45" properties="rendition:layout-reflowable"/>
+<itemref idref="html46" properties="rendition:layout-reflowable"/>
+<itemref idref="html47" properties="rendition:layout-reflowable"/>
+<itemref idref="html48" properties="rendition:layout-reflowable"/>
+<itemref idref="html49" properties="rendition:layout-reflowable"/>
+<itemref idref="html50" properties="rendition:layout-reflowable"/>
+<itemref idref="html51" properties="rendition:layout-reflowable"/>
+<itemref idref="html52" properties="rendition:layout-reflowable"/>
+<itemref idref="html53" properties="rendition:layout-reflowable"/>
+<itemref idref="html54" properties="rendition:layout-reflowable"/>
+<itemref idref="html55" properties="rendition:layout-reflowable"/>
+<itemref idref="html56" properties="rendition:layout-reflowable"/>
+<itemref idref="html57" properties="rendition:layout-reflowable"/>
+<itemref idref="html58" properties="rendition:layout-reflowable"/>
+<itemref idref="html59" properties="rendition:layout-reflowable"/>
+<itemref idref="html60" properties="rendition:layout-reflowable"/>
+<itemref idref="html61" properties="rendition:layout-reflowable"/>
+<itemref idref="html62" properties="rendition:layout-reflowable"/>
+<itemref idref="html63" properties="rendition:layout-reflowable"/>
+<itemref idref="html64" properties="rendition:layout-reflowable"/>
+<itemref idref="html65" properties="rendition:layout-reflowable"/>
+<itemref idref="html66" properties="rendition:layout-reflowable"/>
+<itemref idref="html67" properties="rendition:layout-reflowable"/>
+<itemref idref="html68" properties="rendition:layout-reflowable"/>
+<itemref idref="html69" properties="rendition:layout-reflowable"/>
+<itemref idref="html70" properties="rendition:layout-reflowable"/>
+<itemref idref="html71" properties="rendition:layout-reflowable"/>
+<itemref idref="html72" properties="rendition:layout-reflowable"/>
+<itemref idref="html73" properties="rendition:layout-reflowable"/>
+<itemref idref="html74" properties="rendition:layout-reflowable"/>
+
+    </spine>
+
+    
+    
+</package>
