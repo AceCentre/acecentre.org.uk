@@ -15,8 +15,13 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
+import BuildIcon from "@material-ui/icons/Build";
+import { getAllProducts } from "../../../lib/products/get-products";
+import { getAllProductCategories } from "../../../lib/products/get-all-categories";
+import { filterProducts } from "../../../lib/products/filter-products";
+import { ResourceList } from "../../../components/resource-list/resource-list";
 
-export default function Laaces() {
+export default function Laaces({ gettingStartedResources }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -106,11 +111,13 @@ export default function Laaces() {
               The Local Services Working Party was established in 2018 and
               together, the working party (made up of representatives from each
               NHSE Specialised Service) created a{" "}
-              <a href="https://localaactools.co.uk/">Local AAC Services</a>{" "}
-              Commissioning Toolkit. The purpose of the toolkit is to signpost
-              professionals working in the field to useful resources, which can
-              support the establishment of a local AAC service. Topics covered
-              within the toolkit include:
+              <a href="https://localaactools.co.uk/">
+                Local AAC Services Commissioning Toolkit
+              </a>
+              . The purpose of the toolkit is to signpost professionals working
+              in the field to useful resources, which can support the
+              establishment of a local AAC service. Topics covered within the
+              toolkit include:
             </p>
             <ul>
               <li>
@@ -223,9 +230,39 @@ export default function Laaces() {
                 </div>
               </div>
             </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <BuildIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p>
+                  <strong>AAC Services Toolkit</strong>
+                </p>
+                <p>
+                  The Local Services Working Party created a Local AAC Services
+                  Commissioning Toolkit to signpost professionals working in the
+                  field to useful resources, which can support the establishment
+                  of a local AAC service
+                </p>
+                <div className={styles.downloadFormButtonContainer}>
+                  <Button
+                    className={styles.downloadFormButton}
+                    href="https://localaactools.co.uk/"
+                  >
+                    View toolkit
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <InformationDays nhs />
+        <ResourceList
+          title="Resources to get started"
+          viewAllLink="/resources/all?category=getting-started"
+          products={gettingStartedResources}
+          className={styles.resourcesList}
+        />
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer currentYear={currentYear} />
@@ -236,9 +273,30 @@ export default function Laaces() {
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
 
+  const products = await getAllProducts();
+  const productCategories = await getAllProductCategories();
+
+  const { results: gettingStartedResources } = filterProducts(
+    products,
+    productCategories,
+    {
+      page: 0,
+      productsPerPage: 1000,
+      category: "getting-started",
+    }
+  );
+  const resources = gettingStartedResources.map((product) => ({
+    title: htmlDecode(product.name),
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
+    ...product,
+  }));
+
   return {
     props: {
       featuredStory,
+      gettingStartedResources: resources.slice(0, 4),
+
       seo: {
         title: "LAACES",
         description:
@@ -247,3 +305,7 @@ export const getStaticProps = withGlobalProps(async () => {
     },
   };
 });
+
+function htmlDecode(input) {
+  return input.replace(/&amp;/g, "&");
+}
