@@ -83,12 +83,14 @@ export default function Contact() {
                 layout="fill"
                 src="/abingdon.png"
                 objectFit="contain"
+                alt="South office on a map"
               ></Image>
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2474.3182418245624!2d-1.302991248549268!3d51.67231760635251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c582ed724631%3A0x3b752ab45ce336a8!2sAce%20Centre!5e0!3m2!1sen!2suk!4v1630572149317!5m2!1sen!2suk"
               width="100%"
               height="350"
+              title="South office on a map"
             ></iframe>
           </div>
         </div>
@@ -111,6 +113,7 @@ export default function Contact() {
               src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d19790.959313012452!2d-1.2964408763810698!3d51.68052415172159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x4876b87995ebbe5b%3A0x73fb83e7a73a0c7f!2sOX14%201RG%2C%20Abingdon!3m2!1d51.672306299999995!2d-1.3011882!4m5!1s0x4876b8a6d2c6e5b1%3A0xc2036b57c9b72135!2sAbingdon%20OX14%203PJ!3m2!1d51.6735955!2d-1.2605596!5e0!3m2!1sen!2suk!4v1630572295242!5m2!1sen!2suk"
               width="100%"
               height="450"
+              title="White Horse Leisure & Tennis Centre on google maps"
             ></iframe>
           </div>
         </div>
