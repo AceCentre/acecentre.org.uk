@@ -14,6 +14,7 @@ import { Button } from "../button/button";
 
 export const LearningDetailMeta = ({ course, levels }) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
+  const level = course.level || "introductory";
 
   return (
     <div className={styles.container}>
@@ -56,7 +57,7 @@ export const LearningDetailMeta = ({ course, levels }) => {
         </MetaItem>
       )}
       <LearningLevelPopup
-        defaultLevel={levelsToNumberOfCircles[course.level.toLowerCase()]}
+        defaultLevel={levelsToNumberOfCircles[level.toLowerCase()]}
         isModelOpen={isModelOpen}
         onClose={() => setIsModelOpen(false)}
         levels={levels}
