@@ -27,7 +27,11 @@ export default function Laaces({ gettingStartedResources }) {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} nhs />
+        <CombinedNav
+          nhsTitle="NHS England Local AAC Services"
+          defaultNavItems={defaultNavItems}
+          nhs
+        />
       </header>
       <main>
         <VideoWithCardCover
