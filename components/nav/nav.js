@@ -11,11 +11,11 @@ import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
 
-export const Nav = ({ nhs }) => {
+export const Nav = ({ nhs, nhsTitle }) => {
   return (
     <FullWidthContainer>
       <InnerContainer>
-        <HomeButton nhs={nhs} />
+        <HomeButton nhsTitle={nhsTitle} nhs={nhs} />
         <NavList>
           {!nhs && (
             <>
@@ -95,9 +95,9 @@ const NavLink = ({ href, children, className }) => {
   );
 };
 
-const HomeButton = ({ nhs }) => {
+const HomeButton = ({ nhs, nhsTitle }) => {
   if (nhs) {
-    return <NHSHomeButton />;
+    return <NHSHomeButton title={nhsTitle} />;
   }
 
   return (
@@ -118,7 +118,7 @@ const HomeButton = ({ nhs }) => {
   );
 };
 
-const NHSHomeButton = () => {
+const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
@@ -133,7 +133,7 @@ const NHSHomeButton = () => {
           ></Image>
         </a>
       </Link>
-      <p className={styles.nhsTitle}>NHS England Assessment Service</p>
+      <p className={styles.nhsTitle}>{title}</p>
     </div>
   );
 };
