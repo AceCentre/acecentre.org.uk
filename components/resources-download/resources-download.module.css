@@ -2,6 +2,14 @@
   width: 100%;
 }
 
+.ebook {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
 .newsletterContainer {
   margin: 1rem auto;
 }
@@ -68,5 +76,10 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+  }
+
+  .ebook {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
