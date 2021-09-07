@@ -20,6 +20,7 @@ export default function Basket({
   total,
   discountTotal,
   needsDelivered,
+  vat,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -64,6 +65,7 @@ export default function Basket({
               subtotal={subtotal}
               total={total}
               shipping={shipping}
+              vat={vat}
             />
             <CouponArea
               isApplyVoucherDisabled={isApplyVoucherDisabled}
@@ -98,6 +100,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     total,
     discountTotal,
     needsDelivered,
+    vat,
   } = await getCart(req);
 
   return {
@@ -108,6 +111,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       total,
       discountTotal,
       needsDelivered,
+      vat,
     },
   };
 });
