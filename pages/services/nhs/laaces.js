@@ -6,8 +6,6 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 
-import ListAltIcon from "@material-ui/icons/ListAlt";
-
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import { Avatar } from "@material-ui/core";
 import { Image } from "../../../components/image";
@@ -17,7 +15,6 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
-import { AssessmentEligibility } from "../assessments";
 
 export default function Laaces() {
   const { currentYear } = useGlobalProps();
@@ -69,15 +66,22 @@ export default function Laaces() {
               Since the NHS England Specialised AAC Services were established,
               it has become apparent that there is significant variation across
               regions in the provision of local AAC services. Based on the data
-              offered in the Shining a light on Augmentative and Alternative
-              Communication, Communication Matters: an AAC Evidence Base
-              research project – final report (April 2013), local AAC services
-              are responsible for meeting the need of 0.5% of the population in
-              their region. In some areas, it is recognised that there are long
-              established and commissioned local AAC services, which meet the
-              requirements as suggested in the NHSE document “Guidance for
-              commissioning AAC services and equipment” however, in many areas
-              there is no commissioned local AAC service at all.
+              offered in the{" "}
+              <a href="https://www.communicationmatters.org.uk/app/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
+                Shining a light on Augmentative and Alternative Communication,
+                Communication Matters: an AAC Evidence Base research project –
+                final report
+              </a>{" "}
+              (April 2013), local AAC services are responsible for meeting the
+              need of 0.5% of the population in their region. In some areas, it
+              is recognised that there are long established and commissioned
+              local AAC services, which meet the requirements as suggested in
+              the NHSE document{" "}
+              <a href="https://www.england.nhs.uk/commissioning/wp-content/uploads/sites/12/2016/03/guid-comms-aac.pdf">
+                “Guidance for commissioning AAC services and equipment”
+              </a>{" "}
+              however, in many areas there is no commissioned local AAC service
+              at all.
             </p>
 
             <p>
@@ -101,7 +105,8 @@ export default function Laaces() {
             <p>
               The Local Services Working Party was established in 2018 and
               together, the working party (made up of representatives from each
-              NHSE Specialised Service) created a Local AAC Services
+              NHSE Specialised Service) created a{" "}
+              <a href="https://localaactools.co.uk/">Local AAC Services</a>{" "}
               Commissioning Toolkit. The purpose of the toolkit is to signpost
               professionals working in the field to useful resources, which can
               support the establishment of a local AAC service. Topics covered
@@ -109,13 +114,12 @@ export default function Laaces() {
             </p>
             <ul>
               <li>
-                The Local Services Working Party was established in 2018 and
-                together, the working party (made up of representatives from
-                each NHSE Specialised Service) created a Local AAC Services
-                Commissioning Toolkit. The purpose of the toolkit is to signpost
-                professionals working in the field to useful resources, which
-                can support the establishment of a local AAC service. Topics
-                covered within the toolkit include:
+                Data Gathering: This section aims to outline important minimum
+                data which will be helpful for approaching commissioners,
+                alongside highlighting factors to consider when collecting data.
+                Suggestions for formats for data collection and a data
+                collection tool, which can be customised to meet local needs are
+                provided within this section.
               </li>
               <li>
                 Approaching Commissioners: This section aims to provide
@@ -171,7 +175,10 @@ export default function Laaces() {
                 Advice and support to profile the professional development needs
                 of the local AAC workforce.
               </li>
-              <li>Access to training opportunities via Ace Centre Learning.</li>
+              <li>
+                Access to training opportunities via{" "}
+                <Link href="/learning">Ace Centre Learning.</Link>
+              </li>
               <li>
                 Joint assessment/advice sessions to local clients who may not be
                 eligible for the NHSE Specialised AAC Service.
