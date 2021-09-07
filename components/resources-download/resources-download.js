@@ -10,6 +10,10 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
 
+  if (resource.ebook) {
+    return <Ebook ebook={resource.ebook} />;
+  }
+
   if (resource.external) {
     return <External resource={resource} />;
   }
@@ -27,6 +31,31 @@ export const ResourcesDownload = ({ resource }) => {
   }
 
   throw new Error(`Uh oh, looks like we cant render ${resource.slug}`);
+};
+
+const Ebook = ({ ebook }) => {
+  return (
+    <div className={styles.ebook}>
+      {ebook.ibook && (
+        <a
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open in apple books"
+          href={ebook.ibook}
+        >
+          <img alt="Get it on Apple Books" src="/apple-books.svg"></img>
+        </a>
+      )}
+      {ebook.downloadLocation && (
+        <Button href={ebook.downloadLocation}>Download ePub File</Button>
+      )}
+      {ebook.viewLocation && (
+        <Button newTab href={`${ebook.viewLocation}/index.html`}>
+          View eBook
+        </Button>
+      )}
+    </div>
+  );
 };
 
 export const useAddToCart = () => {
