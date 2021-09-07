@@ -4,6 +4,14 @@
   font-weight: bold;
 }
 
+.inlineQuote {
+  font-style: italic;
+}
+
+.inlineQuoteContainer {
+  margin-left: 16px;
+}
+
 .cardDescription.cardDescription {
   color: #ffffff;
   font-size: 32px;

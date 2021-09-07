@@ -33,7 +33,7 @@ const gridItems = [
     },
   },
   {
-    name: "LAACES",
+    name: "Local AAC Services (LAACES)",
     href: "/services/nhs/laaces",
     image: {
       src: "/services/laaces.jpg",

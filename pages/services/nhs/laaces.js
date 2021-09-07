@@ -1,0 +1,242 @@
+import { Button } from "../../../components/button/button";
+import { CombinedNav } from "../../../components/combined-nav/combined-nav";
+import { Footer } from "../../../components/footer/footer";
+import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
+import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
+import { useGlobalProps } from "../../../lib/global-props/hook";
+import { withGlobalProps } from "../../../lib/global-props/inject";
+
+import ListAltIcon from "@material-ui/icons/ListAlt";
+
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import { Avatar } from "@material-ui/core";
+import { Image } from "../../../components/image";
+
+import styles from "../../../styles/nhs-assessment.module.css";
+import { getSimpleStory } from "../../../lib/story/get-story";
+// import { FeaturedStory } from "../../../components/featured-story/featured-story";
+import { InformationDays } from "../../../components/information-days/information-days";
+import Link from "next/link";
+import { AssessmentEligibility } from "../assessments";
+
+export default function Laaces() {
+  const { currentYear } = useGlobalProps();
+
+  return (
+    <>
+      <header>
+        <CombinedNav defaultNavItems={defaultNavItems} nhs />
+      </header>
+      <main>
+        <VideoWithCardCover
+          src="/services/nhs-assessment-cover.jpg"
+          alt="A child laughing"
+          nhs
+          heightClass={styles.coverHeight}
+        >
+          <h1 className={styles.cardTitle}>Local AAC Services</h1>
+          <p className={styles.cardDescription}>
+            Supporting local AAC Services in the the North West and Thames
+            Valley & Wessex regions
+          </p>
+          <div className={styles.cardButtonContainer}>
+            <Button href="/contact" className={styles.cardButton}>
+              Make an online enquiry
+            </Button>
+          </div>
+          <p className={styles.cardContact}>
+            or call our advice line on <strong>0800 048 7642</strong>
+          </p>
+        </VideoWithCardCover>
+        <div className={styles.bottomContainer}>
+          <div className={styles.leftContent}>
+            <h2>Local AAC Services</h2>
+            <p className={styles.inlineQuoteContainer}>
+              <span className={styles.inlineQuote}>
+                “It is estimated that 0.5% of the population would benefit from
+                AAC generally and 0.05% could benefit from powered communication
+                aids… The technologies are there. But commissioning of services,
+                funding arrangements and underpinning knowledge and expertise of
+                healthcare professionals have not risen to the challenge.”
+              </span>{" "}
+              -{" "}
+              <a href="https://www.communicationmatters.org.uk/app/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
+                Source
+              </a>
+            </p>
+
+            <p>
+              Since the NHS England Specialised AAC Services were established,
+              it has become apparent that there is significant variation across
+              regions in the provision of local AAC services. Based on the data
+              offered in the Shining a light on Augmentative and Alternative
+              Communication, Communication Matters: an AAC Evidence Base
+              research project – final report (April 2013), local AAC services
+              are responsible for meeting the need of 0.5% of the population in
+              their region. In some areas, it is recognised that there are long
+              established and commissioned local AAC services, which meet the
+              requirements as suggested in the NHSE document “Guidance for
+              commissioning AAC services and equipment” however, in many areas
+              there is no commissioned local AAC service at all.
+            </p>
+
+            <p>
+              Ace Centre is committed to help support the establishment and
+              development of local AAC services in both the Thames Valley &
+              Wessex and Northwest regions within which we provide the NHSE
+              Specialised AAC Services. Ace Centre values the importance of
+              local AAC services, not only to improve the equity and quality of
+              local AAC provision but to also ensure the appropriate referral
+              and support to clients with the most complex communication needs
+              to the NHSE Specialised AAC Service. The proposed ‘Hub and Spoke’
+              model for AAC Services, as described in Guidance for commissioning
+              AAC services and equipment (NHS England, March 2016), can only
+              work effectively if local AAC services are commissioned with a
+              defined budget and a commitment to increasing the knowledge and
+              skills of the local AAC workforce.
+            </p>
+
+            <h2>What support can Ace Centre offer?</h2>
+            <h3>Service development</h3>
+            <p>
+              The Local Services Working Party was established in 2018 and
+              together, the working party (made up of representatives from each
+              NHSE Specialised Service) created a Local AAC Services
+              Commissioning Toolkit. The purpose of the toolkit is to signpost
+              professionals working in the field to useful resources, which can
+              support the establishment of a local AAC service. Topics covered
+              within the toolkit include:
+            </p>
+            <ul>
+              <li>
+                The Local Services Working Party was established in 2018 and
+                together, the working party (made up of representatives from
+                each NHSE Specialised Service) created a Local AAC Services
+                Commissioning Toolkit. The purpose of the toolkit is to signpost
+                professionals working in the field to useful resources, which
+                can support the establishment of a local AAC service. Topics
+                covered within the toolkit include:
+              </li>
+              <li>
+                Approaching Commissioners: This section aims to provide
+                information regarding commissioning arrangements within the NHS
+                and provides an outline of the role of Commissioning Support
+                Units (CSU). The section includes a guide to business case
+                writing and an explanation of how the Individual Funding
+                Requests (IFR)/Evidence Based Intervention Request (EBI) process
+                works and the role of the Effective Use of Resources panel (EUR)
+                alongside tips for completing an IFR & how to find locally
+                relevant information.
+              </li>
+              <li>
+                Strategic Development: This section aims to give an overview of
+                a typical structure of a local AAC service and provide
+                signposting to resources which can help with the strategic
+                development of a service. The resources include an overview of
+                the remit of a local AAC service & how they interact with
+                Specialised AAC Services nationally. Documents containing useful
+                information regarding statistics and prevalence to support with
+                service planning are signposted along with quality standards and
+                tables to RAG rate against these standards. A range of sample
+                service specifications, pathways and levels of service provision
+                are also provided.
+              </li>
+              <li>
+                Service Implementation: This section includes practical elements
+                to consider when setting up a service e.g. sample referral
+                forms, leaflets, infection control and data protection
+                considerations etc. Sample Standard Operating Procedures (SOPs)
+                and suggestions for equipment management and outcome measures
+                are included
+              </li>
+            </ul>
+            <p>
+              Ace Centre can offer support to local teams within the Thames
+              Valley & Wessex and Northwest regions to implement the toolkit in
+              their region.
+            </p>
+            <p>Support could include:</p>
+            <ul>
+              <li>
+                Attending meetings (either face to face or virtually) to discuss
+                the four aspects of service development described above and how
+                to apply the examples to individual local service needs.{" "}
+              </li>
+              <li>
+                Help and advice with data collection and analysis methods
+                including exploration of software such as Microsoft Power BI for
+                this purpose.
+              </li>
+              <li>
+                Advice and support to profile the professional development needs
+                of the local AAC workforce.
+              </li>
+              <li>Access to training opportunities via Ace Centre Learning.</li>
+              <li>
+                Joint assessment/advice sessions to local clients who may not be
+                eligible for the NHSE Specialised AAC Service.
+              </li>
+            </ul>
+
+            <h3>LAACES Loan Bank</h3>
+            <p>
+              To assist local teams with the evidencing of AAC need at a local
+              level, Ace Centre offers a loan bank of equipment. A variety of
+              AAC resources can be loaned from Ace Centre on a short-term basis
+              to assist local AAC practitioners in building up evidence to
+              submit Individual Funding Requests where there is no current local
+              AAC budget. Equipment can also be loaned by AAC practitioners to
+              develop their own skills and knowledge of hardware and software
+              they may be less familiar with.
+            </p>
+          </div>
+          <div>
+            <div className={styles.serviceProvidedByContainer}>
+              <p>Service provided by:</p>
+              <Image
+                height={152}
+                width={290}
+                maxHeight={90}
+                src={"/nav-logo.png"}
+                alt="The Ace Centre logo"
+              ></Image>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <FormatQuoteIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p className={styles.quoteContent}>
+                  &quot;Super meaningful quote&quot;
+                </p>
+                <div>
+                  <p>
+                    <strong>Important Person</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <InformationDays nhs />
+        {/* <FeaturedStory nhs {...featuredStory} /> */}
+      </main>
+      <Footer currentYear={currentYear} />
+    </>
+  );
+}
+
+export const getStaticProps = withGlobalProps(async () => {
+  const featuredStory = await getSimpleStory("paul");
+
+  return {
+    props: {
+      featuredStory,
+      seo: {
+        title: "LAACES",
+        description:
+          "Ace Centre is committed to help support the establishment and development of local AAC services in both the Thames Valley & Wessex and Northwest regions within which we provide the NHSE Specialised AAC Services.",
+      },
+    },
+  };
+});
