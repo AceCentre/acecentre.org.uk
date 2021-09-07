@@ -1,0 +1,122 @@
+
+/*header gradient*/
+
+#kotobee .kotobeeGradient  {
+    background: {{headerBG1}}; /* Old browsers */
+    background: -moz-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, {{headerBG1}}), color-stop(100%, {{headerBG2}})); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%); /* IE10+ */
+    background: linear-gradient(to right, {{headerBG1}} 0%, {{headerBG2}} 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '{{headerBG1}}', endColorstr = '{{headerBG2}}', GradientType = 1); /* IE6-9 */
+    border-bottom: none;
+}
+
+#kotobee.rtl .kotobeeGradient {
+    background: -moz-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, {{headerBG2}}), color-stop(100%, {{headerBG1}})); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%); /* IE10+ */
+    background: linear-gradient(to right, {{headerBG2}} 0%, {{headerBG1}} 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '{{headerBG2}}', endColorstr = '{{headerBG1}}', GradientType = 1); /* IE6-9 */
+}
+
+#kotobee .popup:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, {{headerBG1}}), color-stop(80%, {{headerBG2}}));
+    background-image: -webkit-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%, color-stop(100%, rgba(0, 0, 0, 0))) );
+    background-image: -moz-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%, transparent);
+    background-image: -o-linear-gradient(left, {{headerBG1}} 0%, {{headerBG2}} 100%, transparent);
+}
+
+
+#kotobee.rtl .popup:before {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, {{headerBG2}}), color-stop(80%, {{headerBG1}}));
+    background-image: -webkit-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%, color-stop(100%, rgba(0, 0, 0, 0))) );
+    background-image: -moz-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%, transparent);
+    background-image: -o-linear-gradient(left, {{headerBG2}} 0%, {{headerBG1}} 100%, transparent);
+}
+
+#kotobee .kotobeeGradient h1.title,
+#kotobee .kotobeeGradient .buttons a.button, 
+#kotobee .kotobeeGradient .buttons button  {
+    color: {{headerColor}};
+}
+
+/*chapters panel*/
+#chapterMenu #chaptersContent {
+    background-color: {{chaptersBG}} !important;
+}
+#chapterMenu #chaptersContent li a, #chapterMenu #chaptersContent li i{
+    color: {{chaptersColor}};
+}
+#chapterMenu .bar{
+    background-color: {{chaptersBG}};
+}
+#chapterMenu .bar .title{
+    color: {{chaptersColor}};
+}
+#chapterMenu #chaptersContent #chaptersInner li.selected > a,
+#chapterMenu #chaptersContent #chaptersInner li.selected > i {
+    color: {{selectedChapterColor}} !important;
+}
+
+/*tabs BG*/
+#kotobee .tabs {
+    background-color: {{tabsBG}};
+    color: {{tabsColor}};
+}
+
+#kotobee #libraryTabs {
+    color: {{tabsColor}};
+    background-color: {{tabsBG}};
+}
+
+#kotobee #libraryTabs .tab-item {
+    color: {{tabsColor}};
+    border-color: {{tabsColor}};
+}
+
+/*library BG*/
+#kotobee #libraryThumbs {
+    background-color: {{libraryColor}} !important;
+}
+
+#kotobee #libraryThumbs a {
+    color: {{libraryTxtColor}};
+}
+
+/*chapters book info BG*/
+#kotobee #chaptersBook {
+     background-color: {{chaptersBookBG}};
+}
+
+#kotobee #chaptersBook .info{
+    color: {{chaptersBookColor}};
+}
+
+#kotobee #libCategories .categoryList.odd{
+    background-color: {{headerBG2}};
+}
+
+#kotobee #libCategories .categoryList.even{
+    background-color: {{headerBG1}};
+}
+
+#kotobee .openBtn {
+    background-color: {{openBookBg}};
+    border-color: {{openBookBg}};
+    color: {{openBookColor}};
+}
+
+#kotobee .deniedBtn {
+    background-color: {{accessDeniedBg}};
+    border-color: {{accessDeniedBg}};
+    color: {{accessDeniedColor}};
+}
+
+/* landing page for cloud ebook payments */
+#kotobee #landing {
+    background-color: {{splashBg}};
+}
