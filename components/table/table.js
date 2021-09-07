@@ -103,6 +103,7 @@ export const OrderSummaryTable = ({
   total,
   discountTotal,
   needsDelivered,
+  vat,
 }) => {
   return (
     <>
@@ -154,7 +155,14 @@ export const OrderSummaryTable = ({
               <td className={styles.tableHeader}>Shipping</td>
               <td className={`${styles.rightAlignText} ${styles.shipping}`}>
                 <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
-                <p>Shipping options will be updated during checkout.</p>
+              </td>
+            </tr>
+          )}
+          {vat !== "£0.00" && (
+            <tr>
+              <td className={styles.tableHeader}>VAT</td>
+              <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+                <p className={`${styles.cost} ${styles.bold}`}>{vat}</p>
               </td>
             </tr>
           )}
@@ -227,6 +235,7 @@ export const TotalsTable = ({
   total,
   discountTotal,
   needsDelivered,
+  vat,
 }) => {
   return (
     <table className={`${styles.container} ${styles.table}`}>
@@ -251,6 +260,14 @@ export const TotalsTable = ({
             <td className={`${styles.rightAlignText} ${styles.shipping}`}>
               <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
               <p>Shipping options will be updated during checkout.</p>
+            </td>
+          </tr>
+        )}
+        {vat !== "£0.00" && (
+          <tr>
+            <td className={styles.tableHeader}>VAT</td>
+            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+              <p className={`${styles.cost} ${styles.bold}`}>{vat}</p>
             </td>
           </tr>
         )}

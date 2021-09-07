@@ -419,6 +419,7 @@ export default function Checkout({
   existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
+  vat,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -442,6 +443,7 @@ export default function Checkout({
             existingUser={existingUser}
             groupPurchaseLines={groupPurchaseLines}
             delegatedLearningLines={delegatedLearningLines}
+            vat={vat}
           />
         </Elements>
       </main>
@@ -463,6 +465,7 @@ const CheckoutForm = ({
   existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
+  vat,
 }) => {
   const numberOfCourses = lines.filter(
     (line) => line.type.toLowerCase() === "course"
@@ -572,6 +575,7 @@ const CheckoutForm = ({
         total={total}
         discountTotal={discountTotal}
         needsDelivered={needsDelivered}
+        vat={vat}
       />
       {/* Only show the card box for paid products */}
       {!isFree(total) && <CardBox cardError={cardError} />}
@@ -603,6 +607,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     total,
     discountTotal,
     needsDelivered,
+    vat,
   } = await getCart(req);
   const user = req.session.get("user") || { customerId: "" };
   const { countries, billingDetails, shippingDetails } = await getAddresses(
@@ -641,6 +646,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       needsDelivered,
       existingUser: !!(user.authToken && user.refreshToken),
       delegatedLearningLines,
+      vat,
     },
   };
 });
