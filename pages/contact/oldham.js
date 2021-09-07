@@ -82,12 +82,14 @@ export default function Contact() {
                 layout="fill"
                 src="/oldham.png"
                 objectFit="contain"
+                alt="Oldham office on a map"
               ></Image>
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18978.568799359775!2d-2.143133!3d53.516322!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe36d5bb9c7211631!2sACE+Centre!5e0!3m2!1sen!2suk!4v1504703467876"
               width="100%"
               height="350"
+              title="North office on google maps"
             ></iframe>
           </div>
         </div>
@@ -153,6 +155,7 @@ export default function Contact() {
               src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3990.119223349406!2d-2.149516217699645!3d53.51237769196053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x487bb73bf70b74e5%3A0x8f85e82bba77c9f6!2sFailsworth%2C+Oldham+OL8+3QL%2C+UK!3m2!1d53.5165882!2d-2.1430048999999998!4m5!1s0x487bb72dc4252afd%3A0x6af45b7752c134a8!2sFailsworth+Health+Centre%2C+Ashton+Rd+W%2C+Failsworth%2C+Manchester+M35+0HN!3m2!1d53.5099235!2d-2.1565266!5e0!3m2!1sen!2suk!4v1528814120922"
               width="100%"
               height="450"
+              title="Ross Care Independent Living Centre on google maps"
             ></iframe>
           </div>
         </div>
