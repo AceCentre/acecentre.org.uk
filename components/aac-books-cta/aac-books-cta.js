@@ -19,7 +19,7 @@ export const AacBooksCta = () => {
           technology to communicate.
         </p>
         <div className={styles.button}>
-          <Button href="/resources/getting-started-aac">
+          <Button href="resources/all?category=e-books&page=1">
             View the E-book series
           </Button>
         </div>
