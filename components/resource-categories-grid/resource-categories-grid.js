@@ -5,9 +5,13 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 
 export const ResourceCategoriesGrid = ({ productCategories }) => {
+  const categoriesWithImages = productCategories.filter(
+    (cat) => cat.image?.src
+  );
+
   return (
     <ul className={styles.container}>
-      {productCategories.map((category) => {
+      {categoriesWithImages.map((category) => {
         return (
           <CategorySquare
             key={`category-square-${category.name}`}
