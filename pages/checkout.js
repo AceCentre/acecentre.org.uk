@@ -359,6 +359,11 @@ const useCheckoutForm = (
 
           if (id) {
             localStorage.setItem(`order-${id}`, JSON.stringify(order));
+
+            if (!order.stripeFinishedCharging) {
+              await stripe.confirmCardPayment(order.paymentIntent);
+            }
+
             router.push(`/order/${id}`);
             return;
           } else {
