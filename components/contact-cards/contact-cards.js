@@ -3,12 +3,25 @@ import styles from "./contact-cards.module.css";
 
 import { Avatar } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { Button } from "../button/button";
+import { CONTACT_FORM, FormModal } from "../ms-form";
 
 export const ContactCards = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>How can we help you?</h2>
       <ul className={styles.list}>
+        <Card>
+          <h3>Contact us</h3>
+          <p>Get in touch with Ace Centre by filling out our contact form.</p>
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.buttonMargin}>
+                <Button onClick={onClick}>Contact form</Button>
+              </div>
+            )}
+          </FormModal>
+        </Card>
         <Card>
           <h3>Advice helpline</h3>
           <p>
