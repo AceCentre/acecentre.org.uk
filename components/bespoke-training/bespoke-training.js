@@ -2,6 +2,7 @@ import styles from "./bespoke-training.module.css";
 
 import { Button } from "../button/button";
 import { ImageWithLoader as Image } from "../image";
+import { FormModal, LEARNING_ENQ } from "../ms-form";
 
 export const BespokeTraining = () => {
   return (
@@ -14,9 +15,13 @@ export const BespokeTraining = () => {
           see how we can develop a suitable training programme for your
           requirements.
         </p>
-        <div className={styles.button}>
-          <Button href="/form/learning-enquiry">Make an online enquiry</Button>
-        </div>
+        <FormModal form={LEARNING_ENQ}>
+          {({ onClick }) => (
+            <div className={styles.button}>
+              <Button onClick={onClick}>Make an online enquiry</Button>
+            </div>
+          )}
+        </FormModal>
         <p>
           or call our advice line on <strong>0800 048 7642</strong>
         </p>
