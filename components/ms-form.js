@@ -25,7 +25,20 @@ export const LEARNING_ENQ = {
     "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrGI3PLISoyxPjhhaQvSfizZUNzREN0xLSUdDUURMMVdJUFhaMUVLWjRKSy4u&embed=true",
 };
 
-export const ALL_FORMS = [CONTACT_FORM, INFO_APP_FEEDBACK, LEARNING_ENQ];
+export const COURSE_EVALUATION = {
+  slug: "course-evaluation",
+  title: "Course evaluation",
+  height: 3000,
+  url:
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUNDZMQThISE44NTFZRUc5VDY0MldUNEhEMSQlQCN0PWcu&embed=true",
+};
+
+export const ALL_FORMS = [
+  CONTACT_FORM,
+  INFO_APP_FEEDBACK,
+  LEARNING_ENQ,
+  COURSE_EVALUATION,
+];
 
 export const FormModal = ({ children, form, className = "" }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
