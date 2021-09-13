@@ -18,6 +18,7 @@ export const CourseList = ({
   showDate = false,
   className = "",
   withMeta = false,
+  threeWide = false,
 }) => {
   const productsWithoutImageCounters = usePostsWithoutImageCounters(products);
 
@@ -35,7 +36,7 @@ export const CourseList = ({
         {productsWithoutImageCounters.map((product) => {
           return (
             <Card
-              className={styles.card}
+              className={`${styles.card} ${threeWide ? styles.threeWide : ""}`}
               imageContainerClassName={styles.imageContainer}
               href={`/learning/${product.slug}`}
               key={`${title}-card-${product.slug}`}

@@ -48,6 +48,11 @@
   max-width: 230px;
 }
 
+.threeWide.threeWide {
+  min-width: 320px;
+  max-width: 320px;
+}
+
 .productTitle {
   color: #333333;
   font-size: 16px;
@@ -93,5 +98,13 @@
 
   .viewAllLink {
     margin-left: 0;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 400px) {
+  .threeWide.threeWide {
+    min-width: 200px;
+    max-width: 320px;
   }
 }
