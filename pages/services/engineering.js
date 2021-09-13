@@ -16,6 +16,7 @@ import { getSimpleStory } from "../../lib/story/get-story";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
+import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage({ featuredStory, allPosts }) {
   const { currentYear } = useGlobalProps();
@@ -36,9 +37,15 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
           <p className={styles.cardDescription}>
             Engineering: Innovation, design and technology for everyone.
           </p>
-          <div className={styles.cardButton}>
-            <Button href="/contact">Enquire about engineering</Button>
-          </div>
+
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButton}>
+                <Button onClick={onClick}>Enquire about engineering</Button>
+              </div>
+            )}
+          </FormModal>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>

@@ -20,6 +20,7 @@ import { getAllProducts } from "../../../lib/products/get-products";
 import { getAllProductCategories } from "../../../lib/products/get-all-categories";
 import { filterProducts } from "../../../lib/products/filter-products";
 import { ResourceList } from "../../../components/resource-list/resource-list";
+import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 
 export default function Laaces({ gettingStartedResources }) {
   const { currentYear } = useGlobalProps();
@@ -45,11 +46,16 @@ export default function Laaces({ gettingStartedResources }) {
             Supporting local AAC Services in the the North West and Thames
             Valley & Wessex regions
           </p>
-          <div className={styles.cardButtonContainer}>
-            <Button href="/contact" className={styles.cardButton}>
-              Make an online enquiry
-            </Button>
-          </div>
+
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButtonContainer}>
+                <Button onClick={onClick} className={styles.cardButton}>
+                  Make an online enquiry
+                </Button>
+              </div>
+            )}
+          </FormModal>
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>

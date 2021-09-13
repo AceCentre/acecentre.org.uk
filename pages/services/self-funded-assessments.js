@@ -13,6 +13,7 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "../../styles/self-funded-assessments.module.css";
 import { InformationDays } from "../../components/information-days/information-days";
 import Link from "next/link";
+import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage() {
   const { currentYear } = useGlobalProps();
@@ -35,9 +36,14 @@ export default function EngineeringPage() {
             identify and achieve goals to support the development of
             communication, learning, and greater independence.
           </p>
-          <div className={styles.cardButton}>
-            <Button href="/contact">Make an online enquiry</Button>
-          </div>
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButton}>
+                <Button onClick={onClick}>Make an online enquiry</Button>
+              </div>
+            )}
+          </FormModal>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
