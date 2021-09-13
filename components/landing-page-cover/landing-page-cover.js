@@ -17,8 +17,8 @@ export const LandingPageCover = () => {
             className={styles.image}
             objectFit="cover"
             layout="fill"
-            src="/landing-page-cover.png"
-            alt="Cover image of a male looking happy to be communicating with an AAC device."
+            src="/landing-page-cover.jpeg"
+            alt="Ace Centre engineer fitting an AAC device"
           />
         </div>
         <div className={styles.card}>
