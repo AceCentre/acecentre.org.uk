@@ -66,11 +66,16 @@
   text-align: center;
 }
 
-.topSection h2,
-.topSection p {
+.topSection h2 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
+}
+
+.topSection p {
+  width: 60%;
+  min-width: 250px;
+  margin: 0 auto;
 }
 
 /** Mobile CSS */
