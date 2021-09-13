@@ -301,7 +301,7 @@ export const BillingDetails = ({
 }) => {
   return (
     <div className={styles.outerContainer}>
-      <h2>Billing details</h2>
+      <h2>{reducedInfo ? "Personal details" : "Billing details"}</h2>
       {billingError && <p className={styles.error}>{billingError}</p>}
       <div className={styles.container}>
         <div className={styles.list}>
