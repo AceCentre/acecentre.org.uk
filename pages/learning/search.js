@@ -99,15 +99,9 @@ export const getServerSideProps = withGlobalProps(async (req) => {
       max: 0.01,
     },
     {
-      slug: "<50",
-      name: "£0 - 50",
+      slug: "<100",
+      name: "£0 - 100",
       min: 0.01,
-      max: 50,
-    },
-    {
-      slug: ">50",
-      name: "£50 - £100",
-      min: 50,
       max: 100,
     },
     {
