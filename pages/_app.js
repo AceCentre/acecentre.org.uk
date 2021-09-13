@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import NextNProgress from "../components/progress-bar";
 import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
+import "polyfill-object.fromentries";
+
 const theme = createTheme();
 
 function MyApp({
