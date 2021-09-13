@@ -2,6 +2,11 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  margin-bottom: 3rem;
+}
+
+.buttonMargin {
+  margin-top: auto;
 }
 
 .heading {
@@ -12,8 +17,9 @@
 .list {
   padding: 0;
   list-style-type: none;
-  display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .listItem {
@@ -93,6 +99,6 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .list {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }

@@ -7,10 +7,7 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
-import styles from "../styles/contact.module.css";
-import { ALL_FORMS, MsForm } from "../components/ms-form";
-
-export default function Contact({ form }) {
+export default function Contact() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -24,9 +21,7 @@ export default function Contact({ form }) {
           description="If you think Ace Centre can help you or someone you know please get in touch"
         />
         <ContactCards />
-        <div className={styles.inlineForm}>
-          <MsForm className={styles.form} form={form} />
-        </div>
+
         <FindOurOffices />
       </main>
       <Footer currentYear={currentYear} />
@@ -35,13 +30,8 @@ export default function Contact({ form }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const slug = "contact";
-  const form = ALL_FORMS.find((current) => current.slug === slug);
-
   return {
     props: {
-      slug,
-      form,
       seo: {
         title: "Contact us",
         description:
