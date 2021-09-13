@@ -18,6 +18,7 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
 import { AssessmentEligibility } from "../assessments";
+import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 
 export default function NHSLanding() {
   const { currentYear } = useGlobalProps();
@@ -39,11 +40,16 @@ export default function NHSLanding() {
             Specialist AAC Service supporting the North West and Thames Valley &
             Wessex regions
           </p>
-          <div className={styles.cardButtonContainer}>
-            <Button href="/contact" className={styles.cardButton}>
-              Make an online enquiry
-            </Button>
-          </div>
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButtonContainer}>
+                <Button onClick={onClick} className={styles.cardButton}>
+                  Make an online enquiry
+                </Button>
+              </div>
+            )}
+          </FormModal>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>

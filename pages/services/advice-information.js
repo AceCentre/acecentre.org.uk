@@ -14,12 +14,12 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "../../styles/advice-information.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 // import { FeaturedStory } from "../../components/featured-story/featured-story";
-import Link from "next/link";
 import { InformationDays } from "../../components/information-days/information-days";
 import { getAllProducts } from "../../lib/products/get-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { filterProducts } from "../../lib/products/filter-products";
 import { ResourceList } from "../../components/resource-list/resource-list";
+import { FormModal, INFO_APP_FEEDBACK } from "../../components/ms-form";
 
 export default function EngineeringPage({
   // featuredStory,
@@ -49,6 +49,7 @@ export default function EngineeringPage({
               Book information appointment
             </Button>
           </div>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
@@ -115,9 +116,12 @@ export default function EngineeringPage({
                 evaluate our services, and we will not share the data with
                 anyone else.
               </p>
-              <Link href="/form/information-appointment-feedback">
-                <a className={styles.link}>Leave feedback &gt;</a>
-              </Link>
+
+              <FormModal form={INFO_APP_FEEDBACK}>
+                {({ onClick }) => (
+                  <Button onClick={onClick}>Leave feedback</Button>
+                )}
+              </FormModal>
             </div>
           </div>
           <div>

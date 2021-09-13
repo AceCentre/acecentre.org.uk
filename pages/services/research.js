@@ -16,6 +16,7 @@ import { getSimpleStory } from "../../lib/story/get-story";
 // import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { getAllProjects } from "../../lib/posts/get-posts";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
+import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage({ latestProjects }) {
   const { currentYear } = useGlobalProps();
@@ -37,9 +38,15 @@ export default function EngineeringPage({ latestProjects }) {
             Our research and development projects enhance achievement and good
             practice in the field
           </p>
-          <div className={styles.cardButton}>
-            <Button href="/contact">Enquire about research</Button>
-          </div>
+
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButton}>
+                <Button onClick={onClick}>Enquire about research</Button>
+              </div>
+            )}
+          </FormModal>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>

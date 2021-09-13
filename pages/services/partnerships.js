@@ -14,6 +14,7 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "../../styles/partnerships.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { FeaturedStory } from "../../components/featured-story/featured-story";
+import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage({ featuredStory }) {
   const { currentYear } = useGlobalProps();
@@ -35,9 +36,14 @@ export default function EngineeringPage({ featuredStory }) {
             augmentative communication (AAC) and assistive technology (AT)
             needs.
           </p>
-          <div className={styles.cardButton}>
-            <Button href="/contact">Enquire about partnerships</Button>
-          </div>
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.cardButton}>
+                <Button onClick={onClick}>Enquire about partnerships</Button>
+              </div>
+            )}
+          </FormModal>
+
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 048 7642</strong>
           </p>
