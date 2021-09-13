@@ -208,14 +208,12 @@ const SingleDownloadableProduct = ({ resource }) => {
           <ModalBody style={{ padding: "2rem" }}>
             <div className={styles.topSection}>
               <h2>Free download complete</h2>
-              <p>Here&apos;s how you can support us</p>
+              <p>
+                Sign up to our free newsletter to stay up to date with the
+                latest resources from Ace Centre
+              </p>
             </div>
 
-            <div className={styles.donateContainer}>
-              <Button href="/get-involved/donate">
-                Make a one-off donation
-              </Button>
-            </div>
             <div className={styles.newsletterContainer}>
               <div
                 dangerouslySetInnerHTML={{
@@ -238,8 +236,7 @@ const SingleDownloadableProduct = ({ resource }) => {
 <div id="mc_embed_signup">
 <form action="https://acecentre.us7.list-manage.com/subscribe/post?u=d05eb11e79c97878b9f10fd9c&amp;id=ec5a06da07" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	<label for="mce-EMAIL">Sign up to our newsletter</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
+	<input aria-label="Email address for mailing list" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d05eb11e79c97878b9f10fd9c_ec5a06da07" tabindex="-1" value=""></div>
     <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
