@@ -11,6 +11,10 @@
   gap: 2rem;
 }
 
+.backgroundColor {
+  background: #133567;
+}
+
 .yellowTint {
   position: absolute;
   width: 100%;
