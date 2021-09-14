@@ -17,5 +17,7 @@ runs:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
-    - command: echo "Hello"
-    - command: echo "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+    - run: echo "Hello"
+      shell: bash
+    - run: echo "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+      shell: bash
