@@ -3,7 +3,6 @@ Front-end for acecentre.org.uk built using NextJS. Sits on top of a wordpress ba
 - [Development](#development)
   - [Setup](#setup)
   - [Running in Dev Mode](#running-in-dev-mode)
-  - [Storybook](#storybook)
   - [Graphql](#graphql)
 - [Contributing](#contributing)
 - [Deployment](#deployment)
@@ -23,14 +22,6 @@ Make sure to install the dependencies using `yarn install`
 ### Running in Dev Mode
 
 You can run the NextJS app by doing `yarn dev`. You can then see the website at localhost:3000](http://localhost:3000)
-
-### Storybook
-
-[Storybook](https://storybook.js.org/) is an open source tool for developing UI components in isolation for React, Vue, Angular, and more. It makes building stunning UIs organized and efficient.
-
-You can run storybook in dev mode by running `yarn storybook`. You can then see it running at [localhost:6006](http://localhost:6006).
-
-You can see it deployed at [acecentreorguk.netlify.app/design-system/](https://acecentreorguk.netlify.app/design-system/)
 
 ### Graphql
 
