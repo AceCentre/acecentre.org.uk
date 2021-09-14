@@ -29,7 +29,7 @@ The website is powered by Wordpress but uses [WPGraphql](https://www.wpgraphql.c
 
 ## Contributing
 
-If you want to contribute, open a PR so that the tests can run against your changes and we can view a preview before you change goes live.
+If you want to contribute, open a PR so that the tests can run against your changes and we can view a preview before you change goes live
 
 ## Deployment
 
