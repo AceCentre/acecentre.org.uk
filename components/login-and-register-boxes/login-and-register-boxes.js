@@ -35,6 +35,7 @@ export const LoginAndRegisterBoxes = () => {
             className={styles.form}
             onSubmit={loginOnSubmit}
             onChange={loginOnChange}
+            aria-label="Login form"
           >
             <Input
               maxWidth="100%"
@@ -75,6 +76,7 @@ export const LoginAndRegisterBoxes = () => {
             className={styles.form}
             onSubmit={registerOnSubmit}
             onChange={registerOnChange}
+            aria-label="Register form"
           >
             <Input
               maxWidth="100%"
