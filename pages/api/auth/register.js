@@ -98,6 +98,10 @@ const normaliseError = (errorMessage) => {
     return "This email is already in use";
   }
 
+  if (errorMessage.includes("this email is already registered")) {
+    return "This email is already in use";
+  }
+
   return errorMessage;
 };
 
