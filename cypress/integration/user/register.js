@@ -74,7 +74,7 @@ context("Register", () => {
     });
   });
 
-  it.only("Registers in, checks email in details, logs out", () => {
+  it("Registers in, checks email in details, logs out", () => {
     // Store email address for later
     const newEmail = validEmail();
 
