@@ -1,15 +1,24 @@
 const script = (context) => {
-  const title = context.payload.pull_request.title;
+  if (
+    context &&
+    context.payload &&
+    context.payload.pull_request &&
+    context.payload.pull_request.title
+  ) {
+    const title = context.payload.pull_request.title;
 
-  const replaced = title
-    .toLowerCase()
-    .replace(/\//g, "-")
-    .replace(/ /g, "-")
-    .replace(/\./g, "-")
-    .replace(/@/g, "")
-    .slice(0, 35);
+    const replaced = title
+      .toLowerCase()
+      .replace(/\//g, "-")
+      .replace(/ /g, "-")
+      .replace(/\./g, "-")
+      .replace(/@/g, "")
+      .slice(0, 35);
 
-  return trim(replaced, "-");
+    return trim(replaced, "-");
+  } else {
+    return "integration";
+  }
 };
 
 const trim = (str, delimiter) => {
