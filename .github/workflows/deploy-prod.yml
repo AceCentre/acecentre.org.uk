@@ -17,6 +17,8 @@ jobs:
     outputs:
       buildId: ${{ steps.time.outputs.dateTime }}
     steps:
+      - name: Get Code
+        uses: actions/checkout@v2
       - id: foo
         uses: ./actions/build-netlify
         with:
