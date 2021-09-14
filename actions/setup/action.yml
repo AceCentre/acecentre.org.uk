@@ -1,6 +1,5 @@
 name: "Setup the env"
 description: "Install node, install NPM deps, setup cache, patch and unpatch deps"
-inputs:
 runs:
   using: "composite"
   steps:
