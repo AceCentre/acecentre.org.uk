@@ -53,7 +53,11 @@ export const LoginAndRegisterBoxes = () => {
               id="login-password"
               type="password"
             />
-            {loginError && <p className={styles.loginError}>{loginError}</p>}
+            {loginError && (
+              <p data-testid="login-error" className={styles.loginError}>
+                {loginError}
+              </p>
+            )}
             <div className={styles.buttonContainer}>
               <Button
                 className={styles.button}
@@ -87,7 +91,12 @@ export const LoginAndRegisterBoxes = () => {
               type="email"
             />
             {registerEmailError && (
-              <p className={styles.loginError}>{registerEmailError}</p>
+              <p
+                data-testid="register-email-error"
+                className={styles.loginError}
+              >
+                {registerEmailError}
+              </p>
             )}
             <Input
               maxWidth="100%"
@@ -99,13 +108,20 @@ export const LoginAndRegisterBoxes = () => {
               type="password"
             />
             {registerPasswordError && (
-              <p className={styles.loginError}>{registerPasswordError}</p>
+              <p
+                data-testid="register-password-error"
+                className={styles.loginError}
+              >
+                {registerPasswordError}
+              </p>
             )}
             <Checkbox name="mailingList" id="mailingList">
               Email me about Ace related news and events
             </Checkbox>
             {registerGeneralError && (
-              <p className={styles.loginError}>{registerGeneralError}</p>
+              <p data-testid="register-error" className={styles.loginError}>
+                {registerGeneralError}
+              </p>
             )}
             <div>
               <Button
