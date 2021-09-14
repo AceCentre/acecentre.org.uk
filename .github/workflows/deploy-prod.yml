@@ -53,6 +53,27 @@ jobs:
       - name: Setup
         uses: ./actions/setup
 
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - name: Patch deps
+        run: yarn patch
+
       - name: Run netlify build
         run: netlify build --context production
 
