@@ -17,6 +17,10 @@ jobs:
     outputs:
       buildId: ${{ steps.time.outputs.dateTime }}
     steps:
+      - id: foo
+        uses: ./actions/build-netlify
+        with:
+          who-to-greet: "Mona the Octocat"
       - name: Get Time
         id: time
         uses: Plabick/Remote-Time-Action@V1.0
