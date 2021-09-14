@@ -187,9 +187,6 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v2
 
-      - name: Setup
-        uses: ./actions/setup
-
       - name: Install Node
         uses: actions/setup-node@v2
         with:
