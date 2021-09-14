@@ -1,6 +1,7 @@
-name: Deploy Production
+name: Deploy and Test
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
@@ -8,7 +9,7 @@ on:
     # Everyday at 2AM
     - cron: "0 2 * * *"
 concurrency:
-  group: deploy-prod
+  group: deploy-${{ github.head_ref }}
   cancel-in-progress: true
 
 jobs:
@@ -160,6 +161,7 @@ jobs:
 
   DeployNetlify:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     needs: [GetUniqueBuildId, Cypress]
     outputs:
       lighthousePaths: ${{ steps.get-paths.outputs.result }}
@@ -227,6 +229,7 @@ jobs:
 
   Lighthouse:
     needs: [DeployNetlify]
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
