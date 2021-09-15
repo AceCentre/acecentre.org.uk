@@ -28,6 +28,7 @@ export const HowCanWeHelpDropdown = () => {
         backgroundColor="#F5F5F5"
         onChange={onChange}
         placeholder="Select your issue."
+        aria-label="Select your issue"
       >
         {HOW_CAN_WE_HELP.map((entry) => {
           return (
@@ -61,6 +62,7 @@ const ProductSupplier = () => {
         backgroundColor="#F5F5F5"
         onChange={onChange}
         placeholder="Select your supplier."
+        aria-label="Select your supplier"
       >
         {SUPPLIERS.map((entry) => {
           return (
