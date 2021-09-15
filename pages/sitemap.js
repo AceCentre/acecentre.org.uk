@@ -78,7 +78,7 @@ export default function Sitemap() {
           description="A list of every page on the website"
         />
         <div className={styles.sitemapContainer}>
-          {sitemap && <TreeLeaf node={sitemap} />}
+          {sitemap && <TreeLeaf node={sitemap} root />}
         </div>
       </main>
       <Footer currentYear={currentYear} />
@@ -86,9 +86,9 @@ export default function Sitemap() {
   );
 }
 
-const TreeLeaf = ({ node }) => {
+const TreeLeaf = ({ node, root = false }) => {
   return (
-    <>
+    <Wrapper root={root}>
       <p>
         <Link href={node.fullPath}>
           <a>{node.title}</a>
@@ -101,8 +101,16 @@ const TreeLeaf = ({ node }) => {
           ))}
         </ul>
       )}
-    </>
+    </Wrapper>
   );
+};
+
+const Wrapper = ({ root, children }) => {
+  if (root) {
+    return <div>{children}</div>;
+  } else {
+    return <li>{children}</li>;
+  }
 };
 
 export const getStaticProps = withGlobalProps(async () => {
