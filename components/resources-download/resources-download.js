@@ -271,6 +271,7 @@ const SingleDownloadableProduct = ({ resource }) => {
             setModelOpen(true);
           }}
           href={`${config.baseUrl}${resource.downloadUrl}`}
+          download
         >
           Free download
         </Button>

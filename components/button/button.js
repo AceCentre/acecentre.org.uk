@@ -9,6 +9,7 @@ export const Button = ({
   type,
   newTab = false,
   disabled = false,
+  download = false,
   ...props
 }) => {
   const newTabProps = newTab ? { target: "_blank", rel: "noreferrer" } : {};
@@ -20,6 +21,7 @@ export const Button = ({
           {...newTabProps}
           onClick={onClick}
           className={`${styles.button} ${className}`}
+          download={download}
         >
           {children}
         </a>
