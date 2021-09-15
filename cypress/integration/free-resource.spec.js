@@ -1,5 +1,3 @@
-import path from "path";
-
 context("Free resources", () => {
   it("can navigate to a free resource", () => {
     cy.visit("");
