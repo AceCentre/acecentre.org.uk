@@ -4,7 +4,7 @@ const SHORT_PASSWORD = "short";
 const INVALID_EMAIL = "email@email@email.com";
 
 const validEmail = () => {
-  const randomNumber = Math.floor(Math.random() * 100000);
+  const randomNumber = Math.floor(Math.random() * 1000000);
 
   return `test-${randomNumber}@acecentre.org.uk`;
 };
@@ -13,7 +13,7 @@ context("Register", () => {
   it("Shows an error when the email address is in use", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url().should("include", "/login");
+    cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
       .findByRole("textbox", {
@@ -37,7 +37,7 @@ context("Register", () => {
   it("Shows an error when you password is to short", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url().should("include", "/login");
+    cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
       .findByRole("textbox", {
@@ -57,7 +57,7 @@ context("Register", () => {
   it("Shows an error when you email is not valid", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url().should("include", "/login");
+    cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
       .findByRole("textbox", {
@@ -81,7 +81,7 @@ context("Register", () => {
     // Go to the register page
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url().should("include", "/login");
+    cy.url({ timeout: 10000 }).should("include", "/login");
 
     // Fill in email field
     cy.findAllByRole("form", { name: "Register form" })
@@ -105,22 +105,22 @@ context("Register", () => {
 
     // Check email in details
     cy.findByRole("link", { name: "Manage details >" }).click();
-    cy.url().should("include", "/details");
+    cy.url({ timeout: 10000 }).should("include", "/details");
     cy.findByRole("textbox", { name: "Email" }).should("have.value", newEmail);
 
     // Go back to my-acecentre
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should(
       "equal",
-      Cypress.config().baseUrl + "my-acecentre"
+      Cypress.config().baseUrl + "/my-acecentre"
     );
 
     // Log out
     cy.findByRole("button", { name: "Logout" }).click();
-    cy.url().should("equal", Cypress.config().baseUrl);
+    cy.url({ timeout: 10000 }).should("equal", Cypress.config().baseUrl + "/");
 
     // Make sure we are on the login page
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url().should("include", "/login");
+    cy.url({ timeout: 10000 }).should("include", "/login");
   });
 });
