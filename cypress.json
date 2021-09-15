@@ -3,5 +3,6 @@
   "videosFolder": "./artifacts/videos",
   "baseUrl": "http://localhost:3000",
   "projectId": "2da7p6",
-  "retries": 3
+  "retries": 3,
+  "chromeWebSecurity": false
 }
