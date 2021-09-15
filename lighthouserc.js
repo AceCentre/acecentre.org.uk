@@ -38,7 +38,6 @@ const getExtraAssertions = () => {
     "total-byte-weight": "off",
     "unminified-css": "off",
     "unminified-javascript": "off",
-    "uses-text-compression": "off",
     "valid-source-maps": "off",
   };
 };
@@ -105,6 +104,7 @@ module.exports = {
         "unminified-javascript": "off",
         "valid-source-maps": "off",
         "unminified-css": "off",
+        "uses-text-compression": "off",
 
         ...getExtraAssertions(),
       },
