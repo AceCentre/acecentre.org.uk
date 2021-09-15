@@ -14,7 +14,7 @@
     "build-storybook": "rm -rf out/design-system && mkdir -p out/design-system && build-storybook -o out/design-system --quiet -s ./public",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open",
+    "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
     "lighthouse": "lhci autorun",
     "plop": "plop",
     "build-sitemap": "next-sitemap",
