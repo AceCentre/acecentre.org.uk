@@ -178,6 +178,7 @@ export const CourseFilter = ({
             backgroundColor="#F5F5F5"
             {...categorySelectProps}
             placeholder="Category"
+            aria-label="Category"
           >
             {allCategories.map((category) => {
               return (
@@ -196,6 +197,7 @@ export const CourseFilter = ({
             backgroundColor="#F5F5F5"
             {...levelSelectProps}
             placeholder="Level"
+            aria-label="Level"
           >
             {allLevels.map((level) => {
               return (
@@ -211,6 +213,7 @@ export const CourseFilter = ({
             backgroundColor="#F5F5F5"
             {...typeSelectProps}
             placeholder="Type"
+            aria-label="Type"
           >
             {allTypes.map((type) => {
               return (
@@ -226,6 +229,7 @@ export const CourseFilter = ({
             backgroundColor="#F5F5F5"
             {...locationSelectProps}
             placeholder="Location"
+            aria-label="Location"
           >
             {allLocations.map((location) => {
               return (
@@ -241,6 +245,7 @@ export const CourseFilter = ({
             backgroundColor="#F5F5F5"
             {...priceSelectProps}
             placeholder="Price"
+            aria-label="Price"
           >
             {allPrices.map((price) => {
               return (
@@ -260,6 +265,7 @@ export const CourseFilter = ({
             variant="unstyled"
             {...orderBySelectProps}
             placeholder="Order By"
+            aria-label="Order by"
           >
             {allOrderBy.map((orderBy) => {
               return (

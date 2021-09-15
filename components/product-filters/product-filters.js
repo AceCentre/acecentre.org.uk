@@ -153,6 +153,7 @@ export const ProductFilters = ({
             backgroundColor="#F5F5F5"
             {...topLevelCategorySelectProps}
             placeholder="Category"
+            aria-label="Category"
           >
             {categories.map((category) => {
               return (
@@ -169,6 +170,7 @@ export const ProductFilters = ({
             disabled={currentSubCategories.length === 0}
             {...subcategorySelectProps}
             placeholder="Sub-category"
+            aria-label="Sub-category"
           >
             {currentSubCategories.map((category) => {
               return (
@@ -187,6 +189,7 @@ export const ProductFilters = ({
             backgroundColor="#F5F5F5"
             {...priceRangeSelectProps}
             placeholder="Price range"
+            aria-label="Price range"
           >
             {priceRanges.map((priceRange) => {
               return (
@@ -207,6 +210,7 @@ export const ProductFilters = ({
             maxWidth={160}
             className={styles.orderBySelect}
             variant="unstyled"
+            aria-label="Sort by"
             {...orderByProps}
           >
             {ORDER_BY_OPTIONS.map((orderBy) => {
