@@ -49,7 +49,12 @@ const Ebook = ({ ebook }) => {
             aria-label="Open in apple books"
             href={ebook.ibook}
           >
-            <img alt="Get it on Apple Books" src="/apple-books.svg"></img>
+            <img
+              height={40}
+              width={140}
+              alt="Get it on Apple Books"
+              src="/apple-books.svg"
+            ></img>
           </a>
         )}
         {ebook.downloadLocation && (
