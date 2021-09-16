@@ -2,7 +2,11 @@ const fs = require("fs");
 const path = require("path");
 const parser = require("fast-xml-parser");
 
-const IGNORE = ["my-acecentre", "switch-scanning-frequency-analysis"];
+const IGNORE = [
+  "my-acecentre",
+  "switch-scanning-frequency-analysis",
+  "make-your-own-flip-joke-book",
+];
 
 const script = () => {
   const sitemapPath = path.join(__dirname, "../out/sitemap.xml");
