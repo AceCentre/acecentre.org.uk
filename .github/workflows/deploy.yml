@@ -99,7 +99,7 @@ jobs:
 
   DeployNetlifyIntegration:
     runs-on: ubuntu-latest
-    needs: [GetUniqueBuildId, Jest, ESLint, CalculateDeployKey]
+    needs: [GetUniqueBuildId, CalculateDeployKey]
     outputs:
       deploy-name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
       deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
@@ -183,7 +183,7 @@ jobs:
   DeployNetlify:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    needs: [GetUniqueBuildId, Cypress]
+    needs: [GetUniqueBuildId, Cypress, Jest, ESLint]
     outputs:
       lighthousePaths: ${{ steps.get-paths.outputs.result }}
       deploy-url: https://netlify.acecentre.org.uk
