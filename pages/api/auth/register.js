@@ -8,10 +8,10 @@ const ENDPOINT = `${config.baseUrl}/graphql`;
 
 const REGISTER_MUTATION = gql`
   mutation RegisterMutation($email: String!, $password: String!) {
-    registerUser(
+    registerCustomer(
       input: { email: $email, password: $password, username: $email }
     ) {
-      user {
+      customer {
         id
       }
     }
