@@ -113,9 +113,74 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 
 ## Group booking (2 users)
 
-## Group booking (1 existing 1 new)
+### Test steps
 
-## Combination of group booking and existing user
+1. Open the wordpress admin panel
+2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+3. Generate a code
+4. Set it to 100% discount
+5. Set usage limit to 1
+6. Open an incognito tab
+7. Find a paid course and add 2 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+8. Apply coupon code
+9. Click checkout
+10. Fill out form
+11. Use three email addresses you control
+12. Set password to `password`
+13. Place order
+14. Check that the booker doesn't have a course
+15. Check email
+16. Sign in to both learner accounts and check you can get on the course
+
+### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 1
+
+## Group booking (1 current user + 1 new user)
+
+### Test steps
+
+1. Open the wordpress admin panel
+2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+3. Generate a code
+4. Set it to 100% discount
+5. Set usage limit to 1
+6. Open an incognito tab
+7. Find a paid course and add 2 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+8. Apply coupon code
+9. Click checkout
+10. Fill out form
+11. Use two email addresses you control, reuse the billing email address as a student
+12. Set password to `password`
+13. Place order
+14. Check that the logged in booker has the course available in My Ace Centre
+15. Check emails
+16. Log in as second learner
+17. Check access to course
+
+### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 1
+
+## Combination of group booking and delegating
 
 ## Large group booking
 
