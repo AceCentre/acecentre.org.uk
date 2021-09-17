@@ -92,7 +92,24 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 16. Go to My Ace Centre
 17. Make sure there are no courses and one order
 18. Check your email
-19.
+19. Close and open incognito
+20. Login with the credentials sent to the learner email
+21. Check my courses
+22. Click on course
+23. Logout
+
+### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 1
 
 ## Group booking (2 users)
 
