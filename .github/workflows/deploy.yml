@@ -123,8 +123,6 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v2
-        with:
-          lfs: true
 
       - name: Install Node
         uses: actions/setup-node@v2
@@ -209,8 +207,6 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v2
-        with:
-          lfs: true
 
       - name: Install Node
         uses: actions/setup-node@v2
