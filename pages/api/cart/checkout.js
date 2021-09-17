@@ -50,31 +50,29 @@ async function handler(req, res) {
       console.log("Checked out without cohort");
     }
 
+    let currentUrl = "http://localhost:3000";
+    let cookieHeader = req.headers.cookie;
+
+    if (config.environment !== "development") {
+      currentUrl =
+        "https://" +
+        req.netlifyFunctionParams.event.rawUrl
+          .replace("https://", "")
+          .split("/")[0];
+
+      cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
+    }
+
     if (
       body.accountDetails.createAccount &&
       body.billingDetails.email &&
       body.accountDetails.password
     ) {
       console.log("Started logging In");
-
-      await login(req, body);
-      console.log("Logged In");
+      cookieHeader = await login(req, body);
     }
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
-      let currentUrl = "http://localhost:3000";
-      let cookieHeader = req.headers.cookie;
-
-      if (config.environment !== "development") {
-        currentUrl =
-          "https://" +
-          req.netlifyFunctionParams.event.rawUrl
-            .replace("https://", "")
-            .split("/")[0];
-
-        cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
-      }
-
       console.log("Started adding to cohort");
       await fetch(`${currentUrl}/api/cart/add-to-cohort-background`, {
         method: "POST",
@@ -146,7 +144,7 @@ const login = async (req, body) => {
     wooSessionToken: loginResponse.login.user.wooSessionToken,
   });
 
-  await req.session.save();
+  return await req.session.save();
 };
 
 export default withSession(handler);
