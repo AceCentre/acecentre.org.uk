@@ -54,8 +54,8 @@ export default function EngineeringPage({ featuredStory }) {
             <p>
               We achieve positive outcomes for our clients by drawing on the
               skills of our multidisciplinary team of teachers, speech and
-              language therapists, occupational therapists, technical engineers
-              and technicians.
+              language therapists, occupational therapists, engineers and
+              technicians.
             </p>
             <p>
               Through our individually tailored Partnerships, we work on
@@ -173,7 +173,7 @@ export const getStaticProps = withGlobalProps(async () => {
       seo: {
         title: "Partnerships",
         description:
-          "We achieve positive outcomes for our clients by drawing on the skills of our multidisciplinary team of teachers, speech and language therapists, occupational therapists, technical engineers and technicians.",
+          "We achieve positive outcomes for our clients by drawing on the skills of our multidisciplinary team of teachers, speech and language therapists, occupational therapists, engineers and technicians.",
       },
     },
   };
