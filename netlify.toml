@@ -13,6 +13,11 @@
   status = 301
 
 [[redirects]]
+  from = "/account"
+  to = "/my-acecentre"
+  status = 301
+
+[[redirects]]
   from = "/project/*"
   to = "/projects/:splat"
   status = 301
