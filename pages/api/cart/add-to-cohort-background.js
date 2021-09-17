@@ -18,7 +18,9 @@ const ADD_USERS_TO_COHORT = gql`
 const app = new App(config.slack);
 
 async function handler(req, res) {
+  console.log("Function handling began");
   const body = JSON.parse(req.body);
+  console.log("With body:", JSON.stringify(body, null, 2));
   const cohortNames = body.cohortNames;
   for (let current of cohortNames) {
     const addUserResult = await addUserToCohort(
@@ -28,19 +30,26 @@ async function handler(req, res) {
     );
     await sendSlackMessage(addUserResult.msg);
   }
+  console.log("Function handling finished");
   await res.send({ success: true });
 }
 
 const sendSlackMessage = async (message) => {
+  console.log("Trying to send a slack message");
   const turndownService = new TurndownService();
   const markdown = turndownService.turndown(message);
   await app.client.chat.postMessage({
     channel: "C02E0MC3HB2",
     text: markdown,
   });
+  console.log("Sent a slack message");
 };
 
 const addUserToCohort = async (req, cohortName, emails) => {
+  console.log(
+    "Begin addUserToCohort",
+    JSON.stringify({ cohortName, emails }, null, 2)
+  );
   const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
     cohortName,
     newUsers: emails.map((email) => ({
@@ -49,6 +58,7 @@ const addUserToCohort = async (req, cohortName, emails) => {
       lastName: email.split(/@/)[1],
     })),
   });
+  console.log("Finished addUserToCohort");
 
   return result;
 };

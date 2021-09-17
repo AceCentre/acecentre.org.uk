@@ -72,7 +72,27 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 
 ## Simple delegation
 
-## Delegation to an existing user
+### Test steps
+
+1. Open the wordpress admin panel
+2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+3. Generate a code
+4. Set it to 100% discount
+5. Set usage limit to 1
+6. Open an incognito tab
+7. Find a paid course and add 1 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+8. Apply coupon code
+9. Click checkout
+10. Fill out form
+11. Use an email you can view
+12. Set password to password
+13. Tick the `would you like to enroll a different user` button
+14. Enter a different email address
+15. Click place order
+16. Go to My Ace Centre
+17. Make sure there are no courses and one order
+18. Check your email
+19.
 
 ## Group booking (2 users)
 
