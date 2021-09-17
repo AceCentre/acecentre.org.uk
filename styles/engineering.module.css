@@ -3,7 +3,8 @@
   padding: 0;
 }
 
-.coverImage {
+.coverImage.coverImage {
+  object-position: 0px -150px !important;
   transform: scaleX(-1);
 }
 
@@ -122,6 +123,10 @@
 
 /** Mobile CSS */
 @media (max-width: 1024px) {
+  .coverImage.coverImage {
+    object-position: 0px bottom !important;
+  }
+
   .leftContent {
     margin-top: 0;
   }
