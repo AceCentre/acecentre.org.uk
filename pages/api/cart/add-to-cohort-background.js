@@ -21,7 +21,6 @@ async function handler(req, res) {
   try {
     console.log("Function handling began");
     const body = JSON.parse(req.body);
-    console.log("With body:", JSON.stringify(body, null, 2));
     const cohortNames = body.cohortNames;
     for (let current of cohortNames) {
       const addUserResult = await addUserToCohort(
@@ -51,10 +50,7 @@ const sendSlackMessage = async (message) => {
 };
 
 const addUserToCohort = async (req, cohortName, emails) => {
-  console.log(
-    "Begin addUserToCohort",
-    JSON.stringify({ cohortName, emails }, null, 2)
-  );
+  console.log("Begin addUserToCohort");
   const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
     cohortName,
     newUsers: emails.map((email) => ({
