@@ -29,6 +29,7 @@ async function handler(req, res) {
         current.cohortName,
         body.groupPurchaseEmails[current.productId]
       );
+      console.log("Add user result", JSON.stringify(addUserResult, null, 2));
       await sendSlackMessage(addUserResult.msg);
     }
     console.log("Function handling finished");
