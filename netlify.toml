@@ -18,6 +18,12 @@
   status = 301
 
 [[redirects]]
+  from = "/ace-centre-learning/my-courses"
+  to = "/my-acecentre/courses"
+  status = 301
+
+
+[[redirects]]
   from = "/project/*"
   to = "/projects/:splat"
   status = 301
