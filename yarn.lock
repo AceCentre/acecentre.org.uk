@@ -16808,10 +16808,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-lite-youtube-embed@2.0.11:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.0.11.tgz#eb3fb979db8ac2a2b1aa20c0d7f091cae7ab113b"
-  integrity sha512-yHUFTE8M+l+Pz8YWDM3SnssSHcFDFZ8FEeOR4AnfDS45kLDxJHz0KQxpglFuppkAQ86a6anefjEbHdZgx8Q18w==
+react-lite-youtube-embed@2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.0.12.tgz#7a4d001dc066811c5e4cf9d3eeb46ec6ae56ffe7"
+  integrity sha512-JAmbF+oxpPDQh7vBrXpH+cPzldyjUA+IR1Rf9QnNSoHlTzM3k0Ivy/zHBRM16/JwQjcLSVudUcYaAkob586dag==
 
 react-popper-tooltip@^3.1.1:
   version "3.1.1"
