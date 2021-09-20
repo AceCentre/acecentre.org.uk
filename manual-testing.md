@@ -182,6 +182,71 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 
 ## Combination of group booking and delegating
 
-## Large group booking
+### Test steps
+
+1. Open the wordpress admin panel
+2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+3. Generate a code
+4. Set it to 100% discount
+5. Set usage limit to 1
+6. Open an incognito tab
+7. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+8. Find a paid course and add 1 to your basket ([For example](https://netlify.acecentre.org.uk/learning/implementing-the-pragmatics-profile-for-people-who-use-aac-d-9th-30th-march-2022))
+9. Apply coupon code
+10. Click checkout
+11. Fill out form
+12. Use emails you control for all the seats
+13. Use password for the password
+14. Delegate the paid course seat
+15. Place order
+16. Check slack + Email
+17. Login with user from each group and check it works
+
+### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 1
 
 ## Multiple large group bookings
+
+### Test steps
+
+1. Open the wordpress admin panel
+2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+3. Generate a code
+4. Set it to 100% discount
+5. Set usage limit to 1
+6. Open an incognito tab
+7. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+8. Find another paid course and add 5 to your basket
+9. Repeat twice more
+10. Apply coupon code
+11. Checkout
+12. Fill in form
+13. Use password for the password
+14. Place order
+15. Check slack + Email
+16. Login with user from each group and check it works
+
+### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 5
+
+## Pay for a course
