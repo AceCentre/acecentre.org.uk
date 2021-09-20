@@ -1,7 +1,7 @@
 {
   "extends": ["config:base"],
   "dependencyDashboard": true,
-  "ignoreDeps": ["storybook-css-modules-preset"],
+  "ignoreDeps": ["storybook-css-modules-preset", "prom-client"],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
