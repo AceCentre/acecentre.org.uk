@@ -251,6 +251,8 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 
 ## Pay for a course
 
+### Test steps
+
 1. Open an incognito tab
 2. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
 3. Go to checkout, look at basket cost.
@@ -260,6 +262,15 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 7. Apply the coupon in incognito
 8. Complete checkout
 
-### Test steps
-
 ### Cleanup
+
+1. Close incognito tab
+2. Login to moodle as an Admin
+3. [Go to bulk user actions](https://learning.acecentre.org.uk/admin/user/user_bulk.php)
+4. Filter by email
+5. Remove all those users
+6. Login to wordpress as an admin
+7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+8. Remove added users
+9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+10. Increase stocks count by 5
