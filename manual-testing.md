@@ -250,3 +250,16 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 10. Increase stocks count by 5
 
 ## Pay for a course
+
+1. Open an incognito tab
+2. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+3. Go to checkout, look at basket cost.
+4. Open wordpress admin panel
+5. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+6. Generate a code that covers all of the cost (-30p)
+7. Apply the coupon in incognito
+8. Complete checkout
+
+### Test steps
+
+### Cleanup
