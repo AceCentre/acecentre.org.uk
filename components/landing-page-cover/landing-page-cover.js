@@ -6,6 +6,9 @@ import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
 import { ImageWithLoader as Image } from "../image";
 
+// const VIDEO_URL = "https://www.youtube.com/watch?v=v1kUX_BVYKw";
+const VIDEO_URL = null;
+
 export const LandingPageCover = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -30,25 +33,31 @@ export const LandingPageCover = () => {
             </strong>{" "}
             (AAC) and <strong>Assistive Technology</strong> (AT)
           </p>
-          <p className={styles.ctaText}>Watch our video</p>
-          <Button
-            variant="unstyled"
-            onClick={() => setIsPopoverOpen(true)}
-            className={styles.ctaButton}
-            aria-label="Play video about Ace Centre"
-          >
-            <Avatar className={styles.ctaAvatar}>
-              <PlayArrowIcon className={styles.ctaIcon} />
-            </Avatar>
-          </Button>
+          {VIDEO_URL && (
+            <>
+              <p className={styles.ctaText}>Watch our video</p>
+              <Button
+                variant="unstyled"
+                onClick={() => setIsPopoverOpen(true)}
+                className={styles.ctaButton}
+                aria-label="Play video about Ace Centre"
+              >
+                <Avatar className={styles.ctaAvatar}>
+                  <PlayArrowIcon className={styles.ctaIcon} />
+                </Avatar>
+              </Button>
+            </>
+          )}
         </div>
       </div>
-      <VideoPopover
-        isPopoverOpen={isPopoverOpen}
-        youtubeUrl="https://www.youtube.com/watch?v=v1kUX_BVYKw"
-        title="Feedback of the acecentre"
-        onClose={() => setIsPopoverOpen(false)}
-      />
+      {VIDEO_URL && (
+        <VideoPopover
+          isPopoverOpen={isPopoverOpen}
+          youtubeUrl={VIDEO_URL}
+          title="Feedback of the acecentre"
+          onClose={() => setIsPopoverOpen(false)}
+        />
+      )}
     </>
   );
 };
