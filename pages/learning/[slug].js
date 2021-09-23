@@ -32,7 +32,7 @@ export default function LearningDetail({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main>
-        <BackToLink href="/learning" where="courses" />
+        <BackToLink href="/learning/search" where="courses" />
         <div className={styles.container}>
           <h2 className={styles.courseTitle}>{course.name}</h2>
         </div>
