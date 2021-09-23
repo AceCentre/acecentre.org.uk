@@ -6,8 +6,8 @@ on:
     branches:
       - main
   schedule:
-    # Everyday at 2AM
-    - cron: "0 2 * * *"
+    # Everyday at 2AM and 2PM
+    - cron: "0 2,14 * * *"
 concurrency:
   group: deploy-${{ github.head_ref }}
   cancel-in-progress: true
