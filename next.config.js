@@ -1,10 +1,7 @@
-const { enableBundleAnalyzer } = require("./lib/config");
+const withMDX = require("@next/mdx")({ extension: /\.mdx?$/ });
 
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: enableBundleAnalyzer,
-});
-
-module.exports = withBundleAnalyzer({
+module.exports = withMDX({
+  pageExtensions: ["js", "mdx"],
   target: "serverless",
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
