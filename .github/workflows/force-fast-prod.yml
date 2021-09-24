@@ -67,7 +67,7 @@ jobs:
       - name: Run netlify deploy
         run: netlify deploy --prod
 
-      - uses: actions/github-script@v4
+      - uses: actions/github-script@v5
         id: get-paths
         with:
           script: |
