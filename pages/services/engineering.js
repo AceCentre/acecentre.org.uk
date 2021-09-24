@@ -160,15 +160,17 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod consectetur adipiscing elit, sed do
-                  eiusmodtempor incididunt &quot;
+                  &quot;The challenges of mounting AAC devices and finding
+                  access solutions for individuals with complex needs in a range
+                  of settings drives my interest in engineering. We get the
+                  opportunity to design and create bespoke components that
+                  really make a difference to people&apos;s lives.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Anna Reeves DL</strong>
+                    <strong>Diane Arthurs</strong>
                   </p>
-                  <p>CEO</p>
+                  <p>Senior AAC Engineer</p>
                 </div>
               </div>
             </div>
