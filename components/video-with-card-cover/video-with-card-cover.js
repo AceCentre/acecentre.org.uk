@@ -10,6 +10,7 @@ export const VideoWithCardCover = ({
   imageClassName = "",
   heightClass = "",
   coverImageContainerClassName = "",
+  enableOverlay = true,
 }) => {
   return (
     <>
@@ -30,7 +31,7 @@ export const VideoWithCardCover = ({
             alt={alt}
             className={imageClassName}
           />
-          <div className={styles.backgroundGradient} />
+          {enableOverlay && <div className={styles.backgroundGradient} />}
           <div className={`${styles.fullContainer} ${heightClass}`}>
             <div className={styles.innerContainer}>
               <div className={`${styles.card} cardColor`}>{children}</div>
