@@ -1,14 +1,54 @@
 import { Button } from "../button/button";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
+import Link from "next/link";
 
 export const serviceFinderFaqs = [
   {
     question: "Where does the data come from?",
-    answer: <></>,
+    answer: (
+      <>
+        <p>
+          A large amount of our contact data comes from manual research about
+          the services and using information they have posted on public
+          webpages.
+        </p>
+        <p>
+          We owe a large thanks to a few sources for the initial information:
+        </p>
+        <ul>
+          <li>
+            <Link href="https://www.communicationmatters.org.uk/">
+              Communication Matters
+            </Link>
+          </li>
+          <li>
+            <Link href="https://assistivetechnology.org.uk/">
+              Assistive Technology
+            </Link>
+          </li>
+          <li>
+            <Link href="https://public.tableau.com/app/profile/simonjudge/viz/SpecialisedAACServices/SpecialisedAACServices">
+              Simon Judge
+            </Link>
+          </li>
+        </ul>
+      </>
+    ),
   },
   {
     question: "What kind of services can you tell me about?",
-    answer: <></>,
+    answer: (
+      <>
+        <p>
+          Currently we have data on AAC Services, EC services and Wheelchair
+          services. We also only have data for UK services.
+        </p>
+        <p>
+          If you think we should include more services then{" "}
+          <Link href="/contact">contact us and let us know.</Link>
+        </p>
+      </>
+    ),
   },
   {
     question: "How do you know my location?",
