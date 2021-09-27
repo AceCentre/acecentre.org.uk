@@ -9,6 +9,7 @@ export const VideoWithCardCover = ({
   nhs = false,
   imageClassName = "",
   heightClass = "",
+  coverImageContainerClassName = "",
 }) => {
   return (
     <>
@@ -18,7 +19,9 @@ export const VideoWithCardCover = ({
         }
       `}</style>
       <div className={`${styles.container} ${heightClass}`}>
-        <div className={styles.coverImageContainer}>
+        <div
+          className={`${styles.coverImageContainer} ${coverImageContainerClassName}`}
+        >
           <Image
             src={src}
             layout="fill"
