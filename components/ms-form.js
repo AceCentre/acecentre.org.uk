@@ -1,6 +1,14 @@
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+export const CORRECTION_FORM = {
+  slug: "correction",
+  title: "Service Finder Correction Form",
+  height: 1000,
+  url:
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMFdOTVVJNkM0SktaOUdDSUU1WkMwMTZRUiQlQCN0PWcu&embed=true",
+};
+
 export const CONTACT_FORM = {
   slug: "contact",
   title: "Contact form",
