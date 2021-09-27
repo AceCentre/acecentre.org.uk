@@ -42,6 +42,7 @@ export default function Laaces({ gettingStartedResources }) {
           heightClass={styles.coverHeight}
           imageClassName={styles.imageClassNameLaaces}
           coverImageContainerClassName={styles.coverImageContainerLaaces}
+          enableOverlay={false}
         >
           <h1 className={styles.cardTitle}>Local AAC Services</h1>
           <p className={styles.cardDescription}>
