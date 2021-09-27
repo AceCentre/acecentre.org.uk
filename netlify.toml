@@ -63,10 +63,10 @@
   to = "/form/information-appointment-feedback"
   status = 301
   
-[[rediredcts]]
+[[redirects]]
   from = "/product-category/*"
-  to = "/resources/all?category=:splat"
-  status=301
+  to = "/api/product-category-redirect-engine"
+  status = 200
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
