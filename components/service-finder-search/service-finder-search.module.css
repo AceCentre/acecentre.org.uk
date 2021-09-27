@@ -1,0 +1,28 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 760px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  width: 760px;
+}
+
+.buttonContainer {
+  white-space: nowrap;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+
+  .searchBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
