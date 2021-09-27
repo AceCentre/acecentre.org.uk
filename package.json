@@ -31,7 +31,7 @@
     "@material-ui/icons": "4.11.2",
     "@netlify/functions": "0.7.2",
     "@next/bundle-analyzer": "11.1.2",
-    "@octokit/rest": "18.11.1",
+    "@octokit/rest": "18.11.2",
     "@react-aria/focus": "3.5.0",
     "@react-aria/interactions": "3.6.0",
     "@react-aria/radio": "3.1.5",
