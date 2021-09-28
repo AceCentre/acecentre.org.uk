@@ -1,7 +1,7 @@
-const withMDX = require("@next/mdx")({ extension: /\.mdx?$/ });
+const withMDX = require("@next/mdx")({ extension: /\.md?$/ });
 
 module.exports = withMDX({
-  pageExtensions: ["js", "mdx"],
+  pageExtensions: ["js", "md"],
   target: "serverless",
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
