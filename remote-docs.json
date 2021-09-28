@@ -5,6 +5,18 @@
       "repo": "pasco",
       "folder": "docs",
       "urlPath": "pasco"
+    },
+    {
+      "owner": "acecentre",
+      "repo": "RelayKeys",
+      "folder": "docs",
+      "urlPath": "relay-keys"
+    },
+    {
+      "owner": "acecentre",
+      "repo": "MovementSwitch",
+      "folder": "docs",
+      "urlPath": "movement-switch"
     }
   ]
 }
