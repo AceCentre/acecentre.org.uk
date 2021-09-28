@@ -88,15 +88,11 @@
   to = "https://backend.acecentre.org.uk/wp-content/:splat"
   status = 200
   
-[[redirects]]
-  from = "/product-category/*"
-  to = "/api/product-category-redirect-engine"
-  status = 200
 
 [[redirects]]
   from = "/"
+  to = "/moodle-redirect"
   query = { wdmaction = ":wdmaction", mdl_uid = ":mdl_uid", verify_code = ":verify_code" }
-  to = "https://backend.acecentre.org.uk"
   status = 302
 
 [[plugins]]
