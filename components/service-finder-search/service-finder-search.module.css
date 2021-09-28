@@ -4,6 +4,25 @@
   max-width: 760px;
 }
 
+.buttonAsLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  font-size: 14px;
+  color: #00537f;
+}
+
+.buttonAsLink:hover,
+.buttonAsLink:focus {
+  text-decoration: underline;
+}
+
 .searchBar {
   display: flex;
   align-items: flex-end;

@@ -1,6 +1,7 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { Button } from "../button/button";
 import styles from "./service-finder-search.module.css";
+import MyLocationIcon from "@material-ui/icons/MyLocation";
 
 export const ServiceFinderSearch = () => {
   return (
@@ -11,7 +12,10 @@ export const ServiceFinderSearch = () => {
           <Button>Find services</Button>
         </div>
       </div>
-      <ButtonAsLink>Or use your current location</ButtonAsLink>
+      <ButtonAsLink>
+        Or use your current location
+        <MyLocationIcon />
+      </ButtonAsLink>
     </div>
   );
 };
@@ -19,12 +23,16 @@ export const ServiceFinderSearch = () => {
 const PostcodeInput = () => {
   return (
     <FormControl>
-      <FormLabel>Email address</FormLabel>
-      <Input type="email" />
+      <FormLabel>Enter your postcode</FormLabel>
+      <Input placeholder="eg. OL8 3QL" type="text" />
     </FormControl>
   );
 };
 
 const ButtonAsLink = ({ children, onClick }) => {
-  return <button onClick={onClick}>{children}</button>;
+  return (
+    <button className={styles.buttonAsLink} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
