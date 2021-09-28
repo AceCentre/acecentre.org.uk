@@ -64,11 +64,6 @@
   status = 301
 
 [[redirects]]
-  from = "/product-category/*"
-  to = "/product-category-redirect"
-  status = 302
-
-[[redirects]]
   from = "/privacy"
   to = "/page/privacy"
   status = 301
