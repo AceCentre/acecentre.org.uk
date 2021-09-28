@@ -62,6 +62,31 @@
   from = "/services/information/feedback/"
   to = "/form/information-appointment-feedback"
   status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/page/privacy"
+  status = 301
+
+[[redirects]]
+  from = "/ace-centre-privacy-policy-3"
+  to = "/page/ace-centre-privacy-policy-3"
+  status = 301
+
+[[redirects]]
+  from = "/purchase-terms-and-conditions"
+  to = "/page/purchase-terms-and-conditions"
+  status = 301
+
+[[redirects]]
+  from = "/safeguarding-policies"
+  to = "/page/safeguarding-policies"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "https://backend.acecentre.org.uk/wp-content/:splat"
+  status = 200
   
 [[redirects]]
   from = "/product-category/*"
