@@ -36,7 +36,7 @@ export default function Laaces({ gettingStartedResources }) {
       </header>
       <main>
         <VideoWithCardCover
-          src="/LAACES.png"
+          src="/LAACES.jpeg"
           alt="A child laughing using a communication book"
           nhs
           heightClass={styles.coverHeight}
