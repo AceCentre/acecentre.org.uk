@@ -93,17 +93,6 @@ export default function NHSLanding() {
                 referral form.
               </Link>
             </p>
-            <p>
-              Please complete an Equipment Only Request Form if you, or the team
-              working with you, are confident you know the best AAC system. This
-              means you do not need a full assessment from Ace Centre.
-            </p>
-            <p>
-              Please read the guidance document for the form. It is expected
-              that you will have trialled at least three systems and gained
-              enough clinical information to enable you to complete all relevant
-              fields on the form.
-            </p>
 
             <h2>Video support</h2>
             <p>

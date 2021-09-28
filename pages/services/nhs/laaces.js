@@ -6,7 +6,7 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+// import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import { Avatar } from "@material-ui/core";
 import { Image } from "../../../components/image";
 
@@ -36,10 +36,13 @@ export default function Laaces({ gettingStartedResources }) {
       </header>
       <main>
         <VideoWithCardCover
-          src="/services/nhs-assessment-cover.jpg"
-          alt="A child laughing"
+          src="/LAACES.png"
+          alt="A child laughing using a communication book"
           nhs
           heightClass={styles.coverHeight}
+          imageClassName={styles.imageClassNameLaaces}
+          coverImageContainerClassName={styles.coverImageContainerLaaces}
+          enableOverlay={false}
         >
           <h1 className={styles.cardTitle}>Local AAC Services</h1>
           <p className={styles.cardDescription}>
@@ -224,21 +227,6 @@ export default function Laaces({ gettingStartedResources }) {
                 src={"/nav-logo.png"}
                 alt="The Ace Centre logo"
               ></Image>
-            </div>
-            <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <p className={styles.quoteContent}>
-                  &quot;Super meaningful quote&quot;
-                </p>
-                <div>
-                  <p>
-                    <strong>Important Person</strong>
-                  </p>
-                </div>
-              </div>
             </div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
