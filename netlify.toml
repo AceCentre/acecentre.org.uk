@@ -89,11 +89,7 @@
   status = 200
   
 
-[[redirects]]
-  from = "/"
-  to = "/moodle-redirect"
-  query = { wdmaction = ":wdmaction", mdl_uid = ":mdl_uid", verify_code = ":verify_code" }
-  status = 302
+
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
