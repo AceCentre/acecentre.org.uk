@@ -6,7 +6,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Link from "next/link";
-import { Image } from "../image";
+import { ImageWithLoader as Image } from "../image";
 import styles from "./footer.module.css";
 
 export const Footer = ({ currentYear }) => {
@@ -52,29 +52,38 @@ export const Footer = ({ currentYear }) => {
             ))}
             <li></li>
           </ul>
-          <div className={styles.socialsContainer}>
-            <Link href="https://twitter.com/acecentre">
-              <a aria-label="Twitter logo" className={styles.avatarLink}>
-                <Avatar className={styles.roundedAvatar}>
-                  <TwitterIcon />
-                </Avatar>
-              </a>
-            </Link>
+          <div className={styles.socialsAndCyber}>
+            <div className={styles.socialsContainer}>
+              <Link href="https://twitter.com/acecentre">
+                <a aria-label="Twitter logo" className={styles.avatarLink}>
+                  <Avatar className={styles.roundedAvatar}>
+                    <TwitterIcon />
+                  </Avatar>
+                </a>
+              </Link>
 
-            <Link href="https://www.youtube.com/user/acecentre">
-              <a aria-label="Youtube logo" className={styles.avatarLink}>
-                <Avatar className={styles.roundedAvatar}>
-                  <YouTubeIcon />
-                </Avatar>
-              </a>
-            </Link>
-            <Link href="https://www.facebook.com/AceCentre.uk/">
-              <a aria-label="Facebook logo" className={styles.avatarLink}>
-                <Avatar className={styles.roundedAvatar}>
-                  <FacebookIcon />
-                </Avatar>
-              </a>
-            </Link>
+              <Link href="https://www.youtube.com/user/acecentre">
+                <a aria-label="Youtube logo" className={styles.avatarLink}>
+                  <Avatar className={styles.roundedAvatar}>
+                    <YouTubeIcon />
+                  </Avatar>
+                </a>
+              </Link>
+              <Link href="https://www.facebook.com/AceCentre.uk/">
+                <a aria-label="Facebook logo" className={styles.avatarLink}>
+                  <Avatar className={styles.roundedAvatar}>
+                    <FacebookIcon />
+                  </Avatar>
+                </a>
+              </Link>
+            </div>
+            <div className={styles.cyberEssentialsContainer}>
+              <Image
+                objectFit="contain"
+                layout="fill"
+                src="/cyber-essentials.png"
+              />
+            </div>
           </div>
         </div>
         <div className={styles.legalInfoContainer}>
