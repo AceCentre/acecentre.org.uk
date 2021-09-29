@@ -1,5 +1,6 @@
 const { remoteDocs } = require("../../remote-docs.json");
 const path = require("path");
+const glob = require("glob");
 const fs = require("fs");
 
 module.exports = {
@@ -10,7 +11,10 @@ module.exports = {
         `Attempting to pull ${currentDocs.owner}/${currentDocs.repo}`
       );
 
-      const cloneTarget = `~/temp-${currentDocs.repo}`;
+      const cloneTarget = path.join(
+        __dirname,
+        `../../temp/${currentDocs.repo}`
+      );
 
       try {
         await run.command(
@@ -34,7 +38,7 @@ module.exports = {
         `~/temp-${currentDocs.repo}`
       );
 
-      const source = `~/temp-${currentDocs.repo}/${currentDocs.folder}`;
+      const source = path.join(cloneTarget, currentDocs.folder);
       const target = path.join(
         __dirname,
         "../../pages/product-docs",
@@ -55,13 +59,19 @@ module.exports = {
 
       console.log("Attempting to remove JS files");
 
-      const allFiles = fs.readdirSync(target);
+      const jsFiles = await new Promise((res, rej) => {
+        glob(`${target}/**/*.js`, { dot: true }, function (err, files) {
+          if (err) {
+            rej(err);
+          } else {
+            res(files);
+          }
+        });
+      });
 
-      console.log(allFiles);
-
-      // const result = await run.command(
-      //   `find ${target} -type f -name '*.js' -delete -print`
-      // );
+      for (const file of jsFiles) {
+        fs.unlinkSync(file);
+      }
 
       console.log("Successfully removed JS files");
 
