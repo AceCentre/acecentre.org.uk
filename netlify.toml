@@ -111,9 +111,6 @@
 [[plugins]]
   package = "/netlify-plugins/prefetch-data"
 
-[[plugins]]
-  package = "/netlify-plugins/pull-docs"
-
 [build]
   command = "yarn build"
 
