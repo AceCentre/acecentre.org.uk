@@ -1,5 +1,6 @@
 const { remoteDocs } = require("../../remote-docs.json");
 const path = require("path");
+const fs = require("fs");
 
 module.exports = {
   onPreBuild: async ({ utils: { run } }) => {
@@ -17,8 +18,7 @@ module.exports = {
         );
       } catch (error) {
         if (
-          error.stderr ===
-          "fatal: destination path '~/temp-pasco' already exists and is not an empty directory."
+          error.stderr.includes("already exists and is not an empty directory.")
         ) {
           console.log("Repo already cloned");
           console.log("Attempting to pull latest changes");
@@ -52,6 +52,19 @@ module.exports = {
       await run.command(`cp -R ${source}/. ${target}`);
 
       console.log(`Successfully copy ${source} to ${target}`);
+
+      console.log("Attempting to remove JS files");
+
+      const allFiles = fs.readdirSync(target);
+
+      console.log(allFiles);
+
+      // const result = await run.command(
+      //   `find ${target} -type f -name '*.js' -delete -print`
+      // );
+
+      console.log("Successfully removed JS files");
+
       console.log("================");
     }
   },
