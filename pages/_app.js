@@ -12,39 +12,13 @@ import NextNProgress from "../components/progress-bar";
 import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
 import "polyfill-object.fromentries";
-import MarkdownLayout from "../components/markdown-layout";
 
 const theme = createTheme();
 
 function MyApp({
   Component,
   pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
-  router,
 }) {
-  if (router.route.includes("/product-docs")) {
-    return (
-      <MarkdownLayout title={"Placeholder"} subtitle={"Placeholder"}>
-        <Component {...pageProps} />
-      </MarkdownLayout>
-    );
-  }
-
-  if (uncaughtError) {
-    return (
-      <Providers globalProps={globalProps} seo={seo}>
-        <UncaughtError error={uncaughtError} />
-      </Providers>
-    );
-  }
-
-  return (
-    <Providers globalProps={globalProps} seo={seo}>
-      <Component {...pageProps} />
-    </Providers>
-  );
-}
-
-const Providers = ({ children, globalProps, seo }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -60,12 +34,16 @@ const Providers = ({ children, globalProps, seo }) => {
         <ChakraProvider resetCSS={false}>
           <SSRProvider>
             <NextNProgress />
-            {children}
+            {uncaughtError ? (
+              <UncaughtError error={uncaughtError} />
+            ) : (
+              <Component {...pageProps} />
+            )}
           </SSRProvider>
         </ChakraProvider>
       </ThemeProvider>
     </GlobalsContext.Provider>
   );
-};
+}
 
 export default MyApp;
