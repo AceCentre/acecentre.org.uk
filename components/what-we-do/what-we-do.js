@@ -56,7 +56,7 @@ export const WhatWeDo = () => {
         </ul>
         <ul className={styles.unstyledList}>
           <li>
-            <Link href="/services/assessment">
+            <Link href="/services/assessments">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
                   <ArrowForward />
