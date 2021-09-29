@@ -2,6 +2,12 @@
   background-color: #333333;
 }
 
+.cyberEssentialsContainer {
+  position: relative;
+  height: 100px;
+  margin: 1rem auto;
+}
+
 .legalInfoContainer {
 }
 
@@ -118,6 +124,10 @@
 @media (max-width: 760px) {
   .container {
     padding: 1rem;
+  }
+
+  .socialsAndCyber {
+    width: 100%;
   }
 
   .innerContainer {
