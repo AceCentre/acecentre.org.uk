@@ -49,3 +49,6 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+/temp
+/pages/product-docs
