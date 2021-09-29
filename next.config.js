@@ -1,7 +1,4 @@
-const withMDX = require("@next/mdx")({ extension: /\.md?$/ });
-
-module.exports = withMDX({
-  pageExtensions: ["js", "md"],
+module.exports = {
   target: "serverless",
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
@@ -10,4 +7,4 @@ module.exports = withMDX({
   images: {
     domains: ["acecentre.org.uk", "internal.acecentre.org.uk"],
   },
-});
+};
