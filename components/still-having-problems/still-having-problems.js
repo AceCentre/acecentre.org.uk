@@ -26,7 +26,7 @@ export const StillHavingProblems = () => {
           </p>
           <div className={styles.end}>
             <p className={styles.phoneNumber}>
-              <strong>0800 048 7642</strong>
+              <strong>0800 080 3115</strong>
             </p>
             <p className={styles.officeHours}>
               Office hours, 9AM - 5PM, Monday - Friday
