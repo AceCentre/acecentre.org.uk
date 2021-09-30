@@ -51,7 +51,7 @@ export default function NHSLanding() {
           </FormModal>
 
           <p className={styles.cardContact}>
-            or call our advice line on <strong>0800 048 7642</strong>
+            or call our advice line on <strong>0800 080 3115</strong>
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>

@@ -23,12 +23,12 @@ export const Footer = ({ currentYear }) => {
             placeOnTop
           />
           <div>
-            <Link href="tel:08000487642">
+            <Link href="tel:08000803115">
               <a className={styles.phoneNumber}>
                 <SvgIcon>
                   <PhoneIcon />
                 </SvgIcon>
-                0800 048 7642
+                0800 080 3115
               </a>
             </Link>
             <p className={styles.officeHours}>
