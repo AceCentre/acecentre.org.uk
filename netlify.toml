@@ -88,8 +88,10 @@
   to = "https://backend.acecentre.org.uk/wp-content/:splat"
   status = 200
   
-
-
+[[redirects]]
+  from = "/ace-centre-learning"
+  to = "/learning"
+  status = 301
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
