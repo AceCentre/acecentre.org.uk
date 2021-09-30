@@ -82,6 +82,7 @@ export const Footer = ({ currentYear }) => {
                 objectFit="contain"
                 layout="fill"
                 src="/cyber-essentials.png"
+                alt="Cyber essentials plus logo"
               />
             </div>
           </div>
