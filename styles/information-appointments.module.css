@@ -4,6 +4,11 @@
   max-width: var(--containerMaxWidth);
 }
 
+.informationReserve {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .container > :first-child {
   margin-top: 0;
 }
