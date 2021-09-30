@@ -1,5 +1,6 @@
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
+import { FormModal, INFORMATION_RESERVE } from "../components/ms-form";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
@@ -53,6 +54,18 @@ export default function Contact() {
               prepared with all the information you might need
             </li>
           </ol>
+          <p>
+            If you have successfully booked an appointment but would prefer an
+            earlier one,{" "}
+            <FormModal form={INFORMATION_RESERVE}>
+              {({ onClick }) => (
+                <a className={styles.informationReserve} onClick={onClick}>
+                  complete this form,
+                </a>
+              )}
+            </FormModal>{" "}
+            and we will add you to our cancellations waiting list.
+          </p>
           <p>
             If you prefer you can{" "}
             <a

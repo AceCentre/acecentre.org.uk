@@ -1,6 +1,14 @@
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+export const INFORMATION_RESERVE = {
+  slug: "information-reserve",
+  title: "Information reserve",
+  url:
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMprJ92LB-1NstNAv0YnFvpUOVg5V0U2TVJZRlNYUDYzUlg1MzAwWTRXQS4u&embed=true",
+  height: 2000,
+};
+
 export const CONTACT_FORM = {
   slug: "contact",
   title: "Contact form",
