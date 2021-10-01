@@ -4,6 +4,14 @@
   font-weight: bold;
 }
 
+.coverImageContainerLaaces.coverImageContainerLaaces {
+  max-width: var(--containerMaxWidth);
+}
+
+.imageClassNameLaaces {
+  object-position: left top !important;
+}
+
 .inlineQuote {
   font-style: italic;
 }

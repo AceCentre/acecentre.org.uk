@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { FeaturedStory } from "../components/featured-story/featured-story";
 import { Footer } from "../components/footer/footer";
@@ -14,6 +15,15 @@ import { getSimpleStory } from "../lib/story/get-story";
 
 export default function Home({ featuredStory, landingPagePosts }) {
   const { currentYear } = useGlobalProps();
+  const router = useRouter();
+  const { query } = router;
+
+  // Redirect moodle logins
+  if (query && query.verify_code && query.mdl_uid && query.wdmaction) {
+    router.push(
+      `https://backend.acecentre.org.uk?verify_code=${query.verify_code}&mdl_uid=${query.mdl_uid}&wdmaction=${query.wdmaction}`
+    );
+  }
 
   return (
     <>

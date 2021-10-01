@@ -9,6 +9,14 @@ export const CORRECTION_FORM = {
     "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMFdOTVVJNkM0SktaOUdDSUU1WkMwMTZRUiQlQCN0PWcu&embed=true",
 };
 
+export const INFORMATION_RESERVE = {
+  slug: "information-reserve",
+  title: "Information reserve",
+  url:
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMprJ92LB-1NstNAv0YnFvpUOVg5V0U2TVJZRlNYUDYzUlg1MzAwWTRXQS4u&embed=true",
+  height: 2000,
+};
+
 export const CONTACT_FORM = {
   slug: "contact",
   title: "Contact form",

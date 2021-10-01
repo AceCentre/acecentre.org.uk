@@ -93,11 +93,11 @@ async function handler(req, res) {
     res.send({ success: true, result });
     return;
   } catch (error) {
-    console.log(error);
-
     const errors = error?.response?.errors || [];
     const mainError = errors[0] || null;
     const errorMessage = mainError?.message || "An error has occurred";
+
+    console.log({ error, mainError, errorMessage });
 
     // If the cart is already empty then lets just continue
     if (errorMessage === "Cart is empty") {

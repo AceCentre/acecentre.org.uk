@@ -27,7 +27,7 @@ export const ContactCards = () => {
           <p>
             If you’re looking for assistance call our advice helpline number:
           </p>
-          <p className={styles.phoneNumber}>0800 048 7642</p>
+          <p className={styles.phoneNumber}>0800 080 3115</p>
           <p className={styles.officeHours}>
             Office hours, 9AM - 5PM, Monday - Friday
           </p>

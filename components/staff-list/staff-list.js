@@ -25,6 +25,7 @@ export const TrusteeList = ({ trusteeList }) => {
 const LOCATION_MAP = {
   oldham: "North office",
   abingdon: "South office",
+  remote: "Remote",
 };
 
 const StaffCard = ({ person }) => {
@@ -32,7 +33,7 @@ const StaffCard = ({ person }) => {
   const onClose = () => setIsModelOpen(false);
   const location = LOCATION_MAP[person.location.trim().toLowerCase()];
 
-  if (!location) throw new Error("Could get a location for", person);
+  if (!location) throw new Error("Could not get a location for", person);
 
   return (
     <>
