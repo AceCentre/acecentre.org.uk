@@ -4,6 +4,10 @@
   max-width: 760px;
 }
 
+.postcodeInput {
+  text-transform: uppercase;
+}
+
 .buttonAsLink {
   background: none;
   border: none;
