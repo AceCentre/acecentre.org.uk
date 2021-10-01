@@ -23,6 +23,7 @@ const useSitemap = () => {
       .map((x) => {
         return x.innerHTML
           .replace("https://internal.acecentre.org.uk", "")
+          .replace("https://backend.acecentre.org.uk", "")
           .replace("https://acecentre.org.uk", "");
       })
       .filter((x) => x !== "");

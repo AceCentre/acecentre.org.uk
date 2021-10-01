@@ -51,7 +51,7 @@ export default function NHSLanding() {
           </FormModal>
 
           <p className={styles.cardContact}>
-            or call our advice line on <strong>0800 048 7642</strong>
+            or call our advice line on <strong>0800 080 3115</strong>
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
@@ -92,17 +92,6 @@ export default function NHSLanding() {
               <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v3.2-2021.docx">
                 referral form.
               </Link>
-            </p>
-            <p>
-              Please complete an Equipment Only Request Form if you, or the team
-              working with you, are confident you know the best AAC system. This
-              means you do not need a full assessment from Ace Centre.
-            </p>
-            <p>
-              Please read the guidance document for the form. It is expected
-              that you will have trialled at least three systems and gained
-              enough clinical information to enable you to complete all relevant
-              fields on the form.
             </p>
 
             <h2>Video support</h2>

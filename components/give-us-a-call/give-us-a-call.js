@@ -10,7 +10,7 @@ export const GiveUsACall = ({ className }) => {
         <SvgIcon fontSize="inherit" htmlColor="#00537F">
           <PhoneIcon />
         </SvgIcon>
-        0800 048 7642
+        0800 080 3115
       </p>
       <p className={styles.officeHours}>
         Office hours, 9AM - 5PM, Monday - Friday
