@@ -6,6 +6,7 @@ const IGNORE = [
   "my-acecentre",
   "switch-scanning-frequency-analysis",
   "make-your-own-flip-joke-book",
+  "moodle-redirect",
 ];
 
 const script = () => {
