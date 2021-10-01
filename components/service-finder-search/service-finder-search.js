@@ -53,7 +53,7 @@ const GetServicesFromPostcode = gql`
 
 const useServices = () => {
   const [geo, setGeo] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [services, setServices] = useState({
     services: [],
@@ -180,27 +180,47 @@ export const ServiceFinderSearch = () => {
         )}
       </div>
       {loading ? (
-        <p>Loading....</p>
+        <ul className={styles.resultsContainer}>
+          {["first-skeleton", "second-skeleton"].map((skeleton) => (
+            <li aria-hidden={true} className={styles.resultCard} key={skeleton}>
+              <h3 className={styles.skeletonTitle}></h3>
+              <p className={styles.skeletonServices}></p>
+              <p className={styles.addressSkeleton}></p>
+              <div>
+                <p className={styles.addressLineSkeleton}></p>
+                <p className={styles.addressLineSkeleton}></p>
+                <p className={styles.addressLineSkeleton}></p>
+                <p className={styles.addressLineSkeleton}></p>
+              </div>
+              <p className={styles.skeletonPhone}></p>
+              <p className={styles.findOutMoreFake}></p>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <ul className={styles.list}>
+        <ul className={styles.resultsContainer}>
           {services.services.map((service) => (
-            <li key={service.id}>
+            <li className={styles.resultCard} key={service.id}>
               <h3>{service.serviceName}</h3>
               <p>
-                <span>Services:</span>{" "}
+                <strong>Services:</strong>{" "}
                 {service.servicesOffered.map((x) => x.title).join(", ")}
               </p>
-              <p>Address</p>
+              <p>
+                <strong>Address:</strong>
+              </p>
               <div>
                 {service.addressLines.map((line) => (
-                  <span key={line}>{line}</span>
+                  <span className={styles.addressLine} key={line}>
+                    {line}
+                  </span>
                 ))}
               </div>
               <p>
-                <span>Phone:</span> {service.phoneNumber}
+                <strong>Phone:</strong> {service.phoneNumber}
               </p>
               <Link href={`/nhs-service-finder/${service.id}`}>
-                <a>Find out more &gt;</a>
+                <a className={styles.findOutMore}>Find out more &gt;</a>
               </Link>
             </li>
           ))}
@@ -208,7 +228,6 @@ export const ServiceFinderSearch = () => {
       )}
 
       {error && <p>{JSON.stringify(error, null, 2)}</p>}
-      {services && <p>{JSON.stringify(services, null, 2)}</p>}
     </div>
   );
 };
