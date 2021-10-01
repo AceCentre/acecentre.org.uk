@@ -3,6 +3,7 @@ import { Button } from "../button/button";
 import styles from "./service-finder-search.module.css";
 import MyLocationIcon from "@material-ui/icons/MyLocation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const gql = ([result]) => result;
 
@@ -12,6 +13,12 @@ const GetServicesFromCoords = gql`
       services {
         id
         serviceName
+        addressLines
+        phoneNumber
+        servicesOffered {
+          title
+          id
+        }
       }
 
       nearbyServices {
@@ -28,6 +35,12 @@ const GetServicesFromPostcode = gql`
       services {
         id
         serviceName
+        addressLines
+        phoneNumber
+        servicesOffered {
+          title
+          id
+        }
       }
 
       nearbyServices {
@@ -62,7 +75,7 @@ const useServices = () => {
       });
 
       const result = await fetch(
-        `https://servicefinder.acecentre.net/graphql`,
+        "https://servicefinder.acecentre.net/graphql",
         {
           method: "POST",
           headers: {
@@ -96,7 +109,7 @@ const useServices = () => {
     try {
       const postcode = currentEvent.target.postcode.value;
       const result = await fetch(
-        `https://servicefinder.acecentre.net/graphql`,
+        "https://servicefinder.acecentre.net/graphql",
         {
           method: "POST",
           headers: {
@@ -166,7 +179,34 @@ export const ServiceFinderSearch = () => {
           </ButtonAsLink>
         )}
       </div>
-      {loading && <p>Loading....</p>}
+      {loading ? (
+        <p>Loading....</p>
+      ) : (
+        <ul className={styles.list}>
+          {services.services.map((service) => (
+            <li key={service.id}>
+              <h3>{service.serviceName}</h3>
+              <p>
+                <span>Services:</span>{" "}
+                {service.servicesOffered.map((x) => x.title).join(", ")}
+              </p>
+              <p>Address</p>
+              <div>
+                {service.addressLines.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </div>
+              <p>
+                <span>Phone:</span> {service.phoneNumber}
+              </p>
+              <Link href={`/nhs-service-finder/${service.id}`}>
+                <a>Find out more &gt;</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
       {error && <p>{JSON.stringify(error, null, 2)}</p>}
       {services && <p>{JSON.stringify(services, null, 2)}</p>}
     </div>
