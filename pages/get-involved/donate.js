@@ -20,7 +20,7 @@ export default function GetInvolved({ featuredStory }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/donate.jpg"
           alt="A client using an AAC device"

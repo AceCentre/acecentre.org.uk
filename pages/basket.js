@@ -43,7 +43,7 @@ export default function Basket({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         {lines.length > 0 ? (
           <>
             <PageTitle

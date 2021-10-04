@@ -14,7 +14,7 @@ export default function NHSLanding() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle heading="Ace Centre" description="NHS Services" />
         <ServicesGrid gridItems={gridItems} />
       </main>

@@ -20,7 +20,7 @@ export default function Contact() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink where="contact" href="/contact" />
         <PageTitle
           className={styles.officePageTitle}

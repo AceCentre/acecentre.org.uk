@@ -31,7 +31,7 @@ export default function Custom404() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <span>404</span>
         <h1>Not found</h1>
         <p>

@@ -24,7 +24,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink
           href={`/blog/category/${currentPost.featuredCategorySlug}`}
           where={currentPost.featuredCategoryName.toLowerCase()}

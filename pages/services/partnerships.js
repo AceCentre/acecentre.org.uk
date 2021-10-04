@@ -24,7 +24,7 @@ export default function EngineeringPage({ featuredStory }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/services/partnership.jpg"
           alt="Two Ace Centre staff members looking at an AAC device"

@@ -17,7 +17,7 @@ export default function CoursesPage({ courses }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="My courses"
           description="A summary of your courses"

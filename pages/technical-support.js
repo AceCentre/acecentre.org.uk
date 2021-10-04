@@ -16,7 +16,7 @@ export default function TechnicalSupport() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="Technical support"
           description="What to do when you need help"

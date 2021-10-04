@@ -23,7 +23,7 @@ export default function StaffPage({ allStaff }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="Our team"
           description="Our team is our greatest strength"

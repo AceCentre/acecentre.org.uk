@@ -18,7 +18,7 @@ export default function Home({ latestProjects }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <ProjectsSearch />
         <FeaturedPosts
           className={styles.container}

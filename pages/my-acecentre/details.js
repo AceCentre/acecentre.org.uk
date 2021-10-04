@@ -16,7 +16,7 @@ export default function DetailsPage({ details }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="My details"
           description="A summary of your account details"

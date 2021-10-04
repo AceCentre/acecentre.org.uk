@@ -37,7 +37,7 @@ export default function LearningSearchPage({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink where="Ace Centre Learning" href="/learning" />
         <CourseFilter
           selectedCategory={selectedCategory}
