@@ -30,7 +30,7 @@ export default function Search({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink href="/" where="home" />
         <div className={styles.container}>
           <h1

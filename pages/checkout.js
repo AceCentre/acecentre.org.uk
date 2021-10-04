@@ -433,7 +433,7 @@ export default function Checkout({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <Elements stripe={loadStripe(config.stripeApiKey)}>
           <CheckoutForm
             lines={lines}

@@ -26,7 +26,7 @@ export default function EngineeringPage({ latestProjects }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/services/research.jpg"
           alt="A communication device"

@@ -17,7 +17,7 @@ export default function StoryDetail({ story, featuredStories }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="People we support"
           description={`Meet ${story.title}`}

@@ -19,7 +19,7 @@ export default function GetInvolved() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/get-involved.jpg"
           alt="Client getting fitted with a new AAC device"

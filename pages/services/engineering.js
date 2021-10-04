@@ -26,7 +26,7 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/services/engineering.jpg"
           alt="An engineering using a 3D printer"

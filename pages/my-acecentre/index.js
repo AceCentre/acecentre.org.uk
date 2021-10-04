@@ -21,7 +21,7 @@ export default function LoginPage({ orderCount, courseCount }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle heading="My Ace Centre" description="Dashboard">
           <div className={styles.buttonContainer}>
             <Button

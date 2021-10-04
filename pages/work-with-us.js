@@ -18,7 +18,7 @@ export default function Careers() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/careers-cover.jpeg"
           alt="A person using an AAC device"

@@ -13,7 +13,7 @@ export default function ChangePassword() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <ResetPasswordForm />
       </main>
       <Footer currentYear={currentYear} />

@@ -73,7 +73,7 @@ export default function Sitemap() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="Sitemap"
           description="A list of every page on the website"

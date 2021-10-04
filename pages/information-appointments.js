@@ -16,7 +16,7 @@ export default function Contact() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="Information appointment"
           description="Book in for an informal chat about your needs with members of the Ace Centre team."

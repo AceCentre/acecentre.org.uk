@@ -15,7 +15,7 @@ export default function Contact() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="Contact us"
           description="If you think Ace Centre can help you or someone you know please get in touch"

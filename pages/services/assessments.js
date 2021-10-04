@@ -24,7 +24,7 @@ export default function EngineeringPage() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/assessments.jpg"
           alt="Two people talking, one using AAC"
