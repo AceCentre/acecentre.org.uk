@@ -4,6 +4,7 @@ import styles from "./service-finder-search.module.css";
 import MyLocationIcon from "@material-ui/icons/MyLocation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CORRECTION_FORM, FormModal } from "../ms-form";
 
 const gql = ([result]) => result;
 
@@ -55,10 +56,7 @@ const useServices = () => {
   const [geo, setGeo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [services, setServices] = useState({
-    services: [],
-    nearbyServices: [],
-  });
+  const [services, setServices] = useState(null);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -198,36 +196,69 @@ export const ServiceFinderSearch = () => {
           ))}
         </ul>
       ) : (
-        <ul className={styles.resultsContainer}>
-          {services.services.map((service) => (
-            <li className={styles.resultCard} key={service.id}>
-              <h3>{service.serviceName}</h3>
-              <p>
-                <strong>Services:</strong>{" "}
-                {service.servicesOffered.map((x) => x.title).join(", ")}
-              </p>
-              <p>
-                <strong>Address:</strong>
-              </p>
-              <div>
-                {service.addressLines.map((line) => (
-                  <span className={styles.addressLine} key={line}>
-                    {line}
-                  </span>
-                ))}
-              </div>
-              <p>
-                <strong>Phone:</strong> {service.phoneNumber}
-              </p>
-              <Link href={`/nhs-service-finder/${service.id}`}>
-                <a className={styles.findOutMore}>Find out more &gt;</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ListOfServices services={services} />
       )}
 
       {error && <p>{JSON.stringify(error, null, 2)}</p>}
+    </div>
+  );
+};
+
+const ListOfServices = ({ services }) => {
+  if (services == null) return null;
+
+  if (services.services.length === 0) {
+    return <NoResults />;
+  }
+
+  return (
+    <ul className={styles.resultsContainer}>
+      {services.services.map((service) => (
+        <li className={styles.resultCard} key={service.id}>
+          <h3>{service.serviceName}</h3>
+          <p>
+            <strong>Services:</strong>{" "}
+            {service.servicesOffered.map((x) => x.title).join(", ")}
+          </p>
+          <p>
+            <strong>Address:</strong>
+          </p>
+          <div>
+            {service.addressLines.map((line) => (
+              <span className={styles.addressLine} key={line}>
+                {line}
+              </span>
+            ))}
+          </div>
+          <p>
+            <strong>Phone:</strong> {service.phoneNumber}
+          </p>
+          <Link href={`/nhs-service-finder/${service.id}`}>
+            <a className={styles.findOutMore}>Find out more &gt;</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const NoResults = () => {
+  return (
+    <div className={styles.noResults}>
+      <h2>Sorry, we could not find any services in your area</h2>
+      <p>
+        If you think this is wrong, or if you know the service that should have
+        come up then click the button below and fill out the form.
+      </p>
+      <div>
+        <FormModal form={CORRECTION_FORM}>
+          {({ onClick }) => (
+            <div>
+              <Button onClick={onClick}>Open correction form</Button>
+            </div>
+          )}
+        </FormModal>
+      </div>
     </div>
   );
 };
