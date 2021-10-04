@@ -13,7 +13,7 @@ export default function LoginPage() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <LoginAndRegisterBoxes />
       </main>
       <Footer currentYear={currentYear} />

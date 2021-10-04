@@ -16,7 +16,7 @@ export default function SearchBlog({ allPosts, searchText }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink href="/blog" where="blog" />
 
         <FeaturedPosts

@@ -23,7 +23,7 @@ export default function StoriesLandingPage({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="People we support"
           description="Its not the work that we do here at Ace Centre that's amazing, it's the people we work with"

@@ -17,7 +17,7 @@ export default function AllTrusteesPage({ allTrustees }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle heading="Our trustees" description="Meet our amazing team" />
         <p className={styles.container}>
           The Ace Centre is hugely thankful for our Trustees who help steer and

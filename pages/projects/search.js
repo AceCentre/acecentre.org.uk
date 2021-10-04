@@ -16,7 +16,7 @@ export default function SearchProjects({ allProjects, searchText = "" }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink href="/projects" where="projects" />
         <FeaturedPosts
           title={`Results for: "${searchText}"`}

@@ -22,7 +22,7 @@ export default function GettingStartedLanding({ story, resources }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/what-is-aac.jpeg"
           alt="A woman wearing a tracking dot on her forehead"

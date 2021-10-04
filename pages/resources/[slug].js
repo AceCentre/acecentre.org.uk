@@ -26,7 +26,7 @@ export default function ResourceDetail({ resource, relatedResources }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink where="all resources" href="/resources/all" />
         <div className={styles.topArea}>
           <div className={styles.leftTopArea}>

@@ -30,7 +30,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <LandingPageCover />
         <HowCanWeHelpCards />
         <WhatWeDo />

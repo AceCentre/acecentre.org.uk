@@ -19,7 +19,7 @@ export default function Home({ latestsPosts, blogCategories }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BlogSearch />
         <FeaturedPosts
           className={styles.featuredPosts}

@@ -29,7 +29,7 @@ export default function Learning({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <LearningSearch />
         <LearningTicks />
         <CourseList

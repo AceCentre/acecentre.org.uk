@@ -24,7 +24,7 @@ export default function Addresses({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="My addresses"
           description="Manage your billing and shipping address"

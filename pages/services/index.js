@@ -14,7 +14,7 @@ export default function ServicesLanding() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle heading="Ace Centre" description="Services" />
         <ServicesGrid />
       </main>

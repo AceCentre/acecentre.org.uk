@@ -1,0 +1,19 @@
+.skipLink {
+  position: absolute;
+  z-index: 99;
+  margin: 1rem;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  transition-delay: 300ms;
+  overflow: hidden;
+}
+
+.skipLink:focus-within,
+.skipLink:focus {
+  transition: none;
+  opacity: 1;
+  transition-delay: 0;
+}

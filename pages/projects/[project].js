@@ -22,7 +22,7 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink href="/projects" where="projects" />
         <PageTitle
           heading="From Ace Centre projects"

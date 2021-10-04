@@ -28,7 +28,7 @@ export default function NHSLanding() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} nhs />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/services/nhs-assessment-cover.jpg"
           alt="A child laughing"

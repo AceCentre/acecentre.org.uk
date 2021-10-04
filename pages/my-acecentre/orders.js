@@ -15,7 +15,7 @@ export default function OrdersPage({ orders }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle heading="My orders" description="A summary of your orders" />
         <OrderTable orders={orders} />
       </main>
