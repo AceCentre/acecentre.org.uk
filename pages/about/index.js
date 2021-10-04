@@ -23,7 +23,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           // objectPosition="0px -100px"
           imageClassName={styles.coverImage}

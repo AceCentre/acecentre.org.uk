@@ -27,7 +27,7 @@ export default function GettingStartedLanding({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <SearchBox
           includeSearch={false}
           title="Getting started with AAC and AT"

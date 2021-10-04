@@ -34,7 +34,7 @@ export default function Laaces({ gettingStartedResources }) {
           nhs
         />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/LAACES.jpeg"
           alt="A child laughing using a communication book"

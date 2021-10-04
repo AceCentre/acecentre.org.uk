@@ -31,7 +31,7 @@ export const UncaughtError = ({ error }) => {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <h1>An unexpected error occurred</h1>
         <p>
           An error happened while trying to perform the operation. Please try

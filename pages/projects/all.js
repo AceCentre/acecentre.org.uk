@@ -15,7 +15,7 @@ export default function AllProjects({ allProjects }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <BackToLink href="/projects" where="projects" />
         <FeaturedPosts
           linkPrefix="projects"

@@ -22,7 +22,7 @@ export default function GettingStartedLanding({ story, resources }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/finding-the-right-aid-cover.jpg"
           alt="An individual using a head tracking AAC device"

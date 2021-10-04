@@ -22,7 +22,7 @@ export default function GettingStartedLanding({ story, resources }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/computer-access.jpeg"
           alt="Someone using a touch screen device to communicate"

@@ -18,7 +18,7 @@ export default function OrderPage({ orderId, order }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       {order.status.toLowerCase() === "completed" ? (
-        <main>
+        <main id="mainContent">
           <PageTitle
             heading="Order details"
             description={`Order #${orderId}`}
@@ -46,7 +46,7 @@ export default function OrderPage({ orderId, order }) {
               font-weight: normal;
             }
           `}</style>
-          <main>
+          <main id="mainContent">
             <span>Order failed</span>
             <h1>An error occurred</h1>
             <p>

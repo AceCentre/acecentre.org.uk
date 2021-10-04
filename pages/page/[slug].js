@@ -16,7 +16,7 @@ export default function GenericPage({ page }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <div className={styles.titleContainer}>
           <h1>{page.title}</h1>
         </div>

@@ -15,7 +15,7 @@ export default function FormPage({ form }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <div className={styles.container}>
           <MsForm form={form} />
         </div>

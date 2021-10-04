@@ -30,7 +30,7 @@ export default function AllResources({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <ProductFilters
           selectedCategory={selectedCategory}
           selectedSubCategory={selectedSubcategory}

@@ -25,7 +25,7 @@ export default function Resources({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <ResourcesSearch />
         <ResourcesTicks />
         <ResourceList

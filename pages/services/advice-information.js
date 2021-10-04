@@ -32,7 +32,7 @@ export default function EngineeringPage({
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/services/advice.jpg"
           alt="Ace Centre employee smiling whilst wearing a headset"

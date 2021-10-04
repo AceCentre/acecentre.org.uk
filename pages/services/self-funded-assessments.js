@@ -23,7 +23,7 @@ export default function EngineeringPage() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <VideoWithCardCover
           src="/self-funded-assessments.jpg"
           alt="An Ace Centre staff member showing a client how to use their device"
