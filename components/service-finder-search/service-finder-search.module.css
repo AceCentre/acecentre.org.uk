@@ -4,6 +4,14 @@
   max-width: 760px;
 }
 
+.noResults {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 720px;
+  width: 90%;
+}
+
 .skeletonTitle,
 .skeletonPhone,
 .addressSkeleton,
