@@ -2551,10 +2551,10 @@
     lighthouse "8.0.0"
     tree-kill "^1.2.1"
 
-"@mailchimp/mailchimp_marketing@3.0.66":
-  version "3.0.66"
-  resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.66.tgz#f6a3b9dfe64d9eb67369f0dc2a83166d72630993"
-  integrity sha512-OZbeH5hSBZxLdn0VNtAmlNZNBswXj4jasWpQNNsH7LpGAxEKHlqKRWlbATaGLJ3hMadmQXiXe/6OGpAmN3GAMg==
+"@mailchimp/mailchimp_marketing@3.0.67":
+  version "3.0.67"
+  resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.67.tgz#ff31b416188d5ccf2a40d52e57d8a8dffc385c93"
+  integrity sha512-FeEpUn2hkrGPcIsOhxPj1cUKbNJZixch47Bv9JObifCe8m8JlLsz4BNRN24xUgzAeqTodIuSHHN1g+rcJYlIBA==
   dependencies:
     dotenv "^8.2.0"
     superagent "3.8.1"
