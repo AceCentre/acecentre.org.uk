@@ -44,7 +44,7 @@
     "etag": "1.8.1",
     "framer-motion": "4.1.17",
     "fuse.js": "6.4.6",
-    "graphql": "15.6.0",
+    "graphql": "15.6.1",
     "graphql-playground-middleware-express": "1.7.22",
     "graphql-request": "3.5.0",
     "image-type": "4.1.0",
