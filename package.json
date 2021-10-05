@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "7.15.7",
-    "@chakra-ui/react": "1.6.8",
+    "@chakra-ui/react": "1.6.9",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
     "@mailchimp/mailchimp_marketing": "3.0.67",
