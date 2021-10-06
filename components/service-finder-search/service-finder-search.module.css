@@ -1,0 +1,203 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 760px;
+}
+.error {
+  color: red;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 760px;
+}
+
+.noResults {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 720px;
+  width: 90%;
+}
+
+.skeletonTitle,
+.skeletonPhone,
+.addressSkeleton,
+.skeletonServices,
+.addressLineSkeleton.addressLineSkeleton,
+.findOutMoreFake {
+  background-color: grey;
+  border-radius: 4px;
+  height: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skeletonTitle::after,
+.skeletonPhone::after,
+.addressSkeleton::after,
+.skeletonServices::after,
+.addressLineSkeleton.addressLineSkeleton::after,
+.findOutMoreFake::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-animation: shimmer 2s infinite;
+  animation: shimmer 2s infinite;
+  content: "";
+}
+@-webkit-keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.findOutMoreFake.findOutMoreFake {
+  margin-top: 2rem;
+}
+
+.skeletonTitle {
+  width: 60%;
+}
+
+.skeletonPhone {
+  width: 80%;
+}
+
+.addressSkeleton {
+  width: 35%;
+}
+
+.skeletonServices {
+  width: 70%;
+}
+
+.addressLineSkeleton.addressLineSkeleton {
+  margin: 0.25rem 0;
+}
+
+.findOutMoreFake {
+  width: 40%;
+}
+
+.addressLineSkeleton:nth-child(1) {
+  width: 50%;
+}
+.addressLineSkeleton:nth-child(2) {
+  width: 40%;
+}
+.addressLineSkeleton:nth-child(3) {
+  width: 60%;
+}
+.addressLineSkeleton:nth-child(4) {
+  width: 30%;
+}
+
+.resultsContainer {
+  width: 90%;
+
+  max-width: var(--containerMaxWidth);
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.addressLine {
+  display: block;
+}
+
+.resultCard {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resultCard p {
+  margin: 0;
+}
+
+.resultCard h3 {
+  margin: 0;
+}
+
+.findOutMore {
+  margin-top: auto;
+}
+
+.postcodeInput {
+  text-transform: uppercase;
+}
+
+.buttonAsLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  font-size: 14px;
+  color: #00537f;
+}
+
+.buttonAsLink:hover,
+.buttonAsLink:focus {
+  text-decoration: underline;
+}
+
+.searchBar {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  max-width: 760px;
+  width: 100%;
+}
+
+.buttonContainer {
+  white-space: nowrap;
+}
+
+/** Mobile CSS */
+
+@media (max-width: 1024px) {
+  .resultsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+  }
+
+  .resultsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .searchBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

@@ -6,7 +6,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Link from "next/link";
-import { ImageWithLoader as Image } from "../image";
+import { ImageWithLoader, Image } from "../image";
 import styles from "./footer.module.css";
 
 export const Footer = ({ currentYear }) => {
@@ -78,7 +78,7 @@ export const Footer = ({ currentYear }) => {
               </Link>
             </div>
             <div className={styles.cyberEssentialsContainer}>
-              <Image
+              <ImageWithLoader
                 objectFit="contain"
                 layout="fill"
                 src="/cyber-essentials.png"
