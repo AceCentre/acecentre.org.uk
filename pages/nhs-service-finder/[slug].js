@@ -1,7 +1,10 @@
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
+import { GenericFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 import { PageTitle } from "../../components/page-title/page-title";
+import { ServiceCards } from "../../components/service-cards/service-cards";
+import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -32,9 +35,11 @@ export default function ServiceDetails({ service }) {
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDCQjXT-r0vodp_u77adLzMaGzzQST_tvc&q=${service.postcode}`}
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDCQjXT-r0vodp_u77adLzMaGzzQST_tvc&q=${service.postcode}&zoom=12`}
           ></iframe>
         </div>
+        <ServiceCards service={service} />
+        <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
       <Footer currentYear={currentYear} />
     </>
