@@ -22,7 +22,7 @@
     "reverse-patch": "patch-package --reverse"
   },
   "dependencies": {
-    "@babel/eslint-parser": "7.15.7",
+    "@babel/eslint-parser": "7.15.8",
     "@chakra-ui/react": "1.6.9",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
@@ -69,7 +69,7 @@
     "turndown": "7.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.15.5",
+    "@babel/core": "7.15.8",
     "@babel/register": "7.15.3",
     "@lhci/cli": "0.8.2",
     "@netlify/plugin-nextjs": "3.9.0",
