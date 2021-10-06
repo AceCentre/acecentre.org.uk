@@ -67,6 +67,7 @@ const useServices = () => {
   const getServicesFromGeo = async () => {
     setLoading(true);
     setError(null);
+    setServices(null);
     try {
       const { coords } = await new Promise((res, rej) => {
         geo.getCurrentPosition(res, rej);
@@ -89,14 +90,30 @@ const useServices = () => {
         }
       );
 
+      const parsed = await result.json();
+
+      if (parsed.errors && parsed.errors.length > 0) {
+        setError(parsed.errors[0].message);
+        setLoading(false);
+        return;
+      }
+
+      if (!parsed && !parsed.data && !parsed.servicesForCoords) {
+        setError("Failed to get services for your coordinates.");
+        setLoading(false);
+        return;
+      }
+
       const {
         data: { servicesForCoords },
-      } = await result.json();
+      } = parsed;
 
       setServices(servicesForCoords);
       setLoading(false);
     } catch (error) {
-      setError(error);
+      console.warn(error);
+
+      setError("Failed to load services for your postcode.");
       setLoading(false);
     }
   };
@@ -104,6 +121,8 @@ const useServices = () => {
   const getServicesFromPostcodeAsync = async (currentEvent) => {
     setLoading(true);
     setError(null);
+    setServices(null);
+
     try {
       const postcode = currentEvent.target.postcode.value;
       const result = await fetch(
@@ -122,14 +141,30 @@ const useServices = () => {
         }
       );
 
+      const parsed = await result.json();
+
+      if (parsed.errors && parsed.errors.length > 0) {
+        setError(parsed.errors[0].message);
+        setLoading(false);
+        return;
+      }
+
+      if (!parsed && !parsed.data && !parsed.servicesForPostcode) {
+        setError("Failed to get services for your postcode.");
+        setLoading(false);
+        return;
+      }
+
       const {
         data: { servicesForPostcode },
-      } = await result.json();
+      } = parsed;
 
       setServices(servicesForPostcode);
       setLoading(false);
     } catch (error) {
-      setError(error);
+      console.warn(error);
+
+      setError("Failed to load services for your postcode.");
       setLoading(false);
     }
   };
@@ -199,7 +234,7 @@ export const ServiceFinderSearch = () => {
         <ListOfServices services={services} />
       )}
 
-      {error && <p>{JSON.stringify(error, null, 2)}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

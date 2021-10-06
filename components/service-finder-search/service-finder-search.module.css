@@ -3,6 +3,13 @@
   width: 90%;
   max-width: 760px;
 }
+.error {
+  color: red;
+  font-weight: bold;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 760px;
+}
 
 .noResults {
   text-align: center;
