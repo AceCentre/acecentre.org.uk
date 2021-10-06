@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Button } from "../button/button";
 import styles from "./service-cards.module.css";
 
@@ -39,10 +40,10 @@ export const ServiceCards = ({ service }) => {
       <div className={styles.card}>
         <h2>Services offered</h2>
         {service.servicesOffered.map((type) => (
-          <>
+          <Fragment key={type.title}>
             <h3>{type.title}</h3>
             <p>{type.description}</p>
-          </>
+          </Fragment>
         ))}
       </div>
     </div>
