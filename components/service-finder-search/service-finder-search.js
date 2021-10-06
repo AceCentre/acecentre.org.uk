@@ -185,6 +185,8 @@ const useServices = () => {
 };
 
 export const ServiceFinderSearch = () => {
+  const [textInput, setTextInput] = useState("");
+
   const {
     loading,
     isGeoAllowed,
@@ -198,9 +200,9 @@ export const ServiceFinderSearch = () => {
     <div>
       <div className={styles.container}>
         <form onSubmit={getServicesFromPostcode} className={styles.searchBar}>
-          <PostcodeInput disabled={loading} />
+          <PostcodeInput updateTextInput={setTextInput} disabled={loading} />
           <div className={styles.buttonContainer}>
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading || textInput === ""}>
               Find services
             </Button>
           </div>
@@ -298,7 +300,7 @@ const NoResults = () => {
   );
 };
 
-const PostcodeInput = ({ disabled }) => {
+const PostcodeInput = ({ disabled, updateTextInput }) => {
   return (
     <FormControl>
       <FormLabel>Enter your postcode</FormLabel>
@@ -308,6 +310,9 @@ const PostcodeInput = ({ disabled }) => {
         placeholder="eg. OL8 3QL"
         type="text"
         className={styles.postcodeInput}
+        onChange={(event) => {
+          updateTextInput(event.target.value);
+        }}
       />
     </FormControl>
   );
