@@ -16,7 +16,7 @@ export default function ServiceFinder() {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main>
+      <main id="mainContent">
         <PageTitle
           heading="NHS Service Finder"
           description="Find a specialised service near you"
