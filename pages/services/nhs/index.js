@@ -41,6 +41,14 @@ const gridItems = [
         "Ace centre employee showing a client how to use a communication device",
     },
   },
+  {
+    name: "NHS Service Finder",
+    href: "/nhs-service-finder",
+    image: {
+      src: "/nhs-service-finder.jpeg",
+      alt: "Ace centre employee and client laughing",
+    },
+  },
 ];
 
 export const getStaticProps = withGlobalProps(() => {

@@ -10,22 +10,12 @@ module.exports = function (plop) {
         message:
           "The name of the files eg (my-component). This will also be used to name the component",
       },
-      {
-        type: "input",
-        name: "storyName",
-        message: "The name of the story eg (/About/Staff/MyComponent)",
-      },
     ],
     actions: [
       {
         type: "add",
         path: "components/{{name}}/{{name}}.module.css",
         templateFile: "plop-templates/component/module.css",
-      },
-      {
-        type: "add",
-        path: "components/{{name}}/{{name}}.stories.js",
-        templateFile: "plop-templates/component/story.stories.js.hbs",
       },
       {
         type: "add",
