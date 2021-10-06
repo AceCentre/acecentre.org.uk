@@ -1,0 +1,52 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.visitWebsiteContainer {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.addressLines span {
+  display: block;
+  padding: 0.25rem;
+}
+
+.card {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card h2,
+.card p,
+.card h3 {
+  margin: 0;
+}
+
+.emailLink {
+  overflow-wrap: anywhere;
+}
+
+/** Mobile CSS */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
