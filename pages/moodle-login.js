@@ -2,9 +2,9 @@ export default function NullPage() {
   return <></>;
 }
 
-export const getServerSideProps = ({
-  query: { verify_code, mdl_uid, wdmaction },
-}) => {
+export const getServerSideProps = ({ req, query }) => {
+  const { verify_code, mdl_uid, wdmaction } = req.query || query;
+
   if (!wdmaction || !mdl_uid || !verify_code) {
     return {
       notFound: true,
