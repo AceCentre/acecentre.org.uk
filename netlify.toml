@@ -93,6 +93,16 @@
   to = "/learning"
   status = 301
 
+[[redirects]]
+  from = "/resources/electronic-text-based-comparison-chartt"
+  to = "https://backend.acecentre.org.uk/resources/electronic-text-based-comparison-chartt"
+  status = 301
+
+[[redirects]]
+  from = "/resources/electronic-text-based-features-checklist"
+  to = "https://backend.acecentre.org.uk/resources/electronic-text-based-features-checklist"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
