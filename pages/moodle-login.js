@@ -5,6 +5,8 @@ export default function NullPage() {
 export const getServerSideProps = ({ req, query }) => {
   const { verify_code, mdl_uid, wdmaction } = req.query || query;
 
+  console.log(req.query, query);
+
   if (!wdmaction || !mdl_uid || !verify_code) {
     return {
       notFound: true,
