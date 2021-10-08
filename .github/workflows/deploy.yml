@@ -170,7 +170,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i cypress @testing-library/cypress
+      - run: npm i cypress @testing-library/cypress cypress-tags
 
       - name: Cypress run
         with:
@@ -264,7 +264,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i cypress @testing-library/cypress
+      - run: npm i cypress @testing-library/cypress cypress-tags
 
       - name: Cypress run
         with:
