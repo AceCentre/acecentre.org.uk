@@ -170,7 +170,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i cypress @testing-library/cypress cypress-tags
+      - run: npm i cypress @testing-library/cypress cypress-tags typescript
 
       - name: Cypress run
         with:
@@ -264,7 +264,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i cypress @testing-library/cypress cypress-tags
+      - run: npm i cypress @testing-library/cypress cypress-tags typescript
 
       - name: Cypress run
         with:
@@ -272,6 +272,8 @@ jobs:
           record: true
           install: false
         env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: cypress-io/github-action@v2

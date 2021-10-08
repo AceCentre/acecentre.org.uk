@@ -15,9 +15,9 @@ context("Moodle Login", () => {
 
       // Entre login credentials
       cy.findByRole("textbox", { name: "Username" }).type(
-        "fri08@gavinhenderson.co.uk"
+        Cypress.env("MOODLE_USERNAME")
       );
-      cy.findByLabelText("Password").type("password");
+      cy.findByLabelText("Password").type(Cypress.env("MOODLE_PASSWORD"));
       cy.findByRole("button", { name: "Log in" }).click();
 
       // Confirm we are logged in to moodle
