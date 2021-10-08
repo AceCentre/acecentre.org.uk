@@ -80,11 +80,11 @@ const handler = async (req, res) => {
       );
 
       console.log({
-        queryResponse,
+        queryResponse: JSON.stringify(queryResponse, null, 2),
         verify_code,
         mdl_uid,
         wdmaction,
-        extensions,
+        debug: JSON.stringify(extensions, null, 2),
       });
 
       // Save result to session
