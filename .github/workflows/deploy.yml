@@ -187,7 +187,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: [GetUniqueBuildId, Cypress, Jest, ESLint]
     outputs:
-      lighthousePaths: ${{ steps.get-paths.outputs.result }}
+      lighthousePathsFirst: ${{ steps.get-paths-first.outputs.result }}
+      lighthousePathsSecond: ${{ steps.get-paths-second.outputs.result }}
       deploy-url: https://acecentre.org.uk
     environment:
       name: production
@@ -238,11 +239,18 @@ jobs:
         run: netlify deploy --prod
 
       - uses: actions/github-script@v5
-        id: get-paths
+        id: get-paths-first
         with:
           script: |
             const script = require('./scripts/sitemap-to-lighthouse-list')
-            return script(context);
+            return script(context, 256, 0);
+
+      - uses: actions/github-script@v5
+        id: get-paths-second
+        with:
+          script: |
+            const script = require('./scripts/sitemap-to-lighthouse-list')
+            return script(context, 256, 1);
 
       - name: Unpatch deps
         run: yarn reverse-patch
@@ -278,14 +286,46 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: cypress-io/github-action@v2
 
-  Lighthouse:
+  LighthouseFirst:
     needs: [DeployNetlify]
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        path: ${{ fromJson(needs.DeployNetlify.outputs.lighthousePaths) }}
+        path: ${{ fromJson(needs.DeployNetlify.outputs.lighthousePathsFirst) }}
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - name: Run Lighthouse
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_URL: ${{ needs.DeployNetlify.outputs.deploy-url }}
+          LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
+        run: yarn lighthouse --collect.url=${{ needs.DeployNetlify.outputs.deploy-url }}${{ matrix.path }}
+
+  LighthouseSecond:
+    needs: [DeployNetlify]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        path: ${{ fromJson(needs.DeployNetlify.outputs.lighthousePathsSecond) }}
     steps:
       - name: Get Code
         uses: actions/checkout@v2

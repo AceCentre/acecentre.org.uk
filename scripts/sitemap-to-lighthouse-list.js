@@ -9,7 +9,19 @@ const IGNORE = [
   "moodle-login",
 ];
 
-const script = () => {
+function chunk(arr, len) {
+  var chunks = [],
+    i = 0,
+    n = arr.length;
+
+  while (i < n) {
+    chunks.push(arr.slice(i, (i += len)));
+  }
+
+  return chunks;
+}
+
+const script = (context, max, page) => {
   const sitemapPath = path.join(__dirname, "../out/sitemap.xml");
   const sitemapAsString = fs.readFileSync(sitemapPath, "utf8").toString();
   const sitemapObject = parser.parse(sitemapAsString);
@@ -29,7 +41,11 @@ const script = () => {
       return true;
     });
 
-  return urls;
+  const chunks = chunk(urls, max);
+  console.log(urls.length, " total number of urls found");
+  console.log("Split into", chunks.length, "chunks");
+
+  return chunks[page];
 };
 
 module.exports = script;
