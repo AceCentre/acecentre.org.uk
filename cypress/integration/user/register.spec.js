@@ -10,7 +10,7 @@ const validEmail = () => {
 };
 
 context("Register", () => {
-  it("Shows an error when the email address is in use", () => {
+  it(["pre-deploy"], "Shows an error when the email address is in use", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -34,7 +34,7 @@ context("Register", () => {
     });
   });
 
-  it("Shows an error when you password is to short", () => {
+  it(["pre-deploy"], "Shows an error when you password is to short", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -54,7 +54,7 @@ context("Register", () => {
     });
   });
 
-  it("Shows an error when you email is not valid", () => {
+  it(["pre-deploy"], "Shows an error when you email is not valid", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -74,7 +74,7 @@ context("Register", () => {
     });
   });
 
-  it("Registers in, checks email in details, logs out", () => {
+  it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {
     // Store email address for later
     const newEmail = validEmail();
 

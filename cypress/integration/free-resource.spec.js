@@ -1,5 +1,5 @@
 context("Free resources", () => {
-  it("can navigate to a free resource", () => {
+  it(["pre-deploy"], "can navigate to a free resource", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Resources" }).first().click();
     cy.findAllByRole("link", { name: "View all resources" }).first().click();
@@ -15,7 +15,7 @@ context("Free resources", () => {
     cy.findByRole("main").should("contain", "Free");
   });
 
-  it("can download a simple resource", () => {
+  it(["pre-deploy"], "can download a simple resource", () => {
     cy.visit(
       "/resources/high-contrast-listener-mediated-scan-charts-abc-frequency"
     );
