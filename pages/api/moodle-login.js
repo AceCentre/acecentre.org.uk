@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { gql, GraphQLClient } from "graphql-request";
-import withSession from "../../../lib/auth/with-session";
-import config from "../../../lib/config";
+import withSession from "../../lib/auth/with-session";
+import config from "../../lib/config";
 
 export const LOGIN_VIA_MOODLE_MUTATION = gql`
   mutation($wdmaction: String!, $verify_code: String!, $mdl_uid: String!) {
