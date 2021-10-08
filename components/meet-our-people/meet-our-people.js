@@ -10,7 +10,7 @@ export const MeetOurPeople = () => {
       <div className={styles.innerContainer}>
         <div className={styles.imageContainer}>
           <Image
-            src="/group-photo.png"
+            src="/group-photo.jpeg"
             layout="fill"
             objectFit="cover"
             alt="A group photo of everyone at Ace Centre"
