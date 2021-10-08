@@ -70,7 +70,7 @@ const handler = async (req, res) => {
       });
 
       // Request tokens
-      const { data: queryResponse } = await client.rawRequest(
+      const { data: queryResponse, extensions } = await client.rawRequest(
         LOGIN_VIA_MOODLE_MUTATION,
         {
           verify_code,
@@ -78,6 +78,14 @@ const handler = async (req, res) => {
           wdmaction,
         }
       );
+
+      console.log({
+        queryResponse,
+        verify_code,
+        mdl_uid,
+        wdmaction,
+        extensions,
+      });
 
       // Save result to session
       const user = {
