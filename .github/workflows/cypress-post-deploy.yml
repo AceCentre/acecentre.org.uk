@@ -3,30 +3,30 @@ on: [workflow_dispatch]
 
 jobs:
   CypressPostDeploy:
-  runs-on: ubuntu-latest
-  env:
-    CYPRESS_INCLUDE_TAGS: post-deploy
-  steps:
-    - name: Get Code
-      uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    env:
+      CYPRESS_INCLUDE_TAGS: post-deploy
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
 
-    - uses: actions/cache@v2
-      with:
-        path: |
-          ~/.cache/Cypress
-          node_modules
-        key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-    - run: npm i cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i cypress @testing-library/cypress cypress-tags typescript
 
-    - name: Cypress run
-      with:
-        config: baseUrl=https://acecentre.org.uk
-        record: true
-        install: false
-      env:
-        CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-        CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: cypress-io/github-action@v2
+      - name: Cypress run
+        with:
+          config: baseUrl=https://acecentre.org.uk
+          record: true
+          install: false
+        env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: cypress-io/github-action@v2
