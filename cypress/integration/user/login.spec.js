@@ -4,7 +4,7 @@ const TEST_ACC = "cypress@test.com";
 const TEST_PASS = "testpassword";
 
 context("Login", () => {
-  it("disables the login button by default", () => {
+  it(["pre-deploy"], "disables the login button by default", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -14,25 +14,29 @@ context("Login", () => {
       .should("be.disabled");
   });
 
-  it("enables the login button when you enter text into each field", () => {
-    cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-    cy.url({ timeout: 10000 }).should("include", "/login");
+  it(
+    ["pre-deploy"],
+    "enables the login button when you enter text into each field",
+    () => {
+      cy.visit("");
+      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.url({ timeout: 10000 }).should("include", "/login");
 
-    cy.findAllByRole("form", { name: "Login form" })
-      .findByRole("textbox", { name: "Username or email address" })
-      .type("email@email.com");
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByRole("textbox", { name: "Username or email address" })
+        .type("email@email.com");
 
-    cy.findAllByRole("form", { name: "Login form" })
-      .findByLabelText("Password")
-      .type("password");
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByLabelText("Password")
+        .type("password");
 
-    cy.findAllByRole("form", { name: "Login form" })
-      .findByRole("button", { name: "Log in" })
-      .should("not.be.disabled");
-  });
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByRole("button", { name: "Log in" })
+        .should("not.be.disabled");
+    }
+  );
 
-  it("shows an error when no account exists", () => {
+  it(["pre-deploy"], "shows an error when no account exists", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -54,7 +58,7 @@ context("Login", () => {
     });
   });
 
-  it("shows an error when password is wrong", () => {
+  it(["pre-deploy"], "shows an error when password is wrong", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
@@ -76,7 +80,7 @@ context("Login", () => {
     });
   });
 
-  it("successfully logs in to a valid account", () => {
+  it(["pre-deploy"], "successfully logs in to a valid account", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
