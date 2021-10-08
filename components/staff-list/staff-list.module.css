@@ -2,6 +2,22 @@
   border-radius: 50%;
 }
 
+.yellowGradient {
+  background: linear-gradient(#fffae1, #f6eec5);
+}
+
+.redGradient {
+  background-image: linear-gradient(#fff4f4, #f1d1d0);
+}
+
+.blueGradient {
+  background: linear-gradient(#eaf8ff, #bfdded);
+}
+
+.orangeGradient {
+  background: linear-gradient(#ffeed6, #f4d4a4);
+}
+
 .imageContainer {
   padding: 0 29px;
 }
