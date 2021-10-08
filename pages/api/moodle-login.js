@@ -99,7 +99,7 @@ const handler = async (req, res) => {
 
       req.session.set("user", user);
       req.session.set("cart", {
-        wooSessionToken: queryResponse.login.user.wooSessionToken,
+        wooSessionToken: queryResponse.loginViaMoodle.user.wooSessionToken,
       });
 
       await req.session.save();
