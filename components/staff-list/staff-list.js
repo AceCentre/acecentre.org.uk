@@ -9,7 +9,7 @@ import Phone from "@material-ui/icons/Phone";
 export const StaffList = ({ staffList }) => {
   return (
     <PeopleList peopleList={staffList}>
-      {(person) => <StaffCard person={person} />}
+      {(person, index) => <StaffCard person={person} index={index} />}
     </PeopleList>
   );
 };
@@ -28,12 +28,26 @@ const LOCATION_MAP = {
   remote: "Remote",
 };
 
-const StaffCard = ({ person }) => {
+const listOfBackgrounds = [
+  styles.blueGradient,
+  styles.yellowGradient,
+  styles.redGradient,
+  styles.orangeGradient,
+  styles.redGradient,
+  styles.orangeGradient,
+  styles.blueGradient,
+  styles.yellowGradient,
+];
+
+const StaffCard = ({ person, index = 0 }) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const onClose = () => setIsModelOpen(false);
   const location = LOCATION_MAP[person.location.trim().toLowerCase()];
 
   if (!location) throw new Error("Could not get a location for", person);
+
+  const backgroundClass =
+    listOfBackgrounds[index == 0 ? 0 : index % listOfBackgrounds.length];
 
   return (
     <>
@@ -48,7 +62,7 @@ const StaffCard = ({ person }) => {
               width={200}
               height={200}
               src={person.image.src}
-              className={styles.image}
+              className={`${backgroundClass} ${styles.image}`}
             />
           ) : (
             <CropToSquareAroundFace
@@ -73,6 +87,7 @@ const StaffCard = ({ person }) => {
         onClose={onClose}
         person={person}
         location={location}
+        backgroundClass={backgroundClass}
       />
     </>
   );
@@ -174,7 +189,13 @@ const TrusteeDetail = ({ isModelOpen, onClose, person }) => {
   );
 };
 
-const StaffDetail = ({ isModelOpen, onClose, person, location }) => {
+const StaffDetail = ({
+  isModelOpen,
+  onClose,
+  person,
+  location,
+  backgroundClass = "",
+}) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -194,7 +215,7 @@ const StaffDetail = ({ isModelOpen, onClose, person, location }) => {
                   width={155}
                   height={155}
                   src={person.image.src}
-                  className={styles.image}
+                  className={`${backgroundClass} ${styles.image}`}
                 />
               ) : (
                 <CropToSquareAroundFace

@@ -4,9 +4,9 @@ export const PeopleList = ({ peopleList, children }) => {
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {peopleList.map((person) => (
+        {peopleList.map((person, index) => (
           <li key={`person-${person.name}`} className={styles.personCard}>
-            {children(person)}
+            {children(person, index)}
           </li>
         ))}
       </ul>
