@@ -14,6 +14,7 @@ context("Moodle Login", () => {
       cy.findByRole("link", { name: "Log in" }).click();
 
       // Entre login credentials
+      cy.wait(2000);
       cy.findByRole("textbox", { name: "Username" }).type(
         Cypress.env("MOODLE_USERNAME")
       );
