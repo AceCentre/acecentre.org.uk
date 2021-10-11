@@ -1,0 +1,44 @@
+name: Check Edwiser
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7,37 * * * *"
+
+jobs:
+  CheckEdwiser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install NPM deps
+        run: yarn install
+
+      - name: Patch deps
+        run: yarn patch
+
+      - uses: actions/github-script@v5
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+        with:
+          script: |
+            const script = require('./scripts/check-edwiser')
+            return await script(context);
+
+      - name: Unpatch deps
+        run: yarn reverse-patch
