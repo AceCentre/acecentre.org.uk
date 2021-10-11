@@ -7,12 +7,15 @@ import { GlobalsContext } from "../lib/global-props/context";
 
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NextNProgress from "../components/progress-bar";
 import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
 import "polyfill-object.fromentries";
 import { SkipLink } from "../components/skip-link/skip-link";
+import { v4 as uuid } from "@lukeed/uuid";
+import posthog from "posthog-js";
+import config from "../lib/config";
 
 const theme = createTheme();
 
@@ -20,6 +23,22 @@ function MyApp({
   Component,
   pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
 }) {
+  const [posthogLoaded, setPosthogLoaded] = useState(false);
+
+  useEffect(() => {
+    posthog.init(config.posthogKey, {
+      api_host: "https://app.posthog.com",
+      persistence: "memory",
+      autocapture: false,
+      disable_cookie: true,
+      disable_session_recording: true,
+      loaded: (posthog) => {
+        posthog.identify(uuid());
+        setPosthogLoaded(true);
+      },
+    });
+  }, []);
+
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -31,7 +50,7 @@ function MyApp({
   return (
     <>
       <SkipLink />
-      <GlobalsContext.Provider value={globalProps}>
+      <GlobalsContext.Provider value={{ ...globalProps, posthogLoaded }}>
         <DefaultHead {...seo} />
         <ThemeProvider theme={theme}>
           <ChakraProvider resetCSS={false}>

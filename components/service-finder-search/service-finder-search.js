@@ -5,6 +5,8 @@ import MyLocationIcon from "@material-ui/icons/MyLocation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
+import { useGlobalProps } from "../../lib/global-props/hook";
+import posthog from "posthog-js";
 
 const gql = ([result]) => result;
 
@@ -57,6 +59,7 @@ const useServices = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [services, setServices] = useState(null);
+  const { posthogLoaded } = useGlobalProps();
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -68,6 +71,11 @@ const useServices = () => {
     setLoading(true);
     setError(null);
     setServices(null);
+
+    if (posthogLoaded) {
+      posthog.capture("serviceSearchStarted", { type: "geo" });
+    }
+
     try {
       const { coords } = await new Promise((res, rej) => {
         geo.getCurrentPosition(res, rej);
@@ -110,6 +118,11 @@ const useServices = () => {
 
       setServices(servicesForCoords);
       setLoading(false);
+
+      posthog.capture("serviceSearchFinished", {
+        type: "geo",
+        numberOfServices: servicesForCoords.services.length,
+      });
     } catch (error) {
       console.warn(error);
 
@@ -122,6 +135,10 @@ const useServices = () => {
     setLoading(true);
     setError(null);
     setServices(null);
+
+    if (posthogLoaded) {
+      posthog.capture("serviceSearchStarted", { type: "postcode" });
+    }
 
     try {
       const postcode = currentEvent.target.postcode.value;
@@ -161,6 +178,13 @@ const useServices = () => {
 
       setServices(servicesForPostcode);
       setLoading(false);
+
+      if (posthogLoaded) {
+        posthog.capture("serviceSearchFinished", {
+          type: "postcode",
+          numberOfServices: servicesForPostcode.services.length,
+        });
+      }
     } catch (error) {
       console.warn(error);
 

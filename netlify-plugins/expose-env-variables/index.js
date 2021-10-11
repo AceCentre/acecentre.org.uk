@@ -21,8 +21,8 @@ module.exports = {
       pathToEnv,
       `MAILCHIMP_API_KEY=${process.env.MAILCHIMP_API_KEY}\n`
     );
-
     fs.appendFileSync(pathToEnv, `SLACK_TOKEN=${process.env.SLACK_TOKEN}\n`);
     fs.appendFileSync(pathToEnv, `SLACK_SECRET=${process.env.SLACK_SECRET}\n`);
+    fs.appendFileSync(pathToEnv, `POSTHOG_KEY=${process.env.POSTHOG_KEY}\n`);
   },
 };
