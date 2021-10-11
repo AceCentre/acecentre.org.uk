@@ -55,7 +55,7 @@ WHERE option_name LIKE "eb_current_version"`
     await checkVersionOfEdwiserPlugin({
       connection,
       optionName: "woocommerce_integration_version",
-      url: "https://edwiser.org/bridge/extensions/woocommerce-integrationn",
+      url: "https://edwiser.org/bridge/extensions/woocommerce-integration",
     });
 
     await connection.end();
@@ -116,7 +116,7 @@ const sendSlackMessage = async (message) => {
   });
   await app.client.chat.postMessage({
     channel: "C02E0MC3HB2",
-    text: `<@U01S5QXCDV3>\n\n${message}`,
+    text: `<@U01S5QXCDV3> <@UDH2285M5>\n\n${message}`,
     link_names: true,
   });
   console.log("Sent a slack message");
