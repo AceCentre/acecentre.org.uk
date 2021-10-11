@@ -106,6 +106,9 @@ module.exports = {
         "unminified-css": "off",
         "uses-text-compression": "off",
 
+        // Posthog does this
+        "no-unload-listeners": "off",
+
         ...getExtraAssertions(),
       },
     },
