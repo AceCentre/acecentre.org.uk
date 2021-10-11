@@ -119,10 +119,19 @@ const useServices = () => {
       setServices(servicesForCoords);
       setLoading(false);
 
-      posthog.capture("serviceSearchFinished", {
-        type: "geo",
-        numberOfServices: servicesForCoords.services.length,
-      });
+      if (posthogLoaded) {
+        posthog.capture("serviceSearchFinished", {
+          type: "geo",
+          numberOfServices: servicesForCoords.services.length,
+        });
+
+        for (const current of servicesForCoords.services) {
+          posthog.capture("serviceFound", {
+            type: "geo",
+            serviceId: current.id,
+          });
+        }
+      }
     } catch (error) {
       console.warn(error);
 
@@ -184,6 +193,13 @@ const useServices = () => {
           type: "postcode",
           numberOfServices: servicesForPostcode.services.length,
         });
+
+        for (const current of servicesForPostcode.services) {
+          posthog.capture("serviceFound", {
+            type: "postcode",
+            serviceId: current.id,
+          });
+        }
       }
     } catch (error) {
       console.warn(error);
