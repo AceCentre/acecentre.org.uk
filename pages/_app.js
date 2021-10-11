@@ -31,9 +31,10 @@ function MyApp({
       persistence: "memory",
       autocapture: false,
       disable_cookie: true,
+      capture_pageview: false,
       disable_session_recording: true,
       loaded: (posthog) => {
-        posthog.identify(uuid());
+        // posthog.identify(uuid());
         setPosthogLoaded(true);
       },
     });
