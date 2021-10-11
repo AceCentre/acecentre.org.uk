@@ -55,7 +55,7 @@ WHERE option_name LIKE "eb_current_version"`
     await checkVersionOfEdwiserPlugin({
       connection,
       optionName: "woocommerce_integration_version",
-      url: "https://edwiser.org/bridge/extensions/woocommerce-integration",
+      url: "https://edwiser.org/bridge/extensions/woocommerce-integrationn",
     });
 
     await connection.end();
