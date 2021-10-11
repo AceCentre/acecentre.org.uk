@@ -2859,6 +2859,18 @@
     lighthouse "8.0.0"
     tree-kill "^1.2.1"
 
+"@lukeed/csprng@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@lukeed/csprng/-/csprng-1.0.0.tgz#733a122382749d27e2e46ec38f8c71c9d53a9636"
+  integrity sha512-ruuGHsnabmObBdeMg3vKdGRmh06Oog3eFpf/Tk6X0kDSJDpJTDCj2dqdp1+0VjzIUgHlFF9GBm7uFqfYhhdX9g==
+
+"@lukeed/uuid@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@lukeed/uuid/-/uuid-2.0.0.tgz#1c0f33c071cb6902bc3b9e475782ada7314ef9bd"
+  integrity sha512-dUz8OmYvlY5A9wXaroHIMSPASpSYRLCqbPvxGSyHguhtTQIy24lC+EGxQlwv71AhRCO55WOtgwhzQLpw27JaJQ==
+  dependencies:
+    "@lukeed/csprng" "^1.0.0"
+
 "@mailchimp/mailchimp_marketing@3.0.69":
   version "3.0.69"
   resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.69.tgz#2a7577fb37ef4ad38a799f362be2892189417646"
@@ -4114,6 +4126,11 @@
   integrity sha512-c/qwwcHyafOQuVQJj0IlBjf5yYgBI7YPJ77k4fOJYesb41jio65eaJODRUmfYKhTOFBrIZ66kgvGPlNbjuoRdQ==
   dependencies:
     any-observable "^0.3.0"
+
+"@sentry/types@^6.11.0":
+  version "6.13.3"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.13.3.tgz#63ad5b6735b0dfd90b3a256a9f8e77b93f0f66b2"
+  integrity sha512-Vrz5CdhaTRSvCQjSyIFIaV9PodjAVFkzJkTRxyY7P77RcegMsRSsG1yzlvCtA99zG9+e6MfoJOgbOCwuZids5A==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -10639,6 +10656,11 @@ fetch-node-website@^5.0.3:
     got "^10.7.0"
     jest-validate "^25.3.0"
 
+fflate@^0.4.1:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
+  integrity sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==
+
 figgy-pudding@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
@@ -17031,6 +17053,15 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.36, postcss@^7.0
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
+posthog-js@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.14.1.tgz#68553b9074c686784b994b3f433ad035b241deaa"
+  integrity sha512-gVFk6fsTxG9T+5oqZghffYovENSrs05v3hQMiRQENtGlsHGpt1fnoQ52En8Vg5brMxqLv1XZO4lMgm12/ubH0Q==
+  dependencies:
+    "@sentry/types" "^6.11.0"
+    fflate "^0.4.1"
+    rrweb-snapshot "^1.1.7"
+
 prebuild-install@^6.1.4:
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-6.1.4.tgz#ae3c0142ad611d58570b89af4986088a4937e00f"
@@ -18303,6 +18334,11 @@ rollup@^2.23.1:
   integrity sha512-s8H00ZsRi29M2/lGdm1u8DJpJ9ML8SUOpVVBd33XNeEeL3NVaTiUcSBHzBdF3eAyR0l7VSpsuoVUGrRHq7aPwQ==
   optionalDependencies:
     fsevents "~2.3.2"
+
+rrweb-snapshot@^1.1.7:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/rrweb-snapshot/-/rrweb-snapshot-1.1.8.tgz#57c3a8003a6ebbe4a2e2f5be29e30a47a8b1eb03"
+  integrity sha512-wi8T9IVobEwlns7U2m8cbPfoihsNAMpTI+UBe4KUjclU2N+vtowD2U1Rq8PleiFTDvcseHvkQDmEIZoZLXFzwg==
 
 rsvp@^4.8.4:
   version "4.8.5"
