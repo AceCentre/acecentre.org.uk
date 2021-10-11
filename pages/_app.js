@@ -13,7 +13,6 @@ import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
 import "polyfill-object.fromentries";
 import { SkipLink } from "../components/skip-link/skip-link";
-import { v4 as uuid } from "@lukeed/uuid";
 import posthog from "posthog-js";
 import config from "../lib/config";
 
@@ -33,8 +32,7 @@ function MyApp({
       disable_cookie: true,
       capture_pageview: false,
       disable_session_recording: true,
-      loaded: (posthog) => {
-        // posthog.identify(uuid());
+      loaded: () => {
         setPosthogLoaded(true);
       },
     });
