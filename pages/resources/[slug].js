@@ -56,7 +56,7 @@ export default function ResourceDetail({ resource, relatedResources }) {
 }
 
 export async function getStaticPaths() {
-  const allProducts = await getAllProducts();
+  const allProducts = await getAllProducts(true);
 
   if (!allProducts) throw new Error("Could not get all the products");
 
@@ -71,7 +71,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allProducts = await getAllProducts();
+  const allProducts = await getAllProducts(true);
 
   if (!allProducts) throw new Error("Could not get all the products");
 
