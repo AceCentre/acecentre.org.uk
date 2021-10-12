@@ -67,7 +67,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       service,
       seo: {
         title: service.serviceName,
-        description: "Find a specialised service near you",
+        description: "Find an assistive technology service near you",
       },
     },
   };
