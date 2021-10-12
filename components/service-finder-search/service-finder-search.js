@@ -82,7 +82,7 @@ const useServices = () => {
       });
 
       const result = await fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/graphql",
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/graphql",
         {
           method: "POST",
           headers: {
@@ -152,7 +152,7 @@ const useServices = () => {
     try {
       const postcode = currentEvent.target.postcode.value;
       const result = await fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/graphql",
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/graphql",
         {
           method: "POST",
           headers: {
