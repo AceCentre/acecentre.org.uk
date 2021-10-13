@@ -3326,10 +3326,10 @@
     rollup-plugin-terser "^7.0.2"
     typescript "^4.1.5"
 
-"@netlify/plugin-nextjs@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-3.9.0.tgz#80f8c5087f605b903b7f07f85f67147920305f95"
-  integrity sha512-EqZjRbN/cGBpBmU50U4YA9r/b2cR++ZNK0sOJGbxtdqAjk0GMU3iNkuWbs8aO/4pjRRiNNmcAWsdOIgquF3CZg==
+"@netlify/plugin-nextjs@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-3.9.2.tgz#9a9cd820a611e256e52fe3def800ed04962ff237"
+  integrity sha512-fa7G5p2p8uOHstb0aaS6P8qKJ/ixcrpQzJwz92LPUBVXAsUnhspes7lPIDbxmLt+DZiA9DBW9z1IlUGK98WIGQ==
   dependencies:
     "@babel/core" "^7.15.0"
     "@netlify/functions" "^0.7.2"
