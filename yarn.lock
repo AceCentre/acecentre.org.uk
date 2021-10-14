@@ -2871,10 +2871,10 @@
   dependencies:
     "@lukeed/csprng" "^1.0.0"
 
-"@mailchimp/mailchimp_marketing@3.0.69":
-  version "3.0.69"
-  resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.69.tgz#2a7577fb37ef4ad38a799f362be2892189417646"
-  integrity sha512-VPylOpHP/rGBLwdU+fK2Yzlu5+28TdpF0SyazZp0hv4TkwX2T3rmRIcD42cRMg4eCJpN08rVmlex+hMJZ5LQ5Q==
+"@mailchimp/mailchimp_marketing@3.0.70":
+  version "3.0.70"
+  resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.70.tgz#f4d330dcf516b29aafffc27889e837e40f614d37"
+  integrity sha512-VgF5fnzxKCX8aKZdA+YBNdAQv7yWCrtzzEJsH49H2Nmd34ruutkHmfLRXPaqE4WLJ5jcPfHMQ66WkDC19uvvBQ==
   dependencies:
     dotenv "^8.2.0"
     superagent "3.8.1"
