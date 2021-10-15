@@ -19,7 +19,7 @@ export default function ServiceFinder() {
       <main id="mainContent">
         <PageTitle
           heading="NHS Service Finder"
-          description="Find a specialised service near you"
+          description="Find an assistive technology service near you"
         />
         <ServiceFinderSearch />
         <GenericFaqs faqs={serviceFinderFaqs} />
@@ -34,7 +34,7 @@ export const getStaticProps = withGlobalProps(() => {
     props: {
       seo: {
         title: "NHS Service Finder",
-        description: "Find a specialised service near you",
+        description: "Find an assistive technology service near you",
       },
     },
   };
