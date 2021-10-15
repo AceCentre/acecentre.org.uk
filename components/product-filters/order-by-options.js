@@ -79,4 +79,11 @@ export const ORDER_BY_OPTIONS = [
       return 0;
     },
   },
+  {
+    slug: "most-popular",
+    title: "Most popular",
+    sort: (productA, productB) => {
+      return productB.totalSales - productA.totalSales;
+    },
+  },
 ];
