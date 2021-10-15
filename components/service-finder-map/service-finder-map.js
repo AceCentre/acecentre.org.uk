@@ -4,37 +4,39 @@ import Head from "next/head";
 import { useEffect } from "react";
 import styles from "./service-finder-map.module.css";
 
+const waitForMap = async () => {
+  return new Promise((res) => {
+    let interval = setInterval(() => {
+      if (L) {
+        clearInterval(interval);
+        res();
+      }
+    }, 500);
+  });
+};
+
 export const ServiceFinderMap = ({ services }) => {
   useEffect(() => {
-    const map = L.map("map").setView([54.2511, -4.4631], 6);
+    const loadMap = async () => {
+      await waitForMap();
 
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
-      {
-        maxZoom: 18,
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-          'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1,
-      }
-    ).addTo(map);
+      const map = L.map("map").setView([54.2511, -4.4631], 6);
 
-    const fetchData = async () => {
-      const aacServicesResult = await fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=aac"
-      );
-      const ecServicesResult = await fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=ec"
-      );
-      const wcsServicesResult = await fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=wcs"
-      );
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+        {
+          maxZoom: 18,
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+        }
+      ).addTo(map);
 
-      const aac = await aacServicesResult.json();
-      const ec = await ecServicesResult.json();
-      const wcs = await wcsServicesResult.json();
+      const control = L.control.layers({}, {}, { collapsed: false });
+      control.addTo(map);
 
       const onEachFeature = (property = "serviceId") => (feature, layer) => {
         const selectedService = services.find(
@@ -53,18 +55,36 @@ export const ServiceFinderMap = ({ services }) => {
         );
       };
 
-      const layers = {
-        "AAC Services": L.geoJSON(aac, { onEachFeature: onEachFeature() }),
-        "EC Services": L.geoJSON(ec, { onEachFeature: onEachFeature() }),
-        "Wheelchair Services": L.geoJSON(wcs, {
-          onEachFeature: onEachFeature(),
-        }),
-      };
-
-      L.control.layers({}, layers, { collapsed: false }).addTo(map);
+      fetch(
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=aac"
+      ).then(async (result) => {
+        const layer = await result.json();
+        control.addOverlay(
+          L.geoJSON(layer, { onEachFeature: onEachFeature() }).addTo(map),
+          "AAC Services"
+        );
+      });
+      fetch(
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=ec"
+      ).then(async (result) => {
+        const layer = await result.json();
+        control.addOverlay(
+          L.geoJSON(layer, { onEachFeature: onEachFeature() }),
+          "EC Services"
+        );
+      });
+      fetch(
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=wcs"
+      ).then(async (result) => {
+        const layer = await result.json();
+        control.addOverlay(
+          L.geoJSON(layer, { onEachFeature: onEachFeature() }),
+          "Wheelchair Services"
+        );
+      });
     };
 
-    fetchData();
+    loadMap();
   }, []);
 
   return (
