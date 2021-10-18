@@ -7,6 +7,7 @@ const IGNORE = [
   "switch-scanning-frequency-analysis",
   "make-your-own-flip-joke-book",
   "moodle-login",
+  "nhs-service-finder/maps",
 ];
 
 function chunk(arr, len) {
