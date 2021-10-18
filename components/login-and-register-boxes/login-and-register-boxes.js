@@ -116,7 +116,7 @@ export const LoginAndRegisterBoxes = () => {
               </p>
             )}
             <Checkbox name="mailingList" id="mailingList">
-              Email me about Ace related news and events
+              Email me about Ace Centre related news and events
             </Checkbox>
             {registerGeneralError && (
               <p data-testid="register-error" className={styles.loginError}>

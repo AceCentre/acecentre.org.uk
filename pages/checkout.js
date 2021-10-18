@@ -514,7 +514,7 @@ const CheckoutForm = ({
       />
       <div className={styles.checkbox}>
         <Checkbox name="mailingList" id="mailingList">
-          Email me about Ace related news and events
+          Email me about Ace Centre related news and events
         </Checkbox>
 
         {needsDelivered && (
