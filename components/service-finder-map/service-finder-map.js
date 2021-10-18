@@ -56,7 +56,7 @@ export const ServiceFinderMap = ({ services }) => {
       };
 
       fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=aac"
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/raw-data/aac-services-geo.geojson"
       ).then(async (result) => {
         const layer = await result.json();
         control.addOverlay(
@@ -65,7 +65,7 @@ export const ServiceFinderMap = ({ services }) => {
         );
       });
       fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=ec"
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/raw-data/ec-services-geo.geojson"
       ).then(async (result) => {
         const layer = await result.json();
         control.addOverlay(
@@ -74,7 +74,7 @@ export const ServiceFinderMap = ({ services }) => {
         );
       });
       fetch(
-        "https://deploy-preview-25--nhs-service-finder.netlify.app/.netlify/functions/get-raw-geo-data?type=wcs"
+        "https://deploy-preview-25--nhs-service-finder.netlify.app/raw-data/wcs-services-geo.geojson"
       ).then(async (result) => {
         const layer = await result.json();
         control.addOverlay(
