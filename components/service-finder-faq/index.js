@@ -4,6 +4,17 @@ import Link from "next/link";
 
 export const serviceFinderFaqs = [
   {
+    question: "Can I view the service coverage data on a map?",
+    answer: (
+      <>
+        <p>You absolutely can.</p>
+        <p>
+          <Link href="/nhs-service-finder/maps">Check out the map here</Link>
+        </p>
+      </>
+    ),
+  },
+  {
     question: "Where does the data come from?",
     answer: (
       <>
