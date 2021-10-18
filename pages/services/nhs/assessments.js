@@ -19,6 +19,7 @@ import { InformationDays } from "../../../components/information-days/informatio
 import Link from "next/link";
 import { AssessmentEligibility } from "../assessments";
 import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
+import { CardHighlight } from "../../../components/project-highlight/project-highlight";
 
 export default function NHSLanding() {
   const { currentYear } = useGlobalProps();
@@ -183,13 +184,12 @@ export default function NHSLanding() {
               Maintenance (PPM) Check to ensure the equipment is operating
               safely.
             </p>
-            {/* Commenting this out because its broken */}
-            {/* <CardHighlight
-              title="Check where our services are available"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-              viewText="Launch service checker"
-              href="https://servicefinder.acecentre.net/"
-            /> */}
+            <CardHighlight
+              title="Find an assistive technology service near you"
+              description="Find your nearest NHS AAC Service, Environmental Control Service or Wheelchair Service."
+              viewText="Visit service finder"
+              href="/nhs-service-finder"
+            />
           </div>
           <div>
             <div className={styles.serviceProvidedByContainer}>
