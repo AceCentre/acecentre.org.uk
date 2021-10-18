@@ -9,5 +9,12 @@
   max-width: 420px;
 }
 
+.linkContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding: 1rem 0;
+}
+
 .backToLink {
 }

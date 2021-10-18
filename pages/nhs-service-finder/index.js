@@ -7,6 +7,8 @@ import { ServiceFinderSearch } from "../../components/service-finder-search/serv
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
+import Link from "next/link";
+import styles from "../../styles/nhs-service-finder.module.css";
 
 export default function ServiceFinder() {
   const { currentYear } = useGlobalProps();
@@ -20,7 +22,13 @@ export default function ServiceFinder() {
         <PageTitle
           heading="NHS Service Finder"
           description="Find an assistive technology service near you"
+          className={styles.pageTitle}
         />
+        <div className={styles.linkContainer}>
+          <Link href="/nhs-service-finder/maps">
+            Click here to view Assistive Technology service coverage on a map
+          </Link>
+        </div>
         <ServiceFinderSearch />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
