@@ -7,6 +7,7 @@ import Link from "next/link";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import posthog from "posthog-js";
+import { ServiceFinderMailingList } from "../service-finder-mailing-list/service-finder-mailing-list";
 
 const gql = ([result]) => result;
 
@@ -289,33 +290,36 @@ const ListOfServices = ({ services }) => {
   }
 
   return (
-    <ul className={styles.resultsContainer}>
-      {services.services.map((service) => (
-        <li className={styles.resultCard} key={service.id}>
-          <h3>{service.serviceName}</h3>
-          <p>
-            <strong>Services:</strong>{" "}
-            {service.servicesOffered.map((x) => x.title).join(", ")}
-          </p>
-          <p>
-            <strong>Address:</strong>
-          </p>
-          <div>
-            {service.addressLines.map((line) => (
-              <span className={styles.addressLine} key={line}>
-                {line}
-              </span>
-            ))}
-          </div>
-          <p>
-            <strong>Phone:</strong> {service.phoneNumber}
-          </p>
-          <Link href={`/nhs-service-finder/${service.id}`}>
-            <a className={styles.findOutMore}>Find out more &gt;</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className={styles.resultsContainer}>
+        {services.services.map((service) => (
+          <li className={styles.resultCard} key={service.id}>
+            <h3>{service.serviceName}</h3>
+            <p>
+              <strong>Services:</strong>{" "}
+              {service.servicesOffered.map((x) => x.title).join(", ")}
+            </p>
+            <p>
+              <strong>Address:</strong>
+            </p>
+            <div>
+              {service.addressLines.map((line) => (
+                <span className={styles.addressLine} key={line}>
+                  {line}
+                </span>
+              ))}
+            </div>
+            <p>
+              <strong>Phone:</strong> {service.phoneNumber}
+            </p>
+            <Link href={`/nhs-service-finder/${service.id}`}>
+              <a className={styles.findOutMore}>Find out more &gt;</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ServiceFinderMailingList />
+    </>
   );
 };
 

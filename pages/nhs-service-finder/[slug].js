@@ -5,6 +5,7 @@ import { GenericFaqs } from "../../components/getting-started-faqs/getting-start
 import { PageTitle } from "../../components/page-title/page-title";
 import { ServiceCards } from "../../components/service-cards/service-cards";
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
+import { ServiceFinderMailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -40,6 +41,7 @@ export default function ServiceDetails({ service }) {
           ></iframe>
         </div>
         <ServiceCards service={service} />
+        <ServiceFinderMailingList />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
       <Footer currentYear={currentYear} />

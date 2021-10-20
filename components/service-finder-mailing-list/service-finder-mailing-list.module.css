@@ -1,0 +1,12 @@
+.container {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  text-align: center;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
