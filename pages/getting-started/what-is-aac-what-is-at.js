@@ -88,21 +88,21 @@ export default function GettingStartedLanding({ story, resources }) {
 const FAQS = [
   {
     question: "What are symbol based charts and books?",
-    answer: `
-        <p>
-          Symbol based charts and books enable someone to communicate by
-          pointing to or looking at pictures or special symbols printed on paper
-          or other materials.&nbsp; Charts and books can be tailor-made to suit
-          the individual and can be used everywhere as there are no batteries to
-          run low or screens to break.&nbsp; While you still need to learn what
-          the symbols mean, there is no need to be able to read or spell to
-          communicate.
-        </p>
-        `,
+    answer: (
+      <p>
+        Symbol based charts and books enable someone to communicate by pointing
+        to or looking at pictures or special symbols printed on paper or other
+        materials.&nbsp; Charts and books can be tailor-made to suit the
+        individual and can be used everywhere as there are no batteries to run
+        low or screens to break.&nbsp; While you still need to learn what the
+        symbols mean, there is no need to be able to read or spell to
+        communicate.
+      </p>
+    ),
   },
   {
     question: "What are alphabet charts?",
-    answer: `
+    answer: (
       <p>
         Alphabet charts can provide a quick way of communicating for individuals
         who are able to spell. They can be highly customised to meet the needs
@@ -112,11 +112,12 @@ const FAQS = [
         books, they can be used everywhere as there are no batteries to run low
         or screens to break.
       </p>
-    `,
+    ),
   },
   {
     question: "What are Simple Voice Output Communication Aids (VOCAs)?",
-    answer: `
+    answer: (
+      <>
         <p>
           The simplest VOCAs tend to be sturdy battery-powered devices with
           built-in microphones for recording messages. They are sometimes known
@@ -136,11 +137,13 @@ const FAQS = [
           Some simple VOCAs offer alternative ways of selecting messages for
           those that find pressing the buttons difficult.
         </p>
-      `,
+      </>
+    ),
   },
   {
     question: "What are Complex Voice Output Communication Aids (VOCAs)?",
-    answer: `
+    answer: (
+      <>
         <p>
           Complex VOCAs tend to make use of synthetic (i.e. computer generated)
           speech, although many offer the capacity to pre-record messages
@@ -164,7 +167,8 @@ const FAQS = [
           Complex VOCAs often offer additional features such as access to email,
           mobile phone and environmental control.
         </p>
-        `,
+      </>
+    ),
   },
 ];
 
