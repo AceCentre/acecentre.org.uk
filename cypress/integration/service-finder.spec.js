@@ -15,7 +15,7 @@ context("Service Finder", () => {
 
     cy.findByRole("button", { name: "Or use your current location" }).click();
 
-    cy.contains("ACE Centre North").should("exist");
+    cy.contains("Ace Centre North").should("exist");
     cy.contains("North West AT Service").should("exist");
   });
 
@@ -38,7 +38,7 @@ context("Service Finder", () => {
     cy.findByRole("textbox", { name: "Enter your postcode" }).type("OL83QL");
     cy.findByRole("button", { name: "Find services" }).click();
 
-    cy.contains("ACE Centre North").should("exist");
+    cy.contains("Ace Centre North").should("exist");
     cy.contains("North West AT Service").should("exist");
   });
 
@@ -49,7 +49,7 @@ context("Service Finder", () => {
     cy.findByRole("button", { name: "Find services" }).click();
 
     cy.findAllByRole("link", { name: "Find out more >" }).first().click();
-    cy.contains("ACE Centre North").should("exist");
+    cy.contains("Ace Centre North").should("exist");
   });
 
   it(["pre-deploy"], "Can click through to map", () => {
