@@ -3,6 +3,17 @@
   width: 90%;
   max-width: 760px;
 }
+
+.avatar.avatar {
+  background: #94c64e;
+}
+
+.iconList {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
 .error {
   color: red;
   font-weight: bold;
