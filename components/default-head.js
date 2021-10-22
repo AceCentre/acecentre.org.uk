@@ -1,7 +1,11 @@
 import Head from "next/head";
 
 import { imageLoaders } from "../lib/config";
-import { cloudinaryLoader, imageKitLoader } from "../lib/image-loader";
+import {
+  cloudinaryLoader,
+  imageKitLoader,
+  keyLoader,
+} from "../lib/image-loader";
 
 const defaultTitle =
   "Ace Centre | Charity specialising in AAC & Assistive Technology";
@@ -11,6 +15,7 @@ const defaultDescription =
 const loaders = {
   cloudinaryLoader,
   imageKitLoader,
+  keyLoader,
 };
 
 const imageLoader = loaders[imageLoaders.normal];
