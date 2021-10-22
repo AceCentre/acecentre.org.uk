@@ -9,6 +9,11 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import posthog from "posthog-js";
 import { ServiceFinderMailingList } from "../service-finder-mailing-list/service-finder-mailing-list";
 
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import AccessibleIcon from "@material-ui/icons/Accessible";
+import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
+import { Avatar, Tooltip } from "@material-ui/core";
+
 const gql = ([result]) => result;
 
 const GetServicesFromCoords = gql`
@@ -282,6 +287,38 @@ export const ServiceFinderSearch = () => {
   );
 };
 
+const Icons = ({ servicesOffered }) => {
+  const ids = servicesOffered.map((service) => service.id);
+
+  console.log(ids);
+
+  return (
+    <div className={styles.iconList}>
+      {ids.includes("aac") && (
+        <Tooltip title="AAC Service">
+          <Avatar className={styles.avatar}>
+            <QuestionAnswerIcon />
+          </Avatar>
+        </Tooltip>
+      )}
+      {ids.includes("wcs") && (
+        <Tooltip title="Wheelchair Service">
+          <Avatar className={styles.avatar}>
+            <AccessibleIcon />
+          </Avatar>
+        </Tooltip>
+      )}
+      {ids.includes("ec") && (
+        <Tooltip title="EC Service">
+          <Avatar className={styles.avatar}>
+            <EmojiObjectsIcon />
+          </Avatar>
+        </Tooltip>
+      )}
+    </div>
+  );
+};
+
 const ListOfServices = ({ services }) => {
   if (services == null) return null;
 
@@ -295,6 +332,7 @@ const ListOfServices = ({ services }) => {
         {services.services.map((service) => (
           <li className={styles.resultCard} key={service.id}>
             <h3>{service.serviceName}</h3>
+            <Icons servicesOffered={service.servicesOffered} />
             <p>
               <strong>Services:</strong>{" "}
               {service.servicesOffered.map((x) => x.title).join(", ")}
