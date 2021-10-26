@@ -7,7 +7,12 @@ export const AacBooksCta = () => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <Image src="/aac-books.png" layout="fill" alt="" objectFit="cover" />
+        <Image
+          src="/getting-started-ebooks.svg"
+          layout="fill"
+          alt="Illustrations of individuals reading books on tablets"
+          objectFit="cover"
+        />
       </div>
       <div className={styles.rightHandSide}>
         <h2 className={styles.title}>Get started with AAC Books</h2>
