@@ -3,6 +3,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+
+.shippingWarning {
+  margin: 0;
+  font-style: italic;
+  color: red;
+}
+
 .checkboxContainer {
   margin: 1rem auto;
 }

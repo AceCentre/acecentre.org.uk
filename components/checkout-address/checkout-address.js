@@ -160,13 +160,14 @@ export const DeliveryDetails = ({
   countries,
   deliveryError,
   needsDelivered,
+  forceUkDelivery,
 }) => {
   return (
     <div className={`${styles.outerContainer} ${styles.delivery}`}>
       <h2>{needsDelivered ? "Delivery details" : "Additional Information"}</h2>
       {deliveryError && <p className={styles.error}>{deliveryError}</p>}
       <div className={styles.container}>
-        {showFullDelivery ? (
+        {showFullDelivery || forceUkDelivery ? (
           <>
             <div className={styles.list}>
               <div className={styles.twoWide}>
@@ -220,6 +221,13 @@ export const DeliveryDetails = ({
                   })}
                 </Select>
               </FormControl>
+              <p className={styles.shippingWarning}>
+                We currently <strong>do not</strong> offer shipping outwith the
+                UK through our online shop. If you would like one of our
+                products to be shipped outside of the UK then call us on{" "}
+                <strong>0800 080 3115</strong> and we can calculate shipping
+                costs to your location.
+              </p>
               <Input
                 maxWidth="100%"
                 placeholder="21 Manchester Street"
@@ -298,6 +306,7 @@ export const BillingDetails = ({
   billingDetails,
   billingError,
   reducedInfo,
+  countryChanged = () => {},
 }) => {
   return (
     <div className={styles.outerContainer}>
@@ -344,6 +353,7 @@ export const BillingDetails = ({
                   aria-label="Country"
                   placeholder="Select your country."
                   defaultValue={billingDetails.country}
+                  onChange={(e) => countryChanged(e.target.value)}
                 >
                   {countries.map((country) => {
                     return (
