@@ -51,10 +51,14 @@ const useCheckoutForm = (
   groupPurchaseLines,
   existingUser,
   delegatedLearningLines,
-  numberOfCourses
+  numberOfCourses,
+  billingDetails
 ) => {
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
+  const [forceUkDelivery, setForceUkDelivery] = useState(
+    billingDetails.country !== "GB"
+  );
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
@@ -393,6 +397,8 @@ const useCheckoutForm = (
   return {
     showFullDelivery,
     differentAddressOnChange,
+    setForceUkDelivery,
+    forceUkDelivery,
     billingError,
     deliveryError,
     checkoutSubmit,
@@ -479,6 +485,7 @@ const CheckoutForm = ({
   const {
     showFullDelivery,
     differentAddressOnChange,
+    setForceUkDelivery,
     checkoutSubmit,
     billingError,
     deliveryError,
@@ -494,12 +501,14 @@ const CheckoutForm = ({
     delegatedLearningErrors,
     changeDelegation,
     tsAndCsError,
+    forceUkDelivery,
   } = useCheckoutForm(
     isFree(total),
     groupPurchaseLines,
     existingUser,
     delegatedLearningLines,
-    numberOfCourses
+    numberOfCourses,
+    billingDetails
   );
 
   return (
@@ -511,13 +520,20 @@ const CheckoutForm = ({
         billingDetails={billingDetails}
         billingError={billingError}
         reducedInfo={isFree(total)}
+        countryChanged={(newCountry) => {
+          if (needsDelivered && newCountry !== "GB") {
+            setForceUkDelivery(true);
+          } else if (needsDelivered && newCountry === "GB") {
+            setForceUkDelivery(false);
+          }
+        }}
       />
       <div className={styles.checkbox}>
         <Checkbox name="mailingList" id="mailingList">
           Email me about Ace Centre related news and events
         </Checkbox>
 
-        {needsDelivered && (
+        {needsDelivered && !forceUkDelivery && (
           <Checkbox
             name="differentAddress"
             id="differentAddress"
@@ -529,6 +545,7 @@ const CheckoutForm = ({
       </div>
       <DeliveryDetails
         showFullDelivery={showFullDelivery}
+        forceUkDelivery={forceUkDelivery}
         deliveryDetails={deliveryDetails}
         countries={countries}
         deliveryError={deliveryError}
