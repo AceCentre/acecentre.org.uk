@@ -57,7 +57,7 @@ const useCheckoutForm = (
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [forceUkDelivery, setForceUkDelivery] = useState(
-    billingDetails.country !== "GB"
+    billingDetails.country && billingDetails.country !== "GB"
   );
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
