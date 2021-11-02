@@ -115,10 +115,11 @@ export const LearningDetailBox = ({ course }) => {
             )}
             {price > 0 && (
               <>
-                <h3>Purchase order</h3>
+                <h3>Purchase order (invoices)</h3>
                 <p>
-                  We only offer purchase orders on orders over £250. You must be
-                  ordering at least {quantityForPurchaseOrder}{" "}
+                  We will only accept purchase orders and issue an invoice for
+                  orders over £250. You must be ordering at least{" "}
+                  {quantityForPurchaseOrder}{" "}
                   {quantityForPurchaseOrder > 1 ? "seats" : "seat"} for this
                   course to qualify for a purchase order. To request a purchase
                   order <Link href="/contact">contact us via this form.</Link>
