@@ -40,7 +40,7 @@
     "@react-stately/radio": "3.3.2",
     "@slack/bolt": "3.8.1",
     "@stripe/react-stripe-js": "1.6.0",
-    "@stripe/stripe-js": "1.21.0",
+    "@stripe/stripe-js": "1.21.1",
     "async-redis": "2.0.0",
     "etag": "1.8.1",
     "framer-motion": "5.0.2",
