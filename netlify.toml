@@ -5,7 +5,7 @@
 
 [functions]
   external_node_modules = ["@ampproject/toolbox-optimizer"]
-  node_bundler = "esbuild"
+  node_bundler = "webpack"
 
 [[redirects]]
   from = "/trustees"
