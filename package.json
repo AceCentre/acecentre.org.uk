@@ -22,7 +22,7 @@
     "reverse-patch": "patch-package --reverse"
   },
   "dependencies": {
-    "@babel/eslint-parser": "7.16.0",
+    "@babel/eslint-parser": "7.16.3",
     "@chakra-ui/react": "1.6.12",
     "@emotion/react": "11.5.0",
     "@emotion/styled": "11.3.0",
