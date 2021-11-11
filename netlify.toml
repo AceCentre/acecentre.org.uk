@@ -94,6 +94,11 @@
   status = 301
 
 [[redirects]]
+  from = "/resources/copyright-and-licence-terms-for-non-profit-items"
+  to = "/page/copyright-and-licence-terms-for-non-profit-items"
+  status = 301
+
+[[redirects]]
   from = "/consent-form-2"
   to = "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMTJIR0NZVTNKMklEMjJHQ0dLQ1ZGMDBKTiQlQCN0PWcu"
   status = 301

@@ -117,6 +117,11 @@ export const Footer = ({ currentYear }) => {
                 <a className={styles.flatListLink}>Safeguarding</a>
               </Link>
             </li>
+            <li className={styles.flatListItem}>
+              <Link href="/page/copyright-and-licence-terms-for-non-profit-items">
+                <a className={styles.flatListLink}>Copyright</a>
+              </Link>
+            </li>
           </ul>
           <p className={styles.copyright}>
             © Copyright Ace Centre {currentYear}
