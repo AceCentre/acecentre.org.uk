@@ -47,6 +47,10 @@ const ALL_PAGES = [
     slug: "purchase-terms-and-conditions",
     description: "Terms and Conditions for all purchases made",
   },
+  {
+    slug: "copyright-and-licence-terms-for-non-profit-items",
+    description: "Copyright and Licence terms for Non-Profit items",
+  },
 ];
 
 export async function getStaticPaths() {
