@@ -29,9 +29,9 @@ export default function Resources({
         <ResourcesSearch />
         <ResourcesTicks />
         <ResourceList
-          className={styles.resourcesList}
-          title="Popular resources"
-          products={popularResources}
+          className={styles.featuredResources}
+          title="Featured resources"
+          products={featuredResources}
           viewAllLink="/resources/all"
           viewAllText="View all resources"
         />
@@ -43,9 +43,9 @@ export default function Resources({
           </Button>
         </div>
         <ResourceList
-          className={styles.featuredResources}
-          title="Featured resources"
-          products={featuredResources}
+          className={styles.resourcesList}
+          title="Popular resources"
+          products={popularResources}
           viewAllLink="/resources/all"
           viewAllText="View all resources"
         />
