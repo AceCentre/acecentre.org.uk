@@ -167,6 +167,6 @@ export const SUB_NAV_HEADERS = {
   GETTING_STARTED: "/getting-started",
   RESOURCES: "/resources",
   SERVICES: "/services",
-  ACECENTRE_LEARNING: "/acecentre-learning",
+  ACECENTRE_LEARNING: "/learning",
   GET_INVOLVED: "/get-involved",
 };

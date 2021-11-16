@@ -44,7 +44,7 @@ export const WhatWeDo = () => {
             </Link>
           </li>
           <li>
-            <Link href="/acecentre-learning">
+            <Link href="/learning">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
                   <ArrowForward />
