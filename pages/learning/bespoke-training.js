@@ -2,14 +2,18 @@ import { Avatar } from "@material-ui/core";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
-import { FormModal, LEARNING_ENQ } from "../../components/ms-form";
+import {
+  COURSE_EVALUATION,
+  FormModal,
+  LEARNING_ENQ,
+} from "../../components/ms-form";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-
+import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import styles from "../../styles/bespoke.module.css";
 
 export default function BespokeTraining() {
@@ -141,6 +145,26 @@ export default function BespokeTraining() {
                   like I&apos;ve gained so much from this afternoon. Thank you
                   so much!.&quot;
                 </p>
+              </div>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <RecordVoiceOverIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <h3>Feedback</h3>
+                <p>
+                  Let us know what you thought of the training course you
+                  attended. We will use your feedback to improve our future
+                  courses.
+                </p>
+                <FormModal form={COURSE_EVALUATION}>
+                  {({ onClick }) => (
+                    <div>
+                      <Button onClick={onClick}>Leave your feedback</Button>
+                    </div>
+                  )}
+                </FormModal>
               </div>
             </div>
           </div>
