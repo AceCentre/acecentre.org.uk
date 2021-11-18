@@ -90,7 +90,7 @@
     "eslint-plugin-jest": "25.2.4",
     "eslint-plugin-react": "7.27.0",
     "fast-xml-parser": "3.21.1",
-    "got": "11.8.2",
+    "got": "11.8.3",
     "jest": "27.3.1",
     "jest-css-modules-transform": "4.3.0",
     "mock-fs": "5.1.2",
