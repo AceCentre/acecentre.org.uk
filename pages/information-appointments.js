@@ -22,11 +22,6 @@ export default function Contact() {
           description="Book in for an informal chat about your needs with members of the Ace Centre team."
         />
         <div className={styles.container}>
-          {/* <p>
-            Whether you are just starting out or you are an experienced AAC /AT
-            user ready to move on, book in for an informal chat about your needs
-            with members of the Ace Centre team.
-          </p>
           <p>
             Please note that this appointment is NOT an assessment, but instead
             it is an opportunity to reflect on a range of AAC / AT-related
@@ -37,7 +32,12 @@ export default function Contact() {
             all, up-to-date, unbiased and, ideally, free at source to people in
             need.
           </p>
-          <h2>Booking an appointment</h2> */}
+          <p>
+            Please note that these appointments are now on offer face-to-face or
+            virtually. We can also offer a hybrid appointment allowing some
+            people to attend in person and others via video call.
+          </p>
+          <h2>Booking an appointment</h2>
           <p>
             To book your appointment complete the form below. Follow the
             following steps:
