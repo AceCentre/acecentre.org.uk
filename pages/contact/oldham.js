@@ -36,6 +36,12 @@ export default function Contact() {
         </div>
         <div className={styles.officeInfoContainer}>
           <div>
+            <h2>North office address</h2>
+            <div className={styles.address}>
+              <p>Hollinwood Business Centre</p>
+              <p>Albert Street Oldham</p>
+              <p>OL8 3QL</p>
+            </div>
             <h2>By Car</h2>
             <ul>
               <li>
@@ -106,16 +112,14 @@ export default function Contact() {
               bathroom is located on the ground floor level access from car
               parking with accessible spaces.
             </p>
-            <p>Features include:</p>
-            <ul>
-              <li>Height adjustable, adult sized, free standing bench</li>
-              <li>Hoist – ceiling loop</li>
-              <li>Peninsular (space either side) toilet</li>
-              <li>Large 13 sq.m bathroom with non-slip flooring</li>
-              <li>Emergency alarm</li>
-              <li>Privacy screen</li>
-              <li>Paper roll</li>
-            </ul>
+            <div className={styles.address}>
+              <p>Ross Care Independent Living Centre</p>
+              <p>Keppel Health Centre</p>
+              <p>Ashton Road West</p>
+              <p>Failsworth</p>
+              <p>Oldham</p>
+              <p>M35 0AD</p>
+            </div>
             <div className={styles.imageGrid}>
               <ChangingPlaceImage
                 src="/oldham-changing-place/entrance.png"
@@ -136,14 +140,17 @@ export default function Contact() {
             </div>
           </div>
           <div>
-            <div className={styles.address}>
-              <p>Ross Care Independent Living Centre</p>
-              <p>Keppel Health Centre</p>
-              <p>Ashton Road West</p>
-              <p>Failsworth</p>
-              <p>Oldham</p>
-              <p>M35 0AD</p>
-            </div>
+            <p>Changing place features include:</p>
+            <ul>
+              <li>Height adjustable, adult sized, free standing bench</li>
+              <li>Hoist – ceiling loop</li>
+              <li>Peninsular (space either side) toilet</li>
+              <li>Large 13 sq.m bathroom with non-slip flooring</li>
+              <li>Emergency alarm</li>
+              <li>Privacy screen</li>
+              <li>Paper roll</li>
+            </ul>
+
             <p>
               You can find out{" "}
               <a href="https://rosscare.co.uk/pages/independent-living-centre">
