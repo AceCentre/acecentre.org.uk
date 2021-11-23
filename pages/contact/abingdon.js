@@ -98,10 +98,6 @@ export default function Contact() {
         <div className={styles.officeInfoContainer}>
           <div>
             <p>
-              Please note, Changing Places bathrooms are currently not open.
-              Keep an eye out on this page for updates.
-            </p>
-            <p>
               A changing place if required can be found at{" "}
               <a href="https://www.better.org.uk/leisure-centre/vale-of-white-horse/white-horse-leisure-and-tennis-centre">
                 White Horse Leisure & Tennis Centre.
