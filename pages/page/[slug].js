@@ -51,6 +51,10 @@ const ALL_PAGES = [
     slug: "copyright-and-licence-terms-for-non-profit-items",
     description: "Copyright and Licence terms for Non-Profit items",
   },
+  {
+    slug: "meet-paul-transcript",
+    description: "Transcript of Paul's case study",
+  },
 ];
 
 export async function getStaticPaths() {
