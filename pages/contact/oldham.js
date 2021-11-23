@@ -103,10 +103,6 @@ export default function Contact() {
         <div className={styles.officeInfoContainer}>
           <div>
             <p>
-              Please note, Changing Places bathrooms are currently not open.
-              Keep an eye out on this page for updates.
-            </p>
-            <p>
               Ross Care Independent Living offer a Changing Places bathroom
               available for use, located 1 mile from the Ace Centre. The managed
               bathroom is located on the ground floor level access from car
