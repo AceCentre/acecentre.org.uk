@@ -55,8 +55,13 @@
   max-width: 600px;
 }
 
+.address {
+  margin: 0.5rem 0;
+}
+
 .address p {
   margin: 0;
+  font-style: italic;
 }
 
 .imageGrid {
