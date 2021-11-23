@@ -28,6 +28,15 @@ export default function Contact() {
 
         <div className={styles.officeInfoContainer}>
           <div>
+            <h2>South office address</h2>
+            <div className={styles.address}>
+              <p>Ace Centre (South office)</p>
+              <p>5 Hitching Court</p>
+              <p>Blacklands Way</p>
+              <p>Abingdon Business Park</p>
+              <p>Oxfordshire</p>
+              <p>OX14 1RG</p>
+            </div>
             <h2>By Car</h2>
             <p>
               Satnav You can use a satnav if you wish. Use{" "}
@@ -67,15 +76,6 @@ export default function Contact() {
               From there bus services or taxi services are available. The
               nearest bus stop is Colwell drive or the Community Hospital.
             </p>
-            <h2>Address</h2>
-            <div className={styles.address}>
-              <p>Ace Centre (South office)</p>
-              <p>5 Hitching Court</p>
-              <p>Blacklands Way</p>
-              <p>Abingdon Business Park</p>
-              <p>Oxfordshire</p>
-              <p>OX14 1RG</p>
-            </div>
           </div>
           <div>
             <div className={styles.imageContainer}>
