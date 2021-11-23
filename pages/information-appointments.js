@@ -5,7 +5,7 @@ import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
-
+import Link from "next/link";
 import styles from "../styles/information-appointments.module.css";
 
 export default function Contact() {
@@ -36,6 +36,20 @@ export default function Contact() {
             Please note that these appointments are now on offer face-to-face or
             virtually. We can also offer a hybrid appointment allowing some
             people to attend in person and others via video call.
+          </p>
+          <p>
+            <Link href="/contact/oldham">
+              <a>
+                See directions to our <strong>North</strong> office here.
+              </a>
+            </Link>
+          </p>
+          <p>
+            <Link href="/contact/abingdon">
+              <a>
+                See directions to our <strong>South</strong> office here.
+              </a>
+            </Link>
           </p>
           <h2>Booking an appointment</h2>
           <p>
