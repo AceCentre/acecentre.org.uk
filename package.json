@@ -49,7 +49,7 @@
     "graphql-playground-middleware-express": "1.7.23",
     "graphql-request": "3.6.1",
     "image-type": "4.1.0",
-    "is-svg": "4.3.1",
+    "is-svg": "4.3.2",
     "jwt-decode": "3.1.2",
     "linkedom": "0.13.0",
     "lodash": "4.17.21",
