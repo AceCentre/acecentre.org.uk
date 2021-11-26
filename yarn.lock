@@ -17803,10 +17803,10 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.36, postcss@^7.0
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
-posthog-js@1.16.6:
-  version "1.16.6"
-  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.16.6.tgz#ba4f3881c38d9a888264418db139abd0bf7bcc10"
-  integrity sha512-8ntBTqYsrz8R0o7na7LyXXSYiQF0sMcV/YSQC8LHO5ROnhYIKW5T7Su5FmwqB1dvRGnzyGPbFm6Jqk+2nHZxqw==
+posthog-js@1.16.7:
+  version "1.16.7"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.16.7.tgz#8f1a8a1405ecd2a022348abac6d2973823a075c9"
+  integrity sha512-NUgRE1Ifp+S6dfNdv2jFJiWTnue7xLgT+cTg9xI2b5qYNa7o3gsv0gwFyjQV8xp2BP0Ai5mJV01xKOGnXagGug==
   dependencies:
     "@sentry/types" "^6.11.0"
     fflate "^0.4.1"
