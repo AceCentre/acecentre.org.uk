@@ -142,6 +142,10 @@ export const defaultNavItems = [
     },
     subItems: [
       { title: "Ace Centre Learning", href: "/learning" },
+      {
+        title: "Bespoke training",
+        href: "/learning/bespoke-training",
+      },
       { title: "All courses", href: "/learning/search" },
       {
         title: "Access courses",
