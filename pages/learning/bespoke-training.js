@@ -63,7 +63,7 @@ export default function BespokeTraining() {
               tailored to your needs, with agreed Learning Outcomes, to enhance
               knowledge and skills on the use of Specialist Assistive Technology
               and Augmentative and Alternative Communication (AAC). Our training
-              sessions, delivered by practitioners with first hands knowledge,
+              sessions, delivered by practitioners with first hand experience,
               are an engaging mix of theory and practical, with an emphasis on
               developing skills and confidence through reflective and
               collaborative practice.
