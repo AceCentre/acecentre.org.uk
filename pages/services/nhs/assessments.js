@@ -121,7 +121,7 @@ export default function NHSLanding() {
             <h2>Prior to the assessment</h2>
             <p>
               Once your completed referral form has been received and accepted
-              as eligible for Specialised BNHSE AAC services it will be
+              as eligible for Specialised NHS England AAC services it will be
               allocated to two members of the assessment and training team who
               will complete the assessment. They will then make the necessary
               arrangements for the assessment and confirm this in writing to the
