@@ -12,6 +12,7 @@ export const ResourceList = ({
   viewAllText = "View all",
   products,
   className = "",
+  showPrice = false,
 }) => {
   const productsWithoutImageCounters = usePostsWithoutImageCounters(products);
 
@@ -30,6 +31,9 @@ export const ResourceList = ({
           return (
             <Card
               className={styles.card}
+              postTitleContainerClassName={
+                showPrice ? styles.postTitleContainer : ""
+              }
               imageContainerClassName={styles.imageContainer}
               href={`/resources/${product.slug}`}
               key={`${title}-card-${product.slug}`}
@@ -38,6 +42,7 @@ export const ResourceList = ({
               featuredImage={product.featuredImage}
               title={product.title}
             >
+              {showPrice && <Price product={product} />}
               <p className={styles.productTitle}>{product.title}</p>
             </Card>
           );
@@ -45,4 +50,20 @@ export const ResourceList = ({
       </ul>
     </div>
   );
+};
+
+const Price = ({ product }) => {
+  let cost = "Free";
+
+  // If minPrice and maxPrice are present
+  if (product.minPrice !== undefined && product.maxPrice !== undefined) {
+    const minPrice = product.minPrice === 0 ? "Free" : `£${product.minPrice}`;
+    cost = `${minPrice} - £${product.maxPrice}`;
+  }
+
+  if (product.price && product.price > 0) {
+    cost = `£${product.price}`;
+  }
+
+  return <p className={styles.price}>{cost}</p>;
 };
