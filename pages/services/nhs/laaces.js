@@ -75,7 +75,7 @@ export default function Laaces({ gettingStartedResources }) {
                 healthcare professionals have not risen to the challenge.”
               </span>{" "}
               -{" "}
-              <a href="https://www.communicationmatters.org.uk/app/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
+              <a href="https://www.communicationmatters.org.uk/wp-content/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
                 Source
               </a>
             </p>
@@ -85,7 +85,7 @@ export default function Laaces({ gettingStartedResources }) {
               it has become apparent that there is significant variation across
               regions in the provision of local AAC services. Based on the data
               offered in the{" "}
-              <a href="https://www.communicationmatters.org.uk/app/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
+              <a href="https://www.communicationmatters.org.uk/wp-content/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
                 Shining a light on Augmentative and Alternative Communication,
                 Communication Matters: an AAC Evidence Base research project –
                 final report
