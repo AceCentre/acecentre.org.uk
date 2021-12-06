@@ -71,7 +71,7 @@ const FAQS = [
         </p>
         <p>
           For example, when{" "}
-          <a href="http://www.citeulike.org/user/acecentre/article/13924559">
+          <a href="https://pubmed.ncbi.nlm.nih.gov/16671842/">
             Diane Millar, Janice Light and Ralph Schlosser
           </a>{" "}
           analysed the literature in 2006, they found that following the
@@ -96,7 +96,7 @@ const FAQS = [
           </a>
         </p>
         <p>
-          <a href="http://uk.dynavoxtech.com/implementation-toolkit/details.aspx?id=373">
+          <a href="http://tdvox.web-downloads.s3.amazonaws.com/MyTobiiDynavox/td-myths-aac-and-speech.pdf">
             You will also find a good summary of the issues and research here.
           </a>
         </p>

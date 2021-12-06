@@ -75,7 +75,7 @@ export default function GettingStartedLanding({ story, resources }) {
         </div>
         <ResourceList
           title="Resources to get started"
-          viewAllLink="/all?category=getting-started"
+          viewAllLink="/resources/all?category=getting-started"
           products={resources}
         />
         <GenericFaqs faqs={FAQS} />
