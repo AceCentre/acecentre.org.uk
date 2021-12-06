@@ -94,7 +94,14 @@ export default function NHSLanding() {
                 referral form.
               </Link>
             </p>
-
+            <p>
+              Once you have completed the referral form please email it to{" "}
+              <Link href="mailto:acecentre.admin@nhs.net">
+                acecentre.admin@nhs.net
+              </Link>
+              . You can email any other client information securely to the same
+              email address.
+            </p>
             <h2>Video support</h2>
             <p>
               A recent video of the individual is requested to support the
