@@ -9,7 +9,7 @@ on:
     # Everyday at 2AM and 2PM
     - cron: "0 2,14 * * *"
 concurrency:
-  group: deploy-${{ github.head_ref }}
+  group: deploy-${{ github.head_ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
