@@ -17,7 +17,7 @@ export default function OrderPage({ orderId, order }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      {order.status.toLowerCase() === "completed" ? (
+      {order.status.toLowerCase() === "completed" || order.status.toLowerCase() === "processing" ? (
         <main id="mainContent">
           <PageTitle
             heading="Order details"
