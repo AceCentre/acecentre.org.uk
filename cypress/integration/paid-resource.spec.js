@@ -78,6 +78,63 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
+    "can add product to cart, and checkout without an account, physical product",
+    () => {
+      cy.visit("/resources/developing-using-communication-book");
+      cy.findByRole("button", { name: "Add to cart" }).click();
+      cy.url({ timeout: 10000 }).should("include", "basket");
+      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£50.00");
+      cy.findAllByRole("link", { name: "Checkout" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "checkout");
+
+      cy.findByRole("textbox", { name: "First name" }).type("John");
+      cy.findByRole("textbox", { name: "Last name" }).type("Smith");
+      cy.findByRole("combobox", { name: "Country" }).select(
+        "United Kingdom (UK)"
+      );
+      cy.findByRole("textbox", { name: "Address Line 1" }).type(
+        "80 Fake Address"
+      );
+      cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
+      cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
+      cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
+      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card number" })
+        .type("4242424242424242");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", {
+          name: "Credit or debit card expiration date",
+        })
+        .type("1224");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card CVC/CVV" })
+        .type("123");
+
+      cy.findByRole("checkbox", {
+        name: "I have read and agree to the website terms and conditions",
+      }).click({ force: true });
+
+      cy.findByRole("button", { name: "Place order" }).click();
+      cy.url({ timeout: 20000 }).should("include", "order");
+
+      cy.findByRole("heading", { name: "An error occurred" }).should(
+        "not.exist"
+      );
+    }
+  );
+
+  it(
+    ["pre-deploy"],
     "can add product to cart, and checkout without an account, with 3D Auth",
     () => {
       cy.visit("/resources/simple-charts-to-edit-in-word");
