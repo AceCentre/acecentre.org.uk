@@ -40,7 +40,7 @@ export default function AllResources({
           resourceCount={totalResourcesCount}
           searchText={searchText}
         />
-        <ResourceList products={resources} />
+        <ResourceList showPrice products={resources} />
         <Pagination currentPage={currentPage} pageCount={pageCount} />
       </main>
       <Footer currentYear={currentYear} />

@@ -54,6 +54,7 @@ export const Card = ({
   children,
   className = "",
   imageContainerClassName = "",
+  postTitleContainerClassName = "",
 }) => {
   return (
     <li className={`${styles.flexItem} ${className}`}>
@@ -79,7 +80,11 @@ export const Card = ({
             />
           )}
           <p className={styles.blogTag}>{subtitle}</p>
-          <div className={styles.postTitleContainer}>{children}</div>
+          <div
+            className={`${styles.postTitleContainer} ${postTitleContainerClassName}`}
+          >
+            {children}
+          </div>
         </a>
       </Link>
     </li>
