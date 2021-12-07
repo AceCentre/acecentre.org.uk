@@ -24,9 +24,6 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Patch deps
-        run: yarn patch
-
       - uses: actions/github-script@v5
         env:
           DB_HOST: ${{ secrets.DB_HOST }}
@@ -39,6 +36,3 @@ jobs:
           script: |
             const script = require('./scripts/check-edwiser')
             return await script(context);
-
-      - name: Unpatch deps
-        run: yarn reverse-patch
