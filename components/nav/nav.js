@@ -10,8 +10,11 @@ import { Button } from "../button/button";
 import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
+import { useGlobalProps } from "../../lib/global-props/hook";
 
 export const Nav = ({ nhs, nhsTitle }) => {
+  const { loggedInStatus } = useGlobalProps();
+
   return (
     <FullWidthContainer>
       <InnerContainer>
@@ -25,7 +28,7 @@ export const Nav = ({ nhs, nhsTitle }) => {
                 <SvgIcon>
                   <PersonOutlineOutlinedIcon />
                 </SvgIcon>
-                My Ace Centre
+                {loggedInStatus ? "My Ace Centre" : "Login"}
               </NavLink>
 
               <NavLink href="/basket">
