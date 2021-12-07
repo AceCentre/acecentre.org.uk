@@ -356,7 +356,7 @@ const useCheckoutForm = (
           }),
         });
 
-        refreshLoggedInStatus();
+        await refreshLoggedInStatus();
 
         const parsed = await response.json();
 
