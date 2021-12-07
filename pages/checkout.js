@@ -54,6 +54,7 @@ const useCheckoutForm = (
   numberOfCourses,
   billingDetails
 ) => {
+  const { refreshLoggedInStatus } = useGlobalProps();
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [forceUkDelivery, setForceUkDelivery] = useState(
@@ -354,6 +355,8 @@ const useCheckoutForm = (
             },
           }),
         });
+
+        refreshLoggedInStatus();
 
         const parsed = await response.json();
 
