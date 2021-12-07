@@ -142,17 +142,11 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Patch deps
-        run: yarn patch
-
       - name: Run netlify build
         run: netlify build --context deploy-preview
 
       - name: Run netlify deploy
         run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
-
-      - name: Unpatch deps
-        run: yarn reverse-patch
 
   Cypress:
     needs: [DeployNetlifyIntegration]
@@ -229,9 +223,6 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Patch deps
-        run: yarn patch
-
       - name: Run netlify build
         run: netlify build --context production
 
@@ -251,9 +242,6 @@ jobs:
           script: |
             const script = require('./scripts/sitemap-to-lighthouse-list')
             return script(context, 256, 1);
-
-      - name: Unpatch deps
-        run: yarn reverse-patch
 
   CypressPostDeploy:
     needs: [DeployNetlify]
