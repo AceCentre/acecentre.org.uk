@@ -12,7 +12,7 @@ const validEmail = () => {
 context("Register", () => {
   it(["pre-deploy"], "Shows an error when the email address is in use", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
@@ -36,7 +36,7 @@ context("Register", () => {
 
   it(["pre-deploy"], "Shows an error when you password is to short", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
@@ -56,7 +56,7 @@ context("Register", () => {
 
   it(["pre-deploy"], "Shows an error when you email is not valid", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Register form" })
@@ -80,7 +80,7 @@ context("Register", () => {
 
     // Go to the register page
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     // Fill in email field
@@ -102,6 +102,7 @@ context("Register", () => {
 
     // Make sure we we end up on my-acecentre
     cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+    cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
     // Check email in details
     cy.findByRole("link", { name: "Manage details >" }).click();
@@ -118,9 +119,10 @@ context("Register", () => {
     // Log out
     cy.findByRole("button", { name: "Logout" }).click();
     cy.url({ timeout: 10000 }).should("equal", Cypress.config().baseUrl + "/");
+    cy.findAllByRole("link", { name: "Login" }).should("exist");
 
     // Make sure we are on the login page
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
   });
 });
