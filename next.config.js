@@ -1,11 +1,4 @@
-const { enableBundleAnalyzer } = require("./lib/config");
-
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: enableBundleAnalyzer,
-});
-
-module.exports = withBundleAnalyzer({
-  target: "serverless",
+module.exports = {
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
     CONTEXT: process.env.CONTEXT,
@@ -13,4 +6,4 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ["acecentre.org.uk", "internal.acecentre.org.uk"],
   },
-});
+};

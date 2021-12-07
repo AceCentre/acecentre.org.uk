@@ -3,10 +3,6 @@
 ### Its left here just for easy reference 
 ###
 
-[functions]
-  external_node_modules = ["@ampproject/toolbox-optimizer"]
-  node_bundler = "esbuild"
-
 [[redirects]]
   from = "/trustees"
   to = "/about/trustees"
@@ -133,6 +129,7 @@
 
 [build]
   command = "yarn build"
+  publish = ".next"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
