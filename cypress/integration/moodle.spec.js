@@ -37,7 +37,7 @@ context("Moodle Login", () => {
 
       // Check we are logged out of the AceCentre site
       cy.visit("https://acecentre.org.uk");
-      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.findAllByRole("link", { name: "Login" }).first().click();
       cy.url({ timeout: 10000 }).should("include", "/login");
     }
   );

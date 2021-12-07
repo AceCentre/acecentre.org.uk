@@ -6,7 +6,7 @@ const TEST_PASS = "testpassword";
 context("Login", () => {
   it(["pre-deploy"], "disables the login button by default", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
@@ -19,7 +19,7 @@ context("Login", () => {
     "enables the login button when you enter text into each field",
     () => {
       cy.visit("");
-      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.findAllByRole("link", { name: "Login" }).first().click();
       cy.url({ timeout: 10000 }).should("include", "/login");
 
       cy.findAllByRole("form", { name: "Login form" })
@@ -38,7 +38,7 @@ context("Login", () => {
 
   it(["pre-deploy"], "shows an error when no account exists", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
@@ -60,7 +60,7 @@ context("Login", () => {
 
   it(["pre-deploy"], "shows an error when password is wrong", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
@@ -82,7 +82,7 @@ context("Login", () => {
 
   it(["pre-deploy"], "successfully logs in to a valid account", () => {
     cy.visit("");
-    cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+    cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 10000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
@@ -102,5 +102,6 @@ context("Login", () => {
     cy.findByRole("link", { name: "Manage details >" }).click();
     cy.url({ timeout: 10000 }).should("include", "/details");
     cy.findByRole("textbox", { name: "Email" }).should("have.value", TEST_ACC);
+    cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
   });
 });
