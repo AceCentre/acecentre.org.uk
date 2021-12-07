@@ -16,6 +16,7 @@ import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined"
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
+import { useGlobalProps } from "../../lib/global-props/hook";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -154,6 +155,7 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
 const MenuContent = ({ defaultNavItems }) => {
   // No index will match -1
   const [currentlyOpen, setCurrentlyOpen] = useState(-1);
+  const { loggedInStatus } = useGlobalProps();
 
   const onNavItemClick = (index) => () => {
     if (currentlyOpen === -1) {
@@ -230,7 +232,7 @@ const MenuContent = ({ defaultNavItems }) => {
                 <SvgIcon>
                   <PersonOutlineOutlinedIcon />
                 </SvgIcon>
-                My Ace Centre
+                {loggedInStatus ? "My Ace Centre" : "Login"}
               </a>
             </Link>
           </div>
