@@ -55,9 +55,10 @@ async function handler(req, res) {
     };
 
     req.session.set("user", user);
-    req.session.set("cart", {
-      wooSessionToken: queryResponse.login.user.wooSessionToken,
-    });
+    // No longer set the session token when you login to persist your old cart
+    // req.session.set("cart", {
+    //   wooSessionToken: queryResponse.login.user.wooSessionToken,
+    // });
 
     await req.session.save();
     res.send({ success: true });
