@@ -11,9 +11,13 @@ async function handler(req, res) {
     return res.send({ success: false, error: "No product ID supplied" });
   }
 
-  const result = await addToCart(req, { productId, variationId, quantity });
-
-  res.send({ success: true, result });
+  try {
+    const result = await addToCart(req, { productId, variationId, quantity });
+    res.send({ success: true, result });
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }
 
 export default withSession(handler);
