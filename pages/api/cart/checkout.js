@@ -105,25 +105,6 @@ async function handler(req, res) {
       return;
     }
 
-    if (errorMessage.includes("this username is already registered")) {
-      res.send({ success: false, error: "This email is already in use" });
-      return;
-    }
-
-    if (errorMessage.includes("this email is already registered")) {
-      res.send({ success: false, error: "This email is already in use" });
-      return;
-    }
-
-    if (
-      errorMessage.includes(
-        "An account is already registered with your email address"
-      )
-    ) {
-      res.send({ success: false, error: "This email is already in use" });
-      return;
-    }
-
     console.log("-------");
     res.send({ success: false, error: errorMessage });
     return;
