@@ -794,7 +794,7 @@ context("Paid resources", () => {
     }
   );
 
-  it.only(
+  it(
     ["pre-deploy"],
     "Add a product to cart, login at checkout and then purchase item already in cart",
     () => {
