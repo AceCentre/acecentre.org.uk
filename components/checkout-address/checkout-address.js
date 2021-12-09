@@ -10,55 +10,6 @@ import { Checkbox } from "@chakra-ui/react";
 import { useState } from "react";
 import { cloneDeep } from "lodash";
 
-export const NewUserDetails = ({
-  checkboxOnChange,
-  wantsToCreateAnAccount,
-  createAccountError,
-  forceOn,
-}) => {
-  return (
-    <div className={`${styles.outerContainer} ${styles.createAccount}`}>
-      <h2>Create an account</h2>
-      {createAccountError && (
-        <p className={styles.error}>{createAccountError}</p>
-      )}
-      <div className={styles.container}>
-        <div className={styles.list}>
-          {!forceOn && (
-            <Checkbox
-              name="createAccount"
-              id="createAccount"
-              onChange={checkboxOnChange}
-            >
-              Create an account?
-            </Checkbox>
-          )}
-          {wantsToCreateAnAccount && (
-            <>
-              <Input
-                maxWidth="100%"
-                placeholder="Password"
-                name="password"
-                ariaLabel="Password"
-                id="password"
-                type="password"
-              />
-              <Input
-                maxWidth="100%"
-                placeholder="Confirm Password"
-                name="passwordConfirm"
-                ariaLabel="Confirm password"
-                id="passwordConfirm"
-                type="password"
-              />
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
 export const CollectDelegatedEmail = ({
   currentLine,
   error,
