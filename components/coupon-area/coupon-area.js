@@ -28,7 +28,10 @@ export const CouponArea = ({
         {error && <p className={styles.error}>{error}</p>}
       </div>
       {isLoggedIn ? (
-        <Button className={styles.button} href="/checkout">
+        <Button
+          className={`${styles.button} ${styles.normalCheckout}`}
+          href="/checkout"
+        >
           Checkout
         </Button>
       ) : (
