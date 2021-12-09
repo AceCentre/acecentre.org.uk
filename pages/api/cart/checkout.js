@@ -63,15 +63,6 @@ async function handler(req, res) {
       cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
     }
 
-    if (
-      body.accountDetails.createAccount &&
-      body.billingDetails.email &&
-      body.accountDetails.password
-    ) {
-      console.log("Started logging In");
-      cookieHeader = await login(req, body);
-    }
-
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
       console.log("Started adding to cohort");
       await fetch(`${currentUrl}/api/cart/add-to-cohort-background`, {
