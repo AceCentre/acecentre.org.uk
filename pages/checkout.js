@@ -48,9 +48,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
 const useCheckoutForm = (
   freeCheckout,
   groupPurchaseLines,
-  existingUser,
   delegatedLearningLines,
-  numberOfCourses,
   billingDetails
 ) => {
   const { refreshLoginStatus } = useGlobalProps();
@@ -392,7 +390,6 @@ export default function Checkout({
   billingDetails,
   deliveryDetails,
   needsDelivered,
-  existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
   vat,
@@ -416,7 +413,6 @@ export default function Checkout({
             billingDetails={billingDetails}
             deliveryDetails={deliveryDetails}
             needsDelivered={needsDelivered}
-            existingUser={existingUser}
             groupPurchaseLines={groupPurchaseLines}
             delegatedLearningLines={delegatedLearningLines}
             vat={vat}
@@ -438,15 +434,10 @@ const CheckoutForm = ({
   billingDetails,
   deliveryDetails,
   needsDelivered,
-  existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
   vat,
 }) => {
-  const numberOfCourses = lines.filter(
-    (line) => line.type.toLowerCase() === "course"
-  ).length;
-
   const {
     showFullDelivery,
     differentAddressOnChange,
@@ -467,9 +458,7 @@ const CheckoutForm = ({
   } = useCheckoutForm(
     isFree(total),
     groupPurchaseLines,
-    existingUser,
     delegatedLearningLines,
-    numberOfCourses,
     billingDetails
   );
 
@@ -619,7 +608,6 @@ export const getServerSideProps = withSession(async function ({ req }) {
       billingDetails,
       deliveryDetails: shippingDetails,
       needsDelivered,
-      existingUser: !!(user.authToken && user.refreshToken),
       delegatedLearningLines,
       vat,
     },
