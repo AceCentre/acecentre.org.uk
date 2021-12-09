@@ -21,6 +21,7 @@ export default function Basket({
   discountTotal,
   needsDelivered,
   vat,
+  isLoggedIn,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -72,6 +73,7 @@ export default function Basket({
               applyCoupon={applyCoupon}
               onCouponChange={onCouponChange}
               error={couponError}
+              isLoggedIn={isLoggedIn}
             />
           </>
         ) : (
@@ -102,6 +104,8 @@ export const getServerSideProps = withSession(async function ({ req }) {
     needsDelivered,
     vat,
   } = await getCart(req);
+  const user = req.session.get("user")?.userId;
+  const isLoggedIn = !!user;
 
   return {
     props: {
@@ -112,6 +116,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       discountTotal,
       needsDelivered,
       vat,
+      isLoggedIn,
     },
   };
 });

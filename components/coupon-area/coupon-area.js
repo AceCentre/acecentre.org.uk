@@ -7,6 +7,7 @@ export const CouponArea = ({
   onCouponChange,
   isApplyVoucherDisabled,
   error,
+  isLoggedIn,
 }) => {
   return (
     <div className={styles.container}>
@@ -26,11 +27,23 @@ export const CouponArea = ({
         </form>
         {error && <p className={styles.error}>{error}</p>}
       </div>
-      <div className={styles.checkoutContainer}>
+      {isLoggedIn ? (
         <Button className={styles.button} href="/checkout">
           Checkout
         </Button>
-      </div>
+      ) : (
+        <>
+          <Button
+            className={`${styles.button} ${styles.existingUser}`}
+            href="/login-checkout"
+          >
+            Checkout as Existing User
+          </Button>
+          <Button className={styles.button} href="/register-checkout">
+            Checkout as New User
+          </Button>
+        </>
+      )}
     </div>
   );
 };
