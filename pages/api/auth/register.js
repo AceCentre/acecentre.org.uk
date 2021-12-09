@@ -85,9 +85,9 @@ async function handler(req, res) {
     };
 
     req.session.set("user", user);
-    req.session.set("cart", {
-      wooSessionToken: loginResponse.login.user.wooSessionToken,
-    });
+    // req.session.set("cart", {
+    //   wooSessionToken: loginResponse.login.user.wooSessionToken,
+    // });
 
     await req.session.save();
 
