@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "7.16.3",
-    "@chakra-ui/react": "1.7.2",
+    "@chakra-ui/react": "1.7.3",
     "@emotion/react": "11.7.0",
     "@emotion/styled": "11.6.0",
     "@lukeed/uuid": "2.0.0",
