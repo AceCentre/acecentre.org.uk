@@ -7,6 +7,7 @@
   flex-direction: row;
   align-items: flex-end;
   margin-bottom: 3rem;
+  gap: 0.5rem;
 }
 
 .voucherInput {
@@ -21,7 +22,14 @@
   white-space: nowrap;
 }
 
-.checkoutContainer {
+.existingUser {
+  margin-left: auto;
+  background: none;
+  color: #00537f;
+  box-shadow: inset 0px 0px 0px 2px #00537f;
+}
+
+.normalCheckout {
   margin-left: auto;
 }
 
@@ -31,12 +39,8 @@
 }
 
 /** Mobile CSS */
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .container {
     flex-direction: column;
-  }
-
-  .checkoutContainer {
-    margin-top: 2rem;
   }
 }

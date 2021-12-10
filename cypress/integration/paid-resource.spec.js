@@ -25,15 +25,35 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
-    "can add product to cart, and checkout without an account",
+    "can add product to cart, and checkout with a new account",
     () => {
+      const newEmail = validEmail();
+
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 10000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
-      cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "register-checkout");
 
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register and checkout" })
+        .click();
+
+      cy.url({ timeout: 10000 }).should("include", "checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -45,7 +65,7 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -78,13 +98,34 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
-    "can add product to cart, and checkout without an account, physical product",
+    "can add product to cart, and checkout with a new account, physical product",
     () => {
+      const newEmail = validEmail();
       cy.visit("/resources/developing-using-communication-book");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 10000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£50.00");
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
+      cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "register-checkout");
+
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register and checkout" })
+        .click();
+
       cy.url({ timeout: 10000 }).should("include", "checkout");
 
       cy.findByRole("textbox", { name: "First name" }).type("John");
@@ -98,7 +139,7 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -135,15 +176,34 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
-    "can add product to cart, and checkout without an account, with 3D Auth",
+    "can add product to cart, and checkout with a new account, with 3D Auth",
     () => {
+      const newEmail = validEmail();
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 10000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
-      cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "register-checkout");
 
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register and checkout" })
+        .click();
+
+      cy.url({ timeout: 10000 }).should("include", "checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -155,7 +215,7 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -207,15 +267,34 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
-    "can add product to cart, and checkout without an account, decline 3D Auth",
+    "can add product to cart, and checkout with a new account, decline 3D Auth",
     () => {
+      const newEmail = validEmail();
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 10000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
-      cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "register-checkout");
 
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register and checkout" })
+        .click();
+
+      cy.url({ timeout: 10000 }).should("include", "checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -227,7 +306,7 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -280,85 +359,34 @@ context("Paid resources", () => {
 
   it(
     ["pre-deploy"],
-    "can add product to cart, and checkout with an account",
-    () => {
-      cy.visit("/resources/simple-charts-to-edit-in-word");
-      cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 10000 }).should("include", "basket");
-      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
-      cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
-
-      cy.findByRole("textbox", { name: "First name" }).type("John");
-      cy.findByRole("textbox", { name: "Last name" }).type("Smith");
-      cy.findByRole("combobox", { name: "Country" }).select(
-        "United Kingdom (UK)"
-      );
-      cy.findByRole("textbox", { name: "Address Line 1" }).type(
-        "80 Fake Address"
-      );
-      cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
-      cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
-      cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
-
-      cy.get('iframe[title="Secure card payment input frame"]')
-        .its("0.contentDocument")
-        .then(cy.wrap)
-        .findAllByRole("textbox", { name: "Credit or debit card number" })
-        .type("4242424242424242");
-
-      cy.get('iframe[title="Secure card payment input frame"]')
-        .its("0.contentDocument")
-        .then(cy.wrap)
-        .findAllByRole("textbox", {
-          name: "Credit or debit card expiration date",
-        })
-        .type("1224");
-
-      cy.get('iframe[title="Secure card payment input frame"]')
-        .its("0.contentDocument")
-        .then(cy.wrap)
-        .findAllByRole("textbox", { name: "Credit or debit card CVC/CVV" })
-        .type("123");
-
-      cy.findByRole("checkbox", {
-        name: "Create an account?",
-      }).click({ force: true });
-
-      cy.findByLabelText("Password").type(VALID_PASSWORD);
-      cy.findByLabelText("Confirm password").type(VALID_PASSWORD);
-
-      cy.findByRole("checkbox", {
-        name: "I have read and agree to the website terms and conditions",
-      }).click({ force: true });
-
-      cy.findByRole("button", { name: "Place order" }).click();
-
-      cy.url({ timeout: 20000 }).should("include", "order");
-      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
-
-      cy.findByRole("link", { name: "View your orders >" }).click();
-
-      cy.findAllByRole("button", { name: "Details" })
-        .should("have.length", 1)
-        .first()
-        .click();
-    }
-  );
-
-  it(
-    ["pre-deploy"],
     "can add product to cart, and checkout without an account, with a card with insufficient funds",
     () => {
+      const newEmail = validEmail();
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 10000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
-      cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
+      cy.url({ timeout: 10000 }).should("include", "register-checkout");
 
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register and checkout" })
+        .click();
+
+      cy.url({ timeout: 10000 }).should("include", "checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -370,7 +398,7 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(validEmail());
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -411,7 +439,7 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/login");
+      cy.url({ timeout: 10000 }).should("include", "login");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -431,7 +459,7 @@ context("Paid resources", () => {
         .click();
 
       // Make sure we we end up on my-acecentre
-      cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+      cy.url({ timeout: 10000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Log out
@@ -641,7 +669,7 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/login");
+      cy.url({ timeout: 10000 }).should("include", "login");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -661,7 +689,7 @@ context("Paid resources", () => {
         .click();
 
       // Make sure we we end up on my-acecentre
-      cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+      cy.url({ timeout: 10000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Log out
@@ -697,7 +725,7 @@ context("Paid resources", () => {
         .click();
 
       // Check we are logged in
-      cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+      cy.url({ timeout: 10000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Go to cart
@@ -713,6 +741,223 @@ context("Paid resources", () => {
       // Go to checkout
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
       cy.url({ timeout: 10000 }).should("include", "checkout");
+
+      // Fill out details
+      cy.findByRole("textbox", { name: "First name" }).type("John");
+      cy.findByRole("textbox", { name: "Last name" }).type("Smith");
+      cy.findByRole("combobox", { name: "Country" }).select(
+        "United Kingdom (UK)"
+      );
+      cy.findByRole("textbox", { name: "Address Line 1" }).type(
+        "80 Fake Address"
+      );
+      cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
+      cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
+      cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card number" })
+        .type("4242424242424242");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", {
+          name: "Credit or debit card expiration date",
+        })
+        .type("1224");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card CVC/CVV" })
+        .type("123");
+
+      cy.findByRole("checkbox", {
+        name: "I have read and agree to the website terms and conditions",
+      }).click({ force: true });
+
+      cy.findByRole("button", { name: "Place order" }).click();
+      cy.url({ timeout: 20000 }).should("include", "order");
+
+      // Check order is in account
+      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.findByRole("link", { name: "View your orders >" }).click();
+      cy.findAllByRole("button", { name: "Details" })
+        .should("have.length", 1)
+        .first()
+        .click();
+      cy.contains("Simple charts you can point to");
+    }
+  );
+
+  it(
+    ["pre-deploy"],
+    "Add a product to cart, login at checkout and then purchase item already in cart",
+    () => {
+      // Register for a new account
+      const newEmail = validEmail();
+      cy.visit("");
+      cy.findAllByRole("link", { name: "Login" }).first().click();
+      cy.url({ timeout: 10000 }).should("include", "login");
+
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register" })
+        .click();
+
+      // Make sure we we end up on my-acecentre
+      cy.url({ timeout: 10000 }).should("include", "my-acecentre");
+      cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
+
+      // Log out
+      cy.findByRole("button", { name: "Logout" }).click();
+      cy.url({ timeout: 10000 }).should(
+        "equal",
+        Cypress.config().baseUrl + "/"
+      );
+      cy.findAllByRole("link", { name: "Login" }).should("exist");
+
+      // Add to cart and check its added
+      cy.visit("/resources/simple-charts-to-edit-in-word");
+      cy.findByRole("button", { name: "Add to cart" }).click();
+      cy.url({ timeout: 10000 }).should("include", "basket");
+      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
+
+      // Log back in
+      cy.findAllByRole("link", { name: "Checkout as Existing User" })
+        .first()
+        .click();
+
+      // Type in email
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByRole("textbox", { name: "Username or email address" })
+        .type(newEmail);
+
+      // Type in password
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Hit login
+      cy.findAllByRole("form", { name: "Login form" })
+        .findByRole("button", { name: "Log in and checkout" })
+        .click();
+
+      // Check we are at checkout
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
+      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
+
+      // Fill out details
+      cy.findByRole("textbox", { name: "First name" }).type("John");
+      cy.findByRole("textbox", { name: "Last name" }).type("Smith");
+      cy.findByRole("combobox", { name: "Country" }).select(
+        "United Kingdom (UK)"
+      );
+      cy.findByRole("textbox", { name: "Address Line 1" }).type(
+        "80 Fake Address"
+      );
+      cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
+      cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
+      cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
+      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card number" })
+        .type("4242424242424242");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", {
+          name: "Credit or debit card expiration date",
+        })
+        .type("1224");
+
+      cy.get('iframe[title="Secure card payment input frame"]')
+        .its("0.contentDocument")
+        .then(cy.wrap)
+        .findAllByRole("textbox", { name: "Credit or debit card CVC/CVV" })
+        .type("123");
+
+      cy.findByRole("checkbox", {
+        name: "I have read and agree to the website terms and conditions",
+      }).click({ force: true });
+
+      cy.findByRole("button", { name: "Place order" }).click();
+      cy.url({ timeout: 20000 }).should("include", "order");
+
+      // Check order is in account
+      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.findByRole("link", { name: "View your orders >" }).click();
+      cy.findAllByRole("button", { name: "Details" })
+        .should("have.length", 1)
+        .first()
+        .click();
+      cy.contains("Simple charts you can point to");
+    }
+  );
+
+  it(
+    ["pre-deploy"],
+    "Add a product to cart, checkout when already signed in",
+    () => {
+      // Register for a new account
+      const newEmail = validEmail();
+      cy.visit("");
+      cy.findAllByRole("link", { name: "Login" }).first().click();
+      cy.url({ timeout: 10000 }).should("include", "login");
+
+      // Fill in email field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("textbox", {
+          name: "Email address",
+        })
+        .type(newEmail);
+
+      // Fill in password field
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByLabelText("Password")
+        .type(VALID_PASSWORD);
+
+      // Click register
+      cy.findAllByRole("form", { name: "Register form" })
+        .findByRole("button", { name: "Register" })
+        .click();
+
+      // Make sure we we end up on my-acecentre
+      cy.url({ timeout: 10000 }).should("include", "my-acecentre");
+      cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
+
+      // Add to cart and check its added
+      cy.visit("/resources/simple-charts-to-edit-in-word");
+      cy.findByRole("button", { name: "Add to cart" }).click();
+      cy.url({ timeout: 10000 }).should("include", "basket");
+      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
+
+      // Log back in
+      cy.findAllByRole("link", { name: "Checkout" }).last().click();
+
+      // Check we are at checkout
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
+      cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Fill out details
       cy.findByRole("textbox", { name: "First name" }).type("John");

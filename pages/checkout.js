@@ -22,7 +22,6 @@ import { BackToLink } from "../components/back-to-link/back-to-link";
 import {
   BillingDetails,
   DeliveryDetails,
-  NewUserDetails,
   CollectEmails,
   CollectDelegatedEmail,
 } from "../components/checkout-address/checkout-address";
@@ -49,9 +48,7 @@ const getMissingRequiredFields = (billingDetails, requiredFields) => {
 const useCheckoutForm = (
   freeCheckout,
   groupPurchaseLines,
-  existingUser,
   delegatedLearningLines,
-  numberOfCourses,
   billingDetails
 ) => {
   const { refreshLoginStatus } = useGlobalProps();
@@ -64,12 +61,7 @@ const useCheckoutForm = (
   const [deliveryError, setDeliveryError] = useState(null);
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
-  const [wantsToCreateAnAccount, setWantsToCreateAnAccount] = useState(
-    numberOfCourses > 0 && !existingUser
-  );
   const [tsAndCsError, setTsAndCsError] = useState(null);
-
-  const [createAccountError, setCreateAccountError] = useState(null);
 
   const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {
     let defaultGroupPurchases = {};
@@ -119,10 +111,6 @@ const useCheckoutForm = (
     setIsDelegating(allIsDelegating);
   };
 
-  const checkboxOnChange = (event) => {
-    setWantsToCreateAnAccount(event.target.checked);
-  };
-
   const differentAddressOnChange = (event) => {
     setShowFullDelivery(event.target.checked);
   };
@@ -139,33 +127,9 @@ const useCheckoutForm = (
     setDeliveryError(null);
     setCardError(null);
     setGeneralError(null);
-    setCreateAccountError(null);
     setAllowSubmit(false);
     setTsAndCsError(null);
     setGroupPurchaseErrors(emptyEmailErrors);
-
-    let accountDetails = { createAccount: false };
-
-    if (wantsToCreateAnAccount) {
-      const password = event.target.password.value;
-      const passwordConfirm = event.target.passwordConfirm.value;
-
-      if (password !== passwordConfirm) {
-        setCreateAccountError("Passwords do not match");
-        setAllowSubmit(true);
-        window.scrollTo(0, 0);
-        return;
-      }
-
-      if (password.length < 0) {
-        setCreateAccountError("Password must be at least 8 characters");
-        setAllowSubmit(true);
-        window.scrollTo(0, 0);
-        return;
-      }
-
-      accountDetails = { createAccount: true, password };
-    }
 
     let billingDetails = {};
     let requiredBillingFields = [];
@@ -348,7 +312,6 @@ const useCheckoutForm = (
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
-            accountDetails,
             groupPurchaseEmails: {
               ...groupPurchaseEmails,
               ...delegatedEmailsAsGroupPurchases,
@@ -408,9 +371,6 @@ const useCheckoutForm = (
     cardError,
     generalError,
     allowSubmit,
-    wantsToCreateAnAccount,
-    checkboxOnChange,
-    createAccountError,
     emailsChanged,
     groupPurchaseErrors,
     delegatedLearningEmailChanged,
@@ -430,7 +390,6 @@ export default function Checkout({
   billingDetails,
   deliveryDetails,
   needsDelivered,
-  existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
   vat,
@@ -454,7 +413,6 @@ export default function Checkout({
             billingDetails={billingDetails}
             deliveryDetails={deliveryDetails}
             needsDelivered={needsDelivered}
-            existingUser={existingUser}
             groupPurchaseLines={groupPurchaseLines}
             delegatedLearningLines={delegatedLearningLines}
             vat={vat}
@@ -476,15 +434,10 @@ const CheckoutForm = ({
   billingDetails,
   deliveryDetails,
   needsDelivered,
-  existingUser,
   groupPurchaseLines,
   delegatedLearningLines,
   vat,
 }) => {
-  const numberOfCourses = lines.filter(
-    (line) => line.type.toLowerCase() === "course"
-  ).length;
-
   const {
     showFullDelivery,
     differentAddressOnChange,
@@ -495,9 +448,6 @@ const CheckoutForm = ({
     cardError,
     generalError,
     allowSubmit,
-    checkboxOnChange,
-    wantsToCreateAnAccount,
-    createAccountError,
     emailsChanged,
     groupPurchaseErrors,
     delegatedLearningEmailChanged,
@@ -508,9 +458,7 @@ const CheckoutForm = ({
   } = useCheckoutForm(
     isFree(total),
     groupPurchaseLines,
-    existingUser,
     delegatedLearningLines,
-    numberOfCourses,
     billingDetails
   );
 
@@ -554,15 +502,6 @@ const CheckoutForm = ({
         deliveryError={deliveryError}
         needsDelivered={needsDelivered}
       />
-      {!existingUser && (
-        <NewUserDetails
-          checkboxOnChange={checkboxOnChange}
-          createAccountError={createAccountError}
-          wantsToCreateAnAccount={wantsToCreateAnAccount}
-          forceOn={numberOfCourses > 0}
-        />
-      )}
-
       {groupPurchaseLines.map((currentLine) => {
         return (
           <CollectEmails
@@ -669,7 +608,6 @@ export const getServerSideProps = withSession(async function ({ req }) {
       billingDetails,
       deliveryDetails: shippingDetails,
       needsDelivered,
-      existingUser: !!(user.authToken && user.refreshToken),
       delegatedLearningLines,
       vat,
     },
