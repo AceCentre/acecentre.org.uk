@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
+import posthog from "posthog-js";
 
 import { Button } from "../button/button";
 import config from "../../lib/config";
 import { useRouter } from "next/dist/client/router";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { useGlobalProps } from "../../lib/global-props/hook";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
 
   if (resource.ebook) {
-    return <Ebook ebook={resource.ebook} />;
+    return <Ebook ebook={resource.ebook} resource={resource} />;
   }
 
   if (resource.external) {
@@ -33,10 +35,12 @@ export const ResourcesDownload = ({ resource }) => {
   throw new Error(`Uh oh, looks like we cant render ${resource.slug}`);
 };
 
-const Ebook = ({ ebook }) => {
+const Ebook = ({ ebook, resource }) => {
   const [modelOpen, setModelOpen] = useState(false);
 
   const onClose = () => setModelOpen(false);
+
+  const { posthogLoaded } = useGlobalProps();
 
   return (
     <>
@@ -61,6 +65,12 @@ const Ebook = ({ ebook }) => {
           <Button
             onClick={() => {
               setModelOpen(true);
+              if (posthogLoaded) {
+                console.log("Capture", "resourceDownloaded", {
+                  name: resource.slug,
+                });
+                posthog.capture("resourceDownloaded", { name: resource.slug });
+              }
             }}
             href={ebook.downloadLocation}
           >
@@ -265,6 +275,7 @@ background-color: #00537F;
 
 const SingleDownloadableProduct = ({ resource }) => {
   const [modelOpen, setModelOpen] = useState(false);
+  const { posthogLoaded } = useGlobalProps();
 
   const onClose = () => setModelOpen(false);
 
@@ -274,6 +285,12 @@ const SingleDownloadableProduct = ({ resource }) => {
         <Button
           onClick={() => {
             setModelOpen(true);
+            if (posthogLoaded) {
+              console.log("Capture", "resourceDownloaded", {
+                name: resource.slug,
+              });
+              posthog.capture("resourceDownloaded", { name: resource.slug });
+            }
           }}
           href={`${config.baseUrl}${resource.downloadUrl}`}
           download
