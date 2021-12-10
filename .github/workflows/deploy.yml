@@ -142,11 +142,8 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Run netlify build
-        run: netlify build --context deploy-preview
-
       - name: Run netlify deploy
-        run: netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }}
+        run: netlify deploy --context deploy-preview --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build
 
   Cypress:
     needs: [DeployNetlifyIntegration]
