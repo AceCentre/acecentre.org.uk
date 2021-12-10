@@ -17,9 +17,7 @@
     "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
     "lighthouse": "lhci autorun",
     "plop": "plop",
-    "build-sitemap": "next-sitemap",
-    "patch": "patch-package",
-    "reverse-patch": "patch-package --reverse"
+    "build-sitemap": "next-sitemap"
   },
   "dependencies": {
     "@babel/eslint-parser": "7.16.3",
@@ -57,7 +55,6 @@
     "next-transpile-modules": "9.0.0",
     "node-fetch": "3.1.0",
     "nprogress": "0.2.0",
-    "patch-package": "6.4.7",
     "polyfill-object.fromentries": "1.0.1",
     "posthog-js": "1.16.7",
     "prom-client": "13.2.0",
