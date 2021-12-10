@@ -10,33 +10,21 @@ import NProgress from "nprogress";
 import Router from "next/router";
 
 class NextNProgress extends React.Component {
-  static defaultProps = {
-    color: "#29D",
-    height: 3,
-    showOnShallow: true,
-  };
+  routeChangeStart() {
+    clearTimeout(this.progressBarTimeout);
+    this.progressBarTimeout = setTimeout(() => NProgress.start(), 300);
+  }
 
-  progressBarTimeout = null;
+  routeChangeEnd() {
+    clearTimeout(this.progressBarTimeout);
 
-  routeChangeStart = (_, { shallow }) => {
-    if (!shallow || this.props.showOnShallow) {
-      clearTimeout(this.progressBarTimeout);
-      this.progressBarTimeout = setTimeout(() => NProgress.start(), 300);
+    if (NProgress.isStarted()) {
+      NProgress.done(true);
     }
-  };
-
-  routeChangeEnd = (_, { shallow }) => {
-    if (!shallow || this.props.showOnShallow) {
-      clearTimeout(this.progressBarTimeout);
-
-      if (NProgress.isStarted()) {
-        NProgress.done(true);
-      }
-    }
-  };
+  }
 
   render() {
-    const { color, height } = this.props;
+    const color = "#29D";
 
     return (
       <style jsx global>{`
@@ -50,7 +38,7 @@ class NextNProgress extends React.Component {
           top: 0;
           left: 0;
           width: 100%;
-          height: ${height}px;
+          height: 3px;
         }
         #nprogress .peg {
           display: block;
