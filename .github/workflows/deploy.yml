@@ -142,7 +142,7 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Run netlify deploy
+      - name: Run netlify deploy and build
         run: CONTEXT=deploy-preview netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build
 
   Cypress:
@@ -220,11 +220,8 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Run netlify build
-        run: netlify build --context production
-
-      - name: Run netlify deploy
-        run: netlify deploy --prod
+      - name: Run netlify build and deploy
+        run: CONTEXT=production netlify deploy --prod --build
 
       - uses: actions/github-script@v5
         id: get-paths-first
