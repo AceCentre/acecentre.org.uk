@@ -55,9 +55,15 @@ export const Card = ({
   className = "",
   imageContainerClassName = "",
   postTitleContainerClassName = "",
+  ribbonText,
 }) => {
   return (
     <li className={`${styles.flexItem} ${className}`}>
+      {ribbonText && (
+        <div className={`${styles.ribbon} ${styles.ribbonTopRight}`}>
+          <span>{ribbonText}</span>
+        </div>
+      )}
       <Link href={href}>
         <a className={styles.listLink}>
           {featuredImage ? (

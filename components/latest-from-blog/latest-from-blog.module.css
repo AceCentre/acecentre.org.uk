@@ -1,3 +1,57 @@
+/* common */
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border: 5px solid #00537f;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  font-weight: bold;
+  z-index: 99;
+  width: 225px;
+  padding: 9px 0;
+  background-color: #00537f;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* top right*/
+.ribbonTopRight {
+  top: -10px;
+  right: -10px;
+}
+.ribbonTopRight::before,
+.ribbonTopRight::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbonTopRight::before {
+  top: 0;
+  left: 7px;
+}
+.ribbonTopRight::after {
+  bottom: 7px;
+  right: 0;
+}
+.ribbonTopRight span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
 .container {
   margin: 3rem auto;
   width: 90%;
@@ -52,6 +106,7 @@
   flex: 1 1 0;
   min-width: 280px;
   max-width: 480px;
+  position: relative;
 }
 
 .listLink {
