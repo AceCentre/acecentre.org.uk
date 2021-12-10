@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable no-undef */
 
 import Head from "next/head";
@@ -38,13 +40,15 @@ export const ServiceFinderMap = ({ services }) => {
       const control = L.control.layers({}, {}, { collapsed: false });
       control.addTo(map);
 
-      const onEachFeature = (property = "serviceId") => (feature, layer) => {
-        const selectedService = services.find(
-          (x) => x.id === feature.properties[property]
-        );
+      const onEachFeature =
+        (property = "serviceId") =>
+        (feature, layer) => {
+          const selectedService = services.find(
+            (x) => x.id === feature.properties[property]
+          );
 
-        layer.bindPopup(
-          `
+          layer.bindPopup(
+            `
           <div>
             <h1>${selectedService.serviceName}</h1>
             <p>
@@ -52,8 +56,8 @@ export const ServiceFinderMap = ({ services }) => {
             </p>
           </div>
           `
-        );
-      };
+          );
+        };
 
       fetch(
         "https://servicefinder.acecentre.net/raw-data/aac-services-geo.geojson"

@@ -3,10 +3,6 @@
 ### Its left here just for easy reference 
 ###
 
-[functions]
-  external_node_modules = ["@ampproject/toolbox-optimizer"]
-  node_bundler = "esbuild"
-
 [[redirects]]
   from = "/trustees"
   to = "/about/trustees"
@@ -87,7 +83,7 @@
   from = "/wp-content/*"
   to = "https://backend.acecentre.org.uk/wp-content/:splat"
   status = 200
-  
+
 [[redirects]]
   from = "/ace-centre-learning"
   to = "/learning"
@@ -128,11 +124,9 @@
 [[plugins]]
   package = "/netlify-plugins/output-config"
 
-[[plugins]]
-  package = "/netlify-plugins/prefetch-data"
-
 [build]
   command = "yarn build"
+  publish = ".next"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.

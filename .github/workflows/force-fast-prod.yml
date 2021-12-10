@@ -58,14 +58,8 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - name: Patch deps
-        run: yarn patch
-
-      - name: Run netlify build
-        run: netlify build --context production
-
-      - name: Run netlify deploy
-        run: netlify deploy --prod
+      - name: Run netlify deploy and build
+        run: CONTEXT=production netlify deploy --prod --build
 
       - uses: actions/github-script@v5
         id: get-paths
@@ -73,6 +67,3 @@ jobs:
           script: |
             const script = require('./scripts/sitemap-to-lighthouse-list')
             return script(context);
-
-      - name: Unpatch deps
-        run: yarn reverse-patch

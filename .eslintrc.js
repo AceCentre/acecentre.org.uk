@@ -7,7 +7,11 @@ module.exports = {
     "jest/globals": true,
     "cypress/globals": true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended",
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -15,7 +19,6 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  parser: "@babel/eslint-parser",
   plugins: ["react", "jest", "cypress"],
   rules: {
     indent: ["error", 2],
@@ -25,6 +28,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off", // Next means we don't need this
     "react/prop-types": "off", // We don't use prop types
     "react/display-name": "off", // This fails even when we have a name, it also doesn't really matter
+    "@next/next/no-img-element": "off",
   },
   settings: {
     react: {

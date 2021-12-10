@@ -53,7 +53,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -126,7 +126,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
 
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
@@ -203,7 +203,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -294,7 +294,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -386,7 +386,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -505,7 +505,7 @@ context("Paid resources", () => {
 
       // Go to checkout
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
 
       // Fill out details
       cy.findByRole("textbox", { name: "First name" }).type("John");
@@ -607,7 +607,7 @@ context("Paid resources", () => {
 
       // Go to checkout
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
 
       // Fill out details
       cy.findByRole("textbox", { name: "First name" }).type("John");
@@ -740,7 +740,7 @@ context("Paid resources", () => {
 
       // Go to checkout
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 10000 }).should("include", "checkout");
+      cy.url({ timeout: 10000 }).should("include", "/checkout");
 
       // Fill out details
       cy.findByRole("textbox", { name: "First name" }).type("John");

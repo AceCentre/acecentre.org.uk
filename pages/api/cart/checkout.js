@@ -50,13 +50,10 @@ async function handler(req, res) {
     let cookieHeader = req.headers.cookie;
 
     if (config.environment !== "development") {
-      currentUrl =
-        "https://" +
-        req.netlifyFunctionParams.event.rawUrl
-          .replace("https://", "")
-          .split("/")[0];
+      currentUrl = "https://" + req.headers.host;
+      cookieHeader = req.headers.cookie;
 
-      cookieHeader = req.netlifyFunctionParams.event.headers.cookie;
+      console.log({ cookieHeader, currentUrl });
     }
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
