@@ -3,6 +3,112 @@
 ### Its left here just for easy reference 
 ###
 
+[[redirects]]
+  from = "/trustees"
+  to = "/about/trustees"
+  status = 301
+
+[[redirects]]
+  from = "/account"
+  to = "/my-acecentre"
+  status = 301
+
+[[redirects]]
+  from = "/ace-centre-learning/my-courses"
+  to = "/my-acecentre/courses"
+  status = 301
+
+
+[[redirects]]
+  from = "/project/*"
+  to = "/projects/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/news/*"
+  to = "/blog/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/project/*"
+  to = "/projects/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/news"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/getting-started/faqs-frequently-asked-questions"
+  to = "/getting-started"
+  status = 301
+
+[[redirects]]
+  from = "/services/training"
+  to = "/learning"
+  status = 301
+
+[[redirects]]
+  from = "/services/information"
+  to = "/services/advice-information"
+  status = 301
+
+[[redirects]]
+  from = "/services/information/feedback/"
+  to = "/form/information-appointment-feedback"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/page/privacy"
+  status = 301
+
+[[redirects]]
+  from = "/ace-centre-privacy-policy-3"
+  to = "/page/ace-centre-privacy-policy-3"
+  status = 301
+
+[[redirects]]
+  from = "/purchase-terms-and-conditions"
+  to = "/page/purchase-terms-and-conditions"
+  status = 301
+
+[[redirects]]
+  from = "/safeguarding-policies"
+  to = "/page/safeguarding-policies"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "https://backend.acecentre.org.uk/wp-content/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/ace-centre-learning"
+  to = "/learning"
+  status = 301
+
+[[redirects]]
+  from = "/resources/copyright-and-licence-terms-for-non-profit-items"
+  to = "/page/copyright-and-licence-terms-for-non-profit-items"
+  status = 301
+
+[[redirects]]
+  from = "/consent-form-2"
+  to = "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMTJIR0NZVTNKMklEMjJHQ0dLQ1ZGMDBKTiQlQCN0PWcu"
+  status = 301
+
+[[redirects]]
+  from = "/resources/electronic-text-based-comparison-chart"
+  to = "https://backend.acecentre.org.uk/resources/electronic-text-based-comparison-chart"
+  status = 301
+
+[[redirects]]
+  from = "/resources/electronic-text-based-features-checklist"
+  to = "https://backend.acecentre.org.uk/resources/electronic-text-based-features-checklist"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
@@ -17,6 +123,9 @@
 
 [[plugins]]
   package = "/netlify-plugins/output-config"
+
+[[plugins]]
+  package = "/netlify-plugins/prefetch-data"
 
 [build]
   command = "yarn build"
