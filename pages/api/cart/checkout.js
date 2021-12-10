@@ -50,6 +50,7 @@ async function handler(req, res) {
     let cookieHeader = req.headers.cookie;
 
     if (config.environment !== "development") {
+      console.log(req);
       currentUrl =
         "https://" +
         req.netlifyFunctionParams.event.rawUrl
