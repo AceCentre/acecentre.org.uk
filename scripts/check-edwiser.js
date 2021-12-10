@@ -36,7 +36,7 @@ WHERE option_name LIKE "eb_current_version"`
 
     if (newestGeneralVersion !== currentGeneralVersion.option_value) {
       await sendSlackMessage(
-        "EDWISER PLUGIN OUTDATED: There is a new version of the general edwiser plugin available."
+        `EDWISER PLUGIN OUTDATED: There is a new version of the general edwiser plugin available. The newest version available is '${newestGeneralVersion}' but we are on '${currentGeneralVersion.option_value}'.`
       );
     }
 
@@ -75,7 +75,7 @@ const checkVersionOfEdwiserPlugin = async ({ connection, optionName, url }) => {
 
   if (newestVersion !== currentVersion.option_value) {
     await sendSlackMessage(
-      `EDWISER PLUGIN OUTDATED: There is a new version of the ${optionName} Plugin available.`
+      `EDWISER PLUGIN OUTDATED: There is a new version of the ${optionName} Plugin available. The newest version available is '${newestVersion}' and we are on '${currentVersion.option_value}'`
     );
   }
 };
