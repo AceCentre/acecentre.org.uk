@@ -17599,10 +17599,10 @@ react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-lite-youtube-embed@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.1.0.tgz#51fec6749009ed8820fb55a23c2074bfc04694d9"
-  integrity sha512-tK91bU+tkFtVVJQf7tQlvVTCdjtVFnx4A6R+y8x2AjUip6cHjcKsdr3yvD97uK0GzyWQ7dP7ROY2IU6BJNX88Q==
+react-lite-youtube-embed@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.1.3.tgz#5fd52e598e135a7177aa96c20ce7b5498286c058"
+  integrity sha512-pTWl7bcRnnxj1Tz0zHEn1SG0sW9+ucumF9m8zrm2qx6lYDuSPsLN+GCTuAFHn0KuKV9N3nUIvVwCfC0Zx9tNWA==
 
 react-merge-refs@^1.1.0:
   version "1.1.0"
