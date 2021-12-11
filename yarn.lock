@@ -2941,7 +2941,7 @@
     rollup-plugin-terser "^7.0.2"
     typescript "^4.1.5"
 
-"@netlify/plugin-nextjs@^4.0.0-rc.1":
+"@netlify/plugin-nextjs@4.0.0-rc.2":
   version "4.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.0.0-rc.2.tgz#28079526bf6444a35040fb05ddddc55b42e4465e"
   integrity sha512-FvkoscKqnrNLldEftsDncDDmX2TKAR+HBY6OKt0ajq2u3mQVmVzG7KNqMSjoIbmAYScHYQGIa4Lmy9bA6H3avw==
@@ -4679,7 +4679,7 @@
   resolved "https://registry.yarnpkg.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.2.119.tgz#ef713e2f65a1e729b00762d7fa8e43405e0bd119"
   integrity sha512-agvB2ADLUrxcqwPtxFGJ3tndCgydYg6fkYYWBB3EcQ2c6/Ay3XwvIWUJL1wUxNCBIuB12VXJCmdeuxHzFpEiGg==
 
-"@swc/core@^1.2.119":
+"@swc/core@1.2.119":
   version "1.2.119"
   resolved "https://registry.yarnpkg.com/@swc/core/-/core-1.2.119.tgz#92c42aead95f780552bc32cfb4c1cdeb2fc6ef97"
   integrity sha512-hNelzQ5ShAaaf2SHy4oZQ0dB8VCI4AaVchWEe5bZtirW3sY0gOqVL5V7x0b5Zzo0FyjlMnGIbX1k5IuX5uyn8A==
@@ -4699,14 +4699,14 @@
     "@swc/core-win32-ia32-msvc" "^1.2.119"
     "@swc/core-win32-x64-msvc" "^1.2.119"
 
-"@swc/jest@^0.2.12":
+"@swc/jest@0.2.12":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@swc/jest/-/jest-0.2.12.tgz#b3ccf1340b8c9178515976cde59f85574cc4125e"
   integrity sha512-L/fr97Tbpv64O1rqIR1IzmhLYvhlMMBj9z/GEDlSOb9/xWsQCAufDsEXqs6JtQeSriPV8ABRltYBIp4qi7IQhw==
   dependencies:
     "@jest/create-cache-key-function" "^27.3.1"
 
-"@swc/register@^0.1.7":
+"@swc/register@0.1.7":
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.7.tgz#076cf1ca2dc14a16ea54ae6a37bc28e8a352e160"
   integrity sha512-d1Bxbwhyd2W+Y6HL1O6CoNvt/HmBaMDqFFu4cRRVPRBeEf0tIugJUmyBxlJhooBzqJ11d6THUw0o7JgC7Q2ffA==
@@ -13593,7 +13593,7 @@ jest-worker@^27.4.4:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^27.4.4:
+jest@27.4.4:
   version "27.4.4"
   resolved "https://registry.yarnpkg.com/jest/-/jest-27.4.4.tgz#9b1aa1db25d0b13477a49d18e22ba7cdff97105b"
   integrity sha512-AXwEIFa58Uf1Jno3/KSo5HZZ0/2Xwqvfrz0/3bmTwImkFlbOvz5vARAW9nTrxRLkojjkitaZ1KNKAtw3JRFAaA==
