@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 import { gql, GraphQLClient } from "graphql-request";
-import withSession from "../../lib/auth/with-session";
-import config from "../../lib/config";
+import withSession from "../lib/auth/with-session";
+import config from "../lib/config";
 
 export const LOGIN_VIA_MOODLE_MUTATION = gql`
-  mutation($wdmaction: String!, $verify_code: String!, $mdl_uid: String!) {
+  mutation ($wdmaction: String!, $verify_code: String!, $mdl_uid: String!) {
     loginViaMoodle(
       input: {
         wdmaction: $wdmaction
@@ -29,23 +29,30 @@ export const LOGIN_VIA_MOODLE_MUTATION = gql`
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
-const handler = async (req, res) => {
+export default function LoginPage() {
+  return <p>This should never be rendered</p>;
+}
+
+export const getServerSideProps = withSession(async function (req) {
   try {
     // Return 404 if you end up on this endpoint without
     // all the params
     const { verify_code, mdl_uid, wdmaction } = req.query;
     if (!wdmaction || !mdl_uid || !verify_code) {
-      res.redirect("/404");
-      return;
+      return { notFound: true };
     }
 
     // If we are being asked to logout destroy the session
     // then go back to learning
     if (wdmaction === "logout") {
       req.session.destroy();
-      res.status(302);
-      res.redirect("https://learning.acecentre.org.uk");
-      return;
+
+      return {
+        redirect: {
+          destination: "https://learning.acecentre.org.uk",
+          permanent: false,
+        },
+      };
     }
 
     // If we are being asked to login
@@ -97,21 +104,27 @@ const handler = async (req, res) => {
       await req.session.save();
 
       // Redirect to learning
-      res.status(302);
-      res.redirect("https://learning.acecentre.org.uk");
-      return;
+      return {
+        redirect: {
+          destination: "https://learning.acecentre.org.uk",
+          permanent: false,
+        },
+      };
     }
 
     // If we are asked to do something other than 'login' or 'logout' then we go to a 404 page
-    res.redirect("/404");
-    return;
+
+    return {
+      notFound: true,
+    };
   } catch (error) {
     // If anything errors we want to continue to moodle but log the error
     console.warn(error);
-
-    res.status(302);
-    res.redirect("https://learning.acecentre.org.uk");
+    return {
+      redirect: {
+        destination: "https://learning.acecentre.org.uk",
+        permanent: false,
+      },
+    };
   }
-};
-
-export default withSession(handler);
+});
