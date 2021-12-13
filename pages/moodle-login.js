@@ -86,7 +86,7 @@ export const getServerSideProps = withSession(async function ({ req, query }) {
         }
       );
 
-      console.log(queryResponse);
+      console.log({ verify_code, mdl_uid, wdmaction, queryResponse });
 
       // Save result to session
       const user = {
