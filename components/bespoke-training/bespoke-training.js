@@ -10,9 +10,9 @@ export const BespokeTraining = () => {
         <h2>Bespoke training solutions</h2>
         <p>
           Our expert Ace Centre team can help to create a bespoke training
-          solution for you. Click below to fill out our training enquiry form to
-          see how we can develop a suitable training programme for your
-          requirements.
+          solution for you. Our training sessions, delivered by practitioners
+          with first hand experience, are an engaging mix of theory and
+          practical.
         </p>
         <div className={styles.button}>
           <Button href="/learning/bespoke-training">
