@@ -125,7 +125,7 @@
   package = "/netlify-plugins/copy-redirects"
 
 [build]
-  command = "yarn build && cp _redirects .next"
+  command = "yarn build"
   publish = ".next"
 
 # Settings in the [build] context are global and are applied to all contexts
