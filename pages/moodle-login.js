@@ -86,19 +86,21 @@ export const getServerSideProps = withSession(async function ({ req, query }) {
         }
       );
 
+      console.log(queryResponse);
+
       // Save result to session
       const user = {
-        authToken: queryResponse.loginViaMoodle.authToken,
-        refreshToken: queryResponse.loginViaMoodle.refreshToken,
-        userId: queryResponse.loginViaMoodle.user.id,
-        username: queryResponse.loginViaMoodle.user.username,
-        customerId: queryResponse.loginViaMoodle.customer.id,
-        wooSessionToken: queryResponse.loginViaMoodle.user.wooSessionToken,
+        authToken: queryResponse?.loginViaMoodle?.authToken,
+        refreshToken: queryResponse?.loginViaMoodle?.refreshToken,
+        userId: queryResponse?.loginViaMoodle?.user?.id,
+        username: queryResponse?.loginViaMoodle?.user?.username,
+        customerId: queryResponse?.loginViaMoodle?.customer?.id,
+        wooSessionToken: queryResponse?.loginViaMoodle?.user?.wooSessionToken,
       };
 
       req.session.set("user", user);
       req.session.set("cart", {
-        wooSessionToken: queryResponse.loginViaMoodle.user.wooSessionToken,
+        wooSessionToken: queryResponse?.loginViaMoodle?.user?.wooSessionToken,
       });
 
       await req.session.save();
