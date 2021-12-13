@@ -73,7 +73,7 @@
     "@storybook/addon-links": "6.4.9",
     "@storybook/react": "6.4.9",
     "@swc/core": "1.2.119",
-    "@swc/jest": "0.2.12",
+    "@swc/jest": "0.2.14",
     "@swc/register": "0.1.7",
     "@testing-library/cypress": "8.0.2",
     "cypress": "9.1.1",
