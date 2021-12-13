@@ -1,3 +1,4 @@
-/* verify_code=:verify_code mdl_uid=:mdl_uid wdmaction=:wdmaction /.netlify/functions/next_api_moodlelogin 302!/_next/image*  url=:url w=:width q=:quality  /nextimg/:url/:width/:quality  301!
+/* verify_code=:verify_code mdl_uid=:mdl_uid wdmaction=:wdmaction /api/moodle-login 302!
+/_next/image*  url=:url w=:width q=:quality  /nextimg/:url/:width/:quality  301!
 /nextimg/*  /.netlify/functions/custom-image-loader  200
 /* queryParam=:qp https://outside.site/:splat?queryParam=:qp 301
