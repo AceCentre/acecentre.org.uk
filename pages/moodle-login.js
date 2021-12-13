@@ -33,11 +33,11 @@ export default function LoginPage() {
   return <p>This should never be rendered</p>;
 }
 
-export const getServerSideProps = withSession(async function (req) {
+export const getServerSideProps = withSession(async function ({ req, query }) {
   try {
     // Return 404 if you end up on this endpoint without
     // all the params
-    const { verify_code, mdl_uid, wdmaction } = req.query;
+    const { verify_code, mdl_uid, wdmaction } = query;
     if (!wdmaction || !mdl_uid || !verify_code) {
       return { notFound: true };
     }
