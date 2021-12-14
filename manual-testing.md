@@ -108,7 +108,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 6. Login to wordpress as an admin
 7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://backend/acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course product ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 1
 
 ## Group booking (2 users)
