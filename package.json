@@ -38,7 +38,7 @@
     "@slack/bolt": "3.8.1",
     "@stripe/react-stripe-js": "1.6.0",
     "@stripe/stripe-js": "1.22.0",
-    "@swc/cli": "^0.1.55",
+    "@swc/cli": "0.1.55",
     "async-redis": "2.0.0",
     "etag": "1.8.1",
     "framer-motion": "5.4.5",
