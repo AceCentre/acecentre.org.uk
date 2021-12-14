@@ -40,6 +40,13 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v2
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: testing
+          path: .
+          retention-days: 1
+
       - name: Install Node
         uses: actions/setup-node@v2
         with:
