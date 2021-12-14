@@ -47,5 +47,7 @@ yarn-error.log*
 # vercel
 .vercel
 
+
 # Local Netlify folder
 .netlify
+!.netlify/functions-internal/add-to-cohort-background.js
