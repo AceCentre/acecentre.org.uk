@@ -51,3 +51,4 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 !.netlify/functions-internal/add-to-cohort-background.js
+!.netlify/functions-internal/add-to-cohort.js
