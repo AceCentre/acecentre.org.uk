@@ -9,7 +9,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open a fresh incognito tab
-2. Navigate to a free course ([For example](https://netlify.acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022]))
+2. Navigate to a free course ([For example](https://acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022]))
 3. Click book this course (x2)
 4. Click checkout
 5. Fill in the form
@@ -45,7 +45,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Use `password` as the password
 5. Don't sign up for news
 6. Check your email
-7. Navigate to a free course ([For example](https://netlify.acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022]))
+7. Navigate to a free course ([For example](https://acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022]))
 8. Click book course (x2)
 9. Click checkout
 10. Fill in the form
@@ -80,7 +80,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Set it to 100% discount
 5. Set usage limit to 1
 6. Open an incognito tab
-7. Find a paid course and add 1 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+7. Find a paid course and add 1 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 8. Apply coupon code
 9. Click checkout
 10. Fill out form
@@ -121,7 +121,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Set it to 100% discount
 5. Set usage limit to 1
 6. Open an incognito tab
-7. Find a paid course and add 2 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+7. Find a paid course and add 2 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 8. Apply coupon code
 9. Click checkout
 10. Fill out form
@@ -155,7 +155,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Set it to 100% discount
 5. Set usage limit to 1
 6. Open an incognito tab
-7. Find a paid course and add 2 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+7. Find a paid course and add 2 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 8. Apply coupon code
 9. Click checkout
 10. Fill out form
@@ -190,8 +190,8 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Set it to 100% discount
 5. Set usage limit to 1
 6. Open an incognito tab
-7. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
-8. Find a paid course and add 1 to your basket ([For example](https://netlify.acecentre.org.uk/learning/implementing-the-pragmatics-profile-for-people-who-use-aac-d-9th-30th-march-2022))
+7. Find a paid course and add 5 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
+8. Find a paid course and add 1 to your basket ([For example](https://acecentre.org.uk/learning/implementing-the-pragmatics-profile-for-people-who-use-aac-d-9th-30th-march-2022))
 9. Apply coupon code
 10. Click checkout
 11. Fill out form
@@ -225,7 +225,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Set it to 100% discount
 5. Set usage limit to 1
 6. Open an incognito tab
-7. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+7. Find a paid course and add 5 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 8. Find another paid course and add 5 to your basket
 9. Repeat twice more
 10. Apply coupon code
@@ -254,7 +254,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open an incognito tab
-2. Find a paid course and add 5 to your basket ([For example](https://netlify.acecentre.org.uk/learning/splash-training-i))
+2. Find a paid course and add 5 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 3. Go to checkout, look at basket cost.
 4. Open wordpress admin panel
 5. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
