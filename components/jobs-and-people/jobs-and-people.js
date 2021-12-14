@@ -23,7 +23,7 @@ export const JobsAndPeople = () => {
           with an awesome team and just as amazing technology then get in touch
         </p>
         <div className={styles.buttonContainer}>
-          <Button href="https://uk.indeed.com/cmp/The-Ace-Centre">
+          <Button href="https://uk.indeed.com/cmp/Ace-Centre-3">
             View jobs on indeed.co.uk
           </Button>
         </div>
