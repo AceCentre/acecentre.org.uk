@@ -9,7 +9,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open a fresh incognito tab
-2. Navigate to a free course ([For example](https://acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022]))
+2. Navigate to a free course ([For example](https://acecentre.org.uk/learning/becoming-a-communication-partner-i-11th-jan-2022))
 3. Click book this course (x2)
 4. Click checkout
 5. Fill in the form
@@ -30,9 +30,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=29420&action=edit))
+9. Find course product ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=29420&action=edit))
 10. Increase stock count by 1
 
 ## Buy for an existing user
@@ -65,9 +65,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backendacecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=29420&action=edit))
+9. Find course product ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=29420&action=edit))
 10. Increase stock count by 1
 
 ## Simple delegation
@@ -75,7 +75,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open the wordpress admin panel
-2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+2. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 3. Generate a code
 4. Set it to 100% discount
 5. Set usage limit to 1
@@ -106,9 +106,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course product ([For example](https://backend/acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 1
 
 ## Group booking (2 users)
@@ -116,7 +116,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open the wordpress admin panel
-2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+2. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 3. Generate a code
 4. Set it to 100% discount
 5. Set usage limit to 1
@@ -140,9 +140,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course product ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 1
 
 ## Group booking (1 current user + 1 new user)
@@ -150,7 +150,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open the wordpress admin panel
-2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+2. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 3. Generate a code
 4. Set it to 100% discount
 5. Set usage limit to 1
@@ -175,9 +175,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course product ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course product ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 1
 
 ## Combination of group booking and delegating
@@ -185,7 +185,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open the wordpress admin panel
-2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+2. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 3. Generate a code
 4. Set it to 100% discount
 5. Set usage limit to 1
@@ -210,9 +210,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course products ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 1
 
 ## Multiple large group bookings
@@ -220,7 +220,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 ### Test steps
 
 1. Open the wordpress admin panel
-2. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+2. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 3. Generate a code
 4. Set it to 100% discount
 5. Set usage limit to 1
@@ -244,9 +244,9 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course products ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 5
 
 ## Pay for a course
@@ -257,7 +257,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 2. Find a paid course and add 5 to your basket ([For example](https://acecentre.org.uk/learning/splash-training-i))
 3. Go to checkout, look at basket cost.
 4. Open wordpress admin panel
-5. [Navigate to create a new coupon](https://acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
+5. [Navigate to create a new coupon](https://backend.acecentre.org.uk/wp-admin/post-new.php?post_type=shop_coupon)
 6. Generate a code that covers all of the cost (-30p)
 7. Apply the coupon in incognito
 8. Complete checkout
@@ -270,7 +270,7 @@ I hate manual testing, but for now its the only way we can test the Edwiser Mood
 4. Filter by email
 5. Remove all those users
 6. Login to wordpress as an admin
-7. [Go to list of users](https://acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
+7. [Go to list of users](https://backend.acecentre.org.uk/wp-admin/users.php?orderby=registered&order=desc)
 8. Remove added users
-9. Find course products ([For example](https://acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
+9. Find course products ([For example](https://backend.acecentre.org.uk/wp-admin/post.php?post=25939&action=edit))
 10. Increase stocks count by 5
