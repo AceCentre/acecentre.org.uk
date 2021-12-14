@@ -17,7 +17,8 @@
     "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
     "lighthouse": "lhci autorun",
     "plop": "plop",
-    "build-sitemap": "next-sitemap"
+    "build-sitemap": "next-sitemap",
+    "build-function": "swc ./.netlify/functions-internal/add-to-cohort.js -o ./.netlify/functions-internal/add-to-cohort-background.js -C module.type=commonjs"
   },
   "dependencies": {
     "@chakra-ui/react": "1.7.3",
@@ -37,6 +38,7 @@
     "@slack/bolt": "3.8.1",
     "@stripe/react-stripe-js": "1.6.0",
     "@stripe/stripe-js": "1.22.0",
+    "@swc/cli": "^0.1.55",
     "async-redis": "2.0.0",
     "etag": "1.8.1",
     "framer-motion": "5.4.5",
