@@ -58,7 +58,7 @@ async function handler(req, res) {
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
       console.log("Started adding to cohort");
-      await fetch(`${currentUrl}/api/cart/add-to-cohort-background`, {
+      await fetch(`${currentUrl}/.netlify/functions/add-to-cohort-background`, {
         method: "POST",
         headers: { cookie: cookieHeader },
         body: JSON.stringify({
