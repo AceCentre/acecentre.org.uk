@@ -17,6 +17,7 @@ const ADD_USERS_TO_COHORT = gql`
 
 console.log(config.slack);
 console.log(config);
+console.log(process.env);
 const app = new App(config.slack);
 
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
