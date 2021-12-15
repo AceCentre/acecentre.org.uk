@@ -35,6 +35,9 @@ module.exports = {
       );
     }
 
-    fs.appendFileSync(pathToJs, "\n}\nexport default exportEnvs\n");
+    fs.appendFileSync(
+      pathToJs,
+      "\n}\nexportEnvs();\nexport default exportEnvs\n"
+    );
   },
 };
