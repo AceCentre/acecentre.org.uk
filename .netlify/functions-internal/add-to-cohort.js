@@ -63,7 +63,7 @@ async function rawHandler(req, res) {
       }
     }
     console.log("Function handling finished");
-    await res.send({ success: true });
+    return;
   } catch (e) {
     console.log(e);
   }
