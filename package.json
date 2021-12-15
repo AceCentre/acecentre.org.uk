@@ -39,7 +39,7 @@
     "@stripe/react-stripe-js": "1.7.0",
     "@stripe/stripe-js": "1.22.0",
     "async-redis": "2.0.0",
-    "esbuild": "^0.14.5",
+    "esbuild": "0.14.5",
     "etag": "1.8.1",
     "framer-motion": "5.5.1",
     "fuse.js": "6.4.6",
