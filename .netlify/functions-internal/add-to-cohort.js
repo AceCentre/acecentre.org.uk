@@ -5,7 +5,13 @@ import { App } from "@slack/bolt";
 import TurndownService from "turndown";
 import exportEnv from "../../envs";
 exportEnv();
-import config from "../../lib/config";
+
+const slackToken = process.env.SLACK_TOKEN;
+const slackSecret = process.env.SLACK_SECRET;
+const slackConfig = {
+  token: slackToken,
+  signingSecret: slackSecret,
+};
 
 const ADD_USERS_TO_COHORT = gql`
   mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
@@ -17,16 +23,12 @@ const ADD_USERS_TO_COHORT = gql`
   }
 `;
 
-console.log(config.slack);
-console.log(config);
-console.log(process.env);
-const app = new App(config.slack);
+console.log(slackConfig);
+const app = new App(slackConfig);
 
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 
 async function handler(req, res) {
-  console.log(config.slack);
-  console.log(config);
   try {
     console.log("Function handling began");
     // Wait for 2 minutes so a user can 3D auth
