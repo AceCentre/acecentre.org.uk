@@ -18,7 +18,7 @@
     "lighthouse": "lhci autorun",
     "plop": "plop",
     "build-sitemap": "next-sitemap",
-    "build-function": "swc ./.netlify/functions-internal/add-to-cohort.js -o ./.netlify/functions-internal/add-to-cohort-background.js -C module.type=commonjs"
+    "build-function": "esbuild .netlify/functions-internal/add-to-cohort.js --bundle --platform=node --outfile=./.netlify/functions-internal/add-to-cohort-background.js"
   },
   "dependencies": {
     "@chakra-ui/react": "1.7.3",
@@ -38,8 +38,8 @@
     "@slack/bolt": "3.8.1",
     "@stripe/react-stripe-js": "1.7.0",
     "@stripe/stripe-js": "1.22.0",
-    "@swc/cli": "0.1.55",
     "async-redis": "2.0.0",
+    "esbuild": "^0.14.5",
     "etag": "1.8.1",
     "framer-motion": "5.5.1",
     "fuse.js": "6.4.6",
