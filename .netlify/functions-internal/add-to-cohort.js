@@ -1,10 +1,13 @@
-import { gql } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
-import { clientRequest } from "../../lib/client-request";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
 import exportEnv from "../../envs";
+import config from "./config";
+
 exportEnv();
+
+const ENDPOINT = `${config.baseUrl}/graphql`;
 
 const slackToken = process.env.SLACK_TOKEN;
 const slackSecret = process.env.SLACK_SECRET;
@@ -79,7 +82,31 @@ const sendSlackMessage = async (message) => {
 
 const addUserToCohort = async (req, cohortName, emails) => {
   console.log("Begin addUserToCohort");
-  const result = await clientRequest(req, ADD_USERS_TO_COHORT, {
+  // Get the user and the cart from the session if the exist
+  const user = req.session.get("user") || {};
+  const cart = req.session.get("cart") || {};
+  const authToken = user.authToken || null;
+  const wooSession = cart.wooSessionToken || null;
+
+  console.log({ user, cart, authToken, wooSession });
+
+  let headers = {};
+  if (authToken) headers["authorization"] = `Bearer ${authToken}`;
+  if (wooSession) headers["woocommerce-session"] = `Session ${wooSession}`;
+  if (req && req.socket && req.socket.remoteAddress) {
+    headers["X-Forwarded-For"] = req.socket.remoteAddress;
+  }
+
+  if (req && req.headers && req.headers["client-ip"]) {
+    headers["X-Forwarded-For"] = req.headers["client-ip"];
+  }
+
+  console.log({ headers, ENDPOINT });
+
+  const client = new GraphQLClient(ENDPOINT, {
+    headers,
+  });
+  const rawResult = await client.rawRequest(ADD_USERS_TO_COHORT, {
     cohortName,
     newUsers: emails.map((email) => ({
       email,
@@ -87,6 +114,10 @@ const addUserToCohort = async (req, cohortName, emails) => {
       lastName: email.split(/@/)[1],
     })),
   });
+  const { data: result } = rawResult;
+
+  console.log({ result });
+
   console.log("Finished addUserToCohort");
 
   return result;
