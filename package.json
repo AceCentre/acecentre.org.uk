@@ -41,7 +41,7 @@
     "@swc/cli": "0.1.55",
     "async-redis": "2.0.0",
     "etag": "1.8.1",
-    "framer-motion": "5.4.5",
+    "framer-motion": "5.5.1",
     "fuse.js": "6.4.6",
     "graphql": "16.1.0",
     "graphql-playground-middleware-express": "1.7.23",
