@@ -28,7 +28,7 @@ const app = new App(slackConfig);
 
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 
-async function handler(req, res) {
+async function rawHandler(req, res) {
   try {
     console.log("Function handling began");
     // Wait for 2 minutes so a user can 3D auth
@@ -93,4 +93,6 @@ const addUserToCohort = async (req, cohortName, emails) => {
   return result;
 };
 
-export default withSession(handler);
+export const handler = withSession(rawHandler);
+
+export default withSession(rawHandler);
