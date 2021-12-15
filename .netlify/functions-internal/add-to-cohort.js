@@ -15,11 +15,15 @@ const ADD_USERS_TO_COHORT = gql`
   }
 `;
 
+console.log(config.slack);
+console.log(config);
 const app = new App(config.slack);
 
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 
 async function handler(req, res) {
+  console.log(config.slack);
+  console.log(config);
   try {
     console.log("Function handling began");
     // Wait for 2 minutes so a user can 3D auth
