@@ -3,26 +3,38 @@ const path = require("path");
 
 module.exports = {
   onPreBuild: async () => {
-    const pathToEnv = path.join(process.cwd(), "./.env");
-    fs.appendFileSync(pathToEnv, "\nNETLIFY=true\n");
-    fs.appendFileSync(pathToEnv, `CONTEXT=${process.env.CONTEXT}\n`);
-    fs.appendFileSync(pathToEnv, `REDIS_URL=${process.env.REDIS_URL}\n`);
-    fs.appendFileSync(pathToEnv, `GITHUB_SHA=${process.env.GITHUB_SHA}\n`);
-    fs.appendFileSync(pathToEnv, `BUILD_ID=${process.env.BUILD_ID}\n`);
-    fs.appendFileSync(pathToEnv, `DEPLOY_KEY=${process.env.DEPLOY_KEY}\n`);
-    fs.appendFileSync(pathToEnv, `PROM_KEY=${process.env.PROM_KEY}\n`);
-    fs.appendFileSync(pathToEnv, `IMAGE_URL=${process.env.IMAGE_URL}\n`);
+    const varToExpose = [
+      "CONTEXT",
+      "REDIS_URL",
+      "GITHUB_SHA",
+      "BUILD_ID",
+      "DEPLOY_KEY",
+      "PROM_KEY",
+      "IMAGE_URL",
+      "MAILCHIMP_SERVER",
+      "MAILCHIMP_API_KEY",
+      "SLACK_TOKEN",
+      "SLACK_SECRET",
+      "POSTHOG_KEY",
+    ];
 
+    const pathToEnv = path.join(process.cwd(), "./.env");
+    const pathToJs = path.join(process.cwd(), "./envs.js");
+
+    fs.appendFileSync(pathToEnv, "\nNETLIFY=true\n");
     fs.appendFileSync(
-      pathToEnv,
-      `MAILCHIMP_SERVER=${process.env.MAILCHIMP_SERVER}\n`
+      pathToJs,
+      "const exportEnvs = () => {\nprocess.env.NETLIFY=true\n"
     );
-    fs.appendFileSync(
-      pathToEnv,
-      `MAILCHIMP_API_KEY=${process.env.MAILCHIMP_API_KEY}\n`
-    );
-    fs.appendFileSync(pathToEnv, `SLACK_TOKEN=${process.env.SLACK_TOKEN}\n`);
-    fs.appendFileSync(pathToEnv, `SLACK_SECRET=${process.env.SLACK_SECRET}\n`);
-    fs.appendFileSync(pathToEnv, `POSTHOG_KEY=${process.env.POSTHOG_KEY}\n`);
+
+    for (const varName of varToExpose) {
+      fs.appendFileSync(pathToEnv, `${varName}=${process.env[varName]}\n`);
+      fs.appendFileSync(
+        pathToJs,
+        `process.env.${varName}='${process.env[varName]}'\n`
+      );
+    }
+
+    fs.appendFileSync(pathToJs, "\n}\nexport default exportEnvs\n");
   },
 };

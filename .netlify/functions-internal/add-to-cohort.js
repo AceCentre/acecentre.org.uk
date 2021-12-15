@@ -3,6 +3,8 @@ import withSession from "../../lib/auth/with-session";
 import { clientRequest } from "../../lib/client-request";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
+import exportEnv from "../../envs";
+exportEnv();
 import config from "../../lib/config";
 
 const ADD_USERS_TO_COHORT = gql`
