@@ -3,7 +3,7 @@ import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
 import exportEnv from "../../envs";
-import config from "./config";
+import config from "../../lib/config";
 
 exportEnv();
 
