@@ -78,7 +78,10 @@ const useServices = () => {
     setError(null);
     setServices(null);
 
-    if (posthogLoaded) {
+    if (
+      posthogLoaded &&
+      window.location.origin === "https://acecentre.org.uk"
+    ) {
       posthog.capture("serviceSearchStarted", { type: "geo" });
     }
 
@@ -125,7 +128,10 @@ const useServices = () => {
       setServices(servicesForCoords);
       setLoading(false);
 
-      if (posthogLoaded) {
+      if (
+        posthogLoaded &&
+        window.location.origin === "https://acecentre.org.uk"
+      ) {
         posthog.capture("serviceSearchFinished", {
           type: "geo",
           numberOfServices: servicesForCoords.services.length,
@@ -151,7 +157,10 @@ const useServices = () => {
     setError(null);
     setServices(null);
 
-    if (posthogLoaded) {
+    if (
+      posthogLoaded &&
+      window.location.origin === "https://acecentre.org.uk"
+    ) {
       posthog.capture("serviceSearchStarted", { type: "postcode" });
     }
 
@@ -194,7 +203,10 @@ const useServices = () => {
       setServices(servicesForPostcode);
       setLoading(false);
 
-      if (posthogLoaded) {
+      if (
+        posthogLoaded &&
+        window.location.origin === "https://acecentre.org.uk"
+      ) {
         posthog.capture("serviceSearchFinished", {
           type: "postcode",
           numberOfServices: servicesForPostcode.services.length,
