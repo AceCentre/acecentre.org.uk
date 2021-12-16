@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.bookButton {
+  text-align: center;
+}
+
 .closeButton:hover,
 .closeButton:focus {
   text-decoration: underline;
