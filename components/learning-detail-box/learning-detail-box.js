@@ -8,9 +8,35 @@ import { Avatar } from "@material-ui/core";
 import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import Link from "next/link";
+
+const useEnrollStatus = (courseSlug) => {
+  const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
+  const [moodleCourseId, setMoodleCourseId] = useState(123);
+
+  useEffect(() => {
+    const fetchEnrollStatus = async () => {
+      const response = await fetch("/api/get-courses");
+      const { courses } = await response.json();
+
+      for (const current of courses) {
+        if (current.slug === courseSlug) {
+          setIsEnrolledOnCourse(true);
+          setMoodleCourseId(current.moodleCourseId);
+        }
+      }
+    };
+
+    fetchEnrollStatus();
+  }, []);
+
+  return {
+    isEnrolledOnCourse,
+    moodleUrl: `/api/moodle?mdl_course_id=${moodleCourseId}`,
+  };
+};
 
 export const LearningDetailBox = ({ course }) => {
   const { disabled, addToCart, error } = useAddToCart();
@@ -19,6 +45,8 @@ export const LearningDetailBox = ({ course }) => {
   const purchaseOrderMin = 250;
   const price = parseInt(course.price);
   const quantityForPurchaseOrder = Math.ceil(purchaseOrderMin / price);
+
+  const { isEnrolledOnCourse, moodleUrl } = useEnrollStatus(course.slug);
 
   return (
     <>
@@ -55,15 +83,21 @@ export const LearningDetailBox = ({ course }) => {
             avatarClassName={styles.avatar}
             className={styles.shareButtons}
           />
-          <Button
-            className={styles.bookButton}
-            disabled={disabled || !course.inStock}
-            onClick={() => {
-              toggleModal(true);
-            }}
-          >
-            Book this course
-          </Button>
+          {isEnrolledOnCourse ? (
+            <Button className={styles.bookButton} href={moodleUrl}>
+              Go to course
+            </Button>
+          ) : (
+            <Button
+              className={styles.bookButton}
+              disabled={disabled || !course.inStock}
+              onClick={() => {
+                toggleModal(true);
+              }}
+            >
+              Book this course
+            </Button>
+          )}
         </div>
       </div>
       <p className={styles.error}>{error}</p>
