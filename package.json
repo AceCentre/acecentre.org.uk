@@ -41,7 +41,7 @@
     "async-redis": "2.0.0",
     "esbuild": "0.14.5",
     "etag": "1.8.1",
-    "framer-motion": "5.5.3",
+    "framer-motion": "5.5.4",
     "fuse.js": "6.4.6",
     "graphql": "16.1.0",
     "graphql-playground-middleware-express": "1.7.23",
