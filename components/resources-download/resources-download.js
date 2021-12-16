@@ -65,7 +65,10 @@ const Ebook = ({ ebook, resource }) => {
           <Button
             onClick={() => {
               setModelOpen(true);
-              if (posthogLoaded) {
+              if (
+                posthogLoaded &&
+                window.location.origin === "https://acecentre.org.uk"
+              ) {
                 console.log("Capture", "resourceDownloaded", {
                   name: resource.slug,
                 });
@@ -285,7 +288,10 @@ const SingleDownloadableProduct = ({ resource }) => {
         <Button
           onClick={() => {
             setModelOpen(true);
-            if (posthogLoaded) {
+            if (
+              posthogLoaded &&
+              window.location.origin === "https://acecentre.org.uk"
+            ) {
               console.log("Capture", "resourceDownloaded", {
                 name: resource.slug,
               });
