@@ -27,6 +27,10 @@
   padding: 0;
 }
 
+.tagline {
+  margin-top: 0;
+}
+
 .viewAllLink {
   color: #00537f;
   font-size: 18px;

@@ -13,13 +13,22 @@ export const ResourceList = ({
   products,
   className = "",
   showPrice = false,
+  tagline,
 }) => {
   const productsWithoutImageCounters = usePostsWithoutImageCounters(products);
 
   return (
     <div className={`${styles.container} ${className}`}>
       <div className={styles.titleContainer}>
-        {title && <h2 className={styles.title}>{title}</h2>}
+        <div>
+          {title && <h2 className={styles.title}>{title}</h2>}
+          {tagline && (
+            <p className={styles.tagline}>
+              <i>{tagline}</i>
+            </p>
+          )}
+        </div>
+
         {viewAllLink && (
           <Link href={viewAllLink}>
             <a className={styles.viewAllLink}>{viewAllText} &gt;</a>
