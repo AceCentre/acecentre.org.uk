@@ -26,8 +26,6 @@ export default function ResourceDetail({
   const project = resource.projects[0] || null;
   const isEbook = resource.ebook;
 
-  console.log(resource.attachedResources);
-
   return (
     <>
       <header>
