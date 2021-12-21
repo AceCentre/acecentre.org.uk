@@ -1,6 +1,6 @@
 # To use this file please install the REST Client plugin for VSCode => https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
-POST https://backend.acecentre.org.uk/index.php?graphql
+POST https://backend.acecentre.org.uk/graphql
 Content-Type: application/json
 
 {
