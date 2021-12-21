@@ -16,10 +16,17 @@ import { ProjectHighlight } from "../../components/project-highlight/project-hig
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
 
-export default function ResourceDetail({ resource, relatedResources }) {
+export default function ResourceDetail({
+  resource,
+  relatedResources,
+  attachedResources,
+}) {
   const { currentYear } = useGlobalProps();
 
   const project = resource.projects[0] || null;
+  const isEbook = resource.ebook;
+
+  console.log(resource.attachedResources);
 
   return (
     <>
@@ -42,13 +49,22 @@ export default function ResourceDetail({ resource, relatedResources }) {
           <ResourceFullDescription resource={resource} />
         )}
         {project && <ProjectHighlight project={project} />}
-        <ResourceList
-          className={styles.resourcesList}
-          title={"Other resources you might like"}
-          viewAllLink={"/resources/all"}
-          viewAllText="View all resources"
-          products={relatedResources}
-        />
+        {isEbook && attachedResources.length > 0 ? (
+          <ResourceList
+            className={styles.resourcesList}
+            title={"Resources featured in this eBook"}
+            tagline="Learn how to effectively use these resources from this eBook"
+            products={attachedResources}
+          />
+        ) : (
+          <ResourceList
+            className={styles.resourcesList}
+            title={"Other resources you might like"}
+            viewAllLink={"/resources/all"}
+            viewAllText="View all resources"
+            products={relatedResources}
+          />
+        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -102,10 +118,20 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     })
     .slice(0, 4);
 
+  const attachedResources = currentResource.attachedResources.map(
+    (product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    })
+  );
+
   return {
     props: {
       resource: currentResource,
       relatedResources,
+      attachedResources,
       seo: {
         title: currentResource.name,
         description: currentResource.shortDescription,
