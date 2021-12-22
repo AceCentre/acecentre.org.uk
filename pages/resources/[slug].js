@@ -24,7 +24,6 @@ export default function ResourceDetail({
   const { currentYear } = useGlobalProps();
 
   const project = resource.projects[0] || null;
-  const isEbook = resource.ebook;
 
   return (
     <>
@@ -47,27 +46,45 @@ export default function ResourceDetail({
           <ResourceFullDescription resource={resource} />
         )}
         {project && <ProjectHighlight project={project} />}
-        {isEbook && attachedResources.length > 0 ? (
-          <ResourceList
-            className={styles.resourcesList}
-            title={"Resources featured in this eBook"}
-            tagline="Learn how to effectively use these resources from this eBook"
-            products={attachedResources}
-          />
-        ) : (
-          <ResourceList
-            className={styles.resourcesList}
-            title={"Other resources you might like"}
-            viewAllLink={"/resources/all"}
-            viewAllText="View all resources"
-            products={relatedResources}
-          />
-        )}
+        <ResourceListSwitch
+          resource={resource}
+          attachedResources={attachedResources}
+          relatedResources={relatedResources}
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
+
+const ResourceListSwitch = ({
+  resource,
+  attachedResources,
+  relatedResources,
+}) => {
+  const isEbook = resource.ebook;
+
+  if (isEbook && attachedResources.length > 0) {
+    return (
+      <ResourceList
+        className={styles.resourcesList}
+        title={"Resources featured in this eBook"}
+        tagline="Learn how to effectively use these resources from this eBook"
+        products={attachedResources}
+      />
+    );
+  }
+
+  return (
+    <ResourceList
+      className={styles.resourcesList}
+      title={"Other resources you might like"}
+      viewAllLink={"/resources/all"}
+      viewAllText="View all resources"
+      products={[...attachedResources, ...relatedResources].slice(0, 4)}
+    />
+  );
+};
 
 export async function getStaticPaths() {
   const allProducts = await getAllProducts(true);
