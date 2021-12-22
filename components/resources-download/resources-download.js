@@ -72,7 +72,10 @@ const Ebook = ({ ebook, resource }) => {
                 console.log("Capture", "resourceDownloaded", {
                   name: resource.slug,
                 });
-                posthog.capture("resourceDownloaded", { name: resource.slug });
+                posthog.capture("resourceDownloaded", {
+                  name: resource.slug,
+                  resourceType: "ebook-download",
+                });
               }
             }}
             href={ebook.downloadLocation}
@@ -81,7 +84,24 @@ const Ebook = ({ ebook, resource }) => {
           </Button>
         )}
         {ebook.viewLocation && (
-          <Button newTab href={`${ebook.viewLocation}/index.html`}>
+          <Button
+            newTab
+            onClick={() => {
+              if (
+                posthogLoaded &&
+                window.location.origin === "https://acecentre.org.uk"
+              ) {
+                console.log("Capture", "resourceDownloaded", {
+                  name: resource.slug,
+                });
+                posthog.capture("resourceDownloaded", {
+                  name: resource.slug,
+                  resourceType: "ebook-view",
+                });
+              }
+            }}
+            href={`${ebook.viewLocation}/index.html`}
+          >
             View eBook
           </Button>
         )}
@@ -136,7 +156,10 @@ const External = ({ resource }) => {
             console.log("Capture", "resourceDownloaded", {
               name: resource.slug,
             });
-            posthog.capture("resourceDownloaded", { name: resource.slug });
+            posthog.capture("resourceDownloaded", {
+              name: resource.slug,
+              resourceType: "external",
+            });
           }
         }}
         href={resource.external.url}
@@ -311,7 +334,10 @@ const SingleDownloadableProduct = ({ resource }) => {
               console.log("Capture", "resourceDownloaded", {
                 name: resource.slug,
               });
-              posthog.capture("resourceDownloaded", { name: resource.slug });
+              posthog.capture("resourceDownloaded", {
+                name: resource.slug,
+                resourceType: "instant-download",
+              });
             }
           }}
           href={`${config.baseUrl}${resource.downloadUrl}`}
