@@ -55,6 +55,10 @@ const ALL_PAGES = [
     slug: "meet-paul-transcript",
     description: "Transcript of Paul's case study",
   },
+  {
+    slug: "pasco-support",
+    description: "Support fot the Pasco app",
+  },
 ];
 
 export async function getStaticPaths() {
