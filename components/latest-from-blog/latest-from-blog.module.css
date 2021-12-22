@@ -11,7 +11,7 @@
   z-index: -1;
   content: "";
   display: block;
-  border: 5px solid #00537f;
+  border: 5px solid #6191b0;
 }
 .ribbon span {
   position: absolute;
@@ -20,7 +20,7 @@
   z-index: 99;
   width: 225px;
   padding: 9px 0;
-  background-color: #00537f;
+  background-color: #6191b0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -107,6 +107,17 @@
   min-width: 280px;
   max-width: 480px;
   position: relative;
+}
+
+.downloadIcon {
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+  z-index: 99;
+}
+
+.downloadBackground.downloadBackground {
+  background-color: #00537f;
 }
 
 .listLink {

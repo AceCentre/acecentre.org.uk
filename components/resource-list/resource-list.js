@@ -50,6 +50,7 @@ export const ResourceList = ({
               subtitle={product.mainCategoryName}
               featuredImage={product.featuredImage}
               title={product.title}
+              ribbonText={shouldShowRibbon(product)}
             >
               {showPrice && <Price product={product} />}
               <p className={styles.productTitle}>{product.title}</p>
@@ -59,6 +60,28 @@ export const ResourceList = ({
       </ul>
     </div>
   );
+};
+
+const shouldShowRibbon = (product) => {
+  if (product.instantDownloadAvailable) {
+    return "Download";
+  }
+
+  const variations = product.variations || [];
+  const downloadableVariations = variations.filter(
+    (x) => x.instantDownloadAvailable
+  );
+
+  if (
+    downloadableVariations.length > 0 &&
+    downloadableVariations.length == variations.length
+  ) {
+    return "Download";
+  }
+
+  if (product.ebook) return "Download";
+
+  return false;
 };
 
 const Price = ({ product }) => {
