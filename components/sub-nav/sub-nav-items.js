@@ -34,6 +34,7 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
+      { title: "Getting started", href: "/getting-started", mobileOnly: true },
       { title: "Getting started with AAC and AT", href: "/getting-started" },
       {
         title: "What is AAC / What is AT?",
@@ -66,7 +67,7 @@ export const defaultNavItems = [
       href: "/contact",
     },
     subItems: [
-      { title: "All resources", href: "/resources/all" },
+      { title: "All resources", href: "/resources" },
       {
         title: "Getting started resources",
         href: "/resources/all?category=getting-started",
@@ -171,10 +172,14 @@ export const defaultNavItems = [
       iconPath: "/just-giving.svg",
       backgroundColour: "#EFB3F3",
       iconColour: "#AA1FBD",
-      href:
-        "https://www.justgiving.com/onecheckout/donation/direct/charity/139889",
+      href: "https://www.justgiving.com/onecheckout/donation/direct/charity/139889",
     },
     subItems: [
+      {
+        title: "Get involved",
+        href: "/get-involved",
+        mobileOnly: true,
+      },
       {
         title: "Why support Ace Centre?",
         href: "/get-involved",
