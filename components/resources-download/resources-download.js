@@ -122,9 +122,25 @@ export const useAddToCart = () => {
 };
 
 const External = ({ resource }) => {
+  const { posthogLoaded } = useGlobalProps();
+
   return (
     <div className={styles.downloadButtonContainer}>
-      <Button newTab href={resource.external.url}>
+      <Button
+        newTab
+        onClick={() => {
+          if (
+            posthogLoaded &&
+            window.location.origin === "https://acecentre.org.uk"
+          ) {
+            console.log("Capture", "resourceDownloaded", {
+              name: resource.slug,
+            });
+            posthog.capture("resourceDownloaded", { name: resource.slug });
+          }
+        }}
+        href={resource.external.url}
+      >
         {resource.external.cta}
       </Button>
     </div>
