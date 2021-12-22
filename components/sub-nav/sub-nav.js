@@ -81,10 +81,12 @@ const useHighlight = () => {
 const NavItem = ({ navItem }) => {
   const { highlightProps, isHighlighted } = useHighlight();
 
-  if (navItem.subItems.length > 10) throw new Error("Too many subitems");
+  const filteredItems = navItem.subItems.filter((item) => !item.mobileOnly);
 
-  const firstNavList = navItem.subItems.slice(0, 5);
-  const secondNavList = navItem.subItems.slice(5, 10);
+  if (filteredItems.length > 10) throw new Error("Too many subitems");
+
+  const firstNavList = filteredItems.slice(0, 5);
+  const secondNavList = filteredItems.slice(5, 10);
 
   return (
     <li
