@@ -1,7 +1,12 @@
 {
   "extends": ["config:base"],
   "dependencyDashboard": true,
-  "ignoreDeps": ["storybook-css-modules-preset", "prom-client", "got"],
+  "ignoreDeps": [
+    "storybook-css-modules-preset",
+    "prom-client",
+    "got",
+    "netlify-cli"
+  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
