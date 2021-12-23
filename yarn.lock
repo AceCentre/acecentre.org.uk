@@ -4783,13 +4783,12 @@
   dependencies:
     "@jest/create-cache-key-function" "^27.3.1"
 
-"@swc/register@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.7.tgz#076cf1ca2dc14a16ea54ae6a37bc28e8a352e160"
-  integrity sha512-d1Bxbwhyd2W+Y6HL1O6CoNvt/HmBaMDqFFu4cRRVPRBeEf0tIugJUmyBxlJhooBzqJ11d6THUw0o7JgC7Q2ffA==
+"@swc/register@0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.8.tgz#69369ebd1fc6d261f09cd8600161b9181604caa7"
+  integrity sha512-3Idju0JjKapoth9Gw6Vl9fqX1P5HPACY/S5aqp3N4yh4ghtaNg6WacwzfsgD5pYwVGKf+Kewss89IYkuZJqiSg==
   dependencies:
     lodash.clonedeep "^4.5.0"
-    lodash.escaperegexp "^4.1.2"
     pirates "^4.0.1"
     source-map-support "^0.5.13"
 
@@ -14460,11 +14459,6 @@ lodash.difference@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
   integrity sha1-nMtOUF1Ia5FlE0V3KIWi3yf9AXw=
-
-lodash.escaperegexp@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/lodash.escaperegexp/-/lodash.escaperegexp-4.1.2.tgz#64762c48618082518ac3df4ccf5d5886dae20347"
-  integrity sha1-ZHYsSGGAglGKw99Mz11YhtriA0c=
 
 lodash.flatten@^4.4.0:
   version "4.4.0"
