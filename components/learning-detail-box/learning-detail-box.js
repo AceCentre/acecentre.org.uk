@@ -100,7 +100,6 @@ export const LearningDetailBox = ({ course }) => {
           )}
         </div>
       </div>
-      <p className={styles.error}>{error}</p>
       <Modal
         scrollBehavior="inside"
         size="3xl"
@@ -170,6 +169,7 @@ export const LearningDetailBox = ({ course }) => {
                 addToCart({
                   productId: course.id,
                   quantity,
+                  isCourse: true,
                 })(event);
               }}
             >
@@ -182,6 +182,7 @@ export const LearningDetailBox = ({ course }) => {
                   max={course.stockQuantity || 99}
                 />
               )}
+              <p className={styles.error}>{error}</p>
               <Button
                 className={styles.bookButton}
                 disabled={disabled}
