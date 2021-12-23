@@ -1,4 +1,4 @@
-Front-end for acecentre.org.uk built using NextJS. Sits on top of a wordpress backend
+Front-end for acecentre.org.uk built using NextJS. Sits on top of a wordpress backend (wpgraphql)
 
 - [Development](#development)
   - [Setup](#setup)
