@@ -93,6 +93,12 @@ module.exports = {
         // https://github.com/AceCentre/acecentre.org.uk/issues/108
         "csp-xss": "off",
 
+        // I kinda hate turning this off but its the only option
+        // WCAG color contrast is imperfect and reports failures when they are
+        // actually high contrasting.
+        // We can disable this when Lighthouse changes to APCA
+        "color-contrast": "off",
+
         // While these are useful, they are triggered by youtube embeds. At some point we should switch out
         // the native youtube embeds for youtube-lite
         "font-display": "off",
