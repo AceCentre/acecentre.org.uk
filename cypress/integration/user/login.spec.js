@@ -1,7 +1,7 @@
 const NO_ACC_EMAIL = "thisisnotanaccount@gavin.com";
 const ACCOUNT_EXISTS = "ghenderson@acecentre.org.uk";
 const TEST_ACC = "cypress@test.com";
-const TEST_PASS = "testpassword";
+const TEST_PASS = "cypresstestpassword";
 
 context("Login", () => {
   it(["pre-deploy"], "disables the login button by default", () => {
