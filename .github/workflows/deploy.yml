@@ -143,7 +143,7 @@ jobs:
         run: yarn install
 
       - name: Run netlify deploy and build
-        run: CONTEXT=deploy-preview netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build
+        run: CONTEXT=deploy-preview yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build
 
   Cypress:
     needs: [DeployNetlifyIntegration]
@@ -221,7 +221,7 @@ jobs:
         run: yarn install
 
       - name: Run netlify build and deploy
-        run: CONTEXT=production netlify deploy --prod --build
+        run: CONTEXT=production yarn netlify deploy --prod --build
 
       - uses: actions/github-script@v5
         id: get-paths-first
