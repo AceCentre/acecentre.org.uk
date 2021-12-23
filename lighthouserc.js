@@ -112,6 +112,9 @@ module.exports = {
         "unminified-css": "off",
         "uses-text-compression": "off",
 
+        // Allow gifs
+        "efficient-animated-content": "off",
+
         // Posthog does this
         "no-unload-listeners": "off",
 
