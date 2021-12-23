@@ -57,7 +57,7 @@ const ALL_PAGES = [
   },
   {
     slug: "pasco-support",
-    description: "Support fot the Pasco app",
+    description: "Support for the Pasco app",
   },
 ];
 
