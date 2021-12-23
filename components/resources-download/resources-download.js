@@ -126,7 +126,14 @@ export const useAddToCart = () => {
       .then(async (result) => {
         const response = await result.json();
         console.log(response);
-        router.push("/basket");
+
+        if (response.success) {
+          router.push("/basket");
+        } else {
+          const defaultError =
+            "Something went wrong adding this item to your cart";
+          setError(response.error ? response.error : defaultError);
+        }
       })
       .catch((err) => {
         setError(true);
