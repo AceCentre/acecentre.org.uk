@@ -4789,10 +4789,10 @@
   dependencies:
     "@jest/create-cache-key-function" "^27.3.1"
 
-"@swc/register@0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.8.tgz#69369ebd1fc6d261f09cd8600161b9181604caa7"
-  integrity sha512-3Idju0JjKapoth9Gw6Vl9fqX1P5HPACY/S5aqp3N4yh4ghtaNg6WacwzfsgD5pYwVGKf+Kewss89IYkuZJqiSg==
+"@swc/register@0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.9.tgz#cc939a8f5e8a4156008f6059c6444da28aeae041"
+  integrity sha512-/HuYKPuzroGPowMmTRmwJ2C0E7isp4bIYdui7pkRqbzY2atW5fsNOb/zNNP6UTRfbuq6yzF1Mtmxw2sPzG2sTQ==
   dependencies:
     lodash.clonedeep "^4.5.0"
     pirates "^4.0.1"
