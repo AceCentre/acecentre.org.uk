@@ -8,6 +8,7 @@ const IGNORE = [
   "make-your-own-flip-joke-book",
   "moodle-login",
   "nhs-service-finder/maps",
+  "pasco-support"
 ];
 
 function chunk(arr, len) {
