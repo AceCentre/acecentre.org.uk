@@ -21,7 +21,7 @@
     "build-function": "esbuild .netlify/functions-internal/add-to-cohort.js --bundle --platform=node --outfile=./.netlify/functions-internal/add-to-cohort-background.js"
   },
   "dependencies": {
-    "@chakra-ui/react": "1.7.3",
+    "@chakra-ui/react": "1.7.4",
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
     "@lukeed/uuid": "2.0.0",
