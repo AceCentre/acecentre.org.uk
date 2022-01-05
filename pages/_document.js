@@ -20,7 +20,7 @@ class MyDocument extends Document {
           <script
             defer
             data-domain="acecentre.org.uk"
-            src="https://analytics.acecentre.org.uk/js/plausible.js"
+            src="https://stats.acecentre.org.uk/js/plausible.js"
           ></script>
         </Head>
         <body style={{ color: "#333333" }}>
