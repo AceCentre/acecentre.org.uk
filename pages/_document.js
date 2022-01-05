@@ -17,6 +17,11 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
             rel="stylesheet"
           ></link>
+          <script
+            defer
+            data-domain="acecentre.org.uk"
+            src="https://analytics.acecentre.org.uk/js/plausible.js"
+          ></script>
         </Head>
         <body style={{ color: "#333333" }}>
           <ColorModeScript initialColorMode={"light"} />
