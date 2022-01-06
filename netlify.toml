@@ -18,6 +18,10 @@
   to = "/my-acecentre/courses"
   status = 301
 
+[[redirects]]
+  from = "/about/staff-member/*"
+  to = "/about/staff/:splat"
+  status = 301
 
 [[redirects]]
   from = "/project/*"
