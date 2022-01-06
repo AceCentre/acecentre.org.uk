@@ -53,23 +53,25 @@ export default function MountingPage() {
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
             <h2>
-              Building and creating individual solutions – we don’t believe in
-              ‘can’t’
+              Mounting AAC Devices give an individual freedom. [PLACEHOLDER]
             </h2>
             <p>
-              Our highly skilled multi-disciplinary team design and develop
-              innovative assistive technology solutions. We use the latest tools
-              for design and manufacture to maximise the simplicity and
-              effectiveness of the solution and minimise costs. We’re completely
-              client-focussed and understand the challenging requirements of
-              assistive technologies.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <p>
-              In addition to supporting our work providing the NHS England
-              Specialised AAC Service in the North West and Thames Valley and
-              Wessex, we provide a wide range of services directly to
-              individuals and families, charities, service providers, education
-              and commercial organisations.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
             <h2>Rehadapt Mounts</h2>
             <p>
@@ -108,61 +110,52 @@ export default function MountingPage() {
               things simple! We consider all options during development,
               including solutions that are already available.
             </p>
+            <h2>Mounts and more</h2>
+            <p>
+              We work in partnership with Mounts and more by providing a fitting
+              service to individuals in the UK. Follow the steps below to get
+              your mounts and more mount fitted by Ace Centre.
+            </p>
+            <ol className={styles.orderedList}>
+              <OrderedListItem>
+                <FormModal form={CONTACT_FORM}>
+                  {({ onClick }) => (
+                    <a className={styles.clickableLink} onClick={onClick}>
+                      Contact us using this form
+                    </a>
+                  )}
+                </FormModal>{" "}
+                and let us know what your mounting needs are.
+              </OrderedListItem>
+              <OrderedListItem>
+                We will get back to you with suggestions about what mount you
+                should buy from Mounts and more.
+              </OrderedListItem>
+              <OrderedListItem>
+                You will then order the mound directly from mounts and more.
+              </OrderedListItem>
+              <OrderedListItem>
+                We will book in a time for us to come and install the mount for
+                you.
+              </OrderedListItem>
+              <OrderedListItem>
+                Start enjoying your mounted AAC Device!
+              </OrderedListItem>
+            </ol>
             <div className={styles.inlineCard}>
-              <h2>Individuals and families</h2>
+              <h2>Pricing</h2>
               <ul className={styles.list}>
-                <ListItem>Design and development of bespoke solutions</ListItem>
-                <ListItem>
-                  Advice on how to develop or manufacture a solution you’ve come
-                  up with
-                </ListItem>
-                <ListItem>
-                  Signposting to useful organisations or developing and
-                  implementing access solutions to mainstream devices; using a
-                  powerchair joystick to control a tablet for example.
-                </ListItem>
-                <ListItem>
-                  Mounting and positioning assistive technologies and access
-                  devices.
-                </ListItem>
-                <ListItem>Simply helping with ideas!</ListItem>
+                <ListItem>One mount is a thousand million pounds</ListItem>
+                <ListItem>Every additional mount is one pound</ListItem>
+                <ListItem>One pound per mile travelled</ListItem>
+                <ListItem>Additional fee for short notice appointment</ListItem>
               </ul>
-            </div>
-            <div className={styles.inlineCard}>
-              <h2>Charities and service providers</h2>
-              <ul className={styles.list}>
-                <ListItem>
-                  Integration of assistive technologies to enhance access to
-                  work, education or leisure activities
-                </ListItem>
-                <ListItem>Training and competency development</ListItem>
-                <ListItem>
-                  Carrying out or supporting assessments of complex access to
-                  assistive technologies such as powered mobility, environmental
-                  control and computer access
-                </ListItem>
-                <ListItem>
-                  Mounting and positioning assistive technologies and access
-                  devices.
-                </ListItem>
-                <ListItem>Consultancy for regulatory compliance</ListItem>
-              </ul>
-            </div>
-            <div className={styles.inlineCard}>
-              <h2>Commercial organisations</h2>
-              <ul className={styles.list}>
-                <ListItem>Early stage advice</ListItem>
-                <ListItem>
-                  Supporting your product development programme with a
-                  multi-disciplinary team with wide-ranging skills and knowledge
-                  of assistive technology
-                </ListItem>
-                <ListItem>Training and development</ListItem>
-                <ListItem>Targeted user testing and focus groups</ListItem>
-                <ListItem>
-                  Consultancy for national and European regulatory compliance
-                </ListItem>
-              </ul>
+              <p>
+                <i>
+                  *These prices are just a guide, once you get in contact we
+                  will give a specific quote and invoice for your installation.
+                </i>
+              </p>
             </div>
           </div>
           <div>
