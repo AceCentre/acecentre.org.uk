@@ -15,6 +15,7 @@ import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
+import Link from "next/link";
 
 export default function MountingPage() {
   const { currentYear } = useGlobalProps();
@@ -78,23 +79,28 @@ export default function MountingPage() {
             </p>
             <ol className={styles.orderedList}>
               <OrderedListItem>
-                Developing bespoke assistive technologies
+                Go to the Rehadapt website and{" "}
+                <Link href="https://rehadapt.com/vms/">
+                  complete their virtual mounting application.
+                </Link>
               </OrderedListItem>
               <OrderedListItem>
-                Providing consultancy at early stage product development
+                Rehadapt engineers will create a mounting solution for you that
+                you then approve and purchase
               </OrderedListItem>
               <OrderedListItem>
-                Rapid design iteration from concept to production using the
-                latest 3D Computer Aided Design (CAD) software
+                Contact us at Ace Centre{" "}
+                <FormModal form={CONTACT_FORM}>
+                  {({ onClick }) => (
+                    <a className={styles.clickableLink} onClick={onClick}>
+                      using this form
+                    </a>
+                  )}
+                </FormModal>{" "}
+                to book a time for us to come and install the mount for you.
               </OrderedListItem>
               <OrderedListItem>
-                Manufacture of components using our in-house state of the art
-                Selective Laser Sintering (SLS) and Fused Deposition Modelling
-                (FDM) 3D printers and CNC machine.
-              </OrderedListItem>
-              <OrderedListItem>
-                Development of electronic devices for access to technology using
-                low-cost development boards
+                Start enjoying your mounted AAC Device!
               </OrderedListItem>
             </ol>
             <p>

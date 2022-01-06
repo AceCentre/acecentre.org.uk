@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.clickableLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .coverImage.coverImage {
   object-position: 0px -150px !important;
 }
