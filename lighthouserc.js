@@ -118,6 +118,9 @@ module.exports = {
         // Posthog does this
         "no-unload-listeners": "off",
 
+        // We actually want to force the tab into the model so its trapped there. It initially focuses on close so a user can get out of it pretty easily.
+        tabindex: "off",
+
         ...getExtraAssertions(),
       },
     },
