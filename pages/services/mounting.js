@@ -13,12 +13,10 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
-import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
-export default function MountingPage({ featuredStory, allPosts }) {
+export default function MountingPage() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -36,6 +34,7 @@ export default function MountingPage({ featuredStory, allPosts }) {
           <h1 className={styles.cardTitle}>Mount Installation</h1>
           <p className={styles.cardDescription}>
             Fitting mounts to allow you to take your device with you.
+            [PLACEHOLDER TEXT]
           </p>
 
           <FormModal form={CONTACT_FORM}>
@@ -71,26 +70,33 @@ export default function MountingPage({ featuredStory, allPosts }) {
               individuals and families, charities, service providers, education
               and commercial organisations.
             </p>
-            <h2>We specialise in:</h2>
-            <ul className={styles.list}>
-              <ListItem>Developing bespoke assistive technologies</ListItem>
-              <ListItem>
+            <h2>Rehadapt Mounts</h2>
+            <p>
+              We work in partnership with Rehadapt to fit mounts purchased from
+              them. Follow the steps below to get a Rehadapt mount and have us
+              fit it for you.
+            </p>
+            <ol className={styles.orderedList}>
+              <OrderedListItem>
+                Developing bespoke assistive technologies
+              </OrderedListItem>
+              <OrderedListItem>
                 Providing consultancy at early stage product development
-              </ListItem>
-              <ListItem>
+              </OrderedListItem>
+              <OrderedListItem>
                 Rapid design iteration from concept to production using the
                 latest 3D Computer Aided Design (CAD) software
-              </ListItem>
-              <ListItem>
+              </OrderedListItem>
+              <OrderedListItem>
                 Manufacture of components using our in-house state of the art
                 Selective Laser Sintering (SLS) and Fused Deposition Modelling
                 (FDM) 3D printers and CNC machine.
-              </ListItem>
-              <ListItem>
+              </OrderedListItem>
+              <OrderedListItem>
                 Development of electronic devices for access to technology using
                 low-cost development boards
-              </ListItem>
-            </ul>
+              </OrderedListItem>
+            </ol>
             <p>
               Whilst these technologies sound complex, they help us to keep
               things simple! We consider all options during development,
@@ -160,47 +166,20 @@ export default function MountingPage({ featuredStory, allPosts }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;The challenges of mounting AAC devices and finding
-                  access solutions for individuals with complex needs in a range
-                  of settings drives my interest in engineering. We get the
-                  opportunity to design and create bespoke components that
-                  really make a difference to people&apos;s lives.&quot;
+                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua. Ut enim ad minim veniam.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>Diane Arthurs</strong>
+                    <strong>Bill Gates</strong>
                   </p>
-                  <p>Senior AAC Engineer</p>
+                  <p>AAC User</p>
                 </div>
               </div>
             </div>
           </div>
-          <div>
-            <h2>Pricing</h2>
-            <p>
-              We’ve provided below our standard pricing and guide pricing for
-              additional services. Please do get in touch for more information
-              and a detailed quotation.
-            </p>
-            <div className={styles.pricingButton}>
-              <Button newTab href="/engineering-pricing.pdf">
-                Download pricing
-              </Button>
-            </div>
-          </div>
         </div>
-        <div className={styles.extraSpacing}>
-          <FeaturedStory {...featuredStory} />
-        </div>
-        {allPosts.length > 0 && (
-          <div className={styles.extraSpacing}>
-            <FeaturedPosts
-              title="Engineering on the blog"
-              posts={allPosts}
-              smallCards
-            />
-          </div>
-        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -218,6 +197,10 @@ const ListItem = ({ children }) => {
   );
 };
 
+const OrderedListItem = ({ children }) => {
+  return <li className={styles.orderedListItem}>{children}</li>;
+};
+
 export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("patrick");
   const unfilteredPosts = await getAllFullPosts();
@@ -232,8 +215,7 @@ export const getStaticProps = withGlobalProps(async () => {
       allPosts,
       seo: {
         title: "Mount Installation",
-        description:
-          "Our highly skilled multi-disciplinary team design and develop innovative assistive technology solutions. We use the latest tools for design and manufacture to maximise the simplicity and effectiveness of the solution and minimise costs.",
+        description: "[PLACEHOLDER]",
       },
     },
   };
