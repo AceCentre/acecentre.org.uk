@@ -23,7 +23,7 @@ export const InformationDays = ({ nhs = false }) => {
             className={`${styles.button} ${nhs ? styles.nhs : ""}`}
             href="/information-appointments"
           >
-            Book an information appointments
+            Book an information appointment
           </Button>
         </div>
       </div>
