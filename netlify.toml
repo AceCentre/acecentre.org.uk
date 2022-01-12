@@ -104,6 +104,11 @@
   status = 301
 
 [[redirects]]
+  from = "/services/assessment"
+  to = "/services/assessments"
+  status = 301
+
+[[redirects]]
   from = "/resources/electronic-text-based-comparison-chart"
   to = "https://backend.acecentre.org.uk/resources/electronic-text-based-comparison-chart"
   status = 301
