@@ -198,9 +198,9 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   }
 
   /**
-   * orderBy
+   * orderBy => Default to 'first'
    */
-  const selectedOrderBy = req.query.orderby || null;
+  const selectedOrderBy = req.query.orderby || "first";
   const orderByFunction = ORDER_BY_OPTIONS.find(
     (x) => x.slug === selectedOrderBy
   );
