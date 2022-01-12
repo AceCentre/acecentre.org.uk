@@ -30,13 +30,13 @@ export const DefaultHead = ({
   title,
   description: specificDescription,
   image: specificImage,
+  product = null,
 }) => {
   const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
   const image = specificImage || defaultImage;
   const description = specificDescription || defaultDescription;
 
   return (
-    // TODO Fill this out
     <Head>
       {/* Favicon */}
       <>
@@ -61,6 +61,34 @@ export const DefaultHead = ({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </>
+
+      {/* Rich results for google (Product) */}
+      {product && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.title,
+            image: [product.image],
+            description: product.description,
+            sku: product.sku,
+            brand: {
+              "@type": "Brand",
+              name: "Ace Centre",
+            },
+            offers: {
+              "@type": "Offer",
+              url: product.url,
+              priceCurrency: "GBP",
+              price: product.price || 0,
+              itemCondition: "https://schema.org/NewCondition",
+              availability: product.availability
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+            },
+          })}
+        </script>
+      )}
 
       {/* Title */}
       <>
