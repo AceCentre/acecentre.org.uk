@@ -114,6 +114,17 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
           /(<([^>]+)>)/gi,
           ""
         ),
+        product: {
+          sku: currentCourse.slug,
+          title: currentCourse.title,
+          image: currentCourse?.image?.src || null,
+          url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
+          price: currentCourse.price || 0,
+          availability: currentCourse.inStock,
+          description:
+            currentCourse.description ||
+            `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
+        },
       },
     },
   };
