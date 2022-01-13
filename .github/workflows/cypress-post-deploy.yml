@@ -33,6 +33,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app
           record: true
           install: false
+          parallel: true
           group: Github actions
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
