@@ -15,6 +15,7 @@ import { Button } from "../../components/button/button";
 import { LearningLevels } from "../../components/learning-levels/learning-levels";
 import { getLearningLevels } from "../../lib/products/get-learning-levels";
 import { BespokeTraining } from "../../components/bespoke-training/bespoke-training";
+import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 
 export default function Learning({
   popularCourses,
@@ -59,6 +60,10 @@ export default function Learning({
         />
         <LearningLevels levels={levels} />
         <BespokeTraining />
+        <MailingList
+          signUpIdentifier="learning-home"
+          description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
+        />
       </main>
       <Footer currentYear={currentYear} />
     </>
