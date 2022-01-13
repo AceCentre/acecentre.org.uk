@@ -118,6 +118,11 @@
   to = "https://backend.acecentre.org.uk/resources/electronic-text-based-features-checklist"
   status = 301
 
+[[redirects]]
+  from = "/resources/developing-using-communication-book-templates"
+  to = "/resources/developing-using-communication-book"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
