@@ -17,6 +17,7 @@ import { LearningReviews } from "../../components/learning-reviews/learning-revi
 import { CourseList } from "../../components/course-list/course-list";
 import { Certificate } from "../../components/certificate/certificate";
 import { getLearningLevels } from "../../lib/products/get-learning-levels";
+import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 
 export default function LearningDetail({
   course,
@@ -40,6 +41,12 @@ export default function LearningDetail({
         <div className={styles.contentBody}>
           <div>
             <div dangerouslySetInnerHTML={{ __html: course.content }} />
+            <div className={styles.mailingListContainer}>
+              <MailingList
+                signUpIdentifier="learning-detail"
+                description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
+              />
+            </div>
             <LearningReviews reviews={reviews} />
           </div>
           <div>
