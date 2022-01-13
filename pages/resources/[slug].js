@@ -161,7 +161,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
         image: currentResource.image,
         product: {
           sku: currentResource.slug,
-          image: currentResource?.image?.src,
+          image: currentResource?.image?.src || null,
           title: currentResource.name,
           description:
             currentResource.shortDescription ||
