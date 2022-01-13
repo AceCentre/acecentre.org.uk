@@ -31,6 +31,7 @@ export const DefaultHead = ({
   description: specificDescription,
   image: specificImage,
   product = null,
+  showSearchBox = false,
 }) => {
   const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
   const image = specificImage || defaultImage;
@@ -61,6 +62,26 @@ export const DefaultHead = ({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </>
+
+      {/* Rich search box markup */}
+      {showSearchBox && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            url: "https://acecentre.org.uk",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate:
+                  "https://acecentre.org.uk/search?searchText={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
+      )}
 
       {/* Rich results for google (Product) */}
       {product && (
