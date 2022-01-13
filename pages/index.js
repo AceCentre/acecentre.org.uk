@@ -52,5 +52,7 @@ export const getStaticProps = withGlobalProps(async () => {
 
   if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
 
-  return { props: { featuredStory, landingPagePosts } };
+  return {
+    props: { featuredStory, landingPagePosts, seo: { showSearchBox: true } },
+  };
 });
