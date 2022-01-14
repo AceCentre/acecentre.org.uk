@@ -156,8 +156,8 @@ jobs:
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+        # run 2 copies of the current job in parallel
+        containers: [1, 2]
     steps:
       - name: Get Code
         uses: actions/checkout@v2
