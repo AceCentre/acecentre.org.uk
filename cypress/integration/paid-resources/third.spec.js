@@ -15,7 +15,7 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "login");
+      cy.url({ timeout: 30000 }).should("include", "login");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -35,12 +35,12 @@ context("Paid resources", () => {
         .click();
 
       // Make sure we we end up on my-acecentre
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Log out
       cy.findByRole("button", { name: "Logout" }).click();
-      cy.url({ timeout: 20000 }).should(
+      cy.url({ timeout: 30000 }).should(
         "equal",
         Cypress.config().baseUrl + "/"
       );
@@ -49,7 +49,7 @@ context("Paid resources", () => {
       // Add to cart and check its added
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 20000 }).should("include", "basket");
+      cy.url({ timeout: 30000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Log back in
@@ -71,22 +71,22 @@ context("Paid resources", () => {
         .click();
 
       // Check we are logged in
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Go to cart
       cy.findAllByRole("link", { name: "Checkout" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "basket");
+      cy.url({ timeout: 30000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 20000 }).should("include", "basket");
+      cy.url({ timeout: 30000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£20.00");
 
       // Go to checkout
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
-      cy.url({ timeout: 20000 }).should("include", "/checkout");
+      cy.url({ timeout: 30000 }).should("include", "/checkout");
 
       // Fill out details
       cy.findByRole("textbox", { name: "First name" }).type("John");
@@ -127,13 +127,13 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 20000 }).should("include", "order");
+      cy.url({ timeout: 30000 }).should("include", "order");
 
       // Check order is in account
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your orders >" }).click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre/orders");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre/orders");
       cy.findAllByRole("button", { name: "Details" })
         .should("have.length", 1)
         .first()
@@ -150,7 +150,7 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "login");
+      cy.url({ timeout: 30000 }).should("include", "login");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -170,12 +170,12 @@ context("Paid resources", () => {
         .click();
 
       // Make sure we we end up on my-acecentre
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Log out
       cy.findByRole("button", { name: "Logout" }).click();
-      cy.url({ timeout: 20000 }).should(
+      cy.url({ timeout: 30000 }).should(
         "equal",
         Cypress.config().baseUrl + "/"
       );
@@ -184,7 +184,7 @@ context("Paid resources", () => {
       // Add to cart and check its added
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 20000 }).should("include", "basket");
+      cy.url({ timeout: 30000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Log back in
@@ -208,7 +208,7 @@ context("Paid resources", () => {
         .click();
 
       // Check we are at checkout
-      cy.url({ timeout: 20000 }).should("include", "/checkout");
+      cy.url({ timeout: 30000 }).should("include", "/checkout");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Fill out details
@@ -250,13 +250,13 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 20000 }).should("include", "order");
+      cy.url({ timeout: 30000 }).should("include", "order");
 
       // Check order is in account
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your orders >" }).click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre/orders");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre/orders");
       cy.findAllByRole("button", { name: "Details" })
         .should("have.length", 1)
         .first()
@@ -273,7 +273,7 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "login");
+      cy.url({ timeout: 30000 }).should("include", "login");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -293,20 +293,20 @@ context("Paid resources", () => {
         .click();
 
       // Make sure we we end up on my-acecentre
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Add to cart and check its added
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 20000 }).should("include", "basket");
+      cy.url({ timeout: 30000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Log back in
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
 
       // Check we are at checkout
-      cy.url({ timeout: 20000 }).should("include", "/checkout");
+      cy.url({ timeout: 30000 }).should("include", "/checkout");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Fill out details
@@ -348,13 +348,13 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 20000 }).should("include", "order");
+      cy.url({ timeout: 30000 }).should("include", "order");
 
       // Check order is in account
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your orders >" }).click();
-      cy.url({ timeout: 20000 }).should("include", "my-acecentre/orders");
+      cy.url({ timeout: 30000 }).should("include", "my-acecentre/orders");
       cy.findAllByRole("button", { name: "Details" })
         .should("have.length", 1)
         .first()
