@@ -7,7 +7,7 @@ context("Login", () => {
   it(["pre-deploy"], "disables the login button by default", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
-    cy.url({ timeout: 10000 }).should("include", "/login");
+    cy.url({ timeout: 30000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
       .findByRole("button", { name: "Log in" })
@@ -20,7 +20,7 @@ context("Login", () => {
     () => {
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/login");
+      cy.url({ timeout: 30000 }).should("include", "/login");
 
       cy.findAllByRole("form", { name: "Login form" })
         .findByRole("textbox", { name: "Username or email address" })
@@ -39,7 +39,7 @@ context("Login", () => {
   it(["pre-deploy"], "shows an error when no account exists", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
-    cy.url({ timeout: 10000 }).should("include", "/login");
+    cy.url({ timeout: 30000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
       .findByRole("textbox", { name: "Username or email address" })
@@ -53,7 +53,7 @@ context("Login", () => {
       .findByRole("button", { name: "Log in" })
       .click();
 
-    cy.findByTestId("login-error", { timeout: 10000 }).should((error) => {
+    cy.findByTestId("login-error", { timeout: 30000 }).should((error) => {
       expect(error).to.contain("Your email address or password is incorrect");
     });
   });
@@ -61,7 +61,7 @@ context("Login", () => {
   it(["pre-deploy"], "shows an error when password is wrong", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
-    cy.url({ timeout: 10000 }).should("include", "/login");
+    cy.url({ timeout: 30000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
       .findByRole("textbox", { name: "Username or email address" })
@@ -75,7 +75,7 @@ context("Login", () => {
       .findByRole("button", { name: "Log in" })
       .click();
 
-    cy.findByTestId("login-error", { timeout: 10000 }).should((error) => {
+    cy.findByTestId("login-error", { timeout: 30000 }).should((error) => {
       expect(error).to.contain("Your email address or password is incorrect");
     });
   });
@@ -83,7 +83,7 @@ context("Login", () => {
   it(["pre-deploy"], "successfully logs in to a valid account", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
-    cy.url({ timeout: 10000 }).should("include", "/login");
+    cy.url({ timeout: 30000 }).should("include", "/login");
 
     cy.findAllByRole("form", { name: "Login form" })
       .findByRole("textbox", { name: "Username or email address" })
@@ -97,10 +97,10 @@ context("Login", () => {
       .findByRole("button", { name: "Log in" })
       .click();
 
-    cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+    cy.url({ timeout: 30000 }).should("include", "/my-acecentre");
 
     cy.findByRole("link", { name: "Manage details >" }).click();
-    cy.url({ timeout: 10000 }).should("include", "/details");
+    cy.url({ timeout: 30000 }).should("include", "/details");
     cy.findByRole("textbox", { name: "Email" }).should("have.value", TEST_ACC);
     cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
   });
