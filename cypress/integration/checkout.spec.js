@@ -8,6 +8,9 @@ context("Checkout", () => {
       const email = `${randomNumber}@test.com`;
       const password = "password";
       cy.visit("/login");
+
+      cy.wait(20000);
+
       cy.get("#email").type(email);
       cy.get("#register-password").type(password);
       cy.findByRole("button", { name: "Register" }).click();
