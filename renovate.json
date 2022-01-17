@@ -5,7 +5,6 @@
     "storybook-css-modules-preset",
     "prom-client",
     "got",
-    "netlify-cli",
     "@netlify/plugin-nextjs"
   ],
   "packageRules": [
