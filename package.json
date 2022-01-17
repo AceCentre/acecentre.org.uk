@@ -74,7 +74,7 @@
     "@storybook/addon-essentials": "6.4.13",
     "@storybook/addon-links": "6.4.13",
     "@storybook/react": "6.4.13",
-    "@swc/core": "1.2.129",
+    "@swc/core": "1.2.130",
     "@swc/jest": "0.2.17",
     "@swc/register": "0.1.9",
     "@testing-library/cypress": "8.0.2",
