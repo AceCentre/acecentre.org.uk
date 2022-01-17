@@ -9,7 +9,7 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import AccessibleIcon from "@material-ui/icons/Accessible";
 
 import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -189,19 +189,18 @@ export default function MountingPage() {
           <div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
+                <AccessibleIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
-                <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam.&quot;
+                <h3>Rehadapt Mounting Service</h3>
+                <p>
+                  Ace Centre engineers and technicians can fit Rehadapt mounting
+                  system. Checkout our Rehadapt mounting service.
                 </p>
-                <div>
-                  <p>
-                    <strong>Bill Gates</strong>
-                  </p>
-                  <p>AAC User</p>
+                <div className={styles.downloadButtonContainer}>
+                  <Button href="/services/rehadapt">
+                    Rehadapt Mounting Service
+                  </Button>
                 </div>
               </div>
             </div>

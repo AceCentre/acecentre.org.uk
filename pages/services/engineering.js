@@ -10,6 +10,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import AccessibleIcon from "@material-ui/icons/Accessible";
 
 import styles from "../../styles/engineering.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -142,6 +143,21 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
                     <strong>Diane Arthurs</strong>
                   </p>
                   <p>Senior AAC Engineer</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <AccessibleIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <h3>Mount Assessment and Installation</h3>
+                <p>
+                  Our engineers can assess for and supply a wide range of
+                  mounting solutions.
+                </p>
+                <div className={styles.downloadButtonContainer}>
+                  <Button href="/services/mounting">Mounting Service</Button>
                 </div>
               </div>
             </div>
