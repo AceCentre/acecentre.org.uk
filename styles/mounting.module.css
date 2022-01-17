@@ -16,6 +16,11 @@
   object-position: 0px -150px !important;
 }
 
+.coverImageRehadapt.coverImageRehadapt {
+  object-position: top right !important;
+  transform: scaleX(-1);
+}
+
 .listItem {
   display: flex;
   align-items: center;

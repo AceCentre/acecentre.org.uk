@@ -26,9 +26,9 @@ export default function MountingPage() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/mounting.jpeg"
+          src="/rehadapt.jpeg"
           alt="Person with an AAC device mounted to their wheelchair"
-          imageClassName={styles.coverImage}
+          imageClassName={styles.coverImageRehadapt}
           heightClass={styles.coverHeight}
         >
           <h1 className={styles.cardTitle}>Rehadapt</h1>
