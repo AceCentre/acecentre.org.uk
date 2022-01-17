@@ -86,7 +86,14 @@ export default function MountingPage() {
               </OrderedListItem>
               <OrderedListItem>
                 Order the fitting service through us. If you would like a
-                written quotation, please contact us using this form.
+                written quotation,{" "}
+                <FormModal form={CONTACT_FORM}>
+                  {({ onClick }) => (
+                    <a className={styles.clickableLink} onClick={onClick}>
+                      please contact us using this form.
+                    </a>
+                  )}
+                </FormModal>{" "}
               </OrderedListItem>
               <OrderedListItem>
                 Appointment confirmed once purchase order or payment received
@@ -171,7 +178,8 @@ export const getStaticProps = withGlobalProps(async () => {
       allPosts,
       seo: {
         title: "Rehadapt Mount Fitting",
-        description: "[PLACEHOLDER]",
+        description:
+          "We can fit mounting systems specified by the Rehadapt Virtual Mounting System.",
       },
     },
   };
