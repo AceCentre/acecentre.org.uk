@@ -5,16 +5,13 @@
     "storybook-css-modules-preset",
     "prom-client",
     "got",
-    "netlify-cli"
+    "netlify-cli",
+    "@netlify/plugin-nextjs"
   ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
-    },
-    {
-      "matchPackageNames": ["@netlify/plugin-nextjs"],
-      "automerge": false
     }
   ]
 }

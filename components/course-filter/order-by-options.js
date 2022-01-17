@@ -1,8 +1,8 @@
 // The first will always be the default
 export const ORDER_BY_OPTIONS = [
   {
-    slug: "newest",
-    name: "Scheduled Date (newest)",
+    slug: "first",
+    name: "Scheduled Date (first)",
     sort: (productA, productB) => {
       if (
         productA.date.type === "On-demand" &&
@@ -29,8 +29,8 @@ export const ORDER_BY_OPTIONS = [
     },
   },
   {
-    slug: "latest",
-    name: "Scheduled Date (latest)",
+    slug: "last",
+    name: "Scheduled Date (last)",
     sort: (productA, productB) => {
       if (
         productA.date.type === "On-demand" &&

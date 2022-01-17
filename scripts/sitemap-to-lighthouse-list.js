@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const parser = require("fast-xml-parser");
+const { XMLParser } = require("fast-xml-parser");
 
 const IGNORE = [
   "my-acecentre",
@@ -8,7 +8,7 @@ const IGNORE = [
   "make-your-own-flip-joke-book",
   "moodle-login",
   "nhs-service-finder/maps",
-  "pasco-support"
+  "pasco-support",
 ];
 
 function chunk(arr, len) {
@@ -24,8 +24,9 @@ function chunk(arr, len) {
 }
 
 const script = (context, max, page) => {
-  const sitemapPath = path.join(__dirname, "../out/sitemap.xml");
+  const sitemapPath = path.join(__dirname, "../.next/sitemap.xml");
   const sitemapAsString = fs.readFileSync(sitemapPath, "utf8").toString();
+  const parser = new XMLParser();
   const sitemapObject = parser.parse(sitemapAsString);
 
   const siteUrl = "https://backend.acecentre.org.uk";
