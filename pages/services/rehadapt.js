@@ -9,7 +9,7 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import AccessibleIcon from "@material-ui/icons/Accessible";
 
 import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -57,7 +57,7 @@ export default function MountingPage() {
               Mounting Service (VMS) – a quick and easy way to specify a
               wheelchair mount that will exactly meet your needs.{" "}
               <a href="https://rehadapt.com/360-degrees-of-mounting/">
-                This is part of their 360o of Mounting approach.
+                This is part of their 360 degrees of Mounting approach.
               </a>
             </p>
             <p>
@@ -120,19 +120,17 @@ export default function MountingPage() {
           <div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
+                <AccessibleIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
-                <p className={styles.quoteContent}>
-                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam.&quot;
+                <h3>Rehadapt Virtual Mounting Service</h3>
+                <p>
+                  The quick and easy way to your custom made wheelchair mount
                 </p>
-                <div>
-                  <p>
-                    <strong>Bill Gates</strong>
-                  </p>
-                  <p>AAC User</p>
+                <div className={styles.downloadButtonContainer}>
+                  <Button href="https://rehadapt.com/vms/">
+                    Virtual Mounting Service
+                  </Button>
                 </div>
               </div>
             </div>

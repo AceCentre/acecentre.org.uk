@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.downloadButtonContainer {
+  margin-top: 1rem;
+}
+
 .clickableLink {
   cursor: pointer;
   text-decoration: underline;
@@ -110,6 +114,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.quoteText h3 {
+  margin: 0;
+}
+
+.downloadButtonContainer {
+  margin-top: 1rem;
 }
 
 .quoteText p {

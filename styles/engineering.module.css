@@ -76,12 +76,21 @@
   gap: 0.5rem;
   flex: 0 0 445px;
   max-width: 90%;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .quoteText {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.quoteText h3 {
+  margin: 0;
+}
+
+.downloadButtonContainer {
+  margin-top: 1rem;
 }
 
 .quoteText p {
