@@ -15,7 +15,6 @@ import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
-import Link from "next/link";
 
 export default function MountingPage() {
   const { currentYear } = useGlobalProps();
@@ -32,10 +31,12 @@ export default function MountingPage() {
           imageClassName={styles.coverImage}
           heightClass={styles.coverHeight}
         >
-          <h1 className={styles.cardTitle}>Mount Installation</h1>
+          <h1 className={styles.cardTitle}>
+            Mount Assessment and Installation
+          </h1>
           <p className={styles.cardDescription}>
-            Fitting mounts to allow you to take your device with you.
-            [PLACEHOLDER TEXT]
+            Our engineers can assess for and supply a wide range of mounting
+            solutions.
           </p>
 
           <FormModal form={CONTACT_FORM}>
@@ -52,111 +53,138 @@ export default function MountingPage() {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>
-              Mounting AAC Devices give an individual freedom. [PLACEHOLDER]
-            </h2>
+            <h2>Good technology mounting and positioning gives freedom.</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              We are able to supply and fit a wide range of mounting and
+              positioning systems for assistive technologies and other devices
+              such as mobile phones and tablets. A device that is carefully
+              positioned in a consistent, repeatable location can make a huge
+              difference and will maximise efficiency.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              There is a wide range of mounting systems that allow devices to be
+              used while in a wheelchair, when in bed or at a desk or table.
+              Some mounting systems give a lot of flexibility as they can be
+              used in more than one location or position.
             </p>
-            <h2>Rehadapt Mounts</h2>
             <p>
-              We work in partnership with Rehadapt to fit mounts purchased from
-              them. Follow the steps below to get a Rehadapt mount and have us
-              fit it for you.
+              There are many factors to consider and a holistic assessment can
+              be extremely important. We’re really careful to consider other
+              factors too such as portability and weight. We’re fully aware how
+              important it is that equipment is practical, easy to use, store
+              and where appropriate adjust. Systems need to look good, be
+              reliable and robust!
             </p>
-            <ol className={styles.orderedList}>
-              <OrderedListItem>
-                Go to the Rehadapt website and{" "}
-                <Link href="https://rehadapt.com/vms/">
-                  complete their virtual mounting application.
-                </Link>
-              </OrderedListItem>
-              <OrderedListItem>
-                Rehadapt engineers will create a mounting solution for you that
-                you then approve and purchase
-              </OrderedListItem>
-              <OrderedListItem>
-                Contact us at Ace Centre{" "}
-                <FormModal form={CONTACT_FORM}>
-                  {({ onClick }) => (
-                    <a className={styles.clickableLink} onClick={onClick}>
-                      using this form
-                    </a>
-                  )}
-                </FormModal>{" "}
-                to book a time for us to come and install the mount for you.
-              </OrderedListItem>
-              <OrderedListItem>
-                Start enjoying your mounted AAC Device!
-              </OrderedListItem>
-            </ol>
-            <p>
-              Whilst these technologies sound complex, they help us to keep
-              things simple! We consider all options during development,
-              including solutions that are already available.
-            </p>
-            <h2>Mounts and more</h2>
-            <p>
-              We work in partnership with Mounts and more by providing a fitting
-              service to individuals in the UK. Follow the steps below to get
-              your mounts and more mount fitted by Ace Centre.
-            </p>
-            <ol className={styles.orderedList}>
-              <OrderedListItem>
-                <FormModal form={CONTACT_FORM}>
-                  {({ onClick }) => (
-                    <a className={styles.clickableLink} onClick={onClick}>
-                      Contact us using this form
-                    </a>
-                  )}
-                </FormModal>{" "}
-                and let us know what your mounting needs are.
-              </OrderedListItem>
-              <OrderedListItem>
-                We will get back to you with suggestions about what mount you
-                should buy from Mounts and more.
-              </OrderedListItem>
-              <OrderedListItem>
-                You will then order the mound directly from mounts and more.
-              </OrderedListItem>
-              <OrderedListItem>
-                We will book in a time for us to come and install the mount for
-                you.
-              </OrderedListItem>
-              <OrderedListItem>
-                Start enjoying your mounted AAC Device!
-              </OrderedListItem>
-            </ol>
             <div className={styles.inlineCard}>
-              <h2>Pricing</h2>
+              <h2>Devices we can mount:</h2>
               <ul className={styles.list}>
-                <ListItem>One mount is a thousand million pounds</ListItem>
-                <ListItem>Every additional mount is one pound</ListItem>
-                <ListItem>One pound per mile travelled</ListItem>
-                <ListItem>Additional fee for short notice appointment</ListItem>
+                <ListItem>
+                  Switches and access devices including joysticks
+                </ListItem>
+                <ListItem>AAC and EC devices</ListItem>
+                <ListItem>Mobile phones</ListItem>
+                <ListItem>Tablets and laptops</ListItem>
+                <ListItem>Smart home devices</ListItem>
               </ul>
-              <p>
-                <i>
-                  *These prices are just a guide, once you get in contact we
-                  will give a specific quote and invoice for your installation.
-                </i>
-              </p>
             </div>
+
+            <h2>Wheelchair Mounting</h2>
+            <p>
+              We fit a wide range of mounts and systems including those from{" "}
+              <a href="https://rehadapt.com/">Rehadapt</a>,{" "}
+              <a href="https://www.aacmounts.com/mmweb/">Daessy</a>,{" "}
+              <a href="https://www.mountnmover.com/">Mount and Mover</a>,{" "}
+              <a href="https://www.mo-vis.com/products/mounting-systems">
+                Mo-vis
+              </a>{" "}
+              and{" "}
+              <a href="https://ideasfil.com/lift-and-lock.html">
+                Ideas for Independent Living.
+              </a>
+            </p>
+            <p>
+              Typically we would carry out an assessment and produce a
+              specification of the agreed system that best met the client needs.
+              You could either purchase that yourself and we would fit it, or we
+              could supply it on your behalf. We’re able to fit mounting systems
+              specified as part of the Rehadapt Virtual Mounting Service (link
+              to mounting/rehadapt).
+            </p>
+            <h2>Specialist Mounting</h2>
+            <p>
+              Sometimes it’s necessary to consider more specialised mounting
+              systems.
+            </p>
+            <p>
+              If the technology used primarily in one room, a wall-mounted or
+              ceiling mount such as those manufactured by{" "}
+              <a href="https://www.ergotron.com/">Ergotron</a> may be
+              appropriate. Powered mounts can be useful to enable a
+              communication device (perhaps the Pow!r Mounts from{" "}
+              <a href="https://www.mountnmover.com/products/powr-mounts">
+                Mount and Mover
+              </a>
+              ) or access device (perhaps using a{" "}
+              <a href="https://www.mo-vis.com/products/mounting-systems/multi-swing">
+                Multi Swing from Mo-vis
+              </a>
+              ) to be moved out of the way using a switch.{" "}
+            </p>
+            <h2>How can I order this?</h2>
+            <p>
+              Arranging an assessment for fitting of a mounting system is really
+              simple. We have standard prices for fitting, but we can arrange a
+              quotation to assess for, supply and fit a mounting system.
+            </p>
+            <ol className={styles.orderedList}>
+              <OrderedListItem>
+                Request a quotation using this form.
+              </OrderedListItem>
+              <OrderedListItem>
+                Appointment confirmed once purchase order or payment received
+              </OrderedListItem>
+              <OrderedListItem>
+                Assessment and fitting appointments carried which will include
+                training
+              </OrderedListItem>
+              <OrderedListItem>
+                Follow up documentation provided by email where required.
+              </OrderedListItem>
+            </ol>
+            <h2>Pricing</h2>
+            <p>
+              We have a simple pricing structure. We can complete the activity
+              at either of our centres in Oldham or Abingdon or at your address.
+            </p>
+            <ul className={styles.list}>
+              <ListItem>
+                £295 to mount the first system and £95 for each additional
+                system at your location
+              </ListItem>
+              <ListItem>
+                £295 to provide an assessment, supply and fitting the first
+                system and £95 for each additional system at one of our
+                assessment centres.
+              </ListItem>
+              <ListItem>
+                £395 to provide an assessment, supply and fitting for the first
+                client and £150 for each additional client at your location.
+              </ListItem>
+              <ListItem>
+                Prices for equipment varies, but a standard wheelchair mounting
+                system is likely to cost between £250 and £750 depending on the
+                weight of the device being mounted.
+              </ListItem>
+            </ul>
+            <p>
+              Fitting includes training in the use of the equipment, supply of
+              relevant documentation and a risk assessment document.
+            </p>
+            <p>
+              We are also able to carry out additional support services
+              including servicing, maintenance and adjustments when required.
+              Please do get in touch using this form for more information.
+            </p>
           </div>
           <div>
             <div className={styles.quote}>
