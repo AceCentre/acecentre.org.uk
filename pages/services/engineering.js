@@ -17,6 +17,7 @@ import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
+import Link from "next/link";
 
 export default function EngineeringPage({ featuredStory, allPosts }) {
   const { currentYear } = useGlobalProps();
@@ -57,101 +58,71 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
               ‘can’t’
             </h2>
             <p>
-              Our highly skilled multi-disciplinary team design and develop
-              innovative assistive technology solutions. We use the latest tools
-              for design and manufacture to maximise the simplicity and
-              effectiveness of the solution and minimise costs. We’re completely
-              client-focussed and understand the challenging requirements of
-              assistive technologies.
+              We have a strong and developing engineering and technical team
+              that can support and enhance your own multi-disciplinary team. Our
+              skills can compliment those you already offer in areas such as:
             </p>
-            <p>
-              In addition to supporting our work providing the NHS England
-              Specialised AAC Service in the North West and Thames Valley and
-              Wessex, we provide a wide range of services directly to
-              individuals and families, charities, service providers, education
-              and commercial organisations.
-            </p>
-            <h2>We specialise in:</h2>
             <ul className={styles.list}>
-              <ListItem>Developing bespoke assistive technologies</ListItem>
               <ListItem>
-                Providing consultancy at early stage product development
+                Powered wheelchair programming, integration and special controls
               </ListItem>
               <ListItem>
-                Rapid design iteration from concept to production using the
-                latest 3D Computer Aided Design (CAD) software
+                Integration of powered mobility with other assistive
+                technologies such as tablets, computers and mobile phones
               </ListItem>
               <ListItem>
-                Manufacture of components using our in-house state of the art
-                Selective Laser Sintering (SLS) and Fused Deposition Modelling
-                (FDM) 3D printers and CNC machine.
+                Multi disciplinary assessment with members of our or your teams
+                for complex access or control solutions.
               </ListItem>
               <ListItem>
-                Development of electronic devices for access to technology using
-                low-cost development boards
+                Registered Rehabilitation Engineers to work with your
+                multidisciplinary team in clinic in the provision of wheelchair,
+                seating or other electronic assistive technologies.
               </ListItem>
             </ul>
             <p>
-              Whilst these technologies sound complex, they help us to keep
-              things simple! We consider all options during development,
-              including solutions that are already available.
+              Using our in-house workshops that we complement with external
+              partners and consultants we are able to manufacture a wide range
+              of devices and bespoke assistive technologies including:
             </p>
-            <div className={styles.inlineCard}>
-              <h2>Individuals and families</h2>
-              <ul className={styles.list}>
-                <ListItem>Design and development of bespoke solutions</ListItem>
-                <ListItem>
-                  Advice on how to develop or manufacture a solution you’ve come
-                  up with
-                </ListItem>
-                <ListItem>
-                  Signposting to useful organisations or developing and
-                  implementing access solutions to mainstream devices; using a
-                  powerchair joystick to control a tablet for example.
-                </ListItem>
-                <ListItem>
-                  Mounting and positioning assistive technologies and access
-                  devices.
-                </ListItem>
-                <ListItem>Simply helping with ideas!</ListItem>
-              </ul>
-            </div>
-            <div className={styles.inlineCard}>
-              <h2>Charities and service providers</h2>
-              <ul className={styles.list}>
-                <ListItem>
-                  Integration of assistive technologies to enhance access to
-                  work, education or leisure activities
-                </ListItem>
-                <ListItem>Training and competency development</ListItem>
-                <ListItem>
-                  Carrying out or supporting assessments of complex access to
-                  assistive technologies such as powered mobility, environmental
-                  control and computer access
-                </ListItem>
-                <ListItem>
-                  Mounting and positioning assistive technologies and access
-                  devices.
-                </ListItem>
-                <ListItem>Consultancy for regulatory compliance</ListItem>
-              </ul>
-            </div>
-            <div className={styles.inlineCard}>
-              <h2>Commercial organisations</h2>
-              <ul className={styles.list}>
-                <ListItem>Early stage advice</ListItem>
-                <ListItem>
-                  Supporting your product development programme with a
-                  multi-disciplinary team with wide-ranging skills and knowledge
-                  of assistive technology
-                </ListItem>
-                <ListItem>Training and development</ListItem>
-                <ListItem>Targeted user testing and focus groups</ListItem>
-                <ListItem>
-                  Consultancy for national and European regulatory compliance
-                </ListItem>
-              </ul>
-            </div>
+            <ul className={styles.list}>
+              <ListItem>
+                Custom moulded access devices such as switches and joystick tops
+                using digital manufacturing including 3D scanning and 3D
+                printing.
+              </ListItem>
+              <ListItem>Complex mounting and positioning systems</ListItem>
+              <ListItem>Specialist seating and mobility components</ListItem>
+            </ul>
+            <p>
+              We can enhance your team with Rehabilitation Engineering or other
+              technical support on a contract basis for a period of time to
+              cover absence, for a specific number of hours per month or to
+              increase the capacity of your service for the short or medium
+              term. All members of our team who provide this support have had an
+              enhanced DBS check, are fully competent and registered where
+              appropriate.
+            </p>
+            <p>This type of support of really well suited to:</p>
+            <ul className={styles.list}>
+              <ListItem>NHS Wheelchair services</ListItem>
+              <ListItem>
+                Commercial seating, mobility, assistive technology and postural
+                management service providers
+              </ListItem>
+              <ListItem>Charitable organisations</ListItem>
+            </ul>
+            <p>
+              For more information please do{" "}
+              <FormModal form={CONTACT_FORM}>
+                {({ onClick }) => (
+                  <a className={styles.clickableLink} onClick={onClick}>
+                    get in touch with us using this form
+                  </a>
+                )}
+              </FormModal>{" "}
+              or <Link href="/contact">contact us.</Link>
+            </p>
           </div>
           <div>
             <div className={styles.quote}>
