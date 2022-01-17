@@ -241,7 +241,8 @@ export const getStaticProps = withGlobalProps(async () => {
       allPosts,
       seo: {
         title: "Mount Installation",
-        description: "[PLACEHOLDER]",
+        description:
+          "Our engineers can assess for and supply a wide range of mounting solutions.",
       },
     },
   };
