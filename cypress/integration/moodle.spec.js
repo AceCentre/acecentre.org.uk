@@ -19,18 +19,18 @@ context("Moodle Login", () => {
       cy.findByRole("button", { name: "Log in" }).click();
 
       // Confirm we are logged in to moodle
-      cy.url({ timeout: 10000 }).should("include", "learning.acecentre.org.uk");
+      cy.url({ timeout: 30000 }).should("include", "learning.acecentre.org.uk");
       cy.findByRole("button", { name: "User menu" }).click();
       cy.findByRole("menuitem", { name: "Dashboard" }).click();
 
       // Check we are logged in to ace centre
       cy.visit("https://acecentre.org.uk");
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/my-acecentre");
+      cy.url({ timeout: 30000 }).should("include", "/my-acecentre");
 
       // Go back to learning and logout and make sure we are logged out
       cy.visit("https://learning.acecentre.org.uk");
-      cy.url({ timeout: 10000 }).should("include", "learning.acecentre.org.uk");
+      cy.url({ timeout: 30000 }).should("include", "learning.acecentre.org.uk");
       cy.findByRole("button", { name: "User menu" }).click();
       cy.findByRole("menuitem", { name: "Log out" }).click();
       cy.findByRole("link", { name: "Log in" }).should("exist");
@@ -38,7 +38,7 @@ context("Moodle Login", () => {
       // Check we are logged out of the AceCentre site
       cy.visit("https://acecentre.org.uk");
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-      cy.url({ timeout: 10000 }).should("include", "/login");
+      cy.url({ timeout: 30000 }).should("include", "/login");
     }
   );
 });
