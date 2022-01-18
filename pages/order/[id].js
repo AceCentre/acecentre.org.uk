@@ -12,12 +12,15 @@ import style from "../../styles/order.module.css";
 export default function OrderPage({ orderId, order }) {
   const { currentYear } = useGlobalProps();
 
+  console.log(order);
+
   return (
     <>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      {order.status.toLowerCase() === "completed" || order.status.toLowerCase() === "processing" ? (
+      {order.status.toLowerCase() === "completed" ||
+      order.status.toLowerCase() === "processing" ? (
         <main id="mainContent">
           <PageTitle
             heading="Order details"
