@@ -3,8 +3,6 @@ const path = require("path");
 
 module.exports = {
   onPreBuild: async () => {
-    console.log("Exposing vars", varToExpose);
-
     const varToExpose = [
       "CONTEXT",
       "REDIS_URL",
@@ -19,6 +17,8 @@ module.exports = {
       "SLACK_SECRET",
       "POSTHOG_KEY",
     ];
+
+    console.log("Exposing vars", varToExpose);
 
     const pathToEnv = path.join(process.cwd(), "./.env");
     const pathToJs = path.join(process.cwd(), "./envs.js");
