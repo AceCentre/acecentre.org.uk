@@ -6,7 +6,8 @@
     "prom-client",
     "got",
     "netlify-cli",
-    "@netlify/plugin-nextjs"
+    "@netlify/plugin-nextjs",
+    "@swc/core"
   ],
   "packageRules": [
     {
