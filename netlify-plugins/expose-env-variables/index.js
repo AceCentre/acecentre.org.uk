@@ -38,6 +38,7 @@ module.exports = {
     );
 
     for (const varName of varToExpose) {
+      console.log(`Exposing ${varName} as ${process.env[varName]}`);
       fs.appendFileSync(pathToEnv, `${varName}=${process.env[varName]}\n`);
       fs.appendFileSync(
         pathToJs,
