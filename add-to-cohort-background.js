@@ -22,6 +22,7 @@ const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 async function handler(req, res) {
   try {
     console.log("Function handling began");
+    console.log("Config", config);
     // Wait for 2 minutes so a user can 3D auth
     await wait(120000);
     console.log("Finished waiting");

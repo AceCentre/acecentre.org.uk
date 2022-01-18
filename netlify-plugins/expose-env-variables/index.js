@@ -21,6 +21,16 @@ module.exports = {
     const pathToEnv = path.join(process.cwd(), "./.env");
     const pathToJs = path.join(process.cwd(), "./envs.js");
 
+    const pathToBackgroundFunc = path.join(
+      process.cwd(),
+      "./.netlify/functions-internal/add-to-cohort.js"
+    );
+
+    const fileAsString = fs
+      .readFileSync(pathToBackgroundFunc, "utf8")
+      .toString();
+    let newBlock = "";
+
     fs.appendFileSync(pathToEnv, "\nNETLIFY=true\n");
     fs.appendFileSync(
       pathToJs,
@@ -33,11 +43,15 @@ module.exports = {
         pathToJs,
         `process.env.${varName}='${process.env[varName]}'\n`
       );
+
+      newBlock += `process.env.${varName}='${process.env[varName]}';\n`;
     }
 
     fs.appendFileSync(
       pathToJs,
       "\n}\nexportEnvs();\nexport default exportEnvs\n"
     );
+
+    fs.writeFileSync(pathToBackgroundFunc, newBlock + fileAsString);
   },
 };
