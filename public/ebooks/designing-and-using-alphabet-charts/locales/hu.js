@@ -320,7 +320,7 @@
 	"return":                               "Visszatérés",
 	"read":                                 "Olvas",
 	"selectColor":                          "Szín kiválasztása",
-	"selectStroke":                         "Stroke kiválasztása",
+    "selectStroke": "Kefeméret",
 	"selectSmoothing":                      "Simítás kiválasztása",
 	"page":                                 "PAGE",
 	"gotoPage":                             "Menj az oldalra",
@@ -348,6 +348,23 @@
     "copyLink":                    "Link másolása",
     "directLink":                  "Közvetlen link",
     "errorConvertingPDF": "Hiba akadályozta meg a PDF fájl letöltését. Kérjük, próbálja újra, vagy lépjen kapcsolatba a könyv tulajdonosával.",
-    "loadForAllChapters": "Betöltés az összes fejezethez"
+    "loadForAllChapters": "Betöltés az összes fejezethez",
+    "name": "Név",
+    "dob": "Születési dátum",
+    "organization": "Szervezet",
+    "dept": "Osztály",
+    "country": "Ország",
+    "city": "Város",
+    "phone": "Telefon",
+    "info": "További információ",
+    "fillInAllFields": "Kérem töltse ki az összes kötelező mezőt",
+    "s_missingInfo": "Kérem töltse ki az összes kötelező mezőt",
+    "enterNote": "Írja be megjegyzését alább",
+    "anonymous": "Névtelen",
+    "me": "Nekem",
+    "notePublicConfirm": "Jegyzete mindenki számára látható lesz, aki hozzáfér az e -könyvhöz. Biztos, hogy folytatni szeretné?",
+    "publicNote": "Tedd nyilvánossá jegyzetemet"
+
+
 
 }                 
