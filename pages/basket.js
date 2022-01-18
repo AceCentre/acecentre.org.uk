@@ -12,7 +12,6 @@ import { useCoupon } from "../lib/use-coupon";
 import { useUpdateCart } from "../lib/use-update-cart";
 
 import styles from "../styles/basket.module.css";
-import { useRouter } from "next/router";
 
 export default function Basket({
   lines,
@@ -40,70 +39,53 @@ export default function Basket({
     error: couponError,
   } = useCoupon();
 
-  const { query } = useRouter();
-
   return (
     <>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        {query.skip ? (
+        {lines.length > 0 ? (
           <>
-            {lines.length > 0 ? (
-              <>
-                <PageTitle
-                  heading="Checkout"
-                  description="Here's a summary of your order"
-                />
-                <BasketTable
-                  onQuantityChange={onQuantityChange}
-                  lines={lines}
-                />
-                <div className={styles.rightAlign}>
-                  {updateCartError && (
-                    <p className={styles.error}>{updateCartError}</p>
-                  )}
-                  <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
-                    Update quantities
-                  </Button>
-                </div>
-                <TotalsTable
-                  needsDelivered={needsDelivered}
-                  discountTotal={discountTotal}
-                  subtotal={subtotal}
-                  total={total}
-                  shipping={shipping}
-                  vat={vat}
-                />
-                <CouponArea
-                  isApplyVoucherDisabled={isApplyVoucherDisabled}
-                  applyCoupon={applyCoupon}
-                  onCouponChange={onCouponChange}
-                  error={couponError}
-                  isLoggedIn={isLoggedIn}
-                />
-              </>
-            ) : (
-              <div className={styles.emptyCart}>
-                <h1>Your basket is currently empty</h1>
-                <p>
-                  Add some resources or courses to your basket then come back to
-                  checkout
-                </p>
-                <div className={styles.allResourcesButton}>
-                  <Button href="/resources">See our resources</Button>
-                </div>
-              </div>
-            )}{" "}
+            <PageTitle
+              heading="Checkout"
+              description="Here's a summary of your order"
+            />
+            <BasketTable onQuantityChange={onQuantityChange} lines={lines} />
+            <div className={styles.rightAlign}>
+              {updateCartError && (
+                <p className={styles.error}>{updateCartError}</p>
+              )}
+              <Button disabled={updateButtonDisabled} onClick={sendUpdate}>
+                Update quantities
+              </Button>
+            </div>
+            <TotalsTable
+              needsDelivered={needsDelivered}
+              discountTotal={discountTotal}
+              subtotal={subtotal}
+              total={total}
+              shipping={shipping}
+              vat={vat}
+            />
+            <CouponArea
+              isApplyVoucherDisabled={isApplyVoucherDisabled}
+              applyCoupon={applyCoupon}
+              onCouponChange={onCouponChange}
+              error={couponError}
+              isLoggedIn={isLoggedIn}
+            />
           </>
         ) : (
           <div className={styles.emptyCart}>
-            <h1>Shop is currently disabled</h1>
+            <h1>Your basket is currently empty</h1>
             <p>
-              We have currently disabled our shop due to technical issues.
-              Please try again tomorrow.
+              Add some resources or courses to your basket then come back to
+              checkout
             </p>
+            <div className={styles.allResourcesButton}>
+              <Button href="/resources">See our resources</Button>
+            </div>
           </div>
         )}
       </main>
