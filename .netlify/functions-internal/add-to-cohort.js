@@ -30,8 +30,6 @@ async function rawHandler(req, res) {
   try {
     console.log("Function handling began");
 
-    console.log("config");
-
     // Wait for 2 minutes so a user can 3D auth
     await wait(120000);
     console.log("Finished waiting");
