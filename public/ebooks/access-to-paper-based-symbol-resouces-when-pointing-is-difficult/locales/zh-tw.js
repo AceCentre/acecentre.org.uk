@@ -320,7 +320,7 @@
 	"return":                               "返回",
 	"read":                                 "讀",
 	"selectColor":                          "選擇顏色",
-	"selectStroke":                         "選擇行程",
+    "selectStroke": "刷子大小",
 	"selectSmoothing":                      "選擇平滑",
 	"page":                                 "頁",
 	"gotoPage":                             "轉到頁面",
@@ -348,6 +348,9 @@
     "copyLink":                    "複製鏈接",
     "directLink":                  "直接鏈接",
     "errorConvertingPDF": "錯誤導致無法下載PDF文件。 請重試或與圖書所有者聯繫。",
-    "loadForAllChapters": "加載所有章節"
+    "loadForAllChapters": "加載所有章節",
+    "errorNoAccessToBook": "抱歉，您無權訪問此書。請稍後再試。",
+    "publicNote": "公開我的筆記"
+
 
 }
