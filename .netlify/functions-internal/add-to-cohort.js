@@ -2,6 +2,9 @@ import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
+import exportEnv from "../../envs";
+
+exportEnv();
 
 const ENDPOINT = "https://backend.acecentre.org.uk/graphql";
 
