@@ -2,12 +2,11 @@ import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
-import exportEnv from "../../envs";
 import config from "../../lib/config";
 
-exportEnv();
-
 const ENDPOINT = `${config.baseUrl}/graphql`;
+
+console.log(ENDPOINT, process.env.REDIS_URL);
 
 const slackToken = process.env.SLACK_TOKEN;
 const slackSecret = process.env.SLACK_SECRET;
@@ -33,6 +32,9 @@ const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 async function rawHandler(req, res) {
   try {
     console.log("Function handling began");
+
+    console.log("config", config);
+
     // Wait for 2 minutes so a user can 3D auth
     await wait(120000);
     console.log("Finished waiting");
