@@ -1,43 +1,42 @@
-import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
-import { CouponArea } from "../components/coupon-area/coupon-area";
 import { Footer } from "../components/footer/footer";
-import { PageTitle } from "../components/page-title/page-title";
-import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
-import { BasketTable, TotalsTable } from "../components/table/table";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
+import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { getCart } from "../lib/cart/get";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { useCoupon } from "../lib/use-coupon";
-import { useUpdateCart } from "../lib/use-update-cart";
+// import { Button } from "../components/button/button";
+// import { CouponArea } from "../components/coupon-area/coupon-area";
+// import { PageTitle } from "../components/page-title/page-title";
+// import { BasketTable, TotalsTable } from "../components/table/table";
+// import { useCoupon } from "../lib/use-coupon";
+// import { useUpdateCart } from "../lib/use-update-cart";
 
 import styles from "../styles/basket.module.css";
 
-export default function Basket({
-  lines,
-  subtotal,
-  shipping,
-  total,
-  discountTotal,
-  needsDelivered,
-  vat,
-  isLoggedIn,
-}) {
+// lines,
+// subtotal,
+// shipping,
+// total,
+// discountTotal,
+// needsDelivered,
+// vat,
+// isLoggedIn,
+export default function Basket() {
   const { currentYear } = useGlobalProps();
 
-  const {
-    onQuantityChange,
-    sendUpdate,
-    updateButtonDisabled,
-    error: updateCartError,
-  } = useUpdateCart(lines);
+  // const {
+  //   onQuantityChange,
+  //   sendUpdate,
+  //   updateButtonDisabled,
+  //   error: updateCartError,
+  // } = useUpdateCart(lines);
 
-  const {
-    applyCoupon,
-    onCouponChange,
-    isApplyVoucherDisabled,
-    error: couponError,
-  } = useCoupon();
+  // const {
+  //   applyCoupon,
+  //   onCouponChange,
+  //   isApplyVoucherDisabled,
+  //   error: couponError,
+  // } = useCoupon();
 
   return (
     <>
@@ -45,7 +44,15 @@ export default function Basket({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        {lines.length > 0 ? (
+        <div className={styles.emptyCart}>
+          <h1>Shop is currently disabled</h1>
+          <p>
+            We have currently disabled our shop due to technical issues. Please
+            try again tomorrow.
+          </p>
+        </div>
+
+        {/* {lines.length > 0 ? (
           <>
             <PageTitle
               heading="Checkout"
@@ -87,7 +94,7 @@ export default function Basket({
               <Button href="/resources">See our resources</Button>
             </div>
           </div>
-        )}
+        )} */}
       </main>
       <Footer currentYear={currentYear} />
     </>
