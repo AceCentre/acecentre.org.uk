@@ -3,6 +3,8 @@ const path = require("path");
 
 module.exports = {
   onPreBuild: async () => {
+    console.log("Exposing vars", varToExpose);
+
     const varToExpose = [
       "CONTEXT",
       "REDIS_URL",
@@ -37,6 +39,8 @@ module.exports = {
       "const exportEnvs = () => {\nprocess.env.NETLIFY=true\n"
     );
 
+    console.log({ pathToEnv, pathToJs, pathToBackgroundFunc, fileAsString });
+
     for (const varName of varToExpose) {
       console.log(`Exposing ${varName} as ${process.env[varName]}`);
       fs.appendFileSync(pathToEnv, `${varName}=${process.env[varName]}\n`);
@@ -52,6 +56,8 @@ module.exports = {
       pathToJs,
       "\n}\nexportEnvs();\nexport default exportEnvs\n"
     );
+
+    console.log(newBlock + fileAsString);
 
     fs.writeFileSync(pathToBackgroundFunc, newBlock + fileAsString);
   },
