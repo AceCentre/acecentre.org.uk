@@ -11,6 +11,10 @@
   gap: 2rem;
 }
 
+.evenContainer.evenContainer {
+  grid-template-columns: 1fr 1fr;
+}
+
 .backgroundColor {
   background: #133567;
 }
