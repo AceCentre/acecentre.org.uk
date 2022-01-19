@@ -15,6 +15,7 @@ import styles from "../../styles/mounting.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
+import Link from "next/link";
 
 export default function MountingPage() {
   const { currentYear } = useGlobalProps();
@@ -73,15 +74,15 @@ export default function MountingPage() {
               factors too such as portability and weight. We’re fully aware how
               important it is that equipment is practical, easy to use, store
               and where appropriate adjust. Systems need to look good, be
-              reliable and robust!
+              reliable and be robust!
             </p>
             <div className={styles.inlineCard}>
               <h2>Devices we can mount:</h2>
               <ul className={styles.list}>
+                <ListItem>AAC and EC devices</ListItem>
                 <ListItem>
                   Switches and access devices including joysticks
                 </ListItem>
-                <ListItem>AAC and EC devices</ListItem>
                 <ListItem>Mobile phones</ListItem>
                 <ListItem>Tablets and laptops</ListItem>
                 <ListItem>Smart home devices</ListItem>
@@ -104,11 +105,13 @@ export default function MountingPage() {
             </p>
             <p>
               Typically we would carry out an assessment and produce a
-              specification of the agreed system that best met the client needs.
-              You could either purchase that yourself and we would fit it, or we
-              could supply it on your behalf. We’re able to fit mounting systems
-              specified as part of the Rehadapt Virtual Mounting Service (link
-              to mounting/rehadapt).
+              specification of the system that best met the client needs. You
+              could either purchase that yourself and we would fit it, or we
+              could supply it on your behalf.{" "}
+              <Link href="/services/rehadapt">
+                We’re able to fit mounting systems specified as part of the
+                Rehadapt Virtual Mounting Service.
+              </Link>
             </p>
             <h2>Specialist Mounting</h2>
             <p>
@@ -116,7 +119,7 @@ export default function MountingPage() {
               systems.
             </p>
             <p>
-              If the technology used primarily in one room, a wall-mounted or
+              If the technology is used primarily in one room, a wall-mounted or
               ceiling mount such as those manufactured by{" "}
               <a href="https://www.ergotron.com/">Ergotron</a> may be
               appropriate. Powered mounts can be useful to enable a
@@ -138,13 +141,19 @@ export default function MountingPage() {
             </p>
             <ol className={styles.orderedList}>
               <OrderedListItem>
-                Request a quotation using this form.
+                <FormModal form={CONTACT_FORM}>
+                  {({ onClick }) => (
+                    <a className={styles.clickableLink} onClick={onClick}>
+                      Request a quotation using this form.
+                    </a>
+                  )}
+                </FormModal>
               </OrderedListItem>
               <OrderedListItem>
                 Appointment confirmed once purchase order or payment received
               </OrderedListItem>
               <OrderedListItem>
-                Assessment and fitting appointments carried which will include
+                Assessment and fitting appointments carried out and will include
                 training
               </OrderedListItem>
               <OrderedListItem>
@@ -158,16 +167,16 @@ export default function MountingPage() {
             </p>
             <ul className={styles.list}>
               <ListItem>
-                £295 to mount the first system and £95 for each additional
-                system at your location
+                £295 to fit the first system and £95 for each additional system
+                at your location
               </ListItem>
               <ListItem>
-                £295 to provide an assessment, supply and fitting the first
-                system and £95 for each additional system at one of our
-                assessment centres.
+                £295 to provide an assessment, supply and fit the first system
+                and £95 for each additional system at one of our assessment
+                centres.
               </ListItem>
               <ListItem>
-                £395 to provide an assessment, supply and fitting for the first
+                £395 to provide an assessment, supply and fit for the first
                 client and £150 for each additional client at your location.
               </ListItem>
               <ListItem>
@@ -183,7 +192,15 @@ export default function MountingPage() {
             <p>
               We are also able to carry out additional support services
               including servicing, maintenance and adjustments when required.
-              Please do get in touch using this form for more information.
+              Please do{" "}
+              <FormModal form={CONTACT_FORM}>
+                {({ onClick }) => (
+                  <a className={styles.clickableLink} onClick={onClick}>
+                    get in touch using this form
+                  </a>
+                )}
+              </FormModal>{" "}
+              for more information.
             </p>
           </div>
           <div>
