@@ -77,7 +77,7 @@ const defaultGridItems = [
     },
   },
   {
-    name: "Mount Assessment and Installation",
+    name: "Device Mounting",
     href: "/services/mounting",
     image: {
       src: "/services/mounting.jpeg",

@@ -132,7 +132,8 @@ export default function MountingPage() {
               <div className={styles.quoteText}>
                 <h3>Rehadapt Virtual Mounting Service</h3>
                 <p>
-                  The quick and easy way to your custom made wheelchair mount
+                  This is a quick and easy way to your custom made wheelchair
+                  mount
                 </p>
                 <div className={styles.downloadButtonContainer}>
                   <Button href="https://rehadapt.com/vms/">

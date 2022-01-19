@@ -97,14 +97,14 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
             </ul>
             <p>
               We can enhance your team with Rehabilitation Engineering or other
-              technical support on a contract basis for a period of time to
-              cover absence, for a specific number of hours per month or to
+              technical support on a contract basis for a defined period of time
+              to cover absence, for a specific number of hours per month or to
               increase the capacity of your service for the short or medium
               term. All members of our team who provide this support have had an
               enhanced DBS check, are fully competent and registered where
               appropriate.
             </p>
-            <p>This type of support of really well suited to:</p>
+            <p>This type of support of ideally suited to:</p>
             <ul className={styles.list}>
               <ListItem>NHS Wheelchair services</ListItem>
               <ListItem>
