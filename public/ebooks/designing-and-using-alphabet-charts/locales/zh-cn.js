@@ -319,7 +319,7 @@
 	"return":                               "返回",
 	"read":                                 "读",
 	"selectColor":                          "选择颜色",
-	"selectStroke":                         "选择行程",
+    "selectStroke": "刷子大小",
 	"selectSmoothing":                      "选择平滑",
 	"page":                                 "页",
 	"gotoPage":                             "转到页面",
@@ -347,7 +347,41 @@
     "copyLink":                    "复制链接",
     "directLink":                  "直接链接",
     "errorConvertingPDF": "错误导致无法下载PDF文件。 请重试或与图书所有者联系。",
-    "loadForAllChapters": "加载所有章节"
+    "loadForAllChapters": "加载所有章节",
+    "errorNoAccessToBook": "抱歉，您无权访问此书。请稍后再试。",
+    "name": "姓名",
+    "dob": "出生日期",
+    "organization": "组织",
+    "dept": "部门",
+    "country": "国家",
+    "city": "城市",
+    "phone": "电话",
+    "info": "附加信息",
+    "fillInAllFields": "请填写所有必填字段",
+    "s_missingInfo": "请填写所有必填字段",
+    "enterNote": "在下方输入您的备注",
+    "anonymous": "匿名的",
+    "me": "我",
+    "notePublicConfirm": "任何有权访问电子书的人都可以看到您的笔记。您确定要继续吗？",
+    "name": "姓名",
+    "dob": "出生日期",
+    "organization": "組織",
+    "dept": "部門",
+    "country": "國家",
+    "city": "城市",
+    "phone": "電話",
+    "info": "附加信息",
+    "fillInAllFields": "請填寫所有必填字段",
+    "s_missingInfo": "請填寫所有必填字段",
+    "enterNote": "在下方輸入您的備註",
+    "anonymous": "匿名的",
+    "me": "我",
+    "notePublicConfirm": "任何有權訪問電子書的人都可以看到您的筆記。您確定要繼續嗎？",
+    "publicNote": "公开我的笔记"
+
+
+
+
 
 
 
