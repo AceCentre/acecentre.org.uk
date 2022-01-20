@@ -3,10 +3,8 @@ import withSession from "../../../lib/auth/with-session";
 import config from "../../../lib/config";
 import { LOGIN_MUTATION } from "./login";
 import mailchimp from "@mailchimp/mailchimp_marketing";
-import { App } from "@slack/bolt";
 
 const ENDPOINT = `${config.baseUrl}/graphql`;
-const app = new App(config.slack);
 
 const REGISTER_MUTATION = gql`
   mutation RegisterMutation($email: String!, $password: String!) {
