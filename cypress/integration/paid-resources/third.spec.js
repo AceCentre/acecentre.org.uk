@@ -100,7 +100,11 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
+      cy.findByRole("textbox", { name: "Email address" }).should(
+        "have.value",
+        newEmail
+      );
+      cy.findByRole("textbox", { name: "Email address" }).should("be.disabled");
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -223,7 +227,11 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
+      cy.findByRole("textbox", { name: "Email address" }).should(
+        "have.value",
+        newEmail
+      );
+      cy.findByRole("textbox", { name: "Email address" }).should("be.disabled");
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
@@ -321,7 +329,11 @@ context("Paid resources", () => {
       cy.findByRole("textbox", { name: "Town / City" }).type("Manchester");
       cy.findByRole("textbox", { name: "Postcode" }).type("OL8 3QL");
       cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
-      cy.findByRole("textbox", { name: "Email address" }).type(newEmail);
+      cy.findByRole("textbox", { name: "Email address" }).should(
+        "have.value",
+        newEmail
+      );
+      cy.findByRole("textbox", { name: "Email address" }).should("be.disabled");
 
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
