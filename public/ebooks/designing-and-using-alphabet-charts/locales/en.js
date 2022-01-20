@@ -356,7 +356,22 @@
     "copyLink": "Copy link",
     "directLink": "Direct link",
     "errorConvertingPDF": "An error prevented the PDF file from being downloaded. Please try again or contact the book owner.",
-    "loadForAllChapters": "Load all chapters"
-
+    "loadForAllChapters": "Load all chapters",
+    "errorNoAccessToBook": "Sorry, you do not have access to this book. Please try again later.",
+    "name": "Name",
+    "dob": "Date of birth",
+    "organization": "Organization",
+    "dept": "Department",
+    "country": "Country",
+    "city": "City",
+    "phone": "Phone",
+    "info": "Additional information",
+    "fillInAllFields": "Please fill in all the required fields",
+    "s_missingInfo": "Please fill in all the required fields",
+    "enterNote": "Enter your note below",
+    "anonymous": "Anonymous",
+    "me": "Me",
+    "notePublicConfirm": "Your note will be visible to everyone having access to the ebook. Are you sure you'd like to continue?",
+    "publicNote": "Make my note public"
 
 }

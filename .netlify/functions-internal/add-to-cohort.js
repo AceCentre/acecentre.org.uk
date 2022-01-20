@@ -1,13 +1,12 @@
-import { gql, GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient, request } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
 import exportEnv from "../../envs";
-import config from "../../lib/config";
 
 exportEnv();
 
-const ENDPOINT = `${config.baseUrl}/graphql`;
+const ENDPOINT = "https://backend.acecentre.org.uk/graphql";
 
 const slackToken = process.env.SLACK_TOKEN;
 const slackSecret = process.env.SLACK_SECRET;
@@ -15,6 +14,14 @@ const slackConfig = {
   token: slackToken,
   signingSecret: slackSecret,
 };
+
+const REFRESH_QUERY = gql`
+  mutation RefreshToken($refreshToken: String!) {
+    refreshJwtAuthToken(input: { jwtRefreshToken: $refreshToken }) {
+      authToken
+    }
+  }
+`;
 
 const ADD_USERS_TO_COHORT = gql`
   mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
@@ -33,6 +40,7 @@ const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 async function rawHandler(req, res) {
   try {
     console.log("Function handling began");
+
     // Wait for 2 minutes so a user can 3D auth
     await wait(120000);
     console.log("Finished waiting");
@@ -85,9 +93,13 @@ const addUserToCohort = async (req, cohortName, emails) => {
   // Get the user and the cart from the session if the exist
   const user = req.session.get("user") || {};
   const cart = req.session.get("cart") || {};
-  const authToken = user.authToken || null;
+  const refreshToken = user.refreshToken || null;
   const wooSession = cart.wooSessionToken || null;
 
+  console.log("Getting a new auth token", refreshToken);
+  let response = await request(ENDPOINT, REFRESH_QUERY, { refreshToken });
+  const authToken = response.refreshJwtAuthToken.authToken;
+  console.log("Got a new auth token", authToken, response);
   console.log({ user, cart, authToken, wooSession });
 
   let headers = {};

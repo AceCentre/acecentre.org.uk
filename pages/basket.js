@@ -1,13 +1,13 @@
-import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
-import { CouponArea } from "../components/coupon-area/coupon-area";
 import { Footer } from "../components/footer/footer";
-import { PageTitle } from "../components/page-title/page-title";
-import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
-import { BasketTable, TotalsTable } from "../components/table/table";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
+import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { getCart } from "../lib/cart/get";
 import { useGlobalProps } from "../lib/global-props/hook";
+import { Button } from "../components/button/button";
+import { CouponArea } from "../components/coupon-area/coupon-area";
+import { PageTitle } from "../components/page-title/page-title";
+import { BasketTable, TotalsTable } from "../components/table/table";
 import { useCoupon } from "../lib/use-coupon";
 import { useUpdateCart } from "../lib/use-update-cart";
 

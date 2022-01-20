@@ -11,8 +11,10 @@ export const CourseCategoriesGrid = ({
   textColor = "#333333",
   objectFit = "cover",
 }) => {
+  const isEven = productCategories.length % 2 === 0;
+
   return (
-    <ul className={styles.container}>
+    <ul className={`${styles.container} ${isEven ? styles.evenContainer : ""}`}>
       {productCategories.map((category) => {
         return (
           <CategorySquare
