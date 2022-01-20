@@ -59,7 +59,7 @@ jobs:
         run: yarn install
 
       - name: Run netlify deploy and build
-        run: CONTEXT=production netlify deploy --prod --build
+        run: netlify deploy --prod --build --context production
 
       - uses: actions/github-script@v5
         id: get-paths
