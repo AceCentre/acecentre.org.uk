@@ -128,7 +128,27 @@ const useCheckoutForm = (
     setGeneralError(null);
     setAllowSubmit(false);
     setTsAndCsError(null);
+    setDelegatedLearningErrors(() => {
+      let defaultErrors = {};
+      for (const line of delegatedLearningLines) {
+        defaultErrors[line.key] = null;
+      }
+
+      return defaultErrors;
+    });
     setGroupPurchaseErrors(emptyEmailErrors);
+
+    if (delegatedLearningLines.length !== Object.keys(isDelegating).length) {
+      window.scrollTo(0, 0);
+
+      Object.keys(delegatedLearningErrors).map((x) => {
+        delegatedLearningErrors[x] =
+          "You must specify who is taking the course";
+      });
+      setDelegatedLearningErrors(delegatedLearningErrors);
+      setAllowSubmit(true);
+      return;
+    }
 
     let billingDetails = {};
     let requiredBillingFields = [];
