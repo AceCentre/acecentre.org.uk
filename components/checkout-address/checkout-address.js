@@ -258,6 +258,7 @@ export const BillingDetails = ({
   billingError,
   reducedInfo,
   countryChanged = () => {},
+  defaultEmail,
 }) => {
   return (
     <div className={styles.outerContainer}>
@@ -375,14 +376,26 @@ export const BillingDetails = ({
             id="phone"
             defaultValue={billingDetails.phone}
           />
-          <Input
-            maxWidth="100%"
-            placeholder="john@smith.com"
-            name="emailBilling"
-            ariaLabel="Email address"
-            id="email"
-            defaultValue={billingDetails.email}
-          />
+          {defaultEmail ? (
+            <Input
+              maxWidth="100%"
+              placeholder="john@smith.com"
+              name="emailBilling"
+              ariaLabel="Email address"
+              id="email"
+              disabled
+              defaultValue={defaultEmail}
+            />
+          ) : (
+            <Input
+              maxWidth="100%"
+              placeholder="john@smith.com"
+              name="emailBilling"
+              ariaLabel="Email address"
+              id="email"
+              defaultValue={billingDetails.email}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -405,6 +418,7 @@ const Input = ({
   id,
   type,
   defaultValue,
+  disabled = false,
   onChange = () => {},
 }) => {
   return (
@@ -420,6 +434,7 @@ const Input = ({
           type={type}
           onChange={onChange}
           defaultValue={defaultValue === null ? "" : defaultValue}
+          disabled={disabled}
         />
       </FormControl>
     </>

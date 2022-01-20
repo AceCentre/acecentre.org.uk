@@ -73,9 +73,8 @@ const useCheckoutForm = (
     return { defaultGroupPurchases, emptyEmailErrors };
   });
 
-  const [groupPurchaseErrors, setGroupPurchaseErrors] = useState(
-    emptyEmailErrors
-  );
+  const [groupPurchaseErrors, setGroupPurchaseErrors] =
+    useState(emptyEmailErrors);
 
   const [groupPurchaseEmails, setGroupPurchaseEmails] = useState(
     defaultGroupPurchases
@@ -393,6 +392,7 @@ export default function Checkout({
   groupPurchaseLines,
   delegatedLearningLines,
   vat,
+  defaultEmail,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -416,6 +416,7 @@ export default function Checkout({
             groupPurchaseLines={groupPurchaseLines}
             delegatedLearningLines={delegatedLearningLines}
             vat={vat}
+            defaultEmail={defaultEmail}
           />
         </Elements>
       </main>
@@ -436,6 +437,7 @@ const CheckoutForm = ({
   needsDelivered,
   groupPurchaseLines,
   delegatedLearningLines,
+  defaultEmail,
   vat,
 }) => {
   const {
@@ -469,6 +471,7 @@ const CheckoutForm = ({
       <BillingDetails
         countries={countries}
         billingDetails={billingDetails}
+        defaultEmail={defaultEmail}
         billingError={billingError}
         reducedInfo={isFree(total)}
         countryChanged={(newCountry) => {
@@ -574,10 +577,12 @@ export const getServerSideProps = withSession(async function ({ req }) {
     vat,
   } = await getCart(req);
   const user = req.session.get("user") || { customerId: "" };
-  const { countries, billingDetails, shippingDetails } = await getAddresses(
-    req,
-    user
-  );
+  const {
+    countries,
+    billingDetails,
+    shippingDetails,
+    email: defaultEmail,
+  } = await getAddresses(req, user);
 
   if (lines.length === 0) {
     return {
@@ -610,6 +615,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       needsDelivered,
       delegatedLearningLines,
       vat,
+      defaultEmail,
     },
   };
 });
