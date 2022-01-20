@@ -4,6 +4,10 @@
   gap: 2rem;
 }
 
+.someoneElse {
+  margin-top: 1rem;
+}
+
 .shippingWarning {
   margin: 0;
   font-style: italic;
