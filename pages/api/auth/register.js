@@ -33,10 +33,6 @@ export async function addToMailingList(email) {
     });
   } catch (error) {
     console.log(error);
-    await app.client.chat.postMessage({
-      channel: "C02E0MC3HB2",
-      text: `Failed to add the email ${email} to the mailing list at checkout. This is probably because they are already on the mailing list but double check.`,
-    });
   }
 }
 
