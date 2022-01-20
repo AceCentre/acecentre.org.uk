@@ -1,4 +1,4 @@
-import { gql, GraphQLClient } from "graphql-request";
+import { gql, GraphQLClient, request } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
