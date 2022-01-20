@@ -4,53 +4,59 @@ import {
   FormControl,
   FormLabel,
   Textarea,
+  Stack,
 } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
-import { Checkbox } from "@chakra-ui/react";
+import { Radio, RadioGroup } from "@chakra-ui/react";
 import { useState } from "react";
 import { cloneDeep } from "lodash";
+
+const MYSELF = "myself";
+const SOMEONE_ELSE = "someone-else";
 
 export const CollectDelegatedEmail = ({
   currentLine,
   error,
   emailChanged,
   changeDelegation,
+  delegatedKey,
 }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  console.log(delegatedKey);
+  const [value, setValue] = useState(null);
 
   return (
     <div className={`${styles.outerContainer} ${styles.createAccount}`}>
-      <h2>{currentLine.name} - Delegated learner</h2>
+      <h2>{currentLine.name} - Course Enrollment</h2>
       <p>
-        By default we will assume the user purchasing the course is the person
-        who will be enrolled on the course.
+        <i>Please let us know who you are booking this course for:</i>
       </p>
-      <p>
-        If this is not the case, then check the box below and enter the email
-        address of the person you want to be enrolled
-      </p>
-      <div className={styles.checkboxContainer}>
-        <Checkbox
-          name="registerAnotherUser"
-          onChange={(event) => {
-            setIsChecked(event.target.checked);
-            changeDelegation(event.target.checked);
-          }}
-        >
-          Would you like to enroll a different user onto the course?
-        </Checkbox>
-      </div>
       {error && <p className={styles.error}>{error}</p>}
-      {isChecked && (
-        <>
+      <RadioGroup
+        onChange={(newValue) => {
+          setValue(newValue);
+          changeDelegation(newValue === SOMEONE_ELSE);
+        }}
+        value={value}
+      >
+        <Stack direction="column">
+          <Radio value={MYSELF}>
+            I am booking this course for <strong>myself</strong>
+          </Radio>
+          <Radio value={SOMEONE_ELSE}>
+            I am booking this course for <strong>someone else</strong>
+          </Radio>
+        </Stack>
+      </RadioGroup>
+      {value === SOMEONE_ELSE && (
+        <div className={styles.someoneElse}>
           <Input
             maxWidth="100%"
             placeholder="learner@academy.co.uk"
-            ariaLabel={"Student email"}
+            ariaLabel={"Participant's email address"}
             key={`input-${currentLine.key}`}
             onChange={emailChanged}
           />
-        </>
+        </div>
       )}
     </div>
   );
