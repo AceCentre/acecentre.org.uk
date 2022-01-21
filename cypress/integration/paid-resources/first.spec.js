@@ -41,7 +41,7 @@ context("Paid resources", () => {
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
         .findByRole("textbox", {
-          name: "Email address",
+          name: "Enter your email address",
         })
         .type(newEmail);
 
@@ -118,7 +118,7 @@ context("Paid resources", () => {
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
         .findByRole("textbox", {
-          name: "Email address",
+          name: "Enter your email address",
         })
         .type(newEmail);
 
@@ -199,7 +199,7 @@ context("Paid resources", () => {
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
         .findByRole("textbox", {
-          name: "Email address",
+          name: "Enter your email address",
         })
         .type(newEmail);
 
