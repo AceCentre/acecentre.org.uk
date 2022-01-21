@@ -163,7 +163,7 @@ export const RegisterCheckout = () => {
             maxWidth="100%"
             placeholder="john@smith.com"
             name="email"
-            ariaLabel="Email address"
+            ariaLabel="Enter your email address"
             id="email"
             type="email"
           />
