@@ -128,6 +128,16 @@
   to = "/services/nhs/assessments"
   status = 301
 
+[[redirects]]
+  from = "/resources/access-to-low-tech-symbol-based-resources-when-pointing-is-difficult"
+  to = "/resources/paper-based-resources-to-support-communication-for-adults-with-progressive-conditions"
+  status = 301
+
+[[redirects]]
+  from = "/resources/using-low-tech-symbol-based-systems-with-children"
+  to = "/resources/access-to-paper-based-symbol-resources-when-pointing-is-difficult"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
