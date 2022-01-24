@@ -91,7 +91,7 @@
     "jest-css-modules-transform": "4.3.0",
     "mock-fs": "5.1.2",
     "mysql2": "2.3.3",
-    "netlify-cli": "8.13.0",
+    "netlify-cli": "8.13.2",
     "next-sitemap": "2.0.2",
     "nock": "13.2.2",
     "plop": "3.0.5",
