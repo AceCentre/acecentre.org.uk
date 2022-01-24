@@ -123,6 +123,11 @@
   to = "/resources/developing-using-communication-book"
   status = 301
 
+[[redirects]]
+  from = "/services/assessment/nhs-referral"
+  to = "/services/nhs/assessments"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
