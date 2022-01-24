@@ -17,6 +17,7 @@ export const FeaturedStory = ({
   youtubeVideo,
   featuredImage,
   nhs = false,
+  objectPosition = "50%",
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -54,6 +55,7 @@ export const FeaturedStory = ({
               src={featuredImage.src}
               layout="fill"
               objectFit="cover"
+              objectPosition={objectPosition}
             />
           </div>
         </div>

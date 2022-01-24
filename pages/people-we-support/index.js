@@ -44,7 +44,7 @@ export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
   const storyHighlight = await getSimpleStory("jess");
-  const wordsFrom = await getSimpleStory("paul");
+  const wordsFrom = await getSimpleStory("dave");
 
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
