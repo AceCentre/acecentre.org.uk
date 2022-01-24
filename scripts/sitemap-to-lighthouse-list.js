@@ -24,7 +24,7 @@ function chunk(arr, len) {
 }
 
 const script = (context, max, page) => {
-  const sitemapPath = path.join(__dirname, "../.next/sitemap.xml");
+  const sitemapPath = path.join(__dirname, "../.next/sitemap-0.xml");
   const sitemapAsString = fs.readFileSync(sitemapPath, "utf8").toString();
   const parser = new XMLParser();
   const sitemapObject = parser.parse(sitemapAsString);
