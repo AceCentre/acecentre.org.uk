@@ -29,7 +29,7 @@ const script = (context, max, page) => {
   const parser = new XMLParser();
   const sitemapObject = parser.parse(sitemapAsString);
 
-  const siteUrl = "https://backend.acecentre.org.uk";
+  const siteUrl = "https://acecentre.org.uk";
   const urls = sitemapObject.urlset.url
     .map((url) => {
       return url.loc.replace(siteUrl, "");
