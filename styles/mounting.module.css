@@ -17,7 +17,7 @@
 }
 
 .coverImageRehadapt.coverImageRehadapt {
-  object-position: top right !important;
+  object-position: 0px -200px !important;
   transform: scaleX(-1);
 }
 
@@ -169,6 +169,24 @@
 
 .leftContent {
   margin-top: -4rem;
+}
+
+@media (max-width: 1245px) {
+  .coverImageRehadapt.coverImageRehadapt {
+    object-position: 0px -100px !important;
+  }
+}
+
+@media (max-width: 1070px) {
+  .coverImageRehadapt.coverImageRehadapt {
+    object-position: 0px -50px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .coverImageRehadapt.coverImageRehadapt {
+    object-position: right top !important;
+  }
 }
 
 /** Mobile CSS */
