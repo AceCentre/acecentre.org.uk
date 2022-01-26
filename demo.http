@@ -1,5 +1,5 @@
 # To use this file please install the REST Client plugin for VSCode => https://marketplace.visualstudio.com/items?itemName=humao.rest-client
-@authToken = {{$dotenv HTTP_FILE_AUTH}}
+@authToken = {{$dotenv CYPRESS_WORDPRESS_AUTH}}
 @couponId = 30080
 
 ### GraphQL Query for all prodducts
