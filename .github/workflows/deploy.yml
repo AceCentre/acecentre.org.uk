@@ -41,5 +41,5 @@ jobs:
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
         uses: cypress-io/github-action@v2
