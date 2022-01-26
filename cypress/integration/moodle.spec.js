@@ -50,6 +50,12 @@ const createCoupon = async () => {
   return { couponCode, couponId };
 };
 
+const validEmail = () => {
+  const randomNumber = Math.floor(Math.random() * 1000000);
+
+  return `test-${randomNumber}@acecentre.org.uk`;
+};
+
 const deleteCoupon = async (couponId) => {
   const response = await fetch(
     `https://backend.acecentre.org.uk/wp-json/wc/v3/coupons/${couponId}?force=true`,
@@ -64,6 +70,62 @@ const deleteCoupon = async (couponId) => {
 
   if (!response.ok) {
     throw new Error("Failed to delete coupon");
+  }
+};
+
+const VALID_PASSWORD = "securepassword";
+
+const deleteUser = async (email) => {
+  const getUserResponse = await fetch(
+    "https://backend.acecentre.org.uk/index.php?graphql",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
+      },
+      body: JSON.stringify({
+        query: "query($email:ID!) {user(id: $email,idType:EMAIL) {id}}",
+        variables: { email },
+      }),
+    }
+  );
+
+  if (!getUserResponse.ok) {
+    throw new Error("Failed to get user");
+  }
+
+  const getUserResult = await getUserResponse.json();
+
+  if (
+    !getUserResult ||
+    !getUserResult.data ||
+    !getUserResult.data.user ||
+    !getUserResult.data.user.id
+  ) {
+    return;
+  }
+
+  const userId = getUserResult.data.user.id;
+
+  const deleteUserResponse = await fetch(
+    "https://backend.acecentre.org.uk/index.php?graphql",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
+      },
+      body: JSON.stringify({
+        query:
+          "mutation($userId:ID!) {deleteUser(input: {id: $userId}) {user {id}}}",
+        variables: { userId },
+      }),
+    }
+  );
+
+  if (!deleteUserResponse.ok) {
+    throw new Error("Failed to get user");
   }
 };
 
@@ -114,6 +176,7 @@ context("Moodle", () => {
   describe("needs coupon", () => {
     let couponCode;
     let couponId;
+    let newEmail;
 
     beforeEach(async () => {
       const result = await createCoupon();
@@ -123,13 +186,14 @@ context("Moodle", () => {
 
     afterEach(async () => {
       await deleteCoupon(couponId);
+      await deleteUser(newEmail);
     });
 
     it(
       ["post-deploy"],
       "Buy a course for a new user, check they are enrolled on the course",
       () => {
-        console.log({ couponCode, couponId });
+        newEmail = validEmail();
 
         // Visit splash
         cy.visit("https://acecentre.org.uk/learning/splash-training-i");
@@ -155,6 +219,32 @@ context("Moodle", () => {
 
         // Check we are on the basket page
         cy.url({ timeout: 10000 }).should("include", "/basket");
+
+        // Checkout as a new user
+        cy.findAllByRole("link", { name: "Checkout as New User" })
+          .last()
+          .click();
+        cy.url({ timeout: 30000 }).should("include", "register-checkout");
+
+        // Fill in email field
+        cy.findAllByRole("form", { name: "Register form" })
+          .findByRole("textbox", {
+            name: "Enter your email address",
+          })
+          .type(newEmail);
+
+        // Fill in password field
+        cy.findAllByRole("form", { name: "Register form" })
+          .findByLabelText("Password")
+          .type(VALID_PASSWORD);
+
+        // Click register
+        cy.findAllByRole("form", { name: "Register form" })
+          .findByRole("button", { name: "Register and checkout" })
+          .click();
+
+        // Complete checkout
+        cy.url({ timeout: 30000 }).should("include", "/checkout");
       }
     );
   });
