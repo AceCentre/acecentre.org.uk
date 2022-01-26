@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.clickableLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .coverImage.coverImage {
   object-position: 0px -150px !important;
   transform: scaleX(-1);
@@ -71,12 +76,21 @@
   gap: 0.5rem;
   flex: 0 0 445px;
   max-width: 90%;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .quoteText {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.quoteText h3 {
+  margin: 0;
+}
+
+.downloadButtonContainer {
+  margin-top: 1rem;
 }
 
 .quoteText p {

@@ -76,4 +76,12 @@ const defaultGridItems = [
       alt: "Two people looking at a communication device",
     },
   },
+  {
+    name: "Device Mounting",
+    href: "/services/mounting",
+    image: {
+      src: "/services/mounting.jpeg",
+      alt: "Two people looking at a communication device",
+    },
+  },
 ];
