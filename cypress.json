@@ -4,5 +4,9 @@
   "baseUrl": "http://localhost:3000",
   "projectId": "2da7p6",
   "retries": 3,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "pageLoadTimeout": 60000,
+  "requestTimeout": 60000,
+  "responseTimeout": 60000,
+  "defaultCommandTimeout": 20000
 }
