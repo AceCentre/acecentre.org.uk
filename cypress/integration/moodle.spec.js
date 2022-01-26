@@ -1,7 +1,25 @@
-let couponCode = null;
-let couponId = null;
+const createCoupon = async () => {
+  const allCouponsResponse = await fetch(
+    "https://backend.acecentre.org.uk/wp-json/wc/v3/coupons?code=cypress_testing_code",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic ",
+      },
+    }
+  );
 
-before(async () => {
+  if (!allCouponsResponse.ok) {
+    throw new Error("Failed to create coupon");
+  }
+
+  const allCouponsResult = await allCouponsResponse.json();
+
+  if (allCouponsResult.length === 1) {
+    await deleteCoupon(allCouponsResult[0].id);
+  }
+
   const response = await fetch(
     "https://backend.acecentre.org.uk/wp-json/wc/v3/coupons",
     {
@@ -26,18 +44,21 @@ before(async () => {
 
   const result = await response.json();
 
-  couponCode = result.code;
-  couponId = result.id;
-});
+  const couponCode = result.code;
+  const couponId = result.id;
 
-after(async () => {
+  return { couponCode, couponId };
+};
+
+const deleteCoupon = async (couponId) => {
   const response = await fetch(
     `https://backend.acecentre.org.uk/wp-json/wc/v3/coupons/${couponId}?force=true`,
     {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Basic ",
+        Authorization:
+          "Basic Y2tfOWRiY2JlMjVhNzMwYWQ0M2JjYWJmNjY5MjQ0ZjYxODgwMWJlZTU2Mzpjc18yYjE5YmQ1MDNiZjI5ZDY4OGM2ZmQxOTRkMzZhMzZjMTU3YTM4MmQ1",
       },
     }
   );
@@ -45,7 +66,7 @@ after(async () => {
   if (!response.ok) {
     throw new Error("Failed to delete coupon");
   }
-});
+};
 
 context("Moodle", () => {
   it(
@@ -91,26 +112,51 @@ context("Moodle", () => {
     }
   );
 
-  it.only(
-    ["post-deploy"],
-    "Buy a course for a new user, check they are enrolled on the course",
-    () => {
-      // Visit splash
-      cy.visit("https://acecentre.org.uk/learning/splash-training-i");
+  describe("needs coupon", () => {
+    let couponCode;
+    let couponId;
 
-      // Add to basket
-      cy.findByRole("button", { name: "Book this course" }).click();
-      cy.findAllByRole("button", { name: "Book this course" }).last().click();
+    beforeEach(async () => {
+      const result = await createCoupon();
+      couponCode = result.couponCode;
+      couponId = result.couponId;
+    });
 
-      // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
+    afterEach(async () => {
+      await deleteCoupon(couponId);
+    });
 
-      // Apply voucher
-      cy.findByRole("textbox", { name: "Voucher" }).type(couponCode);
-      cy.findByRole("button", { name: "Apply Voucher" }).click();
+    it.only(
+      ["post-deploy"],
+      "Buy a course for a new user, check they are enrolled on the course",
+      () => {
+        console.log({ couponCode, couponId });
 
-      // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
-    }
-  );
+        // Visit splash
+        cy.visit("https://acecentre.org.uk/learning/splash-training-i");
+
+        // Add to basket
+        cy.findByRole("button", { name: "Book this course" }).click();
+        cy.findAllByRole("button", { name: "Book this course" }).last().click();
+
+        // Check we are on the basket page
+        cy.url({ timeout: 10000 }).should("include", "/basket");
+
+        // Apply voucher
+        cy.findByRole("textbox", { name: "Voucher" }).type(couponCode);
+        cy.findByRole("button", { name: "Apply Voucher" }).click();
+
+        // Make sure the discount is applied
+        cy.wait(5000);
+        cy.findAllByRole("table")
+          .last()
+          .within(() => {
+            cy.get("tr:last-child > td:last-child").contains("£0.00");
+          });
+
+        // Check we are on the basket page
+        cy.url({ timeout: 10000 }).should("include", "/basket");
+      }
+    );
+  });
 });
