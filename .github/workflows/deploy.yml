@@ -13,8 +13,6 @@ concurrency:
 
 jobs:
   CypressPostDeploy:
-    needs: [DeployNetlify]
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
