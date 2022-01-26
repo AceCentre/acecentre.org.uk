@@ -5,7 +5,7 @@ const createCoupon = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Basic ",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
       },
     }
   );
@@ -26,7 +26,7 @@ const createCoupon = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Basic ",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
       },
       body: JSON.stringify({
         code: "cypress_testing_code",
@@ -57,8 +57,7 @@ const deleteCoupon = async (couponId) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization:
-          "Basic Y2tfOWRiY2JlMjVhNzMwYWQ0M2JjYWJmNjY5MjQ0ZjYxODgwMWJlZTU2Mzpjc18yYjE5YmQ1MDNiZjI5ZDY4OGM2ZmQxOTRkMzZhMzZjMTU3YTM4MmQ1",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
       },
     }
   );
@@ -126,7 +125,7 @@ context("Moodle", () => {
       await deleteCoupon(couponId);
     });
 
-    it.only(
+    it(
       ["post-deploy"],
       "Buy a course for a new user, check they are enrolled on the course",
       () => {
