@@ -4,6 +4,10 @@
   max-width: var(--containerMaxWidth);
 }
 
+.mailingListContainer {
+  padding-bottom: 2rem;
+}
+
 .contentBody {
   margin: 0 auto;
   width: 90%;

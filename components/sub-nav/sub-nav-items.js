@@ -69,33 +69,36 @@ export const defaultNavItems = [
     subItems: [
       { title: "All resources", href: "/resources" },
       {
+        title: "Shop",
+        href: "/resources/all?category=shop",
+      },
+      {
         title: "Getting started resources",
         href: "/resources/all?category=getting-started",
       },
       {
-        title: "Supporting language",
-        href: "/resources/all?category=supporting-language",
+        title: "Symbol resources",
+        href: "/resources/all?category=symbol-charts",
       },
       {
-        title: "Supporting access",
-        href: "/resources/all?category=supporting-access",
-      },
-      {
-        title: "Working in schools",
-        href: "/resources/all?category=working-in-schools",
-      },
-      {
-        title: "Family and friends",
-        href: "/resources/all?category=family-and-friends",
-      },
-      { title: "Software", href: "/resources/all?category=software" },
-      {
-        title: "Alphabet resources",
+        title: "Alphabet charts & books",
         href: "/resources/all?category=alphabet-charts",
       },
       {
-        title: "Symbol resources",
-        href: "/resources/all?category=symbol-charts",
+        title: "Made by Ace",
+        href: "/resources/all?category=made-by-ace",
+      },
+      {
+        title: "Digital Publications",
+        href: "/resources/all?category=made-by-ace&subcategory=publications",
+      },
+      {
+        title: "Software",
+        href: "/resources/all?category=made-by-ace&subcategory=software",
+      },
+      {
+        title: "E-books",
+        href: "/resources/all?category=made-by-ace&subcategory=e-books",
       },
     ],
   },
@@ -127,6 +130,7 @@ export const defaultNavItems = [
       { title: "Research", href: "/services/research" },
       { title: "Partnerships", href: "/services/partnerships" },
       { title: "Ace Centre Learning", href: "/learning" },
+      { title: "Mount Installation", href: "/services/mounting" },
     ],
   },
   {

@@ -1,6 +1,5 @@
-const config = require("./lib/config");
-
 module.exports = {
-  siteUrl: config.baseUrl,
-  outDir: "./out",
+  siteUrl: "https://acecentre.org.uk",
+  outDir: "./.next",
+  generateRobotsTxt: true,
 };

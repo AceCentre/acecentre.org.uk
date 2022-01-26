@@ -18,6 +18,10 @@
   to = "/my-acecentre/courses"
   status = 301
 
+[[redirects]]
+  from = "/about/staff-member/*"
+  to = "/about/staff/:splat"
+  status = 301
 
 [[redirects]]
   from = "/project/*"
@@ -100,6 +104,11 @@
   status = 301
 
 [[redirects]]
+  from = "/services/assessment"
+  to = "/services/assessments"
+  status = 301
+
+[[redirects]]
   from = "/resources/electronic-text-based-comparison-chart"
   to = "https://backend.acecentre.org.uk/resources/electronic-text-based-comparison-chart"
   status = 301
@@ -107,6 +116,26 @@
 [[redirects]]
   from = "/resources/electronic-text-based-features-checklist"
   to = "https://backend.acecentre.org.uk/resources/electronic-text-based-features-checklist"
+  status = 301
+
+[[redirects]]
+  from = "/resources/developing-using-communication-book-templates"
+  to = "/resources/developing-using-communication-book"
+  status = 301
+
+[[redirects]]
+  from = "/services/assessment/nhs-referral"
+  to = "/services/nhs/assessments"
+  status = 301
+
+[[redirects]]
+  from = "/resources/access-to-low-tech-symbol-based-resources-when-pointing-is-difficult"
+  to = "/resources/paper-based-resources-to-support-communication-for-adults-with-progressive-conditions"
+  status = 301
+
+[[redirects]]
+  from = "/resources/using-low-tech-symbol-based-systems-with-children"
+  to = "/resources/access-to-paper-based-symbol-resources-when-pointing-is-difficult"
   status = 301
 
 [[plugins]]

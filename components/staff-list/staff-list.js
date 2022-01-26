@@ -5,11 +5,18 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { CropToSquareAroundFace } from "../image";
 import { useState } from "react";
 import Phone from "@material-ui/icons/Phone";
+import { useRouter } from "next/router";
 
-export const StaffList = ({ staffList }) => {
+export const StaffList = ({ staffList, currentActive }) => {
   return (
     <PeopleList peopleList={staffList}>
-      {(person, index) => <StaffCard person={person} index={index} />}
+      {(person, index) => (
+        <StaffCard
+          person={person}
+          index={index}
+          currentActive={currentActive}
+        />
+      )}
     </PeopleList>
   );
 };
@@ -39,9 +46,9 @@ const listOfBackgrounds = [
   styles.yellowGradient,
 ];
 
-const StaffCard = ({ person, index = 0 }) => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
-  const onClose = () => setIsModelOpen(false);
+const StaffCard = ({ person, index = 0, currentActive = "" }) => {
+  const router = useRouter();
+
   const location = LOCATION_MAP[person.location.trim().toLowerCase()];
 
   if (!location) throw new Error("Could not get a location for", person);
@@ -53,7 +60,7 @@ const StaffCard = ({ person, index = 0 }) => {
     <>
       <button
         className={styles.staffButton}
-        onClick={() => setIsModelOpen(true)}
+        onClick={() => router.push(`/about/staff/${person.slug}`)}
       >
         <div className={styles.imageContainer}>
           {person.image ? (
@@ -83,8 +90,8 @@ const StaffCard = ({ person, index = 0 }) => {
         </div>
       </button>
       <StaffDetail
-        isModelOpen={isModelOpen}
-        onClose={onClose}
+        isModelOpen={currentActive === person.slug}
+        onClose={() => router.push("/about/staff")}
         person={person}
         location={location}
         backgroundClass={backgroundClass}

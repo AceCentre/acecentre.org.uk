@@ -5,6 +5,10 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export const LearningReviews = ({ reviews }) => {
+  if (reviews.length === 0) {
+    return null;
+  }
+
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const currentReview = useMemo(() => {
     const review = reviews[currentReviewIndex];

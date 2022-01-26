@@ -4,180 +4,507 @@
 
         <dc:title id="title">Paper-based resources to support communication for adults with progressive conditions	</dc:title>
 
-        <dc:identifier id="pub-id">urn:uuid:938a5c8c-b66c-22ec-f96c-2887fc50dc98</dc:identifier>
-        <meta name="cover" content="img0" />
+        <dc:identifier id="pub-id">urn:uuid:a63b3581-138e-af5b-bcdc-46b6a486b38a</dc:identifier>
+        <meta name="cover" content="img1" />
 
         <dc:creator>Ace Centre</dc:creator>
         <dc:publisher>Ace Centre</dc:publisher>
         <dc:rights>No rights specified</dc:rights>
         <dc:language>en-GB</dc:language>
         <dc:description>Paper-based resources to support communication for adults with progressive conditions	</dc:description>
-        <meta property="dcterms:modified">2021-09-06T16:49:02Z</meta>
+        <meta property="dcterms:modified">2022-01-20T22:14:17Z</meta>
         <meta property="rendition:layout">pre-paginated</meta>
         <meta property="rendition:orientation">auto</meta>
         <meta property="ibooks:interactive">true</meta>
         <meta property="ibooks:specified-fonts">false</meta>
-        <meta property="kotobee:version">1.7.2</meta>
-        <meta property="kotobee:build">1617</meta>
+        <meta property="kotobee:version">1.7.5</meta>
+        <meta property="kotobee:build">1814</meta>
 
     </metadata>
     <manifest>
-        <item id="html0" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-1.xhtml" media-type="application/xhtml+xml"/>
-<item id="html1" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-2.xhtml" media-type="application/xhtml+xml"/>
-<item id="html2" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-3.xhtml" media-type="application/xhtml+xml"/>
-<item id="html3" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-4.xhtml" media-type="application/xhtml+xml"/>
-<item id="html4" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-5.xhtml" media-type="application/xhtml+xml"/>
-<item id="html5" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-6.xhtml" media-type="application/xhtml+xml"/>
-<item id="html6" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-7.xhtml" media-type="application/xhtml+xml"/>
-<item id="html7" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-8.xhtml" media-type="application/xhtml+xml"/>
-<item id="html8" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-9.xhtml" media-type="application/xhtml+xml"/>
-<item id="html9" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-10.xhtml" media-type="application/xhtml+xml"/>
-<item id="html10" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-11.xhtml" media-type="application/xhtml+xml"/>
-<item id="html11" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-12.xhtml" media-type="application/xhtml+xml"/>
-<item id="html12" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-13.xhtml" media-type="application/xhtml+xml"/>
-<item id="html13" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-14.xhtml" media-type="application/xhtml+xml"/>
-<item id="html14" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-15.xhtml" media-type="application/xhtml+xml"/>
-<item id="html15" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-16.xhtml" media-type="application/xhtml+xml"/>
-<item id="html16" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-17.xhtml" media-type="application/xhtml+xml"/>
-<item id="html17" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-18.xhtml" media-type="application/xhtml+xml"/>
-<item id="html18" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-19.xhtml" media-type="application/xhtml+xml"/>
-<item id="html19" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-20.xhtml" media-type="application/xhtml+xml"/>
-<item id="html20" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-21.xhtml" media-type="application/xhtml+xml"/>
-<item id="html21" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-22.xhtml" media-type="application/xhtml+xml"/>
-<item id="html22" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-23.xhtml" media-type="application/xhtml+xml"/>
-<item id="html23" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-24.xhtml" media-type="application/xhtml+xml"/>
-<item id="html24" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-25.xhtml" media-type="application/xhtml+xml"/>
-<item id="html25" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-26.xhtml" media-type="application/xhtml+xml"/>
-<item id="html26" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-27.xhtml" media-type="application/xhtml+xml"/>
-<item id="html27" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-28.xhtml" media-type="application/xhtml+xml"/>
-<item id="html28" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-29.xhtml" media-type="application/xhtml+xml"/>
-<item id="html29" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-30.xhtml" media-type="application/xhtml+xml"/>
-<item id="html30" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-31.xhtml" media-type="application/xhtml+xml"/>
-<item id="html31" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-32.xhtml" media-type="application/xhtml+xml"/>
-<item id="html32" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-33.xhtml" media-type="application/xhtml+xml"/>
-<item id="html33" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-34.xhtml" media-type="application/xhtml+xml"/>
-<item id="html34" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-35.xhtml" media-type="application/xhtml+xml"/>
-<item id="html35" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-36.xhtml" media-type="application/xhtml+xml"/>
-<item id="html36" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-37.xhtml" media-type="application/xhtml+xml"/>
-<item id="html37" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-38.xhtml" media-type="application/xhtml+xml"/>
-<item id="html38" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-39.xhtml" media-type="application/xhtml+xml"/>
-<item id="html39" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-40.xhtml" media-type="application/xhtml+xml"/>
-<item id="html40" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-41.xhtml" media-type="application/xhtml+xml"/>
-<item id="html41" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-42.xhtml" media-type="application/xhtml+xml"/>
-<item id="html42" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-43.xhtml" media-type="application/xhtml+xml"/>
-<item id="html43" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-44.xhtml" media-type="application/xhtml+xml"/>
-<item id="html44" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-45.xhtml" media-type="application/xhtml+xml"/>
-<item id="html45" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-46.xhtml" media-type="application/xhtml+xml"/>
-<item id="html46" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-47.xhtml" media-type="application/xhtml+xml"/>
-<item id="html47" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-48.xhtml" media-type="application/xhtml+xml"/>
-<item id="html48" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-49.xhtml" media-type="application/xhtml+xml"/>
-<item id="html49" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-50.xhtml" media-type="application/xhtml+xml"/>
-<item id="html50" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-51.xhtml" media-type="application/xhtml+xml"/>
-<item id="html51" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-52.xhtml" media-type="application/xhtml+xml"/>
-<item id="html52" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-53.xhtml" media-type="application/xhtml+xml"/>
-<item id="html53" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-54.xhtml" media-type="application/xhtml+xml"/>
-<item id="html54" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-55.xhtml" media-type="application/xhtml+xml"/>
-<item id="html55" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-56.xhtml" media-type="application/xhtml+xml"/>
-<item id="html56" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-57.xhtml" media-type="application/xhtml+xml"/>
-<item id="html57" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-58.xhtml" media-type="application/xhtml+xml"/>
-<item id="html58" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-59.xhtml" media-type="application/xhtml+xml"/>
-<item id="html59" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-60.xhtml" media-type="application/xhtml+xml"/>
-<item id="html60" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-61.xhtml" media-type="application/xhtml+xml"/>
-<item id="html61" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-62.xhtml" media-type="application/xhtml+xml"/>
-<item id="html62" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-63.xhtml" media-type="application/xhtml+xml"/>
-<item id="html63" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-64.xhtml" media-type="application/xhtml+xml"/>
-<item id="html64" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-65.xhtml" media-type="application/xhtml+xml"/>
-<item id="html65" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-66.xhtml" media-type="application/xhtml+xml"/>
-<item id="html66" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-67.xhtml" media-type="application/xhtml+xml"/>
-<item id="html67" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-68.xhtml" media-type="application/xhtml+xml"/>
-<item id="html68" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-69.xhtml" media-type="application/xhtml+xml"/>
-<item id="html69" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-70.xhtml" media-type="application/xhtml+xml"/>
-<item id="html70" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-71.xhtml" media-type="application/xhtml+xml"/>
-<item id="html71" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-72.xhtml" media-type="application/xhtml+xml"/>
-<item id="html72" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-73.xhtml" media-type="application/xhtml+xml"/>
-<item id="html73" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-74.xhtml" media-type="application/xhtml+xml"/>
-<item id="html74" href="xhtml/epubonyno/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB-75.xhtml" media-type="application/xhtml+xml"/>
+        <item id="html0" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-1.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html1" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-2.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html2" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-3.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html3" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-4.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html4" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-5.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html5" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-6.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html6" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-7.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html7" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-8.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html8" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-9.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html9" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-10.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html10" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-11.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html11" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-12.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html12" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-13.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html13" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-14.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html14" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-15.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html15" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-16.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html16" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-17.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html17" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-18.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html18" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-19.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html19" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-20.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html20" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-21.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html21" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-22.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html22" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-23.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html23" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-24.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html24" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-25.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html25" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-26.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html26" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-27.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html27" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-28.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html28" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-29.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html29" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-30.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html30" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-31.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html31" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-32.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html32" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-33.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html33" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-34.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html34" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-35.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html35" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-36.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html36" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-37.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html37" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-38.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html38" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-39.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html39" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-40.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html40" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-41.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html41" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-42.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html42" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-43.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html43" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-44.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html44" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-45.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html45" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-46.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html46" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-47.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html47" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-48.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html48" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-49.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html49" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-50.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html50" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-51.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html51" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-52.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html52" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-53.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html53" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-54.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html54" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-55.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html55" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-56.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html56" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-57.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html57" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-58.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html58" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-59.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html59" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-60.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html60" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-61.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html61" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-62.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html62" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-63.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html63" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-64.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html64" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-65.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html65" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-66.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html66" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-67.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html67" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-68.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html68" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-69.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html69" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-70.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html70" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-71.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html71" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-72.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html72" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-73.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html73" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-74.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html74" href="xhtml/epubmwegl/OEBPS/ACE_Ebook_PaperBasedResources_9_KRB.indd_book_4-75.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="contents" href="xhtml/raw/contents.xhtml"  properties="nav" media-type="application/xhtml+xml"/>
 <item id="ncx" href="xhtml/raw/contents.ncx"  media-type="application/x-dtbncx+xml"/>
-<item id="img0" href="../OEBPS/image/1.png" properties="cover-image" media-type="image/png"/>
+<item id="img0" href="imgs/defaultCover.png" media-type="image/png"/>
+<item id="img1" href="imgs/usersjarnolddesktopa.png" properties="cover-image" media-type="image/png"/>
+<item id="img2" href="xhtml/epubmwegl/OEBPS/image/001_B's_answer_to_question__-_advantage_of_low_tech_compared_to_hi_tech.png" media-type="image/png"/>
+<item id="img3" href="xhtml/epubmwegl/OEBPS/image/001_B's_answer_to_question__-_advantage_of_low_tech_compared_to_hi_tech1.png" media-type="image/png"/>
+<item id="img4" href="xhtml/epubmwegl/OEBPS/image/001_B's_answer_to_question__-_advantage_of_low_tech_compared_to_hi_tech2.png" media-type="image/png"/>
+<item id="img5" href="xhtml/epubmwegl/OEBPS/image/002_Dave's_Instructions.png" media-type="image/png"/>
+<item id="img6" href="xhtml/epubmwegl/OEBPS/image/002_Dave's_Instructions1.png" media-type="image/png"/>
+<item id="img7" href="xhtml/epubmwegl/OEBPS/image/003_Pauline_writes_down_what_Dave_selects.png" media-type="image/png"/>
+<item id="img8" href="xhtml/epubmwegl/OEBPS/image/003_Pauline_writes_down_what_Dave_selects1.png" media-type="image/png"/>
+<item id="img9" href="xhtml/epubmwegl/OEBPS/image/004_LCD_writing_tablet.jpg" media-type="image/jpeg"/>
+<item id="img10" href="xhtml/epubmwegl/OEBPS/image/005_lrg_abc_with_numbers.png" media-type="image/png"/>
+<item id="img11" href="xhtml/epubmwegl/OEBPS/image/005_lrg_abc_with_numbers1.png" media-type="image/png"/>
+<item id="img12" href="xhtml/epubmwegl/OEBPS/image/005_lrg_abc_with_numbers2.png" media-type="image/png"/>
+<item id="img13" href="xhtml/epubmwegl/OEBPS/image/006_qwerty_numbers_and_messages.png" media-type="image/png"/>
+<item id="img14" href="xhtml/epubmwegl/OEBPS/image/006_qwerty_numbers_and_messages1.png" media-type="image/png"/>
+<item id="img15" href="xhtml/epubmwegl/OEBPS/image/006_qwerty_numbers_and_messages2.png" media-type="image/png"/>
+<item id="img16" href="xhtml/epubmwegl/OEBPS/image/006_qwerty_numbers_and_messages3.png" media-type="image/png"/>
+<item id="img17" href="xhtml/epubmwegl/OEBPS/image/007_Bridget_chats_with_her_carer_using_alphabet_chart.png" media-type="image/png"/>
+<item id="img18" href="xhtml/epubmwegl/OEBPS/image/007_Bridget_chats_with_her_carer_using_alphabet_chart1.png" media-type="image/png"/>
+<item id="img19" href="xhtml/epubmwegl/OEBPS/image/008_Sam_and_Geoffrey.png" media-type="image/png"/>
+<item id="img20" href="xhtml/epubmwegl/OEBPS/image/008_Sam_and_Geoffrey1.png" media-type="image/png"/>
+<item id="img21" href="xhtml/epubmwegl/OEBPS/image/009_wrist_band_photo.png" media-type="image/png"/>
+<item id="img22" href="xhtml/epubmwegl/OEBPS/image/009_wrist_band_photo1.png" media-type="image/png"/>
+<item id="img23" href="xhtml/epubmwegl/OEBPS/image/010_high_contrast_qwerty.png" media-type="image/png"/>
+<item id="img24" href="xhtml/epubmwegl/OEBPS/image/010_high_contrast_qwerty1.png" media-type="image/png"/>
+<item id="img25" href="xhtml/epubmwegl/OEBPS/image/010_high_contrast_qwerty2.png" media-type="image/png"/>
+<item id="img26" href="xhtml/epubmwegl/OEBPS/image/011_arabic_chart.png" media-type="image/png"/>
+<item id="img27" href="xhtml/epubmwegl/OEBPS/image/011_arabic_chart1.png" media-type="image/png"/>
+<item id="img28" href="xhtml/epubmwegl/OEBPS/image/012_topic_cues.png" media-type="image/png"/>
+<item id="img29" href="xhtml/epubmwegl/OEBPS/image/013_perspex_writing_slope.png" media-type="image/png"/>
+<item id="img30" href="xhtml/epubmwegl/OEBPS/image/013_perspex_writing_slope1.png" media-type="image/png"/>
+<item id="img31" href="xhtml/epubmwegl/OEBPS/image/013b_alpha_chart_on_a_wedge.png" media-type="image/png"/>
+<item id="img32" href="xhtml/epubmwegl/OEBPS/image/013b_alpha_chart_on_a_wedge1.png" media-type="image/png"/>
+<item id="img33" href="xhtml/epubmwegl/OEBPS/image/014_alpha_chart_on_a_wedge_2.png" media-type="image/png"/>
+<item id="img34" href="xhtml/epubmwegl/OEBPS/image/014_alpha_chart_on_a_wedge_21.png" media-type="image/png"/>
+<item id="img35" href="xhtml/epubmwegl/OEBPS/image/015_alpha_chart_on_a_stand.png" media-type="image/png"/>
+<item id="img36" href="xhtml/epubmwegl/OEBPS/image/015_alpha_chart_on_a_stand1.png" media-type="image/png"/>
+<item id="img37" href="xhtml/epubmwegl/OEBPS/image/016_alpha_chart_on_a_wedge_3.png" media-type="image/png"/>
+<item id="img38" href="xhtml/epubmwegl/OEBPS/image/016_alpha_chart_on_a_wedge_31.png" media-type="image/png"/>
+<item id="img39" href="xhtml/epubmwegl/OEBPS/image/017_mouldable_stylus_from_dad_in_a_shed.png" media-type="image/png"/>
+<item id="img40" href="xhtml/epubmwegl/OEBPS/image/017_mouldable_stylus_from_dad_in_a_shed1.png" media-type="image/png"/>
+<item id="img41" href="xhtml/epubmwegl/OEBPS/image/017b_mouldable_strap_stylus.png" media-type="image/png"/>
+<item id="img42" href="xhtml/epubmwegl/OEBPS/image/017b_mouldable_strap_stylus1.png" media-type="image/png"/>
+<item id="img43" href="xhtml/epubmwegl/OEBPS/image/017c_adjustable_t-bar_stylus.png" media-type="image/png"/>
+<item id="img44" href="xhtml/epubmwegl/OEBPS/image/017c_adjustable_t-bar_stylus1.png" media-type="image/png"/>
+<item id="img45" href="xhtml/epubmwegl/OEBPS/image/018_laser_pointer_pic_enhance.png" media-type="image/png"/>
+<item id="img46" href="xhtml/epubmwegl/OEBPS/image/018_laser_pointer_pic_enhance1.png" media-type="image/png"/>
+<item id="img47" href="xhtml/epubmwegl/OEBPS/image/018b_laser_pointer_pic_enhance_2.png" media-type="image/png"/>
+<item id="img48" href="xhtml/epubmwegl/OEBPS/image/018b_laser_pointer_pic_enhance_21.png" media-type="image/png"/>
+<item id="img49" href="xhtml/epubmwegl/OEBPS/image/019_FAB_ABC.jpg" media-type="image/jpeg"/>
+<item id="img50" href="xhtml/epubmwegl/OEBPS/image/019_FAB_ABC.png" media-type="image/png"/>
+<item id="img51" href="xhtml/epubmwegl/OEBPS/image/019b_FAB_QWERTY.png" media-type="image/png"/>
+<item id="img52" href="xhtml/epubmwegl/OEBPS/image/019b_FAB_QWERTY1.png" media-type="image/png"/>
+<item id="img53" href="xhtml/epubmwegl/OEBPS/image/020_encoded_lower_case_with_dots_direct.png" media-type="image/png"/>
+<item id="img54" href="xhtml/epubmwegl/OEBPS/image/021_numerical_encoding.jpg" media-type="image/jpeg"/>
+<item id="img55" href="xhtml/epubmwegl/OEBPS/image/022_coded_abc_1.png" media-type="image/png"/>
+<item id="img56" href="xhtml/epubmwegl/OEBPS/image/022_coded_abc_11.png" media-type="image/png"/>
+<item id="img57" href="xhtml/epubmwegl/OEBPS/image/022b_coded_abc_2.png" media-type="image/png"/>
+<item id="img58" href="xhtml/epubmwegl/OEBPS/image/022b_coded_abc_21.png" media-type="image/png"/>
+<item id="img59" href="xhtml/epubmwegl/OEBPS/image/023_laser_pointer_mounted_on_glasses.png" media-type="image/png"/>
+<item id="img60" href="xhtml/epubmwegl/OEBPS/image/024_RC_photo_still.png" media-type="image/png"/>
+<item id="img61" href="xhtml/epubmwegl/OEBPS/image/024_RC_photo_still1.png" media-type="image/png"/>
+<item id="img62" href="xhtml/epubmwegl/OEBPS/image/024b_Frenchay_ABC_side.png" media-type="image/png"/>
+<item id="img63" href="xhtml/epubmwegl/OEBPS/image/024b_Frenchay_ABC_side1.png" media-type="image/png"/>
+<item id="img64" href="xhtml/epubmwegl/OEBPS/image/024b_Frenchay_ABC_side2.png" media-type="image/png"/>
+<item id="img65" href="xhtml/epubmwegl/OEBPS/image/024c_colour_encoded_laminate_frame_front.png" media-type="image/png"/>
+<item id="img66" href="xhtml/epubmwegl/OEBPS/image/024c_colour_encoded_laminate_frame_front1.png" media-type="image/png"/>
+<item id="img67" href="xhtml/epubmwegl/OEBPS/image/024d_colour_encoded_laminate_frame_reverse.png" media-type="image/png"/>
+<item id="img68" href="xhtml/epubmwegl/OEBPS/image/024d_colour_encoded_laminate_frame_reverse1.png" media-type="image/png"/>
+<item id="img69" href="xhtml/epubmwegl/OEBPS/image/025_easel_file_abc.png" media-type="image/png"/>
+<item id="img70" href="xhtml/epubmwegl/OEBPS/image/025_easel_file_abc1.png" media-type="image/png"/>
+<item id="img71" href="xhtml/epubmwegl/OEBPS/image/025_easel_file_abc2.png" media-type="image/png"/>
+<item id="img72" href="xhtml/epubmwegl/OEBPS/image/026_numerical_encoded_paper_frame_front.png" media-type="image/png"/>
+<item id="img73" href="xhtml/epubmwegl/OEBPS/image/026_numerical_encoded_paper_frame_front1.png" media-type="image/png"/>
+<item id="img74" href="xhtml/epubmwegl/OEBPS/image/026b_numerical_encoded_paper_frame_reverse.png" media-type="image/png"/>
+<item id="img75" href="xhtml/epubmwegl/OEBPS/image/026b_numerical_encoded_paper_frame_reverse1.png" media-type="image/png"/>
+<item id="img76" href="xhtml/epubmwegl/OEBPS/image/027_sm_etran.png" media-type="image/png"/>
+<item id="img77" href="xhtml/epubmwegl/OEBPS/image/027_sm_etran1.png" media-type="image/png"/>
+<item id="img78" href="xhtml/epubmwegl/OEBPS/image/027b_sm_etran_in_use.png" media-type="image/png"/>
+<item id="img79" href="xhtml/epubmwegl/OEBPS/image/027b_sm_etran_in_use1.png" media-type="image/png"/>
+<item id="img80" href="xhtml/epubmwegl/OEBPS/image/027c_Encoded_alphabet_chart_arrows.png" media-type="image/png"/>
+<item id="img81" href="xhtml/epubmwegl/OEBPS/image/027c_Encoded_alphabet_chart_arrows1.png" media-type="image/png"/>
+<item id="img82" href="xhtml/epubmwegl/OEBPS/image/028_megabee1.png" media-type="image/png"/>
+<item id="img83" href="xhtml/epubmwegl/OEBPS/image/028_megabee11.png" media-type="image/png"/>
+<item id="img84" href="xhtml/epubmwegl/OEBPS/image/028b_megabee2.png" media-type="image/png"/>
+<item id="img85" href="xhtml/epubmwegl/OEBPS/image/028b_megabee21.png" media-type="image/png"/>
+<item id="img86" href="xhtml/epubmwegl/OEBPS/image/028c_Lorraine_looking_through_megabee.png" media-type="image/png"/>
+<item id="img87" href="xhtml/epubmwegl/OEBPS/image/028c_Lorraine_looking_through_megabee1.png" media-type="image/png"/>
+<item id="img88" href="xhtml/epubmwegl/OEBPS/image/028c_Lorraine_looking_through_megabee2.png" media-type="image/png"/>
+<item id="img89" href="xhtml/epubmwegl/OEBPS/image/029_Lisa_and_her_EyeLink_chart.png" media-type="image/png"/>
+<item id="img90" href="xhtml/epubmwegl/OEBPS/image/029_Lisa_and_her_EyeLink_chart1.png" media-type="image/png"/>
+<item id="img91" href="xhtml/epubmwegl/OEBPS/image/029b_Eyelink_alphabetical.png" media-type="image/png"/>
+<item id="img92" href="xhtml/epubmwegl/OEBPS/image/029b_Eyelink_alphabetical1.png" media-type="image/png"/>
+<item id="img93" href="xhtml/epubmwegl/OEBPS/image/029c_EyeLink_mirror_image.png" media-type="image/png"/>
+<item id="img94" href="xhtml/epubmwegl/OEBPS/image/029c_EyeLink_mirror_image1.png" media-type="image/png"/>
+<item id="img95" href="xhtml/epubmwegl/OEBPS/image/031_Frequency_listener_scan_chart.png" media-type="image/png"/>
+<item id="img96" href="xhtml/epubmwegl/OEBPS/image/032_numbered_frequency_scan_chart.png" media-type="image/png"/>
+<item id="img97" href="xhtml/epubmwegl/OEBPS/image/032_numbered_frequency_scan_chart1.png" media-type="image/png"/>
+<item id="img98" href="xhtml/epubmwegl/OEBPS/image/033_combination_access_abc.png" media-type="image/png"/>
+<item id="img99" href="xhtml/epubmwegl/OEBPS/image/034_Screenshot-_whiteboard_being_held.png" media-type="image/png"/>
+<item id="img100" href="xhtml/epubmwegl/OEBPS/image/034_Screenshot-_whiteboard_being_held1.png" media-type="image/png"/>
+<item id="img101" href="xhtml/epubmwegl/OEBPS/image/035_fitaly.png" media-type="image/png"/>
+<item id="img102" href="xhtml/epubmwegl/OEBPS/image/036_horizontal_1.png" media-type="image/png"/>
+<item id="img103" href="xhtml/epubmwegl/OEBPS/image/036_horizontal_11.png" media-type="image/png"/>
+<item id="img104" href="xhtml/epubmwegl/OEBPS/image/036b_horizontal_2.png" media-type="image/png"/>
+<item id="img105" href="xhtml/epubmwegl/OEBPS/image/036b_horizontal_21.png" media-type="image/png"/>
+<item id="img106" href="xhtml/epubmwegl/OEBPS/image/036c_horizontal__(3).png" media-type="image/png"/>
+<item id="img107" href="xhtml/epubmwegl/OEBPS/image/036c_horizontal__(3)1.png" media-type="image/png"/>
+<item id="img108" href="xhtml/epubmwegl/OEBPS/image/036d_horizontal__(4).png" media-type="image/png"/>
+<item id="img109" href="xhtml/epubmwegl/OEBPS/image/036d_horizontal__(4)1.png" media-type="image/png"/>
+<item id="img110" href="xhtml/epubmwegl/OEBPS/image/036e_horizontal_(5).png" media-type="image/png"/>
+<item id="img111" href="xhtml/epubmwegl/OEBPS/image/036e_horizontal_(5)1.png" media-type="image/png"/>
+<item id="img112" href="xhtml/epubmwegl/OEBPS/image/037_Braille_chart.png" media-type="image/png"/>
+<item id="img113" href="xhtml/epubmwegl/OEBPS/image/037_Braille_chart1.png" media-type="image/png"/>
+<item id="img114" href="xhtml/epubmwegl/OEBPS/image/037b_Braille_chart_zoom.png" media-type="image/png"/>
+<item id="img115" href="xhtml/epubmwegl/OEBPS/image/037b_Braille_chart_zoom1.png" media-type="image/png"/>
+<item id="img116" href="xhtml/epubmwegl/OEBPS/image/038_Alphacore_chart.png" media-type="image/png"/>
+<item id="img117" href="xhtml/epubmwegl/OEBPS/image/038_Alphacore_chart1.png" media-type="image/png"/>
+<item id="img118" href="xhtml/epubmwegl/OEBPS/image/039_stfc.png" media-type="image/png"/>
+<item id="img119" href="xhtml/epubmwegl/OEBPS/image/040_Dave's_communication_chart_for_hospital.png" media-type="image/png"/>
+<item id="img120" href="xhtml/epubmwegl/OEBPS/image/041_a5_com_book_1.png" media-type="image/png"/>
+<item id="img121" href="xhtml/epubmwegl/OEBPS/image/041_a5_com_book_11.png" media-type="image/png"/>
+<item id="img122" href="xhtml/epubmwegl/OEBPS/image/041b_a5_com_book_2.png" media-type="image/png"/>
+<item id="img123" href="xhtml/epubmwegl/OEBPS/image/041b_a5_com_book_21.png" media-type="image/png"/>
+<item id="img124" href="xhtml/epubmwegl/OEBPS/image/041c_a5_com_book_3.png" media-type="image/png"/>
+<item id="img125" href="xhtml/epubmwegl/OEBPS/image/041c_a5_com_book_31.png" media-type="image/png"/>
+<item id="img126" href="xhtml/epubmwegl/OEBPS/image/041d_a5_com_book_4.png" media-type="image/png"/>
+<item id="img127" href="xhtml/epubmwegl/OEBPS/image/041d_a5_com_book_41.png" media-type="image/png"/>
+<item id="img128" href="xhtml/epubmwegl/OEBPS/image/042_Large_com_book_1.png" media-type="image/png"/>
+<item id="img129" href="xhtml/epubmwegl/OEBPS/image/042_Large_com_book_11.png" media-type="image/png"/>
+<item id="img130" href="xhtml/epubmwegl/OEBPS/image/042b_Large_com_book_2.png" media-type="image/png"/>
+<item id="img131" href="xhtml/epubmwegl/OEBPS/image/042b_Large_com_book_21.png" media-type="image/png"/>
+<item id="img132" href="xhtml/epubmwegl/OEBPS/image/042c_Large_com_book_3.jpg" media-type="image/jpeg"/>
+<item id="img133" href="xhtml/epubmwegl/OEBPS/image/042c_Large_com_book_3.png" media-type="image/png"/>
+<item id="img134" href="xhtml/epubmwegl/OEBPS/image/043_Angie_eyepointing_with_Speakbook.png" media-type="image/png"/>
+<item id="img135" href="xhtml/epubmwegl/OEBPS/image/043_Angie_eyepointing_with_Speakbook1.png" media-type="image/png"/>
+<item id="img136" href="xhtml/epubmwegl/OEBPS/image/043b_Speak_book_2.png" media-type="image/png"/>
+<item id="img137" href="xhtml/epubmwegl/OEBPS/image/043b_Speak_book_21.png" media-type="image/png"/>
+<item id="img138" href="xhtml/epubmwegl/OEBPS/image/044_eye_pointing_com_book_side_view.png" media-type="image/png"/>
+<item id="img139" href="xhtml/epubmwegl/OEBPS/image/045_LMS_Menu.png" media-type="image/png"/>
+<item id="img140" href="xhtml/epubmwegl/OEBPS/image/045_LMS_Menu1.png" media-type="image/png"/>
+<item id="img141" href="xhtml/epubmwegl/OEBPS/image/045b_LMS_Quick_Urgent.png" media-type="image/png"/>
+<item id="img142" href="xhtml/epubmwegl/OEBPS/image/045b_LMS_Quick_Urgent1.png" media-type="image/png"/>
+<item id="img143" href="xhtml/epubmwegl/OEBPS/image/045c_LMS_Spell_it.png" media-type="image/png"/>
+<item id="img144" href="xhtml/epubmwegl/OEBPS/image/045d_LMS_Alfie_chat.png" media-type="image/png"/>
+<item id="img145" href="xhtml/epubmwegl/OEBPS/image/046_Classic_PCS_symbols_example_for_iBook.png" media-type="image/png"/>
+<item id="img146" href="xhtml/epubmwegl/OEBPS/image/046_Classic_PCS_symbols_example_for_iBook1.png" media-type="image/png"/>
+<item id="img147" href="xhtml/epubmwegl/OEBPS/image/046b_Thinline_PCS_symbols_example_for_iBook.png" media-type="image/png"/>
+<item id="img148" href="xhtml/epubmwegl/OEBPS/image/046b_Thinline_PCS_symbols_example_for_iBook1.png" media-type="image/png"/>
+<item id="img149" href="xhtml/epubmwegl/OEBPS/image/046c_SymbolStix_in_Grid3_symbols.png" media-type="image/png"/>
+<item id="img150" href="xhtml/epubmwegl/OEBPS/image/046c_SymbolStix_in_Grid3_symbols1.png" media-type="image/png"/>
+<item id="img151" href="xhtml/epubmwegl/OEBPS/image/046d_Widgit_in_Grid3_symbols_example.png" media-type="image/png"/>
+<item id="img152" href="xhtml/epubmwegl/OEBPS/image/046d_Widgit_in_Grid3_symbols_example1.png" media-type="image/png"/>
+<item id="img153" href="xhtml/epubmwegl/OEBPS/image/047_symbolised_example.png" media-type="image/png"/>
+<item id="img154" href="xhtml/epubmwegl/OEBPS/image/047_symbolised_example1.png" media-type="image/png"/>
+<item id="img155" href="xhtml/epubmwegl/OEBPS/image/1.png" media-type="image/png"/>
+<item id="img156" href="xhtml/epubmwegl/OEBPS/image/10.png" media-type="image/png"/>
+<item id="img157" href="xhtml/epubmwegl/OEBPS/image/1011.png" media-type="image/png"/>
+<item id="img158" href="xhtml/epubmwegl/OEBPS/image/1017.png" media-type="image/png"/>
+<item id="img159" href="xhtml/epubmwegl/OEBPS/image/1025.png" media-type="image/png"/>
+<item id="img160" href="xhtml/epubmwegl/OEBPS/image/1028.png" media-type="image/png"/>
+<item id="img161" href="xhtml/epubmwegl/OEBPS/image/1029.png" media-type="image/png"/>
+<item id="img162" href="xhtml/epubmwegl/OEBPS/image/1033.png" media-type="image/png"/>
+<item id="img163" href="xhtml/epubmwegl/OEBPS/image/1034.png" media-type="image/png"/>
+<item id="img164" href="xhtml/epubmwegl/OEBPS/image/1053.png" media-type="image/png"/>
+<item id="img165" href="xhtml/epubmwegl/OEBPS/image/106.png" media-type="image/png"/>
+<item id="img166" href="xhtml/epubmwegl/OEBPS/image/1071.png" media-type="image/png"/>
+<item id="img167" href="xhtml/epubmwegl/OEBPS/image/1083.jpg" media-type="image/jpeg"/>
+<item id="img168" href="xhtml/epubmwegl/OEBPS/image/1084.png" media-type="image/png"/>
+<item id="img169" href="xhtml/epubmwegl/OEBPS/image/1085.png" media-type="image/png"/>
+<item id="img170" href="xhtml/epubmwegl/OEBPS/image/1086.png" media-type="image/png"/>
+<item id="img171" href="xhtml/epubmwegl/OEBPS/image/1087.png" media-type="image/png"/>
+<item id="img172" href="xhtml/epubmwegl/OEBPS/image/1089.png" media-type="image/png"/>
+<item id="img173" href="xhtml/epubmwegl/OEBPS/image/1090.png" media-type="image/png"/>
+<item id="img174" href="xhtml/epubmwegl/OEBPS/image/1091.png" media-type="image/png"/>
+<item id="img175" href="xhtml/epubmwegl/OEBPS/image/1092.png" media-type="image/png"/>
+<item id="img176" href="xhtml/epubmwegl/OEBPS/image/1096.png" media-type="image/png"/>
+<item id="img177" href="xhtml/epubmwegl/OEBPS/image/1097.png" media-type="image/png"/>
+<item id="img178" href="xhtml/epubmwegl/OEBPS/image/1099.png" media-type="image/png"/>
+<item id="img179" href="xhtml/epubmwegl/OEBPS/image/11.png" media-type="image/png"/>
+<item id="img180" href="xhtml/epubmwegl/OEBPS/image/1101.png" media-type="image/png"/>
+<item id="img181" href="xhtml/epubmwegl/OEBPS/image/1102.png" media-type="image/png"/>
+<item id="img182" href="xhtml/epubmwegl/OEBPS/image/1104.png" media-type="image/png"/>
+<item id="img183" href="xhtml/epubmwegl/OEBPS/image/1106.png" media-type="image/png"/>
+<item id="img184" href="xhtml/epubmwegl/OEBPS/image/1108.png" media-type="image/png"/>
+<item id="img185" href="xhtml/epubmwegl/OEBPS/image/1109.png" media-type="image/png"/>
+<item id="img186" href="xhtml/epubmwegl/OEBPS/image/1110.png" media-type="image/png"/>
+<item id="img187" href="xhtml/epubmwegl/OEBPS/image/1111.png" media-type="image/png"/>
+<item id="img188" href="xhtml/epubmwegl/OEBPS/image/1112.png" media-type="image/png"/>
+<item id="img189" href="xhtml/epubmwegl/OEBPS/image/1113.png" media-type="image/png"/>
+<item id="img190" href="xhtml/epubmwegl/OEBPS/image/1114.png" media-type="image/png"/>
+<item id="img191" href="xhtml/epubmwegl/OEBPS/image/1116.png" media-type="image/png"/>
+<item id="img192" href="xhtml/epubmwegl/OEBPS/image/1117.png" media-type="image/png"/>
+<item id="img193" href="xhtml/epubmwegl/OEBPS/image/1118.png" media-type="image/png"/>
+<item id="img194" href="xhtml/epubmwegl/OEBPS/image/1119.png" media-type="image/png"/>
+<item id="img195" href="xhtml/epubmwegl/OEBPS/image/13.png" media-type="image/png"/>
+<item id="img196" href="xhtml/epubmwegl/OEBPS/image/145.png" media-type="image/png"/>
+<item id="img197" href="xhtml/epubmwegl/OEBPS/image/15.png" media-type="image/png"/>
+<item id="img198" href="xhtml/epubmwegl/OEBPS/image/16.png" media-type="image/png"/>
+<item id="img199" href="xhtml/epubmwegl/OEBPS/image/18.png" media-type="image/png"/>
+<item id="img200" href="xhtml/epubmwegl/OEBPS/image/2.png" media-type="image/png"/>
+<item id="img201" href="xhtml/epubmwegl/OEBPS/image/203.png" media-type="image/png"/>
+<item id="img202" href="xhtml/epubmwegl/OEBPS/image/21.png" media-type="image/png"/>
+<item id="img203" href="xhtml/epubmwegl/OEBPS/image/222.png" media-type="image/png"/>
+<item id="img204" href="xhtml/epubmwegl/OEBPS/image/23.png" media-type="image/png"/>
+<item id="img205" href="xhtml/epubmwegl/OEBPS/image/250.png" media-type="image/png"/>
+<item id="img206" href="xhtml/epubmwegl/OEBPS/image/251.png" media-type="image/png"/>
+<item id="img207" href="xhtml/epubmwegl/OEBPS/image/254.png" media-type="image/png"/>
+<item id="img208" href="xhtml/epubmwegl/OEBPS/image/256.png" media-type="image/png"/>
+<item id="img209" href="xhtml/epubmwegl/OEBPS/image/269.png" media-type="image/png"/>
+<item id="img210" href="xhtml/epubmwegl/OEBPS/image/27.png" media-type="image/png"/>
+<item id="img211" href="xhtml/epubmwegl/OEBPS/image/270.png" media-type="image/png"/>
+<item id="img212" href="xhtml/epubmwegl/OEBPS/image/272.png" media-type="image/png"/>
+<item id="img213" href="xhtml/epubmwegl/OEBPS/image/278.png" media-type="image/png"/>
+<item id="img214" href="xhtml/epubmwegl/OEBPS/image/28.png" media-type="image/png"/>
+<item id="img215" href="xhtml/epubmwegl/OEBPS/image/29.png" media-type="image/png"/>
+<item id="img216" href="xhtml/epubmwegl/OEBPS/image/3.png" media-type="image/png"/>
+<item id="img217" href="xhtml/epubmwegl/OEBPS/image/30.png" media-type="image/png"/>
+<item id="img218" href="xhtml/epubmwegl/OEBPS/image/309.png" media-type="image/png"/>
+<item id="img219" href="xhtml/epubmwegl/OEBPS/image/31.png" media-type="image/png"/>
+<item id="img220" href="xhtml/epubmwegl/OEBPS/image/32.png" media-type="image/png"/>
+<item id="img221" href="xhtml/epubmwegl/OEBPS/image/33.png" media-type="image/png"/>
+<item id="img222" href="xhtml/epubmwegl/OEBPS/image/35.png" media-type="image/png"/>
+<item id="img223" href="xhtml/epubmwegl/OEBPS/image/36.png" media-type="image/png"/>
+<item id="img224" href="xhtml/epubmwegl/OEBPS/image/37.png" media-type="image/png"/>
+<item id="img225" href="xhtml/epubmwegl/OEBPS/image/38.png" media-type="image/png"/>
+<item id="img226" href="xhtml/epubmwegl/OEBPS/image/4.png" media-type="image/png"/>
+<item id="img227" href="xhtml/epubmwegl/OEBPS/image/41.jpg" media-type="image/jpeg"/>
+<item id="img228" href="xhtml/epubmwegl/OEBPS/image/43.png" media-type="image/png"/>
+<item id="img229" href="xhtml/epubmwegl/OEBPS/image/434.png" media-type="image/png"/>
+<item id="img230" href="xhtml/epubmwegl/OEBPS/image/442.png" media-type="image/png"/>
+<item id="img231" href="xhtml/epubmwegl/OEBPS/image/475.png" media-type="image/png"/>
+<item id="img232" href="xhtml/epubmwegl/OEBPS/image/5.png" media-type="image/png"/>
+<item id="img233" href="xhtml/epubmwegl/OEBPS/image/51.png" media-type="image/png"/>
+<item id="img234" href="xhtml/epubmwegl/OEBPS/image/52.png" media-type="image/png"/>
+<item id="img235" href="xhtml/epubmwegl/OEBPS/image/54.png" media-type="image/png"/>
+<item id="img236" href="xhtml/epubmwegl/OEBPS/image/55.png" media-type="image/png"/>
+<item id="img237" href="xhtml/epubmwegl/OEBPS/image/56.png" media-type="image/png"/>
+<item id="img238" href="xhtml/epubmwegl/OEBPS/image/57.png" media-type="image/png"/>
+<item id="img239" href="xhtml/epubmwegl/OEBPS/image/58.png" media-type="image/png"/>
+<item id="img240" href="xhtml/epubmwegl/OEBPS/image/582.png" media-type="image/png"/>
+<item id="img241" href="xhtml/epubmwegl/OEBPS/image/583.png" media-type="image/png"/>
+<item id="img242" href="xhtml/epubmwegl/OEBPS/image/59.png" media-type="image/png"/>
+<item id="img243" href="xhtml/epubmwegl/OEBPS/image/6.png" media-type="image/png"/>
+<item id="img244" href="xhtml/epubmwegl/OEBPS/image/60.png" media-type="image/png"/>
+<item id="img245" href="xhtml/epubmwegl/OEBPS/image/61.png" media-type="image/png"/>
+<item id="img246" href="xhtml/epubmwegl/OEBPS/image/626.png" media-type="image/png"/>
+<item id="img247" href="xhtml/epubmwegl/OEBPS/image/640.png" media-type="image/png"/>
+<item id="img248" href="xhtml/epubmwegl/OEBPS/image/642.png" media-type="image/png"/>
+<item id="img249" href="xhtml/epubmwegl/OEBPS/image/774.png" media-type="image/png"/>
+<item id="img250" href="xhtml/epubmwegl/OEBPS/image/780.png" media-type="image/png"/>
+<item id="img251" href="xhtml/epubmwegl/OEBPS/image/8.png" media-type="image/png"/>
+<item id="img252" href="xhtml/epubmwegl/OEBPS/image/80.png" media-type="image/png"/>
+<item id="img253" href="xhtml/epubmwegl/OEBPS/image/847.png" media-type="image/png"/>
+<item id="img254" href="xhtml/epubmwegl/OEBPS/image/856.png" media-type="image/png"/>
+<item id="img255" href="xhtml/epubmwegl/OEBPS/image/86.png" media-type="image/png"/>
+<item id="img256" href="xhtml/epubmwegl/OEBPS/image/866.png" media-type="image/png"/>
+<item id="img257" href="xhtml/epubmwegl/OEBPS/image/9.png" media-type="image/png"/>
+<item id="img258" href="xhtml/epubmwegl/OEBPS/image/907.png" media-type="image/png"/>
+<item id="img259" href="xhtml/epubmwegl/OEBPS/image/926.png" media-type="image/png"/>
+<item id="img260" href="xhtml/epubmwegl/OEBPS/image/Bridget-ViewsOnCommunicationAids-SCREEN.png" media-type="image/png"/>
+<item id="img261" href="xhtml/epubmwegl/OEBPS/image/Bridget_-_Choosing_an_alphabet_chart_-_p47.png" media-type="image/png"/>
+<item id="img262" href="xhtml/epubmwegl/OEBPS/image/Front_Cover_Image_ADJ.jpg" media-type="image/jpeg"/>
+<item id="img263" href="xhtml/epubmwegl/OEBPS/image/Liberator_letter_board_final.png" media-type="image/png"/>
+<item id="img264" href="xhtml/epubmwegl/OEBPS/image/Liberator_letter_board_final1.png" media-type="image/png"/>
+<item id="img265" href="xhtml/epubmwegl/OEBPS/image/Pauline-JustGetStarted-SCREEN.png" media-type="image/png"/>
+<item id="img266" href="xhtml/epubmwegl/OEBPS/image/Pic_1.png" media-type="image/png"/>
+<item id="img267" href="xhtml/epubmwegl/OEBPS/image/Pic_11.png" media-type="image/png"/>
+<item id="img268" href="xhtml/epubmwegl/OEBPS/image/Pic_2.png" media-type="image/png"/>
+<item id="img269" href="xhtml/epubmwegl/OEBPS/image/Pic_21.png" media-type="image/png"/>
+<item id="img270" href="xhtml/epubmwegl/OEBPS/image/Pic_3.png" media-type="image/png"/>
+<item id="img271" href="xhtml/epubmwegl/OEBPS/image/Pic_31.png" media-type="image/png"/>
+<item id="img272" href="xhtml/epubmwegl/OEBPS/image/VidScreen_ADemonstrationOfBasicListenerMediatedScanner.png" media-type="image/png"/>
+<item id="img273" href="xhtml/epubmwegl/OEBPS/image/VidScreen_A_demonstration_of_auditory_scanning_the_alphabet-2.png" media-type="image/png"/>
+<item id="img274" href="xhtml/epubmwegl/OEBPS/image/VidScreen_A_demonstration_of_coded_access_to_an_alphabet_chart.png" media-type="image/png"/>
+<item id="img275" href="xhtml/epubmwegl/OEBPS/image/VidScreen_A_demonstration_of_colour_encoding_with_an_alphabet_chart.png" media-type="image/png"/>
+<item id="img276" href="xhtml/epubmwegl/OEBPS/image/VidScreen_A_demonstration_of_combination_access_to_an_alphabet_chart.png" media-type="image/png"/>
+<item id="img277" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Beatrice-_Why_I_use_this_method.png" media-type="image/png"/>
+<item id="img278" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Beatrice-_my_previous_communication_aid.png" media-type="image/png"/>
+<item id="img279" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Beatrice-_my_previous_communication_aid1.png" media-type="image/png"/>
+<item id="img280" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Bridget-_trying_an_alphabet_chart.png" media-type="image/png"/>
+<item id="img281" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Bridget-_trying_an_alphabet_chart1.png" media-type="image/png"/>
+<item id="img282" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Charlie_explains_how_he_is_using_the_Megabee.png" media-type="image/png"/>
+<item id="img283" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration-_Look_back_at_me_strategy.png" media-type="image/png"/>
+<item id="img284" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration-_Using_an_alphabet_chart_on_a_homemade_wedge.png" media-type="image/png"/>
+<item id="img285" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration-_partner_assisted_scanning_with_a_communication_book.png" media-type="image/png"/>
+<item id="img286" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration_of_Listener_Mediated_Scanning_with_a_Frequency_layout.png" media-type="image/png"/>
+<item id="img287" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration_of_Speakbook-_How_it_works.png" media-type="image/png"/>
+<item id="img288" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration_of_a_communication_book_-_pointing.png" media-type="image/png"/>
+<item id="img289" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Demonstration_of_the_Speakbook.png" media-type="image/png"/>
+<item id="img290" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Getting_going_with_Listener_Mediated_Scanning_(Frequency_alphabet_chart).png" media-type="image/png"/>
+<item id="img291" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Helen-_advice_for_new_communication_partners.png" media-type="image/png"/>
+<item id="img292" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Lisa_explains_how_to_use_her_personalised_EyeLink_communication_system.png" media-type="image/png"/>
+<item id="img293" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Lorraine-_Chatting_with_a_Megabee.png" media-type="image/png"/>
+<item id="img294" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Michael-_Explaining_what_the_TV_program_'Sons_of_Anarchy'_is_about.png" media-type="image/png"/>
+<item id="img295" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Michael’sCommunicationPassport.png" media-type="image/png"/>
+<item id="img296" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Michael’sCommunicationPassport1.png" media-type="image/png"/>
+<item id="img297" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Rosemary-_Trying_out_letter_codes.png" media-type="image/png"/>
+<item id="img298" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Rosemary-_eye_pointing_to_letters_on_a_Frenchay_E-tran_frame.png" media-type="image/png"/>
+<item id="img299" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Rosemary-_eye_pointing_to_letters_on_a_Frenchay_E-tran_frame1.png" media-type="image/png"/>
+<item id="img300" href="xhtml/epubmwegl/OEBPS/image/VidScreen_Rosemary_chatting_with_a_Frenchay_E-tran_Frame.png" media-type="image/png"/>
+<item id="img301" href="xhtml/epubmwegl/OEBPS/image/VidScreen_WA_demonstration_of_numerical_encoding_with_an_alphabet_chart.png" media-type="image/png"/>
+<item id="img302" href="xhtml/epubmwegl/OEBPS/image/VidScreen_We_all_make_mistakes_-_keep_calm_and_carry_on.png" media-type="image/png"/>
+<item id="img303" href="xhtml/epubmwegl/OEBPS/image/VidScreenshot_Listener_mediated_scanning_with_vowel-based_groups.png" media-type="image/png"/>
+<item id="img304" href="xhtml/epubmwegl/OEBPS/image/new_ABC_for_fig.png" media-type="image/png"/>
+<item id="img305" href="xhtml/epubmwegl/OEBPS/image/p60_gallery_chat.png" media-type="image/png"/>
+<item id="img306" href="xhtml/epubmwegl/OEBPS/image/p60_gallery_spelling.png" media-type="image/png"/>
+<item id="img307" href="../_kmeta/imgUser/v4_ebooks.jpg" media-type="image/jpeg"/>
+<item id="img308" href="../_kmeta/ktemplate/icon.png" media-type="image/png"/>
+<item id="css0" href="css/base.css" media-type="text/css"/>
+<item id="css1" href="css/global.css" media-type="text/css"/>
+<item id="css2" href="css/kotobeeInteractive.css" media-type="text/css"/>
+<item id="css3" href="xhtml/epubmwegl/EPUB/css/base.css" media-type="text/css"/>
+<item id="css4" href="xhtml/epubmwegl/EPUB/css/kotobeeInteractive.css" media-type="text/css"/>
+<item id="css5" href="xhtml/epubmwegl/OEBPS/css/idGeneratedStyles.css" media-type="text/css"/>
+<item id="js0" href="js/global.js" media-type="text/javascript"/>
+<item id="js1" href="js/kotobeeInteractive.js" media-type="text/javascript"/>
+<item id="js2" href="js/kotobeeInteractive3D.js" media-type="text/javascript"/>
+<item id="js3" href="xhtml/epubmwegl/EPUB/js/kotobeeInteractive.js" media-type="text/javascript"/>
+<item id="js4" href="xhtml/epubmwegl/EPUB/js/kotobeeInteractive3D.js" media-type="text/javascript"/>
+<item id="js5" href="xhtml/epubmwegl/OEBPS/script/idGeneratedScript.js" media-type="text/javascript"/>
+<item id="js6" href="../_kmeta/config.js" media-type="text/javascript"/>
+<item id="txt0" href="../_kmeta/ktemplate/config.json" media-type="application/json"/>
+<item id="font0" href="xhtml/epubmwegl/OEBPS/font/Montserrat-Bold.otf" media-type="application/x-font-otf"/>
+<item id="font1" href="xhtml/epubmwegl/OEBPS/font/Montserrat-Italic.otf" media-type="application/x-font-otf"/>
+<item id="font2" href="xhtml/epubmwegl/OEBPS/font/Montserrat-Medium.otf" media-type="application/x-font-otf"/>
+<item id="font3" href="xhtml/epubmwegl/OEBPS/font/Montserrat-Regular.otf" media-type="application/x-font-otf"/>
+<item id="font4" href="xhtml/epubmwegl/OEBPS/font/Montserrat-SemiBold.otf" media-type="application/x-font-otf"/>
 
     </manifest>
     <spine toc="ncx">
         <itemref idref="html0" properties="rendition:layout-pre-paginated"/>
-<itemref idref="html1" properties="rendition:layout-reflowable"/>
-<itemref idref="html2" properties="rendition:layout-reflowable"/>
-<itemref idref="html3" properties="rendition:layout-reflowable"/>
-<itemref idref="html4" properties="rendition:layout-reflowable"/>
-<itemref idref="html5" properties="rendition:layout-reflowable"/>
-<itemref idref="html6" properties="rendition:layout-reflowable"/>
-<itemref idref="html7" properties="rendition:layout-reflowable"/>
-<itemref idref="html8" properties="rendition:layout-reflowable"/>
-<itemref idref="html9" properties="rendition:layout-reflowable"/>
-<itemref idref="html10" properties="rendition:layout-reflowable"/>
-<itemref idref="html11" properties="rendition:layout-reflowable"/>
-<itemref idref="html12" properties="rendition:layout-reflowable"/>
-<itemref idref="html13" properties="rendition:layout-reflowable"/>
-<itemref idref="html14" properties="rendition:layout-reflowable"/>
-<itemref idref="html15" properties="rendition:layout-reflowable"/>
-<itemref idref="html16" properties="rendition:layout-reflowable"/>
-<itemref idref="html17" properties="rendition:layout-reflowable"/>
-<itemref idref="html18" properties="rendition:layout-reflowable"/>
-<itemref idref="html19" properties="rendition:layout-reflowable"/>
-<itemref idref="html20" properties="rendition:layout-reflowable"/>
-<itemref idref="html21" properties="rendition:layout-reflowable"/>
-<itemref idref="html22" properties="rendition:layout-reflowable"/>
-<itemref idref="html23" properties="rendition:layout-reflowable"/>
-<itemref idref="html24" properties="rendition:layout-reflowable"/>
-<itemref idref="html25" properties="rendition:layout-reflowable"/>
-<itemref idref="html26" properties="rendition:layout-reflowable"/>
-<itemref idref="html27" properties="rendition:layout-reflowable"/>
-<itemref idref="html28" properties="rendition:layout-reflowable"/>
-<itemref idref="html29" properties="rendition:layout-reflowable"/>
-<itemref idref="html30" properties="rendition:layout-reflowable"/>
-<itemref idref="html31" properties="rendition:layout-reflowable"/>
-<itemref idref="html32" properties="rendition:layout-reflowable"/>
-<itemref idref="html33" properties="rendition:layout-reflowable"/>
-<itemref idref="html34" properties="rendition:layout-reflowable"/>
-<itemref idref="html35" properties="rendition:layout-reflowable"/>
-<itemref idref="html36" properties="rendition:layout-reflowable"/>
-<itemref idref="html37" properties="rendition:layout-reflowable"/>
-<itemref idref="html38" properties="rendition:layout-reflowable"/>
-<itemref idref="html39" properties="rendition:layout-reflowable"/>
-<itemref idref="html40" properties="rendition:layout-reflowable"/>
-<itemref idref="html41" properties="rendition:layout-reflowable"/>
-<itemref idref="html42" properties="rendition:layout-reflowable"/>
-<itemref idref="html43" properties="rendition:layout-reflowable"/>
-<itemref idref="html44" properties="rendition:layout-reflowable"/>
-<itemref idref="html45" properties="rendition:layout-reflowable"/>
-<itemref idref="html46" properties="rendition:layout-reflowable"/>
-<itemref idref="html47" properties="rendition:layout-reflowable"/>
-<itemref idref="html48" properties="rendition:layout-reflowable"/>
-<itemref idref="html49" properties="rendition:layout-reflowable"/>
-<itemref idref="html50" properties="rendition:layout-reflowable"/>
-<itemref idref="html51" properties="rendition:layout-reflowable"/>
-<itemref idref="html52" properties="rendition:layout-reflowable"/>
-<itemref idref="html53" properties="rendition:layout-reflowable"/>
-<itemref idref="html54" properties="rendition:layout-reflowable"/>
-<itemref idref="html55" properties="rendition:layout-reflowable"/>
-<itemref idref="html56" properties="rendition:layout-reflowable"/>
-<itemref idref="html57" properties="rendition:layout-reflowable"/>
-<itemref idref="html58" properties="rendition:layout-reflowable"/>
-<itemref idref="html59" properties="rendition:layout-reflowable"/>
-<itemref idref="html60" properties="rendition:layout-reflowable"/>
-<itemref idref="html61" properties="rendition:layout-reflowable"/>
-<itemref idref="html62" properties="rendition:layout-reflowable"/>
-<itemref idref="html63" properties="rendition:layout-reflowable"/>
-<itemref idref="html64" properties="rendition:layout-reflowable"/>
-<itemref idref="html65" properties="rendition:layout-reflowable"/>
-<itemref idref="html66" properties="rendition:layout-reflowable"/>
-<itemref idref="html67" properties="rendition:layout-reflowable"/>
-<itemref idref="html68" properties="rendition:layout-reflowable"/>
-<itemref idref="html69" properties="rendition:layout-reflowable"/>
-<itemref idref="html70" properties="rendition:layout-reflowable"/>
-<itemref idref="html71" properties="rendition:layout-reflowable"/>
-<itemref idref="html72" properties="rendition:layout-reflowable"/>
-<itemref idref="html73" properties="rendition:layout-reflowable"/>
-<itemref idref="html74" properties="rendition:layout-reflowable"/>
+<itemref idref="html1" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html2" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html3" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html4" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html5" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html6" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html7" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html8" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html9" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html10" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html11" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html12" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html13" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html14" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html15" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html16" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html17" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html18" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html19" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html20" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html21" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html22" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html23" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html24" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html25" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html26" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html27" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html28" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html29" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html30" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html31" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html32" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html33" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html34" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html35" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html36" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html37" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html38" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html39" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html40" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html41" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html42" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html43" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html44" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html45" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html46" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html47" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html48" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html49" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html50" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html51" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html52" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html53" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html54" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html55" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html56" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html57" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html58" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html59" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html60" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html61" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html62" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html63" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html64" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html65" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html66" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html67" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html68" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html69" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html70" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html71" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html72" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html73" properties="rendition:layout-pre-paginated"/>
+<itemref idref="html74" properties="rendition:layout-pre-paginated"/>
 
     </spine>
 

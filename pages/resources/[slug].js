@@ -142,6 +142,14 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     })
   );
 
+  const variations = currentResource.variations || [];
+  const seoPrice =
+    currentResource.price ||
+    Math.max(...variations.map((variation) => variation.price));
+  const seoInStock =
+    currentResource.inStock ||
+    variations.some((variation) => variation.inStock);
+
   return {
     props: {
       resource: currentResource,
@@ -151,6 +159,17 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
         title: currentResource.name,
         description: currentResource.shortDescription,
         image: currentResource.image,
+        product: {
+          sku: currentResource.slug,
+          image: currentResource?.image?.src || null,
+          title: currentResource.name,
+          description:
+            currentResource.shortDescription ||
+            `Checkout the ${currentResource.name} created by Ace Centre.`,
+          url: `https://acecentre.org.uk/resources/${currentResource.slug}`,
+          price: seoPrice,
+          availability: seoInStock,
+        },
       },
     },
   };
