@@ -4691,10 +4691,10 @@
   dependencies:
     "@jest/create-cache-key-function" "^27.4.2"
 
-"@swc/register@0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.9.tgz#cc939a8f5e8a4156008f6059c6444da28aeae041"
-  integrity sha512-/HuYKPuzroGPowMmTRmwJ2C0E7isp4bIYdui7pkRqbzY2atW5fsNOb/zNNP6UTRfbuq6yzF1Mtmxw2sPzG2sTQ==
+"@swc/register@0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@swc/register/-/register-0.1.10.tgz#74a20b7559669e03479b05e9e5c6d1524d4d92a2"
+  integrity sha512-6STwH/q4dc3pitXLVkV7sP0Hiy+zBsU2wOF1aXpXR95pnH3RYHKIsDC+gvesfyB7jxNT9OOZgcqOp9RPxVTx9A==
   dependencies:
     lodash.clonedeep "^4.5.0"
     pirates "^4.0.1"
