@@ -189,10 +189,15 @@ context("Moodle", () => {
       await deleteUser(newEmail);
     });
 
-    it(
+    it.skip(
       ["post-deploy"],
       "Buy a course for a new user, check they are enrolled on the course",
       () => {
+        Cypress.on("uncaught:exception", (err) => {
+          if (err.message.includes("theme_boost")) return false;
+          return true;
+        });
+
         newEmail = validEmail();
 
         // Visit splash
@@ -245,6 +250,48 @@ context("Moodle", () => {
 
         // Complete checkout
         cy.url({ timeout: 30000 }).should("include", "/checkout");
+        cy.findByRole("textbox", { name: "First name" }).type("John");
+        cy.findByRole("textbox", { name: "Last name" }).type("Smith");
+        cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
+        cy.findByRole("textbox", { name: "Email address" }).should(
+          "have.value",
+          newEmail
+        );
+        cy.findByLabelText("I am booking this course for myself")
+          .parent()
+          .click();
+
+        cy.findByRole("checkbox", {
+          name: "I have read and agree to the website terms and conditions",
+        }).click({ force: true });
+
+        cy.findByRole("button", { name: "Place order" }).click();
+        cy.url({ timeout: 30000 }).should("include", "order");
+
+        // Go to My Ace Centre and check we are enrolled
+        cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+        cy.url({ timeout: 30000 }).should("include", "my-acecentre");
+        cy.findByRole("link", { name: "View your courses >" }).click();
+        cy.url({ timeout: 30000 }).should("include", "my-acecentre/courses");
+
+        // Click the link to go to the course
+        cy.findByRole("link", { name: /Splash/i }).click();
+        cy.url({ timeout: 30000 }).should(
+          "include",
+          "learning.acecentre.org.uk/course/view"
+        );
+
+        // Check we are on the course and logged in
+        cy.findAllByRole("heading", { name: /Splash/i })
+          .first()
+          .should("exist");
+        cy.findByText("John Smith").should("exist");
+
+        // Delete account from moodle
+        cy.visit("https://learning.acecentre.org.uk/user/profile.php");
+        cy.findByRole("link", { name: "Delete my account" }).click();
+        cy.url({ timeout: 30000 }).should("include", "createdatarequest");
+        cy.findByRole("button", { name: "Save changes" }).click();
       }
     );
   });
