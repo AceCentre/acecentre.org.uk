@@ -94,7 +94,7 @@ export default function MountingPage() {
               We fit a wide range of mounts and systems including those from{" "}
               <a href="https://rehadapt.com/">Rehadapt</a>,{" "}
               <a href="https://www.aacmounts.com/mmweb/">Daessy</a>,{" "}
-              <a href="https://www.mountnmover.com/">Mount and Mover</a>,{" "}
+              <a href="https://www.mountnmover.com/">Mount'n Mover</a>,{" "}
               <a href="https://www.mo-vis.com/products/mounting-systems">
                 Mo-vis
               </a>{" "}
@@ -125,7 +125,7 @@ export default function MountingPage() {
               appropriate. Powered mounts can be useful to enable a
               communication device (perhaps the Pow!r Mounts from{" "}
               <a href="https://www.mountnmover.com/products/powr-mounts">
-                Mount and Mover
+                Mount'n Mover
               </a>
               ) or access device (perhaps using a{" "}
               <a href="https://www.mo-vis.com/products/mounting-systems/multi-swing">
