@@ -10,6 +10,7 @@ import {
   cropToSquareLoaderCloudinary,
   keyLoader,
   cropToSquareLoaderKey,
+  rawLoader,
 } from "../lib/image-loader";
 
 const loaders = {
@@ -19,6 +20,7 @@ const loaders = {
   cropToSquareLoaderCloudinary,
   keyLoader,
   cropToSquareLoaderKey,
+  rawLoader,
 };
 
 const normalLoader = loaders[imageLoaders.normal];
