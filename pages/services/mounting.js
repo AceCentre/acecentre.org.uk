@@ -171,15 +171,15 @@ export default function MountingPage() {
                 at your location
               </ListItem>
               <ListItem>
-                £295 to provide an assessment, supply and fit the first system
-                and £95 for each additional system at one of our assessment
-                centres.
+                £295 to provide an assessment and fit the first system and £95
+                for each additional system at one of our assessment centres.
               </ListItem>
               <ListItem>
-                £395 to provide an assessment, supply and fit for the first
-                client and £150 for each additional client at your location.
+                £395 to provide an assessment and fit for the first client and
+                £150 for each additional client at your location.
               </ListItem>
               <ListItem>
+                We can also supply the mounting system at additional cost.
                 Prices for equipment varies, but a standard wheelchair mounting
                 system is likely to cost between £250 and £750 depending on the
                 weight of the device being mounted.
