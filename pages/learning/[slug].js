@@ -18,6 +18,7 @@ import { CourseList } from "../../components/course-list/course-list";
 import { Certificate } from "../../components/certificate/certificate";
 import { getLearningLevels } from "../../lib/products/get-learning-levels";
 import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
+import Link from "next/link";
 
 export default function LearningDetail({
   course,
@@ -41,6 +42,13 @@ export default function LearningDetail({
         <div className={styles.contentBody}>
           <div>
             <div dangerouslySetInnerHTML={{ __html: course.content }} />
+            <p className={styles.timezone}>
+              *All times shown are given{" "}
+              <Link href="https://www.timeanddate.com/worldclock/uk/london">
+                in the UK timezone
+              </Link>
+              , on the date the course is run.
+            </p>
             <div className={styles.mailingListContainer}>
               <MailingList
                 signUpIdentifier="learning-detail"
