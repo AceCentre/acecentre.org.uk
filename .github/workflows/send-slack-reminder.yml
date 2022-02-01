@@ -1,7 +1,6 @@
 name: Send Slack Reminder
 on:
   workflow_dispatch:
-  pull_request:
   schedule:
     - cron: "0 15 * * 5"
 
