@@ -5,6 +5,7 @@ import {
   cloudinaryLoader,
   imageKitLoader,
   keyLoader,
+  rawLoader,
 } from "../lib/image-loader";
 
 const defaultTitle =
@@ -16,6 +17,7 @@ const loaders = {
   cloudinaryLoader,
   imageKitLoader,
   keyLoader,
+  rawLoader,
 };
 
 const imageLoader = loaders[imageLoaders.normal];

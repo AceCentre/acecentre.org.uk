@@ -14,7 +14,7 @@ const useSitemap = () => {
   const [sitemap, setSitemap] = useState(null);
 
   const getSitemap = async () => {
-    const response = await fetch("/sitemap.xml");
+    const response = await fetch("/sitemap-0.xml");
     const sitemapString = await response.text();
     const parser = new DOMParser();
     const sitemapDoc = parser.parseFromString(sitemapString, "application/xml");
