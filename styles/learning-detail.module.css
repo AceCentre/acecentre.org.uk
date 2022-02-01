@@ -4,6 +4,11 @@
   max-width: var(--containerMaxWidth);
 }
 
+.timezone {
+  font-style: italic;
+  margin: 0;
+}
+
 .mailingListContainer {
   padding-bottom: 2rem;
 }
