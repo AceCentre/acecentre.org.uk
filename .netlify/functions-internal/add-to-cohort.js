@@ -84,7 +84,10 @@ const sendSlackMessage = async (message) => {
 
   const testEmailRegex = /test-[0-9]+@acecentre.org.uk/;
 
-  if (testEmailRegex.test(message)) {
+  if (
+    testEmailRegex.test(message) &&
+    markdown.toLowerCase().includes("successfully")
+  ) {
     console.log(
       "Swallowing the following message because it has the test email, its too noisy",
       markdown
