@@ -81,6 +81,17 @@ const sendSlackMessage = async (message) => {
   console.log("Trying to send a slack message");
   const turndownService = new TurndownService();
   const markdown = turndownService.turndown(message);
+
+  const testEmailRegex = /test-[0-9]+@acecentre.org.uk/;
+
+  if (testEmailRegex.test(message)) {
+    console.log(
+      "Swallowing the following message because it has the test email, its too noisy",
+      markdown
+    );
+    return;
+  }
+
   await app.client.chat.postMessage({
     channel: "C02E0MC3HB2",
     text: markdown,
