@@ -1,4 +1,8 @@
 # To use this file please install the REST Client plugin for VSCode => https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+@authToken = {{$dotenv CYPRESS_WORDPRESS_AUTH}}
+@couponId = 30080
+
+### GraphQL Query for all prodducts
 
 POST https://backend.acecentre.org.uk/graphql
 Content-Type: application/json
@@ -8,3 +12,29 @@ Content-Type: application/json
     "variables": null,
     "operationName": "AllProducts"
 }
+
+### Create new coupon
+
+POST https://backend.acecentre.org.uk/wp-json/wc/v3/coupons
+Content-Type: application/json
+Authorization: Basic {{authToken}}
+
+{
+    "code": "cypress_testing_code",
+    "discount_type": "percent",
+    "amount": "100",
+    "usage_limit": 1,
+    "description": "Created automatically for Cypress tests"
+}
+
+### Delete Coupon
+
+DELETE https://backend.acecentre.org.uk/wp-json/wc/v3/coupons/{{couponId}}?force=true
+Content-Type: application/json
+Authorization: Basic {{authToken}}
+
+### Get Coupon
+
+GET https://backend.acecentre.org.uk/wp-json/wc/v3/coupons/{{couponId}}?force=true
+Content-Type: application/json
+Authorization: Basic {{authToken}}
