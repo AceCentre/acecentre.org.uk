@@ -27,7 +27,6 @@ jobs:
             const script = require('./scripts/calculate-deploy-key')
             const result = script(context);
             console.log('Deploy key:', result);
-
             return result;
 
   GetUniqueBuildId:
@@ -239,7 +238,6 @@ jobs:
           script: |
             const script = require('./scripts/sitemap-to-lighthouse-list')
             return script(context, 256, 0);
-
       - uses: actions/github-script@v5
         id: get-paths-second
         with:
@@ -268,7 +266,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=${{ needs.DeployNetlify.outputs.deploy-url }}
+          config: baseUrl=https://acecentre.org.uk
           record: true
           install: false
         env:
@@ -276,6 +274,7 @@ jobs:
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
         uses: cypress-io/github-action@v2
 
   LighthouseFirst:
