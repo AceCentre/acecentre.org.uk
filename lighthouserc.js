@@ -122,6 +122,7 @@ module.exports = {
         tabindex: "off",
 
         "offscreen-images": "off",
+        "unsized-images": "off",
 
         ...getExtraAssertions(),
       },
