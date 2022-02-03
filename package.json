@@ -93,7 +93,7 @@
     "mysql2": "2.3.3",
     "netlify-cli": "8.15.3",
     "next-sitemap": "2.1.6",
-    "nock": "13.2.2",
+    "nock": "13.2.3",
     "plop": "3.0.5",
     "storybook-css-modules-preset": "1.0.8"
   }
