@@ -8,6 +8,8 @@ import { LandingPageCover } from "../components/landing-page-cover/landing-page-
 import { LatestFromBlog } from "../components/latest-from-blog/latest-from-blog";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
+import { CommunicationWorksBanner } from "../components/communication-works-banner/communication-works-banner";
+
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
@@ -28,6 +30,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
   return (
     <>
       <header>
+        <CommunicationWorksBanner />
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
