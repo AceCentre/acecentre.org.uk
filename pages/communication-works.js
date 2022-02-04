@@ -36,63 +36,163 @@ export default function CommunicationWorks() {
         </div>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>Advice & information</h2>
+            <h2>Communication Works 2022 #GetSeen</h2>
             <p>
-              Whether you are just starting out or you are an experienced AAC
-              /AT user ready to move on, we offer remote and face to face
-              support so you can chat about your needs with members of the Ace
-              Centre team.
-            </p>
-            <h2>Free Advice Line</h2>
-            <p>
-              Perhaps you have a problem or a question about AAC/AT or you are
-              worried about someone you know? Using AAC/AT and stuck? New to
-              AAC/AT?
+              Ace Centre is delighted to be partnering with{" "}
+              <Link href="https://cenmac.com/">CENMAC</Link> to host
+              Communication Works 2022. This successful event was established in
+              London 2011 and we&apos;ve been working with New Bridge School in
+              Oldham to offer it for the first time in the North of England.
             </p>
             <p>
-              Give our helpline a call or send an email. Our clinical staff are
-              pleased to help you find solutions
+              Communication Works 2022 is a free live event allowing attendees
+              the opportunity to see first-hand a range of assistive and
+              accessible technology, communication tools, digital strategies,
+              and person-centred approaches. We&apos;ve invited new and
+              established innovators to present and exhibit a diverse selection
+              of AT and AAC products and strategies to support students in
+              mainstream education and SEND, including those with physical
+              difficulties, vision and/or hearing impairments, dyslexia,
+              communications needs, or requiring curriculum support.
             </p>
-            <p>For professionals, service users, carers or others.</p>
-            <h2>Information appointments:</h2>
-            <ul className={styles.list}>
-              <ListItem>Free</ListItem>
-              <ListItem>Twice a month</ListItem>
-              <ListItem>Appointments last one hour</ListItem>
-            </ul>
+            <h2>Guest Speaker | Toby Hewson</h2>
             <p>
-              Whether you are just starting out or you are an experienced AAC
-              /AT user ready to move on, book in for an informal chat about your
-              needs with members of the Ace Centre team.
+              &quot;Toby Hewson who founded Sussex-based charity Just Different
+              in 2008 has been listed as one of the Top 100 Inspirational People
+              in Sussex by regional magazine ETC, part of the JPIMedia Group.
+              After experiencing difficulties in being accepted in the
+              workplace, he vowed to set up an organisation that not only helped
+              to educate young people on the important area of understanding
+              disability and difference - but to create opportunities at the
+              same time for disabled people to work and progress in meaningful
+              careers.&quot; - Sussex Local (2019)
             </p>
-            <p>
-              Please note that this appointment is NOT an assessment, but
-              instead it is an opportunity to reflect on a range of AAC /
-              AT-related issues with members of our service delivery team.
-            </p>
-            <p>
-              At Ace Centre, we believe that information should be accessible to
-              all, up-to-date, unbiased and, ideally, free at source to people
-              in need. This is why we provide free information appointments
-              every month. Information Appointments are offered on 2 days per
-              month. Each information day consists of five separate one hour
-              appointments which are completely free. These appointments do not
-              provide a full AT/AAC assessment, but they are an opportunity to
-              meet informally with our staff and discuss your needs. So, whether
-              you are new to AAC/AT and trying to find a starting point, or you
-              are already using AAC/AT and want to know how to move on, book in
-              for a video-call session with our staff. You may also be offered
-              an information appointment if your referral for assessment through
-              the Specialised AAC Services has been unsuccessful. If so,
-              appointments could be used to discuss other options for funding,
-              to gather more information to help with your referral to Ace
-              Centre, and/or to consider other possible next steps.
-            </p>
-
             <MailingList
               signUpIdentifier="communication-works"
               description="Sign up to our free newsletter to get emails about other Ace Centre events and news."
             />
+            <h2>Exhibitors</h2>
+            <ul className={styles.list}>
+              <ListItem>Ace Centre</ListItem>
+              <ListItem>
+                <Link href="https://cenmac.com/">CENMAC*</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.ability-world.com/">Ability World</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.facebook.com/AbdiEnterprises">
+                  Adbi Enterprises*
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.brightsignglove.com/">
+                  Brightsign Glove
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.calibreaudio.org.uk/">
+                  Calibre Audio*
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://candleaac.com/">CandLE</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://en.commtap.org/">Commtap</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.filisia.com/">Cosmo by Filisia</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.cricksoft.com/uk">Crick Software</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://yourdolphin.com/en-gb/products/individuals/easyreader-app">
+                  Dolphin
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://eyetechds.com/focus-areas/aac-communication/">
+                  EyeTech
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.humanware.com/en-united_kingdom/home">
+                  Humanware
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.inspiration-at.com/">Inspiration</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.jabbla.co.uk/">Jabbla UK</Link>
+              </ListItem>
+              <ListItem>Just Different</ListItem>
+              <ListItem>
+                <Link href="https://kaz-type.com/">Kaz-type</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.liberator.co.uk/">Liberator</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.merushop.org/">Meru*</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.noisolation.com/av1">
+                  No Isolation*
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.orcam.com/en/">Orcam</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="http://www.pcbyvoice.com/">PCByVoice*</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://luxai.com/robot-for-teaching-children-with-autism-at-home">
+                  QTrobot*
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://readingwise.com/">Readingwise</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://rixresearchandmedia.org/">Rix Centre</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.scanningpens.co.uk/">
+                  Scanning Pens
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.scribeasy.com/">Scribeasy</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.seeability.org/">SeeAbility</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://thinksmartbox.com/">Smartbox</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.texthelp.com/en-gb/">Texthelp</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://uk.tobiidynavox.com/">Tobii Dynavox</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.widgit.com/">Widgit*</Link>
+              </ListItem>
+            </ul>
+            <p>
+              <i>*Exhibiting at the South event only </i>
+            </p>
+            <p>
+              <i>
+                More companies to be confirmed and the seminar programmed will
+                be shared at the beginning of May 2022.{" "}
+              </i>
+            </p>
           </div>
           <div>
             <div className={styles.quote}>
@@ -102,9 +202,10 @@ export default function CommunicationWorks() {
               <div>
                 <h3>Communication Works NORTH</h3>
                 <p>26 May 2022 | 10am-4pm</p>
+                <p>New Bridge School, Roman Road, Oldham OL8 3PH</p>
                 <p>
                   <Link href="https://www.eventbrite.co.uk/e/255181132637">
-                    Register Here
+                    Register for free here.
                   </Link>
                 </p>
               </div>
@@ -117,8 +218,12 @@ export default function CommunicationWorks() {
                 <h3>Communication Works SOUTH</h3>
                 <p>19 May 2022 | 10am-4pm</p>
                 <p>
+                  Charlton Athletic Football Stadium, The Valley, Charlton,
+                  London SE7 8BL
+                </p>
+                <p>
                   <Link href="https://www.eventbrite.co.uk/e/252057730457">
-                    Register Here
+                    Register for free here.
                   </Link>
                 </p>
               </div>
@@ -171,7 +276,8 @@ export const getStaticProps = withGlobalProps(async () => {
       gettingStartedResources: resources.slice(0, 4),
       seo: {
         title: "Communication Works 2022",
-        description: "Description needed",
+        description:
+          "Communication Works 2022 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },
     },
   };

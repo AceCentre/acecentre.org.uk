@@ -147,4 +147,8 @@
   .bottomContainer {
     grid-template-columns: 1fr;
   }
+
+  .bottomContainer > div:last-child {
+    grid-row: 1;
+  }
 }
