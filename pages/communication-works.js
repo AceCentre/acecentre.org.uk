@@ -189,8 +189,8 @@ export default function CommunicationWorks() {
             </p>
             <p>
               <i>
-                More companies to be confirmed and the seminar programmed will
-                be shared at the beginning of May 2022.{" "}
+                More companies to be confirmed and the seminar programme will be
+                shared at the beginning of May 2022.{" "}
               </i>
             </p>
           </div>
