@@ -10,11 +10,11 @@ context("Paid resources", () => {
   it(["pre-deploy"], "can navigate to a paid resource", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Resources" }).first().click();
-    cy.url({ timeout: 30000 }).should("include", "resources");
+    cy.url({ timeout: 60000 }).should("include", "resources");
     cy.findAllByRole("link", { name: "View all resources" }).first().click();
-    cy.url({ timeout: 30000 }).should("include", "resources/all");
+    cy.url({ timeout: 60000 }).should("include", "resources/all");
     cy.findAllByRole("combobox", { name: "Price range" }).select("Paid");
-    cy.url({ timeout: 30000 }).should("include", "pricerange=paid");
+    cy.url({ timeout: 60000 }).should("include", "pricerange=paid");
     cy.findByRole("main")
       .findAllByRole("list")
       .first()
@@ -33,10 +33,10 @@ context("Paid resources", () => {
 
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 30000 }).should("include", "basket");
+      cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
       cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
-      cy.url({ timeout: 30000 }).should("include", "register-checkout");
+      cy.url({ timeout: 60000 }).should("include", "register-checkout");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -55,7 +55,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 30000 }).should("include", "/checkout");
+      cy.url({ timeout: 60000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -98,7 +98,7 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 30000 }).should("include", "order");
+      cy.url({ timeout: 60000 }).should("include", "order");
     }
   );
 
@@ -109,11 +109,11 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("/resources/developing-using-communication-book");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 30000 }).should("include", "basket");
+      cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£50.00");
       cy.findAllByRole("link", { name: "Checkout" }).last().click();
       cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
-      cy.url({ timeout: 30000 }).should("include", "register-checkout");
+      cy.url({ timeout: 60000 }).should("include", "register-checkout");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -132,7 +132,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 30000 }).should("include", "/checkout");
+      cy.url({ timeout: 60000 }).should("include", "/checkout");
 
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
@@ -176,7 +176,7 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 30000 }).should("include", "order");
+      cy.url({ timeout: 60000 }).should("include", "order");
 
       cy.findByRole("heading", { name: "An error occurred" }).should(
         "not.exist"
@@ -191,10 +191,10 @@ context("Paid resources", () => {
       const newEmail = validEmail();
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
-      cy.url({ timeout: 30000 }).should("include", "basket");
+      cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
       cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
-      cy.url({ timeout: 30000 }).should("include", "register-checkout");
+      cy.url({ timeout: 60000 }).should("include", "register-checkout");
 
       // Fill in email field
       cy.findAllByRole("form", { name: "Register form" })
@@ -213,7 +213,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Register and checkout" })
         .click();
 
-      cy.url({ timeout: 30000 }).should("include", "/checkout");
+      cy.url({ timeout: 60000 }).should("include", "/checkout");
       cy.findByRole("textbox", { name: "First name" }).type("John");
       cy.findByRole("textbox", { name: "Last name" }).type("Smith");
       cy.findByRole("combobox", { name: "Country" }).select(
@@ -257,7 +257,7 @@ context("Paid resources", () => {
 
       cy.findByRole("button", { name: "Place order" }).click();
 
-      cy.wait(30000);
+      cy.wait(60000);
 
       // Huge hack to get into the many iframes for 3D Auth
       // Any update to iframe names from stripe will break this
@@ -275,7 +275,7 @@ context("Paid resources", () => {
         .findByRole("button", { name: "Complete authentication" })
         .click();
 
-      cy.url({ timeout: 30000 }).should("include", "order");
+      cy.url({ timeout: 60000 }).should("include", "order");
     }
   );
 });
