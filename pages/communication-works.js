@@ -1,30 +1,23 @@
-import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Avatar } from "@material-ui/core";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-
 import styles from "../styles/communication-works.module.css";
 import { getSimpleStory } from "../lib/story/get-story";
-// import { FeaturedStory } from "../components/featured-story/featured-story";
-import { InformationDays } from "../components/information-days/information-days";
+
 import { getAllProducts } from "../lib/products/get-products";
 import { getAllProductCategories } from "../lib/products/get-all-categories";
 import { filterProducts } from "../lib/products/filter-products";
-import { ResourceList } from "../components/resource-list/resource-list";
-import { FormModal, INFO_APP_FEEDBACK } from "../components/ms-form";
-
-export default function EngineeringPage({
-  // featuredStory,
-  gettingStartedResources,
-}) {
+import { Image } from "../components/image";
+import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
+import Link from "next/link";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+export default function CommunicationWorks() {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -33,27 +26,14 @@ export default function EngineeringPage({
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <VideoWithCardCover
-          src="/services/advice.jpg"
-          alt="Ace Centre employee smiling whilst wearing a headset"
-          imageClassName={styles.coverImage}
-          heightClass={styles.coverHeight}
-        >
-          <h1 className={styles.cardTitle}>Advice & Information</h1>
-          <p className={styles.cardDescription}>
-            The Ace Centre team offer you AAC and AT support at any and every
-            stage of your journey
-          </p>
-          <div className={styles.cardButton}>
-            <Button href="/information-appointments">
-              Book information appointment
-            </Button>
-          </div>
-
-          <p className={styles.cardContact}>
-            or call our advice line on <strong>0800 080 3115</strong>
-          </p>
-        </VideoWithCardCover>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/CW2022.png"
+            alt="Communication works banner"
+            width={1640}
+            height={924}
+          />
+        </div>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
             <h2>Advice & information</h2>
@@ -109,55 +89,42 @@ export default function EngineeringPage({
               Centre, and/or to consider other possible next steps.
             </p>
 
-            <div className={styles.inlineCard}>
-              <h2>Information appointment feedback</h2>
-              <p>
-                We will use the information you provide solely to monitor and
-                evaluate our services, and we will not share the data with
-                anyone else.
-              </p>
-
-              <FormModal form={INFO_APP_FEEDBACK}>
-                {({ onClick }) => (
-                  <Button onClick={onClick}>Leave feedback</Button>
-                )}
-              </FormModal>
-            </div>
+            <MailingList
+              signUpIdentifier="communication-works"
+              description="Sign up to our free newsletter to get emails about other Ace Centre events and news."
+            />
           </div>
           <div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
+                <AssignmentIcon className={styles.icon} />
               </Avatar>
-              <div className={styles.quoteText}>
-                <p className={styles.quoteContent}>
-                  &quot;Met with these amazing people today. At an emotional
-                  stage in our story they gave us hope for the future for our
-                  lovely son who is unlikely to speak. Can’t wait to get started
-                  with ‘modelling’ (now I finally know what it is!) and allow
-                  him to learn his own special way of talking. &quot;
+              <div>
+                <h3>Communication Works NORTH</h3>
+                <p>26 May 2022 | 10am-4pm</p>
+                <p>
+                  <Link href="https://www.eventbrite.co.uk/e/255181132637">
+                    Register Here
+                  </Link>
                 </p>
-                <div>
-                  <p>
-                    <strong>Katie Lees</strong>
-                  </p>
-                  <p>
-                    Parent, who attended our Information Appointment service
-                  </p>
-                </div>
+              </div>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <AssignmentIcon className={styles.icon} />
+              </Avatar>
+              <div>
+                <h3>Communication Works SOUTH</h3>
+                <p>19 May 2022 | 10am-4pm</p>
+                <p>
+                  <Link href="https://www.eventbrite.co.uk/e/252057730457">
+                    Register Here
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
         </div>
-        <ResourceList
-          title="Resources to get started"
-          viewAllLink="/resources/all?category=getting-started"
-          products={gettingStartedResources}
-        />
-        <InformationDays />
-        {/* <div className={styles.extraSpacing}>
-          <FeaturedStory {...featuredStory} />
-        </div> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -203,9 +170,8 @@ export const getStaticProps = withGlobalProps(async () => {
       featuredStory,
       gettingStartedResources: resources.slice(0, 4),
       seo: {
-        title: "Advice & information",
-        description:
-          "Whether you are just starting out or you are an experienced AAC /AT user ready to move on, we offer remote and face to face support so you can chat about your needs with members of the Ace Centre team.",
+        title: "Communication Works 2022",
+        description: "Description needed",
       },
     },
   };
