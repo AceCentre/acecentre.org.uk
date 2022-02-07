@@ -5,7 +5,7 @@ export const CommunicationWorksBanner = () => {
   return (
     <div className={styles.container}>
       <p>
-        🎉 Checkout this sentence about communication works.{" "}
+        🎉 Communication Works: live AT events coming in May 2022.{" "}
         <Link href="/communication-works">Click here to find out more!</Link>
       </p>
     </div>
