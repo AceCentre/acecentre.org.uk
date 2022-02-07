@@ -1,0 +1,154 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #00537f;
+}
+
+.link:focus,
+.link:hover {
+  text-decoration: underline;
+}
+
+.imageContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.listAvatar.listAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #94c64e;
+}
+
+.inlineCard {
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+  margin: 1rem 0;
+}
+
+.extraSpacing {
+  margin: 5rem 0;
+}
+
+.inlineCard h2 {
+  margin-top: 0;
+}
+
+.cardTitle.cardTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.cardDescription.cardDescription {
+  font-size: 32px;
+  line-height: 39px;
+}
+
+.cardButton.cardButton {
+  margin: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+.cardContact.cardContact {
+  font-size: 16px;
+}
+
+.bottomContainer {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.quote {
+  padding: 2rem 0;
+  display: flex;
+  gap: 0.5rem;
+  flex: 0 0 445px;
+  max-width: 90%;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.quote > div > p {
+  margin: 0;
+}
+
+.quote > div > h3 {
+  margin: 0;
+}
+.quote > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quoteText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quoteText p {
+  margin: 0;
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background: #bfdded;
+}
+
+.icon.icon {
+  color: #5589b7;
+  font-size: 40px;
+}
+
+.quoteContent {
+  color: #00537f;
+
+  font-size: 22px;
+}
+
+.downloadFormButtonContainer {
+  margin: 1rem 0;
+}
+
+.downloadFormButton {
+  background-color: #005eb8;
+}
+
+.pricingButton {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.serviceProvidedByContainer {
+  padding-left: calc(60px + 1rem);
+  margin-top: 2rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .bottomContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomContainer > div:last-child {
+    grid-row: 1;
+  }
+}
