@@ -16,6 +16,7 @@ module.exports = {
       "SLACK_TOKEN",
       "SLACK_SECRET",
       "POSTHOG_KEY",
+      "CLOUDINARY_CLOUD",
     ];
 
     const pathToEnv = path.join(process.cwd(), "./.env");
