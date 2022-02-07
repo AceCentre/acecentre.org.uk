@@ -191,6 +191,15 @@ export default function NHSLanding() {
               Maintenance (PPM) Check to ensure the equipment is operating
               safely.
             </p>
+            <h2>What if my needs change?</h2>
+            <p>
+              You can make a re-referral to our NHSE specialised AAC services,
+              for example if you experience changes in your medical condition or
+              the environmental support available to you has altered, which
+              therefore limits your ability to communicate using your device.
+              Please note that this may involve adaptations to your existing
+              equipment.
+            </p>
             <CardHighlight
               title="Find an assistive technology service near you"
               description="Find your nearest NHS AAC Service, Environmental Control Service or Wheelchair Service."
