@@ -23,4 +23,4 @@ const script = async () => {
   }
 };
 
-module.export = script;
+module.exports = script;
