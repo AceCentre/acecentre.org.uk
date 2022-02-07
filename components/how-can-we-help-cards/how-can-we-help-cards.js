@@ -62,7 +62,7 @@ export const HowCanWeHelpCards = () => {
             headline="Free Advice Line"
             secondaryLine="Call us on 0800 080 3115
             Office hours, 9AM - 5PM, Monday - Friday"
-            href="tel:08000803115"
+            href="/contact"
             alt="Group of icons to show 'Free Advice Line'"
             iconColour="#5AA8D1"
           />
