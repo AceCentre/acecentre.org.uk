@@ -18,7 +18,6 @@ export const StoryContentAndQuote = ({ story }) => {
           </Avatar>
           <div>
             <p className={styles.quoteText}>{story.quote}</p>
-            <p className={styles.quoteName}>{story.title}</p>
           </div>
         </div>
       )}
