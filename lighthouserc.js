@@ -123,7 +123,7 @@ module.exports = {
 
         "offscreen-images": "off",
         "unsized-images": "off",
-        "crawlable-anchors":"off"
+        "crawlable-anchors": "off",
 
         ...getExtraAssertions(),
       },
