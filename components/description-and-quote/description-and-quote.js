@@ -8,9 +8,10 @@ export const DescriptionAndQuote = () => {
       <div className={styles.description}>
         <p>
           <strong>Ace Centre</strong> is a registered charity (No. 1089313)
-          providing support for people with complex communications difficulties.
-          We offer assessment, training and information services across England,
-          with a focus on Augmentative and Alternative Communication (AAC) and
+          providing Assistive Technology and Augmentative and Alternative
+          Communication services for people with complex needs. We offer
+          assessment, training and information services across England, with a
+          focus on Augmentative and Alternative Communication (AAC) and
           Assistive Technology (AT), delivered by our multi-disciplinary team of
           specialist teachers, occupational therapists, speech & language
           therapists with the support of technical and administrative staff.
