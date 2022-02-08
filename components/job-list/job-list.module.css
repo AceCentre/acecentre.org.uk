@@ -1,0 +1,44 @@
+.container {
+  margin: 5rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.container h2 {
+  font-weight: normal;
+  /* margin: 0; */
+  font-size: 34px;
+}
+
+.card {
+  flex: 1 1 0;
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card a {
+  margin-top: auto;
+}
+
+.cardList {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+
+  .cardList {
+    grid-template-columns: 1fr;
+  }
+}
