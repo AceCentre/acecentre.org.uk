@@ -33,8 +33,8 @@ export default function Careers({ allJobs }) {
           </p>
         </VideoWithCardCover>
         <WorkingAtAce />
-        <WhyWorkAtAce />
         <JobList allJobs={allJobs} />
+        <WhyWorkAtAce />
         <JobsAndPeople />
       </main>
       <Footer currentYear={currentYear} />
