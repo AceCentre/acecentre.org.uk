@@ -24,7 +24,7 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_SECRET: ${{ secrets.SLACK_SECRET }}

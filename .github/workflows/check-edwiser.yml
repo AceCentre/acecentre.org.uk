@@ -24,7 +24,7 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         env:
           DB_HOST: ${{ secrets.DB_HOST }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
