@@ -37,7 +37,7 @@ jobs:
 
       - name: Install NPM deps
         run: yarn install
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-cloudinary-cloud
         with:
           result-encoding: string
@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: Get Code
         uses: actions/checkout@v2
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-title
         with:
           result-encoding: string
@@ -269,13 +269,13 @@ jobs:
       - name: Run netlify build and deploy
         run: yarn netlify deploy --prod --build --context production
 
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-paths-first
         with:
           script: |
             const script = require('./scripts/sitemap-to-lighthouse-list')
             return script(context, 256, 0);
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-paths-second
         with:
           script: |
