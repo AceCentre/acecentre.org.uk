@@ -38,7 +38,7 @@ jobs:
 
       - name: Install NPM deps
         run: yarn install
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-cloudinary-cloud
         with:
           result-encoding: string
@@ -97,7 +97,7 @@ jobs:
       - name: Run netlify deploy and build
         run: netlify deploy --prod --build --context production
 
-      - uses: actions/github-script@v5
+      - uses: actions/github-script@v6
         id: get-paths
         with:
           script: |
