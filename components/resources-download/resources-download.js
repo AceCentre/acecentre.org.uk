@@ -24,11 +24,11 @@ export const ResourcesDownload = ({ resource }) => {
     return <MixedVariations resource={resource} variations={variations} />;
   }
 
-  if (variations.length === 0 && !resource.instantDownloadAvailable) {
+  if (variations.length === 0 && !resource?.instantDownloadAvailable) {
     return <SinglePurchasableProduct resource={resource} />;
   }
 
-  if (variations.length === 0 && resource.instantDownloadAvailable) {
+  if (variations.length === 0 && resource?.instantDownloadAvailable) {
     return <SingleDownloadableProduct resource={resource} />;
   }
 

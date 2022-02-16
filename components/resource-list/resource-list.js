@@ -63,13 +63,13 @@ export const ResourceList = ({
 };
 
 const shouldShowRibbon = (product) => {
-  if (product.instantDownloadAvailable) {
+  if (product?.instantDownloadAvailable) {
     return "Download";
   }
 
   const variations = product.variations || [];
   const downloadableVariations = variations.filter(
-    (x) => x.instantDownloadAvailable
+    (x) => x?.instantDownloadAvailable
   );
 
   if (
