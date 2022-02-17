@@ -3594,14 +3594,14 @@
     "@react-types/shared" "^3.11.1"
     clsx "^1.1.1"
 
-"@react-aria/visually-hidden@3.2.4":
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.4.tgz#c38e76421142e0fe0d55421e0d48c6a763f7ac7e"
-  integrity sha512-o1ToUW+/kQ8+PWOuEFxW77eT9ZhLjws+Ynik1ew4ocgJGQyPpFQ0P2riM9idopXOzLmuUyHeBMGPN1JnTwQ4ZQ==
+"@react-aria/visually-hidden@3.2.5":
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.5.tgz#721a465ae094ddea119ff351c03d6aaf503b15fb"
+  integrity sha512-wHKBGN0BINd3e465YQAN6y/K662g1/bmOR0exh9Re5gXKyH572lFA9SquQDhUAIjkkZhCiVg9otil7z0lrnGsA==
   dependencies:
     "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.8.0"
-    "@react-aria/utils" "^3.11.1"
+    "@react-aria/interactions" "^3.8.1"
+    "@react-aria/utils" "^3.11.2"
     clsx "^1.1.1"
 
 "@react-stately/radio@3.3.3", "@react-stately/radio@^3.3.3":
