@@ -33,7 +33,7 @@
     "@react-aria/focus": "3.5.2",
     "@react-aria/interactions": "3.8.1",
     "@react-aria/radio": "3.1.7",
-    "@react-aria/visually-hidden": "3.2.4",
+    "@react-aria/visually-hidden": "3.2.5",
     "@react-stately/radio": "3.3.3",
     "@slack/bolt": "3.9.0",
     "@stripe/react-stripe-js": "1.7.0",
