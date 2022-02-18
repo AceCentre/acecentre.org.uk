@@ -66,15 +66,7 @@ export const getStaticProps = withGlobalProps(async () => {
     ...product,
   }));
 
-  const currentMonth = new Date().getMonth();
   const productCategories = await getAllProductCategories();
-  const filteredProductCategories = productCategories.filter((current) => {
-    // Only show seasonal category during december
-    if (current.slug !== "seasonal") return true;
-    if (currentMonth === DECEMBER) return true;
-
-    return false;
-  });
 
   const featuredResources = allProducts
     .filter((resource) => resource.featured)
@@ -89,7 +81,7 @@ export const getStaticProps = withGlobalProps(async () => {
     props: {
       popularResources,
       featuredResources,
-      productCategories: filteredProductCategories,
+      productCategories,
       seo: {
         title: "Resources",
         description:
