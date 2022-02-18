@@ -55,8 +55,6 @@ export default function Resources({
   );
 }
 
-const DECEMBER = 11;
-
 export const getStaticProps = withGlobalProps(async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
