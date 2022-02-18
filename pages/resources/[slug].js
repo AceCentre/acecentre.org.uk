@@ -118,6 +118,12 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       ...product,
     }))
     .sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+
+      return aDate - bDate;
+    })
+    .sort((a, b) => {
       const catA = a.mainCategoryName;
       const catB = b.mainCategoryName;
 
