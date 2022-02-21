@@ -5,8 +5,23 @@
   padding: 0;
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "first first second second"
+    ". third third .";
   gap: 2rem;
+}
+
+.container > :nth-child(1) {
+  grid-area: first;
+}
+
+.container > :nth-child(2) {
+  grid-area: second;
+}
+
+.container > :nth-child(3) {
+  grid-area: third;
 }
 
 /** Mobile CSS */
