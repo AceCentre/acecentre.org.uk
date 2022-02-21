@@ -222,7 +222,12 @@ const MixedVariations = ({ resource, variations }) => {
       {showFreePrice && <Price resource={currentlySelectedFull} />}
 
       {currentlySelectedFull.instantDownloadAvailable ? (
-        <SingleDownloadableProduct resource={currentlySelectedFull} />
+        <SingleDownloadableProduct
+          resource={{
+            ...currentlySelectedFull,
+            slug: slugToUsefulSlug(currentlySelectedFull.slug, resource),
+          }}
+        />
       ) : (
         <div>
           {currentlySelectedFull.inStock && (
@@ -356,6 +361,14 @@ const SingleDownloadableProduct = ({ resource }) => {
       <DownloadModal modelOpen={modelOpen} onClose={onClose} />
     </>
   );
+};
+
+const slugToUsefulSlug = (slug, resource) => {
+  if (slug.toLowerCase().includes("auto-draft")) {
+    return slug.replace("auto-draft", resource.slug);
+  }
+
+  return slug;
 };
 
 // A product that can be purchased and has no variations
