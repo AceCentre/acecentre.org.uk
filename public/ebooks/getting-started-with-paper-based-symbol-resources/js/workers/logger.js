@@ -1,0 +1,1 @@
+var self=this;self.addEventListener("message",function(a){var e=a.data.func,s=a.data.params;self[e].apply(self,s)},!1),self.log=function(a){};
