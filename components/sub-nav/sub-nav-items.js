@@ -49,8 +49,8 @@ export const defaultNavItems = [
         href: "/getting-started/find-right-communication-aid",
       },
       {
-        title: "Resources to get started",
-        href: "/resources/all?category=getting-started",
+        title: "E-books to get started",
+        href: "/resources/all?category=made-by-ace&subcategory=e-books",
       },
     ],
   },
@@ -71,10 +71,6 @@ export const defaultNavItems = [
       {
         title: "Shop",
         href: "/resources/all?category=shop",
-      },
-      {
-        title: "Getting started resources",
-        href: "/resources/all?category=getting-started",
       },
       {
         title: "Symbol resources",
