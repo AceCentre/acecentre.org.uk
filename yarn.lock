@@ -15397,10 +15397,10 @@ next-iron-session@4.2.0:
     debug "^4.3.1"
     iron-store "^1.3.0"
 
-next-sitemap@2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.4.4.tgz#5a4bc98579a2a392229ea3379db1d8cd695f7889"
-  integrity sha512-+huBDNj0BSU9gXWpBfpqeXHnAUnyNg4cEMN6K2CCmYhMGMYnsO5vaOylGJRlW9V3mqIJlTkbMV1K9dkESFamJQ==
+next-sitemap@2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.4.5.tgz#51aa1dad4af3d8084d698af2ef7d6b321b1befbc"
+  integrity sha512-wfDpK8STTR66dWptdhVFBqsI1+2w82CtchI9jsxm2D+8yWFnDDnuobh6tTFiaWyX9VQFmsVJAyfBvKytO4h5AA==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.5"
