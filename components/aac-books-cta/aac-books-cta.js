@@ -17,11 +17,11 @@ export const AacBooksCta = () => {
       <div className={styles.rightHandSide}>
         <h2 className={styles.title}>Get started with AAC Books</h2>
         <p className={styles.description}>
-          Three books have been designed to help families and professionals
-          alike to get started with Augmentative and Alternative Communication
-          (AAC). These have been edited by the Ace Centre, a UK charity
-          providing information, advice and support for individuals who require
-          technology to communicate.
+          Four books have been designed to help families and professionals alike
+          to get started with Augmentative and Alternative Communication (AAC).
+          These have been edited by the Ace Centre, a UK charity providing
+          information, advice and support for individuals who require technology
+          to communicate.
         </p>
         <div className={styles.button}>
           <Button href="resources/all?category=made-by-ace&subcategory=e-books">
