@@ -138,6 +138,11 @@
   to = "/resources/access-to-paper-based-symbol-resources-when-pointing-is-difficult"
   status = 301
 
+[[redirects]]
+  from = "/resources/getting-started-aac"
+  to = "/resources/all?category=made-by-ace&subcategory=e-books"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
