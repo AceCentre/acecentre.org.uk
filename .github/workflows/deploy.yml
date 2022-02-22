@@ -177,7 +177,7 @@ jobs:
         run: yarn install
 
       - name: Run netlify deploy and build
-        run: yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build --context deploy-preview
+        run: yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build --context deploy-preview --debug
 
   Cypress:
     needs: [DeployNetlifyIntegration]
