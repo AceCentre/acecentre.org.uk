@@ -28,6 +28,10 @@
 @media (max-width: 760px) {
   .container {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "first"
+      "second"
+      "third";
     gap: 1rem;
   }
 }
