@@ -153,7 +153,6 @@ jobs:
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
       CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
-      NODE_OPTIONS: "--max-old-space-size=8192"
 
     steps:
       - name: Get Code
@@ -176,6 +175,9 @@ jobs:
 
       - name: Install NPM deps
         run: yarn install
+
+      - name: Run debug command
+        run: npx envinfo --system --binaries --npmPackages netlify-cli --npmGlobalPackages netlify-cli
 
       - name: Run netlify deploy and build
         run: yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build --context deploy-preview --debug
