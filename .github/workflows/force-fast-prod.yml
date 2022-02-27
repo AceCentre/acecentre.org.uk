@@ -94,12 +94,8 @@ jobs:
       - name: Install NPM deps
         run: yarn install
 
+      - name: Run debug command
+        run: npx envinfo --system --binaries --npmPackages netlify-cli --npmGlobalPackages netlify-cli
+
       - name: Run netlify deploy and build
         run: netlify deploy --prod --build --context production
-
-      - uses: actions/github-script@v6
-        id: get-paths
-        with:
-          script: |
-            const script = require('./scripts/sitemap-to-lighthouse-list')
-            return script(context);
