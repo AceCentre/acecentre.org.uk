@@ -143,6 +143,16 @@
   to = "/resources/all?category=made-by-ace&subcategory=e-books"
   status = 301
 
+[[redirects]]
+  from = "/ducbdownloads"
+  to = "/resources/developing-using-communication-book"
+  status = 301
+
+[[redirects]]
+  from = "/youmatter"
+  to = "/resources/you-matter"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
