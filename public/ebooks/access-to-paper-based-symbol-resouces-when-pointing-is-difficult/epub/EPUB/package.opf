@@ -7,12 +7,12 @@
         <dc:identifier id="pub-id">urn:uuid:7d2d096b-38cd-7bda-40aa-292597d262f6</dc:identifier>
         <meta name="cover" content="img1" />
 
-        <dc:creator>ACE Centre</dc:creator>
-        <dc:publisher>ACE Centre</dc:publisher>
+        <dc:creator>Ace Centre</dc:creator>
+        <dc:publisher>Ace Centre</dc:publisher>
         <dc:rights>No rights specified</dc:rights>
         <dc:language>en-GB</dc:language>
         <dc:description>No description available</dc:description>
-        <meta property="dcterms:modified">2022-02-19T14:26:37Z</meta>
+        <meta property="dcterms:modified">2022-02-23T22:55:28Z</meta>
         <meta property="rendition:layout">pre-paginated</meta>
         <meta property="rendition:orientation">auto</meta>
         <meta property="ibooks:interactive">true</meta>
@@ -22,84 +22,84 @@
 
     </metadata>
     <manifest>
-        <item id="html0" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-1.xhtml" media-type="application/xhtml+xml"/>
-<item id="html1" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-2.xhtml" media-type="application/xhtml+xml"/>
-<item id="html2" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-3.xhtml" media-type="application/xhtml+xml"/>
-<item id="html3" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-4.xhtml" media-type="application/xhtml+xml"/>
-<item id="html4" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-5.xhtml" media-type="application/xhtml+xml"/>
-<item id="html5" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-6.xhtml" media-type="application/xhtml+xml"/>
-<item id="html6" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-7.xhtml" media-type="application/xhtml+xml"/>
-<item id="html7" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-8.xhtml" media-type="application/xhtml+xml"/>
-<item id="html8" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-9.xhtml" media-type="application/xhtml+xml"/>
-<item id="html9" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-10.xhtml" media-type="application/xhtml+xml"/>
-<item id="html10" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-11.xhtml" media-type="application/xhtml+xml"/>
-<item id="html11" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-12.xhtml" media-type="application/xhtml+xml"/>
-<item id="html12" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-13.xhtml" media-type="application/xhtml+xml"/>
-<item id="html13" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-14.xhtml" media-type="application/xhtml+xml"/>
-<item id="html14" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-15.xhtml" media-type="application/xhtml+xml"/>
-<item id="html15" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-16.xhtml" media-type="application/xhtml+xml"/>
-<item id="html16" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-17.xhtml" media-type="application/xhtml+xml"/>
-<item id="html17" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-18.xhtml" media-type="application/xhtml+xml"/>
-<item id="html18" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-19.xhtml" media-type="application/xhtml+xml"/>
-<item id="html19" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-20.xhtml" media-type="application/xhtml+xml"/>
-<item id="html20" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-21.xhtml" media-type="application/xhtml+xml"/>
-<item id="html21" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-22.xhtml" media-type="application/xhtml+xml"/>
-<item id="html22" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-23.xhtml" media-type="application/xhtml+xml"/>
-<item id="html23" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-24.xhtml" media-type="application/xhtml+xml"/>
+        <item id="html0" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-1.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html1" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-2.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html2" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-3.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html3" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-4.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html4" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-5.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html5" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-6.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html6" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-7.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html7" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-8.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html8" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-9.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html9" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-10.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html10" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-11.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html11" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-12.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html12" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-13.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html13" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-14.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html14" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-15.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html15" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-16.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html16" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-17.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html17" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-18.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html18" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-19.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html19" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-20.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html20" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-21.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html21" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-22.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html22" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-23.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html23" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-24.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html24" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-25.xhtml" media-type="application/xhtml+xml"/>
-<item id="html25" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-26.xhtml" media-type="application/xhtml+xml"/>
-<item id="html26" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-27.xhtml" media-type="application/xhtml+xml"/>
-<item id="html27" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-28.xhtml" media-type="application/xhtml+xml"/>
-<item id="html28" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-29.xhtml" media-type="application/xhtml+xml"/>
-<item id="html29" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-30.xhtml" media-type="application/xhtml+xml"/>
-<item id="html30" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-31.xhtml" media-type="application/xhtml+xml"/>
-<item id="html31" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-32.xhtml" media-type="application/xhtml+xml"/>
+<item id="html25" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-26.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html26" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-27.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html27" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-28.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html28" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-29.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html29" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-30.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html30" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-31.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html31" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-32.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html32" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-33.xhtml" media-type="application/xhtml+xml"/>
-<item id="html33" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-34.xhtml" media-type="application/xhtml+xml"/>
-<item id="html34" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-35.xhtml" media-type="application/xhtml+xml"/>
-<item id="html35" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-36.xhtml" media-type="application/xhtml+xml"/>
-<item id="html36" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-37.xhtml" media-type="application/xhtml+xml"/>
-<item id="html37" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-38.xhtml" media-type="application/xhtml+xml"/>
-<item id="html38" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-39.xhtml" media-type="application/xhtml+xml"/>
-<item id="html39" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-40.xhtml" media-type="application/xhtml+xml"/>
+<item id="html33" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-34.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html34" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-35.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html35" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-36.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html36" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-37.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html37" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-38.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html38" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-39.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html39" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-40.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html40" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-41.xhtml" media-type="application/xhtml+xml"/>
 <item id="html41" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-42.xhtml" media-type="application/xhtml+xml"/>
-<item id="html42" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-43.xhtml" media-type="application/xhtml+xml"/>
-<item id="html43" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-44.xhtml" media-type="application/xhtml+xml"/>
-<item id="html44" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-45.xhtml" media-type="application/xhtml+xml"/>
-<item id="html45" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-46.xhtml" media-type="application/xhtml+xml"/>
+<item id="html42" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-43.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html43" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-44.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html44" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-45.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html45" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-46.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html46" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-47.xhtml" media-type="application/xhtml+xml"/>
-<item id="html47" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-48.xhtml" media-type="application/xhtml+xml"/>
-<item id="html48" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-49.xhtml" media-type="application/xhtml+xml"/>
+<item id="html47" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-48.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html48" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-49.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html49" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-50.xhtml" media-type="application/xhtml+xml"/>
 <item id="html50" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-51.xhtml" media-type="application/xhtml+xml"/>
-<item id="html51" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-52.xhtml" media-type="application/xhtml+xml"/>
-<item id="html52" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-53.xhtml" media-type="application/xhtml+xml"/>
-<item id="html53" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-54.xhtml" media-type="application/xhtml+xml"/>
-<item id="html54" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-55.xhtml" media-type="application/xhtml+xml"/>
-<item id="html55" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-56.xhtml" media-type="application/xhtml+xml"/>
-<item id="html56" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-57.xhtml" media-type="application/xhtml+xml"/>
-<item id="html57" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-58.xhtml" media-type="application/xhtml+xml"/>
+<item id="html51" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-52.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html52" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-53.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html53" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-54.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html54" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-55.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html55" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-56.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html56" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-57.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html57" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-58.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html58" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-59.xhtml" media-type="application/xhtml+xml"/>
-<item id="html59" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-60.xhtml" media-type="application/xhtml+xml"/>
-<item id="html60" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-61.xhtml" media-type="application/xhtml+xml"/>
-<item id="html61" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-62.xhtml" media-type="application/xhtml+xml"/>
-<item id="html62" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-63.xhtml" media-type="application/xhtml+xml"/>
-<item id="html63" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-64.xhtml" media-type="application/xhtml+xml"/>
-<item id="html64" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-65.xhtml" media-type="application/xhtml+xml"/>
-<item id="html65" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-66.xhtml" media-type="application/xhtml+xml"/>
-<item id="html66" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-67.xhtml" media-type="application/xhtml+xml"/>
-<item id="html67" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-68.xhtml" media-type="application/xhtml+xml"/>
-<item id="html68" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-69.xhtml" media-type="application/xhtml+xml"/>
-<item id="html69" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-70.xhtml" media-type="application/xhtml+xml"/>
-<item id="html70" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-71.xhtml" media-type="application/xhtml+xml"/>
+<item id="html59" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-60.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html60" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-61.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html61" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-62.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html62" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-63.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html63" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-64.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html64" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-65.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html65" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-66.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html66" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-67.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html67" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-68.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html68" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-69.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html69" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-70.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html70" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-71.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="html71" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-72.xhtml" media-type="application/xhtml+xml"/>
-<item id="html72" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-73.xhtml" media-type="application/xhtml+xml"/>
-<item id="html73" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-74.xhtml" media-type="application/xhtml+xml"/>
-<item id="html74" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-75.xhtml" media-type="application/xhtml+xml"/>
-<item id="html75" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-76.xhtml" media-type="application/xhtml+xml"/>
-<item id="html76" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-77.xhtml" media-type="application/xhtml+xml"/>
-<item id="html77" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-78.xhtml" media-type="application/xhtml+xml"/>
+<item id="html72" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-73.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html73" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-74.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html74" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-75.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html75" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-76.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html76" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-77.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
+<item id="html77" href="xhtml/epubvzibd/OEBPS/ACE_Ebook_GS_ATLTI_v16_KRB-78.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="contents" href="xhtml/raw/contents.xhtml"  properties="nav" media-type="application/xhtml+xml"/>
 <item id="ncx" href="xhtml/raw/contents.ncx"  media-type="application/x-dtbncx+xml"/>
 <item id="img0" href="imgs/defaultCover.png" media-type="image/png"/>
@@ -412,6 +412,8 @@
 <item id="img307" href="xhtml/epubvzibd/OEBPS/image/tiagoandk1.png" media-type="image/png"/>
 <item id="img308" href="xhtml/epubvzibd/OEBPS/image/to_replace_8-2_for_gallery_p_30.png" media-type="image/png"/>
 <item id="img309" href="xhtml/epubvzibd/OEBPS/image/to_replace_8-2_for_gallery_p_301.png" media-type="image/png"/>
+<item id="img310" href="../_kmeta/imgUser/v4_ebooks.jpg" media-type="image/jpeg"/>
+<item id="img311" href="../_kmeta/ktemplate/icon.png" media-type="image/png"/>
 <item id="css0" href="css/base.css" media-type="text/css"/>
 <item id="css1" href="css/global.css" media-type="text/css"/>
 <item id="css2" href="css/kotobeeInteractive.css" media-type="text/css"/>
@@ -420,8 +422,12 @@
 <item id="css5" href="xhtml/epubvzibd/OEBPS/css/idGeneratedStyles.css" media-type="text/css"/>
 <item id="js0" href="js/global.js" media-type="text/javascript"/>
 <item id="js1" href="js/kotobeeInteractive.js" media-type="text/javascript"/>
+<item id="js2" href="js/kotobeeInteractive3D.js" media-type="text/javascript"/>
 <item id="js3" href="xhtml/epubvzibd/EPUB/js/kotobeeInteractive.js" media-type="text/javascript"/>
+<item id="js4" href="xhtml/epubvzibd/EPUB/js/kotobeeInteractive3D.js" media-type="text/javascript"/>
 <item id="js5" href="xhtml/epubvzibd/OEBPS/script/idGeneratedScript.js" media-type="text/javascript"/>
+<item id="js6" href="../_kmeta/config.js" media-type="text/javascript"/>
+<item id="txt0" href="../_kmeta/ktemplate/config.json" media-type="application/json"/>
 <item id="font0" href="xhtml/epubvzibd/OEBPS/font/Montserrat-Bold.otf" media-type="application/x-font-otf"/>
 <item id="font1" href="xhtml/epubvzibd/OEBPS/font/Montserrat-Italic.otf" media-type="application/x-font-otf"/>
 <item id="font2" href="xhtml/epubvzibd/OEBPS/font/Montserrat-Medium.otf" media-type="application/x-font-otf"/>
