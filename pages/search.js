@@ -38,6 +38,14 @@ export default function Search({
           >{`Results for: "${searchText}"`}</h1>
         </div>
         <div className={styles.resultsContainer}>
+          {products.length > 0 && (
+            <ResourceList
+              title="Resources"
+              products={products}
+              viewAllLink={`/resources/all?searchText=${searchText}`}
+              viewAllText="Search all resources"
+            />
+          )}
           {blogPosts.length > 0 && (
             <FeaturedPosts
               title="Blog posts"
@@ -55,14 +63,6 @@ export default function Search({
               linkPrefix="projects"
               viewAllLink={`/projects/search?searchText=${searchText}`}
               viewAllText="Search all projects"
-            />
-          )}
-          {products.length > 0 && (
-            <ResourceList
-              title="Resources"
-              products={products}
-              viewAllLink={`/resources/all?searchText=${searchText}`}
-              viewAllText="Search all resources"
             />
           )}
           {courses.length > 0 && (
@@ -107,8 +107,32 @@ export const getServerSideProps = withGlobalProps(async (req) => {
   const allProducts = await getAllProducts();
   const productsFuse = new Fuse(allProducts, {
     keys: ["name", "description", "shortDescription"],
+    includeScore: true,
   });
-  const productsResult = productsFuse.search(searchText);
+  const productsResult = productsFuse
+    .search(searchText)
+    .reverse()
+    .sort((a, b) => {
+      const aName = a.item.name.toLowerCase();
+      const bName = b.item.name.toLowerCase();
+
+      if (
+        aName.includes(searchText.toLowerCase()) &&
+        !bName.includes(searchText.toLowerCase())
+      ) {
+        return -1;
+      }
+
+      if (
+        aName.includes(searchText.toLowerCase()) &&
+        !bName.includes(searchText.toLowerCase())
+      ) {
+        return -1;
+      }
+
+      return 0;
+    });
+
   const filteredProducts = productsResult.map((result) => result.item);
 
   const allCourses = await getAllCourses();
