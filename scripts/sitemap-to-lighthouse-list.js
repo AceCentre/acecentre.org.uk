@@ -1,6 +1,5 @@
-const fs = require("fs");
-const path = require("path");
 const { XMLParser } = require("fast-xml-parser");
+const axios = require("axios").default;
 
 const IGNORE = [
   "my-acecentre",
@@ -23,9 +22,10 @@ function chunk(arr, len) {
   return chunks;
 }
 
-const script = (context, max, page) => {
-  const sitemapPath = path.join(__dirname, "../.next/sitemap-0.xml");
-  const sitemapAsString = fs.readFileSync(sitemapPath, "utf8").toString();
+const script = async (context, max, page) => {
+  const sitemapUrl = "https://acecentre.org.uk/sitemap-0.xml";
+  const sitemapAsString = (await axios.get(sitemapUrl)).data;
+
   const parser = new XMLParser();
   const sitemapObject = parser.parse(sitemapAsString);
 
