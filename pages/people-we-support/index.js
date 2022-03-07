@@ -43,7 +43,7 @@ export default function StoriesLandingPage({
 export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
-  const storyHighlight = await getSimpleStory("jess");
+  const storyHighlight = await getSimpleStory("megan");
   const wordsFrom = await getSimpleStory("paul-pickford");
 
   if (!allStories)
