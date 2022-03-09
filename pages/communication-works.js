@@ -183,6 +183,9 @@ export default function CommunicationWorks() {
               <ListItem>
                 <Link href="https://www.widgit.com/">Widgit*</Link>
               </ListItem>
+              <ListItem>
+                <Link href="https://sensoryguru.com/">Sensory Guru</Link>
+              </ListItem>
             </ul>
             <p>
               <i>*Exhibiting at the South event only </i>
