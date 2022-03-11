@@ -28,7 +28,7 @@ export default function CommunicationWorks() {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <Image
-            src="/CW2022.png"
+            src="/CW2022-2.png"
             alt="Communication works banner"
             width={1640}
             height={924}
@@ -185,6 +185,11 @@ export default function CommunicationWorks() {
               </ListItem>
               <ListItem>
                 <Link href="https://sensoryguru.com/">Sensory Guru</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="http://www.inclusive.co.uk/">
+                  Inclusive Technology
+                </Link>
               </ListItem>
             </ul>
             <p>
