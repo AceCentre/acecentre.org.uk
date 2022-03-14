@@ -10,7 +10,9 @@ import { ServiceFinderMailingList } from "../service-finder-mailing-list/service
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import AccessibleIcon from "@material-ui/icons/Accessible";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
-import { Avatar, Tooltip } from "@material-ui/core";
+import Tooltip from "@material-ui/core/Tooltip";
+import Avatar from "@material-ui/core/Avatar";
+
 import { usePosthog } from "../../lib/use-posthog";
 
 const gql = ([result]) => result;

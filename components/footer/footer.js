@@ -1,5 +1,5 @@
 import Avatar from "@material-ui/core/Avatar";
-import { SvgIcon } from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 import TwitterIcon from "@material-ui/icons/Twitter";
 import FacebookIcon from "@material-ui/icons/Facebook";

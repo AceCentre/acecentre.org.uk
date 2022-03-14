@@ -1,4 +1,4 @@
-import { SvgIcon } from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
