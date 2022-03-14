@@ -1,4 +1,4 @@
-import { ChevronRight } from "@material-ui/icons";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Link from "next/link";
 import styles from "./latest-from-blog.module.css";
 import { ImageWithLoader as Image } from "../image";
@@ -31,7 +31,7 @@ export const LatestFromBlog = ({ posts }) => {
         </p>
         <Link href="/blog">
           <a className={styles.visitBlogLink}>
-            Visit the blog <ChevronRight />
+            Visit the blog <ChevronRightIcon />
           </a>
         </Link>
       </div>
