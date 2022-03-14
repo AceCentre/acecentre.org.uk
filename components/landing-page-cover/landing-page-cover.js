@@ -1,5 +1,5 @@
 import { Button } from "@chakra-ui/react";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";

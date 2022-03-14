@@ -1,7 +1,7 @@
 import styles from "./getting-started-quote.module.css";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 import { Button } from "../../components/button/button";
 

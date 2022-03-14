@@ -9,7 +9,7 @@ import { Button as ChakraButton } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
@@ -55,13 +55,8 @@ const useMobileNav = () => {
 };
 
 export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
-  const {
-    isMenuOpen,
-    isSearchOpen,
-    isDrawerOpen,
-    onClickMenu,
-    onClickSearch,
-  } = useMobileNav();
+  const { isMenuOpen, isSearchOpen, isDrawerOpen, onClickMenu, onClickSearch } =
+    useMobileNav();
 
   return (
     <>

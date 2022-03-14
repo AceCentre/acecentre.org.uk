@@ -4,7 +4,7 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import AccessibleIcon from "@material-ui/icons/Accessible";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import NoteIcon from "@material-ui/icons/Note";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 export const Facts = () => {
   return (

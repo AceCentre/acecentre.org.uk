@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { SvgIcon } from "@material-ui/core";
 
 import TwitterIcon from "@material-ui/icons/Twitter";

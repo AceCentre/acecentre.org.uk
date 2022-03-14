@@ -1,7 +1,7 @@
 import styles from "./story-content-and-quote.module.css";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 export const StoryContentAndQuote = ({ story }) => {
   return (

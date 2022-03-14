@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./story-highlight.module.css";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { Button } from "../button/button";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { VideoPopover } from "../video-popover/video-popover";
 import { ImageWithLoader as Image } from "../image";
 

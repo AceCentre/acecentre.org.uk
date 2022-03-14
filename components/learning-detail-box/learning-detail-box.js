@@ -4,7 +4,7 @@ import { ImageWithLoader as Image } from "../image";
 import { Button } from "../button/button";
 import { ShareButtons } from "../blog-meta/blog-meta";
 import { useAddToCart } from "../resources-download/resources-download";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
