@@ -5,14 +5,13 @@ import MyLocationIcon from "@material-ui/icons/MyLocation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import posthog from "posthog-js";
 import { ServiceFinderMailingList } from "../service-finder-mailing-list/service-finder-mailing-list";
 
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import AccessibleIcon from "@material-ui/icons/Accessible";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import { Avatar, Tooltip } from "@material-ui/core";
+import { usePosthog } from "../../lib/use-posthog";
 
 const gql = ([result]) => result;
 
@@ -65,7 +64,7 @@ const useServices = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [services, setServices] = useState(null);
-  const { posthogLoaded } = useGlobalProps();
+  const { posthogLoaded, posthog } = usePosthog();
 
   useEffect(() => {
     if (navigator.geolocation) {
