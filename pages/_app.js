@@ -7,14 +7,13 @@ import { GlobalsContext } from "../lib/global-props/context";
 
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import NextNProgress from "../components/progress-bar";
 import { UncaughtError } from "../components/uncaught-error/uncaught-error";
 
 import "polyfill-object.fromentries";
 import { SkipLink } from "../components/skip-link/skip-link";
-import posthog from "posthog-js";
-import config from "../lib/config";
+
 import { useLoggedInStatus } from "../lib/use-logged-in-status";
 
 const theme = createTheme();
@@ -23,22 +22,6 @@ function MyApp({
   Component,
   pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
 }) {
-  const [posthogLoaded, setPosthogLoaded] = useState(false);
-
-  useEffect(() => {
-    posthog.init(config.posthogKey, {
-      api_host: "https://app.posthog.com",
-      persistence: "memory",
-      autocapture: false,
-      disable_cookie: true,
-      capture_pageview: false,
-      disable_session_recording: true,
-      loaded: () => {
-        setPosthogLoaded(true);
-      },
-    });
-  }, []);
-
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -55,7 +38,6 @@ function MyApp({
       <GlobalsContext.Provider
         value={{
           ...globalProps,
-          posthogLoaded,
           loggedInStatus,
           refreshLoginStatus,
         }}
