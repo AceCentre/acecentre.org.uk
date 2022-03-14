@@ -159,8 +159,8 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   return {
     props: {
       resource: currentResource,
-      relatedResources,
-      attachedResources,
+      relatedResources: relatedResources.slice(0, 4),
+      attachedResources: attachedResources.slice(0, 4),
       seo: {
         title: currentResource.name,
         description: currentResource.shortDescription,
