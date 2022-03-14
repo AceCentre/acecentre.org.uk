@@ -11,6 +11,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import Link from "next/link";
+import { NoImage } from "../latest-from-blog/latest-from-blog";
 
 const useEnrollStatus = (courseSlug) => {
   const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
@@ -53,16 +54,24 @@ export const LearningDetailBox = ({ course }) => {
       <div className={styles.container}>
         <div className={styles.topContainer}>
           <div className={styles.imageContainer}>
-            <Image
-              src={course.image.src}
-              alt={
-                course.image.alt
-                  ? course.image.alt
-                  : `Thumbnail for ${course.title}`
-              }
-              layout="fill"
-              objectFit="contain"
-            />
+            {course.image ? (
+              <Image
+                src={course.image.src}
+                alt={
+                  course.image.alt
+                    ? course.image.alt
+                    : `Thumbnail for ${course.title}`
+                }
+                layout="fill"
+                objectFit="contain"
+              />
+            ) : (
+              <NoImage
+                title={course.title}
+                noImagePostCount={0}
+                imageContainerClassName={styles.noImageContainer}
+              />
+            )}
           </div>
           <div className={styles.rightHandSide}>
             <div>

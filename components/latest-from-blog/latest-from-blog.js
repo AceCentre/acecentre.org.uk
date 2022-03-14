@@ -122,7 +122,11 @@ export const BlogCard = ({
   );
 };
 
-const NoImage = ({ noImagePostCount, title, imageContainerClassName = "" }) => {
+export const NoImage = ({
+  noImagePostCount,
+  title,
+  imageContainerClassName = "",
+}) => {
   if (noImagePostCount % 2 === 0) {
     return (
       <div
