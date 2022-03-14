@@ -1,5 +1,5 @@
 import { Avatar } from "@material-ui/core";
-import { ArrowForward } from "@material-ui/icons";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./what-we-do.module.css";
 
@@ -17,7 +17,7 @@ export const WhatWeDo = () => {
             <Link href="/services/nhs">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 NHS Services
               </a>
@@ -27,7 +27,7 @@ export const WhatWeDo = () => {
             <Link href="/services/engineering">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Engineering
               </a>
@@ -37,7 +37,7 @@ export const WhatWeDo = () => {
             <Link href="/services/research">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Research
               </a>
@@ -47,7 +47,7 @@ export const WhatWeDo = () => {
             <Link href="/learning">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Ace Centre Learning
               </a>
@@ -59,7 +59,7 @@ export const WhatWeDo = () => {
             <Link href="/services/assessments">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Assessment
               </a>
@@ -69,7 +69,7 @@ export const WhatWeDo = () => {
             <Link href="/services/advice-information">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Advice and Information
               </a>
@@ -79,7 +79,7 @@ export const WhatWeDo = () => {
             <Link href="/services/partnerships">
               <a className={styles.link}>
                 <Avatar className={styles.avatar}>
-                  <ArrowForward />
+                  <ArrowForwardIcon />
                 </Avatar>
                 Partnerships
               </a>
