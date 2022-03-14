@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
-import posthog from "posthog-js";
 
 import { Button } from "../button/button";
 import config from "../../lib/config";
 import { useRouter } from "next/dist/client/router";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
-import { useGlobalProps } from "../../lib/global-props/hook";
+import {} from "../../lib/global-props/hook";
+import { usePosthog } from "../../lib/use-posthog";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
@@ -40,7 +40,7 @@ const Ebook = ({ ebook, resource }) => {
 
   const onClose = () => setModelOpen(false);
 
-  const { posthogLoaded } = useGlobalProps();
+  const { posthogLoaded, posthog } = usePosthog();
 
   return (
     <>
@@ -149,7 +149,7 @@ export const useAddToCart = () => {
 };
 
 const External = ({ resource }) => {
-  const { posthogLoaded } = useGlobalProps();
+  const { posthogLoaded, posthog } = usePosthog();
 
   return (
     <div className={styles.downloadButtonContainer}>
@@ -329,7 +329,7 @@ background-color: #00537F;
 
 const SingleDownloadableProduct = ({ resource }) => {
   const [modelOpen, setModelOpen] = useState(false);
-  const { posthogLoaded } = useGlobalProps();
+  const { posthogLoaded, posthog } = usePosthog();
 
   const onClose = () => setModelOpen(false);
 
