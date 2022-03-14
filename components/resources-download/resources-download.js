@@ -6,22 +6,43 @@ import { Button } from "../button/button";
 import config from "../../lib/config";
 import { useRouter } from "next/dist/client/router";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
-import {} from "../../lib/global-props/hook";
 import { usePosthog } from "../../lib/use-posthog";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
 
+  const { posthogLoaded, posthog } = usePosthog();
+
   if (resource.ebook) {
-    return <Ebook ebook={resource.ebook} resource={resource} />;
+    return (
+      <Ebook
+        posthog={posthog}
+        posthogLoaded={posthogLoaded}
+        ebook={resource.ebook}
+        resource={resource}
+      />
+    );
   }
 
   if (resource.external) {
-    return <External resource={resource} />;
+    return (
+      <External
+        resource={resource}
+        posthog={posthog}
+        posthogLoaded={posthogLoaded}
+      />
+    );
   }
 
   if (variations.length > 0) {
-    return <MixedVariations resource={resource} variations={variations} />;
+    return (
+      <MixedVariations
+        posthog={posthog}
+        posthogLoaded={posthogLoaded}
+        resource={resource}
+        variations={variations}
+      />
+    );
   }
 
   if (variations.length === 0 && !resource?.instantDownloadAvailable) {
@@ -29,18 +50,22 @@ export const ResourcesDownload = ({ resource }) => {
   }
 
   if (variations.length === 0 && resource?.instantDownloadAvailable) {
-    return <SingleDownloadableProduct resource={resource} />;
+    return (
+      <SingleDownloadableProduct
+        posthog={posthog}
+        posthogLoaded={posthogLoaded}
+        resource={resource}
+      />
+    );
   }
 
   throw new Error(`Uh oh, looks like we cant render ${resource.slug}`);
 };
 
-const Ebook = ({ ebook, resource }) => {
+const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
   const [modelOpen, setModelOpen] = useState(false);
 
   const onClose = () => setModelOpen(false);
-
-  const { posthogLoaded, posthog } = usePosthog();
 
   return (
     <>
@@ -148,9 +173,7 @@ export const useAddToCart = () => {
   };
 };
 
-const External = ({ resource }) => {
-  const { posthogLoaded, posthog } = usePosthog();
-
+const External = ({ resource, posthog, posthogLoaded }) => {
   return (
     <div className={styles.downloadButtonContainer}>
       <Button
@@ -177,7 +200,7 @@ const External = ({ resource }) => {
   );
 };
 
-const MixedVariations = ({ resource, variations }) => {
+const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
   const { disabled, addToCart, error } = useAddToCart();
 
   const defaultVariation = variations[0];
@@ -223,6 +246,8 @@ const MixedVariations = ({ resource, variations }) => {
 
       {currentlySelectedFull.instantDownloadAvailable ? (
         <SingleDownloadableProduct
+          posthog={posthog}
+          posthogLoaded={posthogLoaded}
           resource={{
             ...currentlySelectedFull,
             slug: slugToUsefulSlug(currentlySelectedFull.slug, resource),
@@ -327,9 +352,8 @@ background-color: #00537F;
   );
 };
 
-const SingleDownloadableProduct = ({ resource }) => {
+const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
   const [modelOpen, setModelOpen] = useState(false);
-  const { posthogLoaded, posthog } = usePosthog();
 
   const onClose = () => setModelOpen(false);
 
