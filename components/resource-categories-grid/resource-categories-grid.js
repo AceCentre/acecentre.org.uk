@@ -1,6 +1,6 @@
 import styles from "./resource-categories-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 

@@ -4,7 +4,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { Button } from "../button/button";
 
 import Link from "next/link";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { VideoPopover } from "../video-popover/video-popover";
 import { useState } from "react";
 

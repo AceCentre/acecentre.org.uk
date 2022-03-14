@@ -1,6 +1,6 @@
 import styles from "./resources-ticks.module.css";
 import CheckIcon from "@material-ui/icons/Check";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 export const ResourcesTicks = () => {
   return (

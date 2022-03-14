@@ -9,7 +9,7 @@ import { withGlobalProps } from "../../../lib/global-props/inject";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";

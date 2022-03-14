@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";

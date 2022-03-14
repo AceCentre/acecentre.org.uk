@@ -2,7 +2,7 @@ import styles from "./blog-category-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 export const BlogCategoryGrid = ({ blogCategories }) => {
   return (

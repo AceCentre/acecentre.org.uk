@@ -1,7 +1,7 @@
 import styles from "./story-cover-image.module.css";
 import { ImageWithLoader as Image } from "../image";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 

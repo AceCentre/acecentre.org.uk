@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./what-we-do.module.css";

@@ -1,6 +1,6 @@
 import styles from "./words-from.module.css";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { ImageWithLoader as Image } from "../image";
 
 import { Button } from "../button/button";

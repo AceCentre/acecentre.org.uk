@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import styles from "./learning-detail-meta.module.css";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
 import EventIcon from "@material-ui/icons/Event";

@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import Link from "next/link";
 import styles from "./how-can-we-help-cards.module.css";

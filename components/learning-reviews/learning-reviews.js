@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import { useMemo, useState } from "react";
 import styles from "./learning-reviews.module.css";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";

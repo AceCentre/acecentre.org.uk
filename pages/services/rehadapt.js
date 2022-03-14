@@ -7,7 +7,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 import AccessibleIcon from "@material-ui/icons/Accessible";
 

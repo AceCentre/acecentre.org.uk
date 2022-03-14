@@ -2,7 +2,7 @@ import { ImageWithLoader as Image } from "../image";
 import styles from "./meet-our-people.module.css";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 
 export const MeetOurPeople = () => {
   return (
