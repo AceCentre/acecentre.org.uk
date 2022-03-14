@@ -34,7 +34,7 @@ export default function ResourceDetail({
         <BackToLink where="all resources" href="/resources/all" />
         <div className={styles.topArea}>
           <div className={styles.leftTopArea}>
-            <ResourcesImage resource={resource} />
+            <ResourcesImage resource={resource} priority />
           </div>
           <div className={styles.rightTopArea}>
             <ResourcesDescription resource={resource} />
