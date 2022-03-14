@@ -1,6 +1,6 @@
 import styles from "./give-us-a-call.module.css";
 import PhoneIcon from "@material-ui/icons/Phone";
-import { SvgIcon } from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 export const GiveUsACall = ({ className }) => {
   return (

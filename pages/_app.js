@@ -5,7 +5,8 @@ import { SSRProvider } from "@react-aria/ssr";
 
 import { GlobalsContext } from "../lib/global-props/context";
 
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import createTheme from "@material-ui/core/styles/createTheme";
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
 
 import { useEffect } from "react";
 import NextNProgress from "../components/progress-bar";
