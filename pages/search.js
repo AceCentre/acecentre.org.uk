@@ -15,6 +15,7 @@ import { CourseList } from "../components/course-list/course-list";
 import { getAllCourses } from "../lib/products/get-courses";
 
 import styles from "../styles/search.module.css";
+import { CommunicationWorksBanner } from "../components/communication-works-banner/communication-works-banner";
 
 export default function Search({
   blogPosts,
@@ -28,6 +29,7 @@ export default function Search({
   return (
     <>
       <header>
+        <CommunicationWorksBanner />
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
