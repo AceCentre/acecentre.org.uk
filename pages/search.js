@@ -155,7 +155,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
         }))
         .slice(0, 4),
       searchText,
-      courses: filteredCourses,
+      courses: filteredCourses.slice(0, 4),
     },
   };
 });
