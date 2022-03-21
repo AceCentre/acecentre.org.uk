@@ -150,7 +150,7 @@
 
 [[redirects]]
   from = "/youmatter"
-  to = "/resources/you-matter"
+  to = "/resources/all?category=shop&searchText=youmatter&page=1"
   status = 301
 
 [[plugins]]
