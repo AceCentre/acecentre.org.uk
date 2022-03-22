@@ -3319,15 +3319,6 @@
     "@react-aria/utils" "^3.11.3"
     "@react-types/shared" "^3.11.2"
 
-"@react-aria/interactions@^3.8.2":
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/@react-aria/interactions/-/interactions-3.8.2.tgz#fa11833915938e2e539391b5db4670668a830e7f"
-  integrity sha512-AyTTwflthmyNcgIfjzHLdrQTcUJpLer9jMtB7IyTJ90c1eYbd+iy40WbyBZYhQhI8Zkq+q9bfeIOQFlEMDWh8A==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/utils" "^3.11.3"
-    "@react-types/shared" "^3.11.2"
-
 "@react-aria/label@^3.2.4":
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/@react-aria/label/-/label-3.2.4.tgz#4e9fe84cdcb48f82765354d669667334ee9765fe"
@@ -3370,13 +3361,13 @@
     "@react-types/shared" "^3.11.2"
     clsx "^1.1.1"
 
-"@react-aria/visually-hidden@3.2.6":
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.6.tgz#4db92a09b272e1a46741978fc2f3aca0d377fcb5"
-  integrity sha512-oakXkpttt5NBNPaz/a8BA3RaPIWCeSFnwp9cfZQH7gXL/D1DN/ZLntx5ADz/S1nIIARRPf7anHeB3FuEjcb+7g==
+"@react-aria/visually-hidden@3.2.7":
+  version "3.2.7"
+  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.2.7.tgz#1b88892e10648c5fe6634be325baa66430c3e53f"
+  integrity sha512-rvE0N91nBa7DxcH6KyapjttWQJFhRqeFBfGA9oCeGgTYLsn5CBvnKMLQEm2Z7ZlUcl08Xh2nB2KxKrRQ4ldYlw==
   dependencies:
     "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.8.2"
+    "@react-aria/interactions" "^3.8.3"
     "@react-aria/utils" "^3.11.3"
     clsx "^1.1.1"
 
