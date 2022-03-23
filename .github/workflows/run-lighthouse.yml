@@ -1,5 +1,8 @@
 name: Run Lighthouse
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1,4"
 
 jobs:
   GetPaths:
@@ -80,6 +83,18 @@ jobs:
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
         run: yarn lighthouse --collect.url=${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
 
+      - name: Send slack message
+        if: failure()
+        uses: actions/github-script@v6
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+          FAILED_PATH: ${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
+        with:
+          script: |
+            const script = require('./scripts/lighthouse-failure')
+            return await script();
+
   LighthouseSecond:
     needs: [GetPaths]
     if: github.ref == 'refs/heads/main'
@@ -112,6 +127,18 @@ jobs:
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
         run: yarn lighthouse --collect.url=${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
 
+      - name: Send slack message
+        if: failure()
+        uses: actions/github-script@v6
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+          FAILED_PATH: ${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
+        with:
+          script: |
+            const script = require('./scripts/lighthouse-failure')
+            return await script();
+
   LighthouseThird:
     needs: [GetPaths]
     if: github.ref == 'refs/heads/main'
@@ -143,3 +170,15 @@ jobs:
           BASE_URL: ${{ needs.GetPaths.outputs.deploy-url }}
           LHCI_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
         run: yarn lighthouse --collect.url=${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
+
+      - name: Send slack message
+        if: failure()
+        uses: actions/github-script@v6
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+          FAILED_PATH: ${{ needs.GetPaths.outputs.deploy-url }}${{ matrix.path }}
+        with:
+          script: |
+            const script = require('./scripts/lighthouse-failure')
+            return await script();
