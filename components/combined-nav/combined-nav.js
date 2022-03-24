@@ -5,7 +5,7 @@ import styles from "./combined-nav.module.css";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Button as ChakraButton } from "@chakra-ui/react";
+import { Button as ChakraButton } from "@chakra-ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";

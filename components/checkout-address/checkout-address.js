@@ -1,13 +1,10 @@
 import styles from "./checkout-address.module.css";
-import {
-  Input as ChakraInput,
-  FormControl,
-  FormLabel,
-  Textarea,
-  Stack,
-} from "@chakra-ui/react";
-import { Select } from "@chakra-ui/react";
-import { Radio, RadioGroup } from "@chakra-ui/react";
+import { Textarea } from "@chakra-ui/textarea";
+import { Stack } from "@chakra-ui/layout";
+import { Input as ChakraInput } from "@chakra-ui/input";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
+import { Select } from "@chakra-ui/select";
+import { Radio, RadioGroup } from "@chakra-ui/radio";
 import { useState } from "react";
 import { cloneDeep } from "lodash";
 

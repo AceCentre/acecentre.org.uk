@@ -1,27 +1,24 @@
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { useEffect, useState } from "react";
 
 export const CORRECTION_FORM = {
   slug: "correction",
   title: "Service Finder Correction Form",
   height: 1000,
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMFdOTVVJNkM0SktaOUdDSUU1WkMwMTZRUiQlQCN0PWcu&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMFdOTVVJNkM0SktaOUdDSUU1WkMwMTZRUiQlQCN0PWcu&embed=true",
 };
 
 export const INFORMATION_RESERVE = {
   slug: "information-reserve",
   title: "Information reserve",
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMprJ92LB-1NstNAv0YnFvpUOVg5V0U2TVJZRlNYUDYzUlg1MzAwWTRXQS4u&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMprJ92LB-1NstNAv0YnFvpUOVg5V0U2TVJZRlNYUDYzUlg1MzAwWTRXQS4u&embed=true",
   height: 2000,
 };
 
 export const CONTACT_FORM = {
   slug: "contact",
   title: "Contact form",
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURFpIVDBIVjdTMExFTFZDR1lQNURZQTE0RCQlQCN0PWcu&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURFpIVDBIVjdTMExFTFZDR1lQNURZQTE0RCQlQCN0PWcu&embed=true",
   height: 2000,
 };
 
@@ -29,24 +26,21 @@ export const INFO_APP_FEEDBACK = {
   slug: "information-appointment-feedback",
   title: "Information appointment feedback",
   height: 3700,
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUQkFTRzlKOUFHR0hEMU9PNzdFR0U3RlgyTiQlQCN0PWcu&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUQkFTRzlKOUFHR0hEMU9PNzdFR0U3RlgyTiQlQCN0PWcu&embed=true",
 };
 
 export const LEARNING_ENQ = {
   slug: "learning-enquiry",
   title: "Ace Centre Learning enquiry",
   height: 1400,
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrGI3PLISoyxPjhhaQvSfizZUNzREN0xLSUdDUURMMVdJUFhaMUVLWjRKSy4u&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrGI3PLISoyxPjhhaQvSfizZUNzREN0xLSUdDUURMMVdJUFhaMUVLWjRKSy4u&embed=true",
 };
 
 export const COURSE_EVALUATION = {
   slug: "course-evaluation",
   title: "Course evaluation",
   height: 3000,
-  url:
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUNDZMQThISE44NTFZRUc5VDY0MldUNEhEMSQlQCN0PWcu&embed=true",
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUNDZMQThISE44NTFZRUc5VDY0MldUNEhEMSQlQCN0PWcu&embed=true",
 };
 
 export const ALL_FORMS = [

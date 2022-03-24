@@ -1,6 +1,6 @@
 import { PeopleList } from "../people-list/people-list";
 import styles from "./staff-list.module.css";
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 
 import { CropToSquareAroundFace } from "../image";
 import { useState } from "react";

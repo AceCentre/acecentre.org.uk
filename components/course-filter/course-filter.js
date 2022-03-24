@@ -5,7 +5,7 @@ import { Input } from "../input/input";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import SearchIcon from "@material-ui/icons/Search";
 import { useRouter } from "next/router";
-import { Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/select";
 import { useState } from "react";
 
 const useSearchController = ({

@@ -1,5 +1,5 @@
 import { GlobalStyles } from "./global-styles";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/provider";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

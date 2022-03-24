@@ -1,5 +1,6 @@
 import styles from "./details-form.module.css";
-import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import Link from "next/link";
 import { Button } from "../button/button";
 import { useState } from "react";
@@ -92,12 +93,8 @@ const useChangeDetails = () => {
 };
 
 export const DetailsForm = ({ details }) => {
-  const {
-    onSubmit,
-    buttonDisabled,
-    successMessage,
-    errorMessage,
-  } = useChangeDetails();
+  const { onSubmit, buttonDisabled, successMessage, errorMessage } =
+    useChangeDetails();
 
   return (
     <form onSubmit={onSubmit} className={styles.container}>

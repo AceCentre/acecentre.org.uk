@@ -3,7 +3,7 @@ import {
   Input as ChakraInput,
   InputGroup,
   InputRightElement,
-} from "@chakra-ui/react";
+} from "@chakra-ui/input";
 
 export const Input = ({
   maxWidth,

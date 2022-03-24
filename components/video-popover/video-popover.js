@@ -1,4 +1,4 @@
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { Button } from "../button/button";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 

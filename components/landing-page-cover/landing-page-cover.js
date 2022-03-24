@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/button";
 import Avatar from "@material-ui/core/Avatar";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";

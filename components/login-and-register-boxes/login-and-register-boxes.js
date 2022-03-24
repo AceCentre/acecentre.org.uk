@@ -1,10 +1,8 @@
 import styles from "./login-and-register-boxes.module.css";
-import {
-  Input as ChakraInput,
-  FormControl,
-  FormLabel,
-  Checkbox,
-} from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
+import { Checkbox } from "@chakra-ui/checkbox";
 import { Button } from "../button/button";
 import Link from "next/link";
 import { useLogin, useRegister } from "../../lib/auth/hooks";
