@@ -114,6 +114,7 @@ const HomeButton = ({ nhs, nhsTitle }) => {
             src={"/nav-logo.png"}
             alt="The Ace Centre logo"
             placeOnTop
+            priority={true}
           ></Image>
         </a>
       </Link>
