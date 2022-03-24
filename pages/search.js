@@ -137,7 +137,7 @@ export const getServerSideProps = withGlobalProps(async (req) => {
 
   const filteredProducts = productsResult.map((result) => result.item);
 
-  const allCourses = await getAllCourses();
+  const allCourses = await getAllCourses(true);
   const coursesFuse = new Fuse(allCourses, {
     keys: ["name", "description", "shortDescription"],
   });

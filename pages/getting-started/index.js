@@ -45,7 +45,7 @@ export default function GettingStartedLanding({ gettingStartedCourses }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const courses = await getAllCourses();
+  const courses = await getAllCourses(true);
 
   const gettingStartedCourses = courses
     .filter((course) => course.level !== null)

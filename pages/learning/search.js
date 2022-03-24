@@ -63,7 +63,7 @@ export default function LearningSearchPage({
 }
 
 export const getServerSideProps = withGlobalProps(async (req) => {
-  let courses = await getAllCourses();
+  let courses = await getAllCourses(true);
 
   /**
    * Get all unique categories
