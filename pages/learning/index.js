@@ -71,7 +71,7 @@ export default function Learning({
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const popularCourses = await getAllCoursesByPopularity();
+  const popularCourses = await getAllCoursesByPopularity(true);
   const categories = await getAllCourseCategories();
   const featuredCourses = popularCourses.filter(
     (course) => course.featured === true
