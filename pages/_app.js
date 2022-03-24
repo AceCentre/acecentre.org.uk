@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { DefaultHead } from "../components/default-head";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/provider";
 import { SSRProvider } from "@react-aria/ssr";
 
 import { GlobalsContext } from "../lib/global-props/context";
@@ -16,8 +16,14 @@ import "polyfill-object.fromentries";
 import { SkipLink } from "../components/skip-link/skip-link";
 
 import { useLoggedInStatus } from "../lib/use-logged-in-status";
+import { extendTheme } from "../lib/chakra-theme";
 
 const theme = createTheme();
+
+const chakraTheme = extendTheme({
+  initialColorMode: "light",
+  useSystemColorMode: false,
+});
 
 function MyApp({
   Component,
@@ -45,7 +51,7 @@ function MyApp({
       >
         <DefaultHead {...seo} />
         <ThemeProvider theme={theme}>
-          <ChakraProvider resetCSS={false}>
+          <ChakraProvider theme={chakraTheme} resetCSS={false}>
             <SSRProvider>
               <NextNProgress />
               {uncaughtError ? (

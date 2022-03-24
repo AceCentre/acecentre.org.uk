@@ -26,7 +26,7 @@ import {
   CollectDelegatedEmail,
 } from "../components/checkout-address/checkout-address";
 import { getAddresses } from "../lib/auth/get-user";
-import { Checkbox } from "@chakra-ui/react";
+import { Checkbox } from "@chakra-ui/checkbox";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
 import { useRouter } from "next/dist/client/router";

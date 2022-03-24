@@ -1,7 +1,9 @@
 import styles from "./address-field.module.css";
-import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
-import { Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/select";
 import { useState } from "react";
 
 const useAddressSubmit = (addressType) => {
@@ -157,12 +159,8 @@ export const AddressField = ({
   countries,
   billing = false,
 }) => {
-  const {
-    formSubmit,
-    submitDisabled,
-    successMessage,
-    errorMessage,
-  } = useAddressSubmit(billing ? "billing" : "shipping");
+  const { formSubmit, submitDisabled, successMessage, errorMessage } =
+    useAddressSubmit(billing ? "billing" : "shipping");
 
   return (
     <form className={styles.form} onSubmit={formSubmit}>

@@ -1,7 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ColorModeScript } from "@chakra-ui/react";
 import ServerStyleSheets from "@material-ui/styles/ServerStyleSheets";
 import { Children } from "react";
+import { ColorModeScript } from "@chakra-ui/color-mode";
+import { extendTheme } from "../lib/chakra-theme";
+
+const chakraTheme = extendTheme({
+  initialColorMode: "light",
+  useSystemColorMode: false,
+});
 
 class MyDocument extends Document {
   render() {
@@ -24,7 +30,9 @@ class MyDocument extends Document {
           ></script>
         </Head>
         <body style={{ color: "#333333" }}>
-          <ColorModeScript initialColorMode={"light"} />
+          <ColorModeScript
+            initialColorMode={chakraTheme.config.initialColorMode}
+          />
           <Main />
           <NextScript />
         </body>

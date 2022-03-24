@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "../button/button";
 import styles from "./table.module.css";
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import Link from "next/link";
-import { Input as ChakraInput, FormControl } from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+import { FormControl } from "@chakra-ui/form-control";
 
 export const OrderTable = ({ orders }) => {
   const [detailActive, setDetailActive] = useState(null);

@@ -1,6 +1,7 @@
 import { Button } from "../button/button";
 import styles from "./coupon-area.module.css";
-import { Input as ChakraInput, FormControl } from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+import { FormControl } from "@chakra-ui/form-control";
 
 export const CouponArea = ({
   applyCoupon,

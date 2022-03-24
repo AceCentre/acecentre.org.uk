@@ -1,6 +1,6 @@
 import styles from "./product-filters.module.css";
 import { useState } from "react";
-import { Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/select";
 import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
 import { ORDER_BY_OPTIONS } from "./order-by-options";
@@ -40,9 +40,8 @@ const useSearchController = ({
     updateSearchParams({ searchText });
   };
 
-  const [topLevelCategory, setTopLevelCategory] = useState(
-    defaultTopLevelValue
-  );
+  const [topLevelCategory, setTopLevelCategory] =
+    useState(defaultTopLevelValue);
 
   const onChangeTopLevelCategory = (event) => {
     updateSearchParams({ category: event.target.value, subcategory: null });

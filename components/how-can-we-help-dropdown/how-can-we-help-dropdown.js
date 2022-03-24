@@ -1,6 +1,6 @@
 import styles from "./how-can-we-help-dropdown.module.css";
 
-import { Select } from "@chakra-ui/react";
+import { Select } from "@chakra-ui/select";
 import { useState } from "react";
 import Link from "next/link";
 

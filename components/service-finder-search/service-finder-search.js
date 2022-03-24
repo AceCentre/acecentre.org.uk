@@ -1,4 +1,5 @@
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/input";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
 import styles from "./service-finder-search.module.css";
 import MyLocationIcon from "@material-ui/icons/MyLocation";

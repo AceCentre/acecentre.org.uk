@@ -1,5 +1,5 @@
 import styles from "./learning-levels.module.css";
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 
 import { Button } from "../button/button";
 import { useState } from "react";

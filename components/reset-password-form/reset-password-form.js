@@ -2,7 +2,8 @@ import { useState } from "react";
 import styles from "./reset-password-form.module.css";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { Input as ChakraInput, FormControl, FormLabel } from "@chakra-ui/react";
+import { Input as ChakraInput } from "@chakra-ui/input";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
 
 export const ResetPasswordForm = () => {
