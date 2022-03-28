@@ -30,6 +30,7 @@ export const VideoWithCardCover = ({
             objectPosition={objectPosition}
             alt={alt}
             className={imageClassName}
+            priority={true}
           />
           {enableOverlay && <div className={styles.backgroundGradient} />}
           <div className={`${styles.fullContainer} ${heightClass}`}>
