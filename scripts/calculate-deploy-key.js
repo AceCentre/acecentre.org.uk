@@ -13,6 +13,8 @@ const script = (context) => {
       .replace(/ /g, "-")
       .replace(/\./g, "-")
       .replace(/@/g, "")
+      .replace(/\(/g, "-")
+      .replace(/\)/g, "-")
       .slice(0, 35);
 
     return trim(replaced, "-");
