@@ -188,12 +188,23 @@ export default function CommunicationWorks() {
               </ListItem>
               <ListItem>
                 <Link href="http://www.inclusive.co.uk/">
-                  Inclusive Technology
+                  Inclusive Technology**
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://therapy-box.co.uk/">Therapy Box</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.lgfl.net/inclusion/default.aspx">
+                  London Grids for Learning*
                 </Link>
               </ListItem>
             </ul>
             <p>
               <i>*Exhibiting at the South event only </i>
+            </p>
+            <p>
+              <i>**Exhibiting at the North event only </i>
             </p>
             <p>
               <i>
