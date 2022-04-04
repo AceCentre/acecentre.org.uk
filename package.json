@@ -40,7 +40,7 @@
     "@stripe/stripe-js": "1.26.0",
     "async-redis": "2.0.0",
     "axios": "0.26.1",
-    "esbuild": "0.14.30",
+    "esbuild": "0.14.31",
     "etag": "1.8.1",
     "framer-motion": "6.2.8",
     "fuse.js": "6.5.3",
