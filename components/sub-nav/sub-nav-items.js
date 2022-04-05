@@ -160,6 +160,10 @@ export const defaultNavItems = [
         title: "Education courses",
         href: "/learning/search?category=education",
       },
+      {
+        title: "Engineering courses",
+        href: "/learning/search?category=engineering",
+      },
     ],
   },
   {
