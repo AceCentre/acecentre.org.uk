@@ -36,7 +36,7 @@
     "@react-aria/visually-hidden": "3.2.7",
     "@react-stately/radio": "3.3.5",
     "@slack/bolt": "3.11.0",
-    "@stripe/react-stripe-js": "1.7.0",
+    "@stripe/react-stripe-js": "1.7.1",
     "@stripe/stripe-js": "1.26.0",
     "async-redis": "2.0.0",
     "axios": "0.26.1",
