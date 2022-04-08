@@ -114,11 +114,26 @@
   flex-direction: column;
 }
 
+.priceContainer p {
+  margin: 0;
+}
+
+.priceContainer {
+  margin: 2rem 0;
+}
+
 .price {
   color: #00537f;
   font-size: 54px;
   font-weight: bold;
   text-align: center;
+}
+
+.fullPrice {
+  color: #00537f;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: line-through;
 }
 
 .avatar.avatar.avatar.avatar {
