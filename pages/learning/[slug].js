@@ -138,7 +138,31 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const reviews = await getRandomReviews();
   const levels = await getLearningLevels();
 
-  const current = currentCourse || currentBundle;
+  let seo = {};
+
+  if (currentCourse) {
+    seo = {
+      title: currentCourse.title,
+      image: currentCourse.image,
+      description: currentCourse.shortDescription.replace(/(<([^>]+)>)/gi, ""),
+      product: {
+        sku: currentCourse.slug,
+        title: currentCourse.title,
+        image: currentCourse?.image?.src || null,
+        url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
+        price: currentCourse.price || 0,
+        availability: currentCourse.inStock,
+        description:
+          currentCourse.description ||
+          `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
+      },
+    };
+  } else if (currentBundle) {
+    seo = {
+      title: currentBundle.title,
+      description: currentBundle.shortDescription.replace(/(<([^>]+)>)/gi, ""),
+    };
+  }
 
   return {
     props: {
@@ -147,22 +171,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       reviews,
       relatedCourses,
       levels,
-      seo: {
-        title: current.title,
-        image: current.image,
-        description: current.shortDescription.replace(/(<([^>]+)>)/gi, ""),
-        product: {
-          sku: current.slug,
-          title: current.title,
-          image: current?.image?.src || null,
-          url: `https://acecentre.org.uk/learning/${current.slug}`,
-          price: current.price || 0,
-          availability: current.inStock,
-          description:
-            current.description ||
-            `Checkout the ${current.title} created by Ace Centre Learning.`,
-        },
-      },
+      seo,
     },
   };
 });
