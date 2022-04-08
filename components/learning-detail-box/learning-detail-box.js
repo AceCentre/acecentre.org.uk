@@ -208,6 +208,137 @@ export const LearningDetailBox = ({ course }) => {
   );
 };
 
+export const BundleDetailBox = ({ bundle }) => {
+  const { disabled, addToCart, error } = useAddToCart();
+  const [isModalOpen, toggleModal] = useState(false);
+
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.topContainer}>
+          <div className={styles.imageContainer}>
+            {bundle.image ? (
+              <Image
+                src={bundle.image.src}
+                alt={
+                  bundle.image.alt
+                    ? bundle.image.alt
+                    : `Thumbnail for ${bundle.title}`
+                }
+                layout="fill"
+                objectFit="contain"
+              />
+            ) : (
+              <NoImage
+                title={bundle.title}
+                noImagePostCount={0}
+                imageContainerClassName={styles.noImageContainer}
+              />
+            )}
+          </div>
+          <div className={styles.rightHandSide}>
+            <div>
+              <h3 className={styles.title}>{bundle.title}</h3>
+              <p className={styles.tagLine}>From Ace Centre Learning</p>
+            </div>
+            <div className={styles.priceContainer}>
+              <p className={styles.price}>{getPriceText(bundle.price)}</p>
+              <p className={styles.fullPrice}>
+                {getPriceText(bundle.fullPrice)}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.bottomContainer}>
+          <ShareButtons
+            shareCta="Share this course"
+            shareText={`Check out ${bundle.title} on Ace Centre Learning`}
+            avatarClassName={styles.avatar}
+            className={styles.shareButtons}
+          />
+
+          <Button
+            className={styles.bookButton}
+            disabled={disabled || !bundle.inStock}
+            onClick={() => {
+              toggleModal(true);
+            }}
+          >
+            Book this course
+          </Button>
+        </div>
+      </div>
+      <Modal
+        scrollBehavior="inside"
+        size="3xl"
+        isCentered
+        isOpen={isModalOpen}
+        onClose={() => toggleModal(false)}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody style={{ padding: "2rem" }}>
+            <div className={styles.titleRow}>
+              <h2>Buying this bundle</h2>
+              <button
+                className={styles.closeButton}
+                onClick={() => toggleModal(false)}
+              >
+                Close window
+              </button>
+            </div>
+
+            <h3>Bulk purchase</h3>
+            <p>
+              Some of these courses can be purchased for multiple people. At
+              checkout you will be prompted to enter the emails of everyone you
+              want to take part in the course. They will then be sent an email
+              with instructions on how to login to the course.
+            </p>
+
+            <h3>Delegated purchase</h3>
+            <p>
+              Some of these courses course can be purchased for someone else. At
+              checkout it will ask you if you would like to delegate the course
+              to someone else. Tick the checkbox and enter the email of the
+              person you want to take the course. They will then receive an
+              email with instructions of how to login to the course.
+            </p>
+
+            <h3>Purchase order (invoices)</h3>
+            <p>
+              We will only accept purchase orders and issue an invoice for
+              orders over £250. To request a purchase order{" "}
+              <Link href="/contact">contact us via this form.</Link>
+            </p>
+            <form
+              className={styles.bookButtonContainer}
+              onSubmit={(event) => {
+                event.preventDefault();
+
+                addToCart({
+                  productId: bundle.id,
+                  quantity: 1,
+                  isCourse: true,
+                })(event);
+              }}
+            >
+              <p className={styles.error}>{error}</p>
+              <Button
+                className={styles.bookButton}
+                disabled={disabled}
+                type="submit"
+              >
+                Add bundle to basket
+              </Button>
+            </form>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+
 const QuantityInput = ({
   placeholder,
   name,

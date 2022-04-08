@@ -11,7 +11,10 @@ import {
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 import styles from "../../styles/learning-detail.module.css";
-import { LearningDetailBox } from "../../components/learning-detail-box/learning-detail-box";
+import {
+  BundleDetailBox,
+  LearningDetailBox,
+} from "../../components/learning-detail-box/learning-detail-box";
 import { LearningDetailMeta } from "../../components/learning-detail-meta/learning-detail-meta";
 
 import { LearningReviews } from "../../components/learning-reviews/learning-reviews";
@@ -20,6 +23,7 @@ import { Certificate } from "../../components/certificate/certificate";
 import { getLearningLevels } from "../../lib/products/get-learning-levels";
 import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 import Link from "next/link";
+import { BundleList } from "../../components/bundle-list/bundle-list";
 
 export default function LearningDetail({
   course,
@@ -76,7 +80,26 @@ export default function LearningDetail({
         {bundle && (
           <>
             <div className={styles.container}>
-              <h2 className={styles.courseTitle}>{bundle.title}</h2>
+              <h2 className={styles.courseTitle}>
+                Course Bundle: {bundle.title}
+              </h2>
+            </div>
+            <BundleDetailBox bundle={bundle} />
+
+            <div className={styles.contentBody}>
+              <div>
+                <div dangerouslySetInnerHTML={{ __html: bundle.description }} />
+
+                <BundleList bundle={bundle}></BundleList>
+                <LearningReviews reviews={reviews} />
+              </div>
+              <div>
+                <Certificate />
+                <MailingList
+                  signUpIdentifier="learning-detail"
+                  description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
+                />
+              </div>
             </div>
           </>
         )}
