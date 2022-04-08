@@ -4,6 +4,7 @@ import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import {
+  getAllBundles,
   getAllCourses,
   getRandomReviews,
 } from "../../lib/products/get-courses";
@@ -22,6 +23,7 @@ import Link from "next/link";
 
 export default function LearningDetail({
   course,
+  bundle,
   reviews,
   relatedCourses,
   levels,
@@ -35,38 +37,49 @@ export default function LearningDetail({
       </header>
       <main id="mainContent">
         <BackToLink href="/learning/search" where="courses" />
-        <div className={styles.container}>
-          <h2 className={styles.courseTitle}>{course.name}</h2>
-        </div>
-        <LearningDetailBox course={course} />
-        <div className={styles.contentBody}>
-          <div>
-            <div dangerouslySetInnerHTML={{ __html: course.content }} />
-            <p className={styles.timezone}>
-              *All times shown are given{" "}
-              <Link href="https://www.timeanddate.com/worldclock/uk/london">
-                in the UK timezone
-              </Link>
-              , on the date the course is run.
-            </p>
-            <div className={styles.mailingListContainer}>
-              <MailingList
-                signUpIdentifier="learning-detail"
-                description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
-              />
+        {course && (
+          <>
+            <div className={styles.container}>
+              <h2 className={styles.courseTitle}>{course.name}</h2>
             </div>
-            <LearningReviews reviews={reviews} />
-          </div>
-          <div>
-            <Certificate />
-            <LearningDetailMeta course={course} levels={levels} />
-          </div>
-        </div>
-        <CourseList
-          title="Other courses you might like"
-          products={relatedCourses}
-          showDate
-        />
+            <LearningDetailBox course={course} />
+            <div className={styles.contentBody}>
+              <div>
+                <div dangerouslySetInnerHTML={{ __html: course.content }} />
+                <p className={styles.timezone}>
+                  *All times shown are given{" "}
+                  <Link href="https://www.timeanddate.com/worldclock/uk/london">
+                    in the UK timezone
+                  </Link>
+                  , on the date the course is run.
+                </p>
+                <div className={styles.mailingListContainer}>
+                  <MailingList
+                    signUpIdentifier="learning-detail"
+                    description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
+                  />
+                </div>
+                <LearningReviews reviews={reviews} />
+              </div>
+              <div>
+                <Certificate />
+                <LearningDetailMeta course={course} levels={levels} />
+              </div>
+            </div>
+            <CourseList
+              title="Other courses you might like"
+              products={relatedCourses}
+              showDate
+            />
+          </>
+        )}
+        {bundle && (
+          <>
+            <div className={styles.container}>
+              <h2 className={styles.courseTitle}>{bundle.title}</h2>
+            </div>
+          </>
+        )}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -75,11 +88,13 @@ export default function LearningDetail({
 
 export async function getStaticPaths() {
   const allCourses = await getAllCourses();
+  const allBundles = await getAllBundles();
 
-  if (!allCourses) throw new Error("Could not get all the courses");
+  if (!allCourses || !allBundles)
+    throw new Error("Could not get all the courses");
 
   return {
-    paths: allCourses.map((product) => ({
+    paths: [...allCourses, ...allBundles].map((product) => ({
       params: {
         slug: product.slug,
       },
@@ -90,55 +105,62 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const allCourses = await getAllCourses();
+  const allBundles = await getAllBundles();
 
-  if (!allCourses) throw new Error("Could not get all the courses");
+  if (!allCourses || !allBundles)
+    throw new Error("Could not get all the courses");
 
   const currentCourse = allCourses.find((product) => product.slug === slug);
+  const currentBundle = allBundles.find((product) => product.slug === slug);
 
-  const relatedCourses = allCourses
-    .filter((course) => course.slug !== slug)
-    .sort((a, b) => {
-      const catA = a.mainCategoryName;
-      const catB = b.mainCategoryName;
+  let relatedCourses = [];
 
-      if (catA == currentCourse.mainCategoryName) {
-        return -1;
-      }
+  if (currentCourse) {
+    relatedCourses = allCourses
+      .filter((course) => course.slug !== slug)
+      .sort((a, b) => {
+        const catA = a.mainCategoryName;
+        const catB = b.mainCategoryName;
 
-      if (catB == currentCourse.mainCategoryName) {
+        if (catA == currentCourse.mainCategoryName) {
+          return -1;
+        }
+
+        if (catB == currentCourse.mainCategoryName) {
+          return 1;
+        }
+
         return 1;
-      }
-
-      return 1;
-    })
-    .slice(0, 4);
+      })
+      .slice(0, 4);
+  }
 
   const reviews = await getRandomReviews();
   const levels = await getLearningLevels();
 
+  const current = currentCourse || currentBundle;
+
   return {
     props: {
-      course: currentCourse,
+      course: currentCourse || null,
+      bundle: currentBundle || null,
       reviews,
       relatedCourses,
       levels,
       seo: {
-        title: currentCourse.title,
-        image: currentCourse.image,
-        description: currentCourse.shortDescription.replace(
-          /(<([^>]+)>)/gi,
-          ""
-        ),
+        title: current.title,
+        image: current.image,
+        description: current.shortDescription.replace(/(<([^>]+)>)/gi, ""),
         product: {
-          sku: currentCourse.slug,
-          title: currentCourse.title,
-          image: currentCourse?.image?.src || null,
-          url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
-          price: currentCourse.price || 0,
-          availability: currentCourse.inStock,
+          sku: current.slug,
+          title: current.title,
+          image: current?.image?.src || null,
+          url: `https://acecentre.org.uk/learning/${current.slug}`,
+          price: current.price || 0,
+          availability: current.inStock,
           description:
-            currentCourse.description ||
-            `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
+            current.description ||
+            `Checkout the ${current.title} created by Ace Centre Learning.`,
         },
       },
     },
