@@ -173,7 +173,7 @@ export const getStaticProps = withGlobalProps(async () => {
       seo: {
         title: "Partnerships",
         description:
-          "We achieve positive outcomes for our clients by drawing on the skills of our multidisciplinary team of teachers, speech and language therapists, occupational therapists, engineers and technicians.",
+          "Through our Partnerships (Service Level Agreement) we achieve positive outcomes for our clients by drawing on the skills of our multidisciplinary team of teachers, speech and language therapists, occupational therapists, engineers and technicians.",
       },
     },
   };
