@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from "./bundle-list.module.css";
 
 export const BundleList = ({ bundle }) => {
-  console.log(bundle);
-
   return (
     <div className={styles.container}>
       <h2>Included courses:</h2>

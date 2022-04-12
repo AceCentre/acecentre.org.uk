@@ -506,5 +506,6 @@ const getPriceText = (price) => {
   if (price === 0) {
     return "Free";
   }
-  return `£${price}`;
+
+  return `£${price.toFixed(2)}`;
 };
