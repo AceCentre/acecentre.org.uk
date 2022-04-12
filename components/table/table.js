@@ -202,23 +202,38 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
                 </Link>
               </td>
               <td className={styles.center}>
-                {line.allowQuantityEditing ? (
-                  <QuantityInput
-                    placeholder="0"
-                    name="quantity"
-                    ariaLabel={`Quantity for ${line.name}`}
-                    defaultValue={line.quantity}
-                    onChange={onQuantityChange(line)}
-                  />
+                {line.lockQuantityEditing ? (
+                  <>
+                    <QuantityInput
+                      disabled
+                      placeholder="0"
+                      name="quantity"
+                      ariaLabel={`Quantity for ${line.name}`}
+                      defaultValue={line.quantity}
+                      onChange={onQuantityChange(line)}
+                    />
+                  </>
                 ) : (
-                  <QuantityInput
-                    placeholder="0"
-                    name="quantity"
-                    ariaLabel={`Quantity for ${line.name}`}
-                    defaultValue={line.quantity}
-                    onChange={onQuantityChange(line)}
-                    max={1}
-                  />
+                  <>
+                    {line.allowQuantityEditing ? (
+                      <QuantityInput
+                        placeholder="0"
+                        name="quantity"
+                        ariaLabel={`Quantity for ${line.name}`}
+                        defaultValue={line.quantity}
+                        onChange={onQuantityChange(line)}
+                      />
+                    ) : (
+                      <QuantityInput
+                        placeholder="0"
+                        name="quantity"
+                        ariaLabel={`Quantity for ${line.name}`}
+                        defaultValue={line.quantity}
+                        onChange={onQuantityChange(line)}
+                        max={1}
+                      />
+                    )}
+                  </>
                 )}
               </td>
               <td>{line.price}</td>
@@ -293,6 +308,7 @@ const QuantityInput = ({
   defaultValue,
   onChange,
   max,
+  disabled = false,
 }) => {
   return (
     <>
@@ -310,6 +326,7 @@ const QuantityInput = ({
           onChange={onChange}
           min={0}
           max={max}
+          disabled={disabled}
         />
       </FormControl>
     </>
