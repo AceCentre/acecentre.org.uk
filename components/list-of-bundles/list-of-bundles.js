@@ -22,7 +22,7 @@ const Bundle = ({ course }) => {
   return (
     <li className={styles.inlineCard}>
       <h3>{course.title}</h3>
-      <p dangerouslySetInnerHTML={{ __html: course.shortDescription }}></p>
+      <p>{course.shortDescription}</p>
       <Link href={`/learning/${course.slug}`}>
         <a className={styles.link}>View bundle &gt;</a>
       </Link>
