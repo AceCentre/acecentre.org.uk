@@ -264,7 +264,7 @@ export const BundleDetailBox = ({ bundle }) => {
               toggleModal(true);
             }}
           >
-            Book this course
+            Buy this bundle
           </Button>
         </div>
       </div>
