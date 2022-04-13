@@ -1,4 +1,4 @@
-import { Link } from "@material-ui/core";
+import Link from "next/link";
 import styles from "./list-of-bundles.module.css";
 
 export const ListOfBundles = ({ course }) => {
