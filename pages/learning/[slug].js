@@ -24,6 +24,8 @@ import { getLearningLevels } from "../../lib/products/get-learning-levels";
 import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 import Link from "next/link";
 import { BundleList } from "../../components/bundle-list/bundle-list";
+import { addBundles } from "../../lib/add-bundles";
+import { ListOfBundles } from "../../components/list-of-bundles/list-of-bundles";
 
 export default function LearningDetail({
   course,
@@ -49,6 +51,7 @@ export default function LearningDetail({
             <LearningDetailBox course={course} />
             <div className={styles.contentBody}>
               <div>
+                <ListOfBundles course={course} />
                 <div dangerouslySetInnerHTML={{ __html: course.content }} />
                 <p className={styles.timezone}>
                   *All times shown are given{" "}
@@ -133,12 +136,14 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   if (!allCourses || !allBundles)
     throw new Error("Could not get all the courses");
 
-  const currentCourse = allCourses.find((product) => product.slug === slug);
+  let currentCourse = allCourses.find((product) => product.slug === slug);
   const currentBundle = allBundles.find((product) => product.slug === slug);
 
   let relatedCourses = [];
 
   if (currentCourse) {
+    currentCourse = addBundles(currentCourse, allBundles);
+
     relatedCourses = allCourses
       .filter((course) => course.slug !== slug)
       .sort((a, b) => {
