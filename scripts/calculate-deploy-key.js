@@ -9,6 +9,7 @@ const script = (context) => {
 
     const replaced = title
       .toLowerCase()
+      .replace("(major)", "")
       .replace(/\//g, "-")
       .replace(/ /g, "-")
       .replace(/\./g, "-")
