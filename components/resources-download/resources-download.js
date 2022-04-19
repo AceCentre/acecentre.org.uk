@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
@@ -90,6 +91,12 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
           <Button
             onClick={() => {
               setModelOpen(true);
+              if (gtag) {
+                gtag("event", "conversion", {
+                  send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+                });
+              }
+
               if (
                 posthogLoaded &&
                 window.location.origin === "https://acecentre.org.uk"
@@ -112,6 +119,12 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
           <Button
             newTab
             onClick={() => {
+              if (gtag) {
+                gtag("event", "conversion", {
+                  send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+                });
+              }
+
               if (
                 posthogLoaded &&
                 window.location.origin === "https://acecentre.org.uk"
@@ -179,6 +192,12 @@ const External = ({ resource, posthog, posthogLoaded }) => {
       <Button
         newTab
         onClick={() => {
+          if (gtag) {
+            gtag("event", "conversion", {
+              send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+            });
+          }
+
           if (
             posthogLoaded &&
             window.location.origin === "https://acecentre.org.uk"
@@ -363,6 +382,12 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
         <Button
           onClick={() => {
             setModelOpen(true);
+            if (gtag) {
+              gtag("event", "conversion", {
+                send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+              });
+            }
+
             if (
               posthogLoaded &&
               window.location.origin === "https://acecentre.org.uk"
