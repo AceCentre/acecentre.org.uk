@@ -65,6 +65,11 @@ function MyApp({
               gtag('config', 'AW-10885468875');
             `}
           </Script>
+          <Script
+            id="cookieyes"
+            src="https://cdn-cookieyes.com/client_data/5f7bdf61622959f12d1b8723/script.js"
+            strategy="afterInteractive"
+          ></Script>
         </>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={chakraTheme} resetCSS={false}>
