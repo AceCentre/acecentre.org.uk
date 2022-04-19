@@ -49,7 +49,8 @@ const useCheckoutForm = (
   freeCheckout,
   groupPurchaseLines,
   delegatedLearningLines,
-  billingDetails
+  billingDetails,
+  rawTotal
 ) => {
   const { refreshLoginStatus } = useGlobalProps();
   const [allowSubmit, setAllowSubmit] = useState(true);
@@ -286,6 +287,17 @@ const useCheckoutForm = (
 
     const submit = async () => {
       let source = {};
+
+      // eslint-disable-next-line no-undef
+      if (gtag) {
+        // eslint-disable-next-line no-undef
+        gtag("event", "conversion", {
+          send_to: "AW-10885468875/GGRdCIugwrQDEMulzMYo",
+          value: rawTotal,
+          currency: "GBP",
+          transaction_id: "",
+        });
+      }
       if (!freeCheckout) {
         // Extract the payment data from our <CardElement/> component
         const cardElements = elements.getElement(CardElement);
@@ -413,6 +425,7 @@ export default function Checkout({
   delegatedLearningLines,
   vat,
   defaultEmail,
+  rawTotal,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -437,6 +450,7 @@ export default function Checkout({
             delegatedLearningLines={delegatedLearningLines}
             vat={vat}
             defaultEmail={defaultEmail}
+            rawTotal={rawTotal}
           />
         </Elements>
       </main>
@@ -459,6 +473,7 @@ const CheckoutForm = ({
   delegatedLearningLines,
   defaultEmail,
   vat,
+  rawTotal,
 }) => {
   const {
     showFullDelivery,
@@ -481,7 +496,8 @@ const CheckoutForm = ({
     isFree(total),
     groupPurchaseLines,
     delegatedLearningLines,
-    billingDetails
+    billingDetails,
+    rawTotal
   );
 
   return (
@@ -595,6 +611,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
     discountTotal,
     needsDelivered,
     vat,
+    rawTotal,
   } = await getCart(req);
   const user = req.session.get("user") || { customerId: "" };
   const {
@@ -636,6 +653,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       delegatedLearningLines,
       vat,
       defaultEmail,
+      rawTotal,
     },
   };
 });
