@@ -38,7 +38,7 @@ export const MailingList = ({
         <input aria-label="Email address for mailing list" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
         <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
         <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d05eb11e79c97878b9f10fd9c_ec5a06da07" tabindex="-1" value=""></div>
-        <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+        <div class="clear"><input type="submit" onClick="if(gtag) gtag('event', 'conversion', {'send_to': 'AW-10885468875/afp9CKKuv7QDEMulzMYo'});" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
         </div>
         </form>
         </div>

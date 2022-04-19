@@ -17,6 +17,7 @@ import { SkipLink } from "../components/skip-link/skip-link";
 
 import { useLoggedInStatus } from "../lib/use-logged-in-status";
 import { extendTheme } from "../lib/chakra-theme";
+import Script from "next/script";
 
 const theme = createTheme();
 
@@ -50,6 +51,21 @@ function MyApp({
         }}
       >
         <DefaultHead {...seo} />
+        <>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=AW-10885468875"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'AW-10885468875');
+            `}
+          </Script>
+        </>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={chakraTheme} resetCSS={false}>
             <SSRProvider>
