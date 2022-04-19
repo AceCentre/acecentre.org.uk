@@ -18,6 +18,7 @@ import { SkipLink } from "../components/skip-link/skip-link";
 import { useLoggedInStatus } from "../lib/use-logged-in-status";
 import { extendTheme } from "../lib/chakra-theme";
 import Script from "next/script";
+import { useRouter } from "next/router";
 
 const theme = createTheme();
 
@@ -30,6 +31,8 @@ function MyApp({
   Component,
   pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
 }) {
+  const router = useRouter();
+
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -37,6 +40,24 @@ function MyApp({
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      // eslint-disable-next-line no-undef
+      if (gtag) {
+        console.log("PING", url);
+        // eslint-disable-next-line no-undef
+        gtag("event", "conversion", {
+          send_to: "AW-10885468875/F2ukCJTx8bQDEMulzMYo",
+        });
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   const { loggedInStatus, refreshLoginStatus } = useLoggedInStatus();
 
@@ -63,6 +84,9 @@ function MyApp({
               gtag('js', new Date());
 
               gtag('config', 'AW-10885468875');
+              gtag("event", "conversion", {
+                send_to: "AW-10885468875/F2ukCJTx8bQDEMulzMYo",
+              });
             `}
           </Script>
           <Script
