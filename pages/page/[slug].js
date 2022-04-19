@@ -29,6 +29,11 @@ export default function GenericPage({ page }) {
 
 const ALL_PAGES = [
   {
+    slug: "cookies",
+    description:
+      "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
+  },
+  {
     slug: "privacy",
     description:
       "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
