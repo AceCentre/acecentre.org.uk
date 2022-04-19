@@ -109,7 +109,12 @@ export const Footer = ({ currentYear }) => {
             </li>
             <li className={styles.flatListItem}>
               <Link href="/page/privacy">
-                <a className={styles.flatListLink}>Privacy Policy</a>
+                <a className={styles.flatListLink}>Privacy</a>
+              </Link>
+            </li>
+            <li className={styles.flatListItem}>
+              <Link href="/page/cookies">
+                <a className={styles.flatListLink}>Cookies</a>
               </Link>
             </li>
             <li className={styles.flatListItem}>
