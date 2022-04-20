@@ -17,6 +17,7 @@ module.exports = {
       "SLACK_SECRET",
       "POSTHOG_KEY",
       "CLOUDINARY_CLOUD",
+      "NEXT_USE_NETLIFY_EDGE",
     ];
 
     const pathToEnv = path.join(process.cwd(), "./.env");
