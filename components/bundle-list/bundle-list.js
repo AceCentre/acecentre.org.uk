@@ -15,10 +15,16 @@ export const BundleList = ({ bundle }) => {
 };
 
 const BundleItem = ({ course }) => {
+  console.log(course);
+
   return (
     <li className={styles.inlineCard}>
       <h3>{course.title}</h3>
-      <p className={styles.date}>{course.date.tagline}</p>
+      <p className={styles.date}>
+        {course.slug === "cad-in-assistive-technology-introduction-i"
+          ? "Take this FREE course whenever you like."
+          : course.date.tagline}
+      </p>
       <p>{course.shortDescription}</p>
       <Link href={`/learning/${course.slug}`}>
         <a className={styles.link}>View course &gt;</a>
