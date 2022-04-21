@@ -26,6 +26,7 @@ import Link from "next/link";
 import { BundleList } from "../../components/bundle-list/bundle-list";
 import { addBundles } from "../../lib/add-bundles";
 import { ListOfBundles } from "../../components/list-of-bundles/list-of-bundles";
+import { ORDER_BY_OPTIONS } from "../../components/course-filter/order-by-options";
 
 export default function LearningDetail({
   course,
@@ -186,6 +187,9 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       },
     };
   } else if (currentBundle) {
+    const orderByFunc = ORDER_BY_OPTIONS.find((x) => x.slug === "first");
+    const sortedCourses = currentBundle.courses.sort(orderByFunc.sort);
+    currentBundle.courses = sortedCourses;
     seo = {
       title: currentBundle.title,
       description: currentBundle.shortDescription.replace(/(<([^>]+)>)/gi, ""),

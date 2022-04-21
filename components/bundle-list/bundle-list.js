@@ -18,6 +18,7 @@ const BundleItem = ({ course }) => {
   return (
     <li className={styles.inlineCard}>
       <h3>{course.title}</h3>
+      <p className={styles.date}>{course.date.tagline}</p>
       <p>{course.shortDescription}</p>
       <Link href={`/learning/${course.slug}`}>
         <a className={styles.link}>View course &gt;</a>

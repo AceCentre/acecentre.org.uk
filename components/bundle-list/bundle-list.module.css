@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+.date {
+  font-style: italic;
+}
+
 .inlineCard {
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
   padding: 40px;
