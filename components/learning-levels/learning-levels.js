@@ -32,9 +32,10 @@ export const LearningLevels = ({ levels }) => {
 export const LearningLevelPopup = ({
   isModelOpen,
   onClose,
-  levels,
+  levels: unsortedLevels,
   defaultLevel = 1,
 }) => {
+  const levels = unsortedLevels.sort((a, b) => a.level - b.level);
   const [selected, setSelected] = useState(levels[defaultLevel - 1].slug);
   const fullSelected = levels.find((current) => current.slug == selected);
 
