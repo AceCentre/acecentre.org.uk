@@ -74,14 +74,14 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .list {
+  .list.list {
     grid-template-columns: 1fr;
   }
 }
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .container.container {
     grid-template-columns: 1fr;
   }
 }
