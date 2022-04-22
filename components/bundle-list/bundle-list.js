@@ -15,8 +15,6 @@ export const BundleList = ({ bundle }) => {
 };
 
 const BundleItem = ({ course }) => {
-  console.log(course);
-
   return (
     <li className={styles.inlineCard}>
       <h3>{course.title}</h3>
