@@ -153,6 +153,11 @@
   to = "/resources/all?category=shop&searchText=youmatter&page=1"
   status = 301
 
+[[redirects]]
+  from = "/learning/learn-at-engineering"
+  to = "/learning/cad-in-at"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
