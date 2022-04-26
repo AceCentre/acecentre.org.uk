@@ -27,6 +27,9 @@ async function handler(req, res) {
     console.log("Finished waiting");
     const body = JSON.parse(req.body);
     const cohortNames = body.cohortNames;
+
+    console.log(JSON.stringify(body, null, 2));
+
     for (let current of cohortNames) {
       const addUserResult = await addUserToCohort(
         req,
