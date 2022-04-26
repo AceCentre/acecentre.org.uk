@@ -43,8 +43,11 @@ async function rawHandler(req, res) {
 
     // Wait for 2 minutes so a user can 3D auth
     await wait(120000);
-    console.log("Finished waiting");
+    console.log("Finished waiting!");
     const body = JSON.parse(req.body);
+
+    console.log(JSON.stringify(body, null, 2));
+
     const cohortNames = body.cohortNames;
     for (let current of cohortNames) {
       const addUserResult = await addUserToCohort(
