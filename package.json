@@ -39,7 +39,7 @@
     "@stripe/react-stripe-js": "1.7.2",
     "@stripe/stripe-js": "1.29.0",
     "async-redis": "2.0.0",
-    "axios": "0.27.0",
+    "axios": "0.27.1",
     "esbuild": "0.14.38",
     "etag": "1.8.1",
     "framer-motion": "6.3.2",
