@@ -339,7 +339,7 @@ const useCheckoutForm = (
           body: JSON.stringify({
             source,
             billingDetails,
-            deliveryDetails,
+            shippingDetails: deliveryDetails,
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
