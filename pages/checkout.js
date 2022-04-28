@@ -216,7 +216,7 @@ const useCheckoutForm = (
       city: event.target?.cityDelivery?.value || "",
       state: event.target?.countyDelivery?.value || "",
       postcode: event.target?.postcodeDelivery?.value || "",
-      notes: event.target?.orderNotesDelivery?.value || "",
+      // notes: event.target?.orderNotesDelivery?.value || "",
     };
 
     if (showFullDelivery) {
@@ -339,7 +339,7 @@ const useCheckoutForm = (
           body: JSON.stringify({
             source,
             billingDetails,
-            shippingDetails: deliveryDetails,
+            deliveryDetails,
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
