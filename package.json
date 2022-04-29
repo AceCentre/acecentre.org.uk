@@ -88,7 +88,7 @@
     "eslint-plugin-react": "7.29.4",
     "fast-xml-parser": "4.0.7",
     "got": "11.8.3",
-    "jest": "28.0.2",
+    "jest": "28.0.3",
     "jest-css-modules-transform": "4.3.0",
     "mock-fs": "5.1.2",
     "mysql2": "2.3.3",
