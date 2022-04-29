@@ -18,8 +18,6 @@ import { getPage } from "../lib/generic-pages/get-page";
 export default function CommunicationWorks({ page }) {
   const { currentYear } = useGlobalProps();
 
-  console.log(page);
-
   return (
     <>
       <header>
