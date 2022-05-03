@@ -80,6 +80,7 @@ context("Paid resources", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
+      cy.wait(1000);
       cy.url({ timeout: 60000 }).should("include", "order");
     }
   );
