@@ -34,6 +34,7 @@ export const DefaultHead = ({
   image: specificImage,
   product = null,
   showSearchBox = false,
+  dontIndex = false,
 }) => {
   const fullTitle = title ? `${title} | Ace Centre` : defaultTitle;
   const image = specificImage || defaultImage;
@@ -41,6 +42,8 @@ export const DefaultHead = ({
 
   return (
     <Head>
+      {dontIndex && <meta name="robots" content="noindex" />}
+
       {/* Favicon */}
       <>
         <link
