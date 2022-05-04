@@ -3,3 +3,30 @@
   width: 90%;
   max-width: var(--containerMaxWidth);
 }
+
+.share {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.topArea {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: 3rem;
+}
+
+.resourcesList.resourcesList {
+  margin: 3rem auto;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .topArea {
+    grid-template-columns: 1fr;
+  }
+}
