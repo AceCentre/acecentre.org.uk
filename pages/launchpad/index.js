@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
+import { LaunchpadList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -8,7 +8,7 @@ import { getTemplates } from "../../lib/launchpad";
 
 import styles from "../../styles/launchpad.module.css";
 
-export default function Resources({ templates }) {
+export default function Launchpad({ templates }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -16,21 +16,13 @@ export default function Resources({ templates }) {
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
-      <main className={styles.main} id="mainContent">
-        <h1>AAC Launchpad</h1>
-        <p>This is an early prototype of AAC Launchpad.</p>
-        <p>Here are the available dynamic templates:</p>
-        <ul>
-          {templates.map((template) => {
-            return (
-              <li key={template.templateId}>
-                <Link href={`/launchpad/${template.templateId}`}>
-                  {template.templateName}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <main id="mainContent">
+        <div className={styles.main}>
+          <h1>AAC Launchpad</h1>
+          <p>This is an early prototype of AAC Launchpad.</p>
+        </div>
+
+        <LaunchpadList title="Templates" templates={templates} />
       </main>
       <Footer currentYear={currentYear} />
     </>

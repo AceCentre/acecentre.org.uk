@@ -62,6 +62,34 @@ export const ResourceList = ({
   );
 };
 
+export const LaunchpadList = ({ title, templates, className = "" }) => {
+  return (
+    <div className={`${styles.container} ${className}`}>
+      <div className={styles.titleContainer}>
+        <div>{title && <h2 className={styles.title}>{title}</h2>}</div>
+      </div>
+      <ul className={styles.postList}>
+        {templates.map((template) => {
+          return (
+            <Card
+              className={styles.card}
+              imageContainerClassName={styles.imageContainer}
+              href={`/launchpad/${template.templateId}`}
+              key={`${title}-card-${template.templateId}`}
+              noImagePostCount={0}
+              subtitle="Launchpad"
+              featuredImage={{ src: template.templateImageUrl }}
+              title={template.templateName}
+            >
+              <p className={styles.productTitle}>{template.templateName}</p>
+            </Card>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
 const shouldShowRibbon = (product) => {
   if (product?.instantDownloadAvailable) {
     return "Download";
