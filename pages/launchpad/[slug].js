@@ -11,6 +11,7 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { ResourcesImage } from "../../components/resources-image/resources-image";
 import { ResourcesDescription } from "../../components/resources-description/resources-description";
 import { ResourcesShare } from "../../components/resources-share/resources-share";
+import { LaunchpadGenerate } from "../../components/launchpad-generate/launchpad-generate";
 
 export default function LaunchpadDetail({ template, templates }) {
   const { currentYear } = useGlobalProps();
@@ -38,6 +39,7 @@ export default function LaunchpadDetail({ template, templates }) {
             />
           </div>
         </div>
+        <LaunchpadGenerate template={template} />
         <div className={styles.share}>
           <ResourcesShare />
         </div>
