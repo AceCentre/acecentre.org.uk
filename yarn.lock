@@ -3548,16 +3548,7 @@
     "@react-aria/utils" "^3.11.3"
     clsx "^1.1.1"
 
-"@react-stately/radio@3.3.5":
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.3.5.tgz#961c5c23243c73412d6527ceafdf165c05ac1b0d"
-  integrity sha512-/2m4beHHbKdz91PFFaPd5xWysENnWGBNUa1Un9VSwvmtoYbUJDl33lZOx/GqHg8Vu2sxCyVMv19w75bun2jm+Q==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-stately/utils" "^3.4.1"
-    "@react-types/radio" "^3.1.5"
-
-"@react-stately/radio@^3.3.6":
+"@react-stately/radio@3.3.6", "@react-stately/radio@^3.3.6":
   version "3.3.6"
   resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.3.6.tgz#c0cea40c9625818b211544c5028341f128e7f4f7"
   integrity sha512-G35xuEIk7TkqA3SGGlSVUyrkauf7bNVxq0/ELSM1mhrAuKF6nXkLqK2kI5LtOrngk/ZrsVFtfJYN+H6cBNhu2Q==
@@ -3579,13 +3570,6 @@
   integrity sha512-LuShOdEYokzn58SKUIo7kQdN3CV5Rs+HCxmvix4+Uw6BAYG9/aqqoKKolTA9klbM8rvvEzDqFzNZZHeMTBoN6w==
   dependencies:
     "@react-types/shared" "^3.12.0"
-
-"@react-types/radio@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@react-types/radio/-/radio-3.1.5.tgz#76be5f01da7baa19e875eaf045b53c88fd3d59af"
-  integrity sha512-KO6qERL4MQT7wMud4afikpWSdMNFc7+AMBYYxC+9usEEIxgYn98ksvvPc/rekRbnq0WL1T8WAZtYBM/+41qMbA==
-  dependencies:
-    "@react-types/shared" "^3.11.2"
 
 "@react-types/radio@^3.1.6":
   version "3.1.6"
