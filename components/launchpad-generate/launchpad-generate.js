@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { RgbStringColorPicker } from "react-colorful";
+import { launchpadUrl } from "../../lib/config";
 
 export const LaunchpadGenerate = ({ template }) => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ export const LaunchpadGenerate = ({ template }) => {
     }));
 
     const asyncWork = async () => {
-      const response = await fetch("http://localhost:4000", {
+      const response = await fetch(launchpadUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
