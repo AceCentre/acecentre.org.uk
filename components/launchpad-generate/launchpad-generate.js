@@ -10,7 +10,9 @@ export const LaunchpadGenerate = ({ template }) => {
   const [answers, setAnswers] = useState({});
 
   const setVariableValue = (id, value) => {
-    setAnswers({ ...answers, [id]: value });
+    setAnswers((upToDateAnswers) => {
+      return { ...upToDateAnswers, [id]: value };
+    });
   };
 
   const downloadResource = () => {
