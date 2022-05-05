@@ -26,7 +26,10 @@ export default function LaunchpadDetail({ template, templates }) {
         <div className={styles.topArea}>
           <div className={styles.leftTopArea}>
             <ResourcesImage
-              resource={{ image: { src: template.templateImageUrl } }}
+              resource={{
+                name: template.templateName,
+                image: { src: template.templateImageUrl },
+              }}
               priority
             />
           </div>
