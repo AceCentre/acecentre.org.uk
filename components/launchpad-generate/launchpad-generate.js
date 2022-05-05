@@ -3,6 +3,7 @@ import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
+import { FormControl, Input as ChakraInput } from "@chakra-ui/react";
 
 export const LaunchpadGenerate = ({ template }) => {
   const [loading, setLoading] = useState(false);
@@ -130,11 +131,42 @@ const ColorPicker = ({ variable, setVariableValue }) => {
   );
 };
 
+const FreeText = ({ variable, setVariableValue }) => {
+  useEffect(() => {
+    setVariableValue(variable.id, variable.defaultValue);
+  }, []);
+
+  return (
+    <div className={styles.card}>
+      <h2>{variable.name}</h2>
+      <p>{variable.description}</p>
+      <div>
+        <FormControl className={styles.formControl} id={variable.id}>
+          <ChakraInput
+            className={styles.input}
+            backgroundColor={"#F5F5F5"}
+            placeholder={variable.defaultValue}
+            aria-label={variable.description}
+            onChange={(event) => {
+              setVariableValue(variable.id, event.target.value);
+            }}
+            maxLength={variable.maxLength}
+          />
+        </FormControl>
+      </div>
+    </div>
+  );
+};
+
 const TemplateVariable = ({ variable, setVariableValue }) => {
   if (variable.type == "color") {
     return (
       <ColorPicker setVariableValue={setVariableValue} variable={variable} />
     );
+  }
+
+  if (variable.type == "freeText") {
+    return <FreeText setVariableValue={setVariableValue} variable={variable} />;
   }
 
   console.warn(`Unknown variable type: ${variable.type}`);

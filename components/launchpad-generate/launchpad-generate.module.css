@@ -16,7 +16,6 @@
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
   text-decoration: none;
   color: #333333;
-  height: 350px;
   padding-top: 1rem;
   padding: 2rem;
   gap: 0.5rem;
@@ -32,6 +31,7 @@
 
 .centerPicker {
   margin: 0 auto;
+  margin-top: auto;
 }
 
 /** Mobile CSS */
