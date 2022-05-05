@@ -106,10 +106,10 @@ export const LaunchpadGenerate = ({ template }) => {
 };
 
 const ColorPicker = ({ variable, setVariableValue }) => {
-  const [color, setColor] = useState("rgb(0,0,0)");
+  const [color, setColor] = useState(variable.defaultValue);
 
   useEffect(() => {
-    setVariableValue(variable.id, "rgb(0,0,0)");
+    setVariableValue(variable.id, variable.defaultValue);
   }, []);
 
   return (
