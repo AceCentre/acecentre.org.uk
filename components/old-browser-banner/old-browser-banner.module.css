@@ -1,0 +1,53 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+/* Hide IE banner by default */
+.ieNotice {
+  /* display: none; */
+  width: 100%;
+  background: #c70000;
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.ieNotice {
+  display: none;
+  width: 100%;
+  background: #c70000;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+.ieNotice h1 {
+  margin: 0;
+}
+
+.ieNotice p {
+  margin-bottom: 0;
+}
+
+/* Show IE banner on IE10/11 */
+@media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+  .ieNotice {
+    display: block;
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .ieNotice {
+    display: block;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}

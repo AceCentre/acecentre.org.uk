@@ -17,6 +17,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { useGlobalProps } from "../../lib/global-props/hook";
+import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,6 +61,7 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
 
   return (
     <>
+      <OldBrowserBanner />
       <div className={styles.desktopContainer}>
         <Nav nhs={nhs} nhsTitle={nhsTitle} />
         {!nhs && <SubNav navItems={defaultNavItems} />}
