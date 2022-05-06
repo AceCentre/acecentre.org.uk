@@ -9,6 +9,8 @@ import { withGlobalProps } from "../../lib/global-props/inject";
 import Avatar from "@material-ui/core/Avatar";
 
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import CreditCardIcon from "@material-ui/icons/CreditCard";
 
 import styles from "../../styles/self-funded-assessments.module.css";
 import { InformationDays } from "../../components/information-days/information-days";
@@ -232,14 +234,29 @@ export default function EngineeringPage() {
 
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <FormatQuoteIcon className={styles.icon} />
+                <ListAltIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
                 <h3>Self-assessment referral form</h3>
                 <p>Get the latest referral form</p>
                 <div className={styles.downloadButtonContainer}>
                   <Button href="/docs/ReferralFormPdf.pdf">
-                    Download form
+                    Download referral form
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <CreditCardIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <h3>Payment form</h3>
+                <p>Get the latest payment form</p>
+                <div className={styles.downloadButtonContainer}>
+                  <Button href="/docs/payment-form.doc">
+                    Download payment form
                   </Button>
                 </div>
               </div>
