@@ -68,7 +68,22 @@ export default function CommunicationWorks({ page }) {
                   <h3>Seminar Agenda NORTH</h3>
                   <p>
                     <Link href={page.communicationWorksUrl}>
-                      Download the Agenda here
+                      Download the NORTH Agenda here
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            )}
+            {page.communicationWorksSouthUrl && (
+              <div className={styles.quote}>
+                <Avatar className={styles.avatar}>
+                  <EventIcon className={styles.icon} />
+                </Avatar>
+                <div>
+                  <h3>Seminar Agenda SOUTH</h3>
+                  <p>
+                    <Link href={page.communicationWorksSouthUrl}>
+                      Download the SOUTH Agenda here
                     </Link>
                   </p>
                 </div>
