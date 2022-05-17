@@ -2,7 +2,7 @@ name: Check Edwiser
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7,37 * * * *"
+    - cron: "0 9 * * *"
 
 jobs:
   CheckEdwiser:
