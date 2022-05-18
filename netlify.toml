@@ -104,7 +104,7 @@
   status = 301
 
 [[redirects]]
-  from = "/rehapt-manuals"
+  from = "/rehadapt-manuals"
   to = "https://acecentreuk.sharepoint.com/:f:/s/AnonymousShares/Ev7kOA08b1BFgY7tObc2XtgBzosxS_2fpYgOr1nnTJseVQ?e=BpZ91P"
   status = 307
 
