@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
-import { FormControl, Input as ChakraInput } from "@chakra-ui/react";
+import { FormControl, Input as ChakraInput, Spinner } from "@chakra-ui/react";
+import { useDropzone } from "react-dropzone";
+import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 
 export const LaunchpadGenerate = ({ template }) => {
   const [loading, setLoading] = useState(false);
@@ -158,6 +160,93 @@ const FreeText = ({ variable, setVariableValue }) => {
   );
 };
 
+const ImageUploader = ({ variable, setVariableValue }) => {
+  const [isUploading, setIsUploading] = useState(false);
+  const [fileName, setFileName] = useState(null);
+  const [error, setError] = useState(null);
+
+  const onDrop = useCallback((acceptedFiles) => {
+    setIsUploading(true);
+
+    var formData = new FormData();
+
+    if (acceptedFiles.length !== 1) {
+      setError("You uploaded an incompatible file");
+    }
+
+    const file = acceptedFiles[0];
+    formData.append("image", file);
+
+    const upload = async () => {
+      try {
+        const result = await fetch(`${launchpadUrl}/image-upload`, {
+          method: "POST",
+          body: formData,
+        });
+
+        const response = await result.json();
+
+        if (response.success === true && response.name) {
+          console.log(response);
+          setVariableValue(variable.id, `./${response.name}`);
+          setFileName(file.name);
+          setIsUploading(false);
+        } else {
+          setError("Failed to upload image");
+          setIsUploading(false);
+        }
+      } catch (err) {
+        console.warn(err);
+        setError("Failed to upload image");
+        setIsUploading(false);
+      }
+    };
+
+    upload();
+  }, []);
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    maxFiles: 1,
+    accept: { "image/*": [] },
+    disabled: isUploading,
+  });
+
+  return (
+    <div className={styles.card}>
+      <h2>{variable.name}</h2>
+      <p>{variable.description}</p>
+      {error && <p className={styles.error}>{error}</p>}
+      {fileName ? (
+        <>
+          <p>Successfully uploaded!</p>
+          <div className={styles.dropzone}>
+            <InsertDriveFileIcon className={styles.fileIcon} />
+            <p>{fileName}</p>
+          </div>
+        </>
+      ) : (
+        <>
+          {isUploading ? (
+            <div className={styles.spinner}>
+              <Spinner></Spinner>
+              <p>Uploading</p>
+            </div>
+          ) : (
+            <div {...getRootProps({ className: styles.dropzone })}>
+              <input {...getInputProps({ name: "image" })} />
+              <p>
+                Drag and drop the image you want to use here or{" "}
+                <strong>click</strong> in this box to select an image.
+              </p>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
+
 const TemplateVariable = ({ variable, setVariableValue }) => {
   if (variable.type == "color") {
     return (
@@ -167,6 +256,12 @@ const TemplateVariable = ({ variable, setVariableValue }) => {
 
   if (variable.type == "freeText") {
     return <FreeText setVariableValue={setVariableValue} variable={variable} />;
+  }
+
+  if (variable.type == "imageUrl") {
+    return (
+      <ImageUploader setVariableValue={setVariableValue} variable={variable} />
+    );
   }
 
   console.warn(`Unknown variable type: ${variable.type}`);
