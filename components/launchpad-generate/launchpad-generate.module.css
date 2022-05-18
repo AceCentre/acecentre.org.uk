@@ -29,6 +29,34 @@
   margin: 0;
 }
 
+.spinner {
+  text-align: center;
+}
+
+.fileIcon.fileIcon {
+  font-size: 3.5rem;
+}
+
+.error {
+  color: red;
+}
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+}
+
 .centerPicker {
   margin: 0 auto;
   margin-top: auto;
