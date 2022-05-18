@@ -3,7 +3,12 @@ import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
-import { FormControl, Input as ChakraInput, Spinner } from "@chakra-ui/react";
+import {
+  FormControl,
+  Input as ChakraInput,
+  Select,
+  Spinner,
+} from "@chakra-ui/react";
 import { useDropzone } from "react-dropzone";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 
@@ -247,6 +252,35 @@ const ImageUploader = ({ variable, setVariableValue }) => {
   );
 };
 
+const Options = ({ variable, setVariableValue }) => {
+  useEffect(() => {
+    setVariableValue(variable.id, variable.defaultValue);
+  }, []);
+
+  return (
+    <div className={styles.card}>
+      <h2>{variable.name}</h2>
+      <p>{variable.description}</p>
+      <Select
+        backgroundColor="#F5F5F5"
+        defaultValue={variable.defaultValue}
+        aria-label={"Select " + variable.name}
+        onChange={(event) => {
+          setVariableValue(variable.id, event.target.value);
+        }}
+      >
+        {variable.options.map((option) => {
+          return (
+            <option value={option.value} key={`${option.value}`}>
+              {option.label}
+            </option>
+          );
+        })}
+      </Select>
+    </div>
+  );
+};
+
 const TemplateVariable = ({ variable, setVariableValue }) => {
   if (variable.type == "color") {
     return (
@@ -262,6 +296,10 @@ const TemplateVariable = ({ variable, setVariableValue }) => {
     return (
       <ImageUploader setVariableValue={setVariableValue} variable={variable} />
     );
+  }
+
+  if (variable.type == "option") {
+    return <Options setVariableValue={setVariableValue} variable={variable} />;
   }
 
   console.warn(`Unknown variable type: ${variable.type}`);
