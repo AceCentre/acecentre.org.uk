@@ -8,6 +8,7 @@ const IGNORE = [
   "moodle-login",
   "nhs-service-finder/maps",
   "pasco-support",
+  "launchpad",
 ];
 
 function chunk(arr, len) {
