@@ -133,7 +133,12 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
               className={styles.searchContainer}
             >
               <p className={styles.searchTagline}>Search our website</p>
-              <Input name="searchText" white placeholder="Search">
+              <Input
+                ariaLabel="Search text"
+                name="searchText"
+                white
+                placeholder="Search"
+              >
                 <SvgIcon>
                   <SearchIcon />
                 </SvgIcon>
