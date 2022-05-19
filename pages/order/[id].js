@@ -43,4 +43,4 @@ export default function Custom404() {
   );
 }
 
-export const getServerSideProps = withGlobalProps();
+export const getStaticProps = withGlobalProps();
