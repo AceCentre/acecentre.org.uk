@@ -1,46 +1,52 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
-import { defaultNavItems } from "../../components/sub-nav/sub-nav";
+import { PageTitle } from "../../components/page-title/page-title";
+import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
+import { OrderTable } from "../../components/table/table";
+import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { getOrders } from "../../lib/products/get-orders";
 
-// pages/404.js
-export default function Custom404() {
+export default function OrdersPage({ orders }) {
   const { currentYear } = useGlobalProps();
 
   return (
     <>
-      <style jsx>{`
-        span {
-          font-size: 100px;
-        }
-
-        main {
-          text-align: center;
-          width: 90%;
-          margin: 0 auto;
-          max-width: 1024px;
-          padding: 6rem 0;
-        }
-
-        h1 {
-          font-weight: normal;
-        }
-      `}</style>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <span>Sorry</span>
-        <h1>We are down for scheduled maintenance right now.</h1>
-        <p>
-          We are hard at work making our systems super reliable. Check back in
-          an hour.
-        </p>
+        <PageTitle heading="My orders" description="A summary of your orders" />
+        <OrderTable orders={orders} />
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps();
+// Redirect if you are signed in
+export const getServerSideProps = withSession(async function ({ req }) {
+  const user = req.session.get("user");
+
+  if (!user || !user.authToken) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  const orders = await getOrders(req, user);
+
+  if (orders === null) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: { orders } };
+});

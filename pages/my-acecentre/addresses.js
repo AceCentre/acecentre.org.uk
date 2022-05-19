@@ -1,46 +1,62 @@
+import {
+  BillingDetails,
+  ShippingDetails,
+} from "../../components/address-field/address-field";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
-import { defaultNavItems } from "../../components/sub-nav/sub-nav";
+import { PageTitle } from "../../components/page-title/page-title";
+import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
+import { getAddresses } from "../../lib/auth/get-user";
+import withSession from "../../lib/auth/with-session";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 
-// pages/404.js
-export default function Custom404() {
+import styles from "../../styles/addresses.module.css";
+
+export default function Addresses({
+  billingDetails,
+  shippingDetails,
+  countries,
+}) {
   const { currentYear } = useGlobalProps();
 
   return (
     <>
-      <style jsx>{`
-        span {
-          font-size: 100px;
-        }
-
-        main {
-          text-align: center;
-          width: 90%;
-          margin: 0 auto;
-          max-width: 1024px;
-          padding: 6rem 0;
-        }
-
-        h1 {
-          font-weight: normal;
-        }
-      `}</style>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <span>Sorry</span>
-        <h1>We are down for scheduled maintenance right now.</h1>
-        <p>
-          We are hard at work making our systems super reliable. Check back in
-          an hour.
-        </p>
+        <PageTitle
+          heading="My addresses"
+          description="Manage your billing and shipping address"
+        />
+        <div className={styles.splitColumns}>
+          <BillingDetails details={billingDetails} countries={countries} />
+          <ShippingDetails details={shippingDetails} countries={countries} />
+        </div>
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps();
+// Redirect if you are signed in
+export const getServerSideProps = withSession(async function ({ req }) {
+  const user = req.session.get("user");
+
+  if (!user || !user.authToken) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+  const { billingDetails, shippingDetails, countries } = await getAddresses(
+    req,
+    user
+  );
+
+  return {
+    props: { billingDetails, shippingDetails, countries },
+  };
+});
