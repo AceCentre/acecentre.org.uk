@@ -49,7 +49,12 @@ export const Nav = ({ nhs, nhsTitle }) => {
         </NavList>
         <div className={styles.hideOnMediumScreens}>
           <form action="/search" method="GET">
-            <Input name="searchText" placeholder="Search" maxWidth={213}>
+            <Input
+              name="searchText"
+              ariaLabel="Search text"
+              placeholder="Search"
+              maxWidth={213}
+            >
               <button
                 type="submit"
                 className={styles.noStyleButton}
