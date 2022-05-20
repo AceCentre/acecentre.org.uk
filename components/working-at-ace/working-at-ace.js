@@ -24,9 +24,10 @@ export const WorkingAtAce = () => {
           </Avatar>
           <div className={styles.quoteText}>
             <p className={styles.quoteContent}>
-              &quot;I enjoy working on new products guided by the our team of
-              experts who are dedicated to making sure everything we do meets
-              the needs of our clients.&quot;
+              &quot;At Ace Centre I get to work with a dedicated team of
+              experienced professionals. I enjoy collaborating on a wide variety
+              projects within Ace Centre and working with external
+              partners.&quot;
             </p>
             <div>
               <p>
