@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { RgbStringColorPicker } from "react-colorful";
@@ -11,82 +11,11 @@ import {
 } from "@chakra-ui/react";
 import { useDropzone } from "react-dropzone";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
+import { useLaunchpad } from "../../lib/use-launchpad";
 
 export const LaunchpadGenerate = ({ template }) => {
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [answers, setAnswers] = useState({});
-
-  const setVariableValue = (id, value) => {
-    setAnswers((upToDateAnswers) => {
-      return { ...upToDateAnswers, [id]: value };
-    });
-  };
-
-  const downloadResource = () => {
-    setLoading(true);
-    setErrorMessage(null);
-
-    const arrayAnswers = Object.entries(answers).map(([id, value]) => ({
-      id: id,
-      value: value,
-    }));
-
-    const asyncWork = async () => {
-      const response = await fetch(launchpadUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          operationName: "generateBoard",
-          variables: { answers: arrayAnswers, templateId: template.templateId },
-          query: `
-            mutation generateBoard($answers: [AnswerInput!]!, $templateId: String!) {
-              generateBoard(answers: $answers, templateId: $templateId) {
-                success
-                message
-                fileLocation
-              }
-            }          
-          `,
-        }),
-      });
-      const result = await response.json();
-
-      if (
-        result &&
-        result.data &&
-        result.data &&
-        result.data.generateBoard &&
-        result.data.generateBoard.success &&
-        result.data.generateBoard.fileLocation
-      ) {
-        const link = document.createElement("a");
-        link.href = result.data.generateBoard.fileLocation;
-        link.download = new URL(
-          result.data.generateBoard.fileLocation
-        ).pathname.replace("/boards/", "");
-
-        link.click();
-        setLoading(false);
-      } else if (
-        result &&
-        result.errors &&
-        result.errors[0] &&
-        result.errors[0].message
-      ) {
-        throw new Error(result.errors[0].message);
-      } else {
-        throw new Error("Something went wrong");
-      }
-    };
-
-    asyncWork().catch((error) => {
-      setErrorMessage(error.message || "An error occurred");
-      setLoading(false);
-    });
-  };
+  const { triggerDownload, downloadDisabled, errorMessage, variableProps } =
+    useLaunchpad(template);
 
   return (
     <div className={styles.container}>
@@ -97,67 +26,59 @@ export const LaunchpadGenerate = ({ template }) => {
         </p>
       )}
       <div className={styles.variablesGrid}>
-        {template.templateVariables.map((variable) => (
-          <TemplateVariable
-            setVariableValue={setVariableValue}
-            key={variable.id}
-            variable={variable}
-          />
+        {variableProps.map((current) => (
+          <TemplateVariable {...current} key={current.id} />
         ))}
       </div>
       {errorMessage && <p>{errorMessage}</p>}
-      <Button disabled={loading} onClick={downloadResource}>
+      <Button disabled={downloadDisabled} onClick={triggerDownload}>
         Download
       </Button>
     </div>
   );
 };
 
-const ColorPicker = ({ variable, setVariableValue }) => {
-  const [color, setColor] = useState(variable.defaultValue);
-
-  useEffect(() => {
-    setVariableValue(variable.id, variable.defaultValue);
-  }, []);
-
+const ColorPicker = ({ value, id, onChange, name, description }) => {
   return (
     <div className={styles.card}>
-      <h2>{variable.name}</h2>
-      <p>{variable.description}</p>
+      <h2>{name}</h2>
+      <p>{description}</p>
       <div className={styles.centerPicker}>
         <RgbStringColorPicker
-          color={color}
+          color={value}
           onChange={(newColor) => {
-            setColor(newColor);
-            setVariableValue(variable.id, newColor);
+            onChange({ target: { value: newColor } });
           }}
-          name={variable.id}
+          name={id}
         />
       </div>
     </div>
   );
 };
 
-const FreeText = ({ variable, setVariableValue }) => {
-  useEffect(() => {
-    setVariableValue(variable.id, variable.defaultValue);
-  }, []);
-
+const FreeText = ({
+  value,
+  id,
+  onChange,
+  name,
+  description,
+  placeholder,
+  maxLength,
+}) => {
   return (
     <div className={styles.card}>
-      <h2>{variable.name}</h2>
-      <p>{variable.description}</p>
+      <h2>{name}</h2>
+      <p>{description}</p>
       <div>
-        <FormControl className={styles.formControl} id={variable.id}>
+        <FormControl className={styles.formControl} id={id}>
           <ChakraInput
             className={styles.input}
             backgroundColor={"#F5F5F5"}
-            placeholder={variable.defaultValue}
-            aria-label={variable.description}
-            onChange={(event) => {
-              setVariableValue(variable.id, event.target.value);
-            }}
-            maxLength={variable.maxLength}
+            placeholder={placeholder}
+            aria-label={description}
+            onChange={onChange}
+            maxLength={maxLength}
+            value={value}
           />
         </FormControl>
       </div>
@@ -165,7 +86,7 @@ const FreeText = ({ variable, setVariableValue }) => {
   );
 };
 
-const ImageUploader = ({ variable, setVariableValue }) => {
+const ImageUploader = ({ onChange, name, description }) => {
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState(null);
   const [error, setError] = useState(null);
@@ -193,7 +114,7 @@ const ImageUploader = ({ variable, setVariableValue }) => {
 
         if (response.success === true && response.name) {
           console.log(response);
-          setVariableValue(variable.id, `./${response.name}`);
+          onChange({ target: { value: `./${response.name}` } });
           setFileName(file.name);
           setIsUploading(false);
         } else {
@@ -219,8 +140,8 @@ const ImageUploader = ({ variable, setVariableValue }) => {
 
   return (
     <div className={styles.card}>
-      <h2>{variable.name}</h2>
-      <p>{variable.description}</p>
+      <h2>{name}</h2>
+      <p>{description}</p>
       {error && <p className={styles.error}>{error}</p>}
       {fileName ? (
         <>
@@ -252,24 +173,18 @@ const ImageUploader = ({ variable, setVariableValue }) => {
   );
 };
 
-const Options = ({ variable, setVariableValue }) => {
-  useEffect(() => {
-    setVariableValue(variable.id, variable.defaultValue);
-  }, []);
-
+const Options = ({ value, onChange, name, description, options }) => {
   return (
     <div className={styles.card}>
-      <h2>{variable.name}</h2>
-      <p>{variable.description}</p>
+      <h2>{name}</h2>
+      <p>{description}</p>
       <Select
         backgroundColor="#F5F5F5"
-        defaultValue={variable.defaultValue}
-        aria-label={"Select " + variable.name}
-        onChange={(event) => {
-          setVariableValue(variable.id, event.target.value);
-        }}
+        value={value}
+        aria-label={"Select " + name}
+        onChange={onChange}
       >
-        {variable.options.map((option) => {
+        {options.map((option) => {
           return (
             <option value={option.value} key={`${option.value}`}>
               {option.label}
@@ -281,28 +196,51 @@ const Options = ({ variable, setVariableValue }) => {
   );
 };
 
-const TemplateVariable = ({ variable, setVariableValue }) => {
-  if (variable.type == "color") {
-    return (
-      <ColorPicker setVariableValue={setVariableValue} variable={variable} />
-    );
+const Preset = ({ value, onChange, name, description, presets }) => {
+  return (
+    <div className={styles.card}>
+      <h2>{name}</h2>
+      <p>{description}</p>
+      <Select
+        backgroundColor="#F5F5F5"
+        value={value}
+        aria-label={"Select " + name}
+        onChange={onChange}
+      >
+        {presets.map((option) => {
+          return (
+            <option value={option.value} key={`${option.value}`}>
+              {option.label}
+            </option>
+          );
+        })}
+      </Select>
+    </div>
+  );
+};
+
+const TemplateVariable = ({ type, ...rest }) => {
+  if (type == "color") {
+    return <ColorPicker type={type} {...rest} />;
   }
 
-  if (variable.type == "freeText") {
-    return <FreeText setVariableValue={setVariableValue} variable={variable} />;
+  if (type == "freeText") {
+    return <FreeText type={type} {...rest} />;
   }
 
-  if (variable.type == "imageUrl") {
-    return (
-      <ImageUploader setVariableValue={setVariableValue} variable={variable} />
-    );
+  if (type == "imageUrl") {
+    return <ImageUploader type={type} {...rest} />;
   }
 
-  if (variable.type == "option") {
-    return <Options setVariableValue={setVariableValue} variable={variable} />;
+  if (type == "option") {
+    return <Options type={type} {...rest} />;
   }
 
-  console.warn(`Unknown variable type: ${variable.type}`);
+  if (type == "preset") {
+    return <Preset type={type} {...rest} />;
+  }
+
+  console.warn(`Unknown variable type: ${type}`);
 
   return null;
 };
