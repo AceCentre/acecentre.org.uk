@@ -29,7 +29,7 @@ export default function Launchpad({ templates }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getServerSideProps = withGlobalProps(async () => {
   const templates = await getTemplates();
 
   return {
