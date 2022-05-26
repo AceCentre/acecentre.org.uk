@@ -53,19 +53,6 @@ export default function LaunchpadDetail({ template, templates }) {
   );
 }
 
-export async function getStaticPaths() {
-  const templates = await getTemplates();
-
-  return {
-    paths: templates.map((template) => ({
-      params: {
-        slug: template.templateId,
-      },
-    })),
-    fallback: false,
-  };
-}
-
 export const getServerSideProps = withGlobalProps(
   async ({ params: { slug } }) => {
     const templates = await getTemplates();
