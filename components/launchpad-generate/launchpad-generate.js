@@ -219,6 +219,31 @@ const Preset = ({ value, onChange, name, description, presets }) => {
   );
 };
 
+const BooleanOptions = ({
+  value,
+  onChange,
+  name,
+  description,
+  trueLabel,
+  falseLabel,
+}) => {
+  return (
+    <div className={styles.card}>
+      <h2>{name}</h2>
+      <p>{description}</p>
+      <Select
+        backgroundColor="#F5F5F5"
+        value={value}
+        aria-label={"Select " + name}
+        onChange={onChange}
+      >
+        <option value={"true"}>{trueLabel}</option>
+        <option value={"false"}>{falseLabel}</option>
+      </Select>
+    </div>
+  );
+};
+
 const TemplateVariable = ({ type, ...rest }) => {
   if (type == "color") {
     return <ColorPicker type={type} {...rest} />;
@@ -238,6 +263,10 @@ const TemplateVariable = ({ type, ...rest }) => {
 
   if (type == "preset") {
     return <Preset type={type} {...rest} />;
+  }
+
+  if (type == "boolean") {
+    return <BooleanOptions type={type} {...rest} />;
   }
 
   console.warn(`Unknown variable type: ${type}`);
