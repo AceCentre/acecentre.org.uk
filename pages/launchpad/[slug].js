@@ -66,19 +66,21 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const templates = await getTemplates();
-  const template = templates.find((template) => template.templateId === slug);
+export const getServerSideProps = withGlobalProps(
+  async ({ params: { slug } }) => {
+    const templates = await getTemplates();
+    const template = templates.find((template) => template.templateId === slug);
 
-  const otherTemplates = templates.filter((x) => x.templateId !== slug);
+    const otherTemplates = templates.filter((x) => x.templateId !== slug);
 
-  return {
-    props: {
-      template,
-      templates: otherTemplates,
-      seo: {
-        noIndex: true,
+    return {
+      props: {
+        template,
+        templates: otherTemplates,
+        seo: {
+          noIndex: true,
+        },
       },
-    },
-  };
-});
+    };
+  }
+);
