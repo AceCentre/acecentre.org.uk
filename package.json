@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "0.9.0",
-    "@netlify/plugin-nextjs": "4.7.0",
+    "@netlify/plugin-nextjs": "4.7.1",
     "@storybook/addon-actions": "6.5.5",
     "@storybook/addon-essentials": "6.5.5",
     "@storybook/addon-links": "6.5.5",
