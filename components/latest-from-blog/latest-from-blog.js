@@ -56,6 +56,7 @@ export const Card = ({
   imageContainerClassName = "",
   postTitleContainerClassName = "",
   ribbonText,
+  showSubtitle = true,
 }) => {
   return (
     <li className={`${styles.flexItem} ${className}`}>
@@ -85,7 +86,7 @@ export const Card = ({
               noImagePostCount={noImagePostCount}
             />
           )}
-          <p className={styles.blogTag}>{subtitle}</p>
+          {showSubtitle && <p className={styles.blogTag}>{subtitle}</p>}
           <div
             className={`${styles.postTitleContainer} ${postTitleContainerClassName}`}
           >
