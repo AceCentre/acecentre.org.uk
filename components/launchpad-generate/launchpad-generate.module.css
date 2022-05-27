@@ -10,6 +10,45 @@
   margin: 2rem 0;
 }
 
+.noMargin {
+  margin: 0;
+}
+
+.avatar.avatar {
+  background-color: #94c64e;
+  color: #ffffff;
+}
+
+.icon.icon {
+  font-size: 3rem;
+}
+
+.titles h2 {
+  margin: 0;
+}
+
+.titles p {
+  margin: 0;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemButton {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.itemPanel {
+  padding-left: calc(42px + 1rem);
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -21,11 +60,29 @@
   gap: 0.5rem;
 }
 
+.groupList {
+  margin: 2rem 0;
+}
+
+.accordionHeader h2 {
+  margin: 0;
+}
+
+.accordionHeader p {
+  margin: 0;
+}
+
+.accordionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .card p {
   margin: 0;
 }
 
-.card h2 {
+.card h3 {
   margin: 0;
 }
 
