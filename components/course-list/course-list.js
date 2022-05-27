@@ -82,7 +82,7 @@ export const MyCourseList = ({ courses }) => {
               href={course.href}
               key={`my-courses-card-${course.slug}`}
               noImagePostCount={course.noImagePostCount}
-              subtitle={course.mainCategoryName}
+              showSubtitle={false}
               featuredImage={course.featuredImage}
               title={course.title}
             >
