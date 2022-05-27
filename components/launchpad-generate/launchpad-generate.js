@@ -12,10 +12,27 @@ import {
 import { useDropzone } from "react-dropzone";
 import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 import { useLaunchpad } from "../../lib/use-launchpad";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemButton,
+  AccordionItemHeading,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
+import { Avatar } from "@material-ui/core";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 export const LaunchpadGenerate = ({ template }) => {
-  const { triggerDownload, downloadDisabled, errorMessage, variableProps } =
-    useLaunchpad(template);
+  const {
+    triggerDownload,
+    downloadDisabled,
+    errorMessage,
+    looseVariableProps,
+    variableGroupsProps,
+    defaultSelected,
+  } = useLaunchpad(template);
+  const [selected, setSelected] = useState(defaultSelected);
 
   return (
     <div className={styles.container}>
@@ -26,10 +43,27 @@ export const LaunchpadGenerate = ({ template }) => {
         </p>
       )}
       <div className={styles.variablesGrid}>
-        {variableProps.map((current) => (
+        {looseVariableProps.map((current) => (
           <TemplateVariable {...current} key={current.id} />
         ))}
       </div>
+      <Accordion
+        onChange={(selectedItems) => setSelected(selectedItems)}
+        preExpanded={selected}
+        allowMultipleExpanded
+        allowZeroExpanded
+      >
+        {variableGroupsProps.map((currentGroup) => {
+          return (
+            <VariableGroup
+              selected={selected}
+              key={currentGroup.id}
+              currentGroup={currentGroup}
+            />
+          );
+        })}
+      </Accordion>
+      <div></div>
       {errorMessage && <p>{errorMessage}</p>}
       <Button disabled={downloadDisabled} onClick={triggerDownload}>
         Download
@@ -38,10 +72,39 @@ export const LaunchpadGenerate = ({ template }) => {
   );
 };
 
+const VariableGroup = ({ currentGroup, selected }) => {
+  return (
+    <AccordionItem uuid={currentGroup.id} key={currentGroup.id}>
+      <AccordionItemHeading>
+        <AccordionItemButton className={styles.itemButton}>
+          <Avatar className={styles.avatar}>
+            {selected.includes(currentGroup.id) ? (
+              <KeyboardArrowDownIcon className={styles.icon} />
+            ) : (
+              <ChevronRightIcon className={styles.icon} />
+            )}
+          </Avatar>
+          <div className={styles.titles}>
+            <h2>{currentGroup.name}</h2>
+            <p>{currentGroup.description}</p>
+          </div>
+        </AccordionItemButton>
+      </AccordionItemHeading>
+      <AccordionItemPanel className={styles.itemPanel}>
+        <div className={styles.variablesGrid}>
+          {currentGroup.variableGroupsProps.map((current) => (
+            <TemplateVariable {...current} key={current.id} />
+          ))}
+        </div>
+      </AccordionItemPanel>
+    </AccordionItem>
+  );
+};
+
 const ColorPicker = ({ value, id, onChange, name, description }) => {
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       <div className={styles.centerPicker}>
         <RgbStringColorPicker
@@ -67,7 +130,7 @@ const FreeText = ({
 }) => {
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       <div>
         <FormControl className={styles.formControl} id={id}>
@@ -140,7 +203,7 @@ const ImageUploader = ({ onChange, name, description }) => {
 
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       {error && <p className={styles.error}>{error}</p>}
       {fileName ? (
@@ -176,7 +239,7 @@ const ImageUploader = ({ onChange, name, description }) => {
 const Options = ({ value, onChange, name, description, options }) => {
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       <Select
         backgroundColor="#F5F5F5"
@@ -199,7 +262,7 @@ const Options = ({ value, onChange, name, description, options }) => {
 const Preset = ({ value, onChange, name, description, presets }) => {
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       <Select
         backgroundColor="#F5F5F5"
@@ -229,7 +292,7 @@ const BooleanOptions = ({
 }) => {
   return (
     <div className={styles.card}>
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <p>{description}</p>
       <Select
         backgroundColor="#F5F5F5"
