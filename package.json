@@ -46,7 +46,7 @@
     "fuse.js": "6.6.2",
     "graphql": "16.5.0",
     "graphql-playground-middleware-express": "1.7.23",
-    "graphql-request": "4.2.0",
+    "graphql-request": "4.3.0",
     "image-type": "4.1.0",
     "is-svg": "4.3.2",
     "jwt-decode": "3.1.2",
