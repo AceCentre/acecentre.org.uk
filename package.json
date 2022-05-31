@@ -32,7 +32,7 @@
     "@octokit/rest": "18.12.0",
     "@react-aria/focus": "3.6.0",
     "@react-aria/interactions": "3.9.0",
-    "@react-aria/radio": "3.1.11",
+    "@react-aria/radio": "3.2.0",
     "@react-aria/visually-hidden": "3.2.8",
     "@react-stately/radio": "3.3.6",
     "@slack/bolt": "3.11.1",
