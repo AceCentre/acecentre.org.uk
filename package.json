@@ -80,7 +80,7 @@
     "@swc/core": "1.2.196",
     "@swc/jest": "0.2.21",
     "@swc/register": "0.1.10",
-    "@testing-library/cypress": "8.0.2",
+    "@testing-library/cypress": "8.0.3",
     "cypress": "9.7.0",
     "cypress-tags": "0.3.0",
     "eslint": "8.17.0",
