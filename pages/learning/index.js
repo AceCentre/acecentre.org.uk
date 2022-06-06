@@ -34,11 +34,10 @@ export default function Learning({
         <LearningSearch />
         <LearningTicks />
         <CourseList
-          className={styles.courseList}
           viewAllLink="/learning/search"
           viewAllText="View all courses"
-          title="Popular courses"
-          products={popularCourses}
+          title="Featured courses"
+          products={featuredCourses}
         />
         <CourseCategoriesGrid
           productCategories={categories}
@@ -53,10 +52,11 @@ export default function Learning({
           </Button>
         </div>
         <CourseList
+          className={styles.courseList}
           viewAllLink="/learning/search"
           viewAllText="View all courses"
-          title="Featured courses"
-          products={featuredCourses}
+          title="Popular courses"
+          products={popularCourses}
         />
         <LearningLevels levels={levels} />
         <BespokeTraining />
