@@ -217,7 +217,7 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
 
   DeployNetlify:
     runs-on: ubuntu-latest
@@ -301,4 +301,4 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
