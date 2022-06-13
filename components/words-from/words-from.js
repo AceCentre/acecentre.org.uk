@@ -32,7 +32,7 @@ export const WordsFrom = ({ shortTitle, quote, featuredImage, slug }) => {
             different pronouns */}
             <div>
               <Button href={`/people-we-support/case-study/${slug}`}>
-                Read his story
+                Read her story
               </Button>
             </div>
           </div>

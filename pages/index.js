@@ -45,7 +45,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("olive");
+  const featuredStory = await getSimpleStory("tamsin-2");
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 
