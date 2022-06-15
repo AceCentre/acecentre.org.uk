@@ -215,9 +215,12 @@ jobs:
           parallel: true
           group: Pre-Deploy Github Actions
         env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: cypress-io/github-action@v4
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+        uses: cypress-io/github-action@v4.1.0
 
   DeployNetlify:
     runs-on: ubuntu-latest
@@ -301,4 +304,4 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v4.1.0
