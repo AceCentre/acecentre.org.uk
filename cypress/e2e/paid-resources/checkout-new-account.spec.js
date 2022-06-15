@@ -18,7 +18,7 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "can add product to cart, and checkout with a new account",
     () => {
-      newEmail = validEmail();
+      newEmail = validEmail("checkout-new-account");
 
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();

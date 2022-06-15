@@ -56,8 +56,8 @@ context("Moodle", () => {
         return true;
       });
 
-      newEmail = validEmail();
-      delegatedEmail = validEmail();
+      newEmail = validEmail("delegated-1");
+      delegatedEmail = validEmail("delegated-2");
 
       // Visit splash
       cy.visit("https://acecentre.org.uk/learning/splash-training-i");

@@ -19,7 +19,7 @@ context("Paid resources", () => {
     "Add a product to cart, checkout when already signed in",
     () => {
       // Register for a new account
-      newEmail = validEmail();
+      newEmail = validEmail("paid-resources");
       cy.visit("");
       cy.findAllByRole("link", { name: "Login" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "login");

@@ -18,7 +18,7 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "can add product to cart, and checkout without an account, with a card with insufficient funds",
     () => {
-      newEmail = validEmail();
+      newEmail = validEmail("insufficient-funds");
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 60000 }).should("include", "basket");

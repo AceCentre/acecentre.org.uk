@@ -56,9 +56,9 @@ context("Moodle", () => {
         return true;
       });
 
-      newEmail = validEmail();
-      bulkEmailOne = validEmail();
-      bulkEmailTwo = validEmail();
+      newEmail = validEmail("bulk-1");
+      bulkEmailOne = validEmail("bulk-2");
+      bulkEmailTwo = validEmail("bulk-3");
 
       // Visit splash
       cy.visit("https://acecentre.org.uk/learning/splash-training-i");

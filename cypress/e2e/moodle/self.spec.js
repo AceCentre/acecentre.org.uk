@@ -59,7 +59,7 @@ context("Moodle", () => {
           return true;
         });
 
-        newEmail = validEmail();
+        newEmail = validEmail("self");
 
         // Visit splash
         cy.visit("https://acecentre.org.uk/learning/splash-training-i");

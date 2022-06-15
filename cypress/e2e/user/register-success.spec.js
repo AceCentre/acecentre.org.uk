@@ -16,7 +16,7 @@ context("Register", () => {
 
   it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {
     // Store email address for later
-    newEmail = validEmail();
+    newEmail = validEmail("register-success");
 
     // Go to the register page
     cy.visit("");

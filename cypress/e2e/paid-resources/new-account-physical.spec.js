@@ -18,7 +18,7 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "can add product to cart, and checkout with a new account, physical product",
     () => {
-      newEmail = validEmail();
+      newEmail = validEmail("new-account-physical");
       cy.visit("/resources/developing-using-communication-book");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 60000 }).should("include", "basket");

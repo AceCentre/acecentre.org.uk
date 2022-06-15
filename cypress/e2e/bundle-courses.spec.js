@@ -55,8 +55,8 @@ context("Moodle", () => {
         if (err.message.includes("theme_boost")) return false;
         return true;
       });
-      newEmail = validEmail();
-      delegatedEmail = validEmail();
+      newEmail = validEmail("bundle-courses-1");
+      delegatedEmail = validEmail("bundle-courses-2");
 
       // Visit bundle
       cy.visit("https://acecentre.org.uk/learning/on-demand-test-bundle");
