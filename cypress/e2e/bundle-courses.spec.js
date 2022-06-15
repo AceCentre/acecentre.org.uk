@@ -1,61 +1,8 @@
 import { createCoupon, deleteCoupon } from "../support/coupon";
+import { deleteUser } from "../support/delete-user";
 import { validEmail } from "../support/valid-email";
 
 const VALID_PASSWORD = "securepassword";
-
-const deleteUser = async (email) => {
-  const getUserResponse = await fetch(
-    "https://backend.acecentre.org.uk/index.php?graphql",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
-      },
-      body: JSON.stringify({
-        query: "query($email:ID!) {user(id: $email,idType:EMAIL) {id}}",
-        variables: { email },
-      }),
-    }
-  );
-
-  if (!getUserResponse.ok) {
-    throw new Error("Failed to get user");
-  }
-
-  const getUserResult = await getUserResponse.json();
-
-  if (
-    !getUserResult ||
-    !getUserResult.data ||
-    !getUserResult.data.user ||
-    !getUserResult.data.user.id
-  ) {
-    return;
-  }
-
-  const userId = getUserResult.data.user.id;
-
-  const deleteUserResponse = await fetch(
-    "https://backend.acecentre.org.uk/index.php?graphql",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
-      },
-      body: JSON.stringify({
-        query:
-          "mutation($userId:ID!) {deleteUser(input: {id: $userId}) {user {id}}}",
-        variables: { userId },
-      }),
-    }
-  );
-
-  if (!deleteUserResponse.ok) {
-    throw new Error("Failed to get user");
-  }
-};
 
 const changePassword = async (email, password) => {
   const getUserResponse = await fetch(
@@ -155,18 +102,18 @@ context("Moodle", () => {
       await deleteCoupon(couponId);
 
       if (newEmail) {
-        await deleteUser(newEmail);
+        await deleteUser(newEmail, "backend");
       }
 
       if (delegatedEmail) {
-        await deleteUser(delegatedEmail);
+        await deleteUser(delegatedEmail, "backend");
       }
 
       if (bulkEmailOne) {
-        await deleteUser(bulkEmailOne);
+        await deleteUser(bulkEmailOne, "backend");
       }
       if (bulkEmailTwo) {
-        await deleteUser(bulkEmailTwo);
+        await deleteUser(bulkEmailTwo, "backend");
       }
     });
 
