@@ -43,8 +43,8 @@ export default function StoriesLandingPage({
 export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
-  const storyHighlight = await getSimpleStory("megan");
-  const wordsFrom = await getSimpleStory("paul-pickford");
+  const storyHighlight = await getSimpleStory("olive");
+  const wordsFrom = await getSimpleStory("tamsin-2");
 
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
