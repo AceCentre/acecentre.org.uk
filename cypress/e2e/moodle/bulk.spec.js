@@ -1,3 +1,5 @@
+import { validEmail } from "../../support/valid-email";
+
 const createCoupon = async () => {
   const allCouponsResponse = await fetch(
     "https://backend.acecentre.org.uk/wp-json/wc/v3/coupons?code=cypress_testing_code",
@@ -48,12 +50,6 @@ const createCoupon = async () => {
   const couponId = result.id;
 
   return { couponCode, couponId };
-};
-
-const validEmail = () => {
-  const randomNumber = Math.floor(Math.random() * 1000000);
-
-  return `test-${randomNumber}@acecentre.org.uk`;
 };
 
 const deleteCoupon = async (couponId) => {
