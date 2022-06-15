@@ -1,14 +1,25 @@
+import { deleteUser } from "../../support/delete-user";
 import { validEmail } from "../../support/valid-email";
 
 const VALID_PASSWORD = "securepassword";
 
 context("Paid resources", () => {
+  let newEmail;
+
+  beforeEach(() => {
+    newEmail = null;
+  });
+
+  afterEach(async () => {
+    await deleteUser(newEmail, "internal");
+  });
+
   it(
     ["pre-deploy"],
     "Add a product to cart, register and then purchase item already in cart",
     () => {
       // Register for a new account
-      const newEmail = validEmail();
+      newEmail = validEmail();
 
       // Add to cart and check its added
       cy.visit("/resources/simple-charts-to-edit-in-word");

@@ -1,13 +1,24 @@
+import { deleteUser } from "../../support/delete-user";
 import { validEmail } from "../../support/valid-email";
 
 const VALID_PASSWORD = "securepassword";
 
 context("Paid resources", () => {
+  let newEmail;
+
+  beforeEach(() => {
+    newEmail = null;
+  });
+
+  afterEach(async () => {
+    await deleteUser(newEmail, "internal");
+  });
+
   it(
     ["pre-deploy"],
     "can add product to cart, and checkout without an account, with a card with insufficient funds",
     () => {
-      const newEmail = validEmail();
+      newEmail = validEmail();
       cy.visit("/resources/simple-charts-to-edit-in-word");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 60000 }).should("include", "basket");

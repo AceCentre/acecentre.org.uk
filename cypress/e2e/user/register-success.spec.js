@@ -1,11 +1,22 @@
+import { deleteUser } from "../../support/delete-user";
 import { validEmail } from "../../support/valid-email";
 
 const VALID_PASSWORD = "averyvalidpassword";
 
 context("Register", () => {
+  let newEmail;
+
+  beforeEach(() => {
+    newEmail = null;
+  });
+
+  afterEach(async () => {
+    await deleteUser(newEmail, "internal");
+  });
+
   it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {
     // Store email address for later
-    const newEmail = validEmail();
+    newEmail = validEmail();
 
     // Go to the register page
     cy.visit("");
