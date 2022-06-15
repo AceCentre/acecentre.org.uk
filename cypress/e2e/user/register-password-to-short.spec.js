@@ -1,10 +1,6 @@
+import { validEmail } from "../../support/valid-email";
+
 const SHORT_PASSWORD = "short";
-
-const validEmail = () => {
-  const randomNumber = Math.floor(Math.random() * 1000000);
-
-  return `test-${randomNumber}@acecentre.org.uk`;
-};
 
 context("Register", () => {
   it(["pre-deploy"], "Shows an error when you password is to short", () => {

@@ -1,10 +1,6 @@
+import { validEmail } from "../../support/valid-email";
+
 const VALID_PASSWORD = "averyvalidpassword";
-
-const validEmail = () => {
-  const randomNumber = Math.floor(Math.random() * 1000000);
-
-  return `test-${randomNumber}@acecentre.org.uk`;
-};
 
 context("Register", () => {
   it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {

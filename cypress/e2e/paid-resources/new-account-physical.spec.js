@@ -1,8 +1,4 @@
-const validEmail = () => {
-  const randomNumber = Math.floor(Math.random() * 1000000);
-
-  return `test-${randomNumber}@acecentre.org.uk`;
-};
+import { validEmail } from "../../support/valid-email";
 
 const VALID_PASSWORD = "securepassword";
 
