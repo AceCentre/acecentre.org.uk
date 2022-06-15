@@ -97,7 +97,7 @@
     "netlify-cli": "10.5.1",
     "next-sitemap": "3.0.5",
     "nock": "13.2.7",
-    "plop": "3.1.0",
+    "plop": "3.1.1",
     "storybook-css-modules-preset": "1.0.8"
   }
 }
