@@ -19,7 +19,7 @@ context("Paid resources", () => {
     "Add a product to cart, register and then purchase item already in cart",
     () => {
       // Register for a new account
-      newEmail = validEmail();
+      newEmail = validEmail("item-in-cart-register");
 
       // Add to cart and check its added
       cy.visit("/resources/simple-charts-to-edit-in-word");

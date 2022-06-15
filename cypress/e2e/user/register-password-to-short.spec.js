@@ -12,7 +12,7 @@ context("Register", () => {
       .findByRole("textbox", {
         name: "Email address",
       })
-      .type(validEmail());
+      .type(validEmail("register-password-to-short"));
 
     cy.findAllByRole("form", { name: "Register form" })
       .findByLabelText("Password")
