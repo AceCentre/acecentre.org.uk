@@ -182,8 +182,8 @@
   command = "yarn build && yarn build-function"
   publish = ".next"
 
-[functions]
-  node_bundler = "esbuild"
+# [functions]
+#   node_bundler = "esbuild"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
