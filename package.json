@@ -31,7 +31,7 @@
     "@netlify/functions": "1.0.0",
     "@octokit/rest": "18.12.0",
     "@react-aria/focus": "3.6.1",
-    "@react-aria/interactions": "3.9.0",
+    "@react-aria/interactions": "3.9.1",
     "@react-aria/radio": "3.2.0",
     "@react-aria/visually-hidden": "3.3.0",
     "@react-stately/radio": "3.4.0",
