@@ -85,7 +85,7 @@ const sendSlackMessage = async (message) => {
   const turndownService = new TurndownService();
   const markdown = turndownService.turndown(message);
 
-  const testEmailRegex = /test-[0-9]+@acecentre.org.uk/;
+  const testEmailRegex = /test-[0-9]+(-[a-zA-Z]*)*@acecentre.org.uk/;
 
   if (
     testEmailRegex.test(message) &&
