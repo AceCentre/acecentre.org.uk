@@ -21,6 +21,7 @@ context("Paid resources", () => {
       // Register for a new account
       newEmail = validEmail("login-then-add");
       cy.visit("");
+      cy.wait(1000); // Wait for the dom to stabilize
       cy.findAllByRole("link", { name: "Login" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "login");
 
@@ -60,6 +61,7 @@ context("Paid resources", () => {
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
 
       // Log back in
+      cy.wait(1000); // Wait for the dom to stabilize
       cy.findAllByRole("link", { name: "Login" }).first().click();
 
       // Type in email
@@ -82,6 +84,7 @@ context("Paid resources", () => {
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Go to cart
+      cy.wait(1000); // Wait for the dom to stabilize
       cy.findAllByRole("link", { name: "Checkout" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
@@ -141,11 +144,12 @@ context("Paid resources", () => {
       cy.url({ timeout: 60000 }).should("include", "order");
 
       // Check order is in account
-      cy.wait(1000);
+      cy.wait(1000); // Wait for the dom to stabilize
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your orders >" }).click();
       cy.url({ timeout: 60000 }).should("include", "my-acecentre/orders");
+      cy.wait(1000); // Wait for the dom to stabilize
       cy.findAllByRole("button", { name: "Details" })
         .should("have.length", 1)
         .first()
