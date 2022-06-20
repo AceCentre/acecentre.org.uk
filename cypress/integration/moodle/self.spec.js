@@ -56,6 +56,8 @@ context("Moodle", () => {
       () => {
         Cypress.on("uncaught:exception", (err) => {
           if (err.message.includes("theme_boost")) return false;
+          if (err.message.includes("Course or activity not accessible."))
+            return false;
           return true;
         });
 
