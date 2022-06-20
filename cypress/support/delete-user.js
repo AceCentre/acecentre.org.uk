@@ -1,3 +1,5 @@
+import { deleteMoodleUser } from "./delete-moodle-user";
+
 export const deleteUser = async (email, subdomain = "internal") => {
   const getUserResponse = await fetch(
     `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
@@ -131,4 +133,6 @@ export const deleteUser = async (email, subdomain = "internal") => {
   ) {
     throw new Error("Couldnt delete user");
   }
+
+  // await deleteMoodleUser(email);
 };
