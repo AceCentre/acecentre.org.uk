@@ -53,6 +53,8 @@ context("Moodle", () => {
     it(["post-deploy"], "Buy a course for a bulk group", () => {
       Cypress.on("uncaught:exception", (err) => {
         if (err.message.includes("theme_boost")) return false;
+        if (err.message.includes("Course or activity not accessible."))
+          return false;
         return true;
       });
 
