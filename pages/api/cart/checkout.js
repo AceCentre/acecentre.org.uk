@@ -6,6 +6,13 @@ import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
 import fetch from "node-fetch";
 
+const timeAsyncFunction = async (functionName, functionToTime) => {
+  console.time(functionName);
+  const result = await functionToTime();
+  console.timeEnd(functionName);
+  return result;
+};
+
 async function handler(req, res) {
   console.log("-------");
   console.log("Checkout began");
@@ -17,7 +24,10 @@ async function handler(req, res) {
     if (body.addToMailingList) {
       console.log("Started adding to the mailing list");
 
-      await addToMailingList(body.billingDetails.email);
+      await timeAsyncFunction("addToMailingList", async () => {
+        await addToMailingList(body.billingDetails.email);
+      });
+
       console.log("Added to the mailing list");
     }
     console.log("Started updating Customer");
@@ -37,12 +47,17 @@ async function handler(req, res) {
       });
       console.log("Started checking out with cohort");
 
-      result = await checkout(req, body, cohortNames);
+      result = await timeAsyncFunction("checkout-with-cohort", async () => {
+        return await checkout(req, body, cohortNames);
+      });
+
       console.log("Checked out with cohort");
     } else {
       console.log("Started checking out without cohort");
 
-      result = await checkout(req, body);
+      result = await timeAsyncFunction("checkout-without-cohort", async () => {
+        return await checkout(req, body, cohortNames);
+      });
       console.log("Checked out without cohort");
     }
 
@@ -58,19 +73,28 @@ async function handler(req, res) {
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
       console.log("Started adding to cohort");
-      await fetch(`${currentUrl}/.netlify/functions/add-to-cohort-background`, {
-        method: "POST",
-        headers: { cookie: cookieHeader },
-        body: JSON.stringify({
-          groupPurchaseEmails: body.groupPurchaseEmails,
-          cohortNames,
-        }),
+      await timeAsyncFunction("call-background-function", async () => {
+        await fetch(
+          `${currentUrl}/.netlify/functions/add-to-cohort-background`,
+          {
+            method: "POST",
+            headers: { cookie: cookieHeader },
+            body: JSON.stringify({
+              groupPurchaseEmails: body.groupPurchaseEmails,
+              cohortNames,
+            }),
+          }
+        );
       });
       console.log("Added to cohort");
     }
 
     console.log("Started emptying cart");
-    await clientRequest(req, EMPTY_CART);
+
+    await timeAsyncFunction("empty-cart", async () => {
+      await clientRequest(req, EMPTY_CART);
+    });
+
     console.log("Emptied cart");
     console.log("-------");
 
