@@ -6,36 +6,31 @@ import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
 import fetch from "node-fetch";
 
-const timeAsyncFunction = async (functionName, functionToTime) => {
-  const startTime = Date.now();
-  const result = await functionToTime();
-  const endTime = Date.now();
-
-  console.log(`${functionName} took ${endTime - startTime} milliseconds`);
-  return result;
-};
-
 async function handler(req, res) {
   console.log("-------");
   console.log("Checkout began");
   const body = JSON.parse(req.body);
 
+  let startTime = Date.now();
+  let endTime = Date.now();
+  console.log({ startTime, endTime });
   let result;
   try {
     // Add to mailing list
     if (body.addToMailingList) {
       console.log("Started adding to the mailing list");
 
-      await timeAsyncFunction("addToMailingList", async () => {
-        await addToMailingList(body.billingDetails.email);
-      });
-
-      console.log("Added to the mailing list");
+      startTime = Date.now();
+      await addToMailingList(body.billingDetails.email);
+      endTime = Date.now();
+      console.log("Added to the mailing list", endTime - startTime);
     }
     console.log("Started updating Customer");
 
+    startTime = Date.now();
     await updateCustomer(req, body);
-    console.log("Updated Customer");
+    endTime = Date.now();
+    console.log("Updated Customer", endTime - startTime);
 
     let uniqueCohortTag;
     let cohortNames;
@@ -49,18 +44,17 @@ async function handler(req, res) {
       });
       console.log("Started checking out with cohort");
 
-      result = await timeAsyncFunction("checkout-with-cohort", async () => {
-        return await checkout(req, body, cohortNames);
-      });
-
-      console.log("Checked out with cohort");
+      startTime = Date.now();
+      result = await checkout(req, body, cohortNames);
+      endTime = Date.now();
+      console.log("Checked out with cohort", endTime - startTime);
     } else {
       console.log("Started checking out without cohort");
 
-      result = await timeAsyncFunction("checkout-without-cohort", async () => {
-        return await checkout(req, body, cohortNames);
-      });
-      console.log("Checked out without cohort");
+      startTime = Date.now();
+      result = await checkout(req, body);
+      endTime = Date.now();
+      console.log("Checked out without cohort", endTime - startTime);
     }
 
     let currentUrl = "http://localhost:3000";
@@ -75,29 +69,24 @@ async function handler(req, res) {
 
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
       console.log("Started adding to cohort");
-      await timeAsyncFunction("call-background-function", async () => {
-        await fetch(
-          `${currentUrl}/.netlify/functions/add-to-cohort-background`,
-          {
-            method: "POST",
-            headers: { cookie: cookieHeader },
-            body: JSON.stringify({
-              groupPurchaseEmails: body.groupPurchaseEmails,
-              cohortNames,
-            }),
-          }
-        );
+      startTime = Date.now();
+      await fetch(`${currentUrl}/.netlify/functions/add-to-cohort-background`, {
+        method: "POST",
+        headers: { cookie: cookieHeader },
+        body: JSON.stringify({
+          groupPurchaseEmails: body.groupPurchaseEmails,
+          cohortNames,
+        }),
       });
-      console.log("Added to cohort");
+      endTime = Date.now();
+      console.log("Added to cohort", endTime - startTime);
     }
 
     console.log("Started emptying cart");
-
-    await timeAsyncFunction("empty-cart", async () => {
-      await clientRequest(req, EMPTY_CART);
-    });
-
-    console.log("Emptied cart");
+    startTime = Date.now();
+    await clientRequest(req, EMPTY_CART);
+    endTime = Date.now();
+    console.log("Emptied cart", endTime - startTime);
     console.log("-------");
 
     res.send({ success: true, result });
@@ -111,6 +100,8 @@ async function handler(req, res) {
 
     // If the cart is already empty then lets just continue
     if (errorMessage === "Cart is empty") {
+      endTime = Date.now();
+      console.log("Emptied cart, (with error)", endTime - startTime);
       res.send({ success: true, result });
       return;
     }
