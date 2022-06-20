@@ -15,6 +15,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
+    "cypress:prod:open": "CYPRESS_BASE_URL=https://acecentre.org.uk cypress open",
     "lighthouse": "lhci autorun",
     "plop": "plop",
     "build-sitemap": "next-sitemap",
