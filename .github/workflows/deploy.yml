@@ -191,6 +191,9 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
+      matrix:
+        # run 4 copies of the current job in parallel
+        containers: [1, 2, 3, 4]
 
     steps:
       - name: Get Code
@@ -210,7 +213,7 @@ jobs:
           config: baseUrl=${{ needs.DeployNetlifyIntegration.outputs.deploy-url }}
           record: true
           install: false
-          parallel: false
+          parallel: true
           group: Pre-Deploy Github Actions
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
