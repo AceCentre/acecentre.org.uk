@@ -7,9 +7,9 @@ import config from "../../../lib/config";
 import fetch from "node-fetch";
 
 const timeAsyncFunction = async (functionName, functionToTime) => {
-  const startTime = performance.now();
+  const startTime = Date.now();
   const result = await functionToTime();
-  const endTime = performance.now();
+  const endTime = Date.now();
 
   console.log(`${functionName} took ${endTime - startTime} milliseconds`);
   return result;
