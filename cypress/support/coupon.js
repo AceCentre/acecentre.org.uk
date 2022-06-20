@@ -16,8 +16,10 @@ export const deleteCoupon = async (couponId) => {
 };
 
 export const createCoupon = async () => {
+  const uniqueCode = `cypress_testing_code_${Date.now()}`;
+
   const allCouponsResponse = await fetch(
-    "https://backend.acecentre.org.uk/wp-json/wc/v3/coupons?code=cypress_testing_code",
+    `https://backend.acecentre.org.uk/wp-json/wc/v3/coupons?code=${uniqueCode}`,
     {
       method: "GET",
       headers: {
@@ -46,7 +48,7 @@ export const createCoupon = async () => {
         Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
       },
       body: JSON.stringify({
-        code: "cypress_testing_code",
+        code: uniqueCode,
         discount_type: "percent",
         amount: "100",
         usage_limit: 1,
