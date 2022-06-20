@@ -334,6 +334,26 @@ const useCheckoutForm = (
       });
 
       try {
+        if (event.target.mailingList.checked) {
+          const mailingListResponse = await fetch(
+            "/api/cart/add-to-mailing-list",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                email: billingDetails.email,
+              }),
+            }
+          );
+          const mailingListParsed = await mailingListResponse.json();
+
+          if (mailingListParsed.success === false) {
+            setGeneralError(parsed.error || "Failed to add to mailing list");
+            setAllowSubmit(true);
+            window.scrollTo(0, 0);
+            return;
+          }
+        }
+
         const response = await fetch("/api/cart/checkout", {
           method: "POST",
           body: JSON.stringify({

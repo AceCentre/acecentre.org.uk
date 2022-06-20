@@ -1,7 +1,6 @@
 import withSession from "../../../lib/auth/with-session";
 import { checkout, updateCustomer } from "../../../lib/cart/checkout";
 import { clientRequest } from "../../../lib/client-request";
-import { addToMailingList } from "../auth/register";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
 import fetch from "node-fetch";
@@ -17,14 +16,14 @@ async function handler(req, res) {
   let result;
   try {
     // Add to mailing list
-    if (body.addToMailingList) {
-      console.log("Started adding to the mailing list");
+    // if (body.addToMailingList) {
+    //   console.log("Started adding to the mailing list");
 
-      startTime = Date.now();
-      await addToMailingList(body.billingDetails.email);
-      endTime = Date.now();
-      console.log("Added to the mailing list", endTime - startTime);
-    }
+    //   startTime = Date.now();
+    //   await addToMailingList(body.billingDetails.email);
+    //   endTime = Date.now();
+    //   console.log("Added to the mailing list", endTime - startTime);
+    // }
     console.log("Started updating Customer");
 
     startTime = Date.now();
