@@ -34,6 +34,7 @@ jobs:
           record: true
           install: false
           parallel: true
+          browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
