@@ -30,12 +30,18 @@ export async function getStaticPaths() {
 
   return {
     paths,
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const form = ALL_FORMS.find((current) => current.slug === slug);
+
+  if (!form) {
+    return { notFound: true };
+  }
 
   return {
     props: {

@@ -126,6 +126,8 @@ export async function getStaticPaths() {
         slug: product.slug,
       },
     })),
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -139,6 +141,10 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
 
   let currentCourse = allCourses.find((product) => product.slug === slug);
   const currentBundle = allBundles.find((product) => product.slug === slug);
+
+  if (!currentCourse) {
+    return { notFound: true };
+  }
 
   let relatedCourses = [];
 
