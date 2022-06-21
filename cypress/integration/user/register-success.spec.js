@@ -11,7 +11,7 @@ context("Register", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "internal");
+    await deleteUser(newEmail, "internal", "register-success");
   });
 
   it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {

@@ -1,4 +1,8 @@
-export const deleteUser = async (email, subdomain = "internal") => {
+export const deleteUser = async (
+  email,
+  subdomain = "internal",
+  testName = "unknown"
+) => {
   const getUserResponse = await fetch(
     `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
     {
@@ -16,7 +20,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
   );
 
   if (!getUserResponse.ok) {
-    throw new Error("Failed to get user");
+    throw new Error(`Failed to get user, ${testName}`);
   }
 
   const getUserResult = await getUserResponse.json();
@@ -28,7 +32,9 @@ export const deleteUser = async (email, subdomain = "internal") => {
     !getUserResult.data.user.id ||
     !getUserResult.data.user.databaseId
   ) {
-    throw new Error("You tried to delete a user that doesnt exist");
+    throw new Error(
+      `You tried to delete a user that doesnt exist, ${testName}`
+    );
   }
 
   const userId = getUserResult.data.user.id;
@@ -51,7 +57,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
   );
 
   if (!ordersResponse.ok) {
-    throw new Error("Failed to get orders");
+    throw new Error(`Failed to get orders, ${testName}`);
   }
 
   const ordersResult = await ordersResponse.json();
@@ -62,7 +68,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
     !ordersResult.data.orders ||
     !ordersResult.data.orders.nodes
   ) {
-    throw new Error("Failed to get orders");
+    throw new Error(`Failed to get orders, ${testName}`);
   }
 
   for (const order of ordersResult.data.orders.nodes) {
@@ -84,7 +90,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
     );
 
     if (!deleteOrderResponse.ok) {
-      throw new Error("Failed to delete orders");
+      throw new Error(`Failed to delete orders, ${testName}`);
     }
 
     const deleteOrderResult = await deleteOrderResponse.json();
@@ -96,7 +102,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
       !deleteOrderResult.data.deleteOrder.order ||
       !deleteOrderResult.data.deleteOrder.order.id
     ) {
-      throw new Error("Failed to delete orders");
+      throw new Error(`Failed to delete orders, ${testName}`);
     }
   }
 
@@ -117,7 +123,7 @@ export const deleteUser = async (email, subdomain = "internal") => {
   );
 
   if (!deleteUserResponse.ok) {
-    throw new Error("Failed to delete user");
+    throw new Error(`Failed to delete user, ${testName}`);
   }
 
   const deleteUserResult = await deleteUserResponse.json();
@@ -129,6 +135,6 @@ export const deleteUser = async (email, subdomain = "internal") => {
     !deleteUserResult.data.deleteUser.user ||
     !deleteUserResult.data.deleteUser.user.id
   ) {
-    throw new Error("Couldnt delete user");
+    throw new Error(`Couldnt delete user, ${testName}`);
   }
 };
