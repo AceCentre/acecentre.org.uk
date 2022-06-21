@@ -79,11 +79,12 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const page = await getPage(slug);
-  const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
 
   if (!page) {
     return { notFound: true };
   }
+
+  const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
 
   return {
     props: {
