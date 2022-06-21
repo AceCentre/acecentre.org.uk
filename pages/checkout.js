@@ -403,6 +403,15 @@ const useCheckoutForm = (
         const parsed = await response.json();
 
         if (parsed.success === true) {
+          try {
+            await fetch("/api/cart/checkout", {
+              method: "POST",
+              body: JSON.stringify({}),
+            });
+          } catch (error) {
+            console.warn("Failed to empty cart but its probably okay");
+          }
+
           const id = parsed?.result?.order?.id || null;
           const order = parsed?.result?.order;
 

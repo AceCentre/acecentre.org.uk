@@ -1,7 +1,6 @@
 import withSession from "../../../lib/auth/with-session";
 import { checkout } from "../../../lib/cart/checkout";
-import { clientRequest } from "../../../lib/client-request";
-import { EMPTY_CART } from "./update";
+
 import config from "../../../lib/config";
 import fetch from "node-fetch";
 
@@ -24,7 +23,7 @@ async function handler(req, res) {
     //   endTime = Date.now();
     //   console.log("Added to the mailing list", endTime - startTime);
     // }
-    console.log("Started updating Customer");
+    // console.log("Started updating Customer");
 
     // startTime = Date.now();
     // await updateCustomer(req, body);
@@ -81,12 +80,12 @@ async function handler(req, res) {
       console.log("Added to cohort", endTime - startTime);
     }
 
-    console.log("Started emptying cart");
-    startTime = Date.now();
-    await clientRequest(req, EMPTY_CART);
-    endTime = Date.now();
-    console.log("Emptied cart", endTime - startTime);
-    console.log("-------");
+    // console.log("Started emptying cart");
+    // startTime = Date.now();
+    // await clientRequest(req, EMPTY_CART);
+    // endTime = Date.now();
+    // console.log("Emptied cart", endTime - startTime);
+    // console.log("-------");
 
     res.send({ success: true, result });
     return;
