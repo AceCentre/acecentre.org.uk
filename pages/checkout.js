@@ -354,6 +354,34 @@ const useCheckoutForm = (
           }
         }
 
+        const updateCustomerResponse = await fetch(
+          "/api/cart/update-customer",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              source,
+              billingDetails,
+              shippingDetails: deliveryDetails,
+              shipToDifferentAddress: showFullDelivery,
+              orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
+              addToMailingList: event.target.mailingList.checked,
+              groupPurchaseEmails: {
+                ...groupPurchaseEmails,
+                ...delegatedEmailsAsGroupPurchases,
+              },
+            }),
+          }
+        );
+
+        const updateCustomerParsed = await updateCustomerResponse.json();
+
+        if (updateCustomerParsed.success === false) {
+          setGeneralError(parsed.error || "Failed to update customer");
+          setAllowSubmit(true);
+          window.scrollTo(0, 0);
+          return;
+        }
+
         const response = await fetch("/api/cart/checkout", {
           method: "POST",
           body: JSON.stringify({

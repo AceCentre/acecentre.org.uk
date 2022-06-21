@@ -1,5 +1,5 @@
 import withSession from "../../../lib/auth/with-session";
-import { checkout, updateCustomer } from "../../../lib/cart/checkout";
+import { checkout } from "../../../lib/cart/checkout";
 import { clientRequest } from "../../../lib/client-request";
 import { EMPTY_CART } from "./update";
 import config from "../../../lib/config";
@@ -26,10 +26,10 @@ async function handler(req, res) {
     // }
     console.log("Started updating Customer");
 
-    startTime = Date.now();
-    await updateCustomer(req, body);
-    endTime = Date.now();
-    console.log("Updated Customer", endTime - startTime);
+    // startTime = Date.now();
+    // await updateCustomer(req, body);
+    // endTime = Date.now();
+    // console.log("Updated Customer", endTime - startTime);
 
     let uniqueCohortTag;
     let cohortNames;
