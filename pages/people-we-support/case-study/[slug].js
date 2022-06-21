@@ -45,6 +45,8 @@ export async function getStaticPaths() {
         slug: story.slug,
       },
     })),
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -55,6 +57,10 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   if (!allStories) throw new Error("Could not get all the stories");
 
   const currentStory = allStories.find((project) => project.slug === slug);
+
+  if (!currentStory) {
+    return { notFound: true };
+  }
 
   const featuredStories = allStories
     .filter((story) => story.slug !== slug)

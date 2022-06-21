@@ -54,6 +54,8 @@ export async function getStaticPaths() {
 
   return {
     paths: services.map((service) => ({ params: { slug: service.id } })),
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -61,6 +63,8 @@ export async function getStaticPaths() {
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const services = await getAllServices();
   const service = services.find((service) => service.id === slug);
+
+  if (!service) return { notFound: true };
 
   // console.log(service);
 
