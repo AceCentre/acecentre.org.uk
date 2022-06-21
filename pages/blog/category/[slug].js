@@ -37,6 +37,8 @@ export async function getStaticPaths() {
     paths: blogCategories.map((category) => ({
       params: { slug: category.slug },
     })),
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -48,6 +50,8 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const currentCategory = blogCategories.find(
     (category) => category.slug === slug
   );
+
+  if (!currentCategory) return { notFound: true };
 
   const posts = await getAllPostsForCategory(currentCategory.title);
 
