@@ -71,6 +71,8 @@ export async function getStaticPaths() {
 
   return {
     paths,
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -78,6 +80,10 @@ export async function getStaticPaths() {
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   const page = await getPage(slug);
   const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
+
+  if (!page) {
+    return { notFound: true };
+  }
 
   return {
     props: {

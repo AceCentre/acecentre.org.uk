@@ -60,6 +60,8 @@ export async function getStaticPaths() {
     paths: allProjects.map((project) => ({
       params: { project: project.slug },
     })),
+    // Currently this is ignored by Netlify so we have to use `notFound`
+    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
@@ -73,6 +75,10 @@ export const getStaticProps = withGlobalProps(
     const currentProject = allProjects.find(
       (project) => project.slug === projectSlug
     );
+
+    if (!currentProject) {
+      return { notFound: true };
+    }
 
     const featuredProjects = allProjects.filter(
       (project) => project.slug !== currentProject.slug
