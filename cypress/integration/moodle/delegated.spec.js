@@ -35,18 +35,18 @@ context("Moodle", () => {
       await deleteCoupon(couponId);
 
       if (newEmail) {
-        await deleteUser(newEmail, "backend");
+        await deleteUser(newEmail, "backend", "delegated-new");
       }
 
       if (delegatedEmail) {
-        await deleteUser(delegatedEmail, "backend");
+        await deleteUser(delegatedEmail, "backend", "delegated-delegated");
       }
 
       if (bulkEmailOne) {
-        await deleteUser(bulkEmailOne, "backend");
+        await deleteUser(bulkEmailOne, "backend", "delegated-bulk-one");
       }
       if (bulkEmailTwo) {
-        await deleteUser(bulkEmailTwo, "backend");
+        await deleteUser(bulkEmailTwo, "backend", "delegated-bulk-two");
       }
     });
 

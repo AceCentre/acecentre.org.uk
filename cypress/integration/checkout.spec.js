@@ -9,7 +9,7 @@ context("Checkout", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "internal");
+    await deleteUser(newEmail, "internal", "basic-checkout");
   });
 
   it(
