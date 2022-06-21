@@ -142,7 +142,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   let currentCourse = allCourses.find((product) => product.slug === slug);
   const currentBundle = allBundles.find((product) => product.slug === slug);
 
-  if (!currentCourse) {
+  if (!currentCourse && !currentBundle) {
     return { notFound: true };
   }
 
