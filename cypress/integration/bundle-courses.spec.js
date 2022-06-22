@@ -125,6 +125,7 @@ context("Moodle", () => {
       cy.findByRole("button", { name: "Place order" }).click();
       cy.url({ timeout: 40000 }).should("include", "order");
       // Check user is not on the course
+      cy.wait(2000); // Wait for rerender
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
       cy.url({ timeout: 30000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your courses >" }).click();
