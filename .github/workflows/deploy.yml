@@ -180,8 +180,17 @@ jobs:
       - name: Run netlify deploy and build
         run: yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build --context deploy-preview
 
+  PrepareCypressIdPre:
+    runs-on: ubuntu-latest
+    outputs:
+      uuid: ${{ steps.uuid.outputs.value }}
+    steps:
+      - name: Generate unique ID 💎
+        id: uuid
+        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
+
   Cypress:
-    needs: [DeployNetlifyIntegration]
+    needs: [DeployNetlifyIntegration, PrepareCypressIdPre]
     runs-on: ubuntu-latest
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
@@ -215,6 +224,7 @@ jobs:
           install: false
           parallel: true
           group: Pre-Deploy Github Actions
+          ci-build-id: ${{ needs.prepare.PrepareCypressIdPre.uuid }}
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -275,8 +285,18 @@ jobs:
       - name: Run netlify build and deploy
         run: yarn netlify deploy --prod --build --context production
 
+  PrepareCypressIdPost:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    outputs:
+      uuid: ${{ steps.uuid.outputs.value }}
+    steps:
+      - name: Generate unique ID 💎
+        id: uuid
+        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
+
   CypressPostDeploy:
-    needs: [DeployNetlify]
+    needs: [DeployNetlify, PrepareCypressIdPost]
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
@@ -309,6 +329,7 @@ jobs:
           record: true
           install: false
           parallel: true
+          ci-build-id: ${{ needs.PrepareCypressIdPost.outputs.uuid }}
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
