@@ -132,6 +132,7 @@ context("Moodle", () => {
         cy.url({ timeout: 30000 }).should("include", "order");
 
         // Go to My Ace Centre and check we are enrolled
+        cy.wait(2000); // Wait for a react render
         cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
         cy.url({ timeout: 30000 }).should("include", "my-acecentre");
         cy.findByRole("link", { name: "View your courses >" }).click();

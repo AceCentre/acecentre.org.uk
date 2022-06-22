@@ -71,7 +71,7 @@ context("Moodle", () => {
         .click();
 
       // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
+      cy.url({ timeout: 20000 }).should("include", "/basket");
       // Apply voucher
       cy.findByRole("textbox", { name: "Voucher" }).type(couponCode);
       cy.findByRole("button", { name: "Apply Voucher" }).click();
