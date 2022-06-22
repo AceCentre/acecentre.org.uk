@@ -130,7 +130,7 @@ context("Moodle", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 30000 }).should("include", "order");
+      cy.url({ timeout: 40000 }).should("include", "order");
 
       // Go to My Ace Centre and check we are not enrolled
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
