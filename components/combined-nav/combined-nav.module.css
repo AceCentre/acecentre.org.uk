@@ -138,3 +138,13 @@
     align-items: center;
   }
 }
+
+.isCypressDesktop {
+  display: block;
+}
+
+.isCypressMobile {
+  display: none;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.18);
+  padding-left: 2rem;
+}
