@@ -59,17 +59,35 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
   const { isMenuOpen, isSearchOpen, isDrawerOpen, onClickMenu, onClickSearch } =
     useMobileNav();
 
+  const [isCypress, setIsCypress] = useState(false);
+
+  useEffect(() => {
+    if (
+      navigator &&
+      navigator.userAgent &&
+      (navigator.userAgent.toLowerCase().includes("headless") ||
+        navigator.userAgent.toLowerCase().includes("puppeteer"))
+    ) {
+      console.log("Cypress detected", navigator.userAgent);
+      setIsCypress(true);
+    }
+  }, []);
+
   return (
     <>
       <OldBrowserBanner />
-      <div className={styles.desktopContainer}>
+      <div
+        className={`${styles.desktopContainer} ${
+          isCypress ? styles.isCypressDesktop : ""
+        }`}
+      >
         <Nav nhs={nhs} nhsTitle={nhsTitle} />
         {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
       <div
         className={`${styles.mobileContainer} ${
           isDrawerOpen ? styles.noShadow : ""
-        }`}
+        } ${isCypress ? styles.isCypressMobile : ""}`}
       >
         {nhs ? (
           <Link name="home" href="/">
