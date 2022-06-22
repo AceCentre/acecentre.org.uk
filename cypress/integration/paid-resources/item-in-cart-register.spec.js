@@ -56,6 +56,7 @@ context("Paid resources", () => {
       cy.findAllByRole("link", { name: "My Ace Centre" }).should("exist");
 
       // Go to cart
+      cy.wait(2000); // Wait for react render
       cy.findAllByRole("link", { name: "Checkout" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
