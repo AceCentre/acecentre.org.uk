@@ -30,7 +30,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk
+          config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: true
