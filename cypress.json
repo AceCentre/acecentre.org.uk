@@ -3,7 +3,7 @@
   "videosFolder": "./artifacts/videos",
   "baseUrl": "http://localhost:3000",
   "projectId": "2da7p6",
-  "retries": 3,
+  "retries": 1,
   "chromeWebSecurity": false,
   "pageLoadTimeout": 60000,
   "requestTimeout": 60000,
