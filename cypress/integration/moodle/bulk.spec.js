@@ -31,29 +31,42 @@ context("Moodle", () => {
       couponId = result.couponId;
     });
 
-    afterEach(async () => {
-      await deleteCoupon(couponId);
+    afterEach(() => {
+      cy.wrap(null).then(async () => {
+        await deleteCoupon(couponId);
+      });
 
-      if (newEmail) {
-        await deleteUser(newEmail, "backend", "bulk-new");
-      }
+      cy.wrap(null).then(async () => {
+        if (newEmail) {
+          await deleteUser(newEmail, "backend", "bulk-new");
+        }
+      });
 
-      if (delegatedEmail) {
-        await deleteUser(delegatedEmail, "backend", "bulk-delegated");
-      }
+      cy.wrap(null).then(async () => {
+        if (delegatedEmail) {
+          await deleteUser(delegatedEmail, "backend", "bulk-delegated");
+        }
+      });
 
-      if (bulkEmailOne) {
-        await deleteUser(bulkEmailOne, "backend", "bulk-bulk-one");
-      }
-      if (bulkEmailTwo) {
-        await deleteUser(bulkEmailTwo, "backend", "bulk-bulk-two");
-      }
+      cy.wrap(null).then(async () => {
+        if (bulkEmailOne) {
+          await deleteUser(bulkEmailOne, "backend", "bulk-bulk-one");
+        }
+      });
+
+      cy.wrap(null).then(async () => {
+        if (bulkEmailTwo) {
+          await deleteUser(bulkEmailTwo, "backend", "bulk-bulk-two");
+        }
+      });
     });
 
     it(["post-deploy"], "Buy a course for a bulk group", () => {
       Cypress.on("uncaught:exception", (err) => {
         if (err.message.includes("theme_boost")) return false;
         if (err.message.includes("Course or activity not accessible."))
+          return false;
+        if (err.message.includes("Cannot read property 'length' of undefined"))
           return false;
         return true;
       });
@@ -210,6 +223,9 @@ context("Moodle", () => {
       cy.findAllByRole("heading", { name: /Splash/i })
         .first()
         .should("exist");
+
+      // Wait for 20 seconds to allow the page to fully load
+      cy.wait(20000);
     });
   });
 });
