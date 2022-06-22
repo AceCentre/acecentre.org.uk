@@ -224,6 +224,7 @@ jobs:
           install: false
           parallel: true
           group: Pre-Deploy Github Actions
+          browser: chrome
           ci-build-id: ${{ needs.prepare.PrepareCypressIdPre.uuid }}
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -329,6 +330,7 @@ jobs:
           record: true
           install: false
           parallel: true
+          browser: chrome
           ci-build-id: ${{ needs.PrepareCypressIdPost.outputs.uuid }}
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
