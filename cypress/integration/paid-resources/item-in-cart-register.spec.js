@@ -111,6 +111,7 @@ context("Paid resources", () => {
       cy.url({ timeout: 60000 }).should("include", "order");
 
       // Check order is in account
+      cy.wait(2000); // Wait for re render
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
       cy.url({ timeout: 60000 }).should("include", "my-acecentre");
       cy.findByRole("link", { name: "View your orders >" }).click();
