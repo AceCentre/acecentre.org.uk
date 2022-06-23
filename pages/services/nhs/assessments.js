@@ -85,7 +85,7 @@ export default function NHSLanding() {
               Referrals for an assessment are accepted for people who meet NHSE
               eligibility criteria from publicly funded health, education and
               social care professionals. Please read our{" "}
-              <Link href="/docs/Ace-Centre-Guidance-Notes-V4-2021.docx">
+              <Link href="/docs/Ace-Centre-Guidance-Notes-V5-2022.docx">
                 guidance documentation
               </Link>{" "}
               and complete all sections with detailed information and supporting
