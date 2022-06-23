@@ -32,22 +32,33 @@ context("Moodle", () => {
     });
 
     afterEach(async () => {
-      await deleteCoupon(couponId);
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        await deleteCoupon(couponId);
+      });
 
-      if (newEmail) {
-        await deleteUser(newEmail, "backend", "self-new");
-      }
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        if (newEmail) {
+          await deleteUser(newEmail, "backend", "bulk-new");
+        }
+      });
 
-      if (delegatedEmail) {
-        await deleteUser(delegatedEmail, "backend", "self-delegated");
-      }
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        if (delegatedEmail) {
+          await deleteUser(delegatedEmail, "backend", "bulk-delegated");
+        }
+      });
 
-      if (bulkEmailOne) {
-        await deleteUser(bulkEmailOne, "backend", "self-bulk-one");
-      }
-      if (bulkEmailTwo) {
-        await deleteUser(bulkEmailTwo, "backend", "self-bulk-two");
-      }
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        if (bulkEmailOne) {
+          await deleteUser(bulkEmailOne, "backend", "bulk-bulk-one");
+        }
+      });
+
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        if (bulkEmailTwo) {
+          await deleteUser(bulkEmailTwo, "backend", "bulk-bulk-two");
+        }
+      });
     });
 
     it(
