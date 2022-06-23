@@ -16,10 +16,12 @@ export const deleteMoodleUser = async (email) => {
     },
   });
 
-  if (!getUsersResult || getUsersResult.length !== 1) {
-    console.log(
-      `We found no users or more than one users with the given email: ${email}`
-    );
+  if (!getUsersResult) {
+    throw new Error("Failed to get user");
+  }
+
+  if (getUsersResult.length !== 1) {
+    throw new Error("Failed to get any user");
   }
 
   const userToDelete = getUsersResult[0];

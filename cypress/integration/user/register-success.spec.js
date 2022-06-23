@@ -19,7 +19,7 @@ context("Register", () => {
     newEmail = validEmail("register-success");
 
     // Go to the register page
-    cy.visit("");
+    cy.visit("", { timeout: 60000 });
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");
 
