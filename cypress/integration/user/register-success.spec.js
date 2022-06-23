@@ -50,6 +50,7 @@ context("Register", () => {
     cy.findByRole("textbox", { name: "Email" }).should("have.value", newEmail);
 
     // Go back to my-acecentre
+    cy.wait(2000); // Wait for render
     cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
     cy.url({ timeout: 60000 }).should(
       "equal",
