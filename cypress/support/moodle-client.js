@@ -13,7 +13,7 @@
 
 "use strict";
 
-var request_promise = require("request-promise");
+var request_promise = require("request-promise-native");
 // var Promise = require("bluebird");
 
 module.exports = {
