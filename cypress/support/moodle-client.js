@@ -14,7 +14,7 @@
 "use strict";
 
 var request_promise = require("request-promise");
-var Promise = require("bluebird");
+// var Promise = require("bluebird");
 
 module.exports = {
   /**
