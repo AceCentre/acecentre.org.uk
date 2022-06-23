@@ -1,3 +1,5 @@
+import { deleteMoodleUser } from "./delete-moodle-user";
+
 export const deleteUser = async (
   email,
   subdomain = "internal",
@@ -136,5 +138,9 @@ export const deleteUser = async (
     !deleteUserResult.data.deleteUser.user.id
   ) {
     throw new Error(`Couldnt delete user, ${testName}`);
+  }
+
+  if (subdomain === "backend") {
+    await deleteMoodleUser(email);
   }
 };
