@@ -96,7 +96,7 @@
     "mock-fs": "5.1.2",
     "mysql2": "2.3.3",
     "netlify-cli": "10.6.1",
-    "next-sitemap": "3.1.5",
+    "next-sitemap": "3.1.6",
     "nock": "13.2.7",
     "plop": "3.1.1",
     "storybook-css-modules-preset": "1.0.8"
