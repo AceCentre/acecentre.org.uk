@@ -53,6 +53,11 @@ context("Service Finder", () => {
   });
 
   it(["pre-deploy"], "Can click through to map", () => {
+    Cypress.on("uncaught:exception", (err) => {
+      if (err.message.includes("L is not defined")) return false;
+
+      return true;
+    });
     cy.visit("/nhs-service-finder");
 
     cy.findByRole("link", {
@@ -60,6 +65,7 @@ context("Service Finder", () => {
     }).click();
 
     // Bit hacky but make sure that the map is loaded kinda
+    cy.wait(20000); // Make sure all map stuff loads
     cy.get(".leaflet-map-pane").should("exist");
   });
 });
