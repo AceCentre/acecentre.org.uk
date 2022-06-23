@@ -27,6 +27,7 @@ context("Moodle", () => {
 
       // Check we are logged in to ace centre
       cy.visit("https://acecentre.org.uk");
+      cy.wait(2000); // Wait for render
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
       cy.url({ timeout: 30000 }).should("include", "/my-acecentre");
 
@@ -39,6 +40,7 @@ context("Moodle", () => {
 
       // Check we are logged out of the AceCentre site
       cy.visit("https://acecentre.org.uk");
+      cy.wait(2000); // Wait for render
       cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
       cy.url({ timeout: 30000 }).should("include", "/login");
     }
