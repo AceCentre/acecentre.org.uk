@@ -76,6 +76,7 @@ export const getStaticProps = withGlobalProps(
     ).filter((post) => post.slug !== currentPost.slug);
 
     return {
+      revalidate: 60,
       props: {
         currentPost,
         featuredPosts: featuredPosts.slice(0, 3),
