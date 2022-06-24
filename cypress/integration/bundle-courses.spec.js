@@ -31,7 +31,7 @@ context("Moodle", () => {
       couponId = result.couponId;
     });
 
-    afterEach(async () => {
+    afterEach(() => {
       cy.wrap(null, { timeout: 60000 }).then(async () => {
         await deleteCoupon(couponId);
       });
