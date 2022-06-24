@@ -9,7 +9,7 @@ const IGNORE = [
   "nhs-service-finder/maps",
   "pasco-support",
   "launchpad",
-  "checkout"
+  "checkout",
 ];
 
 function chunk(arr, len) {
