@@ -2615,7 +2615,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@netlify/build@^27.2.0":
+"@netlify/build@^27.3.1":
   version "27.3.1"
   resolved "https://registry.yarnpkg.com/@netlify/build/-/build-27.3.1.tgz#39b0f909f59a40ba4695a9bd6ffe1586f68319ec"
   integrity sha512-7b1/mgZKRK4mDxA0GsaUHX/8bkzKSm1YufedOyZquq13WxMubrBqY55jsBBblT2SOd+PQgTq+/Nb/tgx12nU0Q==
@@ -2688,36 +2688,6 @@
     move-file "^3.0.0"
     path-exists "^5.0.0"
     readdirp "^3.4.0"
-
-"@netlify/config@^18.0.2":
-  version "18.0.2"
-  resolved "https://registry.yarnpkg.com/@netlify/config/-/config-18.0.2.tgz#0b802e9ba03d96eb6a3ecc69c6150e151e5de933"
-  integrity sha512-iFp3HZxDXMgSmtNkiB3ZW/RW+iA0fEQ/G28va1hwlsRdj4L2gJbDZrcDB1AjM0L9kRRlPguZRSYtlJiHbLaoXQ==
-  dependencies:
-    chalk "^5.0.0"
-    cron-parser "^4.1.0"
-    deepmerge "^4.2.2"
-    dot-prop "^7.0.0"
-    execa "^6.0.0"
-    fast-safe-stringify "^2.0.7"
-    figures "^4.0.0"
-    filter-obj "^3.0.0"
-    find-up "^6.0.0"
-    indent-string "^5.0.0"
-    is-plain-obj "^4.0.0"
-    js-yaml "^4.0.0"
-    map-obj "^5.0.0"
-    netlify "^11.0.2"
-    netlify-headers-parser "^6.0.2"
-    netlify-redirect-parser "13.0.5"
-    omit.js "^2.0.2"
-    p-locate "^6.0.0"
-    path-exists "^5.0.0"
-    path-type "^5.0.0"
-    toml "^3.0.0"
-    tomlify-j0.4 "^3.0.0"
-    validate-npm-package-name "^4.0.0"
-    yargs "^17.3.1"
 
 "@netlify/config@^18.1.0":
   version "18.1.0"
@@ -14913,13 +14883,13 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.1.tgz#26c8a3cee6cc05fbcf1e333cd2fc3e003326c0b5"
   integrity sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==
 
-netlify-cli@10.6.2:
-  version "10.6.2"
-  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.6.2.tgz#5fd9228457f83147f4c91d2a06122b9579d841d0"
-  integrity sha512-AxBwpgLeKMr4aHXnem4xiTac0bweMp9e4Jl7Z5WrCgjsDWjIOfOV2Hh3QVgKfUQ6O44NbhYXfTDg2r4az+MzjA==
+netlify-cli@10.6.3:
+  version "10.6.3"
+  resolved "https://registry.yarnpkg.com/netlify-cli/-/netlify-cli-10.6.3.tgz#6fc6ca65cd5774a0e9be1920c9414a723a396266"
+  integrity sha512-dbWeFveBikO3d/tYVF/TO9QX5XBHCYdcN0fplI++TeP+mLAI/HxSXHFZIz5xKTU37dblZd5PkF4DySjtqodAmw==
   dependencies:
-    "@netlify/build" "^27.2.0"
-    "@netlify/config" "^18.0.2"
+    "@netlify/build" "^27.3.1"
+    "@netlify/config" "^18.1.0"
     "@netlify/edge-bundler" "^1.4.1"
     "@netlify/framework-info" "^9.1.0"
     "@netlify/local-functions-proxy" "^1.1.1"
