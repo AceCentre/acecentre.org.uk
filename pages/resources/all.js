@@ -6,7 +6,7 @@ import { ProductFilters } from "../../components/product-filters/product-filters
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
@@ -49,7 +49,7 @@ export default function AllResources({
 }
 
 // This will run every page run
-export const getServerSideProps = withGlobalProps(async (req) => {
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   const page = req.query.page || 1;
   const searchText = req.query.searchText || "";
   const category = req.query.category || "";
