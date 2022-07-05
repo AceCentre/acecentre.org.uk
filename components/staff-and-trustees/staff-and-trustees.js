@@ -10,7 +10,7 @@ export const StaffAndTrustees = () => {
         <div className={styles.background} />
         <Image
           alt="A group photo of Ace Centre staff"
-          src="/group-photo.jpeg"
+          src="/group-photo-2.jpeg"
           layout="fill"
           objectFit="cover"
         />
