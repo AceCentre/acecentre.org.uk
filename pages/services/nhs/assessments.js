@@ -85,12 +85,12 @@ export default function NHSLanding() {
               Referrals for an assessment are accepted for people who meet NHSE
               eligibility criteria from publicly funded health, education and
               social care professionals. Please read our{" "}
-              <Link href="/docs/Ace-Centre-Guidance-Notes-V5-2022.docx">
+              <Link href="/docs/Ace-Centre-Guidance-Notes-V6-2022.docx">
                 guidance documentation
               </Link>{" "}
               and complete all sections with detailed information and supporting
               evidence using this{" "}
-              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v5-2021.docx">
+              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2021.docx">
                 referral form.
               </Link>
             </p>
@@ -247,7 +247,7 @@ export default function NHSLanding() {
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
-                    href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v5-2021.docx"
+                    href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2021.docx"
                   >
                     Download form
                   </Button>
