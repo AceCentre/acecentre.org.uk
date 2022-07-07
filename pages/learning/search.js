@@ -4,7 +4,7 @@ import { CourseFilter } from "../../components/course-filter/course-filter";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CourseList } from "../../components/course-list/course-list";
 import { getAllCourses, LOCATIONS } from "../../lib/products/get-courses";
@@ -62,7 +62,7 @@ export default function LearningSearchPage({
   );
 }
 
-export const getServerSideProps = withGlobalProps(async (req) => {
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   let courses = await getAllCourses(true);
 
   /**

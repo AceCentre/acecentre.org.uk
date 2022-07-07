@@ -2,7 +2,7 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { BackToLink } from "../components/back-to-link/back-to-link";
@@ -80,7 +80,7 @@ export default function Search({
   );
 }
 
-export const getServerSideProps = withGlobalProps(async (req) => {
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   const searchText = req.query.searchText || false;
 
   if (!searchText) {

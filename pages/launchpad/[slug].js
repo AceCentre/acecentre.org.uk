@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getTemplates } from "../../lib/launchpad";
 import { LaunchpadList } from "../../components/resource-list/resource-list";
@@ -53,7 +53,7 @@ export default function LaunchpadDetail({ template, templates }) {
   );
 }
 
-export const getServerSideProps = withGlobalProps(
+export const getServerSideProps = withGlobalPropsNoRevalidate(
   async ({ params: { slug } }) => {
     const templates = await getTemplates();
     const template = templates.find((template) => template.templateId === slug);
