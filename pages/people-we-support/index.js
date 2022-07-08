@@ -7,7 +7,10 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { WordsFrom } from "../../components/words-from/words-from";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
-import { getAllStories, getSimpleStory } from "../../lib/story/get-story";
+import {
+  getAllStories,
+  getSimpleStoryByIndex,
+} from "../../lib/story/get-story";
 
 import styles from "../../styles/people-we-support.module.css";
 
@@ -43,8 +46,8 @@ export default function StoriesLandingPage({
 export const getStaticProps = withGlobalProps(async () => {
   const allStories = await getAllStories();
 
-  const storyHighlight = await getSimpleStory("olive");
-  const wordsFrom = await getSimpleStory("tamsin-2");
+  const storyHighlight = await getSimpleStoryByIndex(0);
+  const wordsFrom = await getSimpleStoryByIndex(1);
 
   if (!allStories)
     throw new Error("Could not get all the stories for stories page");
