@@ -12,7 +12,7 @@ import { WhatWeDo } from "../components/what-we-do/what-we-do";
 import { useGlobalProps } from "../lib/global-props/hook";
 import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
-import { getSimpleStory } from "../lib/story/get-story";
+import { getSimpleStoryByIndex } from "../lib/story/get-story";
 
 export default function Home({ featuredStory, landingPagePosts }) {
   const { currentYear } = useGlobalProps();
@@ -45,7 +45,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("tamsin-2");
+  const featuredStory = await getSimpleStoryByIndex(0);
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
 
