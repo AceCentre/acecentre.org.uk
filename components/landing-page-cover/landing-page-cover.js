@@ -2,12 +2,11 @@ import { Button } from "@chakra-ui/button";
 import Avatar from "@material-ui/core/Avatar";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";
-import { VideoPopover } from "../video-popover/video-popover";
+import { VimeoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
 import { ImageWithLoader as Image } from "../image";
 
-// const VIDEO_URL = "https://www.youtube.com/watch?v=v1kUX_BVYKw";
-const VIDEO_URL = null;
+const VIDEO_URL = "https://vimeo.com/679038419/e6ae889eff";
 
 export const LandingPageCover = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -48,9 +47,9 @@ export const LandingPageCover = () => {
         </div>
       </div>
       {VIDEO_URL && (
-        <VideoPopover
+        <VimeoPopover
           isPopoverOpen={isPopoverOpen}
-          youtubeUrl={VIDEO_URL}
+          vimeoUrl={VIDEO_URL}
           title="Feedback of the acecentre"
           onClose={() => setIsPopoverOpen(false)}
         />
