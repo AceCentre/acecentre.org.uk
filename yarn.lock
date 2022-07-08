@@ -5327,7 +5327,7 @@
     "@typescript-eslint/types" "5.27.0"
     eslint-visitor-keys "^3.3.0"
 
-"@u-wave/react-vimeo@^0.9.8":
+"@u-wave/react-vimeo@0.9.8":
   version "0.9.8"
   resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.8.tgz#f95f82689774070fded13ba074d7d907f794af40"
   integrity sha512-Ka+jFDcCOp2GBOYRShG3qqsXPI9CUhaOlZMozdEWZVw9EoOdOyma7S3nLVLrp4lxePNu7YZTP4CnyYpd3gsJiA==
