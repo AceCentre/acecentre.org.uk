@@ -116,7 +116,13 @@
 
 @media (max-width: 1024px) {
   .socialsContainer {
-    display: none;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1090px) {
+  .bottomSection {
+    flex-direction: column;
   }
 }
 
@@ -146,10 +152,6 @@
 
   .flatList :not(:last-child) {
     border-right: none;
-  }
-
-  .bottomSection {
-    flex-direction: column;
   }
 
   .flatListItem {
