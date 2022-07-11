@@ -1,3 +1,4 @@
+import { AfterInteractive } from "../../components/after-interactive/after-interactive";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
@@ -33,12 +34,14 @@ export default function ServiceDetails({ service }) {
           where="service finder"
         />
         <div className={styles.mapContainer}>
-          <iframe
-            title={`Map centered on ${service.serviceName}`}
-            width="100%"
-            height="100%"
-            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDCQjXT-r0vodp_u77adLzMaGzzQST_tvc&q=${service.postcode}&zoom=12`}
-          ></iframe>
+          <AfterInteractive>
+            <iframe
+              title={`Map centered on ${service.serviceName}`}
+              width="100%"
+              height="100%"
+              src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDCQjXT-r0vodp_u77adLzMaGzzQST_tvc&q=${service.postcode}&zoom=12`}
+            ></iframe>
+          </AfterInteractive>
         </div>
         <ServiceCards service={service} />
         <ServiceFinderMailingList />
