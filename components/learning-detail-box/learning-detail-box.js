@@ -243,9 +243,11 @@ export const BundleDetailBox = ({ bundle }) => {
             </div>
             <div className={styles.priceContainer}>
               <p className={styles.price}>{getPriceText(bundle.price)}</p>
-              <p className={styles.fullPrice}>
-                {getPriceText(bundle.fullPrice)}
-              </p>
+              {bundle.fullPrice !== 0 && (
+                <p className={styles.fullPrice}>
+                  {getPriceText(bundle.fullPrice)}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -264,7 +266,7 @@ export const BundleDetailBox = ({ bundle }) => {
               toggleModal(true);
             }}
           >
-            Buy this bundle
+            {bundle.price === 0 ? "Sign up to all" : "Buy this bundle"}
           </Button>
         </div>
       </div>
