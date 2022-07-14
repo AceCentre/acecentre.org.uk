@@ -43,7 +43,7 @@ const FullWidthContainer = ({ children }) => {
   return <div className={styles.container}>{children}</div>;
 };
 
-const useHighlight = () => {
+export const useHighlight = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 

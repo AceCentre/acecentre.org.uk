@@ -6,26 +6,38 @@ import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
 
 import { rawLoader } from "../../lib/image-loader";
+import { useHighlight } from "../sub-nav/sub-nav";
 
 const VIDEO_URL = "https://www.youtube.com/watch?v=cSLZUBqlB04";
 
 export const LandingPageCover = () => {
   const videoRef = useRef();
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [hasBeenHighlighted, setHasBeenHighlighted] = useState(false);
+  const { highlightProps, isHighlighted } = useHighlight();
 
   useEffect(() => {
-    if (videoRef && videoRef.current) {
+    if (isHighlighted) {
+      console.log("isHighlighted");
+      setHasBeenHighlighted(true);
+    }
+  }, [isHighlighted]);
+
+  useEffect(() => {
+    if (videoRef && videoRef.current && hasBeenHighlighted) {
       videoRef.current.addEventListener("canplaythrough", () => {
         console.log("Video can play through fired");
         videoRef.current.play();
       });
-      videoRef.current.src = "./banner-video-compressed.mp4";
+      console.log("Source has been set");
+
+      videoRef.current.src = "./banner-video.mp4";
     }
-  }, [videoRef]);
+  }, [videoRef, hasBeenHighlighted]);
 
   return (
     <>
-      <div>
+      <div {...highlightProps}>
         <div>
           <div className={styles.buttonContainer}>
             <Button
