@@ -4,24 +4,10 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
-import { imageLoaders } from "../../lib/config";
 
-import {
-  cloudinaryLoader,
-  imageKitLoader,
-  keyLoader,
-  rawLoader,
-} from "../../lib/image-loader";
-
-const loaders = {
-  cloudinaryLoader,
-  imageKitLoader,
-  keyLoader,
-  rawLoader,
-};
+import { rawLoader } from "../../lib/image-loader";
 
 const VIDEO_URL = "https://www.youtube.com/watch?v=cSLZUBqlB04";
-const normalLoader = loaders[imageLoaders.normal];
 
 export const LandingPageCover = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -49,7 +35,7 @@ export const LandingPageCover = () => {
               autoPlay
               muted
               loop
-              poster={normalLoader({ src: "/video-placeholder.jpeg" })}
+              poster={rawLoader({ src: "/video-placeholder.jpeg" })}
               title="Ace Centre promotional video"
             ></video>
           </div>
