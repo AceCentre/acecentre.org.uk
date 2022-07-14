@@ -19,10 +19,7 @@ export const LandingPageCover = () => {
         console.log("Video can play through fired");
         videoRef.current.play();
       });
-      setTimeout(() => {
-        console.log("Set source of video");
-        videoRef.current.src = "./banner-video-compressed.mp4";
-      }, 2000);
+      videoRef.current.src = "./banner-video-compressed.mp4";
     }
   }, [videoRef]);
 
