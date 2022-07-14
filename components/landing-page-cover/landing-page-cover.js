@@ -15,7 +15,10 @@ export const LandingPageCover = () => {
 
   useEffect(() => {
     if (videoRef && videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.addEventListener("canplaythrough", () => {
+        videoRef.current.play();
+      });
+      videoRef.current.src = "./banner-video.mp4";
     }
   }, [videoRef]);
 
@@ -39,7 +42,7 @@ export const LandingPageCover = () => {
             <video
               className={styles.image}
               ref={videoRef}
-              src="./banner-video.mp4"
+              preload="auto"
               muted
               loop
               poster={rawLoader({ src: "/video-placeholder.webp" })}
