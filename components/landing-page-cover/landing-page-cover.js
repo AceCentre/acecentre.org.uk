@@ -16,9 +16,13 @@ export const LandingPageCover = () => {
   useEffect(() => {
     if (videoRef && videoRef.current) {
       videoRef.current.addEventListener("canplaythrough", () => {
+        console.log("Video can play through fired");
         videoRef.current.play();
       });
-      videoRef.current.src = "./banner-video.mp4";
+      setTimeout(() => {
+        console.log("Set source of video");
+        videoRef.current.src = "./banner-video.mp4";
+      }, 2000);
     }
   }, [videoRef]);
 
