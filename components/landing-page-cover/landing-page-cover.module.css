@@ -4,12 +4,22 @@
   max-width: var(--containerMaxWidth);
 }
 
+.buttonContainer {
+  position: absolute;
+  z-index: 99;
+  margin: 0 auto;
+  height: 500px;
+  width: 100%;
+  padding-top: 175px;
+}
+
 .imageContainer {
   position: relative;
   background-color: rgba(33, 107, 146, 1);
   max-width: 1540px;
   margin: 0 auto;
   height: 500px;
+  display: flex;
 }
 
 .image {
@@ -27,7 +37,7 @@
   max-width: 720px;
   width: 90%;
   margin: 0 auto;
-  margin-top: -200px;
+  margin-top: -150px;
   padding: 38px;
   box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.15);
   position: relative;
