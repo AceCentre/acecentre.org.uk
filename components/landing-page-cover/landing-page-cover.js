@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/button";
 import Avatar from "@material-ui/core/Avatar";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";
 
@@ -10,7 +10,14 @@ import { rawLoader } from "../../lib/image-loader";
 const VIDEO_URL = "https://www.youtube.com/watch?v=cSLZUBqlB04";
 
 export const LandingPageCover = () => {
+  const videoRef = useRef();
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  useEffect(() => {
+    if (videoRef && videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [videoRef]);
 
   return (
     <>
@@ -31,11 +38,11 @@ export const LandingPageCover = () => {
           <div className={styles.imageContainer}>
             <video
               className={styles.image}
+              ref={videoRef}
               src="./banner-video.mp4"
-              autoPlay
               muted
               loop
-              poster={rawLoader({ src: "/video-placeholder.jpeg" })}
+              poster={rawLoader({ src: "/video-placeholder.webp" })}
               title="Ace Centre promotional video"
             ></video>
           </div>
