@@ -49,7 +49,7 @@ export const LandingPageCover = () => {
               autoPlay
               muted
               loop
-              poster={normalLoader({ src: "./video-placeholder.jpeg" })}
+              poster={normalLoader({ src: "/video-placeholder.jpeg" })}
               title="Ace Centre promotional video"
             ></video>
           </div>
