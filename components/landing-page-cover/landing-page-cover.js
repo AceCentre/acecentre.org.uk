@@ -21,7 +21,7 @@ export const LandingPageCover = () => {
       });
       setTimeout(() => {
         console.log("Set source of video");
-        videoRef.current.src = "./banner-video.mp4";
+        videoRef.current.src = "./banner-video-compressed.mp4";
       }, 2000);
     }
   }, [videoRef]);
