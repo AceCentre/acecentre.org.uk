@@ -93,22 +93,16 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
    */
   const prices = [
     {
-      slug: "0",
+      slug: "free",
       name: "Free",
       min: 0,
       max: 0.01,
     },
     {
-      slug: "<100",
-      name: "£0 - 100",
+      slug: "paid",
+      name: "Paid for",
       min: 0.01,
-      max: 100,
-    },
-    {
-      slug: ">100",
-      name: "£100 +",
-      min: 100,
-      max: 9999999,
+      max: 999999999,
     },
   ];
 
