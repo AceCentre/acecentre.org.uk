@@ -169,10 +169,13 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
    */
   const selectedLocation = req.query.location || null;
   if (selectedLocation) {
-    courses = courses.filter(
-      (course) =>
-        course.location.slug.toLowerCase() === selectedLocation.toLowerCase()
-    );
+    courses = courses.filter((course) => {
+      const currentLocation = course.location.slug.toLowerCase();
+      const fullSelectedLocation = Object.values(LOCATIONS).find(
+        (x) => x.slug === selectedLocation
+      );
+      return fullSelectedLocation.matchingSlugs.includes(currentLocation);
+    });
   }
 
   /**
