@@ -27,7 +27,9 @@ export const LandingPageCover = () => {
     if (videoRef && videoRef.current && hasBeenHighlighted) {
       videoRef.current.addEventListener("canplaythrough", () => {
         console.log("Video can play through fired");
-        videoRef.current.play();
+        if (videoRef && videoRef.current) {
+          videoRef.current.play();
+        }
       });
       console.log("Source has been set");
 

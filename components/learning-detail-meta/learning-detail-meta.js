@@ -67,7 +67,7 @@ export const LearningDetailMeta = ({ course, levels }) => {
 };
 
 const LocationIcon = ({ locationTitle }) => {
-  if (locationTitle === "Online course") {
+  if (locationTitle === "Online") {
     return <LanguageIcon className={styles.icon} />;
   }
 

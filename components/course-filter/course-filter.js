@@ -231,13 +231,18 @@ export const CourseFilter = ({
             placeholder="Location"
             aria-label="Location"
           >
-            {allLocations.map((location) => {
-              return (
-                <option value={location.slug} key={`location-${location.slug}`}>
-                  {location.title}
-                </option>
-              );
-            })}
+            {allLocations
+              .filter((x) => !x.hiddenInSelect)
+              .map((location) => {
+                return (
+                  <option
+                    value={location.slug}
+                    key={`location-${location.slug}`}
+                  >
+                    {location.title}
+                  </option>
+                );
+              })}
           </Select>
           <Select
             maxWidth={["100%", "100%", 160]}
