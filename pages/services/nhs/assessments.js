@@ -90,7 +90,7 @@ export default function NHSLanding() {
               </Link>{" "}
               and complete all sections with detailed information and supporting
               evidence using this{" "}
-              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2021.docx">
+              <Link href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2022.docx">
                 referral form.
               </Link>
             </p>
@@ -247,7 +247,7 @@ export default function NHSLanding() {
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
-                    href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2021.docx"
+                    href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2022.docx"
                   >
                     Download form
                   </Button>
