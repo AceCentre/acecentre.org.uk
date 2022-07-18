@@ -81,7 +81,7 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   /**
    * All unique course types
    */
-  const types = ["On-demand", "Scheduled"];
+  const types = ["On-demand", "Live"];
 
   /**
    * All unique course locations
@@ -159,7 +159,7 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   if (selectedType) {
     if (selectedType.toLowerCase() === "On-demand".toLowerCase()) {
       courses = courses.filter((course) => course.date.type === "On-demand");
-    } else if (selectedType.toLowerCase() == "Scheduled".toLowerCase()) {
+    } else if (selectedType.toLowerCase() == "Live".toLowerCase()) {
       courses = courses.filter((course) => course.date.type === "Scheduled");
     }
   }
