@@ -28,11 +28,9 @@ export const WordsFrom = ({ shortTitle, quote, featuredImage, slug }) => {
           </Avatar>
           <div className={styles.quoteTextContainer}>
             <div>&quot;{quote}&quot;</div>
-            {/* This string includes a pronoun so won't work if we change this someone with
-            different pronouns */}
             <div>
               <Button href={`/people-we-support/case-study/${slug}`}>
-                Read her story
+                Read full story
               </Button>
             </div>
           </div>
