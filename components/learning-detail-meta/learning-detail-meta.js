@@ -13,7 +13,7 @@ import { useState } from "react";
 import { Button } from "../button/button";
 
 export const LearningDetailMeta = ({ course, levels }) => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const level = course.level || "introductory";
 
   return (
@@ -49,7 +49,7 @@ export const LearningDetailMeta = ({ course, levels }) => {
         <MetaItem
           heading={course.level}
           subheading="Learn about course learning levels"
-          onClick={() => setIsModelOpen(true)}
+          onClick={() => setIsModalOpen(true)}
           type="Course level"
           buttonText="Learn more"
         >
@@ -58,8 +58,8 @@ export const LearningDetailMeta = ({ course, levels }) => {
       )}
       <LearningLevelPopup
         defaultLevel={levelsToNumberOfCircles[level.toLowerCase()]}
-        isModelOpen={isModelOpen}
-        onClose={() => setIsModelOpen(false)}
+        isModalOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         levels={levels}
       />
     </div>

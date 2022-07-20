@@ -23,14 +23,18 @@ import { Avatar } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
+import { ResourcesImage } from "../resources-image/resources-image";
+import { ResourcesDescription } from "../resources-description/resources-description";
+import { ResourcesShare } from "../resources-share/resources-share";
+import { ResourceList } from "../resource-list/resource-list";
 
-const DownloadModal = ({ modelOpen, onClose, name }) => {
+const DownloadModal = ({ modalOpen, onClose, name }) => {
   return (
     <Modal
       scrollBehavior="inside"
       size="3xl"
       isCentered
-      isOpen={modelOpen}
+      isOpen={modalOpen}
       onClose={onClose}
     >
       <ModalOverlay />
@@ -91,7 +95,11 @@ background-color: #00537F;
   );
 };
 
-export const LaunchpadGenerate = ({ template }) => {
+export const LaunchpadPage = ({
+  launchpadTemplate,
+  attachedResources,
+  relatedResources,
+}) => {
   const {
     triggerDownload,
     downloadDisabled,
@@ -99,12 +107,77 @@ export const LaunchpadGenerate = ({ template }) => {
     looseVariableProps,
     variableGroupsProps,
     defaultSelected,
-  } = useLaunchpad(template);
-  const [modelOpen, setModelOpen] = useState(true);
+    modalOpen,
+    setModalOpen,
+  } = useLaunchpad(launchpadTemplate);
+
+  return (
+    <>
+      <div className={styles.topArea}>
+        <div className={styles.leftTopArea}>
+          <ResourcesImage
+            resource={{
+              name: launchpadTemplate.templateName,
+              image: { src: launchpadTemplate.templateImageUrl },
+            }}
+            priority
+          />
+        </div>
+        <div className={styles.rightTopArea}>
+          <ResourcesDescription
+            resource={{
+              name: launchpadTemplate.templateName,
+              shortDescription: launchpadTemplate.templateDescription,
+            }}
+          />
+          <Button
+            disabled={downloadDisabled}
+            onClick={() => {
+              triggerDownload();
+              setModalOpen(true);
+            }}
+          >
+            Free download
+          </Button>
+        </div>
+      </div>
+
+      <LaunchpadGenerate
+        template={launchpadTemplate}
+        triggerDownload={triggerDownload}
+        downloadDisabled={downloadDisabled}
+        errorMessage={errorMessage}
+        looseVariableProps={looseVariableProps}
+        variableGroupsProps={variableGroupsProps}
+        defaultSelected={defaultSelected}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
+      <ResourceList
+        className={styles.resourcesList}
+        title={"Other resources you might like"}
+        viewAllLink={"/resources/all"}
+        viewAllText="View all resources"
+        products={[...attachedResources, ...relatedResources].slice(0, 4)}
+      />
+    </>
+  );
+};
+
+export const LaunchpadGenerate = ({
+  template,
+  errorMessage,
+  looseVariableProps,
+  variableGroupsProps,
+  defaultSelected,
+  modalOpen,
+  setModalOpen,
+}) => {
   const [selected, setSelected] = useState(defaultSelected);
 
   return (
     <div className={styles.container}>
+      <ResourcesShare />
       {template.templateVariables.length > 0 && (
         <p>
           Enter a value for each of the following options. Then press{" "}
@@ -134,18 +207,10 @@ export const LaunchpadGenerate = ({ template }) => {
       </Accordion>
       <div></div>
       {errorMessage && <p>{errorMessage}</p>}
-      <Button
-        disabled={downloadDisabled}
-        onClick={() => {
-          setModelOpen(true);
-          triggerDownload();
-        }}
-      >
-        Download
-      </Button>
+
       <DownloadModal
-        modelOpen={modelOpen}
-        onClose={() => setModelOpen(false)}
+        modalOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
         name={template.templateName}
       />
     </div>

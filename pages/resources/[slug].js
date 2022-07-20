@@ -16,7 +16,7 @@ import { ProjectHighlight } from "../../components/project-highlight/project-hig
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
 import { getLaunchpadTemplate } from "../../lib/launchpad";
-import { LaunchpadGenerate } from "../../components/launchpad-generate/launchpad-generate";
+import { LaunchpadPage } from "../../components/launchpad-generate/launchpad-generate";
 
 export default function ResourceDetail({
   resource,
@@ -37,28 +37,8 @@ export default function ResourceDetail({
         <BackToLink where="all resources" href="/resources/all" />
         {launchpadTemplate ? (
           <>
-            <div className={styles.topArea}>
-              <div className={styles.leftTopArea}>
-                <ResourcesImage
-                  resource={{
-                    name: launchpadTemplate.templateName,
-                    image: { src: launchpadTemplate.templateImageUrl },
-                  }}
-                  priority
-                />
-              </div>
-              <div className={styles.rightTopArea}>
-                <ResourcesDescription
-                  resource={{
-                    name: launchpadTemplate.templateName,
-                    shortDescription: launchpadTemplate.templateDescription,
-                  }}
-                />
-                <ResourcesShare />
-              </div>
-            </div>
-            <LaunchpadGenerate template={launchpadTemplate} />
-            <ResourceListSwitch
+            <LaunchpadPage
+              launchpadTemplate={launchpadTemplate}
               resource={resource}
               attachedResources={attachedResources}
               relatedResources={relatedResources}
