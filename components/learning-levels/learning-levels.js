@@ -21,7 +21,7 @@ export const LearningLevels = ({ levels }) => {
         <Button onClick={() => setModalOpen(true)}>View learning levels</Button>
       </div>
       <LearningLevelPopup
-        isModelOpen={modalOpen}
+        isModalOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         levels={levels}
       />
@@ -30,7 +30,7 @@ export const LearningLevels = ({ levels }) => {
 };
 
 export const LearningLevelPopup = ({
-  isModelOpen,
+  isModalOpen,
   onClose,
   levels: unsortedLevels,
   defaultLevel = 1,
@@ -44,7 +44,7 @@ export const LearningLevelPopup = ({
       scrollBehavior="inside"
       size="3xl"
       isCentered
-      isOpen={isModelOpen}
+      isOpen={isModalOpen}
       onClose={onClose}
     >
       <ModalOverlay />

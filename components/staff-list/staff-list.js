@@ -90,7 +90,7 @@ const StaffCard = ({ person, index = 0, currentActive = "" }) => {
         </div>
       </button>
       <StaffDetail
-        isModelOpen={currentActive === person.slug}
+        isModalOpen={currentActive === person.slug}
         onClose={() => router.push("/about/staff")}
         person={person}
         location={location}
@@ -101,13 +101,13 @@ const StaffCard = ({ person, index = 0, currentActive = "" }) => {
 };
 
 const TrusteeCard = ({ person }) => {
-  const [isModelOpen, setIsModelOpen] = useState(false);
-  const onClose = () => setIsModelOpen(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const onClose = () => setIsModalOpen(false);
 
   return (
     <>
       <button
-        onClick={() => setIsModelOpen(true)}
+        onClick={() => setIsModalOpen(true)}
         className={styles.staffButton}
       >
         <div className={styles.imageContainer}>
@@ -135,7 +135,7 @@ const TrusteeCard = ({ person }) => {
         </div>
       </button>
       <TrusteeDetail
-        isModelOpen={isModelOpen}
+        isModalOpen={isModalOpen}
         onClose={onClose}
         person={person}
       />
@@ -143,13 +143,13 @@ const TrusteeCard = ({ person }) => {
   );
 };
 
-const TrusteeDetail = ({ isModelOpen, onClose, person }) => {
+const TrusteeDetail = ({ isModalOpen, onClose, person }) => {
   return (
     <Modal
       scrollBehavior="inside"
       size="3xl"
       isCentered
-      isOpen={isModelOpen}
+      isOpen={isModalOpen}
       onClose={onClose}
     >
       <ModalOverlay />
@@ -197,7 +197,7 @@ const TrusteeDetail = ({ isModelOpen, onClose, person }) => {
 };
 
 const StaffDetail = ({
-  isModelOpen,
+  isModalOpen,
   onClose,
   person,
   location,
@@ -208,7 +208,7 @@ const StaffDetail = ({
       scrollBehavior="inside"
       size="3xl"
       isCentered
-      isOpen={isModelOpen}
+      isOpen={isModalOpen}
       onClose={onClose}
     >
       <ModalOverlay />
