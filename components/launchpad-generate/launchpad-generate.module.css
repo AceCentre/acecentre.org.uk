@@ -1,3 +1,48 @@
+.newsletterContainer {
+  margin: 1rem auto;
+}
+
+.topSection {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.topSection h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.topSection p {
+  margin: 0 auto;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.closeButton {
+  background: none;
+  border: 0;
+
+  color: #00537f;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  text-decoration: underline;
+}
+
 .container {
   margin: 0 auto;
   width: 90%;

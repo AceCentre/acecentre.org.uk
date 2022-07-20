@@ -54,12 +54,15 @@ export default function ResourceDetail({
                     shortDescription: launchpadTemplate.templateDescription,
                   }}
                 />
+                <ResourcesShare />
               </div>
             </div>
             <LaunchpadGenerate template={launchpadTemplate} />
-            <div className={styles.share}>
-              <ResourcesShare />
-            </div>
+            <ResourceListSwitch
+              resource={resource}
+              attachedResources={attachedResources}
+              relatedResources={relatedResources}
+            />
           </>
         ) : (
           <>
