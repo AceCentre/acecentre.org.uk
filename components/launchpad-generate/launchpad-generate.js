@@ -180,8 +180,8 @@ export const LaunchpadGenerate = ({
       <ResourcesShare />
       {template.templateVariables.length > 0 && (
         <p>
-          Enter a value for each of the following options. Then press{" "}
-          <strong>&apos;download&apos;</strong> to generate your board.
+          Edit the board by selecting different options below then press
+          download to generate your board.
         </p>
       )}
       <div className={styles.variablesGrid}>
