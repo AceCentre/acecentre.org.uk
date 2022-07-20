@@ -15,11 +15,14 @@ import styles from "../../styles/resources-detail.module.css";
 import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
+import { getLaunchpadTemplate } from "../../lib/launchpad";
+import { LaunchpadGenerate } from "../../components/launchpad-generate/launchpad-generate";
 
 export default function ResourceDetail({
   resource,
   relatedResources,
   attachedResources,
+  launchpadTemplate,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -32,25 +35,55 @@ export default function ResourceDetail({
       </header>
       <main id="mainContent">
         <BackToLink where="all resources" href="/resources/all" />
-        <div className={styles.topArea}>
-          <div className={styles.leftTopArea}>
-            <ResourcesImage resource={resource} priority />
-          </div>
-          <div className={styles.rightTopArea}>
-            <ResourcesDescription resource={resource} />
-            <ResourcesDownload resource={resource} />
-            <ResourcesShare />
-          </div>
-        </div>
-        {resource.description && (
-          <ResourceFullDescription resource={resource} />
+        {launchpadTemplate ? (
+          <>
+            <div className={styles.topArea}>
+              <div className={styles.leftTopArea}>
+                <ResourcesImage
+                  resource={{
+                    name: launchpadTemplate.templateName,
+                    image: { src: launchpadTemplate.templateImageUrl },
+                  }}
+                  priority
+                />
+              </div>
+              <div className={styles.rightTopArea}>
+                <ResourcesDescription
+                  resource={{
+                    name: launchpadTemplate.templateName,
+                    shortDescription: launchpadTemplate.templateDescription,
+                  }}
+                />
+              </div>
+            </div>
+            <LaunchpadGenerate template={launchpadTemplate} />
+            <div className={styles.share}>
+              <ResourcesShare />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={styles.topArea}>
+              <div className={styles.leftTopArea}>
+                <ResourcesImage resource={resource} priority />
+              </div>
+              <div className={styles.rightTopArea}>
+                <ResourcesDescription resource={resource} />
+                <ResourcesDownload resource={resource} />
+                <ResourcesShare />
+              </div>
+            </div>
+            {resource.description && (
+              <ResourceFullDescription resource={resource} />
+            )}
+            {project && <ProjectHighlight project={project} />}
+            <ResourceListSwitch
+              resource={resource}
+              attachedResources={attachedResources}
+              relatedResources={relatedResources}
+            />
+          </>
         )}
-        {project && <ProjectHighlight project={project} />}
-        <ResourceListSwitch
-          resource={resource}
-          attachedResources={attachedResources}
-          relatedResources={relatedResources}
-        />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -165,8 +198,14 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     currentResource.inStock ||
     variations.some((variation) => variation.inStock);
 
+  let launchpadTemplate = null;
+  if (currentResource.isLaunchpadTemplate) {
+    launchpadTemplate = await getLaunchpadTemplate(currentResource.slug);
+  }
+
   return {
     props: {
+      launchpadTemplate,
       resource: currentResource,
       relatedResources: relatedResources.slice(0, 4),
       attachedResources: attachedResources.slice(0, 4),
