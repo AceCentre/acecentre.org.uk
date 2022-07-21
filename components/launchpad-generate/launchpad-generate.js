@@ -27,8 +27,9 @@ import { ResourcesImage } from "../resources-image/resources-image";
 import { ResourcesDescription } from "../resources-description/resources-description";
 import { ResourcesShare } from "../resources-share/resources-share";
 import { ResourceList } from "../resource-list/resource-list";
+import Link from "next/link";
 
-const DownloadModal = ({ modalOpen, onClose, name }) => {
+const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -42,7 +43,12 @@ const DownloadModal = ({ modalOpen, onClose, name }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Preparing {name} for download</h2>
-            <Spinner></Spinner>
+
+            {errorMessage ? (
+              <ErrorMessage errorMessage={errorMessage} />
+            ) : (
+              <Spinner></Spinner>
+            )}
             <p>The download will begin automatically</p>
             <p>
               While you wait, why not sign up to our free newsletter to stay up
@@ -178,6 +184,7 @@ export const LaunchpadGenerate = ({
 
   return (
     <div className={styles.container}>
+      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
       <ResourcesShare />
       {template.templateVariables.length > 0 && (
         <p>
@@ -207,14 +214,33 @@ export const LaunchpadGenerate = ({
         })}
       </Accordion>
       <div></div>
-      {errorMessage && <p>{errorMessage}</p>}
 
       <DownloadModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         name={template.templateName}
+        errorMessage={errorMessage}
       />
     </div>
+  );
+};
+
+const ErrorMessage = ({ errorMessage }) => {
+  console.warn(errorMessage);
+
+  if (errorMessage === "Failed to fetch")
+    return (
+      <p className={styles.errorMessage}>
+        Couldn&apos;t reach the server. Check back soon or{" "}
+        <Link href="/contact">Contact Us</Link>
+      </p>
+    );
+
+  return (
+    <p>
+      An unknown error occurred. Check back soon or{" "}
+      <Link href="/contact">Contact Us</Link>
+    </p>
   );
 };
 
