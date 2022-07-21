@@ -8,6 +8,11 @@
   gap: 3rem;
 }
 
+.errorMessage {
+  color: red;
+  font-weight: bold;
+}
+
 .resourcesList.resourcesList {
   margin: 3rem auto;
 }
