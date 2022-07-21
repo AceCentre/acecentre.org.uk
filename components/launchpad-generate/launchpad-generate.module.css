@@ -8,6 +8,12 @@
   gap: 3rem;
 }
 
+.blockPicker {
+  /* I hate using !important but the block picker uses inline styles so its the only way to override them */
+  width: 100% !important;
+  box-shadow: none !important;
+}
+
 .errorMessage {
   color: red;
   font-weight: bold;
