@@ -347,6 +347,41 @@ const FreeText = ({
   );
 };
 
+const Number = ({
+  value,
+  id,
+  onChange,
+  name,
+  description,
+  placeholder,
+  min,
+  max,
+}) => {
+  console.log({ id, name, value, min, max });
+
+  return (
+    <div className={styles.card}>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <div>
+        <FormControl className={styles.formControl} id={id}>
+          <ChakraInput
+            className={styles.input}
+            backgroundColor={"#F5F5F5"}
+            placeholder={placeholder}
+            aria-label={description}
+            onChange={onChange}
+            value={value}
+            type="number"
+            min={min}
+            max={max}
+          />
+        </FormControl>
+      </div>
+    </div>
+  );
+};
+
 const ImageUploader = ({ onChange, name, description }) => {
   const [isUploading, setIsUploading] = useState(false);
   const [fileName, setFileName] = useState(null);
@@ -528,6 +563,10 @@ const TemplateVariable = ({ type, ...rest }) => {
 
   if (type == "boolean") {
     return <BooleanOptions type={type} {...rest} />;
+  }
+
+  if (type == "number") {
+    return <Number type={type} {...rest} />;
   }
 
   console.warn(`Unknown variable type: ${type}`);
