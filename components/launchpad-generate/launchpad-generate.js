@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { launchpadUrl } from "../../lib/config";
@@ -18,7 +18,7 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import { Avatar } from "@material-ui/core";
+import { Avatar, LinearProgress } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
@@ -48,6 +48,32 @@ const COLOURS = [
   "#ba68c8",
 ];
 
+const Progress = ({ totalTime }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const tempId = setInterval(() => {
+      setValue((current) => {
+        if (current >= 100) {
+          clearInterval(tempId);
+          return 100;
+        }
+        return current + 1;
+      });
+    }, totalTime / 100);
+  }, []);
+
+  return (
+    <>
+      <LinearProgress
+        className={styles.progress}
+        variant="determinate"
+        value={value}
+      />
+    </>
+  );
+};
+
 const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
   return (
     <Modal
@@ -66,7 +92,7 @@ const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
             {errorMessage ? (
               <ErrorMessage errorMessage={errorMessage} />
             ) : (
-              <Spinner></Spinner>
+              <Progress totalTime={8000} />
             )}
             <p>The download will begin automatically</p>
             <p>
@@ -357,8 +383,6 @@ const Number = ({
   min,
   max,
 }) => {
-  console.log({ id, name, value, min, max });
-
   return (
     <div className={styles.card}>
       <h3>{name}</h3>
