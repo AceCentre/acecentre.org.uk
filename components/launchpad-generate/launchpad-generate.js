@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
-import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
 import {
   FormControl,
@@ -28,6 +27,26 @@ import { ResourcesDescription } from "../resources-description/resources-descrip
 import { ResourcesShare } from "../resources-share/resources-share";
 import { ResourceList } from "../resource-list/resource-list";
 import Link from "next/link";
+import { BlockPicker } from "react-color";
+
+const COLOURS = [
+  "#B9ffB9",
+  "#ffffff",
+  "#000000",
+  "#FFFF00",
+  "#FF0000",
+  "#00FF00",
+  "#0000FF",
+  "#D9E3F0",
+  "#F47373",
+  "#697689",
+  "#37D67A",
+  "#2CCCE4",
+  "#555555",
+  "#dce775",
+  "#ff8a65",
+  "#ba68c8",
+];
 
 const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
   return (
@@ -279,12 +298,19 @@ const ColorPicker = ({ value, id, onChange, name, description }) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <div className={styles.centerPicker}>
-        <RgbStringColorPicker
+        <BlockPicker
+          colors={COLOURS}
+          className={styles.blockPicker}
           color={value}
-          onChange={(newColor) => {
-            onChange({ target: { value: newColor } });
-          }}
+          triangle="hide"
           name={id}
+          onChange={(event) => {
+            onChange({
+              target: {
+                value: `rgb(${event.rgb.r}, ${event.rgb.g}, ${event.rgb.b})`,
+              },
+            });
+          }}
         />
       </div>
     </div>
