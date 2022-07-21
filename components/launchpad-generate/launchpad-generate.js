@@ -131,6 +131,7 @@ export const LaunchpadPage = ({
             }}
           />
           <Button
+            className={styles.downloadButton}
             disabled={downloadDisabled}
             onClick={() => {
               triggerDownload();
