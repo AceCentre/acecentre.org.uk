@@ -12,6 +12,10 @@
   margin: 3rem auto;
 }
 
+.downloadButton {
+  margin: 1rem 0 2rem 0;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .topArea {
