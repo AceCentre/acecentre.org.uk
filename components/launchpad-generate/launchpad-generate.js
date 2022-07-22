@@ -230,7 +230,9 @@ export const LaunchpadGenerate = ({
   return (
     <div className={styles.container}>
       {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
-      <ResourcesShare />
+      <div className={styles.share}>
+        <ResourcesShare />
+      </div>
       {template.templateVariables.length > 0 && (
         <p>
           Edit the board by selecting different options below then press
