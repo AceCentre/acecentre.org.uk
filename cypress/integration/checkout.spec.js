@@ -26,7 +26,7 @@ context("Checkout", () => {
       cy.get("#email").type(newEmail);
       cy.get("#register-password").type(password);
       cy.findByRole("button", { name: "Register" }).click();
-      cy.url({ timeout: 30000 }).should("include", "my-acecentre");
+      cy.url({ timeout: 40000 }).should("include", "my-acecentre");
       cy.visit("/");
     }
   );
