@@ -5,15 +5,15 @@ context("Multiple Courses", () => {
     cy.findByRole("button", { name: "Book this course" }).click();
     cy.findAllByRole("button", { name: "Book this course" }).last().click();
 
-    cy.url({ timeout: 30000 }).should("include", "/basket");
+    cy.url({ timeout: 40000 }).should("include", "/basket");
 
     cy.visit("/learning/aac-solutions-for-people-with-aphasia-d-8th-sept-21");
 
     cy.findByRole("button", { name: "Book this course" }).click();
     cy.findAllByRole("button", { name: "Book this course" }).last().click();
 
-    cy.url({ timeout: 30000 }).should("not.include", "/basket");
-    cy.url({ timeout: 30000 }).should(
+    cy.url({ timeout: 40000 }).should("not.include", "/basket");
+    cy.url({ timeout: 40000 }).should(
       "include",
       "/learning/aac-solutions-for-people-with-aphasia-d-8th-sept-21"
     );
