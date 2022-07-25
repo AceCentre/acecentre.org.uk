@@ -163,6 +163,17 @@
   to = "/learning/cad-in-at"
   status = 301
 
+[[redirects]]
+  from = "/resources/core"
+  to = "/resources/core-launchpad"
+  status = 301
+
+[[redirects]]
+  from = "/resources/bubbles"
+  to = "/resources/bubbles-launchpad"
+  status = 301
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
