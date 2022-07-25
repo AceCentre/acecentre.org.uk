@@ -74,19 +74,16 @@ function MyApp({
         <DefaultHead {...seo} />
         <>
           <Script
-            src="https://www.googletagmanager.com/gtag/js?id=AW-10885468875"
+            src="https://www.googletagmanager.com/gtag/js?id=G-5PYYXEH8M9"
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
-              function gtag(){window.dataLayer.push(arguments);}
+              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'AW-10885468875');
-              gtag("event", "conversion", {
-                send_to: "AW-10885468875/F2ukCJTx8bQDEMulzMYo",
-              });
+              gtag('config', 'G-5PYYXEH8M9');
             `}
           </Script>
           <Script
