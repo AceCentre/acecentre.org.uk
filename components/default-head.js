@@ -145,8 +145,10 @@ export const DefaultHead = ({
         property="og:image"
         content={imageLoader({ src: image.src, width: image.width })}
       />
-      <meta property="og:image:width" content={image.width} />
-      <meta property="og:image:height" content={image.height} />
+      {image.width && <meta property="og:image:width" content={image.width} />}
+      {image.height && (
+        <meta property="og:image:height" content={image.height} />
+      )}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary"></meta>
