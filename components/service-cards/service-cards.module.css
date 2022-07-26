@@ -8,6 +8,23 @@
   gap: 1rem;
 }
 
+.fullContainer {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.warning.warning {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon.icon.icon {
+  color: #f44336;
+  font-size: 4rem;
+}
+
 .visitWebsiteContainer {
   text-align: center;
   margin: 1rem 0;
