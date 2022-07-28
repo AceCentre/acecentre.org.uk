@@ -91,6 +91,10 @@ export const LaunchpadList = ({ title, templates, className = "" }) => {
 };
 
 const shouldShowRibbon = (product) => {
+  if (product?.isLaunchpadTemplate) {
+    return "Customise";
+  }
+
   if (product?.instantDownloadAvailable) {
     return "Download";
   }

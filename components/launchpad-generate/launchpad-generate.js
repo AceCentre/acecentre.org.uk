@@ -1,7 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
-import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
 import {
   FormControl,
@@ -19,11 +18,139 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import { Avatar } from "@material-ui/core";
+import { Avatar, LinearProgress } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
+import { ResourcesImage } from "../resources-image/resources-image";
+import { ResourcesDescription } from "../resources-description/resources-description";
+import { ResourcesShare } from "../resources-share/resources-share";
+import { ResourceList } from "../resource-list/resource-list";
+import Link from "next/link";
+import { BlockPicker } from "react-color";
 
-export const LaunchpadGenerate = ({ template }) => {
+const COLOURS = [
+  "#B9ffB9",
+  "#ffffff",
+  "#000000",
+  "#FFFF00",
+  "#FF0000",
+  "#00FF00",
+  "#0000FF",
+  "#D9E3F0",
+  "#F47373",
+  "#697689",
+  "#37D67A",
+  "#2CCCE4",
+  "#555555",
+  "#dce775",
+  "#ff8a65",
+  "#ba68c8",
+];
+
+const Progress = ({ totalTime }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const tempId = setInterval(() => {
+      setValue((current) => {
+        if (current >= 100) {
+          clearInterval(tempId);
+          return 100;
+        }
+        return current + 1;
+      });
+    }, totalTime / 100);
+  }, []);
+
+  return (
+    <>
+      <LinearProgress
+        className={styles.progress}
+        variant="determinate"
+        value={value}
+      />
+    </>
+  );
+};
+
+const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Preparing {name} for download</h2>
+
+            {errorMessage ? (
+              <ErrorMessage errorMessage={errorMessage} />
+            ) : (
+              <Progress totalTime={8000} />
+            )}
+            <p>The download will begin automatically</p>
+            <p>
+              While you wait, why not sign up to our free newsletter to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+ We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<style type="text/css">
+#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+#mergeRow-gdpr {margin-top: 20px;}
+#mergeRow-gdpr fieldset label {font-weight: normal;}
+#mc-embedded-subscribe#mc-embedded-subscribe {
+background-color: #00537F;
+}
+#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}
+</style>
+<div id="mc_embed_signup">
+<form action="https://acecentre.us7.list-manage.com/subscribe/post?u=d05eb11e79c97878b9f10fd9c&amp;id=ec5a06da07&SIGNUP=free-resource" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div id="mc_embed_signup_scroll">
+<input aria-label="Email address for mailing list" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
+<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d05eb11e79c97878b9f10fd9c_ec5a06da07" tabindex="-1" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" onClick="if(gtag) gtag('event', 'conversion', {'send_to': 'AW-10885468875/afp9CKKuv7QDEMulzMYo'});" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->`,
+              }}
+            ></div>
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export const LaunchpadPage = ({
+  launchpadTemplate,
+  attachedResources,
+  relatedResources,
+}) => {
   const {
     triggerDownload,
     downloadDisabled,
@@ -31,15 +158,85 @@ export const LaunchpadGenerate = ({ template }) => {
     looseVariableProps,
     variableGroupsProps,
     defaultSelected,
-  } = useLaunchpad(template);
+    modalOpen,
+    setModalOpen,
+  } = useLaunchpad(launchpadTemplate);
+
+  return (
+    <>
+      <div className={styles.topArea}>
+        <div className={styles.leftTopArea}>
+          <ResourcesImage
+            resource={{
+              name: launchpadTemplate.templateName,
+              image: { src: launchpadTemplate.templateImageUrl },
+            }}
+            priority
+          />
+        </div>
+        <div className={styles.rightTopArea}>
+          <ResourcesDescription
+            resource={{
+              name: launchpadTemplate.templateName,
+              shortDescription: launchpadTemplate.templateDescription,
+            }}
+          />
+          <Button
+            className={styles.downloadButton}
+            disabled={downloadDisabled}
+            onClick={() => {
+              triggerDownload();
+              setModalOpen(true);
+            }}
+          >
+            Free download
+          </Button>
+        </div>
+      </div>
+
+      <LaunchpadGenerate
+        template={launchpadTemplate}
+        triggerDownload={triggerDownload}
+        downloadDisabled={downloadDisabled}
+        errorMessage={errorMessage}
+        looseVariableProps={looseVariableProps}
+        variableGroupsProps={variableGroupsProps}
+        defaultSelected={defaultSelected}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
+      <ResourceList
+        className={styles.resourcesList}
+        title={"Other resources you might like"}
+        viewAllLink={"/resources/all"}
+        viewAllText="View all resources"
+        products={[...attachedResources, ...relatedResources].slice(0, 4)}
+      />
+    </>
+  );
+};
+
+export const LaunchpadGenerate = ({
+  template,
+  errorMessage,
+  looseVariableProps,
+  variableGroupsProps,
+  defaultSelected,
+  modalOpen,
+  setModalOpen,
+}) => {
   const [selected, setSelected] = useState(defaultSelected);
 
   return (
     <div className={styles.container}>
+      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
+      <div className={styles.share}>
+        <ResourcesShare />
+      </div>
       {template.templateVariables.length > 0 && (
         <p>
-          Enter a value for each of the following options. Then press{" "}
-          <strong>&apos;download&apos;</strong> to generate your board.
+          Edit the board by selecting different options below then press
+          download to generate your board.
         </p>
       )}
       <div className={styles.variablesGrid}>
@@ -64,11 +261,33 @@ export const LaunchpadGenerate = ({ template }) => {
         })}
       </Accordion>
       <div></div>
-      {errorMessage && <p>{errorMessage}</p>}
-      <Button disabled={downloadDisabled} onClick={triggerDownload}>
-        Download
-      </Button>
+
+      <DownloadModal
+        modalOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        name={template.templateName}
+        errorMessage={errorMessage}
+      />
     </div>
+  );
+};
+
+const ErrorMessage = ({ errorMessage }) => {
+  console.warn(errorMessage);
+
+  if (errorMessage === "Failed to fetch")
+    return (
+      <p className={styles.errorMessage}>
+        Couldn&apos;t reach the server. Check back soon or{" "}
+        <Link href="/contact">Contact Us</Link>
+      </p>
+    );
+
+  return (
+    <p>
+      An unknown error occurred. Check back soon or{" "}
+      <Link href="/contact">Contact Us</Link>
+    </p>
   );
 };
 
@@ -107,12 +326,19 @@ const ColorPicker = ({ value, id, onChange, name, description }) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <div className={styles.centerPicker}>
-        <RgbStringColorPicker
+        <BlockPicker
+          colors={COLOURS}
+          className={styles.blockPicker}
           color={value}
-          onChange={(newColor) => {
-            onChange({ target: { value: newColor } });
-          }}
+          triangle="hide"
           name={id}
+          onChange={(event) => {
+            onChange({
+              target: {
+                value: `rgb(${event.rgb.r}, ${event.rgb.g}, ${event.rgb.b})`,
+              },
+            });
+          }}
         />
       </div>
     </div>
@@ -142,6 +368,39 @@ const FreeText = ({
             onChange={onChange}
             maxLength={maxLength}
             value={value}
+          />
+        </FormControl>
+      </div>
+    </div>
+  );
+};
+
+const Number = ({
+  value,
+  id,
+  onChange,
+  name,
+  description,
+  placeholder,
+  min,
+  max,
+}) => {
+  return (
+    <div className={styles.card}>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <div>
+        <FormControl className={styles.formControl} id={id}>
+          <ChakraInput
+            className={styles.input}
+            backgroundColor={"#F5F5F5"}
+            placeholder={placeholder}
+            aria-label={description}
+            onChange={onChange}
+            value={value}
+            type="number"
+            min={min}
+            max={max}
           />
         </FormControl>
       </div>
@@ -330,6 +589,10 @@ const TemplateVariable = ({ type, ...rest }) => {
 
   if (type == "boolean") {
     return <BooleanOptions type={type} {...rest} />;
+  }
+
+  if (type == "number") {
+    return <Number type={type} {...rest} />;
   }
 
   console.warn(`Unknown variable type: ${type}`);
