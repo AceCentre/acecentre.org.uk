@@ -3572,16 +3572,7 @@
     "@react-types/shared" "^3.14.0"
     clsx "^1.1.1"
 
-"@react-stately/radio@3.4.1":
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.4.1.tgz#21c470856e410c99487bbb5a50e5df4eab1202a8"
-  integrity sha512-tWwvdm/GAsuUJkPv6aislPaek/ZV/BkMSeZO4QqdkWhIJeU8vkJHg5RrlWe5l1mhBS58y5iAkDoRb1XR8asZlw==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-stately/utils" "^3.5.0"
-    "@react-types/radio" "^3.2.1"
-
-"@react-stately/radio@^3.5.0":
+"@react-stately/radio@3.5.0", "@react-stately/radio@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.5.0.tgz#7b7d3dd4a14aaed324ea29ac2be5ca0fe1d44d79"
   integrity sha512-qn4+wa9sf3zZXSLrrR9rQpOII8BEQeAkvxyq/YhUQXBpQ8SoF5LobpGIZqp3n8G+Cxzjxd6/GON+lOFxWr0iXA==
@@ -3589,13 +3580,6 @@
     "@babel/runtime" "^7.6.2"
     "@react-stately/utils" "^3.5.1"
     "@react-types/radio" "^3.2.2"
-
-"@react-stately/utils@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/utils/-/utils-3.5.0.tgz#e76231cfc93042814dcc5d96436e50c807c1d905"
-  integrity sha512-WzzwlQtJrf7egaN+lt02/f/wkFKbcscsbinmXs9pL7QyYm+BCQ9xXj01w0juzt93piZgB/kfIYJqInEdpudh1A==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
 
 "@react-stately/utils@^3.5.1":
   version "3.5.1"
@@ -3611,24 +3595,12 @@
   dependencies:
     "@react-types/shared" "^3.14.0"
 
-"@react-types/radio@^3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@react-types/radio/-/radio-3.2.1.tgz#130e6138d274fc1a7dfb62f351ceac86a9a686b9"
-  integrity sha512-xuHEHj9rLaZvra7GsEm5Wx9FiKn0IUC02aX+KNot+RCBjfIljlF89g728TnCiF0RxIIsezvbGL9ydtGy0/sJUg==
-  dependencies:
-    "@react-types/shared" "^3.13.1"
-
 "@react-types/radio@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@react-types/radio/-/radio-3.2.2.tgz#8375f96150f21bf2490c35ac321a12c1fcc99bcc"
   integrity sha512-JBnfEUu4T6Z+SRsALKnzmx/4AqeIbdHEOumHSlAlX5iLPUywvELn22PVvF+YHh7bOeXKcVv+4/rXnTZWcsAK1g==
   dependencies:
     "@react-types/shared" "^3.14.0"
-
-"@react-types/shared@^3.13.1":
-  version "3.13.1"
-  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.13.1.tgz#eda5e3744971606f753baf7879136bf8e3f707ab"
-  integrity sha512-EHQqILDJeDvnloy5VV9lnnEjpCMwH1ghptCfa/lz9Ht9nwco3qGCvUABkWyND7yU1Adt3A/1oJxhpRUu3eTlyg==
 
 "@react-types/shared@^3.14.0":
   version "3.14.0"
