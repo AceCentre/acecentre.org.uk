@@ -26,10 +26,7 @@ jobs:
 
       - uses: actions/github-script@v6
         env:
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
         with:
