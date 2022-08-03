@@ -12,17 +12,10 @@ import { CourseCategoriesGrid } from "../../components/course-categories-grid/co
 
 import styles from "../../styles/resources.module.css";
 import { Button } from "../../components/button/button";
-import { LearningLevels } from "../../components/learning-levels/learning-levels";
-import { getLearningLevels } from "../../lib/products/get-learning-levels";
-import { BespokeTraining } from "../../components/bespoke-training/bespoke-training";
-import { MailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
+import { TrainingTypes } from "../../components/training-types/training-types";
+import { LearningLevelDescriptions } from "../../components/learning-level-descriptions/learning-level-descriptions";
 
-export default function Learning({
-  popularCourses,
-  categories,
-  featuredCourses,
-  levels,
-}) {
+export default function Learning({ categories, featuredCourses }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -33,12 +26,7 @@ export default function Learning({
       <main id="mainContent">
         <LearningSearch />
         <LearningTicks />
-        <CourseList
-          viewAllLink="/learning/search"
-          viewAllText="View all courses"
-          title="Featured courses"
-          products={featuredCourses}
-        />
+
         <CourseCategoriesGrid
           productCategories={categories}
           overlayColor="rgba(138,217,202,0.2)"
@@ -51,19 +39,14 @@ export default function Learning({
             View all courses
           </Button>
         </div>
+        <TrainingTypes />
         <CourseList
-          className={styles.courseList}
           viewAllLink="/learning/search"
           viewAllText="View all courses"
-          title="Popular courses"
-          products={popularCourses}
+          title="Featured courses"
+          products={featuredCourses}
         />
-        <LearningLevels levels={levels} />
-        <BespokeTraining />
-        <MailingList
-          signUpIdentifier="learning-home"
-          description="Sign up to our free newsletter to get emails about our latest Ace Centre Learning courses and other news."
-        />
+        <LearningLevelDescriptions />
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -76,14 +59,11 @@ export const getStaticProps = withGlobalProps(async () => {
   const featuredCourses = popularCourses.filter(
     (course) => course.featured === true
   );
-  const levels = await getLearningLevels();
 
   return {
     props: {
-      popularCourses: popularCourses.slice(0, 4),
       categories,
       featuredCourses,
-      levels,
       seo: {
         title: "Ace Centre Learning",
         description:
