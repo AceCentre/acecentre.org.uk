@@ -1,6 +1,25 @@
+import WarningIcon from "@material-ui/icons/Warning";
 import { Fragment } from "react";
 import { Button } from "../button/button";
 import styles from "./service-cards.module.css";
+
+export const ImportantCallout = () => {
+  return (
+    <div className={styles.fullContainer}>
+      <div className={`${styles.card} ${styles.warning}`}>
+        <WarningIcon className={styles.icon} />
+        <p>
+          <strong>
+            Ace Centre does not run this service, this page is part of a
+            directory of NHS services. To contact this service provider please
+            use the contact details in the box below. Do not contact Ace Centre
+            directly.
+          </strong>
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export const ServiceCards = ({ service }) => {
   const showCommMatters =

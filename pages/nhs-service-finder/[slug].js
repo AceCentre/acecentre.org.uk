@@ -4,9 +4,11 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { GenericFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 import { PageTitle } from "../../components/page-title/page-title";
-import { ServiceCards } from "../../components/service-cards/service-cards";
+import {
+  ImportantCallout,
+  ServiceCards,
+} from "../../components/service-cards/service-cards";
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
-import { ServiceFinderMailingList } from "../../components/service-finder-mailing-list/service-finder-mailing-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalProps } from "../../lib/global-props/inject";
@@ -20,11 +22,11 @@ export default function ServiceDetails({ service }) {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} noPhoneNumber />
       </header>
       <main id="mainContent">
         <PageTitle
-          heading="NHS Service Finder"
+          heading="NHS Service Directory"
           description={service.serviceName}
           className={styles.pageTitle}
         />
@@ -33,6 +35,7 @@ export default function ServiceDetails({ service }) {
           href="/nhs-service-finder"
           where="service finder"
         />
+        <ImportantCallout />
         <div className={styles.mapContainer}>
           <AfterInteractive>
             <iframe
@@ -44,10 +47,9 @@ export default function ServiceDetails({ service }) {
           </AfterInteractive>
         </div>
         <ServiceCards service={service} />
-        <ServiceFinderMailingList />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer noPhoneNumber currentYear={currentYear} />
     </>
   );
 }
