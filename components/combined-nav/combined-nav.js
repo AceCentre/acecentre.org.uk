@@ -55,7 +55,12 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
+export const CombinedNav = ({
+  defaultNavItems,
+  nhs = false,
+  nhsTitle,
+  noPhoneNumber = false,
+}) => {
   const { isMenuOpen, isSearchOpen, isDrawerOpen, onClickMenu, onClickSearch } =
     useMobileNav();
 
@@ -81,7 +86,7 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
           isCypress ? styles.isCypressDesktop : ""
         }`}
       >
-        <Nav nhs={nhs} nhsTitle={nhsTitle} />
+        <Nav nhs={nhs} nhsTitle={nhsTitle} noPhoneNumber={noPhoneNumber} />
         {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
       <div

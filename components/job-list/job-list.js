@@ -27,21 +27,32 @@ const JobCard = ({ job }) => {
     <div className={styles.card}>
       <h3>{job.title}</h3>
       <div>
-        <p>
-          <strong>Salary: </strong>
-          {job.salary}
-        </p>
-        <p>
-          <strong>Contract: </strong>
-          {job.contract}
-        </p>
-        <p>
-          <strong>Working Pattern: </strong>
-          {job.workingPattern}
-        </p>
+        {job.salary && (
+          <p>
+            <strong>Salary: </strong>
+            {job.salary}
+          </p>
+        )}
+        {job.contract && (
+          <p>
+            <strong>Contract: </strong>
+            {job.contract}
+          </p>
+        )}
+
+        {job.workingPattern && (
+          <p>
+            <strong>Working Pattern: </strong>
+            {job.workingPattern}
+          </p>
+        )}
         <p>
           <strong>Location: </strong>
-          <Link href={locationLink}>{job.location}</Link>
+          {job.location.toLowerCase().includes("remote") ? (
+            <span>{job.location}</span>
+          ) : (
+            <Link href={locationLink}>{job.location}</Link>
+          )}
         </p>
       </div>
       <div dangerouslySetInnerHTML={{ __html: job.description }}></div>

@@ -103,7 +103,7 @@ context("Moodle", () => {
         cy.findAllByRole("link", { name: "Checkout as New User" })
           .last()
           .click();
-        cy.url({ timeout: 30000 }).should("include", "register-checkout");
+        cy.url({ timeout: 40000 }).should("include", "register-checkout");
 
         // Fill in email field
         cy.findAllByRole("form", { name: "Register form" })
@@ -123,7 +123,7 @@ context("Moodle", () => {
           .click();
 
         // Complete checkout
-        cy.url({ timeout: 30000 }).should("include", "/checkout");
+        cy.url({ timeout: 40000 }).should("include", "/checkout");
         cy.findByRole("textbox", { name: "First name" }).type("John");
         cy.findByRole("textbox", { name: "Last name" }).type("Smith");
         cy.findByRole("textbox", { name: "Phone number" }).type("07545783496");
@@ -140,18 +140,18 @@ context("Moodle", () => {
         }).click({ force: true });
 
         cy.findByRole("button", { name: "Place order" }).click();
-        cy.url({ timeout: 30000 }).should("include", "order");
+        cy.url({ timeout: 40000 }).should("include", "order");
 
         // Go to My Ace Centre and check we are enrolled
         cy.wait(2000); // Wait for a react render
         cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
-        cy.url({ timeout: 30000 }).should("include", "my-acecentre");
+        cy.url({ timeout: 40000 }).should("include", "my-acecentre");
         cy.findByRole("link", { name: "View your courses >" }).click();
-        cy.url({ timeout: 30000 }).should("include", "my-acecentre/courses");
+        cy.url({ timeout: 40000 }).should("include", "my-acecentre/courses");
 
         // Click the link to go to the course
         cy.findByRole("link", { name: /Splash/i }).click();
-        cy.url({ timeout: 30000 }).should(
+        cy.url({ timeout: 40000 }).should(
           "include",
           "learning.acecentre.org.uk/course/view"
         );
