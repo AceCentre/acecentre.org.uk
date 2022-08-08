@@ -42,7 +42,7 @@
     "@u-wave/react-vimeo": "0.9.8",
     "async-redis": "2.0.0",
     "axios": "0.27.2",
-    "esbuild": "0.14.53",
+    "esbuild": "0.14.54",
     "etag": "1.8.1",
     "framer-motion": "6.5.1",
     "fuse.js": "6.6.2",
