@@ -114,7 +114,7 @@ export default function LearningDetail({
 }
 
 export async function getStaticPaths() {
-  const allCourses = await getAllCourses();
+  const allCourses = await getAllCourses(undefined, true);
   const allBundles = await getAllBundles();
 
   if (!allCourses || !allBundles)
@@ -133,7 +133,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allCourses = await getAllCourses();
+  const allCourses = await getAllCourses(undefined, true);
   const allBundles = await getAllBundles();
 
   if (!allCourses || !allBundles)
