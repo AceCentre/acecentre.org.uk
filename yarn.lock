@@ -6786,6 +6786,11 @@ boolbase@^1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==
 
+boolean-parser@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/boolean-parser/-/boolean-parser-0.0.2.tgz#58721f1172e65fd132d6e6debbd00053deaffa12"
+  integrity sha512-e06Mqk6t7DOXaEo3s+RATvv7ZNt5brRQ2os4NUHVkVCzUD0Z7Gw4AL4AFA/gT3WaLhrobmGvRVh1/UuJiY3sKg==
+
 boxen@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-3.2.0.tgz#fbdff0de93636ab4450886b6ff45b92d098f45eb"
@@ -8517,12 +8522,13 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
 
-cypress-tags@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-0.3.0.tgz#ac1f5f6f442e29394a508287ecf9e351a6085b3d"
-  integrity sha512-bvrVl91Vn0ynpU32t5JEr+FulBC1vKIPiYfMeIR6mREyHuqc0bP/XLzk//JBXcluSMDE69eaMTn16ogA0mtsUQ==
+cypress-tags@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-1.0.0.tgz#af0611a395cd243789f5a5e805be3b0ee5045dd2"
+  integrity sha512-q5nJYBs+WKqi2mX/YHWclZ2qEXgo8MjpeSCHe0+JermuBl0xkPNlIMCmsHj7UvcWUz4SaiCQVhAxi3mAabeoPw==
   dependencies:
     "@cypress/browserify-preprocessor" "^3.0.1"
+    boolean-parser "0.0.2"
     through "^2.3.8"
 
 cypress@9.7.0:
