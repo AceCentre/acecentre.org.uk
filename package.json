@@ -83,7 +83,7 @@
     "@swc/register": "0.1.10",
     "@testing-library/cypress": "8.0.3",
     "cypress": "9.7.0",
-    "cypress-tags": "0.3.0",
+    "cypress-tags": "1.0.0",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
     "eslint-plugin-cypress": "2.12.1",
