@@ -30,7 +30,7 @@
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
     "@netlify/functions": "1.1.0",
-    "@octokit/rest": "19.0.3",
+    "@octokit/rest": "19.0.4",
     "@react-aria/focus": "3.7.0",
     "@react-aria/interactions": "3.10.0",
     "@react-aria/radio": "3.3.0",
