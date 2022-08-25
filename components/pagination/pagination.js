@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "./pagination.module.css";
-import { useRouter } from "../../lib/useRouter";
 
 export const Pagination = ({ pageCount, currentPage }) => {
   const { query } = useRouter();
