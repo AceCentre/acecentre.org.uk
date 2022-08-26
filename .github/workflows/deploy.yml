@@ -147,7 +147,6 @@ jobs:
       IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
       DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
-      PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
@@ -253,7 +252,6 @@ jobs:
       IMAGE_URL: https://acecentre.org.uk
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
       DEPLOY_KEY: production
-      PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
