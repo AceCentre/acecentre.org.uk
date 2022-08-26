@@ -164,6 +164,11 @@ jobs:
 
       - uses: actions/cache@v3
         with:
+          path: ".netlify/cache"
+          key: ${{ runner.os }}-netlify-cache-${{ GITHUB_REF }}
+
+      - uses: actions/cache@v3
+        with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
@@ -276,6 +281,11 @@ jobs:
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ".netlify/cache"
+          key: ${{ runner.os }}-netlify-cache-${{ GITHUB_REF }}
 
       - name: Install NPM deps
         run: yarn install
