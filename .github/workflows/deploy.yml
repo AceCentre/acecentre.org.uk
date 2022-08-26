@@ -164,8 +164,8 @@ jobs:
 
       - uses: actions/cache@v3
         with:
-          path: ".netlify/cache"
-          key: ${{ runner.os }}-netlify-cache-${{ github.ref }}
+          path: ${{ github.workspace }}/.netlify/cache
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
 
       - uses: actions/cache@v3
         with:
@@ -285,7 +285,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ".netlify/cache"
-          key: ${{ runner.os }}-netlify-cache-${{ github.ref }}
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
 
       - name: Install NPM deps
         run: yarn install
