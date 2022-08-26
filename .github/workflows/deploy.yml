@@ -44,7 +44,7 @@ jobs:
           script: |
             const script = require('./scripts/calculate-cloudinary-cloud')
             const result = await script();
-            console.log('Cloud:', result);
+            console.log('Cloudinary:', result);
             return result;
 
   CalculateDeployKey:
