@@ -44,7 +44,7 @@ jobs:
           script: |
             const script = require('./scripts/calculate-cloudinary-cloud')
             const result = await script();
-            console.log('Cloud:', result);
+            console.log('Cloudinary:', result);
             return result;
 
   CalculateDeployKey:
@@ -164,6 +164,11 @@ jobs:
 
       - uses: actions/cache@v3
         with:
+          path: ${{ github.workspace }}/.netlify/cache
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/cache@v3
+        with:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
@@ -276,6 +281,11 @@ jobs:
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ".netlify/cache"
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
 
       - name: Install NPM deps
         run: yarn install
