@@ -36,6 +36,7 @@ export const CourseList = ({
         {productsWithoutImageCounters.map((product) => {
           return (
             <Card
+              ribbonText={product.isTasterSession ? "taster" : ""}
               className={`${styles.card} ${threeWide ? styles.threeWide : ""}`}
               imageContainerClassName={styles.imageContainer}
               href={`/learning/${product.slug}`}
@@ -77,6 +78,7 @@ export const MyCourseList = ({ courses }) => {
         {coursesWithoutImageCounters.map((course) => {
           return (
             <Card
+              ribbonText={course.isTasterSession ? "taster" : ""}
               className={styles.card}
               imageContainerClassName={styles.imageContainer}
               href={course.href}
