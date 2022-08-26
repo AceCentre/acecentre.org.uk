@@ -9,7 +9,6 @@ module.exports = {
       "GITHUB_SHA",
       "BUILD_ID",
       "DEPLOY_KEY",
-      "PROM_KEY",
       "IMAGE_URL",
       "MAILCHIMP_SERVER",
       "MAILCHIMP_API_KEY",
