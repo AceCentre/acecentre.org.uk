@@ -3,7 +3,6 @@
 /* eslint-disable no-undef */
 
 import Head from "next/head";
-import Script from "next/script";
 import { useEffect } from "react";
 import styles from "./service-finder-map.module.css";
 
@@ -101,13 +100,12 @@ export const ServiceFinderMap = ({ services }) => {
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossOrigin=""
         />
+        <script
+          src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossOrigin=""
+        ></script>
       </Head>
-      <Script
-        src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossOrigin=""
-        strategy="afterInteractive"
-      ></Script>
       <div className={styles.textContainer}>
         <p>Please be patient while the map loads.</p>
         <p>
