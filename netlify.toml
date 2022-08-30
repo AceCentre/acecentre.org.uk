@@ -163,6 +163,12 @@
   to = "/learning/cad-in-at"
   status = 301
 
+[[redirects]]
+  from = "/accredited-assistive-technology-jan23"
+  to = "/learning/atu"
+  status = 301
+
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
