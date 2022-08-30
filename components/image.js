@@ -56,7 +56,10 @@ export const Image = ({
 }) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
   if (!maxHeight && !maxWidth) {
-    console.warn("You haven't provided a maxHeight or maxWidth for your image");
+    console.warn(
+      "You haven't provided a maxHeight or maxWidth for your image",
+      { ...rest }
+    );
 
     return <ImageSelector width={width} height={height} {...rest} />;
   }
