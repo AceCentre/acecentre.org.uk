@@ -198,7 +198,9 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     currentBundle.courses = sortedCourses;
     seo = {
       title: currentBundle.title,
-      description: currentBundle.shortDescription.replace(/(<([^>]+)>)/gi, ""),
+      description:
+        currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
+        "A bundle of Ace Centre Learning courses",
     };
   }
 
