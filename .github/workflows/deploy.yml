@@ -152,6 +152,7 @@ jobs:
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
       CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
+      DEBUG: *
 
     steps:
       - name: Get Code
