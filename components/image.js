@@ -89,13 +89,6 @@ export const ImageSelector = ({
   loader = normalLoader,
   ...props
 }) => {
-  // If we are on storybook we just use a normal image tag
-  // Bear in mind that we will then do more optimizing for the
-  // production build
-  if (process.env.STORYBOOK) {
-    return <img {...props} />;
-  }
-
   return (
     <div className={`${placeOnTop ? "" : styles.imageContainer}`}>
       <ImageWithLoader loader={loader} {...props} />

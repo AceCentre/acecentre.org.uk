@@ -1,8 +1,7 @@
 module.exports = function (plop) {
   // create your generators here
   plop.setGenerator("Component", {
-    description:
-      "Generate a new component along with the CSS and storybook Story",
+    description: "Generate a new component along with the CSS",
     prompts: [
       {
         type: "input",
