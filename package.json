@@ -10,8 +10,6 @@
     "build": "yarn build:next",
     "build:next": "next build",
     "start": "next start",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "rm -rf out/design-system && mkdir -p out/design-system && build-storybook -o out/design-system --quiet -s ./public",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
@@ -73,10 +71,6 @@
   "devDependencies": {
     "@lhci/cli": "0.9.0",
     "@netlify/plugin-nextjs": "4.20.0",
-    "@storybook/addon-actions": "6.5.10",
-    "@storybook/addon-essentials": "6.5.10",
-    "@storybook/addon-links": "6.5.10",
-    "@storybook/react": "6.5.10",
     "@swc/core": "1.2.244",
     "@swc/jest": "0.2.22",
     "@swc/register": "0.1.10",
@@ -99,7 +93,6 @@
     "nock": "13.2.9",
     "plop": "3.1.1",
     "request": "2.88.2",
-    "request-promise-native": "1.0.9",
-    "storybook-css-modules-preset": "1.0.8"
+    "request-promise-native": "1.0.9"
   }
 }
