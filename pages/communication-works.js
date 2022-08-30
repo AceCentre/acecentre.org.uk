@@ -8,7 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 
 import styles from "../styles/communication-works.module.css";
 
-import { Image } from "../components/image";
+import { ImageWithLoader } from "../components/image";
 import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
 import Link from "next/link";
 import AssignmentIcon from "@material-ui/icons/Assignment";
@@ -25,7 +25,7 @@ export default function CommunicationWorks({ page }) {
       </header>
       <main id="mainContent">
         <div className={styles.imageContainer}>
-          <Image
+          <ImageWithLoader
             src="/CW2022-2.png"
             alt="Communication works banner"
             width={1640}
