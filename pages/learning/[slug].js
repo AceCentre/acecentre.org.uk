@@ -114,7 +114,7 @@ export default function LearningDetail({
 }
 
 export async function getStaticPaths() {
-  const allCourses = await getAllCourses();
+  const allCourses = await getAllCourses(undefined, true);
   const allBundles = await getAllBundles();
 
   if (!allCourses || !allBundles)
@@ -133,7 +133,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allCourses = await getAllCourses();
+  const allCourses = await getAllCourses(undefined, true);
   const allBundles = await getAllBundles();
 
   if (!allCourses || !allBundles)
@@ -198,7 +198,9 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
     currentBundle.courses = sortedCourses;
     seo = {
       title: currentBundle.title,
-      description: currentBundle.shortDescription.replace(/(<([^>]+)>)/gi, ""),
+      description:
+        currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
+        "A bundle of Ace Centre Learning courses",
     };
   }
 

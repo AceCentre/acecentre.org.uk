@@ -10,9 +10,6 @@ artifacts
 # Lighthouse
 .lighthouseci
 
-# storybook
-storybook-static
-
 # dependencies
 /node_modules
 /.pnp

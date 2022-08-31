@@ -9,7 +9,6 @@ module.exports = {
       "GITHUB_SHA",
       "BUILD_ID",
       "DEPLOY_KEY",
-      "PROM_KEY",
       "IMAGE_URL",
       "MAILCHIMP_SERVER",
       "MAILCHIMP_API_KEY",
@@ -17,7 +16,6 @@ module.exports = {
       "SLACK_SECRET",
       "POSTHOG_KEY",
       "CLOUDINARY_CLOUD",
-      "NEXT_USE_NETLIFY_EDGE",
     ];
 
     const pathToEnv = path.join(process.cwd(), "./.env");

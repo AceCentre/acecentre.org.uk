@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "../button/button";
+import { CONTACT_FORM, FormModal } from "../ms-form";
 import styles from "./still-having-problems.module.css";
 
 export const StillHavingProblems = () => {
@@ -13,11 +14,13 @@ export const StillHavingProblems = () => {
             Send an email and a member of the Ace Centre team will be in touch
             as soon as possible.
           </p>
-          <Link href="/contact">
-            <a className={`${styles.end} ${styles.contactUsLink}`}>
-              Contact us online &gt;
-            </a>
-          </Link>
+          <FormModal form={CONTACT_FORM}>
+            {({ onClick }) => (
+              <div className={styles.buttonMargin}>
+                <Button onClick={onClick}>Contact form</Button>
+              </div>
+            )}
+          </FormModal>
         </Card>
         <Card>
           <h3>Give us a call</h3>
@@ -39,9 +42,9 @@ export const StillHavingProblems = () => {
             Download this app when remote support from the Ace Centre is needed
           </p>
           <div className={`${styles.end} ${styles.button}`}>
-            <Button href="https://get.teamviewer.com/ace_centre">
-              Download app
-            </Button>
+            <Link href="https://get.teamviewer.com/ace_centre">
+              Download app &gt;
+            </Link>
           </div>
         </Card>
       </ul>

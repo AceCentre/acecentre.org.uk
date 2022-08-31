@@ -32,10 +32,14 @@ export default function ServiceFinder({ services }) {
 
 export const getStaticProps = withGlobalProps(async () => {
   const services = await getAllServices();
+  const reducedServices = services.map((x) => ({
+    id: x.id,
+    serviceName: x.serviceName,
+  }));
 
   return {
     props: {
-      services,
+      services: reducedServices,
       seo: {
         title: "NHS Service Finder",
         description: "Find an assistive technology service near you",
