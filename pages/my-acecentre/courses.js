@@ -48,9 +48,15 @@ export const getServerSideProps = withSession(async ({ req }) => {
 
   const courses = await getMyCourses(req, user);
   const coursesWithLink = courses.map((course) => {
+    let href = `/api/moodle?mdl_course_id=${course.moodleCourseId}`;
+
+    if (course.moodleCourseId === 0 && course.fullUrl) {
+      href = course.fullUrl;
+    }
+
     return {
       ...course,
-      href: `/api/moodle?mdl_course_id=${course.moodleCourseId}`,
+      href,
     };
   });
 

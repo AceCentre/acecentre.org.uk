@@ -44,7 +44,7 @@ jobs:
           script: |
             const script = require('./scripts/calculate-cloudinary-cloud')
             const result = await script();
-            console.log('Cloud:', result);
+            console.log('Cloudinary:', result);
             return result;
 
   CalculateDeployKey:
@@ -147,13 +147,11 @@ jobs:
       IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
       DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
-      PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
       CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
-      NEXT_USE_NETLIFY_EDGE: true
 
     steps:
       - name: Get Code
@@ -163,6 +161,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/.netlify/cache
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
 
       - uses: actions/cache@v3
         with:
@@ -254,13 +257,11 @@ jobs:
       IMAGE_URL: https://acecentre.org.uk
       BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
       DEPLOY_KEY: production
-      PROM_KEY: ${{ secrets.PROM_KEY }}
       MAILCHIMP_SERVER: ${{ secrets.MAILCHIMP_SERVER }}
       MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
       SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
       CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
-      NEXT_USE_NETLIFY_EDGE: true
 
     steps:
       - name: Get Code
@@ -280,6 +281,11 @@ jobs:
         with:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
+      - uses: actions/cache@v3
+        with:
+          path: ".netlify/cache"
+          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
 
       - name: Install NPM deps
         run: yarn install

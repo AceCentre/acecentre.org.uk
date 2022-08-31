@@ -29,9 +29,9 @@ import { getAddresses } from "../lib/auth/get-user";
 import { Checkbox } from "@chakra-ui/checkbox";
 import { loadStripe } from "@stripe/stripe-js";
 import config from "../lib/config";
-import { useRouter } from "next/dist/client/router";
 import { cloneDeep } from "lodash";
 import { validateEmail } from "../lib/auth/hooks";
+import { useRouter } from "next/router";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
