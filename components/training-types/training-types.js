@@ -8,10 +8,10 @@ export const TrainingTypes = () => {
         <div>
           <h2>Bespoke training</h2>
           <p>
-            Our expert Ace Centre team can help to create a bespoke training
-            solution for you. Click below to fill out our training enquiry form
-            to see how we can develop a suitable training programme for your
-            requirements.
+            Our expert and experienced Ace Centre team will create a bespoke
+            package tailored to your needs, with agreed Learning Outcomes, to
+            enhance knowledge and skills on the use of Assistive Technology and
+            Augmentative and Alternative Communication.
           </p>
           <Link href="/learning/bespoke-training">
             Enquire about bespoke training &gt;
@@ -23,19 +23,19 @@ export const TrainingTypes = () => {
         <div>
           <h2>Live</h2>
           <p>
-            This should be some text about why live courses are great.This
-            should be some text about why live courses are great.This should be
-            some text about why live courses are great.This should be some text
-            about why live courses.
+            Delivered online or on location, our live sessions delivered by
+            practitioners with first-hand experience are an engaging mix of
+            theory and practical, with an emphasis on developing skills and
+            confidence.
           </p>
           <Link href="/learning/search?type=live">View live courses &gt;</Link>
         </div>
         <div>
           <h2>On-demand</h2>
           <p>
-            This should be some text about on-demand courses and why we do them.
-            This should be some text about on-demand courses and why we do
-            them.This should be some text about on-demand courses.
+            A range of courses with dynamic content that is provided through our
+            online learning platform designed for professionals, carers and
+            families to complete in their own time at their own pace.
           </p>
           <Link href="/learning/search?type=on-demand">
             View on-demand courses &gt;
