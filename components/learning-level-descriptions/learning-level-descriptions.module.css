@@ -1,0 +1,50 @@
+.container {
+  margin: 3rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.container h2 {
+  text-align: center;
+  color: #00537f;
+}
+
+.container h3 {
+  font-size: 20px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.listAvatar.listAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #94c64e;
+}
+
+.container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.levelsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.level {
+  min-width: 300px;
+  width: calc(50% - 1rem);
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .level {
+    width: 100%;
+  }
+}

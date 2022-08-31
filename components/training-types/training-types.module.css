@@ -1,0 +1,23 @@
+.container {
+  background-color: #eeeeee;
+  width: 100%;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+}
+
+.innerContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  display: flex;
+  gap: 1.5rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .innerContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+}
