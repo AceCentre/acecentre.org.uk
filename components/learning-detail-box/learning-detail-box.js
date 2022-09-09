@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import Link from "next/link";
 import { NoImage } from "../latest-from-blog/latest-from-blog";
+import { FormModal, INTEREST } from "../ms-form";
 
 const useEnrollStatus = (courseSlug) => {
   const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
@@ -81,7 +82,11 @@ export const LearningDetailBox = ({ course }) => {
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
             </div>
-            <CourseMeta course={course} bold withStockCount />
+            <CourseMeta
+              course={course}
+              bold
+              withStockCount={course.slug !== "atu"}
+            />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -91,20 +96,32 @@ export const LearningDetailBox = ({ course }) => {
             avatarClassName={styles.avatar}
             className={styles.shareButtons}
           />
-          {isEnrolledOnCourse ? (
-            <Button className={styles.bookButton} href={moodleUrl}>
-              Go to course
-            </Button>
+          {course.slug === "atu" ? (
+            <FormModal form={INTEREST}>
+              {({ onClick }) => (
+                <Button className={styles.bookButton} onClick={onClick}>
+                  Register your interest
+                </Button>
+              )}
+            </FormModal>
           ) : (
-            <Button
-              className={styles.bookButton}
-              disabled={disabled || !course.inStock}
-              onClick={() => {
-                toggleModal(true);
-              }}
-            >
-              Book this course
-            </Button>
+            <>
+              {isEnrolledOnCourse ? (
+                <Button className={styles.bookButton} href={moodleUrl}>
+                  Go to course
+                </Button>
+              ) : (
+                <Button
+                  className={styles.bookButton}
+                  disabled={disabled || !course.inStock}
+                  onClick={() => {
+                    toggleModal(true);
+                  }}
+                >
+                  Book this course
+                </Button>
+              )}
+            </>
           )}
         </div>
       </div>
