@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   z-index: 999;
-  background: #bfdded;
+  background: black;
   padding: 0.5rem 0;
 }
 
@@ -10,4 +10,5 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
+  color: white;
 }
