@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ImageWithLoader, Image } from "../image";
 import styles from "./footer.module.css";
 
-export const Footer = ({ currentYear }) => {
+export const Footer = ({ currentYear, noPhoneNumber = false }) => {
   return (
     <footer className={styles.container}>
       <div className={styles.innerContainer}>
@@ -22,26 +22,28 @@ export const Footer = ({ currentYear }) => {
             src="/white-logo.png"
             placeOnTop
           />
-          <div>
-            <Link href="tel:08000803115">
-              <a className={styles.phoneNumber}>
-                <SvgIcon>
-                  <PhoneIcon />
-                </SvgIcon>
-                0800 080 3115
-              </a>
-            </Link>
-            <p className={styles.officeHours}>
-              Office hours, 9AM - 5PM, Monday - Friday
-            </p>
-            <p className={styles.helpAndSupport}>Help and support:</p>
-            <Link href="/contact">
-              <a className={styles.helpAndSupportLink}>Contact us</a>
-            </Link>
-            <Link href="/technical-support">
-              <a className={styles.helpAndSupportLink}>Technical Support</a>
-            </Link>
-          </div>
+          {noPhoneNumber === false && (
+            <div>
+              <Link href="tel:08000803115">
+                <a className={styles.phoneNumber}>
+                  <SvgIcon>
+                    <PhoneIcon />
+                  </SvgIcon>
+                  0800 080 3115
+                </a>
+              </Link>
+              <p className={styles.officeHours}>
+                Office hours, 9AM - 5PM, Monday - Friday
+              </p>
+              <p className={styles.helpAndSupport}>Help and support:</p>
+              <Link href="/contact">
+                <a className={styles.helpAndSupportLink}>Contact us</a>
+              </Link>
+              <Link href="/technical-support">
+                <a className={styles.helpAndSupportLink}>Technical Support</a>
+              </Link>
+            </div>
+          )}
           <ul className={styles.list}>
             {sitemapList.map((item) => (
               <li key={`sitemap-${item.href}`}>

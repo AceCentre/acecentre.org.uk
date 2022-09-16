@@ -1,13 +1,13 @@
 import styles from "./product-filters.module.css";
 import { useState } from "react";
 import { Select } from "@chakra-ui/select";
-import { useRouter } from "../../lib/useRouter";
 import { priceRanges } from "../../lib/products/price-range-consts";
 import { ORDER_BY_OPTIONS } from "./order-by-options";
 import { PageTitle } from "../page-title/page-title";
 import { Input } from "../input/input";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import SearchIcon from "@material-ui/icons/Search";
+import { useRouter } from "next/router";
 
 const useSearchController = ({
   defaultTopLevelValue,

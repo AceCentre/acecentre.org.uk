@@ -12,7 +12,7 @@ import { Input } from "../input/input";
 import styles from "./nav.module.css";
 import { useGlobalProps } from "../../lib/global-props/hook";
 
-export const Nav = ({ nhs, nhsTitle }) => {
+export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
   const { loggedInStatus } = useGlobalProps();
 
   return (
@@ -40,12 +40,14 @@ export const Nav = ({ nhs, nhsTitle }) => {
             </>
           )}
 
-          <NavLink href="tel:0800 080 3115">
-            <SvgIcon>
-              <PhoneOutlinedIcon />
-            </SvgIcon>
-            0800 080 3115
-          </NavLink>
+          {noPhoneNumber === false && (
+            <NavLink href="tel:0800 080 3115">
+              <SvgIcon>
+                <PhoneOutlinedIcon />
+              </SvgIcon>
+              0800 080 3115
+            </NavLink>
+          )}
         </NavList>
         <div className={styles.hideOnMediumScreens}>
           <form action="/search" method="GET">

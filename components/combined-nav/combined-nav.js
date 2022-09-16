@@ -18,6 +18,7 @@ import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
+import { TopBanner } from "../top-banner/top-banner";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +56,12 @@ const useMobileNav = () => {
   };
 };
 
-export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
+export const CombinedNav = ({
+  defaultNavItems,
+  nhs = false,
+  nhsTitle,
+  noPhoneNumber = false,
+}) => {
   const { isMenuOpen, isSearchOpen, isDrawerOpen, onClickMenu, onClickSearch } =
     useMobileNav();
 
@@ -75,13 +81,14 @@ export const CombinedNav = ({ defaultNavItems, nhs = false, nhsTitle }) => {
 
   return (
     <>
+      <TopBanner />
       <OldBrowserBanner />
       <div
         className={`${styles.desktopContainer} ${
           isCypress ? styles.isCypressDesktop : ""
         }`}
       >
-        <Nav nhs={nhs} nhsTitle={nhsTitle} />
+        <Nav nhs={nhs} nhsTitle={nhsTitle} noPhoneNumber={noPhoneNumber} />
         {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
       <div

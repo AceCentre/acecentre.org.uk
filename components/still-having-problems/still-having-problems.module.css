@@ -4,6 +4,10 @@
   max-width: var(--containerMaxWidth);
 }
 
+.buttonMargin {
+  margin-top: auto;
+}
+
 .list {
   list-style-type: none;
   padding: 0;

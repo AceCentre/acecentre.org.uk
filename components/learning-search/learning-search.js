@@ -5,7 +5,7 @@ export const LearningSearch = () => {
     <SearchBox
       title={"Ace Centre Learning"}
       description={
-        "Our courses focus on the use of Assistive Technology to enable independence, access to education, learning and leisure activities, and communication."
+        "Ace Centre Learning offers a wide range of Assistive Technology (AT) training across four areas and levels of learning"
       }
       searchEndpoint={"/learning/search"}
       ariaLabel={"Search learning"}
@@ -14,6 +14,7 @@ export const LearningSearch = () => {
       backgroundColor="#B0E8DE"
       backgroundImage="/blue-wave.svg"
       textColor="#333333"
+      includeSearch={false}
     />
   );
 };

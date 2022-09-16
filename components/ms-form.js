@@ -43,11 +43,19 @@ export const COURSE_EVALUATION = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUNDZMQThISE44NTFZRUc5VDY0MldUNEhEMSQlQCN0PWcu&embed=true",
 };
 
+export const INTEREST = {
+  slug: "atu-interest",
+  title: "ATU Register interest",
+  height: 2000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUN0lSWDZLNFRaNDdQVUZCTzY4WUszR1pQUSQlQCN0PWcu",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
   LEARNING_ENQ,
   COURSE_EVALUATION,
+  INTEREST,
 ];
 
 export const FormModal = ({ children, form, className = "" }) => {
