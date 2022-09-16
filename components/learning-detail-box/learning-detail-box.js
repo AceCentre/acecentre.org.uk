@@ -499,8 +499,8 @@ const getStockText = (course) => {
   // Stock quantity is 0 if the course is full
   if (!course.stockQuantity && course.inStock) return "Places available";
   if (!course.stockQuantity) return "No places remaining";
-  if (course.stockQuantity === 1) return "1 place remaining";
-  return `${course.stockQuantity} places remaining`;
+  if (course.stockQuantity <= 5) return "Few places remaining";
+  return "Places available";
 };
 
 const MetaListItem = ({ children, bold }) => {
