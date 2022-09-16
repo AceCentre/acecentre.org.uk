@@ -6738,10 +6738,10 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha512-NJGVKPS81XejHcLhaLJS7plab0fK3slPh11mESeeDq2W4ZI5kUKK/LRRdVDvjJseojbPB7ZwjnyOybg3Igea/A==
 
-cypress-tags@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-1.0.0.tgz#af0611a395cd243789f5a5e805be3b0ee5045dd2"
-  integrity sha512-q5nJYBs+WKqi2mX/YHWclZ2qEXgo8MjpeSCHe0+JermuBl0xkPNlIMCmsHj7UvcWUz4SaiCQVhAxi3mAabeoPw==
+cypress-tags@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-1.0.2.tgz#b99389b3f8247f46cf230d0d6bfdc560500928af"
+  integrity sha512-1BAay8ADYIHeABFO7fMboGihk8KUDmi31egO9fsrfdFZ+sf10oyoep+8HgEEq5VWTXJNewdZK0gwz5ShOD7xCA==
   dependencies:
     "@cypress/browserify-preprocessor" "^3.0.1"
     boolean-parser "0.0.2"
