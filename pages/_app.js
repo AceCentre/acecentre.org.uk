@@ -19,6 +19,7 @@ import { useLoggedInStatus } from "../lib/use-logged-in-status";
 import { extendTheme } from "../lib/chakra-theme";
 import Script from "next/script";
 import { useRouter } from "next/router";
+import config from "../lib/config";
 
 const theme = createTheme();
 
@@ -86,11 +87,13 @@ function MyApp({
               gtag('config', 'G-5PYYXEH8M9');
             `}
           </Script>
-          <Script
-            id="cookieyes"
-            src="https://cdn-cookieyes.com/client_data/5f7bdf61622959f12d1b8723/script.js"
-            strategy="afterInteractive"
-          ></Script>
+          {config.environment === "production" && (
+            <Script
+              id="cookieyes"
+              src="https://cdn-cookieyes.com/client_data/5f7bdf61622959f12d1b8723/script.js"
+              strategy="afterInteractive"
+            ></Script>
+          )}
         </>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={chakraTheme} resetCSS={false}>

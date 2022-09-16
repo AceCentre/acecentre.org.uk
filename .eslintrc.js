@@ -29,6 +29,12 @@ module.exports = {
     "react/prop-types": "off", // We don't use prop types
     "react/display-name": "off", // This fails even when we have a name, it also doesn't really matter
     "@next/next/no-img-element": "off",
+    "react/no-unknown-property": [
+      2,
+      {
+        ignore: ["jsx", "global"],
+      },
+    ],
   },
   settings: {
     react: {

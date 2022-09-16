@@ -5,9 +5,9 @@ import styles from "./resources-download.module.css";
 
 import { Button } from "../button/button";
 import config from "../../lib/config";
-import { useRouter } from "next/dist/client/router";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { usePosthog } from "../../lib/use-posthog";
+import { useRouter } from "next/router";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];

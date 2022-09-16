@@ -1,0 +1,40 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+
+  box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.13);
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 90%;
+
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+  align-items: center;
+}
+
+.icon.icon.icon {
+  color: #00537f;
+  font-size: 4rem;
+}
+
+.textSide {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.textSide h2,
+.textSide p,
+.textSide a {
+  margin: 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column;
+  }
+}

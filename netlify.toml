@@ -164,6 +164,11 @@
   status = 301
 
 [[redirects]]
+  from = "/accredited-assistive-technology-jan23"
+  to = "/learning/atu"
+  status = 301
+
+[[redirects]]
   from = "/resources/core"
   to = "/resources/core-launchpad"
   status = 301
@@ -172,7 +177,6 @@
   from = "/resources/bubbles"
   to = "/resources/bubbles-launchpad"
   status = 301
-
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

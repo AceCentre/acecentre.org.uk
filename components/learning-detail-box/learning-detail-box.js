@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import Link from "next/link";
 import { NoImage } from "../latest-from-blog/latest-from-blog";
+import { FormModal, INTEREST } from "../ms-form";
 
 const useEnrollStatus = (courseSlug) => {
   const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
@@ -44,9 +45,7 @@ export const LearningDetailBox = ({ course }) => {
   const { disabled, addToCart, error } = useAddToCart();
   const [isModalOpen, toggleModal] = useState(false);
 
-  const purchaseOrderMin = 250;
   const price = parseInt(course.price);
-  const quantityForPurchaseOrder = Math.ceil(purchaseOrderMin / price);
 
   const { isEnrolledOnCourse, moodleUrl } = useEnrollStatus(course.slug);
 
@@ -83,7 +82,11 @@ export const LearningDetailBox = ({ course }) => {
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
             </div>
-            <CourseMeta course={course} bold withStockCount />
+            <CourseMeta
+              course={course}
+              bold
+              withStockCount={course.slug !== "atu"}
+            />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -93,20 +96,32 @@ export const LearningDetailBox = ({ course }) => {
             avatarClassName={styles.avatar}
             className={styles.shareButtons}
           />
-          {isEnrolledOnCourse ? (
-            <Button className={styles.bookButton} href={moodleUrl}>
-              Go to course
-            </Button>
+          {course.slug === "atu" ? (
+            <FormModal form={INTEREST}>
+              {({ onClick }) => (
+                <Button className={styles.bookButton} onClick={onClick}>
+                  Register your interest
+                </Button>
+              )}
+            </FormModal>
           ) : (
-            <Button
-              className={styles.bookButton}
-              disabled={disabled || !course.inStock}
-              onClick={() => {
-                toggleModal(true);
-              }}
-            >
-              Book this course
-            </Button>
+            <>
+              {isEnrolledOnCourse ? (
+                <Button className={styles.bookButton} href={moodleUrl}>
+                  Go to course
+                </Button>
+              ) : (
+                <Button
+                  className={styles.bookButton}
+                  disabled={disabled || !course.inStock}
+                  onClick={() => {
+                    toggleModal(true);
+                  }}
+                >
+                  Book this course
+                </Button>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -160,12 +175,8 @@ export const LearningDetailBox = ({ course }) => {
               <>
                 <h3>Purchase order (invoices)</h3>
                 <p>
-                  We will only accept purchase orders and issue an invoice for
-                  orders over £250. You must be ordering at least{" "}
-                  {quantityForPurchaseOrder}{" "}
-                  {quantityForPurchaseOrder > 1 ? "seats" : "seat"} for this
-                  course to qualify for a purchase order. To request a purchase
-                  order <Link href="/contact">contact us via this form.</Link>
+                  To request a purchase order{" "}
+                  <Link href="/contact">contact us via this form.</Link>
                 </p>
               </>
             )}
@@ -309,8 +320,7 @@ export const BundleDetailBox = ({ bundle }) => {
 
             <h3>Purchase order (invoices)</h3>
             <p>
-              We will only accept purchase orders and issue an invoice for
-              orders over £250. To request a purchase order{" "}
+              To request a purchase order{" "}
               <Link href="/contact">contact us via this form.</Link>
             </p>
             <form
@@ -489,8 +499,8 @@ const getStockText = (course) => {
   // Stock quantity is 0 if the course is full
   if (!course.stockQuantity && course.inStock) return "Places available";
   if (!course.stockQuantity) return "No places remaining";
-  if (course.stockQuantity === 1) return "1 place remaining";
-  return `${course.stockQuantity} places remaining`;
+  if (course.stockQuantity <= 5) return "Few places remaining";
+  return "Places available";
 };
 
 const MetaListItem = ({ children, bold }) => {

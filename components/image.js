@@ -56,7 +56,10 @@ export const Image = ({
 }) => {
   // If you don't give a maxHeight or maxWidth we just use the normal width
   if (!maxHeight && !maxWidth) {
-    console.warn("You haven't provided a maxHeight or maxWidth for your image");
+    console.warn(
+      "You haven't provided a maxHeight or maxWidth for your image",
+      { ...rest }
+    );
 
     return <ImageSelector width={width} height={height} {...rest} />;
   }
@@ -86,13 +89,6 @@ export const ImageSelector = ({
   loader = normalLoader,
   ...props
 }) => {
-  // If we are on storybook we just use a normal image tag
-  // Bear in mind that we will then do more optimizing for the
-  // production build
-  if (process.env.STORYBOOK) {
-    return <img {...props} />;
-  }
-
   return (
     <div className={`${placeOnTop ? "" : styles.imageContainer}`}>
       <ImageWithLoader loader={loader} {...props} />
