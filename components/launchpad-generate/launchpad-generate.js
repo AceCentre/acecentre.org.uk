@@ -235,8 +235,8 @@ export const LaunchpadGenerate = ({
       </div>
       {template.templateVariables.length > 0 && (
         <p>
-          Edit the board by selecting different options below then press
-          download to generate your board.
+          Edit the chart by selecting different options below then press
+          download to generate your chart.
         </p>
       )}
       <div className={styles.variablesGrid}>
