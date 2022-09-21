@@ -11669,10 +11669,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-linkedom@0.14.14:
-  version "0.14.14"
-  resolved "https://registry.yarnpkg.com/linkedom/-/linkedom-0.14.14.tgz#57a959c541d6edf6f7db1ffb4eab6a93aa4c83b5"
-  integrity sha512-PG6nGUMvlbh1H7yg47+JGwQiBiGAaO2iMe9qs9FFNceO9woRpu8bLCM4sJ/8C8/k1Y0/rIbvK5K4R0L3quXNJw==
+linkedom@0.14.15:
+  version "0.14.15"
+  resolved "https://registry.yarnpkg.com/linkedom/-/linkedom-0.14.15.tgz#861d43c9557d16277bde28e8a98ead4b373ede55"
+  integrity sha512-jQoS/JBRPXzBkqsOsu9Oik8d7M2JUbhSrumiDS+QbCtrza/hs9AjfeihiUC2uXDPCTBOSkPPupIOO4upyu+i+w==
   dependencies:
     css-select "^5.1.0"
     cssom "^0.5.0"
@@ -14163,7 +14163,7 @@ pupa@^2.1.1:
   dependencies:
     escape-goat "^2.0.0"
 
-qrcode.react@^3.1.0:
+qrcode.react@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-3.1.0.tgz#5c91ddc0340f768316fbdb8fff2765134c2aecd8"
   integrity sha512-oyF+Urr3oAMUG/OiOuONL3HXM+53wvuH3mtIWQrYmsXoAq0DkvZp2RYUWFSMFtbdOpuS++9v+WAkzNVkMlNW6Q==
