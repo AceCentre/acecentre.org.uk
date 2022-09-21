@@ -22,6 +22,15 @@
   box-shadow: none !important;
 }
 
+/* Yeah so this is fragile. If react-color changes its dom structure this will definetly break
+Its not the end of the world as it just adds a border. Annoyingly there is no way to pass a class
+to the desired element. I could open an issue on react-color but they dont seem super responsive 
+so its not really worth the hassle. */
+/* The reason we want to add a border is just to make the white selector more obvious on a white background */
+.blockPicker > :nth-child(3) > :first-child > span > div {
+  border: 2px solid grey;
+}
+
 .errorMessage {
   color: red;
   font-weight: bold;
