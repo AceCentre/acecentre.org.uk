@@ -18,7 +18,6 @@ import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
-import { TopBanner } from "../top-banner/top-banner";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,7 +80,6 @@ export const CombinedNav = ({
 
   return (
     <>
-      <TopBanner />
       <OldBrowserBanner />
       <div
         className={`${styles.desktopContainer} ${

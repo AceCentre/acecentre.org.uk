@@ -35,7 +35,7 @@ const script = async () => {
 
     await checkVersionOfEdwiserPlugin({
       name: "Edwiser Bridge Single Sign On",
-      url: "https://edwiser.org/bridge/extensions/single-sign-on",
+      url: "https://edwiser.org/bridge/extensions/single-sign-on-2",
       allPlugins,
     });
 
