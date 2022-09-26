@@ -60,9 +60,11 @@ context("Register", () => {
     // Log out
     cy.findByRole("button", { name: "Logout" }).click();
     cy.url({ timeout: 60000 }).should("equal", Cypress.config().baseUrl + "/");
+    cy.wait(2000);
     cy.findAllByRole("link", { name: "Login" }).should("exist");
 
     // Make sure we are on the login page
+    cy.wait(2000);
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");
   });
