@@ -28,6 +28,7 @@ import { ResourcesShare } from "../resources-share/resources-share";
 import { ResourceList } from "../resource-list/resource-list";
 import Link from "next/link";
 import { BlockPicker } from "react-color";
+import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
 
 const COLOURS = [
   "#B9ffB9",
@@ -261,6 +262,19 @@ export const LaunchpadGenerate = ({
         })}
       </Accordion>
       <div></div>
+      <FormModal form={RESOURCE_FEEDBACK}>
+        {({ onClick }) => (
+          <a
+            href={RESOURCE_FEEDBACK.url}
+            onClick={(event) => {
+              event.preventDefault();
+              onClick(event);
+            }}
+          >
+            Click here to share your feedback on this resource
+          </a>
+        )}
+      </FormModal>
 
       <DownloadModal
         modalOpen={modalOpen}
