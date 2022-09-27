@@ -96,32 +96,21 @@ export const LearningDetailBox = ({ course }) => {
             avatarClassName={styles.avatar}
             className={styles.shareButtons}
           />
-          {course.slug === "atu" ? (
-            <FormModal form={INTEREST}>
-              {({ onClick }) => (
-                <Button className={styles.bookButton} onClick={onClick}>
-                  Register your interest
-                </Button>
-              )}
-            </FormModal>
+
+          {isEnrolledOnCourse ? (
+            <Button className={styles.bookButton} href={moodleUrl}>
+              Go to course
+            </Button>
           ) : (
-            <>
-              {isEnrolledOnCourse ? (
-                <Button className={styles.bookButton} href={moodleUrl}>
-                  Go to course
-                </Button>
-              ) : (
-                <Button
-                  className={styles.bookButton}
-                  disabled={disabled || !course.inStock}
-                  onClick={() => {
-                    toggleModal(true);
-                  }}
-                >
-                  Book this course
-                </Button>
-              )}
-            </>
+            <Button
+              className={styles.bookButton}
+              disabled={disabled || !course.inStock}
+              onClick={() => {
+                toggleModal(true);
+              }}
+            >
+              Book this course
+            </Button>
           )}
         </div>
       </div>
