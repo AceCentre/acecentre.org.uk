@@ -82,11 +82,7 @@ export const LearningDetailBox = ({ course }) => {
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
             </div>
-            <CourseMeta
-              course={course}
-              bold
-              withStockCount={course.slug !== "atu"}
-            />
+            <CourseMeta course={course} bold withStockCount />
           </div>
         </div>
         <div className={styles.bottomContainer}>
