@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import Link from "next/link";
 import { NoImage } from "../latest-from-blog/latest-from-blog";
-import { FormModal, INTEREST } from "../ms-form";
 
 const useEnrollStatus = (courseSlug) => {
   const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
