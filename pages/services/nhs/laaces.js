@@ -11,7 +11,6 @@ import Avatar from "@material-ui/core/Avatar";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
-import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
@@ -269,8 +268,6 @@ export default function Laaces({ gettingStartedResources }) {
 }
 
 export const getStaticProps = withGlobalProps(async () => {
-  const featuredStory = await getSimpleStory("paul");
-
   const products = await getAllProducts();
   const productCategories = await getAllProductCategories();
 
@@ -292,7 +289,6 @@ export const getStaticProps = withGlobalProps(async () => {
 
   return {
     props: {
-      featuredStory,
       gettingStartedResources: resources.slice(0, 4),
 
       seo: {
