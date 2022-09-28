@@ -20,6 +20,7 @@ import { FormModal, LAACES } from "../../../components/ms-form";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Link from "next/link";
+import RoomIcon from "@material-ui/icons/Room";
 
 export default function Laaces({ gettingStartedResources }) {
   const { currentYear } = useGlobalProps();
@@ -72,6 +73,13 @@ export default function Laaces({ gettingStartedResources }) {
               We should try to push people into the &apos;register with
               LAACES&apos; as much as possible.
             </p>
+            <h2>Am I eligible for LAACES?</h2>
+            <p>To access LAACES you must meet the following criteria:</p>
+            <ol className={styles.orderedList}>
+              <OrderedListItem>Be a local service</OrderedListItem>
+              <OrderedListItem>Be based in England</OrderedListItem>
+              <OrderedListItem>Be based in one of our regions</OrderedListItem>
+            </ol>
             <h2>What kind of support can Ace Centre offer?</h2>
             Ace Centre can support you with a variety of things to help you run
             an effective service. We can help you with:
@@ -159,13 +167,30 @@ export default function Laaces({ gettingStartedResources }) {
                   field to useful resources, which can support the establishment
                   of a local AAC service
                 </p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button
-                    className={styles.downloadFormButton}
-                    href="https://localaactools.co.uk/"
-                  >
-                    View toolkit
-                  </Button>
+                <div>
+                  <Link href="https://localaactools.co.uk/">
+                    View toolkit &gt;
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <RoomIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p>
+                  <strong>Service Finder</strong>
+                </p>
+                <p>
+                  If you are not in our region you can use Service Finder to
+                  find your nearest specialised service.
+                </p>
+                <div>
+                  <Link href="/nhs-service-finder">
+                    Go to Service Finder &gt;
+                  </Link>
                 </div>
               </div>
             </div>
@@ -193,6 +218,10 @@ const ListItem = ({ children }) => {
       {children}
     </li>
   );
+};
+
+const OrderedListItem = ({ children }) => {
+  return <li className={styles.orderedListItem}>{children}</li>;
 };
 
 export const getStaticProps = withGlobalProps(async () => {
