@@ -13,7 +13,6 @@ import { Image } from "../../../components/image";
 import styles from "../../../styles/nhs-assessment.module.css";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
-import Link from "next/link";
 import BuildIcon from "@material-ui/icons/Build";
 import { getAllProducts } from "../../../lib/products/get-products";
 import { getAllProductCategories } from "../../../lib/products/get-all-categories";
@@ -36,13 +35,12 @@ export default function Laaces({ gettingStartedResources }) {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/LAACES.jpeg"
+          src="/services/laaces-cropped.png"
           alt="A child laughing using a communication book"
           nhs
           heightClass={styles.coverHeight}
           imageClassName={styles.imageClassNameLaaces}
           coverImageContainerClassName={styles.coverImageContainerLaaces}
-          enableOverlay={false}
         >
           <h1 className={styles.cardTitle}>Local AAC Services</h1>
           <p className={styles.cardDescription}>

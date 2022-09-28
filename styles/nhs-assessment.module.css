@@ -9,7 +9,7 @@
 }
 
 .imageClassNameLaaces {
-  object-position: left top !important;
+  transform: scaleX(-1);
 }
 
 .inlineQuote {
