@@ -50,12 +50,20 @@ export const INTEREST = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUN0lSWDZLNFRaNDdQVUZCTzY4WUszR1pQUSQlQCN0PWcu",
 };
 
+export const LAACES = {
+  slug: "laaces",
+  title: "LAACES Register",
+  height: 2000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMnLk1Na19BMqxLquFD1AKRUMDA0TjE1WVhOQ1BRQ0U0Sk9WWTkyQ1lVRyQlQCN0PWcu",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
   LEARNING_ENQ,
   COURSE_EVALUATION,
   INTEREST,
+  LAACES,
 ];
 
 export const FormModal = ({ children, form, className = "" }) => {

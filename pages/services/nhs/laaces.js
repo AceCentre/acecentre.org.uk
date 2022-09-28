@@ -16,7 +16,7 @@ import { getAllProducts } from "../../../lib/products/get-products";
 import { getAllProductCategories } from "../../../lib/products/get-all-categories";
 import { filterProducts } from "../../../lib/products/filter-products";
 import { ResourceList } from "../../../components/resource-list/resource-list";
-import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
+import { FormModal, LAACES } from "../../../components/ms-form";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function Laaces({ gettingStartedResources }) {
             Valley & Wessex regions
           </p>
 
-          <FormModal form={CONTACT_FORM}>
+          <FormModal form={LAACES}>
             {({ onClick }) => (
               <div className={styles.cardButtonContainer}>
                 <Button onClick={onClick} className={styles.cardButton}>
@@ -66,6 +66,12 @@ export default function Laaces({ gettingStartedResources }) {
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
+            <p>
+              This page should be light on content. Should be engaging and easy
+              to see at a glance what services people can access through LAACES.
+              We should try to push people into the &apos;register with
+              LAACES&apos; as much as possible.
+            </p>
             <h2>What kind of support can Ace Centre offer?</h2>
             Ace Centre can support you with a variety of things to help you run
             an effective service. We can help you with:
@@ -93,9 +99,21 @@ export default function Laaces({ gettingStartedResources }) {
                 local services devices to use with their clients. To access our
                 loan bank enquire to join the LAACES program
               </p>
-              <Link href="/services/self-funded-assessments">
-                <a className={styles.link}>Enquire now &gt;</a>
-              </Link>
+              <FormModal form={LAACES}>
+                {({ onClick }) => (
+                  <Link href="#">
+                    <a
+                      onClick={(event) => {
+                        event.preventDefault();
+                        onClick(event);
+                      }}
+                      className={styles.link}
+                    >
+                      Join now &gt;
+                    </a>
+                  </Link>
+                )}
+              </FormModal>
             </div>
           </div>
           <div>
