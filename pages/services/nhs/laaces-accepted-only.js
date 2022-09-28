@@ -1,6 +1,6 @@
 import { withGlobalProps } from "../../../lib/global-props/inject";
 
-export default function Laaces({}) {
+export default function Laaces() {
   return <h1>Test</h1>;
 }
 
