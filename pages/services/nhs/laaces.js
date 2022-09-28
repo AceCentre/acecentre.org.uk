@@ -6,12 +6,10 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalProps } from "../../../lib/global-props/inject";
 
-// import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Avatar from "@material-ui/core/Avatar";
 import { Image } from "../../../components/image";
 
-import styles from "../../../styles/nhs-assessment.module.css";
-// import { FeaturedStory } from "../../../components/featured-story/featured-story";
+import styles from "../../../styles/laaces.module.css";
 import { InformationDays } from "../../../components/information-days/information-days";
 import BuildIcon from "@material-ui/icons/Build";
 import { getAllProducts } from "../../../lib/products/get-products";
@@ -20,6 +18,8 @@ import { filterProducts } from "../../../lib/products/filter-products";
 import { ResourceList } from "../../../components/resource-list/resource-list";
 import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Link from "next/link";
 
 export default function Laaces({ gettingStartedResources }) {
   const { currentYear } = useGlobalProps();
@@ -42,7 +42,10 @@ export default function Laaces({ gettingStartedResources }) {
           imageClassName={styles.imageClassNameLaaces}
           coverImageContainerClassName={styles.coverImageContainerLaaces}
         >
-          <h1 className={styles.cardTitle}>Local AAC Services</h1>
+          <h1 className={styles.cardTitle}>
+            L<span className={styles.normalWeight}>ocal</span> AAC S
+            <span className={styles.normalWeight}>ervices</span> (LAACES)
+          </h1>
           <p className={styles.cardDescription}>
             Supporting local AAC Services in the the North West and Thames
             Valley & Wessex regions
@@ -52,7 +55,7 @@ export default function Laaces({ gettingStartedResources }) {
             {({ onClick }) => (
               <div className={styles.cardButtonContainer}>
                 <Button onClick={onClick} className={styles.cardButton}>
-                  Make an online enquiry
+                  Join LAACES
                 </Button>
               </div>
             )}
@@ -62,7 +65,39 @@ export default function Laaces({ gettingStartedResources }) {
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
-          <div className={styles.leftContent}></div>
+          <div className={styles.leftContent}>
+            <h2>What kind of support can Ace Centre offer?</h2>
+            Ace Centre can support you with a variety of things to help you run
+            an effective service. We can help you with:
+            <ul className={styles.list}>
+              <ListItem>Gathering data to use as evidence</ListItem>
+              <ListItem>Approaching commissioners</ListItem>
+              <ListItem>Strategic Development</ListItem>
+              <ListItem>Service Implementation</ListItem>
+            </ul>
+            <h2>How does Ace Centre provide support?</h2>
+            <p>
+              You can access the support Ace Centre provides in a few ways, such
+              as:
+            </p>
+            <ul className={styles.list}>
+              <ListItem>Meetings</ListItem>
+              <ListItem>Access to training opportunities</ListItem>
+              <ListItem>Joint assessments</ListItem>
+              <ListItem>Advice Sessions</ListItem>
+            </ul>
+            <div className={styles.inlineCard}>
+              <h2>LAACES Loan Bank</h2>
+              <p>
+                We offer a loan bank service to local services where we loan
+                local services devices to use with their clients. To access our
+                loan bank enquire to join the LAACES program
+              </p>
+              <Link href="/services/self-funded-assessments">
+                <a className={styles.link}>Enquire now &gt;</a>
+              </Link>
+            </div>
+          </div>
           <div>
             <div className={styles.serviceProvidedByContainer}>
               <p>Service provided by:</p>
@@ -125,12 +160,22 @@ export default function Laaces({ gettingStartedResources }) {
           products={gettingStartedResources}
           className={styles.resourcesList}
         />
-        {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
   );
 }
+
+const ListItem = ({ children }) => {
+  return (
+    <li className={styles.listItem}>
+      <Avatar className={styles.listAvatar}>
+        <ChevronRightIcon />
+      </Avatar>
+      {children}
+    </li>
+  );
+};
 
 export const getStaticProps = withGlobalProps(async () => {
   const products = await getAllProducts();
