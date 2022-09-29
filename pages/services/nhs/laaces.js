@@ -80,6 +80,25 @@ export default function Laaces({ gettingStartedResources }) {
               <OrderedListItem>Be based in England</OrderedListItem>
               <OrderedListItem>Be based in one of our regions</OrderedListItem>
             </ol>
+            <p>
+              If you are eligible then enquire now and we will get in contact to
+              give you the services you need.
+            </p>
+            <FormModal form={LAACES}>
+              {({ onClick }) => (
+                <Link href="#">
+                  <a
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onClick(event);
+                    }}
+                    className={styles.link}
+                  >
+                    Join LAACES now &gt;
+                  </a>
+                </Link>
+              )}
+            </FormModal>
             <h2>What kind of support can Ace Centre offer?</h2>
             Ace Centre can support you with a variety of things to help you run
             an effective service. We can help you with:
@@ -117,7 +136,7 @@ export default function Laaces({ gettingStartedResources }) {
                       }}
                       className={styles.link}
                     >
-                      Join now &gt;
+                      Join LAACES now &gt;
                     </a>
                   </Link>
                 )}
