@@ -14,6 +14,7 @@ export const SearchBox = ({
   backgroundImage = "/wave.svg",
   textColor = "#00537f",
   includeSearch = true,
+  dashColor = "black",
 }) => {
   return (
     <>
@@ -21,6 +22,10 @@ export const SearchBox = ({
         .container {
           background-color: ${backgroundColor};
           background-image: url(${backgroundImage});
+        }
+
+        .title {
+          color: ${textColor};
         }
 
         .description {
@@ -33,10 +38,10 @@ export const SearchBox = ({
             <img
               width="41px"
               height="48px"
-              src="/dash-black.svg"
+              src={`/dash-${dashColor}.svg`}
               alt="A brush stroke"
             />
-            <h1>{title}</h1>
+            <h1 className="title">{title}</h1>
           </div>
           <p className={`${styles.description} description`}>{description}</p>
           {includeSearch && (
