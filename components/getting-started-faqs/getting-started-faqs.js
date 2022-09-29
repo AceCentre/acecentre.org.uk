@@ -17,7 +17,7 @@ export const GettingStartedFaqs = () => {
   return <GenericFaqs faqs={FAQS} />;
 };
 
-export const GenericFaqs = ({ faqs }) => {
+export const GenericFaqs = ({ faqs, nhs = false }) => {
   const [selected, setSelected] = useState([]);
 
   return (
@@ -38,7 +38,7 @@ export const GenericFaqs = ({ faqs }) => {
               <AccordionItem uuid={uuid} key={faq.question}>
                 <AccordionItemHeading aria-level="3">
                   <AccordionItemButton className={styles.faqQuestion}>
-                    <Avatar className={styles.avatar}>
+                    <Avatar className={nhs ? styles.nhsAvatar : styles.avatar}>
                       {selected.includes(uuid) ? (
                         <KeyboardArrowDownIcon className={styles.icon} />
                       ) : (

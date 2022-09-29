@@ -28,7 +28,7 @@ export default function Laaces() {
           textColor="#ffffff"
           dashColor="white"
         />
-        <GenericFaqs faqs={laacesFaqs} />
+        <GenericFaqs nhs faqs={laacesFaqs} />
       </main>
       <Footer currentYear={currentYear} />
     </>
