@@ -1,0 +1,12 @@
+.narrowContainer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 720px;
+
+  font-size: 16px;
+  margin-bottom: 3rem;
+}
+
+.video {
+  text-align: center;
+}
