@@ -168,6 +168,16 @@
   to = "/learning/atu"
   status = 301
 
+[[redirects]]
+  from = "/resources/identifying-vocabulary-for-a-communication-book"
+  to = "/resources/identifying-vocabulary-to-personalise-aac"
+  status = 301
+
+[[redirects]]
+  from = "/resources/identifying-vocabulary-for-topic-pages"
+  to = "/resources/identifying-vocabulary-to-personalise-aac"
+  status = 301
+
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
