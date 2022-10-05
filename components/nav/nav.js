@@ -23,7 +23,7 @@ export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
           {!nhs && (
             <>
               <NavLink href="/blog">Blog</NavLink>
-              <NavLink href="/blog">Feedback</NavLink>
+              <NavLink href="/feedback">Feedback</NavLink>
               <NavLink href="/contact">Contact</NavLink>
               <NavLink href="/my-acecentre">
                 <SvgIcon>
