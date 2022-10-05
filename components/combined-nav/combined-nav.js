@@ -238,6 +238,13 @@ const MenuContent = ({ defaultNavItems }) => {
         })}
         <li>
           <div className={styles.menuContentListItem}>
+            <Link href="/form/general-feedback">
+              <a className={styles.subNavLink}>Feedback</a>
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
             <Link href="/blog">
               <a className={styles.subNavLink}>Blog</a>
             </Link>
