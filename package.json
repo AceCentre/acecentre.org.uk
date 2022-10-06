@@ -31,7 +31,7 @@
     "@octokit/rest": "19.0.4",
     "@react-aria/focus": "3.9.0",
     "@react-aria/interactions": "3.12.0",
-    "@react-aria/radio": "3.3.1",
+    "@react-aria/radio": "3.4.0",
     "@react-aria/visually-hidden": "3.5.0",
     "@react-stately/radio": "3.5.1",
     "@slack/bolt": "3.12.1",
