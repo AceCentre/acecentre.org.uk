@@ -3537,16 +3537,7 @@
     "@react-types/shared" "^3.15.0"
     clsx "^1.1.1"
 
-"@react-stately/radio@3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.5.1.tgz#7bff0a4d0d12b534af1593106d9b356d3fb92e4f"
-  integrity sha512-0x84/JTUshB5ZIhv4KPNaRBHztegGfHZ/dheCN/cNYiDPFmUPkce4mOYgL3byUgVabbDYqohTHkpvoA54UOgew==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-stately/utils" "^3.5.1"
-    "@react-types/radio" "^3.2.3"
-
-"@react-stately/radio@^3.6.0":
+"@react-stately/radio@3.6.0", "@react-stately/radio@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@react-stately/radio/-/radio-3.6.0.tgz#85846c0d3bd906cddccfb897eb900a5fd527d962"
   integrity sha512-hzNwIapDSnbk5mCim/AgHQTtHRgy2QiW95okfVnGflzO7nnws8WH/s2Va4f7UupWObPv8XTqHADUEng86mVBJA==
@@ -3570,24 +3561,12 @@
   dependencies:
     "@react-types/shared" "^3.15.0"
 
-"@react-types/radio@^3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@react-types/radio/-/radio-3.2.3.tgz#223266c1edd4bc297ab72ad95c62f2aeaca9a16c"
-  integrity sha512-TiW0PJPQuVKcni8UWI84hc8dYGDsuSkKT/Dgj1r82csYGz/92RnyQDF12CCg9+MpqWZweK30uYQzbtrxa74qBg==
-  dependencies:
-    "@react-types/shared" "^3.14.1"
-
 "@react-types/radio@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-types/radio/-/radio-3.3.0.tgz#618f836c87d07b0828a660c0565b5149c049039c"
   integrity sha512-aF4OpGjd9/xuRnDSDJnmwzLvvOENUWSHQc//wp8rViCWf1uinY4wHI/J3uEhodhsUPAKmrqvUagphRoyXWZA8A==
   dependencies:
     "@react-types/shared" "^3.15.0"
-
-"@react-types/shared@^3.14.1":
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.14.1.tgz#8fe25f729426e8043054e442eb5392364200e028"
-  integrity sha512-yPPgVRWWanXqbdxFTgJmVwx0JlcnEK3dqkKDIbVk6mxAHvEESI9+oDnHvO8IMHqF+GbrTCzVtAs0zwhYI/uHJA==
 
 "@react-types/shared@^3.15.0":
   version "3.15.0"
