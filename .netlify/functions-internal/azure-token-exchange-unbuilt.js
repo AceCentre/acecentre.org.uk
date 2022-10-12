@@ -1,9 +1,9 @@
-const axios = require("axios");
-const exportEnv = require("../../envs");
+import axios from "axios";
+import exportEnv from "../../envs";
 
 exportEnv();
 
-exports.handler = async (event, context) => {
+const rawHandler = async (event, context) => {
   let returnHeaders = {
     "Content-Type": "application/json",
   };
@@ -52,3 +52,6 @@ exports.handler = async (event, context) => {
     }
   }
 };
+
+export const handler = rawHandler;
+export default rawHandler;
