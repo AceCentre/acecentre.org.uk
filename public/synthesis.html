@@ -152,6 +152,26 @@
       var SpeechSDK;
       var synthesizer;
 
+      let authorizationEndpoint = "/.netlify/functions/azure-token-exchange";
+
+      async function RequestAuthorizationToken() {
+        if (authorizationEndpoint) {
+          try {
+            const response = await fetch(authorizationEndpoint);
+            const result = await response.json();
+            console.log(result);
+            const token = result.token;
+            const region = result.region;
+            regionOptions.value = region;
+            authorizationToken = token;
+
+            console.log("Token fetched from back-end: " + token);
+          } catch (err) {
+            console.log(err);
+          }
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         startSpeakTextAsyncButton = document.getElementById(
           "startSpeakTextAsyncButton"
