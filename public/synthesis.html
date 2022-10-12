@@ -200,7 +200,7 @@
           //   }
           console.log(regionOptions, authorizationToken);
 
-          var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
+          var speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(
             authorizationToken,
             regionOptions
           );
