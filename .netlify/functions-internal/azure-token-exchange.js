@@ -40,6 +40,8 @@ exports.handler = async (event, context) => {
         headers: returnHeaders,
       };
     } catch (err) {
+      console.log(err, speechKey, speechRegion);
+
       return {
         statusCode: 401,
         body: "There was an error authorizing your speech key.",
