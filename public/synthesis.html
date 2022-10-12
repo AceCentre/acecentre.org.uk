@@ -165,7 +165,7 @@
             console.log(result);
             const token = result.token;
             const region = result.region;
-            regionOptions.value = region;
+            regionOptions = region;
             authorizationToken = token;
 
             console.log("Token fetched from back-end: " + token);
@@ -202,7 +202,7 @@
 
           var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
             authorizationToken,
-            regionOptions.value
+            regionOptions
           );
 
           synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
