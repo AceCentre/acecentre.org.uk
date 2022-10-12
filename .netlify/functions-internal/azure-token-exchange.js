@@ -5,13 +5,12 @@ exports.handler = async (event, context) => {
     "Content-Type": "application/json",
   };
 
+  console.log(process.env);
+
   const speechKey = process.env.SPEECH_KEY;
   const speechRegion = process.env.SPEECH_REGION;
 
-  if (
-    speechKey === "paste-your-speech-key-here" ||
-    speechRegion === "paste-your-speech-region-here"
-  ) {
+  if (!speechKey || !speechRegion) {
     return {
       statusCode: 400,
       body: "You forgot to add your speech key or region to the .env file.",
