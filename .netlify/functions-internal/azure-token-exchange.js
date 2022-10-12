@@ -1,4 +1,7 @@
 const axios = require("axios");
+const exportEnv = require("../../envs");
+
+exportEnv();
 
 exports.handler = async (event, context) => {
   let returnHeaders = {
