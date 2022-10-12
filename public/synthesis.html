@@ -154,6 +154,9 @@
 
       let authorizationEndpoint = "/.netlify/functions/azure-token-exchange";
 
+      let regionOptions;
+      let authorizationToken;
+
       async function RequestAuthorizationToken() {
         if (authorizationEndpoint) {
           try {
@@ -182,22 +185,24 @@
         resultDiv = document.getElementById("resultDiv");
 
         startSpeakTextAsyncButton.addEventListener("click", function () {
-          startSpeakTextAsyncButton.disabled = true;
-          phraseDiv.innerHTML = "";
+          //   startSpeakTextAsyncButton.disabled = true;
+          //   phraseDiv.innerHTML = "";
 
-          if (
-            subscriptionKey.value === "" ||
-            subscriptionKey.value === "subscription"
-          ) {
-            alert(
-              "Please enter your Microsoft Cognitive Services Speech subscription key!"
-            );
-            startSpeakTextAsyncButton.disabled = false;
-            return;
-          }
+          //   if (
+          //     subscriptionKey.value === "" ||
+          //     subscriptionKey.value === "subscription"
+          //   ) {
+          //     alert(
+          //       "Please enter your Microsoft Cognitive Services Speech subscription key!"
+          //     );
+          //     startSpeakTextAsyncButton.disabled = false;
+          //     return;
+          //   }
+          console.log(regionOptions, authorizationToken);
+
           var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
-            subscriptionKey.value,
-            serviceRegion.value
+            authorizationToken,
+            regionOptions.value
           );
 
           synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
