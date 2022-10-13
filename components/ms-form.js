@@ -57,6 +57,13 @@ export const RESOURCE_FEEDBACK = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMEZJVllIMkVHSlBEQkxBSkZLU0xaWUxTQyQlQCN0PWcu",
 };
 
+export const FEEDBACK = {
+  slug: "general-feedback",
+  title: "Feedback",
+  height: 2000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURUQ4RFRTWFM2OElZNjMwSFM5UUVZRFBSVyQlQCN0PWcu",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
@@ -64,6 +71,7 @@ export const ALL_FORMS = [
   COURSE_EVALUATION,
   INTEREST,
   RESOURCE_FEEDBACK,
+  FEEDBACK,
 ];
 
 export const FormModal = ({ children, form, className = "" }) => {
