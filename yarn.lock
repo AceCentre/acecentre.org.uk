@@ -4447,14 +4447,14 @@
     "@typescript-eslint/types" "5.27.0"
     eslint-visitor-keys "^3.3.0"
 
-"@u-wave/react-vimeo@0.9.8":
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.8.tgz#f95f82689774070fded13ba074d7d907f794af40"
-  integrity sha512-Ka+jFDcCOp2GBOYRShG3qqsXPI9CUhaOlZMozdEWZVw9EoOdOyma7S3nLVLrp4lxePNu7YZTP4CnyYpd3gsJiA==
+"@u-wave/react-vimeo@0.9.9":
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.9.tgz#72833ead7881ca3501011b8e73b0dc38cd09878b"
+  integrity sha512-ltndsVZL7jOsW/WGOpxqZC+nXvKLxlQzW4hAa1wG6A8A/6xhP2XNOmp6rZ54C1MY1uXJ0icOS8GAx39g71w6FQ==
   dependencies:
     "@types/react" "^17.0.0 || ^18.0.0"
     "@types/vimeo__player" "^2.10.0"
-    "@vimeo/player" "^2.14.1"
+    "@vimeo/player" "^2.16.4"
     prop-types "^15.7.2"
 
 "@vercel/nft@^0.22.0":
@@ -4479,10 +4479,10 @@
   resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-2.2.2.tgz#f63466ab6a2588afdc6262c2d060289bfe8baa6b"
   integrity sha512-haGBC8noyA5BfjCRXRH+VIkHCDVW5iD5UX24P2nOdilwUxI4qWsattS/co8QBGq64XsNLRAMdM5pQUE3zxkF9Q==
 
-"@vimeo/player@^2.14.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.17.1.tgz#613f722aaafc18bb7dad73c58f1b9ad3e3996b2a"
-  integrity sha512-M8uMYiOwFkqD070/pO/CuRmwKvnHBmEZKckt5C2tAaMhlldzui+lUC5zMFzO0RDPmIXwg1WdDxaJnzuic6ll/A==
+"@vimeo/player@^2.16.4":
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.18.0.tgz#74c2b9f21c28da768baa8e39131e0eec07d43d6e"
+  integrity sha512-AJ8LQJ0WQXoPO6GBiMRmcBpdpUMnNm12blG/H80BgKD75w/+pLw0t1vzDHCE915O2OlFau6u1Q0QVw2HS1eRvg==
   dependencies:
     native-promise-only "0.8.1"
     weakmap-polyfill "2.0.4"
