@@ -22,7 +22,7 @@
     "build-function": "yarn build-add-to-cohort && yarn build-token-exchange"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.3.5",
+    "@chakra-ui/react": "2.3.6",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@lukeed/uuid": "2.0.0",
