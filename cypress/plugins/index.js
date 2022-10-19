@@ -14,11 +14,23 @@
 
 const { tagify } = require("cypress-tags");
 
+const {
+  install,
+  ensureBrowserFlags,
+} = require("@neuralegion/cypress-har-generator");
+
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+  install(on, config);
+
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    ensureBrowserFlags(browser, launchOptions);
+    return launchOptions;
+  });
+
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on("file:preprocessor", tagify(config));

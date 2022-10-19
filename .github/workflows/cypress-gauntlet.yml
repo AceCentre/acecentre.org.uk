@@ -37,7 +37,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -54,6 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunTwoPost:
@@ -81,7 +82,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -98,6 +99,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunThreePost:
@@ -125,7 +127,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -143,6 +145,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunFourPost:
@@ -170,7 +173,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -187,6 +190,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunFivePost:
@@ -214,7 +218,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -231,6 +235,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunOnePre:
@@ -258,7 +263,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -275,6 +280,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunTwoPre:
@@ -302,7 +308,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -319,6 +325,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunThreePre:
@@ -346,7 +353,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -364,6 +371,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunFourPre:
@@ -391,7 +399,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -408,6 +416,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
 
   GauntletRunFivePre:
@@ -435,7 +444,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -452,4 +461,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0

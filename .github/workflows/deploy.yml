@@ -220,7 +220,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -238,7 +238,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hars-pre-${{ matrix.containers }}
+          path: cypress/hars
 
   DeployNetlify:
     runs-on: ubuntu-latest
@@ -333,7 +339,7 @@ jobs:
             node_modules
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript @neuralegion/cypress-har-generator
 
       - name: Cypress run
         with:
@@ -350,4 +356,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+          CYPRESS_HARS_FOLDERS: "cypress/hars"
         uses: cypress-io/github-action@v4.2.0
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hars-post-${{ matrix.containers }}
+          path: cypress/hars
