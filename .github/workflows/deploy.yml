@@ -245,6 +245,7 @@ jobs:
         with:
           name: hars-pre-${{ matrix.containers }}
           path: cypress/hars
+          retention-days: 15
 
   DeployNetlify:
     runs-on: ubuntu-latest
@@ -363,3 +364,4 @@ jobs:
         with:
           name: hars-post-${{ matrix.containers }}
           path: cypress/hars
+          retention-days: 15
