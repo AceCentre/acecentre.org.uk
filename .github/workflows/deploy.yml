@@ -195,7 +195,7 @@ jobs:
         run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
 
   Cypress:
-    needs: [DeployNetlifyIntegration, PrepareCypressIdPre]
+    needs: [CalculateDeployKey, PrepareCypressIdPre]
     runs-on: ubuntu-latest
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
@@ -224,7 +224,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=${{ needs.DeployNetlifyIntegration.outputs.deploy-url }}
+          config: baseUrl=https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
           record: true
           install: false
           parallel: true
