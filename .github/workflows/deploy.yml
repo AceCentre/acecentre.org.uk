@@ -239,6 +239,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           CYPRESS_HARS_FOLDERS: "cypress/hars"
+          NODE_DEBUG: "cypress-har-generator"
         uses: cypress-io/github-action@v4.2.0
 
       - uses: actions/upload-artifact@v3
