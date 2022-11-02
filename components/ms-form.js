@@ -55,6 +55,13 @@ export const LAACES = {
   title: "LAACES Register",
   height: 2000,
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrMnLk1Na19BMqxLquFD1AKRUMDA0TjE1WVhOQ1BRQ0U0Sk9WWTkyQ1lVRyQlQCN0PWcu",
+}
+  
+export const FEEDBACK = {
+  slug: "general-feedback",
+  title: "Feedback",
+  height: 2000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURUQ4RFRTWFM2OElZNjMwSFM5UUVZRFBSVyQlQCN0PWcu",
 };
 
 export const ALL_FORMS = [
@@ -64,6 +71,7 @@ export const ALL_FORMS = [
   COURSE_EVALUATION,
   INTEREST,
   LAACES,
+  FEEDBACK,
 ];
 
 export const FormModal = ({ children, form, className = "" }) => {

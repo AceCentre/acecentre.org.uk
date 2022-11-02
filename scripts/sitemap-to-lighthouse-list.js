@@ -1,5 +1,5 @@
 const { XMLParser } = require("fast-xml-parser");
-const axios = require("axios").default;
+const axios = require("axios");
 
 const IGNORE = [
   "my-acecentre",

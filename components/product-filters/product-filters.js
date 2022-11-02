@@ -204,22 +204,36 @@ export const ProductFilters = ({
         </div>
         <div className={styles.orderByArea}>
           <p>{`${resourceCount} resources`}</p>
-          <Select
-            width={"50%"}
-            maxWidth={160}
-            className={styles.orderBySelect}
-            variant="unstyled"
-            aria-label="Sort by"
-            {...orderByProps}
-          >
-            {ORDER_BY_OPTIONS.map((orderBy) => {
-              return (
-                <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
-                  {orderBy.title}
-                </option>
-              );
-            })}
-          </Select>
+          {searchText ? (
+            <Select
+              width={"50%"}
+              maxWidth={160}
+              className={styles.orderBySelect}
+              variant="unstyled"
+              aria-label="Sort by"
+              value="relevance"
+              disabled
+            >
+              <option value="relevance">Relevance</option>
+            </Select>
+          ) : (
+            <Select
+              width={"50%"}
+              maxWidth={160}
+              className={styles.orderBySelect}
+              variant="unstyled"
+              aria-label="Sort by"
+              {...orderByProps}
+            >
+              {ORDER_BY_OPTIONS.map((orderBy) => {
+                return (
+                  <option value={orderBy.slug} key={`orderBy-${orderBy.slug}`}>
+                    {orderBy.title}
+                  </option>
+                );
+              })}
+            </Select>
+          )}
         </div>
       </div>
     </>

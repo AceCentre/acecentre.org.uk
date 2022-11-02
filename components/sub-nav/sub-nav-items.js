@@ -189,6 +189,10 @@ export const defaultNavItems = [
         href: "/get-involved",
       },
       {
+        title: "Give your feedback now",
+        href: "/form/general-feedback",
+      },
+      {
         title: "Donate",
         href: "/get-involved/donate",
       },

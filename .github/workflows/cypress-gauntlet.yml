@@ -4,6 +4,8 @@ on: [workflow_dispatch]
 jobs:
   PrepareCypressId:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     if: github.ref == 'refs/heads/main'
     outputs:
       uuid: ${{ steps.uuid.outputs.value }}
@@ -15,6 +17,8 @@ jobs:
   GauntletRunOnePost:
     needs: [PrepareCypressId]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -59,6 +63,8 @@ jobs:
   GauntletRunTwoPost:
     needs: [PrepareCypressId, GauntletRunOnePost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -103,6 +109,8 @@ jobs:
   GauntletRunThreePost:
     needs: [PrepareCypressId, GauntletRunTwoPost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -148,6 +156,8 @@ jobs:
   GauntletRunFourPost:
     needs: [PrepareCypressId, GauntletRunThreePost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -192,6 +202,8 @@ jobs:
   GauntletRunFivePost:
     needs: [PrepareCypressId, GauntletRunFourPost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -236,6 +248,8 @@ jobs:
   GauntletRunOnePre:
     needs: [PrepareCypressId]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -280,6 +294,8 @@ jobs:
   GauntletRunTwoPre:
     needs: [PrepareCypressId, GauntletRunOnePre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106s
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -324,6 +340,8 @@ jobs:
   GauntletRunThreePre:
     needs: [PrepareCypressId, GauntletRunTwoPre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -369,6 +387,8 @@ jobs:
   GauntletRunFourPre:
     needs: [PrepareCypressId, GauntletRunThreePre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -413,6 +433,8 @@ jobs:
   GauntletRunFivePre:
     needs: [PrepareCypressId, GauntletRunFourPre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
