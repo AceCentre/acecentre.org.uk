@@ -4,6 +4,9 @@ on: [workflow_dispatch]
 jobs:
   CypressPostDeploy:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
+
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:

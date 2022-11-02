@@ -197,6 +197,9 @@ jobs:
   Cypress:
     needs: [DeployNetlifyIntegration, PrepareCypressIdPre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
+
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -242,6 +245,9 @@ jobs:
 
   DeployNetlify:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
+
     if: github.ref == 'refs/heads/main'
     needs: [GetUniqueBuildId, CalculateCloudinaryCloud, Cypress, Jest, ESLint]
     outputs:
