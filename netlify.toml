@@ -65,7 +65,12 @@
 
 [[redirects]]
   from = "/privacy"
-  to = "/page/privacy"
+  to = "/page/ace-centre-privacy-policy-3"
+  status = 301
+
+[[redirects]]
+  from = "/page/privacy"
+  to = "/page/ace-centre-privacy-policy-3"
   status = 301
 
 [[redirects]]
