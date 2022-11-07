@@ -137,7 +137,7 @@ context("Moodle", () => {
       );
 
       cy.findByRole("checkbox", {
-        name: "I have read and agree to the website terms and conditions",
+        name: "I have read and agree to the website terms and conditions and privacy policy",
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
