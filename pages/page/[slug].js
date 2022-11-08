@@ -84,34 +84,32 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  for (const page of ALL_PAGES) {
-    if (page.altSlugs.includes(slug.toLowerCase())) {
-      return {
-        redirect: {
-          destination: `/page/${page.slug}`,
-          permanent: true,
-        },
-      };
+export const getStaticProps = withGlobalProps(
+  async ({ params: { slug: urlSlug } }) => {
+    let realSlug = urlSlug;
+
+    for (const page of ALL_PAGES) {
+      if (page.altSlugs.includes(urlSlug.toLowerCase())) {
+        realSlug = page.slug;
+      }
     }
-  }
 
-  const page = await getPage(slug);
+    const page = await getPage(realSlug);
 
-  if (!page) {
-    return { notFound: true };
-  }
+    if (!page) {
+      return { notFound: true };
+    }
 
-  const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
+    const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
 
-  return {
-    props: {
-      slug,
-      page,
-      seo: {
-        title: page.title,
-        description: hardCodedPage.description,
+    return {
+      props: {
+        page,
+        seo: {
+          title: page.title,
+          description: hardCodedPage.description,
+        },
       },
-    },
-  };
-});
+    };
+  }
+);
