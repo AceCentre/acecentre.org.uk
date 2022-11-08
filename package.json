@@ -78,6 +78,7 @@
     "@swc/jest": "0.2.23",
     "@swc/register": "0.1.10",
     "@testing-library/cypress": "8.0.3",
+    "compare-versions": "^5.0.1",
     "cypress": "9.7.0",
     "cypress-tags": "1.1.2",
     "eslint": "8.26.0",
