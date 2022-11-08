@@ -2,6 +2,7 @@ const { App } = require("@slack/bolt");
 const got = require("got");
 const { parseHTML } = require("linkedom");
 const { request, gql } = require("graphql-request");
+const { compareVersions } = require("compare-versions");
 
 const script = async () => {
   try {
@@ -27,15 +28,18 @@ const script = async () => {
     );
     const newestGeneralVersion = await getNewestGeneralVersion();
 
-    if (newestGeneralVersion !== currentGeneralVersion.version) {
+    if (
+      compareVersions(currentGeneralVersion.version, newestGeneralVersion) ===
+      -1
+    ) {
       await sendSlackMessage(
-        `EDWISER PLUGIN OUTDATED: There is a new version of the general edwiser plugin available. The newest version available is '${newestGeneralVersion}' but we are on '${currentGeneralVersion.option_value}'.`
+        `EDWISER PLUGIN OUTDATED: There is a new version of the general edwiser plugin available. The newest version available is '${newestGeneralVersion}' but we are on '${currentGeneralVersion.version}'.`
       );
     }
 
     await checkVersionOfEdwiserPlugin({
       name: "Edwiser Bridge Single Sign On",
-      url: "https://edwiser.org/bridge/extensions/single-sign-on-2",
+      url: "https://edwiser.org/bridge/extensions/single-sign-on",
       allPlugins,
     });
 
@@ -61,9 +65,9 @@ const checkVersionOfEdwiserPlugin = async ({ name, url, allPlugins }) => {
 
   const newestVersion = await getNewestVersionOfEdwiserPlugin(url);
 
-  if (newestVersion !== currentVersion.version) {
+  if (compareVersions(currentVersion.version, newestVersion) === -1) {
     await sendSlackMessage(
-      `EDWISER PLUGIN OUTDATED: There is a new version of the ${name} Plugin available. The newest version available is '${newestVersion}' and we are on '${currentVersion.option_value}'`
+      `EDWISER PLUGIN OUTDATED: There is a new version of the ${name} Plugin available. The newest version available is '${newestVersion}' and we are on '${currentVersion.version}'`
     );
   }
 };
@@ -109,7 +113,5 @@ const sendSlackMessage = async (message) => {
   });
   console.log("Sent a slack message");
 };
-
-script();
 
 module.exports = script;
