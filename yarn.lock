@@ -3831,10 +3831,10 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@stripe/stripe-js@1.42.1":
-  version "1.42.1"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.42.1.tgz#09f303fe298f81e5dc618f0df88bf929d758fa0f"
-  integrity sha512-5H7P7rVNDMdiJCUKsKXRUyr6IjZ4/9f8FB62NCa5O4rDftRfs4u2dPjjHs/tIs4OLeBB6oSzJIkE7cPr4ykPHg==
+"@stripe/stripe-js@1.43.0":
+  version "1.43.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.43.0.tgz#fe015a9092ee9a92869bba2d179871b7ce180899"
+  integrity sha512-sAct4DlbiZYWYjzco83O9O0Ph/kHdIBBi8+hlywLrbcZcgCxrD8hcJW7QTtftxjpZff8y1VYLi8qoadBeKa8Ew==
 
 "@swc/core-darwin-arm64@1.3.14":
   version "1.3.14"
