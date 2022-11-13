@@ -56,7 +56,7 @@
     "next": "12.3.3",
     "next-iron-session": "4.2.0",
     "next-transpile-modules": "9.1.0",
-    "node-fetch": "3.2.10",
+    "node-fetch": "3.3.0",
     "nprogress": "0.2.0",
     "polyfill-object.fromentries": "1.0.1",
     "posthog-js": "1.34.0",
