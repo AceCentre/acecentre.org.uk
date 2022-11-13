@@ -55,7 +55,7 @@
     "lodash": "4.17.21",
     "next": "12.3.3",
     "next-iron-session": "4.2.0",
-    "next-transpile-modules": "9.1.0",
+    "next-transpile-modules": "10.0.0",
     "node-fetch": "3.3.0",
     "nprogress": "0.2.0",
     "polyfill-object.fromentries": "1.0.1",
