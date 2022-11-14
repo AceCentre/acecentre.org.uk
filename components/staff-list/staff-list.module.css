@@ -3,6 +3,10 @@
   object-fit: cover;
 }
 
+.modalWorkingPattern {
+  margin: 0;
+}
+
 .yellowGradient {
   background: linear-gradient(#fffae1, #f6eec5);
 }
