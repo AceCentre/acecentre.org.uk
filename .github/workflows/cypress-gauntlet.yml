@@ -49,6 +49,13 @@ jobs:
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
+
   GauntletRunTwoPost:
     needs: [PrepareCypressId, GauntletRunOnePost]
     runs-on: ubuntu-latest
@@ -84,6 +91,13 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
 
   GauntletRunThreePost:
     needs: [PrepareCypressId, GauntletRunTwoPost]
@@ -122,6 +136,13 @@ jobs:
           RTL_SKIP_AUTO_CLEANUP: true
         uses: cypress-io/github-action@v4.2.0
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
+
   GauntletRunFourPost:
     needs: [PrepareCypressId, GauntletRunThreePost]
     runs-on: ubuntu-latest
@@ -157,6 +178,13 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
 
   GauntletRunFivePost:
     needs: [PrepareCypressId, GauntletRunFourPost]
@@ -194,6 +222,13 @@ jobs:
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
+
   GauntletRunOnePre:
     needs: [PrepareCypressId]
     runs-on: ubuntu-latest
@@ -229,6 +264,12 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
 
   GauntletRunTwoPre:
     needs: [PrepareCypressId, GauntletRunOnePre]
@@ -265,6 +306,13 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
 
   GauntletRunThreePre:
     needs: [PrepareCypressId, GauntletRunTwoPre]
@@ -303,6 +351,13 @@ jobs:
           RTL_SKIP_AUTO_CLEANUP: true
         uses: cypress-io/github-action@v4.2.0
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
+
   GauntletRunFourPre:
     needs: [PrepareCypressId, GauntletRunThreePre]
     runs-on: ubuntu-latest
@@ -339,6 +394,13 @@ jobs:
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
+
   GauntletRunFivePre:
     needs: [PrepareCypressId, GauntletRunFourPre]
     runs-on: ubuntu-latest
@@ -374,3 +436,10 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
         uses: cypress-io/github-action@v4.2.0
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: har-files-${{ github.job }}
+          path: cypress/hars
+          retention-days: 5
