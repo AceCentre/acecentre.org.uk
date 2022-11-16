@@ -3548,18 +3548,7 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
   integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
 
-"@react-aria/focus@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.9.0.tgz#fa4478eebdc3c199a0529470f1d7b36608ef0d10"
-  integrity sha512-DwesjEjWjFfwAwzv9qeqkyKZNPAYmPa3UrygxzmXeKEg2JpaACGZPxRcmT2EFJFEDbX8daQDEeRGyLO49o5agg==
-  dependencies:
-    "@babel/runtime" "^7.6.2"
-    "@react-aria/interactions" "^3.12.0"
-    "@react-aria/utils" "^3.14.0"
-    "@react-types/shared" "^3.15.0"
-    clsx "^1.1.1"
-
-"@react-aria/focus@^3.10.0":
+"@react-aria/focus@3.10.0", "@react-aria/focus@^3.10.0":
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.10.0.tgz#12d85d46f58590a915009e57bddb2d90b56f5836"
   integrity sha512-idI7Etgh6y2BYi3X4d+EuUpzR7gPZ94Lf/0UNnVyMkDM9fzcdz/8DCBt0qKOff24HlaLE1rmREt0+iTR/qRgbA==
