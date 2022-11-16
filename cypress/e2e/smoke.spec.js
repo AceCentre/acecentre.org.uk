@@ -6,8 +6,6 @@ describe("Smoke", () => {
   });
 
   afterEach(() => {
-    console.log("AFTER", harName);
-
     cy.saveHar({ fileName: `${harName}.har` });
   });
 

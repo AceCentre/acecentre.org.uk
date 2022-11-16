@@ -5,12 +5,16 @@ const VALID_PASSWORD = "securepassword";
 
 context("Paid resources", () => {
   let newEmail;
+  let harName = "unknown.har";
 
   beforeEach(() => {
     newEmail = null;
+    cy.recordHar();
   });
 
   afterEach(async () => {
+    cy.saveHar({ fileName: `${harName}.har` });
+
     await deleteUser(newEmail, "internal", "checkout-when-signed-in");
   });
 
@@ -18,6 +22,8 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "Add a product to cart, checkout when already signed in",
     () => {
+      harName = "checkout-when-signed-in";
+
       // Register for a new account
       newEmail = validEmail("paid-resources");
       cy.visit("");

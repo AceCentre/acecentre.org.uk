@@ -5,12 +5,16 @@ const VALID_PASSWORD = "securepassword";
 
 context("Paid resources", () => {
   let newEmail;
+  let harName = "unknown.har";
 
   beforeEach(() => {
     newEmail = null;
+    cy.recordHar();
   });
 
   afterEach(async () => {
+    cy.saveHar({ fileName: `${harName}.har` });
+
     await deleteUser(newEmail, "internal", "checkout-new-account");
   });
 
@@ -18,6 +22,7 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "can add product to cart, and checkout with a new account",
     () => {
+      harName = "checkout-new-account";
       newEmail = validEmail("checkout-new-account");
 
       cy.visit("/resources/simple-charts-to-edit-in-word");
