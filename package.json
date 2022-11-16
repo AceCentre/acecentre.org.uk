@@ -79,6 +79,7 @@
     "@swc/register": "0.1.10",
     "cypress": "10.11.0",
     "@testing-library/cypress": "8.0.7",
+    "@neuralegion/cypress-har-generator": "^5.3.4",
     "compare-versions": "^5.0.1",
     "cypress-tags": "1.1.2",
     "eslint": "8.27.0",
