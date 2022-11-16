@@ -4,6 +4,8 @@
 # Cache
 .static-cache
 
+/cypress/hars
+
 # Cypress
 artifacts
 

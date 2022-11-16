@@ -3,6 +3,9 @@ const { install } = require("@neuralegion/cypress-har-generator");
 
 module.exports = defineConfig({
   screenshotsFolder: "./artifacts/screenshots",
+  env: {
+    hars_folders: "cypress/hars",
+  },
   videosFolder: "./artifacts/videos",
   projectId: "2da7p6",
   retries: 1,
