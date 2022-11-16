@@ -1,19 +1,19 @@
-context("Smoke", () => {
-  it(["pre-deploy"], "loads the webpage without any issues", () => {
+describe("Smoke", () => {
+  let harName = "unknown.har";
+
+  beforeEach(() => {
     cy.recordHar();
-
-    cy.visit("/");
-    cy.get("#__next").should("exist");
-
-    cy.saveHar({ fileName: "smoke-1.har" });
   });
 
-  it(["pre-deploy"], "also loads without issue, to test multiple hars", () => {
-    cy.recordHar();
+  afterEach(() => {
+    console.log("AFTER", harName);
 
+    cy.saveHar({ fileName: `${harName}.har` });
+  });
+
+  it(["pre-deploy"], "loads the webpage without any issues", () => {
+    harName = "home";
     cy.visit("/");
     cy.get("#__next").should("exist");
-
-    cy.saveHar({ fileName: "smoke-2.har" });
   });
 });
