@@ -3,12 +3,16 @@ import { validEmail } from "../support/valid-email";
 
 context("Checkout", () => {
   let newEmail;
+  let harName = "unknown.har";
 
   beforeEach(() => {
     newEmail = null;
+    cy.recordHar();
   });
 
   afterEach(async () => {
+    cy.saveHar({ fileName: `${harName}.har` });
+
     await deleteUser(newEmail, "internal", "basic-checkout");
   });
 
@@ -16,6 +20,7 @@ context("Checkout", () => {
     ["pre-deploy"],
     "Buys a single paid virtual product, on an existing account",
     () => {
+      harName = "checkout.har";
       // Register
       newEmail = validEmail();
       const password = "password";

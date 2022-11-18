@@ -17,8 +17,11 @@ context("Moodle", () => {
     let delegatedEmail;
     let bulkEmailOne;
     let bulkEmailTwo;
+    let harName = "unknown.har";
 
     beforeEach(async () => {
+      cy.recordHar();
+
       newEmail = null;
       couponId = null;
       newEmail = null;
@@ -32,6 +35,8 @@ context("Moodle", () => {
     });
 
     afterEach(() => {
+      cy.saveHar({ fileName: `${harName}.har` });
+
       cy.wrap(null, { timeout: 60000 }).then(async () => {
         await deleteCoupon(couponId);
       });
@@ -62,6 +67,8 @@ context("Moodle", () => {
     });
 
     it(["post-deploy"], "Buy a course for a bulk group", () => {
+      harName = "bulk.har";
+
       Cypress.on("uncaught:exception", (err) => {
         if (err.message.includes("theme_boost")) return false;
         if (err.message.includes("Course or activity not accessible."))

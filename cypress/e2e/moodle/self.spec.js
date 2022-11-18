@@ -19,6 +19,8 @@ context("Moodle", () => {
     let bulkEmailTwo;
 
     beforeEach(async () => {
+      cy.recordHar();
+
       newEmail = null;
       couponId = null;
       newEmail = null;
@@ -32,6 +34,8 @@ context("Moodle", () => {
     });
 
     afterEach(() => {
+      cy.saveHar({ fileName: "self.har" });
+
       cy.wrap(null, { timeout: 60000 }).then(async () => {
         await deleteCoupon(couponId);
       });
@@ -65,8 +69,6 @@ context("Moodle", () => {
       ["post-deploy"],
       "Buy a course for a new user, check they are enrolled on the course",
       () => {
-        cy.recordHar();
-
         Cypress.on("uncaught:exception", (err) => {
           if (err.message.includes("theme_boost")) return false;
           if (err.message.includes("Course or activity not accessible."))
@@ -166,8 +168,6 @@ context("Moodle", () => {
 
         // Wait for 20 seconds to allow the page to fully load
         cy.wait(20000);
-
-        cy.saveHar({ fileName: "self.har" });
       }
     );
   });
