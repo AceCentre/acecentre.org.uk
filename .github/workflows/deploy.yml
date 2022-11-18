@@ -244,6 +244,7 @@ jobs:
         uses: cypress-io/github-action@v4.2.0
 
       - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: har-files-${{ github.job }}
@@ -366,6 +367,7 @@ jobs:
         uses: cypress-io/github-action@v4.2.0
 
       - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: har-files-${{ github.job }}
