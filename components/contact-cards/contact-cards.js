@@ -51,6 +51,7 @@ export const ContactCards = () => {
             <UsefulLink href="/information-appointments">
               Information appointments
             </UsefulLink>
+            <UsefulLink href="/feedback">Give us feedback</UsefulLink>
           </ul>
         </Card>
       </ul>
