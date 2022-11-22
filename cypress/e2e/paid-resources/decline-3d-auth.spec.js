@@ -22,7 +22,7 @@ context("Paid resources", () => {
     ["pre-deploy"],
     "can add product to cart, and checkout with a new account, decline 3D Auth",
     () => {
-      harName = "decline-3d-auth.har";
+      harName = "decline-3d-auth";
 
       newEmail = validEmail("decline-3d-auth");
       cy.visit("/resources/simple-charts-to-edit-in-word");

@@ -7,10 +7,12 @@ context("Paid resources", () => {
   let newEmail;
 
   beforeEach(() => {
+    cy.recordHar();
     newEmail = null;
   });
 
   afterEach(async () => {
+    cy.saveHar("login-then-add.har");
     await deleteUser(newEmail, "internal", "login-then-add");
   });
 

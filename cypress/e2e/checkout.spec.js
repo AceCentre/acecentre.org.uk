@@ -20,7 +20,7 @@ context("Checkout", () => {
     ["pre-deploy"],
     "Buys a single paid virtual product, on an existing account",
     () => {
-      harName = "checkout.har";
+      harName = "checkout";
       // Register
       newEmail = validEmail();
       const password = "password";

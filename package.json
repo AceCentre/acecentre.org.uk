@@ -13,6 +13,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:integration:open": "CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress open --config retries=0",
+    "cypress:integration:smoke": "rm -rf cypress/hars && CYPRESS_BASE_URL=https://integration--acecentreorguk.netlify.app cypress run --spec \"cypress/e2e/smoke.spec.js\" --config retries=0 --browser chrome",
     "cypress:prod:open": "CYPRESS_BASE_URL=https://acecentre.org.uk cypress open",
     "lighthouse": "lhci autorun",
     "plop": "plop",
