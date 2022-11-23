@@ -19,24 +19,38 @@ export default function Contact() {
       <main id="mainContent">
         <PageTitle
           heading="Information appointment"
-          description="Book in for an informal chat about your needs with members of the Ace Centre team."
+          description="Book an informal chat to discuss your AAC/AT needs"
         />
         <div className={styles.container}>
           <p>
-            Please note that this appointment is NOT an assessment, but instead
-            it is an opportunity to reflect on a range of AAC / AT-related
-            issues with members of our service delivery team.
+            Our Information Appointments are offered on the belief that
+            information should be accessible to all, up-to-date, unbiased and,
+            ideally, free at source to people in need.{" "}
           </p>
           <p>
-            At Ace Centre, we believe that information should be accessible to
-            all, up-to-date, unbiased and, ideally, free at source to people in
-            need.
+            Hour long online meetings with Ace Centre clinical staff are
+            provided twice a month and are completely free. They are an
+            opportunity to meet informally with our staff to discuss your needs.
+            Please note, these sessions do not provide a full AT/AAC assessment.{" "}
+            <Link href="/services/assessments">
+              Click here for more information about assessments.
+            </Link>
           </p>
+
           <p>
-            Please note that these appointments are now on offer face-to-face or
-            virtually. We can also offer a hybrid appointment allowing some
-            people to attend in person and others via video call.
+            These appointments are also offered to those who have had an
+            unsuccessful referral to our Specialised AAC Services. The session
+            can be used to discuss other options for funding, to gather more
+            information to help with future referrals to Ace Centre and/or to
+            consider other possible next steps.
           </p>
+
+          <p>
+            So whether you are new to AAC/AT and trying to find a starting
+            point, or you are already using AAC/AT and want to know how to move
+            on, book in for a video-call session with our staff.
+          </p>
+          {/* 
           <p>
             <Link href="/contact/oldham">
               <a>
@@ -50,19 +64,19 @@ export default function Contact() {
                 See directions to our <strong>South</strong> office here.
               </a>
             </Link>
-          </p>
+          </p> */}
           <h2>Booking an appointment</h2>
           <p>
-            To book your appointment complete the form below. Follow the
-            following steps:
+            To book your appointment complete the form below. Follow these
+            steps:
           </p>
           <ol>
             <li>
-              Select the time and date that you want to have the appointment. It
-              will automatically select the next available date in the selected
-              month.
+              Select the month you want to have the appointment. Dates with
+              available appointments will be shown. Select the time that works
+              for you.
             </li>
-            <li>Fill in your details so we can contact you if we need to.</li>
+            <li>Fill in your details so we can contact you.</li>
             <li>
               Answer all the questions about the appointment so we can come
               prepared with all the information you might need
