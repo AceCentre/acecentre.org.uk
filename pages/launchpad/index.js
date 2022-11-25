@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { LaunchpadList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidateNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getTemplates } from "../../lib/launchpad";
 
 import styles from "../../styles/launchpad.module.css";
@@ -29,17 +29,15 @@ export default function Launchpad({ templates }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidateNoRevalidate(
-  async () => {
-    const templates = await getTemplates();
+export const getServerSideProps = withGlobalPropsNoRevalidate(async () => {
+  const templates = await getTemplates();
 
-    return {
-      props: {
-        templates,
-        seo: {
-          dontIndex: true,
-        },
+  return {
+    props: {
+      templates,
+      seo: {
+        dontIndex: true,
       },
-    };
-  }
-);
+    },
+  };
+});

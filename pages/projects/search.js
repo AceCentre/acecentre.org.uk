@@ -3,7 +3,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidateNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 import Fuse from "fuse.js";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -29,37 +29,35 @@ export default function SearchProjects({ allProjects, searchText = "" }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidateNoRevalidate(
-  async (req) => {
-    const allProjects = await getFullProjects();
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+  const allProjects = await getFullProjects();
 
-    const searchText = req.query.searchText || false;
+  const searchText = req.query.searchText || false;
 
-    if (!searchText) {
-      return {
-        redirect: {
-          destination: "/projects",
-          permanent: false,
-        },
-      };
-    }
-
-    if (!allProjects) throw new Error("Could not get all the projects");
-
-    const fuse = new Fuse(allProjects, { keys: ["content", "title"] });
-    const results = fuse.search(searchText);
-    const filteredProjects = results.map((result) => result.item);
-
+  if (!searchText) {
     return {
-      props: {
-        allProjects: filteredProjects,
-        searchText,
-        seo: {
-          title: "Projects",
-          description:
-            "Ace Centre works with companies, universities and other charities to investigate issues, trial new products and find solutions for individuals.",
-        },
+      redirect: {
+        destination: "/projects",
+        permanent: false,
       },
     };
   }
-);
+
+  if (!allProjects) throw new Error("Could not get all the projects");
+
+  const fuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const results = fuse.search(searchText);
+  const filteredProjects = results.map((result) => result.item);
+
+  return {
+    props: {
+      allProjects: filteredProjects,
+      searchText,
+      seo: {
+        title: "Projects",
+        description:
+          "Ace Centre works with companies, universities and other charities to investigate issues, trial new products and find solutions for individuals.",
+      },
+    },
+  };
+});

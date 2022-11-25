@@ -2,7 +2,7 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidateNoRevalidate } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { BackToLink } from "../components/back-to-link/back-to-link";
@@ -80,87 +80,85 @@ export default function Search({
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidateNoRevalidate(
-  async (req) => {
-    const searchText = req.query.searchText || false;
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+  const searchText = req.query.searchText || false;
 
-    if (!searchText) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      };
-    }
-
-    const allPosts = await getAllFullPosts();
-    const blogFuse = new Fuse(allPosts, {
-      keys: ["content", "title"],
-    });
-    const blogResults = blogFuse.search(searchText);
-    const filteredPosts = blogResults.map((result) => result.item);
-
-    const allProjects = await getFullProjects();
-    const projectsFuse = new Fuse(allProjects, { keys: ["content", "title"] });
-    const projectsResult = projectsFuse.search(searchText);
-    const filteredProjects = projectsResult.map((result) => result.item);
-
-    const allProducts = await getAllProducts();
-    const productsFuse = new Fuse(allProducts, {
-      keys: ["name", "description", "shortDescription"],
-      includeScore: true,
-    });
-    const productsResult = productsFuse
-      .search(searchText)
-      .reverse()
-      .sort((a, b) => {
-        const aName = a.item.name.toLowerCase();
-        const bName = b.item.name.toLowerCase();
-
-        if (
-          aName.includes(searchText.toLowerCase()) &&
-          !bName.includes(searchText.toLowerCase())
-        ) {
-          return -1;
-        }
-
-        if (
-          aName.includes(searchText.toLowerCase()) &&
-          !bName.includes(searchText.toLowerCase())
-        ) {
-          return -1;
-        }
-
-        return 0;
-      });
-
-    const filteredProducts = productsResult.map((result) => result.item);
-
-    const allCourses = await getAllCourses(true);
-    const coursesFuse = new Fuse(allCourses, {
-      keys: ["name", "description", "shortDescription"],
-    });
-    const courseResults = coursesFuse.search(searchText);
-    const filteredCourses = courseResults.map((result) => result.item);
-
+  if (!searchText) {
     return {
-      props: {
-        blogPosts: filteredPosts.slice(0, 4),
-        projects: filteredProjects.slice(0, 4),
-        products: filteredProducts
-          .map((product) => ({
-            title: htmlDecode(product.name),
-            mainCategoryName: product.category.name,
-            featuredImage: product.image,
-            ...product,
-          }))
-          .slice(0, 4),
-        searchText,
-        courses: filteredCourses.slice(0, 4),
+      redirect: {
+        destination: "/",
+        permanent: false,
       },
     };
   }
-);
+
+  const allPosts = await getAllFullPosts();
+  const blogFuse = new Fuse(allPosts, {
+    keys: ["content", "title"],
+  });
+  const blogResults = blogFuse.search(searchText);
+  const filteredPosts = blogResults.map((result) => result.item);
+
+  const allProjects = await getFullProjects();
+  const projectsFuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const projectsResult = projectsFuse.search(searchText);
+  const filteredProjects = projectsResult.map((result) => result.item);
+
+  const allProducts = await getAllProducts();
+  const productsFuse = new Fuse(allProducts, {
+    keys: ["name", "description", "shortDescription"],
+    includeScore: true,
+  });
+  const productsResult = productsFuse
+    .search(searchText)
+    .reverse()
+    .sort((a, b) => {
+      const aName = a.item.name.toLowerCase();
+      const bName = b.item.name.toLowerCase();
+
+      if (
+        aName.includes(searchText.toLowerCase()) &&
+        !bName.includes(searchText.toLowerCase())
+      ) {
+        return -1;
+      }
+
+      if (
+        aName.includes(searchText.toLowerCase()) &&
+        !bName.includes(searchText.toLowerCase())
+      ) {
+        return -1;
+      }
+
+      return 0;
+    });
+
+  const filteredProducts = productsResult.map((result) => result.item);
+
+  const allCourses = await getAllCourses(true);
+  const coursesFuse = new Fuse(allCourses, {
+    keys: ["name", "description", "shortDescription"],
+  });
+  const courseResults = coursesFuse.search(searchText);
+  const filteredCourses = courseResults.map((result) => result.item);
+
+  return {
+    props: {
+      blogPosts: filteredPosts.slice(0, 4),
+      projects: filteredProjects.slice(0, 4),
+      products: filteredProducts
+        .map((product) => ({
+          title: htmlDecode(product.name),
+          mainCategoryName: product.category.name,
+          featuredImage: product.image,
+          ...product,
+        }))
+        .slice(0, 4),
+      searchText,
+      courses: filteredCourses.slice(0, 4),
+    },
+  };
+});
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

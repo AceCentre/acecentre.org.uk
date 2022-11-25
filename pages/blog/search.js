@@ -4,7 +4,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidateNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import Fuse from "fuse.js";
 
@@ -29,34 +29,32 @@ export default function SearchBlog({ allPosts, searchText }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidateNoRevalidate(
-  async (req) => {
-    const allPosts = await getAllFullPosts();
-    const searchText = req.query.searchText || false;
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+  const allPosts = await getAllFullPosts();
+  const searchText = req.query.searchText || false;
 
-    if (!searchText) {
-      return {
-        redirect: {
-          destination: "/projects",
-          permanent: false,
-        },
-      };
-    }
-
-    const fuse = new Fuse(allPosts, { keys: ["content", "title"] });
-    const results = fuse.search(searchText);
-    const filteredPosts = results.map((result) => result.item);
-
+  if (!searchText) {
     return {
-      props: {
-        allPosts: filteredPosts,
-        searchText,
-        seo: {
-          title: "Blog",
-          description:
-            "Keep up to date with news on what we're up to and how you can get involved",
-        },
+      redirect: {
+        destination: "/projects",
+        permanent: false,
       },
     };
   }
-);
+
+  const fuse = new Fuse(allPosts, { keys: ["content", "title"] });
+  const results = fuse.search(searchText);
+  const filteredPosts = results.map((result) => result.item);
+
+  return {
+    props: {
+      allPosts: filteredPosts,
+      searchText,
+      seo: {
+        title: "Blog",
+        description:
+          "Keep up to date with news on what we're up to and how you can get involved",
+      },
+    },
+  };
+});
