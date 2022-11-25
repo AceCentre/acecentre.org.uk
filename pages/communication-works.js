@@ -2,7 +2,7 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 import Avatar from "@material-ui/core/Avatar";
 
@@ -115,7 +115,7 @@ export default function CommunicationWorks({ page }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const page = await getPage("communication-works");
 
   return {

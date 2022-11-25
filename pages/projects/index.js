@@ -5,7 +5,7 @@ import { ProjectsSearch } from "../../components/projects-search/projects-search
 import { ResearchCta } from "../../components/research-cta/research-cta";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/projects.module.css";
@@ -34,7 +34,7 @@ export default function Home({ latestProjects }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const latestProjects = await getAllProjects();
 
   if (!latestProjects) throw new Error("Could not get the latest projects");

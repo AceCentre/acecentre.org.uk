@@ -7,7 +7,7 @@ import { VideoWithCardCover } from "../components/video-with-card-cover/video-wi
 import { WhyWorkAtAce } from "../components/why-work-at-ace/why-work-at-ace";
 import { WorkingAtAce } from "../components/working-at-ace/working-at-ace";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { getAllJobs } from "../lib/jobs";
 
 import styles from "../styles/work-with-us.module.css";
@@ -42,7 +42,7 @@ export default function Careers({ allJobs }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allJobs = await getAllJobs();
 
   return {

@@ -4,7 +4,7 @@ import { PageTitle } from "../../../components/page-title/page-title";
 import { ServicesGrid } from "../../../components/services-grid/services-grid";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalProps } from "../../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
 export default function NHSLanding() {
   const { currentYear } = useGlobalProps();
@@ -37,8 +37,7 @@ const gridItems = [
     href: "/services/nhs/laaces",
     image: {
       src: "/services/laaces.jpg",
-      alt:
-        "Ace centre employee showing a client how to use a communication device",
+      alt: "Ace centre employee showing a client how to use a communication device",
     },
   },
   {
@@ -51,7 +50,7 @@ const gridItems = [
   },
 ];
 
-export const getStaticProps = withGlobalProps(() => {
+export const getStaticProps = withGlobalPropsNoRevalidate(() => {
   return {
     props: {
       seo: {

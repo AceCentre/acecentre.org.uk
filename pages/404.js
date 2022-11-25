@@ -3,7 +3,7 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 // pages/404.js
 export default function Custom404() {
@@ -47,4 +47,4 @@ export default function Custom404() {
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalPropsNoRevalidate();

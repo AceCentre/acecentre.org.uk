@@ -1,7 +1,7 @@
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalProps } from "../../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { getAllStories } from "../../../lib/story/get-story";
 import { PageTitle } from "../../../components/page-title/page-title";
@@ -51,30 +51,32 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allStories = await getAllStories();
+export const getStaticProps = withGlobalPropsNoRevalidate(
+  async ({ params: { slug } }) => {
+    const allStories = await getAllStories();
 
-  if (!allStories) throw new Error("Could not get all the stories");
+    if (!allStories) throw new Error("Could not get all the stories");
 
-  const currentStory = allStories.find((project) => project.slug === slug);
+    const currentStory = allStories.find((project) => project.slug === slug);
 
-  if (!currentStory) {
-    return { notFound: true };
-  }
+    if (!currentStory) {
+      return { notFound: true };
+    }
 
-  const featuredStories = allStories
-    .filter((story) => story.slug !== slug)
-    .slice(0, 3);
+    const featuredStories = allStories
+      .filter((story) => story.slug !== slug)
+      .slice(0, 3);
 
-  return {
-    props: {
-      story: currentStory,
-      featuredStories,
-      seo: {
-        title: currentStory.title,
-        description: currentStory.shortDescription,
-        image: currentStory.image,
+    return {
+      props: {
+        story: currentStory,
+        featuredStories,
+        seo: {
+          title: currentStory.title,
+          description: currentStory.shortDescription,
+          image: currentStory.image,
+        },
       },
-    },
-  };
-});
+    };
+  }
+);
