@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
@@ -179,7 +179,7 @@ const ChangingPlaceImage = ({ src, description }) => {
   );
 };
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   return {
     props: {
       seo: {

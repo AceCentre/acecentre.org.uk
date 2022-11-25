@@ -4,7 +4,7 @@ import { FormModal, INFORMATION_RESERVE } from "../components/ms-form";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import Link from "next/link";
 import styles from "../styles/information-appointments.module.css";
 
@@ -131,7 +131,7 @@ export default function Contact() {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   return {
     props: {
       seo: {

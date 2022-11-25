@@ -7,7 +7,7 @@ import { ResourcesSearch } from "../../components/resources-search/resources-sea
 import { ResourcesTicks } from "../../components/resources-ticks/resources-ticks";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProductsByPopularity } from "../../lib/products/get-products";
 
@@ -55,7 +55,7 @@ export default function Resources({
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
     title: htmlDecode(product.name),

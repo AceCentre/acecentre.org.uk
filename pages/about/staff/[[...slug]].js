@@ -11,7 +11,7 @@ import { PageTitle } from "../../../components/page-title/page-title";
 import { StaffList } from "../../../components/staff-list/staff-list";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalProps } from "../../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 import { getAllStaff } from "../../../lib/staff/get-staff";
 
 export default function StaffPage({ allStaff }) {
@@ -50,7 +50,7 @@ export const getStaticPaths = async () => {
   return { paths: [{ params: { slug: [] } }, ...paths], fallback: false };
 };
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allStaff = await getAllStaff();
 
   return {

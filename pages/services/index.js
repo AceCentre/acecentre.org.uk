@@ -4,7 +4,7 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { ServicesGrid } from "../../components/services-grid/services-grid";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 export default function ServicesLanding() {
   const { currentYear } = useGlobalProps();
@@ -23,7 +23,7 @@ export default function ServicesLanding() {
   );
 }
 
-export const getStaticProps = withGlobalProps(() => {
+export const getStaticProps = withGlobalPropsNoRevalidate(() => {
   return {
     props: {
       seo: {

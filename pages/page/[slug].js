@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getPage } from "../../lib/generic-pages/get-page";
@@ -84,7 +84,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(
+export const getStaticProps = withGlobalPropsNoRevalidate(
   async ({ params: { slug: urlSlug } }) => {
     let realSlug = urlSlug;
 

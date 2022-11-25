@@ -3,7 +3,7 @@ import { Footer } from "../components/footer/footer";
 import { RegisterCheckout } from "../components/login-and-register-boxes/login-and-register-boxes";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 export default function LoginPage() {
   const { currentYear } = useGlobalProps();
@@ -21,4 +21,4 @@ export default function LoginPage() {
   );
 }
 
-export const getStaticProps = withGlobalProps();
+export const getStaticProps = withGlobalPropsNoRevalidate();

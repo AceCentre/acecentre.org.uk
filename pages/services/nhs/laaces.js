@@ -4,7 +4,7 @@ import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalProps } from "../../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
 // import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Avatar from "@material-ui/core/Avatar";
@@ -268,7 +268,7 @@ export default function Laaces({ gettingStartedResources }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const featuredStory = await getSimpleStory("paul");
 
   const products = await getAllProducts();

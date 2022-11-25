@@ -4,7 +4,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
 
 export default function AllProjects({ allProjects }) {
@@ -28,7 +28,7 @@ export default function AllProjects({ allProjects }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allProjects = await getAllProjects();
   if (!allProjects) throw new Error("Could not get the latest projects");
 

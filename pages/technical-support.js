@@ -3,7 +3,7 @@ import { Footer } from "../components/footer/footer";
 
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { PageTitle } from "../components/page-title/page-title";
 import { HowCanWeHelpDropdown } from "../components/how-can-we-help-dropdown/how-can-we-help-dropdown";
 import { StillHavingProblems } from "../components/still-having-problems/still-having-problems";
@@ -29,7 +29,7 @@ export default function TechnicalSupport() {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   return {
     props: {
       seo: {

@@ -3,7 +3,7 @@ import { Footer } from "../components/footer/footer";
 
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { PageTitle } from "../components/page-title/page-title";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -114,7 +114,7 @@ const Wrapper = ({ root, children }) => {
   }
 };
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   return {
     props: {
       seo: {
