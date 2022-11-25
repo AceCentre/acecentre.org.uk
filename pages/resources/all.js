@@ -6,7 +6,7 @@ import { ProductFilters } from "../../components/product-filters/product-filters
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidateNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
@@ -49,60 +49,58 @@ export default function AllResources({
 }
 
 // This will run every page run
-export const getServerSideProps = withGlobalPropsNoRevalidateNoRevalidate(
-  async (req) => {
-    const page = req.query.page || 1;
-    const searchText = req.query.searchText || "";
-    const category = req.query.category || "";
-    const subcategory = req.query.subcategory || "";
-    const priceRange = req.query.pricerange || "";
-    const orderBy = req.query.orderby || ORDER_BY_OPTIONS[0].slug;
-    const productsPerPage = 20;
+export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+  const page = req.query.page || 1;
+  const searchText = req.query.searchText || "";
+  const category = req.query.category || "";
+  const subcategory = req.query.subcategory || "";
+  const priceRange = req.query.pricerange || "";
+  const orderBy = req.query.orderby || ORDER_BY_OPTIONS[0].slug;
+  const productsPerPage = 20;
 
-    const products = await getAllProducts();
-    const productCategories = await getAllProductCategories();
+  const products = await getAllProducts();
+  const productCategories = await getAllProductCategories();
 
-    const {
-      results: filteredProducts,
+  const {
+    results: filteredProducts,
+    pageCount,
+    totalResourcesCount,
+  } = filterProducts(products, productCategories, {
+    page,
+    productsPerPage,
+    searchText,
+    category,
+    subcategory,
+    priceRange,
+    orderBy,
+  });
+
+  const resources = filteredProducts.map((product) => ({
+    title: htmlDecode(product.name),
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
+    ...product,
+  }));
+  return {
+    props: {
+      resources,
       pageCount,
-      totalResourcesCount,
-    } = filterProducts(products, productCategories, {
-      page,
-      productsPerPage,
+      currentPage: page,
       searchText,
-      category,
-      subcategory,
-      priceRange,
-      orderBy,
-    });
-
-    const resources = filteredProducts.map((product) => ({
-      title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
-      featuredImage: product.image,
-      ...product,
-    }));
-    return {
-      props: {
-        resources,
-        pageCount,
-        currentPage: page,
-        searchText,
-        totalResourcesCount,
-        productCategories,
-        selectedCategory: category,
-        selectedSubcategory: subcategory,
-        selectedPriceRange: priceRange,
-        selectedOrderBy: orderBy,
-        seo: {
-          title: "Resources",
-          description:
-            "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
-        },
+      totalResourcesCount,
+      productCategories,
+      selectedCategory: category,
+      selectedSubcategory: subcategory,
+      selectedPriceRange: priceRange,
+      selectedOrderBy: orderBy,
+      seo: {
+        title: "Resources",
+        description:
+          "Discover a wide range of resources, publications and downloads to support use and implementation of AAC and AT",
       },
-    };
-  }
-);
+    },
+  };
+});
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");
