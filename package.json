@@ -84,7 +84,7 @@
     "eslint": "8.28.0",
     "eslint-config-next": "12.3.3",
     "eslint-plugin-cypress": "2.12.1",
-    "eslint-plugin-jest": "27.1.5",
+    "eslint-plugin-jest": "27.1.6",
     "eslint-plugin-react": "7.31.11",
     "fast-xml-parser": "4.0.12",
     "got": "11.8.3",
