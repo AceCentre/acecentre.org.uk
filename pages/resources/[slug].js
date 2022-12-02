@@ -184,35 +184,35 @@ export const getStaticProps = withGlobalPropsNoRevalidate(
       currentResource.inStock ||
       variations.some((variation) => variation.inStock);
 
-  let launchpadTemplate = null;
-  if (currentResource.isLaunchpadTemplate) {
-    launchpadTemplate = await getLaunchpadTemplate(currentResource.slug);
-  }
+    let launchpadTemplate = null;
+    if (currentResource.isLaunchpadTemplate) {
+      launchpadTemplate = await getLaunchpadTemplate(currentResource.slug);
+    }
 
-  return {
-    props: {
-      launchpadTemplate,
-      resource: currentResource,
-      relatedResources: relatedResources.slice(0, 4),
-      attachedResources: attachedResources.slice(0, 4),
-      seo: {
-        title: currentResource.name,
-        description: currentResource.shortDescription,
-        image: currentResource.image,
-        product: {
-          sku: currentResource.slug,
-          image: currentResource?.image?.src || null,
-         image: currentResource?.image?.src || null,
+    return {
+      props: {
+        launchpadTemplate,
+        resource: currentResource,
+        relatedResources: relatedResources.slice(0, 4),
+        attachedResources: attachedResources.slice(0, 4),
+        seo: {
           title: currentResource.name,
-          description:
-            currentResource.shortDescription ||
-            `Checkout the ${currentResource.name} created by Ace Centre.`,
-          url: `https://acecentre.org.uk/resources/${currentResource.slug}`,
-          price: seoPrice,
-          availability: seoInStock,
+          description: currentResource.shortDescription,
+          image: currentResource.image,
+          product: {
+            sku: currentResource.slug,
+            image: currentResource?.image?.src || null,
+            title: currentResource.name,
+            description:
+              currentResource.shortDescription ||
+              `Checkout the ${currentResource.name} created by Ace Centre.`,
+            url: `https://acecentre.org.uk/resources/${currentResource.slug}`,
+            price: seoPrice,
+            availability: seoInStock,
+          },
         },
       },
-    }
+    };
   }
 );
 
