@@ -4,6 +4,8 @@ on: [workflow_dispatch]
 jobs:
   PrepareCypressId:
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     if: github.ref == 'refs/heads/main'
     outputs:
       uuid: ${{ steps.uuid.outputs.value }}
@@ -15,6 +17,8 @@ jobs:
   GauntletRunOnePost:
     needs: [PrepareCypressId]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -54,11 +58,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunTwoPost:
     needs: [PrepareCypressId, GauntletRunOnePost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -98,11 +104,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunThreePost:
     needs: [PrepareCypressId, GauntletRunTwoPost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -143,11 +151,13 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunFourPost:
     needs: [PrepareCypressId, GauntletRunThreePost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -187,11 +197,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunFivePost:
     needs: [PrepareCypressId, GauntletRunFourPost]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
     strategy:
@@ -231,11 +243,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunOnePre:
     needs: [PrepareCypressId]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -275,11 +289,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunTwoPre:
     needs: [PrepareCypressId, GauntletRunOnePre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106s
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -319,11 +335,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunThreePre:
     needs: [PrepareCypressId, GauntletRunTwoPre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -364,11 +382,13 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunFourPre:
     needs: [PrepareCypressId, GauntletRunThreePre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -408,11 +428,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2
 
   GauntletRunFivePre:
     needs: [PrepareCypressId, GauntletRunFourPre]
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
     strategy:
@@ -452,4 +474,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.0
+        uses: cypress-io/github-action@v4.2.2

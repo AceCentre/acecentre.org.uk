@@ -1,6 +1,13 @@
 // The first will always be the default
 export const ORDER_BY_OPTIONS = [
   {
+    slug: "most-popular",
+    title: "Most popular",
+    sort: (productA, productB) => {
+      return productB.totalSales - productA.totalSales;
+    },
+  },
+  {
     slug: "newest",
     title: "Newest",
     sort: (productA, productB) => {
@@ -77,13 +84,6 @@ export const ORDER_BY_OPTIONS = [
       }
 
       return 0;
-    },
-  },
-  {
-    slug: "most-popular",
-    title: "Most popular",
-    sort: (productA, productB) => {
-      return productB.totalSales - productA.totalSales;
     },
   },
 ];

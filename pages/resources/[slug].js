@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -119,67 +119,70 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allProducts = await getAllProducts(true);
+export const getStaticProps = withGlobalPropsNoRevalidate(
+  async ({ params: { slug } }) => {
+    const allProducts = await getAllProducts(true);
 
-  if (!allProducts) throw new Error("Could not get all the products");
+    if (!allProducts) throw new Error("Could not get all the products");
 
-  const currentResource = allProducts.find((product) => product.slug === slug);
+    const currentResource = allProducts.find(
+      (product) => product.slug === slug
+    );
 
-  if (!currentResource) {
-    return {
-      notFound: true,
-    };
-  }
+    if (!currentResource) {
+      return {
+        notFound: true,
+      };
+    }
 
-  const currentCategory = currentResource.category.name;
+    const currentCategory = currentResource.category.name;
 
-  const relatedResources = allProducts
-    .filter((product) => product.slug !== slug)
-    .map((product) => ({
-      title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
-      featuredImage: product.image,
-      ...product,
-    }))
-    .sort((a, b) => {
-      const aDate = new Date(a.date);
-      const bDate = new Date(b.date);
+    const relatedResources = allProducts
+      .filter((product) => product.slug !== slug)
+      .map((product) => ({
+        title: htmlDecode(product.name),
+        mainCategoryName: product.category.name,
+        featuredImage: product.image,
+        ...product,
+      }))
+      .sort((a, b) => {
+        const aDate = new Date(a.date);
+        const bDate = new Date(b.date);
 
-      return aDate - bDate;
-    })
-    .sort((a, b) => {
-      const catA = a.mainCategoryName;
-      const catB = b.mainCategoryName;
+        return aDate - bDate;
+      })
+      .sort((a, b) => {
+        const catA = a.mainCategoryName;
+        const catB = b.mainCategoryName;
 
-      if (catA == currentCategory) {
-        return -1;
-      }
+        if (catA == currentCategory) {
+          return -1;
+        }
 
-      if (catB == currentCategory) {
+        if (catB == currentCategory) {
+          return 1;
+        }
+
         return 1;
-      }
+      })
+      .slice(0, 4);
 
-      return 1;
-    })
-    .slice(0, 4);
+    const attachedResources = currentResource.attachedResources.map(
+      (product) => ({
+        title: htmlDecode(product.name),
+        mainCategoryName: product.category.name,
+        featuredImage: product.image,
+        ...product,
+      })
+    );
 
-  const attachedResources = currentResource.attachedResources.map(
-    (product) => ({
-      title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
-      featuredImage: product.image,
-      ...product,
-    })
-  );
-
-  const variations = currentResource.variations || [];
-  const seoPrice =
-    currentResource.price ||
-    Math.max(...variations.map((variation) => variation.price));
-  const seoInStock =
-    currentResource.inStock ||
-    variations.some((variation) => variation.inStock);
+    const variations = currentResource.variations || [];
+    const seoPrice =
+      currentResource.price ||
+      Math.max(...variations.map((variation) => variation.price));
+    const seoInStock =
+      currentResource.inStock ||
+      variations.some((variation) => variation.inStock);
 
   let launchpadTemplate = null;
   if (currentResource.isLaunchpadTemplate) {
@@ -199,6 +202,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
         product: {
           sku: currentResource.slug,
           image: currentResource?.image?.src || null,
+         image: currentResource?.image?.src || null,
           title: currentResource.name,
           description:
             currentResource.shortDescription ||
@@ -208,9 +212,9 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
           availability: seoInStock,
         },
       },
-    },
-  };
-});
+    };
+  }
+);
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

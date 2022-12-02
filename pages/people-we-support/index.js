@@ -6,7 +6,7 @@ import { StoryHighlight } from "../../components/story-highlight/story-highlight
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { WordsFrom } from "../../components/words-from/words-from";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import {
   getAllStories,
   getSimpleStoryByIndex,
@@ -43,7 +43,7 @@ export default function StoriesLandingPage({
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allStories = await getAllStories();
 
   const storyHighlight = await getSimpleStoryByIndex(0);

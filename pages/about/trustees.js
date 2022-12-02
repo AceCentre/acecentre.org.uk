@@ -5,7 +5,7 @@ import { RecruitTrustees } from "../../components/recruit-trustees/recruit-trust
 import { TrusteeList } from "../../components/staff-list/staff-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllTrustees } from "../../lib/trustees/get-trustees";
 
 import styles from "../../styles/trustees.module.css";
@@ -32,7 +32,7 @@ export default function AllTrusteesPage({ allTrustees, recruitingTrustees }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const allTrustees = await getAllTrustees();
 
   const [day, month, year] = "16/9/2022".split("/");

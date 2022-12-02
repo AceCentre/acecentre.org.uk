@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import {
   getAllBundles,
@@ -132,86 +132,91 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allCourses = await getAllCourses(undefined, true);
-  const allBundles = await getAllBundles();
+export const getStaticProps = withGlobalPropsNoRevalidate(
+  async ({ params: { slug } }) => {
+    const allCourses = await getAllCourses(undefined, true);
+    const allBundles = await getAllBundles();
 
-  if (!allCourses || !allBundles)
-    throw new Error("Could not get all the courses");
+    if (!allCourses || !allBundles)
+      throw new Error("Could not get all the courses");
 
-  let currentCourse = allCourses.find((product) => product.slug === slug);
-  const currentBundle = allBundles.find((product) => product.slug === slug);
+    let currentCourse = allCourses.find((product) => product.slug === slug);
+    const currentBundle = allBundles.find((product) => product.slug === slug);
 
-  if (!currentCourse && !currentBundle) {
-    return { notFound: true };
-  }
+    if (!currentCourse && !currentBundle) {
+      return { notFound: true };
+    }
 
-  let relatedCourses = [];
+    let relatedCourses = [];
 
-  if (currentCourse) {
-    currentCourse = addBundles(currentCourse, allBundles);
+    if (currentCourse) {
+      currentCourse = addBundles(currentCourse, allBundles);
 
-    relatedCourses = allCourses
-      .filter((course) => course.slug !== slug)
-      .sort((a, b) => {
-        const catA = a.mainCategoryName;
-        const catB = b.mainCategoryName;
+      relatedCourses = allCourses
+        .filter((course) => course.slug !== slug)
+        .sort((a, b) => {
+          const catA = a.mainCategoryName;
+          const catB = b.mainCategoryName;
 
-        if (catA == currentCourse.mainCategoryName) {
-          return -1;
-        }
+          if (catA == currentCourse.mainCategoryName) {
+            return -1;
+          }
 
-        if (catB == currentCourse.mainCategoryName) {
+          if (catB == currentCourse.mainCategoryName) {
+            return 1;
+          }
+
           return 1;
-        }
+        })
+        .slice(0, 4);
+    }
 
-        return 1;
-      })
-      .slice(0, 4);
-  }
+    const reviews = await getRandomReviews();
+    const levels = await getLearningLevels();
 
-  const reviews = await getRandomReviews();
-  const levels = await getLearningLevels();
+    let seo = {};
 
-  let seo = {};
-
-  if (currentCourse) {
-    seo = {
-      title: currentCourse.title,
-      image: currentCourse.image,
-      description: currentCourse.shortDescription.replace(/(<([^>]+)>)/gi, ""),
-      product: {
-        sku: currentCourse.slug,
+    if (currentCourse) {
+      seo = {
         title: currentCourse.title,
-        image: currentCourse?.image?.src || null,
-        url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
-        price: currentCourse.price || 0,
-        availability: currentCourse.inStock,
+        image: currentCourse.image,
+        description: currentCourse.shortDescription.replace(
+          /(<([^>]+)>)/gi,
+          ""
+        ),
+        product: {
+          sku: currentCourse.slug,
+          title: currentCourse.title,
+          image: currentCourse?.image?.src || null,
+          url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
+          price: currentCourse.price || 0,
+          availability: currentCourse.inStock,
+          description:
+            currentCourse.description ||
+            `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
+        },
+      };
+    } else if (currentBundle) {
+      const orderByFunc = ORDER_BY_OPTIONS.find((x) => x.slug === "first");
+      const sortedCourses = currentBundle.courses.sort(orderByFunc.sort);
+      currentBundle.courses = sortedCourses;
+      seo = {
+        title: currentBundle.title,
         description:
-          currentCourse.description ||
-          `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
+          currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
+          "A bundle of Ace Centre Learning courses",
+      };
+    }
+
+    return {
+      props: {
+        course: currentCourse || null,
+        bundle: currentBundle || null,
+        reviews,
+        relatedCourses,
+        levels,
+        seo,
       },
     };
-  } else if (currentBundle) {
-    const orderByFunc = ORDER_BY_OPTIONS.find((x) => x.slug === "first");
-    const sortedCourses = currentBundle.courses.sort(orderByFunc.sort);
-    currentBundle.courses = sortedCourses;
-    seo = {
-      title: currentBundle.title,
-      description:
-        currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
-        "A bundle of Ace Centre Learning courses",
-    };
   }
-
-  return {
-    props: {
-      course: currentCourse || null,
-      bundle: currentBundle || null,
-      reviews,
-      relatedCourses,
-      levels,
-      seo,
-    },
-  };
-});
+);

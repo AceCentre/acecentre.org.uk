@@ -4,7 +4,7 @@ import { QrReader } from "../components/qr-reader/qr-reader";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 export default function QrPage() {
   const { currentYear } = useGlobalProps();
@@ -22,7 +22,7 @@ export default function QrPage() {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   return {
     props: {
       seo: { dontIndex: true, title: "QR Code" },

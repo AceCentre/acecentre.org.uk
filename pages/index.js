@@ -10,7 +10,7 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
 
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStoryByIndex } from "../lib/story/get-story";
 
@@ -44,7 +44,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const featuredStory = await getSimpleStoryByIndex(0);
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");

@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import styles from "../../styles/form.module.css";
@@ -36,18 +36,20 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const form = ALL_FORMS.find((current) => current.slug === slug);
+export const getStaticProps = withGlobalPropsNoRevalidate(
+  async ({ params: { slug } }) => {
+    const form = ALL_FORMS.find((current) => current.slug === slug);
 
-  if (!form) {
-    return { notFound: true };
+    if (!form) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        slug,
+        form,
+        seo: { title: form.title },
+      },
+    };
   }
-
-  return {
-    props: {
-      slug,
-      form,
-      seo: { title: form.title },
-    },
-  };
-});
+);

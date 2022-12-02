@@ -1,4 +1,5 @@
 module.exports = {
+  staticPageGenerationTimeout: 120,
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
     CLOUDINARY_CLOUD: process.env.CLOUDINARY_CLOUD,

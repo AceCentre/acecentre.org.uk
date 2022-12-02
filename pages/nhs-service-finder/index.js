@@ -6,7 +6,7 @@ import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { ServiceFinderSearch } from "../../components/service-finder-search/service-finder-search";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import Link from "next/link";
 import styles from "../../styles/nhs-service-finder.module.css";
 
@@ -37,7 +37,7 @@ export default function ServiceFinder() {
   );
 }
 
-export const getStaticProps = withGlobalProps(() => {
+export const getStaticProps = withGlobalPropsNoRevalidate(() => {
   return {
     props: {
       seo: {
