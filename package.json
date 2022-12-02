@@ -44,7 +44,7 @@
     "axios": "1.2.0",
     "esbuild": "0.15.16",
     "etag": "1.8.1",
-    "framer-motion": "7.6.17",
+    "framer-motion": "7.6.18",
     "fuse.js": "6.6.2",
     "graphql": "16.6.0",
     "graphql-playground-middleware-express": "1.7.23",
