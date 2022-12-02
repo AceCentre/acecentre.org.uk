@@ -646,7 +646,8 @@ const CheckoutForm = ({
             I have read and agree to the website{" "}
             <Link href="/page/purchase-terms-and-conditions">
               terms and conditions
-            </Link>
+            </Link>{" "}
+            and <Link href="/page/privacy">privacy policy</Link>
           </Checkbox>
         </div>
         <Button disabled={!allowSubmit} type="submit">

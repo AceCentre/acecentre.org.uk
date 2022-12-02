@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/project-detail.module.css";
@@ -66,7 +66,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(
+export const getStaticProps = withGlobalPropsNoRevalidate(
   async ({ params: { project: projectSlug } }) => {
     const allProjects = await getFullProjects();
 

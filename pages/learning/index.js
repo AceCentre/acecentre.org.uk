@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { LearningSearch } from "../../components/learning-search/learning-search";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { LearningTicks } from "../../components/resources-ticks/resources-ticks";
 import { getAllCoursesByPopularity } from "../../lib/products/get-courses";
 import { CourseList } from "../../components/course-list/course-list";
@@ -53,7 +53,7 @@ export default function Learning({ categories, featuredCourses }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const popularCourses = await getAllCoursesByPopularity(true);
   const categories = await getAllCourseCategories();
   const featuredCourses = popularCourses.filter(

@@ -4,10 +4,11 @@ import { CombinedNav } from "../combined-nav/combined-nav";
 import { Footer } from "../footer/footer";
 import { defaultNavItems } from "../sub-nav/sub-nav-items";
 
-export const UncaughtError = ({ error }) => {
+export const UncaughtError = ({ error, trace }) => {
   const { currentYear } = useGlobalProps();
 
   console.warn(error);
+  console.warn(trace);
 
   return (
     <>

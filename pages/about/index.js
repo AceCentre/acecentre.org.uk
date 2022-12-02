@@ -9,7 +9,7 @@ import { StaffAndTrustees } from "../../components/staff-and-trustees/staff-and-
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getLandingPagePosts } from "../../lib/posts/get-posts";
 import { getSimpleStory } from "../../lib/story/get-story";
 
@@ -51,7 +51,7 @@ export default function Home({ featuredStory, landingPagePosts }) {
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const featuredStory = await getSimpleStory("patrick");
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");

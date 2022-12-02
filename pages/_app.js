@@ -30,7 +30,7 @@ const chakraTheme = extendTheme({
 
 function MyApp({
   Component,
-  pageProps: { globalProps = {}, seo = {}, uncaughtError, ...pageProps },
+  pageProps: { globalProps = {}, seo = {}, uncaughtError, trace, ...pageProps },
 }) {
   const router = useRouter();
 
@@ -100,7 +100,7 @@ function MyApp({
             <SSRProvider>
               <NextNProgress />
               {uncaughtError ? (
-                <UncaughtError error={uncaughtError} />
+                <UncaughtError error={uncaughtError} trace={trace} />
               ) : (
                 <Component {...pageProps} />
               )}

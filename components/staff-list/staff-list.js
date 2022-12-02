@@ -237,6 +237,11 @@ const StaffDetail = ({
             <div className={styles.modalTop}>
               <p className={styles.modalName}>{person.name}</p>
               <p className={styles.modalJob}>{person.role.trim()}</p>
+              {person.works && (
+                <p className={styles.modalWorkingPattern}>
+                  Working Pattern: {person.works}
+                </p>
+              )}
               <div className={styles.locationContainer}>
                 <span className={styles.location}>{location}</span>
               </div>

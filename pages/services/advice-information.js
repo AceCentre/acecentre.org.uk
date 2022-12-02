@@ -4,7 +4,7 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Avatar from "@material-ui/core/Avatar";
@@ -58,63 +58,51 @@ export default function EngineeringPage({
           <div className={styles.leftContent}>
             <h2>Advice & information</h2>
             <p>
-              Whether you are just starting out or you are an experienced AAC
-              /AT user ready to move on, we offer remote and face to face
-              support so you can chat about your needs with members of the Ace
-              Centre team.
+              Whether you are just starting out or are an experienced AAC /AT
+              user ready to move on the Ace Centre team are here to help.
             </p>
             <h2>Free Advice Line</h2>
             <p>
-              Perhaps you have a problem or a question about AAC/AT or you are
-              worried about someone you know? Using AAC/AT and stuck? New to
-              AAC/AT?
+              Our advice line puts you in touch with our clinical staff who can
+              help find answers to your AAC/AT questions.
             </p>
             <p>
-              Give our helpline a call or send an email. Our clinical staff are
-              pleased to help you find solutions
+              Whether you are a professional, service user or carer we can help
+              if you are stuck using AAC/AT, worried about someone you know or
+              are new to AAC/AT and have a query.
             </p>
-            <p>For professionals, service users, carers or others.</p>
+            <p>
+              Call our advice line at{" "}
+              <a href="tel:08000803115">0800 080 3115</a> or send an email at{" "}
+              <a href="mailto:enquiries@acecentre.org.uk">
+                enquiries@acecentre.org.uk
+              </a>
+              .
+            </p>
             <h2>Information appointments:</h2>
             <ul className={styles.list}>
               <ListItem>Free</ListItem>
               <ListItem>Twice a month</ListItem>
-              <ListItem>Appointments last one hour</ListItem>
+              <ListItem>Hour long appointments</ListItem>
             </ul>
             <p>
-              Whether you are just starting out or you are an experienced AAC
-              /AT user ready to move on, book in for an informal chat about your
-              needs with members of the Ace Centre team.
+              Whether you are just starting out with AAC/AT or you are an
+              experienced user ready to move on. Book an informal chat about
+              your needs with members of the Ace Centre team.
             </p>
             <p>
-              Please note that this appointment is NOT an assessment, but
-              instead it is an opportunity to reflect on a range of AAC /
-              AT-related issues with members of our service delivery team.
-            </p>
-            <p>
-              At Ace Centre, we believe that information should be accessible to
-              all, up-to-date, unbiased and, ideally, free at source to people
-              in need. This is why we provide free information appointments
-              every month. Information Appointments are offered on 2 days per
-              month. Each information day consists of five separate one hour
-              appointments which are completely free. These appointments do not
-              provide a full AT/AAC assessment, but they are an opportunity to
-              meet informally with our staff and discuss your needs. So, whether
-              you are new to AAC/AT and trying to find a starting point, or you
-              are already using AAC/AT and want to know how to move on, book in
-              for a video-call session with our staff. You may also be offered
-              an information appointment if your referral for assessment through
-              the Specialised AAC Services has been unsuccessful. If so,
-              appointments could be used to discuss other options for funding,
-              to gather more information to help with your referral to Ace
-              Centre, and/or to consider other possible next steps.
+              <strong>
+                Please note that this appointment is NOT an assessment, but
+                instead it is an opportunity to reflect on a range of AAC /
+                AT-related issues with members of our service delivery team.
+              </strong>
             </p>
 
             <div className={styles.inlineCard}>
-              <h2>Information appointment feedback</h2>
+              <h2>Been to an Information Appointment?</h2>
               <p>
-                We will use the information you provide solely to monitor and
-                evaluate our services, and we will not share the data with
-                anyone else.
+                Please give us some feedback help us monitor and evaluate our
+                services. We will not share the data provided with anyone else
               </p>
 
               <FormModal form={INFO_APP_FEEDBACK}>
@@ -175,7 +163,7 @@ const ListItem = ({ children }) => {
   );
 };
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const featuredStory = await getSimpleStory("paul");
 
   const products = await getAllProducts();

@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
+import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getPage } from "../../lib/generic-pages/get-page";
@@ -30,38 +30,41 @@ export default function GenericPage({ page }) {
 const ALL_PAGES = [
   {
     slug: "cookies",
+    altSlugs: [],
     description:
       "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
   },
-  {
-    slug: "privacy",
-    description:
-      "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our clients.",
-  },
+
   {
     slug: "ace-centre-privacy-policy-3",
+    altSlugs: ["privacy"],
     description:
       "Ace Centre is a registered national charity (no. 1089313) dedicated to the support of individuals with complex communication and physical difficulties, and we have always been committed to protecting the privacy and security of the personal data of our service users.",
   },
   {
     slug: "safeguarding-policies",
+    altSlugs: [],
     description:
       "At Ace Centre, we regard safeguarding of our clients a top priority.",
   },
   {
     slug: "purchase-terms-and-conditions",
+    altSlugs: [],
     description: "Terms and Conditions for all purchases made",
   },
   {
     slug: "copyright-and-licence-terms-for-non-profit-items",
+    altSlugs: ["copyright"],
     description: "Copyright and Licence terms for Non-Profit items",
   },
   {
     slug: "meet-paul-transcript",
+    altSlugs: [],
     description: "Transcript of Paul's case study",
   },
   {
     slug: "pasco-support",
+    altSlugs: [],
     description: "Support for the Pasco app",
   },
 ];
@@ -69,31 +72,44 @@ const ALL_PAGES = [
 export async function getStaticPaths() {
   const paths = ALL_PAGES.map((page) => ({ params: { slug: page.slug } }));
 
+  const altPaths = ALL_PAGES.flatMap((page) => page.altSlugs).map((slug) => ({
+    params: { slug },
+  }));
+
   return {
-    paths,
+    paths: [...paths, ...altPaths],
     // Currently this is ignored by Netlify so we have to use `notFound`
     // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const page = await getPage(slug);
+export const getStaticProps = withGlobalPropsNoRevalidate(
+  async ({ params: { slug: urlSlug } }) => {
+    let realSlug = urlSlug;
 
-  if (!page) {
-    return { notFound: true };
-  }
+    for (const page of ALL_PAGES) {
+      if (page.altSlugs.includes(urlSlug.toLowerCase())) {
+        realSlug = page.slug;
+      }
+    }
 
-  const hardCodedPage = ALL_PAGES.find((page) => page.slug === slug);
+    const page = await getPage(realSlug);
 
-  return {
-    props: {
-      slug,
-      page,
-      seo: {
-        title: page.title,
-        description: hardCodedPage.description,
+    if (!page) {
+      return { notFound: true };
+    }
+
+    const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
+
+    return {
+      props: {
+        page,
+        seo: {
+          title: page.title,
+          description: hardCodedPage.description,
+        },
       },
-    },
-  };
-});
+    };
+  }
+);
