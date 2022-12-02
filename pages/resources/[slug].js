@@ -212,7 +212,7 @@ export const getStaticProps = withGlobalPropsNoRevalidate(
           availability: seoInStock,
         },
       },
-    };
+    }
   }
 );
 
