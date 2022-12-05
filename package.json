@@ -41,7 +41,7 @@
     "@stripe/stripe-js": "1.46.0",
     "@u-wave/react-vimeo": "0.9.10",
     "async-redis": "2.0.0",
-    "axios": "1.2.0",
+    "axios": "1.2.1",
     "esbuild": "0.15.18",
     "etag": "1.8.1",
     "framer-motion": "7.6.19",
