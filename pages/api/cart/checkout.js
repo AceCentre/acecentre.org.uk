@@ -14,22 +14,6 @@ async function handler(req, res) {
   console.log({ startTime, endTime });
   let result;
   try {
-    // Add to mailing list
-    // if (body.addToMailingList) {
-    //   console.log("Started adding to the mailing list");
-
-    //   startTime = Date.now();
-    //   await addToMailingList(body.billingDetails.email);
-    //   endTime = Date.now();
-    //   console.log("Added to the mailing list", endTime - startTime);
-    // }
-    // console.log("Started updating Customer");
-
-    // startTime = Date.now();
-    // await updateCustomer(req, body);
-    // endTime = Date.now();
-    // console.log("Updated Customer", endTime - startTime);
-
     let uniqueCohortTag;
     let cohortNames;
     if (Object.keys(body.groupPurchaseEmails).length > 0) {
