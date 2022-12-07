@@ -335,19 +335,30 @@ const useCheckoutForm = (
 
       try {
         if (event.target.mailingList.checked) {
-          const mailingListResponse = await fetch(
-            "/api/cart/add-to-mailing-list",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: billingDetails.email,
-              }),
-            }
-          );
-          const mailingListParsed = await mailingListResponse.json();
+          try {
+            const response = await fetch(
+              "https://crm-connector-k7gic.ondigitalocean.app/crm/create-contact-from-email",
+              {
+                body: JSON.stringify({
+                  email: billingDetails.email,
+                  firstName: event?.target?.firstNameBilling?.value,
+                  lastName: event?.target?.lastNameBilling?.value,
+                  location: "checkout",
+                }),
+                method: "POST",
+                headers: { "content-type": "application/json" },
+              }
+            );
 
-          if (mailingListParsed.success === false) {
-            setGeneralError(parsed.error || "Failed to add to mailing list");
+            const result = await response.json();
+
+            if (response.status !== 200) {
+              console.warn(result);
+              throw new Error("Non 200 status");
+            }
+          } catch (error) {
+            console.warn(error);
+            setGeneralError("Failed to add to mailing list");
             setAllowSubmit(true);
             window.scrollTo(0, 0);
             return;
