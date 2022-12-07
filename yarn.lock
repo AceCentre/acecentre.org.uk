@@ -2658,14 +2658,6 @@
   dependencies:
     "@lukeed/csprng" "^1.0.0"
 
-"@mailchimp/mailchimp_marketing@3.0.80":
-  version "3.0.80"
-  resolved "https://registry.yarnpkg.com/@mailchimp/mailchimp_marketing/-/mailchimp_marketing-3.0.80.tgz#120a4aeb9751ac80ff4c86fabb43af7a6add4e49"
-  integrity sha512-Cgz0xPb+1DUjmrl5whAsmqfAChBko+Wf4/PLQE4RvwfPlcq2agfHr1QFiXEhZ8e+GQwQ3hZQn9iLGXwIXwxUCg==
-  dependencies:
-    dotenv "^8.2.0"
-    superagent "3.8.1"
-
 "@mapbox/node-pre-gyp@^1.0.5":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.9.tgz#09a8781a3a036151cdebbe8719d6f8b25d4058bc"
@@ -6614,7 +6606,7 @@ compare-versions@^5.0.1:
   resolved "https://registry.yarnpkg.com/compare-versions/-/compare-versions-5.0.1.tgz#14c6008436d994c3787aba38d4087fabe858555e"
   integrity sha512-v8Au3l0b+Nwkp4G142JcgJFh1/TUhdxut7wzD1Nq1dyp5oa3tXaqb03EXOAB6jS4gMlalkjAUPZBMiAfKUixHQ==
 
-component-emitter@^1.2.0, component-emitter@^1.2.1:
+component-emitter@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
   integrity sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
@@ -6804,11 +6796,6 @@ cookie@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
   integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
-
-cookiejar@^2.1.0:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.3.tgz#fc7a6216e408e74414b90230050842dacda75acc"
-  integrity sha512-JxbCBUdrfr6AQjOXrxoTvAMJO4HBTUIlBzslcJPAz+/KT8yk53fXun51u+RenNYvad/+Vc2DIz5o9UxlCDymFQ==
 
 copy-descriptor@^0.1.0:
   version "0.1.1"
@@ -7722,11 +7709,6 @@ dotenv@^16.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
   integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
 
-dotenv@^8.2.0:
-  version "8.6.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
-  integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
-
 download@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/download/-/download-8.0.0.tgz#afc0b309730811731aae9f5371c9f46be73e51b1"
@@ -8549,7 +8531,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@^3.0.0, extend@^3.0.2, extend@~3.0.2:
+extend@^3.0.2, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -9005,7 +8987,7 @@ form-data-encoder@^2.1.2:
   resolved "https://registry.yarnpkg.com/form-data-encoder/-/form-data-encoder-2.1.3.tgz#682cd821a8423605093992ff895e6b2ed5a9d429"
   integrity sha512-KqU0nnPMgIJcCOFTNJFEA8epcseEaoox4XZffTgy8jlI6pL/5EFyR54NRG7CnCJN0biY7q52DO3MH6/sJ/TKlQ==
 
-form-data@^2.3.1, form-data@^2.5.0:
+form-data@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.5.1.tgz#f2cbec57b5e59e23716e128fe44d4e5dd23895f4"
   integrity sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
@@ -9047,11 +9029,6 @@ formdata-polyfill@^4.0.10:
   integrity sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==
   dependencies:
     fetch-blob "^3.1.2"
-
-formidable@^1.1.1:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.6.tgz#d2a51d60162bbc9b4a055d8457a7c75315d1a168"
-  integrity sha512-KcpbcpuLNOwrEjnbpMC0gS+X8ciDoZE1kkqzat4a8vrprf+s9pKNQ/QIwWfbfs4ltgmFl3MD177SNTkve3BwGQ==
 
 forwarded@0.2.0:
   version "0.2.0"
@@ -12449,7 +12426,7 @@ metaviewport-parser@0.2.0:
   resolved "https://registry.yarnpkg.com/metaviewport-parser/-/metaviewport-parser-0.2.0.tgz#535c3ce1ccf6223a5025fddc6a1c36505f7e7db1"
   integrity sha512-qL5NtY18LGs7lvZCkj3ep2H4Pes9rIiSLZRUyfDdvVw7pWFA0eLwmqaIxApD74RGvUrNEtk9e5Wt1rT+VlCvGw==
 
-methods@^1.1.1, methods@~1.1.2:
+methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha512-iclAHeNqNm68zFtnZ0e+1L2yUIdvzNoauKU4WBA3VvH/vPFieF7qfRlwUZU+DA9P9bPXIS90ulxoUoCH23sV2w==
@@ -12516,7 +12493,7 @@ mime-types@^2.1.12, mime-types@~2.1.19, mime-types@~2.1.24, mime-types@~2.1.34:
   dependencies:
     mime-db "1.52.0"
 
-mime@1.6.0, mime@^1.2.11, mime@^1.4.1:
+mime@1.6.0, mime@^1.2.11:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
@@ -14503,7 +14480,7 @@ qrcode.react@3.1.0:
   resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-3.1.0.tgz#5c91ddc0340f768316fbdb8fff2765134c2aecd8"
   integrity sha512-oyF+Urr3oAMUG/OiOuONL3HXM+53wvuH3mtIWQrYmsXoAq0DkvZp2RYUWFSMFtbdOpuS++9v+WAkzNVkMlNW6Q==
 
-qs@6.10.3, qs@^6.5.1, qs@^6.9.6:
+qs@6.10.3, qs@^6.9.6:
   version "6.10.3"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.3.tgz#d6cde1b2ffca87b5aa57889816c5f81535e22e8e"
   integrity sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==
@@ -16097,22 +16074,6 @@ subarg@^1.0.0:
   integrity sha1-9izxdYHplrSPyWVpn1TAauJouNI=
   dependencies:
     minimist "^1.1.0"
-
-superagent@3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-3.8.1.tgz#2571fd921f3fcdba43ac68c3b35c91951532701f"
-  integrity sha512-VMBFLYgFuRdfeNQSMLbxGSLfmXL/xc+OO+BZp41Za/NRDBet/BNbkRJrYzCUu0u4GU0i/ml2dtT8b9qgkw9z6Q==
-  dependencies:
-    component-emitter "^1.2.0"
-    cookiejar "^2.1.0"
-    debug "^3.1.0"
-    extend "^3.0.0"
-    form-data "^2.3.1"
-    formidable "^1.1.1"
-    methods "^1.1.1"
-    mime "^1.4.1"
-    qs "^6.5.1"
-    readable-stream "^2.0.5"
 
 supports-color@^0.2.0:
   version "0.2.0"
