@@ -2,6 +2,28 @@
   width: 100%;
 }
 
+.form {
+  width: 60%;
+  min-width: 250px;
+  margin: 0 auto;
+}
+
+.formInput {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+}
+
+.success {
+  font-weight: bold;
+  color: green;
+}
+
 .ebook {
   display: flex;
   justify-content: space-between;
@@ -59,7 +81,6 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  margin-top: 3rem;
 }
 
 .topSection {
@@ -81,6 +102,10 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+  }
+
+  .formInput {
+    flex-direction: column;
   }
 
   .ebook {
