@@ -39,13 +39,8 @@ async function handler(req, res) {
   const body = JSON.parse(req.body);
   const email = body.email;
   const password = body.password;
-  const mailingList = body.mailingList === true ? true : false;
 
   try {
-    if (mailingList) {
-      await addToMailingList(email);
-    }
-
     let headers = {};
     if (req && req.socket && req.socket.remoteAddress) {
       headers["X-Forwarded-For"] = req.socket.remoteAddress;
