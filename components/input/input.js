@@ -12,6 +12,7 @@ export const Input = ({
   white,
   name,
   ariaLabel,
+  type,
 }) => {
   return (
     <>
@@ -22,6 +23,7 @@ export const Input = ({
           placeholder={placeholder}
           name={name}
           aria-label={ariaLabel}
+          type={type}
         />
         <InputRightElement zIndex={1}>{children}</InputRightElement>
       </InputGroup>
