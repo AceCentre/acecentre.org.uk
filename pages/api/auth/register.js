@@ -17,11 +17,6 @@ const REGISTER_MUTATION = gql`
   }
 `;
 
-mailchimp.setConfig({
-  apiKey: config.mailchimp.apiKey,
-  server: config.mailchimp.server,
-});
-
 async function handler(req, res) {
   // get user from database then
   const body = JSON.parse(req.body);
