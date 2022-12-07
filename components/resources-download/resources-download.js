@@ -307,7 +307,7 @@ const Price = ({ resource }) => {
   return <p className={styles.price}>{price}</p>;
 };
 
-const NewsletterSignup = () => {
+export const NewsletterSignup = ({ signUpIdentifier = "none" }) => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -330,7 +330,10 @@ const NewsletterSignup = () => {
               const response = await fetch(
                 "https://crm-connector-k7gic.ondigitalocean.app/crm/create-contact-from-email",
                 {
-                  body: JSON.stringify({ email: e.target.email.value }),
+                  body: JSON.stringify({
+                    email: e.target.email.value,
+                    location: signUpIdentifier,
+                  }),
                   method: "POST",
                   headers: { "content-type": "application/json" },
                 }
@@ -404,7 +407,7 @@ const DownloadModal = ({ modelOpen, onClose }) => {
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup />
+            <NewsletterSignup signUpIdentifier="resource-download" />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
