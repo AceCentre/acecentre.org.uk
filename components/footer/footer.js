@@ -33,7 +33,7 @@ const NewsletterModal = ({ modelOpen, onClose }) => {
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup signUpIdentifier="resource-download" />
+            <NewsletterSignup withNames signUpIdentifier="footer" />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
