@@ -307,7 +307,10 @@ const Price = ({ resource }) => {
   return <p className={styles.price}>{price}</p>;
 };
 
-export const NewsletterSignup = ({ signUpIdentifier = "none" }) => {
+export const NewsletterSignup = ({
+  signUpIdentifier = "none",
+  withNames = false,
+}) => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -332,6 +335,8 @@ export const NewsletterSignup = ({ signUpIdentifier = "none" }) => {
                 {
                   body: JSON.stringify({
                     email: e.target.email.value,
+                    firstName: e?.target?.firstName?.value || undefined,
+                    lastName: e?.target?.lastName?.value || undefined,
                     location: signUpIdentifier,
                   }),
                   method: "POST",
@@ -358,9 +363,29 @@ export const NewsletterSignup = ({ signUpIdentifier = "none" }) => {
           addToList();
         }}
       >
+        {withNames && (
+          <div className={styles.namesInput}>
+            <Input
+              withLabel
+              name="firstName"
+              placeholder={"First name"}
+              ariaLabel="First name"
+              white
+            ></Input>
+            <Input
+              withLabel
+              name="lastName"
+              placeholder={"Last name"}
+              ariaLabel="Last name"
+              white
+            ></Input>
+          </div>
+        )}
         <div className={styles.formInput}>
           <Input
+            withLabel={withNames}
             name="email"
+            required
             placeholder={"Email address"}
             ariaLabel="Email address"
             type="email"
