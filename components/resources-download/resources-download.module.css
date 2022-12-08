@@ -11,7 +11,7 @@
 .formInput {
   display: flex;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .error {
@@ -69,6 +69,17 @@
   color: #00537f;
   font-size: 16px;
   cursor: pointer;
+}
+
+.namesInput {
+  display: flex;
+  gap: 1rem;
+
+  margin: 1rem 0;
+
+  /* width: 60%;
+  min-width: 300px;
+  margin: 0 auto; */
 }
 
 .closeButton:hover,
