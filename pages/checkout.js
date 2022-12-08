@@ -358,11 +358,12 @@ const useCheckoutForm = (
               throw new Error("Non 200 status");
             }
           } catch (error) {
+            // If we cant update the CRM we still want to complete the transaction
             console.warn(error);
-            setGeneralError("Failed to add to mailing list");
-            setAllowSubmit(true);
-            window.scrollTo(0, 0);
-            return;
+            // setGeneralError("Failed to add to mailing list");
+            // setAllowSubmit(true);
+            // window.scrollTo(0, 0);
+            // return;
           }
         }
 
