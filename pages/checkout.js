@@ -341,8 +341,9 @@ const useCheckoutForm = (
               {
                 body: JSON.stringify({
                   email: billingDetails.email,
-                  firstName: event?.target?.firstNameBilling?.value,
-                  lastName: event?.target?.lastNameBilling?.value,
+                  firstName:
+                    event?.target?.firstNameBilling?.value || undefined,
+                  lastName: event?.target?.lastNameBilling?.value || undefined,
                   location: "checkout",
                 }),
                 method: "POST",
