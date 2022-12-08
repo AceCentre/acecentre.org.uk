@@ -13,20 +13,25 @@ export const Input = ({
   name,
   ariaLabel,
   type,
+  withLabel = false,
+  required,
 }) => {
   return (
-    <>
-      <InputGroup maxWidth={maxWidth}>
-        <ChakraInput
-          className={styles.input}
-          backgroundColor={white ? "white" : "#F5F5F5"}
-          placeholder={placeholder}
-          name={name}
-          aria-label={ariaLabel}
-          type={type}
-        />
-        <InputRightElement zIndex={1}>{children}</InputRightElement>
-      </InputGroup>
-    </>
+    <InputGroup
+      maxWidth={maxWidth}
+      className={withLabel ? styles.withLabel : ""}
+    >
+      {withLabel && <label htmlFor={name}>{ariaLabel}:</label>}
+      <ChakraInput
+        className={styles.input}
+        backgroundColor={white ? "white" : "#F5F5F5"}
+        placeholder={placeholder}
+        name={name}
+        aria-label={ariaLabel}
+        type={type}
+        required={required}
+      />
+      <InputRightElement zIndex={1}>{children}</InputRightElement>
+    </InputGroup>
   );
 };
