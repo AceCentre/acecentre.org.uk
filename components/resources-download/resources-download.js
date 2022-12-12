@@ -319,7 +319,7 @@ export const NewsletterSignup = ({
     <>
       <form
         action={
-          "https://crm-connector-k7gic.ondigitalocean.app/crm/create-contact-from-email"
+          "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions"
         }
         method="POST"
         className={styles.form}
@@ -331,13 +331,14 @@ export const NewsletterSignup = ({
 
             try {
               const response = await fetch(
-                "https://crm-connector-k7gic.ondigitalocean.app/crm/create-contact-from-email",
+                "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions",
                 {
                   body: JSON.stringify({
                     email: e.target.email.value,
                     firstName: e?.target?.firstName?.value || undefined,
                     lastName: e?.target?.lastName?.value || undefined,
                     location: signUpIdentifier,
+                    method: "add-to-newsletter",
                   }),
                   method: "POST",
                   headers: { "content-type": "application/json" },
