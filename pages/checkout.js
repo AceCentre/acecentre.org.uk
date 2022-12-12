@@ -337,7 +337,7 @@ const useCheckoutForm = (
         if (event.target.mailingList.checked) {
           try {
             const response = await fetch(
-              "https://crm-connector-k7gic.ondigitalocean.app/crm/create-contact-from-email",
+              "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions",
               {
                 body: JSON.stringify({
                   email: billingDetails.email,
@@ -345,6 +345,7 @@ const useCheckoutForm = (
                     event?.target?.firstNameBilling?.value || undefined,
                   lastName: event?.target?.lastNameBilling?.value || undefined,
                   location: "checkout",
+                  method: "add-to-newsletter",
                 }),
                 method: "POST",
                 headers: { "content-type": "application/json" },
