@@ -188,6 +188,10 @@
   to = "/form/general-feedback"
   status = 301
 
+[[redirects]]
+  from = "/ebooks-symbols"
+  to = "/resources/getting-started-with-paper-based-symbol-resources"
+  status = 301
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
