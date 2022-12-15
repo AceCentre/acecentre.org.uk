@@ -335,22 +335,36 @@ const useCheckoutForm = (
 
       try {
         if (event.target.mailingList.checked) {
-          const mailingListResponse = await fetch(
-            "/api/cart/add-to-mailing-list",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: billingDetails.email,
-              }),
-            }
-          );
-          const mailingListParsed = await mailingListResponse.json();
+          try {
+            const response = await fetch(
+              "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions",
+              {
+                body: JSON.stringify({
+                  email: billingDetails.email,
+                  firstName:
+                    event?.target?.firstNameBilling?.value || undefined,
+                  lastName: event?.target?.lastNameBilling?.value || undefined,
+                  location: "checkout",
+                  method: "add-to-newsletter",
+                }),
+                method: "POST",
+                headers: { "content-type": "application/json" },
+              }
+            );
 
-          if (mailingListParsed.success === false) {
-            setGeneralError(parsed.error || "Failed to add to mailing list");
-            setAllowSubmit(true);
-            window.scrollTo(0, 0);
-            return;
+            const result = await response.json();
+
+            if (response.status !== 200) {
+              console.warn(result);
+              throw new Error("Non 200 status");
+            }
+          } catch (error) {
+            // If we cant update the CRM we still want to complete the transaction
+            console.warn(error);
+            // setGeneralError("Failed to add to mailing list");
+            // setAllowSubmit(true);
+            // window.scrollTo(0, 0);
+            // return;
           }
         }
 
