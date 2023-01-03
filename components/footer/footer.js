@@ -37,7 +37,7 @@ export const NewsletterModal = ({
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup withName signUpIdentifier={signUpIdentifier} />
+            <NewsletterSignup withNames signUpIdentifier={signUpIdentifier} />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
