@@ -12,7 +12,11 @@ import { NewsletterSignup } from "../resources-download/resources-download";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { useState } from "react";
 
-const NewsletterModal = ({ modelOpen, onClose }) => {
+export const NewsletterModal = ({
+  modelOpen,
+  onClose,
+  signUpIdentifier = "footer",
+}) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -33,7 +37,7 @@ const NewsletterModal = ({ modelOpen, onClose }) => {
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup withNames signUpIdentifier="footer" />
+            <NewsletterSignup withName signUpIdentifier={signUpIdentifier} />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
