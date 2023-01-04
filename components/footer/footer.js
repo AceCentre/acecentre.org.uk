@@ -11,6 +11,8 @@ import styles from "./footer.module.css";
 import { NewsletterSignup } from "../resources-download/resources-download";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { useState } from "react";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import InstagramIcon from "@material-ui/icons/Instagram";
 
 export const NewsletterModal = ({
   modelOpen,
@@ -104,6 +106,22 @@ export const Footer = ({ currentYear, noPhoneNumber = false }) => {
             </ul>
             <div className={styles.socialsAndCyber}>
               <div className={styles.socialsContainer}>
+                <Link href="https://www.linkedin.com/company/ace-centre/">
+                  <a aria-label="LinkedIn Logo" className={styles.avatarLink}>
+                    <Avatar className={styles.roundedAvatar}>
+                      <LinkedInIcon />
+                    </Avatar>
+                  </a>
+                </Link>
+
+                <Link href="https://www.instagram.com/acecentreuk">
+                  <a aria-label="Instagram Logo" className={styles.avatarLink}>
+                    <Avatar className={styles.roundedAvatar}>
+                      <InstagramIcon />
+                    </Avatar>
+                  </a>
+                </Link>
+
                 <Link href="https://twitter.com/acecentre">
                   <a aria-label="Twitter logo" className={styles.avatarLink}>
                     <Avatar className={styles.roundedAvatar}>
