@@ -193,6 +193,11 @@
   to = "/resources/getting-started-with-paper-based-symbol-resources"
   status = 301
 
+[[redirects]]
+  from = "/ebooks"
+  to = "/resources/all?category=made-by-ace&subcategory=e-books"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
