@@ -198,6 +198,12 @@
   to = "/resources/all?category=made-by-ace&subcategory=e-books"
   status = 301
 
+
+[[redirects]]
+  from = "/account/lost-password"
+  to = "my-acecentre/forgot-password"
+  status = 301
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
