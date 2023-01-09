@@ -27,6 +27,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
           .size-full,
           .size-medium-large {
             width: 100%;
+            height: auto;
             text-align: center;
           }
 
