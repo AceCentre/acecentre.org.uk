@@ -11,7 +11,6 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
-import Link from "next/link";
 import { NoImage } from "../latest-from-blog/latest-from-blog";
 
 const useEnrollStatus = (courseSlug) => {
@@ -157,10 +156,19 @@ export const LearningDetailBox = ({ course }) => {
             )}
             {price > 0 && (
               <>
-                <h3>Purchase order (invoices)</h3>
+                <h3>Invoice</h3>
                 <p>
-                  To request a purchase order{" "}
-                  <Link href="/contact">contact us via this form.</Link>
+                  To request an invoice, ask your finance department to raise a
+                  purchase order, and send it to accounts[at]acecentre.org.uk.
+                  Please ask them to include the following information:
+                  <ul>
+                    <li>Name of course</li>
+                    <li>Date of course</li>
+                    <li>Price of course</li>
+                    <li>Number of seats required</li>
+                    <li>Name of delegate(s)</li>
+                    <li>Email address(s) of delegate(s)</li>
+                  </ul>
                 </p>
               </>
             )}
@@ -302,10 +310,19 @@ export const BundleDetailBox = ({ bundle }) => {
               email with instructions of how to login to the course.
             </p>
 
-            <h3>Purchase order (invoices)</h3>
+            <h3>Invoice</h3>
             <p>
-              To request a purchase order{" "}
-              <Link href="/contact">contact us via this form.</Link>
+              To request an invoice, ask your finance department to raise a
+              purchase order, and send it to accounts[at]acecentre.org.uk.
+              Please ask them to include the following information:
+              <ul>
+                <li>Name of course</li>
+                <li>Date of course</li>
+                <li>Price of course</li>
+                <li>Number of seats required</li>
+                <li>Name of delegate(s)</li>
+                <li>Email address(s) of delegate(s)</li>
+              </ul>
             </p>
             <form
               className={styles.bookButtonContainer}
