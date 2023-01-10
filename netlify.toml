@@ -201,7 +201,7 @@
 
 [[redirects]]
   from = "/account/lost-password"
-  to = "my-acecentre/forgot-password"
+  to = "/my-acecentre/forgot-password"
   status = 301
 
 [[plugins]]
