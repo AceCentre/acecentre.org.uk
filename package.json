@@ -92,7 +92,7 @@
     "mock-fs": "5.2.0",
     "mysql2": "2.3.3",
     "netlify-cli": "12.7.0",
-    "next-sitemap": "3.1.44",
+    "next-sitemap": "3.1.45",
     "nock": "13.2.9",
     "plop": "3.1.1",
     "request": "2.88.2",
