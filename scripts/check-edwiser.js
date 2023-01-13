@@ -39,19 +39,19 @@ const script = async () => {
 
     await checkVersionOfEdwiserPlugin({
       name: "Edwiser Bridge Single Sign On",
-      url: "https://edwiser.org/bridge/extensions/single-sign-on",
+      url: "https://edwiser.org/single-sign-on-2",
       allPlugins,
     });
 
     await checkVersionOfEdwiserPlugin({
       name: "Bulk Purchase and Group Registration",
-      url: "https://edwiser.org/bridge/extensions/bulk-purchase/",
+      url: "https://edwiser.org/bulk-purchase-2",
       allPlugins,
     });
 
     await checkVersionOfEdwiserPlugin({
       name: "WooCommerce Integration",
-      url: "https://edwiser.org/bridge/extensions/woocommerce-integration",
+      url: "https://edwiser.org/woocommerce-integration-2",
       allPlugins,
     });
   } catch (e) {
