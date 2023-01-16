@@ -3,8 +3,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Cllr Cath Ball",
     slug: "cllr-cath-ball-2",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2019/10/Cath-Ball.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2019/10/Cath-Ball.jpg",
       height: 270,
       width: 200,
     },
@@ -19,8 +18,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Terry Waller",
     slug: "terry-waller",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2018/06/Terry.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/06/Terry.jpg",
       height: 1560,
       width: 1560,
     },
@@ -46,8 +44,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "John Devlin",
     slug: "john-devlin",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2018/03/John-Devlin.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/John-Devlin.jpg",
       height: 1480,
       width: 1350,
     },
@@ -61,8 +58,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Martin Littler",
     slug: "martin-littler",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/12/Martin-Littler-1-003.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/12/Martin-Littler-1-003.jpg",
       height: 571,
       width: 571,
     },
@@ -77,8 +73,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "David Reay",
     slug: "david-reay",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/12/David-Reay.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/12/David-Reay.jpg",
       height: 1583,
       width: 1157,
     },
@@ -93,8 +88,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Mike Ruane",
     slug: "mike-ruane",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/Mike-Ruane.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/Mike-Ruane.jpg",
       height: 1386,
       width: 981,
     },
@@ -109,8 +103,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Rob Oldham",
     slug: "rob-oldham",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/Rob-Oldham.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/Rob-Oldham.jpg",
       height: 659,
       width: 528,
     },
@@ -125,8 +118,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Jean Jones",
     slug: "jean-jones",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/Jean-Jones.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/Jean-Jones.jpg",
       height: 3968,
       width: 2976,
     },
@@ -141,8 +133,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Les Coop",
     slug: "les-coop",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/Les-Coop.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/Les-Coop.jpg",
       height: 2736,
       width: 3648,
     },
@@ -157,8 +148,7 @@ export const TRUSTEE_LIST_DEMO = [
     name: "Phil Woolas",
     slug: "phil-woolas",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/PW-photo.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/PW-photo.jpg",
       height: 250,
       width: 153,
     },
