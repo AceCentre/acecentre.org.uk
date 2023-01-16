@@ -11,7 +11,7 @@ context("Paid resources", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "internal", "checkout-when-signed-in");
+    await deleteUser(newEmail, "digitalocean", "checkout-when-signed-in");
   });
 
   it(
