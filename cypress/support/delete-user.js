@@ -2,7 +2,7 @@ import { deleteMoodleUser } from "./delete-moodle-user";
 
 export const deleteUser = async (
   email,
-  subdomain = "internal",
+  subdomain = "digitalocean",
   testName = "unknown"
 ) => {
   const getUserResponse = await fetch(
