@@ -22,7 +22,7 @@ const useSitemap = () => {
     const urls = Array.from(sitemapDoc.querySelectorAll("loc"))
       .map((x) => {
         return x.innerHTML
-          .replace("https://internal.acecentre.org.uk", "")
+          .replace("https://digitalocean.acecentre.org.uk", "")
           .replace("https://backend.acecentre.org.uk", "")
           .replace("https://acecentre.org.uk", "");
       })
