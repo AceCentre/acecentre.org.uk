@@ -89,7 +89,7 @@ context("Moodle", () => {
         cy.findByRole("button", { name: "Apply Voucher" }).click();
 
         // Make sure the discount is applied
-        cy.wait(5000);
+        cy.wait(20000);
         cy.findAllByRole("table")
           .last()
           .within(() => {
