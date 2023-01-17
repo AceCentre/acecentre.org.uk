@@ -28,6 +28,7 @@ const chakraTheme = extendTheme({
   useSystemColorMode: false,
 });
 
+// eslint-disable-next-line no-unused-vars
 function MyApp({
   Component,
   pageProps: { globalProps = {}, seo = {}, uncaughtError, trace, ...pageProps },
@@ -112,7 +113,6 @@ function MyApp({
   );
 }
 
-// eslint-disable-next-line no-unused-vars
 const MaintenancePage = () => (
   <>
     <title>Site Maintenance</title>
@@ -171,4 +171,4 @@ const MaintenancePage = () => (
   </>
 );
 
-export default MyApp;
+export default MaintenancePage;
