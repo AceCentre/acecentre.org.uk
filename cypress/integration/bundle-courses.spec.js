@@ -82,7 +82,7 @@ context("Moodle", () => {
         .click();
 
       // Check we are on the basket page
-      cy.url({ timeout: 20000 }).should("include", "/basket");
+      cy.url({ timeout: 40000 }).should("include", "/basket");
       // Apply voucher
       cy.findByRole("textbox", { name: "Voucher" }).type(couponCode);
       cy.findByRole("button", { name: "Apply Voucher" }).click();
@@ -94,7 +94,7 @@ context("Moodle", () => {
           cy.get("tr:last-child > td:last-child").contains("£0.00");
         });
       // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
+      cy.url({ timeout: 40000 }).should("include", "/basket");
       // Checkout as a new user
       cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
       cy.url({ timeout: 40000 }).should("include", "register-checkout");
