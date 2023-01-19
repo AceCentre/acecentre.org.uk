@@ -57,6 +57,13 @@ export const FEEDBACK = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURUQ4RFRTWFM2OElZNjMwSFM5UUVZRFBSVyQlQCN0PWcu",
 };
 
+export const SPEECHBUBBLE = {
+  slug: "speechbubble",
+  title: "SpeechBubble Interest",
+  height: 700,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUOE1ZVVhRRjNLUEVEUzdGVjVETklLWjgyTy4u",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
