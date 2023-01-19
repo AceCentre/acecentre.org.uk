@@ -60,7 +60,7 @@ export const FEEDBACK = {
 export const SPEECHBUBBLE = {
   slug: "speechbubble",
   title: "SpeechBubble Interest",
-  height: 700,
+  height: 900,
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUOE1ZVVhRRjNLUEVEUzdGVjVETklLWjgyTy4u",
 };
 
