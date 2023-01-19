@@ -19,9 +19,15 @@ export const Speechbubble = ({ featuredResources }) => {
         <div className={styles.rightHandSide}>
           <h1>SpeechBubble has Shutdown</h1>
           <p>
-            Thank you for using speech bubble, your help is appreciated.
-            Something something, this needs thought out more. If you want would
-            like it come back let us know by filling out the form below.
+            SpeechBubble is a search and comparison site that allows for
+            independent feature matching across AAC solutions and access
+            devices. Sadly we have paused its operation for now. Without
+            up-to-date data the service is unreliable for the accurate data we
+            think people need.
+          </p>
+          <p>
+            If you feel you&apos;d like to be involved in developing a new
+            SpeechBubble we&apos;d love to hear from you.
           </p>
         </div>
       </div>
