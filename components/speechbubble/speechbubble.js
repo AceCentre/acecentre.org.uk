@@ -12,7 +12,7 @@ export const Speechbubble = ({ featuredResources }) => {
           <Image
             src="/speechbubble.png"
             layout="fill"
-            alt="Illustrations of individuals reading books on tablets"
+            alt="SpeechBubble Logo"
             objectFit="contain"
           />
         </div>
