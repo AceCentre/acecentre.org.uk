@@ -87,7 +87,7 @@ const ResourceListSwitch = ({
 };
 
 export async function getStaticPaths() {
-  const allProducts = await getAllProducts(true, false);
+  const allProducts = await getAllProducts(true);
 
   if (!allProducts) throw new Error("Could not get all the products");
 
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
     })),
     // Currently this is ignored by Netlify so we have to use `notFound`
     // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: true,
+    fallback: false,
   };
 }
 
