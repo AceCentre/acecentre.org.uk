@@ -1,29 +1,20 @@
-import { Footer } from "../../components/footer/footer";
-import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
-import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { getAllProducts } from "../../lib/products/get-products";
-import { BackToLink } from "../../components/back-to-link/back-to-link";
-
-import { ResourcesImage } from "../../components/resources-image/resources-image";
-import { ResourcesDescription } from "../../components/resources-description/resources-description";
-import { ResourcesDownload } from "../../components/resources-download/resources-download";
-import { ResourcesShare } from "../../components/resources-share/resources-share";
-
-import styles from "../../styles/resources-detail.module.css";
-import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
-import { ResourceList } from "../../components/resource-list/resource-list";
-import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
+import { BackToLink } from "../../../components/back-to-link/back-to-link";
+import { CombinedNav } from "../../../components/combined-nav/combined-nav";
+import { Footer } from "../../../components/footer/footer";
+import { LaunchpadPage } from "../../../components/launchpad-generate/launchpad-generate";
+import { defaultNavItems } from "../../../components/sub-nav/sub-nav-items";
+import { useGlobalProps } from "../../../lib/global-props/hook";
+import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
+import { getLaunchpadTemplate } from "../../../lib/launchpad";
+import { getAllProducts } from "../../../lib/products/get-products";
 
 export default function ResourceDetail({
   resource,
   relatedResources,
   attachedResources,
+  launchpadTemplate,
 }) {
   const { currentYear } = useGlobalProps();
-
-  const project = resource.projects[0] || null;
 
   return (
     <>
@@ -32,21 +23,9 @@ export default function ResourceDetail({
       </header>
       <main id="mainContent">
         <BackToLink where="all resources" href="/resources/all" />
-        <div className={styles.topArea}>
-          <div className={styles.leftTopArea}>
-            <ResourcesImage resource={resource} priority />
-          </div>
-          <div className={styles.rightTopArea}>
-            <ResourcesDescription resource={resource} />
-            <ResourcesDownload resource={resource} />
-            <ResourcesShare />
-          </div>
-        </div>
-        {resource.description && (
-          <ResourceFullDescription resource={resource} />
-        )}
-        {project && <ProjectHighlight project={project} />}
-        <ResourceListSwitch
+
+        <LaunchpadPage
+          launchpadTemplate={launchpadTemplate}
           resource={resource}
           attachedResources={attachedResources}
           relatedResources={relatedResources}
@@ -57,53 +36,7 @@ export default function ResourceDetail({
   );
 }
 
-const ResourceListSwitch = ({
-  resource,
-  attachedResources,
-  relatedResources,
-}) => {
-  const isEbook = resource.ebook;
-
-  if (isEbook && attachedResources.length > 0) {
-    return (
-      <ResourceList
-        className={styles.resourcesList}
-        title={"Resources featured in this eBook"}
-        tagline="Learn how to effectively use these resources from this eBook"
-        products={attachedResources}
-      />
-    );
-  }
-
-  return (
-    <ResourceList
-      className={styles.resourcesList}
-      title={"Other resources you might like"}
-      viewAllLink={"/resources/all"}
-      viewAllText="View all resources"
-      products={[...attachedResources, ...relatedResources].slice(0, 4)}
-    />
-  );
-};
-
-export async function getStaticPaths() {
-  const allProducts = await getAllProducts(true);
-
-  if (!allProducts) throw new Error("Could not get all the products");
-
-  return {
-    paths: allProducts.map((product) => ({
-      params: {
-        slug: product.slug,
-      },
-    })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
-  };
-}
-
-export const getStaticProps = withGlobalPropsNoRevalidate(
+export const getServerSideProps = withGlobalPropsNoRevalidate(
   async ({ params: { slug } }) => {
     const allProducts = await getAllProducts(true);
 
@@ -168,17 +101,18 @@ export const getStaticProps = withGlobalPropsNoRevalidate(
       currentResource.inStock ||
       variations.some((variation) => variation.inStock);
 
-    if (currentResource.isLaunchpadTemplate) {
+    if (!currentResource.isLaunchpadTemplate) {
       return {
         redirect: {
-          destination: `/resources/customise/${currentResource.slug}`,
+          destination: `/resources/${currentResource.slug}`,
           permanent: true,
         },
       };
     }
-
+    const launchpadTemplate = await getLaunchpadTemplate(currentResource.slug);
     return {
       props: {
+        launchpadTemplate,
         resource: currentResource,
         relatedResources: relatedResources.slice(0, 4),
         attachedResources: attachedResources.slice(0, 4),
