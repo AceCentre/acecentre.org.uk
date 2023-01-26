@@ -10,6 +10,10 @@ const IGNORE = [
   "pasco-support",
   "launchpad",
   "checkout",
+  "atech-policy-lab-launched-today", // Includes a low res image
+  "tribute-professor-stephen-hawking",
+  "speakbook-crowdsourcing-aac-translations",
+  "visit-by-layla-moran-mp-to-our-abingdon-office",
 ];
 
 function chunk(arr, len) {

@@ -35,7 +35,7 @@ context("Free resources", () => {
           "exist"
         );
         cy.findAllByRole("textbox", {
-          name: "Email address for mailing list",
+          name: "Email address",
         }).should("exist");
       });
   });

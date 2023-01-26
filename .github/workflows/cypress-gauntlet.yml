@@ -21,15 +21,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -48,7 +40,7 @@ jobs:
           config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-1-post
         env:
@@ -58,7 +50,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunTwoPost:
     needs: [PrepareCypressId, GauntletRunOnePost]
@@ -67,15 +59,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -94,7 +78,7 @@ jobs:
           config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-2-post
         env:
@@ -104,7 +88,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunThreePost:
     needs: [PrepareCypressId, GauntletRunTwoPost]
@@ -113,15 +97,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -140,7 +116,7 @@ jobs:
           config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-3-post
         env:
@@ -151,7 +127,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunFourPost:
     needs: [PrepareCypressId, GauntletRunThreePost]
@@ -160,15 +136,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -187,7 +155,7 @@ jobs:
           config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-4-post
         env:
@@ -197,7 +165,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunFivePost:
     needs: [PrepareCypressId, GauntletRunFourPost]
@@ -206,15 +174,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -233,7 +193,7 @@ jobs:
           config: baseUrl=https://acecentre.org.uk,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-5-post
         env:
@@ -243,7 +203,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunOnePre:
     needs: [PrepareCypressId]
@@ -252,15 +212,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -279,7 +231,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-1-pre
         env:
@@ -289,7 +241,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunTwoPre:
     needs: [PrepareCypressId, GauntletRunOnePre]
@@ -298,15 +250,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106s
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -325,7 +269,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-2-pre
         env:
@@ -335,7 +279,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunThreePre:
     needs: [PrepareCypressId, GauntletRunTwoPre]
@@ -344,15 +288,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -371,7 +307,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-3-pre
         env:
@@ -382,7 +318,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunFourPre:
     needs: [PrepareCypressId, GauntletRunThreePre]
@@ -391,15 +327,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -418,7 +346,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-4-pre
         env:
@@ -428,7 +356,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5
 
   GauntletRunFivePre:
     needs: [PrepareCypressId, GauntletRunFourPre]
@@ -437,15 +365,7 @@ jobs:
       image: cypress/browsers:node18.12.0-chrome106-ff106
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving the Dashboard hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run 4 copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -464,7 +384,7 @@ jobs:
           config: baseUrl=https://integration--acecentreorguk.netlify.app,retries=0
           record: true
           install: false
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-5-pre
         env:
@@ -474,4 +394,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v5.0.5

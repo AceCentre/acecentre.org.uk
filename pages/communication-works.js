@@ -12,7 +12,7 @@ import { ImageWithLoader } from "../components/image";
 import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
 import Link from "next/link";
 import AssignmentIcon from "@material-ui/icons/Assignment";
-import EventIcon from "@material-ui/icons/Event";
+// import EventIcon from "@material-ui/icons/Event";
 import { getPage } from "../lib/generic-pages/get-page";
 
 export default function CommunicationWorks({ page }) {
@@ -26,7 +26,7 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/CW2022-2.png"
+            src="/CW2023.png"
             alt="Communication works banner"
             width={1640}
             height={924}
@@ -50,16 +50,16 @@ export default function CommunicationWorks({ page }) {
               </Avatar>
               <div>
                 <h3>Communication Works NORTH</h3>
-                <p>26 May 2022 | 10am-4pm</p>
-                <p>New Bridge School, Roman Road, Oldham OL8 3PH</p>
+                <p>Thursday, 25 May 2023</p>
+                <p>New Bridge Academy, Oldham, OL8 3PH</p>
                 <p>
-                  <Link href="https://www.eventbrite.co.uk/e/255181132637">
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2023-north-tickets-511840838727">
                     Register for free here.
                   </Link>
                 </p>
               </div>
             </div>
-            {page.communicationWorksUrl && (
+            {/* {page.communicationWorksUrl && (
               <div className={styles.quote}>
                 <Avatar className={styles.avatar}>
                   <EventIcon className={styles.icon} />
@@ -88,20 +88,17 @@ export default function CommunicationWorks({ page }) {
                   </p>
                 </div>
               </div>
-            )}
+            )} */}
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <AssignmentIcon className={styles.icon} />
               </Avatar>
               <div>
                 <h3>Communication Works SOUTH</h3>
-                <p>19 May 2022 | 10am-4pm</p>
+                <p>Thursday, 18 May 2023</p>
+                <p>Charlton Athletic Football Club, London SE7 8BL</p>
                 <p>
-                  Charlton Athletic Football Stadium, The Valley, Charlton,
-                  London SE7 8BL
-                </p>
-                <p>
-                  <Link href="https://www.eventbrite.co.uk/e/252057730457">
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2023-south-tickets-427227548097">
                     Register for free here.
                   </Link>
                 </p>
@@ -123,9 +120,9 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       page,
 
       seo: {
-        title: "Communication Works 2022",
+        title: "Communication Works 2023",
         description:
-          "Communication Works 2022 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
+          "Communication Works 2023 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },
     },
   };

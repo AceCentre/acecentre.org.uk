@@ -10,8 +10,6 @@ module.exports = {
       "BUILD_ID",
       "DEPLOY_KEY",
       "IMAGE_URL",
-      "MAILCHIMP_SERVER",
-      "MAILCHIMP_API_KEY",
       "SLACK_TOKEN",
       "SLACK_SECRET",
       "POSTHOG_KEY",

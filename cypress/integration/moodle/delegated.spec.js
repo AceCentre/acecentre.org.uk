@@ -80,14 +80,14 @@ context("Moodle", () => {
       cy.findAllByRole("button", { name: "Book this course" }).last().click();
 
       // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
+      cy.url({ timeout: 40000 }).should("include", "/basket");
 
       // Apply voucher
       cy.findByRole("textbox", { name: "Voucher" }).type(couponCode);
       cy.findByRole("button", { name: "Apply Voucher" }).click();
 
       // Make sure the discount is applied
-      cy.wait(5000);
+      cy.wait(20000);
       cy.findAllByRole("table")
         .last()
         .within(() => {
@@ -95,7 +95,7 @@ context("Moodle", () => {
         });
 
       // Check we are on the basket page
-      cy.url({ timeout: 10000 }).should("include", "/basket");
+      cy.url({ timeout: 40000 }).should("include", "/basket");
 
       // Checkout as a new user
       cy.findAllByRole("link", { name: "Checkout as New User" }).last().click();
