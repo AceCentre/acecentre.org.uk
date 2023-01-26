@@ -203,6 +203,21 @@
   to = "/form/general-feedback"
   status = 301
 
+[[redirects]]
+  from = "/ebooks-symbols"
+  to = "/resources/getting-started-with-paper-based-symbol-resources"
+  status = 301
+
+[[redirects]]
+  from = "/ebooks"
+  to = "/resources/all?category=made-by-ace&subcategory=e-books"
+  status = 301
+
+
+[[redirects]]
+  from = "/account/lost-password"
+  to = "/my-acecentre/forgot-password"
+  status = 301
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

@@ -11,80 +11,101 @@ import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
 import { useGlobalProps } from "../../lib/global-props/hook";
+import { useEffect, useState } from "react";
+import { NewsletterModal } from "../footer/footer";
+import { useRouter } from "next/router";
 
 export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
+  const [modelOpen, setModelOpen] = useState(false);
   const { loggedInStatus } = useGlobalProps();
+  const { query } = useRouter();
+
+  useEffect(() => {
+    setModelOpen(query.newsletter !== undefined);
+  }, [query.newsletter]);
+
+  const onClose = () => setModelOpen(false);
 
   return (
-    <FullWidthContainer>
-      <InnerContainer>
-        <HomeButton nhsTitle={nhsTitle} nhs={nhs} />
-        <NavList>
-          {!nhs && (
-            <>
-              <NavLink href="/blog">Blog</NavLink>
-              <NavLink href="/feedback">Feedback</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
-              <NavLink href="/my-acecentre">
-                <SvgIcon>
-                  <PersonOutlineOutlinedIcon />
-                </SvgIcon>
-                {loggedInStatus ? "My Ace Centre" : "Login"}
-              </NavLink>
+    <>
+      <NewsletterModal
+        modelOpen={modelOpen}
+        onClose={onClose}
+        signUpIdentifier="pop-over"
+      />
+      <FullWidthContainer>
+        <InnerContainer>
+          <HomeButton nhsTitle={nhsTitle} nhs={nhs} />
+          <NavList>
+            {!nhs && (
+              <>
+                <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="/feedback">Feedback</NavLink>
+                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/my-acecentre">
+                  <SvgIcon>
+                    <PersonOutlineOutlinedIcon />
+                  </SvgIcon>
+                  {loggedInStatus ? "My Ace Centre" : "Login"}
+                </NavLink>
 
-              <NavLink href="/basket">
-                <SvgIcon>
-                  <ShoppingCartOutlinedIcon />
-                </SvgIcon>
-                Checkout
-              </NavLink>
-            </>
-          )}
+                <NavLink href="/basket">
+                  <SvgIcon>
+                    <ShoppingCartOutlinedIcon />
+                  </SvgIcon>
+                  Checkout
+                </NavLink>
+              </>
+            )}
 
-          {noPhoneNumber === false && (
-            <NavLink href="tel:0800 080 3115">
-              <SvgIcon>
-                <PhoneOutlinedIcon />
-              </SvgIcon>
-              0800 080 3115
-            </NavLink>
-          )}
-        </NavList>
-        <div className={styles.hideOnMediumScreens}>
-          <form action="/search" method="GET">
-            <Input
-              name="searchText"
-              ariaLabel="Search text"
-              placeholder="Search"
-              maxWidth={213}
-            >
-              <button
-                type="submit"
-                className={styles.noStyleButton}
-                aria-label="Search"
+            {noPhoneNumber === false && (
+              <NavLink href="tel:0800 080 3115">
+                <SvgIcon>
+                  <PhoneOutlinedIcon />
+                </SvgIcon>
+                0800 080 3115
+              </NavLink>
+            )}
+          </NavList>
+          <div className={styles.hideOnMediumScreens}>
+            <form action="/search" method="GET">
+              <Input
+                name="searchText"
+                ariaLabel="Search text"
+                placeholder="Search"
+                maxWidth={213}
               >
-                <SvgIcon>
-                  <SearchIcon />
-                </SvgIcon>
-              </button>
-            </Input>
-          </form>
-        </div>
-        {nhs ? (
-          <div className={styles.hideOnMediumScreens}>
-            <Button href="/services" className={styles.nhsButton}>
-              View all services
-            </Button>
+                <button
+                  type="submit"
+                  className={styles.noStyleButton}
+                  aria-label="Search"
+                >
+                  <SvgIcon>
+                    <SearchIcon />
+                  </SvgIcon>
+                </button>
+              </Input>
+            </form>
           </div>
-        ) : (
-          <div className={styles.hideOnMediumScreens}>
-            <Button href="/get-involved/donate" className={styles.donateButton}>
-              Donate
-            </Button>
-          </div>
-        )}
-      </InnerContainer>
-    </FullWidthContainer>
+          {nhs ? (
+            <div className={styles.hideOnMediumScreens}>
+              <Button href="/services" className={styles.nhsButton}>
+                View all services
+              </Button>
+            </div>
+          ) : (
+            <div className={styles.hideOnMediumScreens}>
+              <Button
+                href="/get-involved/donate"
+                className={styles.donateButton}
+              >
+                Donate
+              </Button>
+            </div>
+          )}
+        </InnerContainer>
+      </FullWidthContainer>
+    </>
   );
 };
 

@@ -21,6 +21,45 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
 
   return (
     <>
+      <style jsx global>
+        {`
+          .size-medium,
+          .size-full,
+          .size-medium-large {
+            width: 100%;
+            height: auto;
+            text-align: center;
+          }
+
+          .size-medium > a,
+          .size-medium-large > a,
+          .size-full > a {
+            width: 100%;
+          }
+
+          .size-medium > a > img,
+          .size-medium > img,
+          .size-medium-large > a > img,
+          .size-medium-large > img,
+          .size-full > a > img,
+          .size-full > img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+          }
+
+          figure {
+            text-align: center;
+          }
+
+          figure > img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            margin: 0 auto;
+          }
+        `}
+      </style>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>

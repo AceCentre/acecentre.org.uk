@@ -1,12 +1,13 @@
 import styles from "./top-banner.module.css";
 
+import Link from "next/link";
+
 export const TopBanner = () => {
   return (
     <div className={styles.container}>
       <p>
-        As a mark of respect for the State Funeral for Her Majesty Queen
-        Elizabeth II, we have taken the decision to close on Monday 19
-        September.
+        🎉 Communication Works: live AT events coming in May 2023.{" "}
+        <Link href="/communication-works">Click here to find out more!</Link>
       </p>
     </div>
   );

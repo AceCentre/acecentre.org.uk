@@ -2,6 +2,28 @@
   width: 100%;
 }
 
+.form {
+  width: 60%;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.formInput {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+}
+
+.success {
+  font-weight: bold;
+  color: green;
+}
+
 .ebook {
   display: flex;
   justify-content: space-between;
@@ -49,6 +71,17 @@
   cursor: pointer;
 }
 
+.namesInput {
+  display: flex;
+  gap: 1rem;
+
+  margin: 1rem 0;
+
+  /* width: 60%;
+  min-width: 300px;
+  margin: 0 auto; */
+}
+
 .closeButton:hover,
 .closeButton:focus {
   text-decoration: underline;
@@ -59,7 +92,6 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  margin-top: 3rem;
 }
 
 .topSection {
@@ -81,6 +113,10 @@
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
+  }
+
+  .formInput {
+    flex-direction: column;
   }
 
   .ebook {
