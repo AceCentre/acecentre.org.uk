@@ -95,24 +95,6 @@ const shouldShowRibbon = (product) => {
     return "Customise";
   }
 
-  if (product?.instantDownloadAvailable) {
-    return "Download";
-  }
-
-  const variations = product.variations || [];
-  const downloadableVariations = variations.filter(
-    (x) => x?.instantDownloadAvailable
-  );
-
-  if (
-    downloadableVariations.length > 0 &&
-    downloadableVariations.length == variations.length
-  ) {
-    return "Download";
-  }
-
-  if (product.ebook) return "Download";
-
   return false;
 };
 
