@@ -161,6 +161,8 @@ export const LaunchpadPage = ({
     defaultSelected,
     modalOpen,
     setModalOpen,
+    freshTemplate,
+    loading,
   } = useLaunchpad(launchpadTemplate);
 
   return (
@@ -196,7 +198,8 @@ export const LaunchpadPage = ({
       </div>
 
       <LaunchpadGenerate
-        template={launchpadTemplate}
+        loading={loading}
+        template={freshTemplate}
         triggerDownload={triggerDownload}
         downloadDisabled={downloadDisabled}
         errorMessage={errorMessage}
@@ -225,6 +228,7 @@ export const LaunchpadGenerate = ({
   defaultSelected,
   modalOpen,
   setModalOpen,
+  loading,
 }) => {
   const [selected, setSelected] = useState(defaultSelected);
 
@@ -234,54 +238,59 @@ export const LaunchpadGenerate = ({
       <div className={styles.share}>
         <ResourcesShare />
       </div>
-      {template.templateVariables.length > 0 && (
-        <p>
-          Edit the chart by selecting different options below then press
-          download to generate your chart.
-        </p>
-      )}
-      <div className={styles.variablesGrid}>
-        {looseVariableProps.map((current) => (
-          <TemplateVariable {...current} key={current.id} />
-        ))}
-      </div>
-      <Accordion
-        onChange={(selectedItems) => setSelected(selectedItems)}
-        preExpanded={selected}
-        allowMultipleExpanded
-        allowZeroExpanded
-      >
-        {variableGroupsProps.map((currentGroup) => {
-          return (
-            <VariableGroup
-              selected={selected}
-              key={currentGroup.id}
-              currentGroup={currentGroup}
-            />
-          );
-        })}
-      </Accordion>
-      <div></div>
-      <FormModal form={RESOURCE_FEEDBACK}>
-        {({ onClick }) => (
-          <a
-            href={RESOURCE_FEEDBACK.url}
-            onClick={(event) => {
-              event.preventDefault();
-              onClick(event);
-            }}
-          >
-            Click here to share your feedback on this resource
-          </a>
-        )}
-      </FormModal>
 
-      <DownloadModal
-        modalOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        name={template.templateName}
-        errorMessage={errorMessage}
-      />
+      {!loading && (
+        <>
+          {template.templateVariables.length > 0 && (
+            <p>
+              Edit the chart by selecting different options below then press
+              download to generate your chart.
+            </p>
+          )}
+          <div className={styles.variablesGrid}>
+            {looseVariableProps.map((current) => (
+              <TemplateVariable {...current} key={current.id} />
+            ))}
+          </div>
+          <Accordion
+            onChange={(selectedItems) => setSelected(selectedItems)}
+            preExpanded={selected}
+            allowMultipleExpanded
+            allowZeroExpanded
+          >
+            {variableGroupsProps.map((currentGroup) => {
+              return (
+                <VariableGroup
+                  selected={selected}
+                  key={currentGroup.id}
+                  currentGroup={currentGroup}
+                />
+              );
+            })}
+          </Accordion>
+          <div></div>
+          <FormModal form={RESOURCE_FEEDBACK}>
+            {({ onClick }) => (
+              <a
+                href={RESOURCE_FEEDBACK.url}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onClick(event);
+                }}
+              >
+                Click here to share your feedback on this resource
+              </a>
+            )}
+          </FormModal>
+
+          <DownloadModal
+            modalOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            name={template.templateName}
+            errorMessage={errorMessage}
+          />
+        </>
+      )}
     </div>
   );
 };
