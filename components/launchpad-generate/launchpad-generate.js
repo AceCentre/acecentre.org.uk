@@ -231,6 +231,9 @@ export const LaunchpadGenerate = ({
   loading,
 }) => {
   const [selected, setSelected] = useState(defaultSelected);
+  useEffect(() => {
+    setSelected(defaultSelected);
+  }, [defaultSelected]);
 
   return (
     <div className={styles.container}>
@@ -239,7 +242,7 @@ export const LaunchpadGenerate = ({
         <ResourcesShare />
       </div>
 
-      {!loading && (
+      {!loading && looseVariableProps && selected && (
         <>
           {template.templateVariables.length > 0 && (
             <p>
