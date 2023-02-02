@@ -280,7 +280,7 @@ const ErrorMessage = ({ errorMessage }) => {
     );
 
   return (
-    <p>
+    <p className={styles.errorMessage}>
       An unknown error occurred. Check back soon or{" "}
       <Link href="/contact">Contact Us</Link>
     </p>
