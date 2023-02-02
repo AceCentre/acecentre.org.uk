@@ -174,21 +174,6 @@
   status = 301
 
 [[redirects]]
-  from = "/resources/core"
-  to = "/resources/core-launchpad"
-  status = 301
-
-[[redirects]]
-  from = "/resources/reading"
-  to = "/resources/reading-launchpad"
-  status = 301
-
-[[redirects]]
-  from = "/resources/bubbles"
-  to = "/resources/bubbles-launchpad"
-  status = 301
- 
-[[redirects]]
   from = "/resources/identifying-vocabulary-for-a-communication-book"
   to = "/resources/identifying-vocabulary-to-personalise-aac"
   status = 301

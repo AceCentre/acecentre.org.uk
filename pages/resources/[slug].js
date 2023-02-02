@@ -186,7 +186,9 @@ export const getStaticProps = withGlobalPropsNoRevalidate(
 
     let launchpadTemplate = null;
     if (currentResource.isLaunchpadTemplate) {
-      launchpadTemplate = await getLaunchpadTemplate(currentResource.slug);
+      launchpadTemplate = await getLaunchpadTemplate(
+        currentResource.launchpadSlug
+      );
     }
 
     return {

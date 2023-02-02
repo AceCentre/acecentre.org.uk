@@ -118,6 +118,7 @@ const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
 };
 
 export const LaunchpadPage = ({
+  resource,
   launchpadTemplate,
   attachedResources,
   relatedResources,
@@ -139,21 +140,10 @@ export const LaunchpadPage = ({
     <>
       <div className={styles.topArea}>
         <div className={styles.leftTopArea}>
-          <ResourcesImage
-            resource={{
-              name: launchpadTemplate.templateName,
-              image: { src: launchpadTemplate.templateImageUrl },
-            }}
-            priority
-          />
+          <ResourcesImage resource={resource} priority />
         </div>
         <div className={styles.rightTopArea}>
-          <ResourcesDescription
-            resource={{
-              name: launchpadTemplate.templateName,
-              shortDescription: launchpadTemplate.templateDescription,
-            }}
-          />
+          <ResourcesDescription resource={resource} />
           <Button
             className={styles.downloadButton}
             disabled={downloadDisabled}
