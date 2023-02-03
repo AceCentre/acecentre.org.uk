@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
 
@@ -228,6 +228,10 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
     defaultVariation.slug
   );
 
+  useEffect(() => {
+    setCurrentlySelected(defaultVariation.slug);
+  }, [defaultVariation, defaultVariation.slug]);
+
   const onChange = (value) => {
     setCurrentlySelected(value);
   };
@@ -241,6 +245,8 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
   );
 
   const showFreePrice = variations.length !== downloadableVariations.length;
+
+  if (!currentlySelectedFull) return null;
 
   return (
     <div>
