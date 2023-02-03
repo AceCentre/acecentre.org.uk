@@ -8,6 +8,7 @@ context("Paid resources", () => {
     cy.findAllByRole("combobox", { name: "Price range" }).select("Paid");
     cy.wait(1000);
     cy.url({ timeout: 60000 }).should("include", "pricerange=paid");
+    cy.wait(1000);
     cy.findByRole("main")
       .findAllByRole("list")
       .first()

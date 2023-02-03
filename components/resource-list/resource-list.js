@@ -91,23 +91,9 @@ export const LaunchpadList = ({ title, templates, className = "" }) => {
 };
 
 const shouldShowRibbon = (product) => {
-  if (product?.instantDownloadAvailable) {
-    return "Download";
+  if (product?.isLaunchpadTemplate) {
+    return "Customise";
   }
-
-  const variations = product.variations || [];
-  const downloadableVariations = variations.filter(
-    (x) => x?.instantDownloadAvailable
-  );
-
-  if (
-    downloadableVariations.length > 0 &&
-    downloadableVariations.length == variations.length
-  ) {
-    return "Download";
-  }
-
-  if (product.ebook) return "Download";
 
   return false;
 };

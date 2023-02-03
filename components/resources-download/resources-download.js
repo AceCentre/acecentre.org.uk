@@ -65,13 +65,13 @@ export const ResourcesDownload = ({ resource }) => {
 };
 
 const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
-  const [modelOpen, setModelOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const onClose = () => setModelOpen(false);
+  const onClose = () => setModalOpen(false);
 
   return (
     <>
-      <DownloadModal modelOpen={modelOpen} onClose={onClose} />
+      <DownloadModal modalOpen={modalOpen} onClose={onClose} />
       <div className={styles.ebook}>
         {ebook.ibook && (
           <a
@@ -91,7 +91,7 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
         {ebook.downloadLocation && (
           <Button
             onClick={() => {
-              setModelOpen(true);
+              setModalOpen(true);
               if (gtag) {
                 gtag("event", "conversion", {
                   send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
@@ -412,13 +412,13 @@ export const NewsletterSignup = ({
   );
 };
 
-const DownloadModal = ({ modelOpen, onClose }) => {
+const DownloadModal = ({ modalOpen, onClose }) => {
   return (
     <Modal
       scrollBehavior="inside"
       size="3xl"
       isCentered
-      isOpen={modelOpen}
+      isOpen={modalOpen}
       onClose={onClose}
     >
       <ModalOverlay />
@@ -447,16 +447,16 @@ const DownloadModal = ({ modelOpen, onClose }) => {
 };
 
 const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
-  const [modelOpen, setModelOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const onClose = () => setModelOpen(false);
+  const onClose = () => setModalOpen(false);
 
   return (
     <>
       <div className={styles.downloadButtonContainer}>
         <Button
           onClick={() => {
-            setModelOpen(true);
+            setModalOpen(true);
             if (gtag) {
               gtag("event", "conversion", {
                 send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
@@ -482,7 +482,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
           Free download
         </Button>
       </div>
-      <DownloadModal modelOpen={modelOpen} onClose={onClose} />
+      <DownloadModal modalOpen={modalOpen} onClose={onClose} />
     </>
   );
 };

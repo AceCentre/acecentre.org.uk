@@ -1,7 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
-import { RgbStringColorPicker } from "react-colorful";
 import { launchpadUrl } from "../../lib/config";
 import {
   FormControl,
@@ -19,11 +18,111 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import { Avatar } from "@material-ui/core";
+import { Avatar, LinearProgress } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
+import { ResourcesImage } from "../resources-image/resources-image";
+import { ResourcesDescription } from "../resources-description/resources-description";
+import { ResourcesShare } from "../resources-share/resources-share";
+import { ResourceList } from "../resource-list/resource-list";
+import Link from "next/link";
+import { BlockPicker } from "react-color";
+import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
+import { NewsletterSignup } from "../resources-download/resources-download";
 
-export const LaunchpadGenerate = ({ template }) => {
+const COLOURS = [
+  "#B9ffB9",
+  "#ffffff",
+  "#000000",
+  "#FFFF00",
+  "#FF0000",
+  "#00FF00",
+  "#0000FF",
+  "#D9E3F0",
+  "#F47373",
+  "#697689",
+  "#37D67A",
+  "#2CCCE4",
+  "#555555",
+  "#dce775",
+  "#ff8a65",
+  "#ba68c8",
+];
+
+const Progress = ({ totalTime }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const tempId = setInterval(() => {
+      setValue((current) => {
+        if (current >= 100) {
+          clearInterval(tempId);
+          return 100;
+        }
+        return current + 1;
+      });
+    }, totalTime / 100);
+  }, []);
+
+  return (
+    <>
+      <LinearProgress
+        className={styles.progress}
+        variant="determinate"
+        value={value}
+      />
+    </>
+  );
+};
+
+const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Preparing {name} for download</h2>
+
+            {errorMessage ? (
+              <ErrorMessage errorMessage={errorMessage} />
+            ) : (
+              <Progress totalTime={8000} />
+            )}
+            <p>The download will begin automatically</p>
+            <p>
+              While you wait, why not sign up to our free newsletter to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup signUpIdentifier="launchpad" />
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export const LaunchpadPage = ({
+  resource,
+  launchpadTemplate,
+  attachedResources,
+  relatedResources,
+}) => {
   const {
     triggerDownload,
     downloadDisabled,
@@ -31,44 +130,150 @@ export const LaunchpadGenerate = ({ template }) => {
     looseVariableProps,
     variableGroupsProps,
     defaultSelected,
-  } = useLaunchpad(template);
+    modalOpen,
+    setModalOpen,
+    freshTemplate,
+    loading,
+  } = useLaunchpad(launchpadTemplate);
+
+  return (
+    <>
+      <div className={styles.topArea}>
+        <div className={styles.leftTopArea}>
+          <ResourcesImage resource={resource} priority />
+        </div>
+        <div className={styles.rightTopArea}>
+          <ResourcesDescription resource={resource} />
+          <Button
+            className={styles.downloadButton}
+            disabled={downloadDisabled}
+            onClick={() => {
+              triggerDownload();
+              setModalOpen(true);
+            }}
+          >
+            Free download
+          </Button>
+        </div>
+      </div>
+
+      <LaunchpadGenerate
+        loading={loading}
+        template={freshTemplate}
+        triggerDownload={triggerDownload}
+        downloadDisabled={downloadDisabled}
+        errorMessage={errorMessage}
+        looseVariableProps={looseVariableProps}
+        variableGroupsProps={variableGroupsProps}
+        defaultSelected={defaultSelected}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
+      <ResourceList
+        className={styles.resourcesList}
+        title={"Other resources you might like"}
+        viewAllLink={"/resources/all"}
+        viewAllText="View all resources"
+        products={[...attachedResources, ...relatedResources].slice(0, 4)}
+      />
+    </>
+  );
+};
+
+export const LaunchpadGenerate = ({
+  template,
+  errorMessage,
+  looseVariableProps,
+  variableGroupsProps,
+  defaultSelected,
+  modalOpen,
+  setModalOpen,
+  loading,
+}) => {
   const [selected, setSelected] = useState(defaultSelected);
+  useEffect(() => {
+    setSelected(defaultSelected);
+  }, [defaultSelected]);
 
   return (
     <div className={styles.container}>
-      {template.templateVariables.length > 0 && (
-        <p>
-          Enter a value for each of the following options. Then press{" "}
-          <strong>&apos;download&apos;</strong> to generate your board.
-        </p>
-      )}
-      <div className={styles.variablesGrid}>
-        {looseVariableProps.map((current) => (
-          <TemplateVariable {...current} key={current.id} />
-        ))}
+      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
+      <div className={styles.share}>
+        <ResourcesShare />
       </div>
-      <Accordion
-        onChange={(selectedItems) => setSelected(selectedItems)}
-        preExpanded={selected}
-        allowMultipleExpanded
-        allowZeroExpanded
-      >
-        {variableGroupsProps.map((currentGroup) => {
-          return (
-            <VariableGroup
-              selected={selected}
-              key={currentGroup.id}
-              currentGroup={currentGroup}
-            />
-          );
-        })}
-      </Accordion>
-      <div></div>
-      {errorMessage && <p>{errorMessage}</p>}
-      <Button disabled={downloadDisabled} onClick={triggerDownload}>
-        Download
-      </Button>
+
+      {!loading && looseVariableProps && selected && (
+        <>
+          {template.templateVariables.length > 0 && (
+            <p>
+              Edit the chart by selecting different options below then press
+              download to generate your chart.
+            </p>
+          )}
+          <div className={styles.variablesGrid}>
+            {looseVariableProps.map((current) => (
+              <TemplateVariable {...current} key={current.id} />
+            ))}
+          </div>
+          <Accordion
+            onChange={(selectedItems) => setSelected(selectedItems)}
+            preExpanded={selected}
+            allowMultipleExpanded
+            allowZeroExpanded
+          >
+            {variableGroupsProps.map((currentGroup) => {
+              return (
+                <VariableGroup
+                  selected={selected}
+                  key={currentGroup.id}
+                  currentGroup={currentGroup}
+                />
+              );
+            })}
+          </Accordion>
+          <div></div>
+          <FormModal form={RESOURCE_FEEDBACK}>
+            {({ onClick }) => (
+              <a
+                href={RESOURCE_FEEDBACK.url}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onClick(event);
+                }}
+              >
+                Click here to share your feedback on this resource
+              </a>
+            )}
+          </FormModal>
+
+          <DownloadModal
+            modalOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
+            name={template.templateName}
+            errorMessage={errorMessage}
+          />
+        </>
+      )}
     </div>
+  );
+};
+
+const ErrorMessage = ({ errorMessage }) => {
+  console.warn(errorMessage);
+
+  if (errorMessage === "Failed to fetch")
+    return (
+      <p className={styles.errorMessage}>
+        Couldn&apos;t reach the server. Check back soon or{" "}
+        <Link href="/contact">Contact Us</Link>
+      </p>
+    );
+
+  return (
+    <p className={styles.errorMessage}>
+      An unknown error occurred. Check back soon or{" "}
+      <Link href="/contact">Contact Us</Link>
+    </p>
   );
 };
 
@@ -107,12 +312,19 @@ const ColorPicker = ({ value, id, onChange, name, description }) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <div className={styles.centerPicker}>
-        <RgbStringColorPicker
+        <BlockPicker
+          colors={COLOURS}
+          className={styles.blockPicker}
           color={value}
-          onChange={(newColor) => {
-            onChange({ target: { value: newColor } });
-          }}
+          triangle="hide"
           name={id}
+          onChange={(event) => {
+            onChange({
+              target: {
+                value: `rgb(${event.rgb.r}, ${event.rgb.g}, ${event.rgb.b})`,
+              },
+            });
+          }}
         />
       </div>
     </div>
@@ -142,6 +354,39 @@ const FreeText = ({
             onChange={onChange}
             maxLength={maxLength}
             value={value}
+          />
+        </FormControl>
+      </div>
+    </div>
+  );
+};
+
+const Number = ({
+  value,
+  id,
+  onChange,
+  name,
+  description,
+  placeholder,
+  min,
+  max,
+}) => {
+  return (
+    <div className={styles.card}>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <div>
+        <FormControl className={styles.formControl} id={id}>
+          <ChakraInput
+            className={styles.input}
+            backgroundColor={"#F5F5F5"}
+            placeholder={placeholder}
+            aria-label={description}
+            onChange={onChange}
+            value={value}
+            type="number"
+            min={min}
+            max={max}
           />
         </FormControl>
       </div>
@@ -330,6 +575,10 @@ const TemplateVariable = ({ type, ...rest }) => {
 
   if (type == "boolean") {
     return <BooleanOptions type={type} {...rest} />;
+  }
+
+  if (type == "number") {
+    return <Number type={type} {...rest} />;
   }
 
   console.warn(`Unknown variable type: ${type}`);
