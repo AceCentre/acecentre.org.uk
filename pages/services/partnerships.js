@@ -90,11 +90,7 @@ export default function EngineeringPage({ featuredStory }) {
               ability to create a truly bespoke partnership by adding additional
               options from our range of services.
             </p>
-            <div className={styles.pricingButton}>
-              <Button newTab href="/partnership-pricing.pdf">
-                Download pricing
-              </Button>
-            </div>
+
             <h2>Who are partnerships for?</h2>
             <div className={styles.inlineCard}>
               <h2>Education</h2>
