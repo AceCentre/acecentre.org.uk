@@ -18,7 +18,7 @@ jobs:
           node-version: "16"
 
       - name: Install deps
-        uses: yarn install
+        run: yarn install
 
       - name: Build NextJS
         run: yarn build
