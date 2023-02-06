@@ -61,7 +61,13 @@ export const Card = ({
   return (
     <li className={`${styles.flexItem} ${className}`}>
       {ribbonText && (
-        <div className={`${styles.ribbon} ${styles.ribbonTopRight}`}>
+        <div
+          className={`${styles.ribbon} ${styles.ribbonTopRight} ${
+            ribbonText === "Download"
+              ? styles.downloadRibbon
+              : styles.launchpadRibbon
+          }`}
+        >
           <span>{ribbonText}</span>
         </div>
       )}

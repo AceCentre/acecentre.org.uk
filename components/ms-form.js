@@ -50,11 +50,32 @@ export const INTEREST = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUN0lSWDZLNFRaNDdQVUZCTzY4WUszR1pQUSQlQCN0PWcu",
 };
 
+export const RESOURCE_FEEDBACK = {
+  slug: "launchpad-feedback",
+  title: "Resource Feedback",
+  height: 2000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUMEZJVllIMkVHSlBEQkxBSkZLU0xaWUxTQyQlQCN0PWcu",
+};
+
 export const FEEDBACK = {
   slug: "general-feedback",
   title: "Feedback",
   height: 2000,
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlURUQ4RFRTWFM2OElZNjMwSFM5UUVZRFBSVyQlQCN0PWcu",
+};
+
+export const SPEECHBUBBLE = {
+  slug: "speechbubble",
+  title: "SpeechBubble Interest",
+  height: 900,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUOE1ZVVhRRjNLUEVEUzdGVjVETklLWjgyTy4u",
+};
+
+export const AAC_INFO = {
+  slug: "aacinfo",
+  title: "AACInfo Interest",
+  height: 900,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUMlNOU1JGR0xUNDdLOERYSkc2Tlk1TjFQMy4u",
 };
 
 export const ALL_FORMS = [
@@ -63,6 +84,7 @@ export const ALL_FORMS = [
   LEARNING_ENQ,
   COURSE_EVALUATION,
   INTEREST,
+  RESOURCE_FEEDBACK,
   FEEDBACK,
 ];
 
