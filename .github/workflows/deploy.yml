@@ -6,8 +6,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  BuildAndPush:
+  GetUniqueBuildId:
     runs-on: ubuntu-latest
+    outputs:
+      buildId: ${{ steps.time.outputs.dateTime }}
+    steps:
+      - name: Get Time
+        id: time
+        uses: Plabick/Remote-Time-Action@V1.0
+        with:
+          timezone: "GMT"
+
+  BuildAndPush:
+    needs: [GetUniqueBuildId]
+    runs-on: ubuntu-latest
+    env:
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+      GITHUB_SHA: ${{ github.sha }}
+      IMAGE_URL: https://integration--acecentreorguk.netlify.app
+      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
+      DEPLOY_KEY: integration
+      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
+      SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
+      SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
+      CLOUDINARY_CLOUD: ace-cloud
+      CONTEXT: deploy-preview
     steps:
       - name: Pull Code
         uses: actions/checkout@v3
@@ -19,6 +43,9 @@ jobs:
 
       - name: Install deps
         run: yarn install
+
+      - name: Create .env file
+        run: yarn create-env-file
 
       - name: Build NextJS
         run: yarn build
