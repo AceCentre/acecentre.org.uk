@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   z-index: 999;
-  background: #00537f;
+  background: #bfdded;
   padding: 0.5rem 0;
 }
 
@@ -10,7 +10,6 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
-  color: white;
 }
 
 .modalLink {

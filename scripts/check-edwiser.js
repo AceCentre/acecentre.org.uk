@@ -45,7 +45,7 @@ const script = async () => {
 
     await checkVersionOfEdwiserPlugin({
       name: "Bulk Purchase and Group Registration",
-      url: "https://edwiser.org/bridge/extensions/bulk-purchase/",
+      url: "https://edwiser.org/bridge/extensions/bulk-purchase",
       allPlugins,
     });
 

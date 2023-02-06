@@ -127,6 +127,6 @@ module.exports = {
     CONTEXT: process.env.CONTEXT,
   },
   images: {
-    domains: ["acecentre.org.uk", "internal.acecentre.org.uk"],
+    domains: ["acecentre.org.uk", "digitalocean.acecentre.org.uk"],
   },
 };

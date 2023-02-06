@@ -4,8 +4,7 @@ export const STORIES_DEMO = [
     title: "Paul",
     possessiveName: "Paul's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2021/03/Paul.png",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2021/03/Paul.png",
       height: 462,
       width: 717,
     },
@@ -15,8 +14,7 @@ export const STORIES_DEMO = [
     title: "Jess",
     possessiveName: "Jess'",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/11/Using-i13-scaled.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/Using-i13-scaled.jpg",
       height: 1920,
       width: 2560,
       alt: "J Forster",
@@ -27,8 +25,7 @@ export const STORIES_DEMO = [
     title: "Patrick",
     possessiveName: "Patrick's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/10/Patrick.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/10/Patrick.jpg",
       height: 622,
       width: 1010,
       alt: "Patrick Case Study",
@@ -39,8 +36,7 @@ export const STORIES_DEMO = [
     title: "Aidan",
     possessiveName: "Aidan's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/07/Aidan-2-scaled.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/07/Aidan-2-scaled.jpg",
       height: 2560,
       width: 1912,
       alt: "Aidan",
@@ -51,8 +47,7 @@ export const STORIES_DEMO = [
     title: "Glyn",
     possessiveName: "Glyn's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/06/IMG_2862-rotated-e1593522920335.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/06/IMG_2862-rotated-e1593522920335.jpg",
       height: 246,
       width: 189,
       alt: "glyn briscoe",
@@ -63,20 +58,17 @@ export const STORIES_DEMO = [
     title: "Lisa",
     possessiveName: "Lisa's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/01/Blog-Image_Meet-Lisa_300-x-255.png",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/01/Blog-Image_Meet-Lisa_300-x-255.png",
       height: 226,
       width: 300,
     },
   },
   {
-    slug:
-      "transforming-lives-helping-marie-communicate-on-her-own-terms-with-her-own-words-in-her-own-voice",
+    slug: "transforming-lives-helping-marie-communicate-on-her-own-terms-with-her-own-words-in-her-own-voice",
     title: "Marie",
     possessiveName: "Marie's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2020/01/Blog-Image_Meet-Marie_300-x-255.png",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/01/Blog-Image_Meet-Marie_300-x-255.png",
       height: 225,
       width: 300,
     },
@@ -86,8 +78,7 @@ export const STORIES_DEMO = [
     title: "Tamsin",
     possessiveName: "Tamsin's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/vidTamsin.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/vidTamsin.jpg",
       height: 112,
       width: 112,
       alt: "Tamsin's Story",
@@ -98,8 +89,7 @@ export const STORIES_DEMO = [
     title: "Darren",
     possessiveName: "Darren's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/vidDarren.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/vidDarren.jpg",
       height: 112,
       width: 112,
       alt: "Darren's Story",
@@ -110,8 +100,7 @@ export const STORIES_DEMO = [
     title: "Claire",
     possessiveName: "Claire's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/vidClaire.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/vidClaire.jpg",
       height: 112,
       width: 112,
       alt: "Claire's Story",
@@ -122,8 +111,7 @@ export const STORIES_DEMO = [
     title: "Aroob",
     possessiveName: "Aroob's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/vidAroob.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/vidAroob.jpg",
       height: 119,
       width: 119,
       alt: "Aroob's Story",
@@ -134,8 +122,7 @@ export const STORIES_DEMO = [
     title: "Sandip",
     possessiveName: "Sandip's",
     image: {
-      src:
-        "https://internal.acecentre.org.uk/wp-content/uploads/2017/08/vidSandip.jpg",
+      src: "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/08/vidSandip.jpg",
       height: 112,
       width: 112,
       alt: "Sandip's Story",
