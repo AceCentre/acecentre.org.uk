@@ -12,6 +12,11 @@
   margin: 1rem 0;
 }
 
+.italic {
+  font-style: italic;
+  margin: 0;
+}
+
 .progress {
   width: 100%;
 }
@@ -20,6 +25,10 @@
   /* I hate using !important but the block picker uses inline styles so its the only way to override them */
   width: 100% !important;
   box-shadow: none !important;
+}
+
+.subheading {
+  margin-bottom: 0;
 }
 
 /* Yeah so this is fragile. If react-color changes its dom structure this will definetly break
@@ -101,9 +110,17 @@ so its not really worth the hassle. */
   width: 90%;
   max-width: var(--containerMaxWidth);
 }
+
 .variablesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.smallerVariablesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin: 2rem 0;
 }
@@ -227,6 +244,9 @@ so its not really worth the hassle. */
 /** Mobile CSS */
 @media (max-width: 760px) {
   .variablesGrid {
+    grid-template-columns: 1fr;
+  }
+  .smallerVariablesGrid {
     grid-template-columns: 1fr;
   }
 }

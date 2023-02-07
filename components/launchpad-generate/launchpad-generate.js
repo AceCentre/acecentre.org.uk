@@ -138,25 +138,6 @@ export const LaunchpadPage = ({
 
   return (
     <>
-      <div className={styles.topArea}>
-        <div className={styles.leftTopArea}>
-          <ResourcesImage resource={resource} priority />
-        </div>
-        <div className={styles.rightTopArea}>
-          <ResourcesDescription resource={resource} />
-          <Button
-            className={styles.downloadButton}
-            disabled={downloadDisabled}
-            onClick={() => {
-              triggerDownload();
-              setModalOpen(true);
-            }}
-          >
-            Free download
-          </Button>
-        </div>
-      </div>
-
       <LaunchpadGenerate
         loading={loading}
         template={freshTemplate}
@@ -168,6 +149,7 @@ export const LaunchpadPage = ({
         defaultSelected={defaultSelected}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
+        resource={resource}
       />
       <ResourceList
         className={styles.resourcesList}
@@ -189,6 +171,9 @@ export const LaunchpadGenerate = ({
   modalOpen,
   setModalOpen,
   loading,
+  resource,
+  downloadDisabled,
+  triggerDownload,
 }) => {
   const [selected, setSelected] = useState(defaultSelected);
   useEffect(() => {
@@ -196,42 +181,13 @@ export const LaunchpadGenerate = ({
   }, [defaultSelected]);
 
   return (
-    <div className={styles.container}>
-      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
-      <div className={styles.share}>
-        <ResourcesShare />
-      </div>
-
-      {!loading && looseVariableProps && selected && (
-        <>
-          {template.templateVariables.length > 0 && (
-            <p>
-              Edit the chart by selecting different options below then press
-              download to generate your chart.
-            </p>
-          )}
-          <div className={styles.variablesGrid}>
-            {looseVariableProps.map((current) => (
-              <TemplateVariable {...current} key={current.id} />
-            ))}
-          </div>
-          <Accordion
-            onChange={(selectedItems) => setSelected(selectedItems)}
-            preExpanded={selected}
-            allowMultipleExpanded
-            allowZeroExpanded
-          >
-            {variableGroupsProps.map((currentGroup) => {
-              return (
-                <VariableGroup
-                  selected={selected}
-                  key={currentGroup.id}
-                  currentGroup={currentGroup}
-                />
-              );
-            })}
-          </Accordion>
-          <div></div>
+    <>
+      <div className={styles.topArea}>
+        <div className={styles.leftTopArea}>
+          <ResourcesImage resource={resource} priority />
+        </div>
+        <div className={styles.rightTopArea}>
+          <ResourcesDescription resource={resource} />
           <FormModal form={RESOURCE_FEEDBACK}>
             {({ onClick }) => (
               <a
@@ -246,15 +202,67 @@ export const LaunchpadGenerate = ({
             )}
           </FormModal>
 
-          <DownloadModal
-            modalOpen={modalOpen}
-            onClose={() => setModalOpen(false)}
-            name={template.templateName}
-            errorMessage={errorMessage}
-          />
-        </>
-      )}
-    </div>
+          <div className={styles.share}>
+            <ResourcesShare />
+          </div>
+        </div>
+      </div>
+      <div className={styles.container}>
+        {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
+
+        {!loading && looseVariableProps && selected && (
+          <>
+            <h2 className={styles.subheading}>Customise your resource</h2>
+            {template.templateVariables.length > 0 && (
+              <p className={styles.italic}>
+                Edit the chart by selecting different options below then press
+                download to generate your chart.
+              </p>
+            )}
+            <div className={styles.variablesGrid}>
+              {looseVariableProps.map((current) => (
+                <TemplateVariable {...current} key={current.id} />
+              ))}
+            </div>
+            <Button
+              className={styles.downloadButton}
+              disabled={downloadDisabled}
+              onClick={() => {
+                triggerDownload();
+                setModalOpen(true);
+              }}
+            >
+              Download your customised resource
+            </Button>
+
+            <Accordion
+              onChange={(selectedItems) => setSelected(selectedItems)}
+              preExpanded={selected}
+              allowMultipleExpanded
+              allowZeroExpanded
+            >
+              {variableGroupsProps.map((currentGroup) => {
+                return (
+                  <VariableGroup
+                    selected={selected}
+                    key={currentGroup.id}
+                    currentGroup={currentGroup}
+                  />
+                );
+              })}
+            </Accordion>
+            <div></div>
+
+            <DownloadModal
+              modalOpen={modalOpen}
+              onClose={() => setModalOpen(false)}
+              name={template.templateName}
+              errorMessage={errorMessage}
+            />
+          </>
+        )}
+      </div>
+    </>
   );
 };
 
