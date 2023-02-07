@@ -28,7 +28,6 @@ jobs:
       SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
       SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
       SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
-      CLOUDINARY_CLOUD: ace-cloud
       CONTEXT: deploy-preview
     steps:
       - name: Pull Code

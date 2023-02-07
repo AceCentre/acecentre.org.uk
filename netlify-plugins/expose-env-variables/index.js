@@ -13,7 +13,6 @@ module.exports = {
       "SLACK_TOKEN",
       "SLACK_SECRET",
       "POSTHOG_KEY",
-      "CLOUDINARY_CLOUD",
       "SPEECH_KEY",
       "SPEECH_REGION",
     ];
