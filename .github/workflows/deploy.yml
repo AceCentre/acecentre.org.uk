@@ -13,3 +13,6 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Create deployment
+        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait
