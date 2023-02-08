@@ -5,12 +5,12 @@ const crypto = require("crypto");
 let step = 1;
 
 const runStep = async (name, task) => {
-  console.log("==================");
   console.log(`${step}. ${name} - Started`);
 
   await task();
 
   console.log(`${step}. ${name} - Finished`);
+  console.log("");
   step++;
 };
 
@@ -24,5 +24,9 @@ const setBuildId = async () => {
 
 // Main
 (async () => {
+  console.log("");
+
   await runStep("Set BuildID", setBuildId);
+
+  console.log("");
 })();
