@@ -118,4 +118,4 @@ const REDIRECTS = [
   },
 ];
 
-module.export = REDIRECTS;
+module.exports = REDIRECTS;
