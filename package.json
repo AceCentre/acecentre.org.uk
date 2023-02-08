@@ -15,11 +15,7 @@
     "cypress:prod:open": "CYPRESS_BASE_URL=https://acecentre.org.uk cypress open",
     "lighthouse": "lhci autorun",
     "plop": "plop",
-    "build-sitemap": "next-sitemap",
-    "build-add-to-cohort": "esbuild .netlify/functions-internal/add-to-cohort.js --bundle --platform=node --outfile=./.netlify/functions-internal/add-to-cohort-background.js",
-    "build-token-exchange": "esbuild .netlify/functions-internal/azure-token-exchange-unbuilt.js --bundle --platform=node --outfile=./.netlify/functions-internal/azure-token-exchange.js",
-    "build-function": "yarn build-add-to-cohort && yarn build-token-exchange",
-    "create-env-file": "node ./scripts/create-env-file"
+    "build-sitemap": "next-sitemap"
   },
   "dependencies": {
     "@chakra-ui/react": "2.4.9",
