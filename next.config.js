@@ -4,4 +4,8 @@ module.exports = {
   redirects: async () => {
     return REDIRECTS;
   },
+  env: {
+    IMAGE_URL: process.env.IMAGE_URL,
+    CONTEXT: process.env.CONTEXT,
+  },
 };
