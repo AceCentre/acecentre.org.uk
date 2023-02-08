@@ -6,43 +6,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  GetUniqueBuildId:
+  BuildIntegrationOnDigitalOcean:
     runs-on: ubuntu-latest
-    outputs:
-      buildId: ${{ steps.create-uuid.outputs.buildId }}
     steps:
-      - name: Create UUID
-        id: create-uuid
-        run: echo "buildId=$(uuidgen)" >> $GITHUB_OUTPUT
-
-  BuildAndPush:
-    needs: [GetUniqueBuildId]
-    runs-on: ubuntu-latest
-    env:
-      REDIS_URL: ${{ secrets.REDIS_URL }}
-      GITHUB_SHA: ${{ github.sha }}
-      IMAGE_URL: https://integration--acecentreorguk.netlify.app
-      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
-      DEPLOY_KEY: integration
-      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-      SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
-      SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
-      SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
-      CONTEXT: deploy-preview
-    steps:
-      - name: Pull Code
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          node-version: "16"
-
-      - name: Install deps
-        run: yarn install
-
-      - name: Create .env file
-        run: yarn create-env-file
-
-      - name: Build NextJS
-        run: yarn build
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
