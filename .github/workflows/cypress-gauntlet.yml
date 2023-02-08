@@ -2,20 +2,7 @@ name: Cypress Gauntlet
 on: [workflow_dispatch]
 
 jobs:
-  PrepareCypressId:
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
-    if: github.ref == 'refs/heads/main'
-    outputs:
-      uuid: ${{ steps.uuid.outputs.value }}
-    steps:
-      - name: Generate unique ID 💎
-        id: uuid
-        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
-
   GauntletRunOnePost:
-    needs: [PrepareCypressId]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -42,7 +29,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-1-post
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -53,7 +39,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunTwoPost:
-    needs: [PrepareCypressId, GauntletRunOnePost]
+    needs: [GauntletRunOnePost]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -91,7 +77,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunThreePost:
-    needs: [PrepareCypressId, GauntletRunTwoPost]
+    needs: [GauntletRunTwoPost]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -130,7 +116,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunFourPost:
-    needs: [PrepareCypressId, GauntletRunThreePost]
+    needs: [GauntletRunThreePost]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -168,7 +154,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunFivePost:
-    needs: [PrepareCypressId, GauntletRunFourPost]
+    needs: [GauntletRunFourPost]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -244,7 +230,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunTwoPre:
-    needs: [PrepareCypressId, GauntletRunOnePre]
+    needs: [GauntletRunOnePre]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106s
@@ -282,7 +268,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunThreePre:
-    needs: [PrepareCypressId, GauntletRunTwoPre]
+    needs: [GauntletRunTwoPre]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -321,7 +307,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunFourPre:
-    needs: [PrepareCypressId, GauntletRunThreePre]
+    needs: [GauntletRunThreePre]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -359,7 +345,7 @@ jobs:
         uses: cypress-io/github-action@v5.0.8
 
   GauntletRunFivePre:
-    needs: [PrepareCypressId, GauntletRunFourPre]
+    needs: [GauntletRunFourPre]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
