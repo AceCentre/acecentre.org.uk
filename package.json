@@ -7,7 +7,7 @@
     "dev": "ENV=development next dev",
     "dev:cache": "USE_DATA_FETCHING_CACHE=true ENV=development next dev",
     "dev:live": "USE_LIVE_DATA=true ENV=development next dev",
-    "build": "node ./scripts/pre-build.js && next build",
+    "build": "node ./scripts/pre-build.js && next build && node ./scripts/post-build.js",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
