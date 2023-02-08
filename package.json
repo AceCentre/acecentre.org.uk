@@ -93,7 +93,7 @@
     "netlify-cli": "12.10.0",
     "next-sitemap": "3.1.50",
     "nock": "13.3.0",
-    "plop": "3.1.1",
+    "plop": "3.1.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9"
   }
