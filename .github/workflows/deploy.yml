@@ -26,6 +26,8 @@ jobs:
         run: yarn install
 
       - name: Run Jest Tests
+        env:
+          REDIS_URL: ${{ secrets.REDIS_URL }}
         run: yarn test
 
   BuildIntegrationOnDigitalOcean:
