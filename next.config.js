@@ -8,4 +8,7 @@ module.exports = {
     IMAGE_URL: process.env.IMAGE_URL,
     CONTEXT: process.env.CONTEXT,
   },
+  experimental: {
+    workerThreads: false,
+  },
 };
