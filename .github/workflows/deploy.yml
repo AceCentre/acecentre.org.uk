@@ -1,9 +1,12 @@
 name: Deploy and Test
 on:
-  pull_request:
-concurrency:
-  group: deploy-${{ github.head_ref }}-${{ github.event_name }}
-  cancel-in-progress: true
+  workflow_dispatch:
+  pull_request: # REMOVE ME
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 2,8,1,17 * * *"
 
 jobs:
   Jest:
