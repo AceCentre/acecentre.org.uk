@@ -1,11 +1,15 @@
 {
   "extends": ["config:base"],
   "dependencyDashboard": true,
-  "ignoreDeps": ["got", "cypress"],
+  "ignoreDeps": [],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": false
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "enabled": true
     }
   ]
 }
