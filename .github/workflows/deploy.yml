@@ -68,7 +68,7 @@ jobs:
           browser: chrome
 
   BuildProductionOnDigitalOcean:
-    needs: [CypressIntegration]
+    needs: [Jest]
     runs-on: ubuntu-latest
     steps:
       - name: Install doctl
