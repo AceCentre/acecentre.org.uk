@@ -80,7 +80,7 @@ jobs:
     needs: [BuildProductionOnDigitalOcean]
     runs-on: ubuntu-latest
     env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
+      CYPRESS_INCLUDE_TAGS: post-deploy
       CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
       CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
