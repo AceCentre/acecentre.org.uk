@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import {
   getAllFullPosts,
   getAllPostsForCategory,
@@ -12,9 +12,13 @@ import styles from "../../styles/blog-post.module.css";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { BlogMeta } from "../../components/blog-meta/blog-meta";
+import { useRouter } from "next/router";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
   const { currentYear } = useGlobalProps();
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
 
   const publishedDate = new Date(currentPost.publishedDate);
   const formattedDate = new Intl.DateTimeFormat("en-GB").format(publishedDate);
@@ -96,13 +100,11 @@ export async function getStaticPaths() {
 
   return {
     paths: allPosts.map((post) => ({ params: { post: post.slug } })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(
+export const getStaticProps = withGlobalProps(
   async ({ params: { post: postSlug } }) => {
     const allPosts = await getAllFullPosts();
 
