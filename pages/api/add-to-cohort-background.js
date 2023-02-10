@@ -111,12 +111,11 @@ const sendSlackMessage = async (message) => {
 
 const addUserToCohort = async (req, cohortName, emails) => {
   console.log("Begin addUserToCohort");
-  await updateTokens(req);
+  const { authToken } = await updateTokens(req, false);
   // Get the user and the cart from the session if the exist
   const user = req.session.get("user") || {};
   const cart = req.session.get("cart") || {};
   const wooSession = cart.wooSessionToken || null;
-  const authToken = user.authToken || null;
 
   console.log({ user, cart, wooSession, authToken });
 
