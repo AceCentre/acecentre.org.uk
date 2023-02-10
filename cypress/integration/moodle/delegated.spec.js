@@ -73,7 +73,7 @@ context("Moodle", () => {
       delegatedEmail = validEmail("delegated-2");
 
       // Visit splash
-      cy.visit("https://acecentre.org.uk/learning/splash-training-i");
+      cy.visit("/learning/splash-training-i");
 
       // Add to basket
       cy.findByRole("button", { name: "Book this course" }).click();
@@ -152,7 +152,7 @@ context("Moodle", () => {
       cy.findByRole("link", { name: /Splash/i }).should("not.exist");
 
       // Logout
-      cy.visit("https://acecentre.org.uk/my-acecentre");
+      cy.visit("/my-acecentre");
       cy.findByRole("button", { name: "Logout" }).click();
 
       cy.wait(60 * 3 * 1000);

@@ -73,7 +73,7 @@ context("Moodle", () => {
       delegatedEmail = validEmail("bundle-courses-2");
 
       // Visit bundle
-      cy.visit("https://acecentre.org.uk/learning/on-demand-test-bundle");
+      cy.visit("/learning/on-demand-test-bundle");
 
       // Add to basket
       cy.findByRole("button", { name: "Buy this bundle" }).click();
@@ -144,7 +144,7 @@ context("Moodle", () => {
       cy.findByRole("link", { name: /Communication Partner/i }).should("exist");
       cy.findByRole("link", { name: /Splash/i }).should("not.exist");
       // Logout
-      cy.visit("https://acecentre.org.uk/my-acecentre");
+      cy.visit("/my-acecentre");
       cy.findByRole("button", { name: "Logout" }).click();
       cy.wait(60 * 3 * 1000);
       //   // Change passwords

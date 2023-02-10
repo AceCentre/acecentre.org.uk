@@ -76,7 +76,7 @@ context("Moodle", () => {
       bulkEmailTwo = validEmail("bulk-3");
 
       // Visit splash
-      cy.visit("https://acecentre.org.uk/learning/splash-training-i");
+      cy.visit("/learning/splash-training-i");
 
       // Add to basket
       cy.findByRole("button", { name: "Book this course" }).click();
@@ -151,7 +151,7 @@ context("Moodle", () => {
       cy.findByRole("link", { name: /Splash/i }).should("not.exist");
 
       // Logout
-      cy.visit("https://acecentre.org.uk/my-acecentre");
+      cy.visit("/my-acecentre");
       cy.findByRole("button", { name: "Logout" }).click();
 
       cy.wait(60 * 3 * 1000);
@@ -195,7 +195,7 @@ context("Moodle", () => {
       cy.url({ timeout: 40000 }).should("include", "wdmaction=logout");
 
       // Login as second user
-      cy.visit("https://acecentre.org.uk/my-acecentre");
+      cy.visit("/my-acecentre");
       cy.url({ timeout: 40000 }).should("include", "/login");
 
       cy.findAllByRole("form", { name: "Login form" })
