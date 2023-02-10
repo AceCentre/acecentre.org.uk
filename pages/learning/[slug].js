@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import {
   getAllBundles,
@@ -27,6 +27,7 @@ import { BundleList } from "../../components/bundle-list/bundle-list";
 import { addBundles } from "../../lib/add-bundles";
 import { ListOfBundles } from "../../components/list-of-bundles/list-of-bundles";
 import { ORDER_BY_OPTIONS } from "../../components/course-filter/order-by-options";
+import { useRouter } from "next/router";
 
 export default function LearningDetail({
   course,
@@ -35,7 +36,10 @@ export default function LearningDetail({
   relatedCourses,
   levels,
 }) {
+  const { isFallback } = useRouter();
   const { currentYear } = useGlobalProps();
+
+  if (isFallback) return null;
 
   return (
     <>
@@ -126,97 +130,90 @@ export async function getStaticPaths() {
         slug: product.slug,
       },
     })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(
-  async ({ params: { slug } }) => {
-    const allCourses = await getAllCourses(undefined, true);
-    const allBundles = await getAllBundles();
+export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+  const allCourses = await getAllCourses(undefined, true);
+  const allBundles = await getAllBundles();
 
-    if (!allCourses || !allBundles)
-      throw new Error("Could not get all the courses");
+  if (!allCourses || !allBundles)
+    throw new Error("Could not get all the courses");
 
-    let currentCourse = allCourses.find((product) => product.slug === slug);
-    const currentBundle = allBundles.find((product) => product.slug === slug);
+  let currentCourse = allCourses.find((product) => product.slug === slug);
+  const currentBundle = allBundles.find((product) => product.slug === slug);
 
-    if (!currentCourse && !currentBundle) {
-      return { notFound: true };
-    }
+  if (!currentCourse && !currentBundle) {
+    return { notFound: true };
+  }
 
-    let relatedCourses = [];
+  let relatedCourses = [];
 
-    if (currentCourse) {
-      currentCourse = addBundles(currentCourse, allBundles);
+  if (currentCourse) {
+    currentCourse = addBundles(currentCourse, allBundles);
 
-      relatedCourses = allCourses
-        .filter((course) => course.slug !== slug)
-        .sort((a, b) => {
-          const catA = a.mainCategoryName;
-          const catB = b.mainCategoryName;
+    relatedCourses = allCourses
+      .filter((course) => course.slug !== slug)
+      .sort((a, b) => {
+        const catA = a.mainCategoryName;
+        const catB = b.mainCategoryName;
 
-          if (catA == currentCourse.mainCategoryName) {
-            return -1;
-          }
+        if (catA == currentCourse.mainCategoryName) {
+          return -1;
+        }
 
-          if (catB == currentCourse.mainCategoryName) {
-            return 1;
-          }
-
+        if (catB == currentCourse.mainCategoryName) {
           return 1;
-        })
-        .slice(0, 4);
-    }
+        }
 
-    const reviews = await getRandomReviews();
-    const levels = await getLearningLevels();
+        return 1;
+      })
+      .slice(0, 4);
+  }
 
-    let seo = {};
+  const reviews = await getRandomReviews();
+  const levels = await getLearningLevels();
 
-    if (currentCourse) {
-      seo = {
+  let seo = {};
+
+  if (currentCourse) {
+    seo = {
+      title: currentCourse.title,
+      image: currentCourse.image,
+      description: currentCourse.shortDescription.replace(/(<([^>]+)>)/gi, ""),
+      product: {
+        sku: currentCourse.slug,
         title: currentCourse.title,
-        image: currentCourse.image,
-        description: currentCourse.shortDescription.replace(
-          /(<([^>]+)>)/gi,
-          ""
-        ),
-        product: {
-          sku: currentCourse.slug,
-          title: currentCourse.title,
-          image: currentCourse?.image?.src || null,
-          url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
-          price: currentCourse.price || 0,
-          availability: currentCourse.inStock,
-          description:
-            currentCourse.description ||
-            `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
-        },
-      };
-    } else if (currentBundle) {
-      const orderByFunc = ORDER_BY_OPTIONS.find((x) => x.slug === "first");
-      const sortedCourses = currentBundle.courses.sort(orderByFunc.sort);
-      currentBundle.courses = sortedCourses;
-      seo = {
-        title: currentBundle.title,
+        image: currentCourse?.image?.src || null,
+        url: `https://acecentre.org.uk/learning/${currentCourse.slug}`,
+        price: currentCourse.price || 0,
+        availability: currentCourse.inStock,
         description:
-          currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
-          "A bundle of Ace Centre Learning courses",
-      };
-    }
-
-    return {
-      props: {
-        course: currentCourse || null,
-        bundle: currentBundle || null,
-        reviews,
-        relatedCourses,
-        levels,
-        seo,
+          currentCourse.description ||
+          `Checkout the ${currentCourse.title} created by Ace Centre Learning.`,
       },
     };
+  } else if (currentBundle) {
+    const orderByFunc = ORDER_BY_OPTIONS.find((x) => x.slug === "first");
+    const sortedCourses = currentBundle.courses.sort(orderByFunc.sort);
+    currentBundle.courses = sortedCourses;
+    seo = {
+      title: currentBundle.title,
+      description:
+        currentBundle?.shortDescription?.replace(/(<([^>]+)>)/gi, "") ||
+        "A bundle of Ace Centre Learning courses",
+    };
   }
-);
+
+  return {
+    props: {
+      course: currentCourse || null,
+      bundle: currentBundle || null,
+      reviews,
+      relatedCourses,
+      levels,
+      seo,
+    },
+  };
+});
