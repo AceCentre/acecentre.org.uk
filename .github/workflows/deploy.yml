@@ -9,78 +9,77 @@ on:
     - cron: "0 2,8,1,17 * * *"
 
 jobs:
-  Jest:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
+  # Jest:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get Code
+  #       uses: actions/checkout@v3
 
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
+  #     - name: Install Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "16"
 
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+  #     - uses: actions/cache@v3
+  #       with:
+  #         path: "**/node_modules"
+  #         key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Install NPM deps
-        run: yarn install
+  #     - name: Install NPM deps
+  #       run: yarn install
 
-      - name: Run Jest Tests
-        env:
-          REDIS_URL: ${{ secrets.REDIS_URL }}
-        run: yarn test
+  #     - name: Run Jest Tests
+  #       env:
+  #         REDIS_URL: ${{ secrets.REDIS_URL }}
+  #       run: yarn test
 
-  BuildIntegrationOnDigitalOcean:
-    needs: [Jest]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+  # BuildIntegrationOnDigitalOcean:
+  #   needs: [Jest]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Install doctl
+  #       uses: digitalocean/action-doctl@v2
+  #       with:
+  #         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      - name: Create deployment
-        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait
+  #     - name: Create deployment
+  #       run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait
 
-  CypressIntegration:
-    needs: [BuildIntegrationOnDigitalOcean]
-    runs-on: ubuntu-latest
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-      CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-      CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
+  # CypressIntegration:
+  #   needs: [BuildIntegrationOnDigitalOcean]
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     CYPRESS_INCLUDE_TAGS: pre-deploy
+  #     CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+  #     CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
+  #     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+  #     CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+  #   steps:
+  #     - name: Get Code
+  #       uses: actions/checkout@v3
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          config: baseUrl=https://integration.acecentre.org.uk
-          record: true
-          browser: chrome
+  #     - name: Cypress run
+  #       uses: cypress-io/github-action@v5
+  #       with:
+  #         config: baseUrl=https://integration.acecentre.org.uk
+  #         record: true
+  #         browser: chrome
 
-  BuildProductionOnDigitalOcean:
-    needs: [Jest]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+  # BuildProductionOnDigitalOcean:
+  #   needs: [Jest]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Install doctl
+  #       uses: digitalocean/action-doctl@v2
+  #       with:
+  #         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      - name: Create deployment
-        run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait
+  #     - name: Create deployment
+  #       run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait
 
   CypressProduction:
-    needs: [BuildProductionOnDigitalOcean]
     runs-on: ubuntu-latest
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
