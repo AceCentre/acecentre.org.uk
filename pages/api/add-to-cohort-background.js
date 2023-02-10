@@ -27,7 +27,7 @@ const app = new App(slackConfig);
 
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 
-async function rawHandler(req) {
+async function rawHandler(req, res) {
   const background = async () => {
     try {
       console.log("Function handling began");
@@ -65,7 +65,6 @@ async function rawHandler(req) {
         }
       }
       console.log("Function handling finished");
-      return;
     } catch (e) {
       console.log(e);
       const body = JSON.parse(req.body);
@@ -82,7 +81,7 @@ async function rawHandler(req) {
   };
 
   background();
-  return;
+  return res.send({ message: "Started background handling" });
 }
 
 const sendSlackMessage = async (message) => {
@@ -118,6 +117,8 @@ const addUserToCohort = async (req, cohortName, emails) => {
   const cart = req.session.get("cart") || {};
   const wooSession = cart.wooSessionToken || null;
   const authToken = user.authToken || null;
+
+  console.log({ user, cart, wooSession, authToken });
 
   let headers = {};
   if (authToken) headers["authorization"] = `Bearer ${authToken}`;
