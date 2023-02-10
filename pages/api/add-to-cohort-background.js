@@ -104,17 +104,13 @@ const sendSlackMessage = async (message) => {
 
 const addUserToCohort = async (req, cohortName, emails) => {
   console.log("Begin addUserToCohort");
+  await refreshToken(req);
   // Get the user and the cart from the session if the exist
   const user = req.session.get("user") || {};
   const cart = req.session.get("cart") || {};
   const refreshToken = user.refreshToken || null;
   const wooSession = cart.wooSessionToken || null;
-
-  console.log("Getting a new auth token", refreshToken);
-  let response = await request(ENDPOINT, REFRESH_QUERY, { refreshToken });
-  const authToken = response.refreshJwtAuthToken.authToken;
-  console.log("Got a new auth token", authToken, response);
-  console.log({ user, cart, authToken, wooSession });
+  const authToken = user.authToken || null;
 
   let headers = {};
   if (authToken) headers["authorization"] = `Bearer ${authToken}`;
