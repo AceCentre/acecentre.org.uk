@@ -2,7 +2,7 @@ import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
+import { withGlobalProps } from "../../../lib/global-props/inject";
 import { getAllStaff } from "../../../lib/staff/get-staff";
 import { StaffPage as Staff } from "../../../components/staff-page/staff-page";
 
@@ -22,7 +22,7 @@ export default function StaffPage({ allStaff }) {
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const allStaff = await getAllStaff();
 
   return {
