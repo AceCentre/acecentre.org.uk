@@ -68,6 +68,16 @@ async function rawHandler(req) {
       return;
     } catch (e) {
       console.log(e);
+      const body = JSON.parse(req.body);
+
+      await app.client.chat.postMessage({
+        channel: "C02E0MC3HB2",
+        text: `<@U01S5QXCDV3> <@UDH2285M5>\n\n Something went wrong when enrolling users.
+
+        ${JSON.stringify(body, null, 2)}
+        
+        `,
+      });
     }
   };
 
