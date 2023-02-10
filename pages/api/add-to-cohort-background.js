@@ -1,4 +1,4 @@
-import { gql, GraphQLClient, request } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
@@ -11,14 +11,6 @@ const slackConfig = {
   token: slackToken,
   signingSecret: slackSecret,
 };
-
-const REFRESH_QUERY = gql`
-  mutation RefreshToken($refreshToken: String!) {
-    refreshJwtAuthToken(input: { jwtRefreshToken: $refreshToken }) {
-      authToken
-    }
-  }
-`;
 
 const ADD_USERS_TO_COHORT = gql`
   mutation AddUsersToCohort($cohortName: String, $newUsers: [NewCohortUsers]) {
