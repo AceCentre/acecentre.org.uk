@@ -4,7 +4,7 @@ import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
 import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
+import { withGlobalProps } from "../lib/global-props/inject";
 import { getAllProductsByPopularity } from "../lib/products/get-products";
 
 export default function AACInfoPage({ featuredResources }) {
@@ -23,7 +23,7 @@ export default function AACInfoPage({ featuredResources }) {
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const allProducts = await getAllProductsByPopularity();
 
   const featuredResources = allProducts
