@@ -11,15 +11,15 @@ export default function StaffPage({ allStaff, currentActive }) {
   const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
+  if (isFallback) return null;
+
   return (
     <>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        {!isFallback && (
-          <Staff allStaff={allStaff} currentActive={currentActive} />
-        )}
+        <Staff allStaff={allStaff} currentActive={currentActive} />
       </main>
       <Footer currentYear={currentYear} />
     </>
