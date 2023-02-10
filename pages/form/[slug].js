@@ -30,8 +30,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
     fallback: false,
   };
 }
