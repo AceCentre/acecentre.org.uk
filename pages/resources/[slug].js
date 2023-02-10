@@ -1,7 +1,7 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -17,6 +17,7 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourceFullDescription } from "../../components/resource-full-description/resource-full-description";
 import { getLaunchpadTemplate } from "../../lib/launchpad";
 import { LaunchpadPage } from "../../components/launchpad-generate/launchpad-generate";
+import { useRouter } from "next/router";
 
 export default function ResourceDetail({
   resource,
@@ -25,6 +26,9 @@ export default function ResourceDetail({
   launchpadTemplate,
 }) {
   const { currentYear } = useGlobalProps();
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
 
   const project = resource.projects[0] || null;
 
@@ -113,110 +117,104 @@ export async function getStaticPaths() {
         slug: product.slug,
       },
     })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(
-  async ({ params: { slug } }) => {
-    const allProducts = await getAllProducts(true);
+export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+  const allProducts = await getAllProducts(true);
 
-    if (!allProducts) throw new Error("Could not get all the products");
+  if (!allProducts) throw new Error("Could not get all the products");
 
-    const currentResource = allProducts.find(
-      (product) => product.slug === slug
-    );
+  const currentResource = allProducts.find((product) => product.slug === slug);
 
-    if (!currentResource) {
-      return {
-        notFound: true,
-      };
-    }
-
-    const currentCategory = currentResource.category.name;
-
-    const relatedResources = allProducts
-      .filter((product) => product.slug !== slug)
-      .map((product) => ({
-        title: htmlDecode(product.name),
-        mainCategoryName: product.category.name,
-        featuredImage: product.image,
-        ...product,
-      }))
-      .sort((a, b) => {
-        const aDate = new Date(a.date);
-        const bDate = new Date(b.date);
-
-        return aDate - bDate;
-      })
-      .sort((a, b) => {
-        const catA = a.mainCategoryName;
-        const catB = b.mainCategoryName;
-
-        if (catA == currentCategory) {
-          return -1;
-        }
-
-        if (catB == currentCategory) {
-          return 1;
-        }
-
-        return 1;
-      })
-      .slice(0, 4);
-
-    const attachedResources = currentResource.attachedResources.map(
-      (product) => ({
-        title: htmlDecode(product.name),
-        mainCategoryName: product.category.name,
-        featuredImage: product.image,
-        ...product,
-      })
-    );
-
-    const variations = currentResource.variations || [];
-    const seoPrice =
-      currentResource.price ||
-      Math.max(...variations.map((variation) => variation.price));
-    const seoInStock =
-      currentResource.inStock ||
-      variations.some((variation) => variation.inStock);
-
-    let launchpadTemplate = null;
-    if (currentResource.isLaunchpadTemplate) {
-      launchpadTemplate = await getLaunchpadTemplate(
-        currentResource.launchpadSlug
-      );
-    }
-
+  if (!currentResource) {
     return {
-      props: {
-        launchpadTemplate,
-        resource: currentResource,
-        relatedResources: relatedResources.slice(0, 4),
-        attachedResources: attachedResources.slice(0, 4),
-        seo: {
-          title: currentResource.name,
-          description: currentResource.shortDescription,
-          image: currentResource.image,
-          product: {
-            sku: currentResource.slug,
-            image: currentResource?.image?.src || null,
-            title: currentResource.name,
-            description:
-              currentResource.shortDescription ||
-              `Checkout the ${currentResource.name} created by Ace Centre.`,
-            url: `https://acecentre.org.uk/resources/${currentResource.slug}`,
-            price: seoPrice,
-            availability: seoInStock,
-          },
-        },
-      },
+      notFound: true,
     };
   }
-);
+
+  const currentCategory = currentResource.category.name;
+
+  const relatedResources = allProducts
+    .filter((product) => product.slug !== slug)
+    .map((product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    }))
+    .sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+
+      return aDate - bDate;
+    })
+    .sort((a, b) => {
+      const catA = a.mainCategoryName;
+      const catB = b.mainCategoryName;
+
+      if (catA == currentCategory) {
+        return -1;
+      }
+
+      if (catB == currentCategory) {
+        return 1;
+      }
+
+      return 1;
+    })
+    .slice(0, 4);
+
+  const attachedResources = currentResource.attachedResources.map(
+    (product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    })
+  );
+
+  const variations = currentResource.variations || [];
+  const seoPrice =
+    currentResource.price ||
+    Math.max(...variations.map((variation) => variation.price));
+  const seoInStock =
+    currentResource.inStock ||
+    variations.some((variation) => variation.inStock);
+
+  let launchpadTemplate = null;
+  if (currentResource.isLaunchpadTemplate) {
+    launchpadTemplate = await getLaunchpadTemplate(
+      currentResource.launchpadSlug
+    );
+  }
+
+  return {
+    props: {
+      launchpadTemplate,
+      resource: currentResource,
+      relatedResources: relatedResources.slice(0, 4),
+      attachedResources: attachedResources.slice(0, 4),
+      seo: {
+        title: currentResource.name,
+        description: currentResource.shortDescription,
+        image: currentResource.image,
+        product: {
+          sku: currentResource.slug,
+          image: currentResource?.image?.src || null,
+          title: currentResource.name,
+          description:
+            currentResource.shortDescription ||
+            `Checkout the ${currentResource.name} created by Ace Centre.`,
+          url: `https://acecentre.org.uk/resources/${currentResource.slug}`,
+          price: seoPrice,
+          availability: seoInStock,
+        },
+      },
+    },
+  };
+});
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");
