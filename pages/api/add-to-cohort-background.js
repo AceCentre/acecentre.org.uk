@@ -28,46 +28,51 @@ const app = new App(slackConfig);
 const wait = async (timer) => await new Promise((r) => setTimeout(r, timer));
 
 async function rawHandler(req) {
-  try {
-    console.log("Function handling began");
+  const background = async () => {
+    try {
+      console.log("Function handling began");
 
-    // Wait for 2 minutes so a user can 3D auth
-    await wait(120000);
-    console.log("Finished waiting!");
-    const body = JSON.parse(req.body);
+      // Wait for 2 minutes so a user can 3D auth
+      await wait(120000);
+      console.log("Finished waiting!");
+      const body = JSON.parse(req.body);
 
-    console.log(JSON.stringify(body, null, 2));
+      console.log(JSON.stringify(body, null, 2));
 
-    const cohortNames = body.cohortNames;
-    for (let current of cohortNames) {
-      const addUserResult = await addUserToCohort(
-        req,
-        current.cohortName,
-        body.groupPurchaseEmails[current.productId]
-      );
-      console.log("Add user result", JSON.stringify(addUserResult, null, 2));
+      const cohortNames = body.cohortNames;
+      for (let current of cohortNames) {
+        const addUserResult = await addUserToCohort(
+          req,
+          current.cohortName,
+          body.groupPurchaseEmails[current.productId]
+        );
+        console.log("Add user result", JSON.stringify(addUserResult, null, 2));
 
-      if (addUserResult.msg) {
-        await sendSlackMessage(addUserResult.msg);
-      } else {
-        /* eslint-disable indent */
-        await app.client.chat.postMessage({
-          channel: "C02E0MC3HB2",
-          text: `
-          FAILED to enroll the following emails:
-          ${body.groupPurchaseEmails[current.productId].map(
-            (email) => `* ${email}\n`
-          )}
-          `,
-        });
-        /* eslint-enable indent */
+        if (addUserResult.msg) {
+          await sendSlackMessage(addUserResult.msg);
+        } else {
+          /* eslint-disable indent */
+          await app.client.chat.postMessage({
+            channel: "C02E0MC3HB2",
+            text: `
+            FAILED to enroll the following emails:
+            ${body.groupPurchaseEmails[current.productId].map(
+              (email) => `* ${email}\n`
+            )}
+            `,
+          });
+          /* eslint-enable indent */
+        }
       }
+      console.log("Function handling finished");
+      return;
+    } catch (e) {
+      console.log(e);
     }
-    console.log("Function handling finished");
-    return;
-  } catch (e) {
-    console.log(e);
-  }
+  };
+
+  background();
+  return;
 }
 
 const sendSlackMessage = async (message) => {
