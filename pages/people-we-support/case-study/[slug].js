@@ -8,9 +8,13 @@ import { PageTitle } from "../../../components/page-title/page-title";
 import { StoryCoverImage } from "../../../components/story-cover-image/story-cover-image";
 import { ReadMoreStories } from "../../../components/all-stories/all-stories";
 import { StoryContentAndQuote } from "../../../components/story-content-and-quote/story-content-and-quote";
+import { useRouter } from "next/router";
 
 export default function StoryDetail({ story, featuredStories }) {
   const { currentYear } = useGlobalProps();
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
 
   return (
     <>
@@ -45,9 +49,7 @@ export async function getStaticPaths() {
         slug: story.slug,
       },
     })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 
