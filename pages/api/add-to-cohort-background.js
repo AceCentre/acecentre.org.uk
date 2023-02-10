@@ -2,6 +2,7 @@ import { gql, GraphQLClient } from "graphql-request";
 import withSession from "../../lib/auth/with-session";
 import { App } from "@slack/bolt";
 import TurndownService from "turndown";
+import { refreshToken as updateTokens } from "../../lib/auth/refresh-token";
 
 const ENDPOINT = "https://backend.acecentre.org.uk/graphql";
 
@@ -96,11 +97,10 @@ const sendSlackMessage = async (message) => {
 
 const addUserToCohort = async (req, cohortName, emails) => {
   console.log("Begin addUserToCohort");
-  await refreshToken(req);
+  await updateTokens(req);
   // Get the user and the cart from the session if the exist
   const user = req.session.get("user") || {};
   const cart = req.session.get("cart") || {};
-  const refreshToken = user.refreshToken || null;
   const wooSession = cart.wooSessionToken || null;
   const authToken = user.authToken || null;
 
