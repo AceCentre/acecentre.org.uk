@@ -75,7 +75,7 @@ context("Moodle", () => {
         newEmail = validEmail("self");
 
         // Visit splash
-        cy.visit("https://acecentre.org.uk/learning/splash-training-i");
+        cy.visit("/learning/splash-training-i");
 
         // Add to basket
         cy.findByRole("button", { name: "Book this course" }).click();
