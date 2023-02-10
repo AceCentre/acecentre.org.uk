@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: "0 2,8,1,17 * * *"
 
+concurrency:
+  group: deploy-${{ github.head_ref }}-${{ github.event_name }}
+  cancel-in-progress: true
+
 jobs:
   Jest:
     runs-on: ubuntu-latest
