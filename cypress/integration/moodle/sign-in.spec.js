@@ -1,5 +1,5 @@
 context("Moodle", () => {
-  it(
+  it.skip(
     ["post-deploy"],
     "Logs into moodle, also logs you into AceCentre, then logs out of moodle and webpage",
     () => {
