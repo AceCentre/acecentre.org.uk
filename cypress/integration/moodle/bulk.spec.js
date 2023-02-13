@@ -195,6 +195,10 @@ context("Moodle", () => {
       cy.url({ timeout: 40000 }).should("include", "wdmaction=logout");
 
       // Login as second user
+      cy.request({
+        method: "POST",
+        url: "/api/auth/logout",
+      });
       cy.visit("/my-acecentre");
       cy.url({ timeout: 40000 }).should("include", "/login");
 
