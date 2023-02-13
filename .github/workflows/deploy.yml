@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 2,8,1,17 * * *"
+  # schedule:
+  #   - cron: "0 2,8,1,17 * * *"
 
 concurrency:
   group: deploy-${{ github.head_ref }}-${{ github.event_name }}
