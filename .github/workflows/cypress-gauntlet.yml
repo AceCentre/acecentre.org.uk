@@ -24,7 +24,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk,retries=0
+          config: baseUrl=https://production.acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: false
@@ -61,7 +61,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk,retries=0
+          config: baseUrl=https://production.acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: false
@@ -99,7 +99,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk,retries=0
+          config: baseUrl=https://production.acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: false
@@ -138,7 +138,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk,retries=0
+          config: baseUrl=https://production.acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: false
@@ -176,7 +176,7 @@ jobs:
 
       - name: Cypress run
         with:
-          config: baseUrl=https://acecentre.org.uk,retries=0
+          config: baseUrl=https://production.acecentre.org.uk,retries=0
           record: true
           install: false
           parallel: false
