@@ -52,24 +52,33 @@ jobs:
   CypressIntegration:
     needs: [BuildIntegrationOnDigitalOcean]
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
-      CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-      CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-      CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+      BASE_URL: https://integration.acecentre.org.uk
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
       - name: Cypress run
-        uses: cypress-io/github-action@v5
         with:
-          config: baseUrl=https://integration.acecentre.org.uk
+          config: baseUrl=$BASE_URL,retries=0
           record: true
+          install: true
+          parallel: true
           browser: chrome
+        env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+        uses: cypress-io/github-action@v5
 
   BuildProductionOnDigitalOcean:
     needs: [CypressIntegration]
@@ -86,52 +95,24 @@ jobs:
   CypressProduction:
     runs-on: ubuntu-latest
     needs: [BuildProductionOnDigitalOcean]
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
-      CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-      CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-      CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+      BASE_URL: https://production.acecentre.org.uk
+
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
       - name: Cypress run
-        uses: cypress-io/github-action@v5
         with:
-          config: baseUrl=https://production.acecentre.org.uk
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          browser: chrome
-
-  GauntletRunOnePost:
-    needs: [CypressProduction]
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
-      - name: Cypress run
-        with:
-          config: baseUrl=https://production.acecentre.org.uk,retries=0
-          record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -140,35 +121,60 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
+
+  GauntletRunOnePost:
+    runs-on: ubuntu-latest
+    needs: [CypressProduction]
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    env:
+      CYPRESS_INCLUDE_TAGS: post-deploy
+      BASE_URL: https://production.acecentre.org.uk
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        with:
+          config: baseUrl=$BASE_URL,retries=0
+          record: true
+          install: true
+          parallel: true
+          browser: chrome
+        env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+        uses: cypress-io/github-action@v5
 
   GauntletRunTwoPost:
     needs: [GauntletRunOnePost]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
+      BASE_URL: https://production.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://production.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -177,35 +183,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunThreePost:
     needs: [GauntletRunTwoPost]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
+      BASE_URL: https://production.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://production.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -214,36 +214,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-          RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunFourPost:
     needs: [GauntletRunThreePost]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
+      BASE_URL: https://production.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://production.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -252,35 +245,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunFivePost:
     needs: [GauntletRunFourPost]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
+      BASE_URL: https://production.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://production.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -289,35 +276,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunOnePre:
-    needs: [CypressProduction]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
+      BASE_URL: https://integration.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://integration.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -326,35 +306,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunTwoPre:
     needs: [GauntletRunOnePre]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106s
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
+      BASE_URL: https://integration.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://integration.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -363,35 +337,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunThreePre:
     needs: [GauntletRunTwoPre]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
+      BASE_URL: https://integration.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://integration.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -400,36 +368,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-          RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunFourPre:
     needs: [GauntletRunThreePre]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
+      BASE_URL: https://integration.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://integration.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -438,35 +399,29 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
 
   GauntletRunFivePre:
     needs: [GauntletRunFourPre]
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
     env:
       CYPRESS_INCLUDE_TAGS: pre-deploy
+      BASE_URL: https://integration.acecentre.org.uk
 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
       - name: Cypress run
         with:
-          config: baseUrl=https://integration.acecentre.org.uk,retries=0
+          config: baseUrl=$BASE_URL,retries=0
           record: true
-          install: false
-          parallel: false
+          install: true
+          parallel: true
           browser: chrome
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
@@ -475,4 +430,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5
