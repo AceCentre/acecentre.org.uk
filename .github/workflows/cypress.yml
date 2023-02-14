@@ -13,9 +13,9 @@ on:
         required: true
       CYPRESS_MOODLE_PASSWORD:
         required: true
-      CYPRESS_RECORD_KEY:
+      CYPRESS_SECRET:
         required: true
-      CYPRESS_WORDPRESS_AUTH:
+      WORDPRESS_AUTH:
         required: true
       CYPRESS_MOODLE_AUTH:
         required: true
