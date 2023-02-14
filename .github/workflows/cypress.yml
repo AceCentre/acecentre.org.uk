@@ -34,6 +34,10 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v3
 
+      - name: Generate UUID
+        id: generate-uuid
+        run: echo "uuid=$(uuidgen)" >> $GITHUB_OUTPUT
+
       - name: Cypress run
         with:
           config: baseUrl=${{ inputs.baseUrl }},retries=0
@@ -41,6 +45,7 @@ jobs:
           install: true
           parallel: true
           browser: chrome
+          ci-build-id: ${{ steps.generate-uuid.outputs.uuid }}
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
