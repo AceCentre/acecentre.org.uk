@@ -42,7 +42,6 @@ jobs:
       baseUrl: https://production.acecentre.org.uk
 
   GauntletRunOnePre:
-    runs-on: ubuntu-latest
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
