@@ -66,7 +66,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-2-post
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -104,7 +103,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-3-post
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -143,7 +141,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-4-post
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -181,7 +178,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-5-post
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -192,7 +188,6 @@ jobs:
         uses: cypress-io/github-action@v5.0.9
 
   GauntletRunOnePre:
-    needs: [PrepareCypressId]
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome106-ff106
@@ -219,7 +214,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-1-pre
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -257,7 +251,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-2-pre
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -295,7 +288,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-3-pre
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -334,7 +326,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-4-pre
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
@@ -372,7 +363,6 @@ jobs:
           install: false
           parallel: false
           browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressId.outputs.uuid }}-5-pre
         env:
           CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
           CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
