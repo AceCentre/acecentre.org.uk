@@ -36,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunTwoPost:
     needs: [GauntletRunOnePost]
@@ -74,7 +74,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunThreePost:
     needs: [GauntletRunTwoPost]
@@ -113,7 +113,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunFourPost:
     needs: [GauntletRunThreePost]
@@ -151,7 +151,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunFivePost:
     needs: [GauntletRunFourPost]
@@ -189,7 +189,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunOnePre:
     needs: [PrepareCypressId]
@@ -227,7 +227,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunTwoPre:
     needs: [GauntletRunOnePre]
@@ -265,7 +265,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunThreePre:
     needs: [GauntletRunTwoPre]
@@ -304,7 +304,7 @@ jobs:
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
           RTL_SKIP_AUTO_CLEANUP: true
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunFourPre:
     needs: [GauntletRunThreePre]
@@ -342,7 +342,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
 
   GauntletRunFivePre:
     needs: [GauntletRunFourPre]
@@ -380,4 +380,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
           CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.8
+        uses: cypress-io/github-action@v5.0.9
