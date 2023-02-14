@@ -15,8 +15,6 @@ on:
         required: true
       CYPRESS_RECORD_KEY:
         required: true
-      GITHUB_TOKEN:
-        required: true
       CYPRESS_WORDPRESS_AUTH:
         required: true
       CYPRESS_MOODLE_AUTH:
