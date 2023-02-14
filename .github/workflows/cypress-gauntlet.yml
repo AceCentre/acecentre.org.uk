@@ -1,311 +1,82 @@
 name: Cypress Gauntlet
-on: [workflow_dispatch]
+on: [workflow_dispatch, pull_request]
 
 jobs:
   GauntletRunOnePost:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-      BASE_URL: https://production.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://production.acecentre.org.uk
 
   GauntletRunTwoPost:
     needs: [GauntletRunOnePost]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-      BASE_URL: https://production.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://production.acecentre.org.uk
 
   GauntletRunThreePost:
     needs: [GauntletRunTwoPost]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-      BASE_URL: https://production.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://production.acecentre.org.uk
 
   GauntletRunFourPost:
     needs: [GauntletRunThreePost]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-      BASE_URL: https://production.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://production.acecentre.org.uk
 
   GauntletRunFivePost:
     needs: [GauntletRunFourPost]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-      BASE_URL: https://production.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://production.acecentre.org.uk
 
   GauntletRunOnePre:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      BASE_URL: https://integration.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
   GauntletRunTwoPre:
     needs: [GauntletRunOnePre]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      BASE_URL: https://integration.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
   GauntletRunThreePre:
     needs: [GauntletRunTwoPre]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      BASE_URL: https://integration.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
   GauntletRunFourPre:
     needs: [GauntletRunThreePre]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      BASE_URL: https://integration.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
   GauntletRunFivePre:
     needs: [GauntletRunFourPre]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
-      BASE_URL: https://integration.acecentre.org.uk
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Cypress run
-        with:
-          config: baseUrl=$BASE_URL,retries=0
-          record: true
-          install: true
-          parallel: true
-          browser: chrome
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk

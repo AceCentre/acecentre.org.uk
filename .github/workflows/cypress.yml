@@ -1,0 +1,53 @@
+name: Reusable Cypress Job
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+      baseUrl:
+        required: true
+        type: string
+    secrets:
+      CYPRESS_MOODLE_USERNAME:
+        required: true
+      CYPRESS_MOODLE_PASSWORD:
+        required: true
+      CYPRESS_RECORD_KEY:
+        required: true
+      GITHUB_TOKEN:
+        required: true
+      CYPRESS_WORDPRESS_AUTH:
+        required: true
+      CYPRESS_MOODLE_AUTH:
+        required: true
+
+jobs:
+  RunTests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    env:
+      CYPRESS_INCLUDE_TAGS: ${{ inputs.tag }}
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        with:
+          config: baseUrl=${{ inputs.baseUrl }},retries=0
+          record: true
+          install: true
+          parallel: true
+          browser: chrome
+        env:
+          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
+          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
+          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
+        uses: cypress-io/github-action@v5
