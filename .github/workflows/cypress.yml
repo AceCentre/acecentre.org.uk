@@ -2,7 +2,7 @@ name: Reusable Cypress Job
 on:
   workflow_call:
     inputs:
-      tag:
+      tags:
         required: true
         type: string
       baseUrl:
@@ -28,7 +28,7 @@ jobs:
       matrix:
         containers: [1, 2, 3]
     env:
-      CYPRESS_INCLUDE_TAGS: ${{ inputs.tag }}
+      CYPRESS_INCLUDE_TAGS: ${{ inputs.tags }}
 
     steps:
       - name: Get Code
