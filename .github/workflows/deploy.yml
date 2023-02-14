@@ -85,6 +85,7 @@ jobs:
 
   CypressProduction:
     runs-on: ubuntu-latest
+    needs: [BuildProductionOnDigitalOcean]
     env:
       CYPRESS_INCLUDE_TAGS: post-deploy
       CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
