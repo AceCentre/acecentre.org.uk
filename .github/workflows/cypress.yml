@@ -23,10 +23,7 @@ on:
 jobs:
   RunTests:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
+
     env:
       CYPRESS_INCLUDE_TAGS: ${{ inputs.tags }}
 
@@ -43,7 +40,7 @@ jobs:
           config: baseUrl=${{ inputs.baseUrl }},retries=0
           record: true
           install: true
-          parallel: true
+          parallel: false
           browser: chrome
           ci-build-id: ${{ steps.generate-uuid.outputs.uuid }}
         env:
