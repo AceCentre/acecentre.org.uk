@@ -195,11 +195,17 @@ context("Moodle", () => {
       cy.url({ timeout: 40000 }).should("include", "wdmaction=logout");
 
       // Login as second user
+
+      cy.visit("/my-acecentre");
       cy.request({
         method: "POST",
         url: "/api/auth/logout",
       });
+      cy.clearCookies();
+      cy.clearLocalStorage();
+      cy.wait(5000);
       cy.visit("/my-acecentre");
+
       cy.url({ timeout: 40000 }).should("include", "/login");
 
       cy.findAllByRole("form", { name: "Login form" })
