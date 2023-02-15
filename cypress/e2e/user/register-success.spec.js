@@ -11,7 +11,9 @@ context("Register", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "digitalocean", "register-success");
+    cy.wrap(null, { timeout: 60000 }).then(async () => {
+      await deleteUser(newEmail, "digitalocean", "register-success");
+    });
   });
 
   it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {

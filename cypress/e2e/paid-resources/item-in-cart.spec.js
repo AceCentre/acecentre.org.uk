@@ -11,7 +11,9 @@ context("Paid resources", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "digitalocean", "item-in-cart");
+    cy.wrap(null, { timeout: 60000 }).then(async () => {
+      await deleteUser(newEmail, "digitalocean", "item-in-cart");
+    });
   });
 
   it(

@@ -11,7 +11,9 @@ context("Paid resources", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "digitalocean", "decline-3d-auth");
+    cy.wrap(null, { timeout: 60000 }).then(async () => {
+      await deleteUser(newEmail, "digitalocean", "decline-3d-auth");
+    });
   });
 
   it(
