@@ -9,7 +9,9 @@ context("Checkout", () => {
   });
 
   afterEach(async () => {
-    await deleteUser(newEmail, "digitalocean", "basic-checkout");
+    cy.wrap(null, { timeout: 60000 }).then(async () => {
+      await deleteUser(newEmail, "digitalocean", "basic-checkout");
+    });
   });
 
   it(
