@@ -1,3 +1,4 @@
+const { tagify } = require("cypress-tags");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -16,7 +17,7 @@ module.exports = defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require("./cypress/plugins/index.js")(on, config);
+      on("file:preprocessor", tagify(config));
     },
     baseUrl: "http://localhost:3000",
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
