@@ -53,6 +53,8 @@ async function handler(req, res) {
       headers["X-Forwarded-For"] = req.headers["do-connecting-ip"];
     }
 
+    console.log("FINAL HEADERS", headers);
+
     const client = new GraphQLClient(ENDPOINT, {
       headers,
     });
