@@ -1,27 +1,52 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
 import "@testing-library/cypress/add-commands";
+
+Cypress.Commands.add("createCoupon", () => {
+  const uniqueCode = `cypress_testing_code_${Date.now()}`;
+
+  return cy
+    .request({
+      url: `https://backend.acecentre.org.uk/wp-json/wc/v3/coupons?code=${uniqueCode}`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
+      },
+    })
+    .then((allCouponsResponse) => {
+      if (!allCouponsResponse.isOkStatusCode) {
+        throw new Error("Failed to create coupon");
+      }
+
+      const allCouponsResult = allCouponsResponse.body;
+      if (allCouponsResult.length === 1) {
+        throw new Error("Tried to create an existing coupon");
+      }
+
+      cy.request({
+        url: "https://backend.acecentre.org.uk/wp-json/wc/v3/coupons",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${Cypress.env("WORDPRESS_AUTH")}`,
+        },
+        body: JSON.stringify({
+          code: uniqueCode,
+          discount_type: "percent",
+          amount: "100",
+          usage_limit: 1,
+          description: "Created automatically for Cypress tests",
+        }),
+      }).then((response) => {
+        if (!response.isOkStatusCode) {
+          throw new Error("Failed to create coupon");
+        }
+
+        const result = response.body;
+
+        const couponCode = result.code;
+        const couponId = result.id;
+
+        return { couponCode, couponId };
+      });
+    });
+});
