@@ -18,7 +18,7 @@ context("Moodle", () => {
     let bulkEmailOne;
     let bulkEmailTwo;
 
-    beforeEach(async () => {
+    beforeEach(() => {
       newEmail = null;
       couponId = null;
       newEmail = null;
