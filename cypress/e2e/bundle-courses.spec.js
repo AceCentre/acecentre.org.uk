@@ -1,5 +1,5 @@
 import { changePassword } from "../support/change-password";
-import { createCoupon, deleteCoupon } from "../support/coupon";
+import { deleteCoupon } from "../support/coupon";
 import { deleteUser } from "../support/delete-user";
 import { validEmail } from "../support/valid-email";
 
@@ -18,7 +18,7 @@ context("Moodle", () => {
     let bulkEmailOne;
     let bulkEmailTwo;
 
-    beforeEach(async () => {
+    beforeEach(() => {
       newEmail = null;
       couponId = null;
       newEmail = null;
@@ -26,9 +26,11 @@ context("Moodle", () => {
       bulkEmailOne = null;
       bulkEmailTwo = null;
 
-      const result = await createCoupon();
-      couponCode = result.couponCode;
-      couponId = result.couponId;
+      cy.createCoupon().then((result) => {
+        console.log("THIS IS RAN", result);
+        couponCode = result.couponCode;
+        couponId = result.couponId;
+      });
     });
 
     afterEach(() => {

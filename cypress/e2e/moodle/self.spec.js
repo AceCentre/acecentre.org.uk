@@ -1,5 +1,5 @@
 import { changePassword } from "../../support/change-password";
-import { createCoupon, deleteCoupon } from "../../support/coupon";
+import { deleteCoupon } from "../../support/coupon";
 import { deleteUser } from "../../support/delete-user";
 import { validEmail } from "../../support/valid-email";
 
@@ -26,9 +26,10 @@ context("Moodle", () => {
       bulkEmailOne = null;
       bulkEmailTwo = null;
 
-      const result = await createCoupon();
-      couponCode = result.couponCode;
-      couponId = result.couponId;
+      cy.createCoupon().then((result) => {
+        couponCode = result.couponCode;
+        couponId = result.couponId;
+      });
     });
 
     afterEach(() => {
