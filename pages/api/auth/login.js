@@ -53,6 +53,10 @@ async function handler(req, res) {
       headers["X-Forwarded-For"] = req.headers["do-connecting-ip"];
     }
 
+    if (process.env["WORDPRESS_DO_SHARED_SECRET"]) {
+      headers["x-do-secret"] = process.env["WORDPRESS_DO_SHARED_SECRET"];
+    }
+
     console.log("FINAL HEADERS", headers);
 
     const client = new GraphQLClient(ENDPOINT, {

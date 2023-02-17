@@ -71,6 +71,10 @@ export const getServerSideProps = withSession(async function ({ req, query }) {
         headers["X-Forwarded-For"] = req.headers["client-ip"];
       }
 
+      if (process.env["WORDPRESS_DO_SHARED_SECRET"]) {
+        headers["x-do-secret"] = process.env["WORDPRESS_DO_SHARED_SECRET"];
+      }
+
       // Create graphql client with headers
       const client = new GraphQLClient(ENDPOINT, {
         headers,
