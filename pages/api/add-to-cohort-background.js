@@ -130,6 +130,10 @@ const addUserToCohort = async (req, cohortName, emails) => {
     headers["X-Forwarded-For"] = req.headers["client-ip"];
   }
 
+  if (process.env["WORDPRESS_DO_SHARED_SECRET"]) {
+    headers["x-do-secret"] = process.env["WORDPRESS_DO_SHARED_SECRET"];
+  }
+
   console.log({ headers, ENDPOINT });
 
   const client = new GraphQLClient(ENDPOINT, {
