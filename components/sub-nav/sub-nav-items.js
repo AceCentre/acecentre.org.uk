@@ -81,7 +81,7 @@ export const defaultNavItems = [
         href: "/resources/all?category=alphabet-charts",
       },
       {
-        title: "Made by Ace",
+        title: "Info and Apps",
         href: "/resources/all?category=made-by-ace",
       },
       {
