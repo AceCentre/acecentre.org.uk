@@ -281,7 +281,7 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
         />
       ) : (
         <div>
-          {currentlySelectedFull.inStock && (
+          {currentlySelectedFull.inStock ? (
             <div className={styles.addToCartButtonContainer}>
               <Button
                 disabled={disabled}
@@ -296,6 +296,16 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
                 <p>Something went wrong adding this item to your cart</p>
               )}
             </div>
+          ) : (
+            <>
+              {resource.outOfStockForm && (
+                <div className={styles.addToCartButtonContainer}>
+                  <Button newTab href={resource.outOfStockForm}>
+                    Join Waitlist
+                  </Button>
+                </div>
+              )}
+            </>
           )}
         </div>
       )}
@@ -306,7 +316,7 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
 const Price = ({ resource }) => {
   const price = resource.price === 0 ? "Free" : `£${resource.price}`;
 
-  if (!resource.inStock) {
+  if (!resource.inStock && !resource.outOfStockForm) {
     return <p className={styles.price}>Out of stock</p>;
   }
 
