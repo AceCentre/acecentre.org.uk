@@ -49,7 +49,7 @@ export const defaultNavItems = [
         href: "/getting-started/find-right-communication-aid",
       },
       {
-        title: "E-books to get started",
+        title: "eBooks to get started",
         href: "/resources/all?category=made-by-ace&subcategory=e-books",
       },
     ],
@@ -81,7 +81,7 @@ export const defaultNavItems = [
         href: "/resources/all?category=alphabet-charts",
       },
       {
-        title: "Made by Ace",
+        title: "Info and Apps",
         href: "/resources/all?category=made-by-ace",
       },
       {
@@ -93,7 +93,7 @@ export const defaultNavItems = [
         href: "/resources/all?category=made-by-ace&subcategory=software",
       },
       {
-        title: "E-books",
+        title: "eBooks",
         href: "/resources/all?category=made-by-ace&subcategory=e-books",
       },
     ],
