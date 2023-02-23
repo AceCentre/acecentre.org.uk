@@ -5,7 +5,7 @@ import config from "../../../lib/config";
 const ENDPOINT = `${config.baseUrl}/graphql`;
 
 export const LOGIN_MUTATION = gql`
-  mutation($username: String!, $password: String!) {
+  mutation ($username: String!, $password: String!) {
     login(input: { username: $username, password: $password }) {
       authToken
       refreshToken
@@ -30,12 +30,34 @@ async function handler(req, res) {
   let headers = {};
   try {
     if (req && req.socket && req.socket.remoteAddress) {
+      console.log("req.socket.remoteAddress", req.socket.remoteAddress);
       headers["X-Forwarded-For"] = req.socket.remoteAddress;
     }
 
     if (req && req.headers && req.headers["client-ip"]) {
+      console.log("client-ip", req.headers["client-ip"]);
       headers["X-Forwarded-For"] = req.headers["client-ip"];
     }
+
+    if (req && req.headers && req.headers["x-real-ip"]) {
+      console.log("x-real-ip", req.headers["x-real-ip"]);
+      headers["X-Forwarded-For"] = req.headers["x-real-ip"];
+    }
+
+    if (req && req.headers && req.headers["x-forwarded-for"]) {
+      console.log("x-forwarded-for", req.headers["x-forwarded-for"]);
+      headers["X-Forwarded-For"] = req.headers["x-forwarded-for"];
+    }
+    if (req && req.headers && req.headers["do-connecting-ip"]) {
+      console.log("do-connecting-ip", req.headers["do-connecting-ip"]);
+      headers["X-Forwarded-For"] = req.headers["do-connecting-ip"];
+    }
+
+    if (process.env["WORDPRESS_DO_SHARED_SECRET"]) {
+      headers["x-do-secret"] = process.env["WORDPRESS_DO_SHARED_SECRET"];
+    }
+
+    console.log("FINAL HEADERS", headers);
 
     const client = new GraphQLClient(ENDPOINT, {
       headers,

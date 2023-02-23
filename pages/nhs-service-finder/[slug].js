@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { AfterInteractive } from "../../components/after-interactive/after-interactive";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -11,13 +12,16 @@ import {
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllServices } from "../../lib/services-finder";
 
 import styles from "../../styles/nhs-service-finder.module.css";
 
 export default function ServiceDetails({ service }) {
   const { currentYear } = useGlobalProps();
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
 
   return (
     <>
@@ -59,29 +63,25 @@ export async function getStaticPaths() {
 
   return {
     paths: services.map((service) => ({ params: { slug: service.id } })),
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(
-  async ({ params: { slug } }) => {
-    const services = await getAllServices();
-    const service = services.find((service) => service.id === slug);
+export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+  const services = await getAllServices();
+  const service = services.find((service) => service.id === slug);
 
-    if (!service) return { notFound: true };
+  if (!service) return { notFound: true };
 
-    // console.log(service);
+  // console.log(service);
 
-    return {
-      props: {
-        service,
-        seo: {
-          title: service.serviceName,
-          description: "Find an assistive technology service near you",
-        },
+  return {
+    props: {
+      service,
+      seo: {
+        title: service.serviceName,
+        description: "Find an assistive technology service near you",
       },
-    };
-  }
-);
+    },
+  };
+});

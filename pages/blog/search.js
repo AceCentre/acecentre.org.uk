@@ -36,7 +36,7 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   if (!searchText) {
     return {
       redirect: {
-        destination: "/projects",
+        destination: "/blog",
         permanent: false,
       },
     };

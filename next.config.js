@@ -1,11 +1,15 @@
+const REDIRECTS = require("./redirects");
+
 module.exports = {
-  staticPageGenerationTimeout: 120,
+  redirects: async () => {
+    return REDIRECTS;
+  },
   env: {
     IMAGE_URL: process.env.IMAGE_URL,
-    CLOUDINARY_CLOUD: process.env.CLOUDINARY_CLOUD,
     CONTEXT: process.env.CONTEXT,
   },
-  images: {
-    domains: ["acecentre.org.uk", "digitalocean.acecentre.org.uk"],
+  experimental: {
+    workerThreads: false,
+    cpus: 1,
   },
 };

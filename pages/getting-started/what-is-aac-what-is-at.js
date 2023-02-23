@@ -3,7 +3,7 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 
 import styles from "../../styles/finding-the-right-aid.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -172,7 +172,7 @@ const FAQS = [
   },
 ];
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const story = await getSimpleStory("glyn");
 
   const products = await getAllProducts();

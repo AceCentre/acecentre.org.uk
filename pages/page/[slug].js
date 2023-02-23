@@ -7,9 +7,13 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getPage } from "../../lib/generic-pages/get-page";
 import styles from "../../styles/generic-page.module.css";
 import { PageContent } from "../../components/page-content/page-content";
+import { useRouter } from "next/router";
 
 export default function GenericPage({ page }) {
   const { currentYear } = useGlobalProps();
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
 
   return (
     <>
@@ -78,9 +82,7 @@ export async function getStaticPaths() {
 
   return {
     paths: [...paths, ...altPaths],
-    // Currently this is ignored by Netlify so we have to use `notFound`
-    // Ref: https://github.com/netlify/netlify-plugin-nextjs/issues/1179
-    fallback: false,
+    fallback: true,
   };
 }
 

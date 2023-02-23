@@ -1,85 +1,19 @@
 name: Deploy and Test
 on:
   workflow_dispatch:
-  pull_request:
   push:
     branches:
       - main
   schedule:
     - cron: "0 2,8,1,17 * * *"
+
 concurrency:
   group: deploy-${{ github.head_ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
-  CalculateCloudinaryCloud:
-    runs-on: ubuntu-latest
-    env:
-      CLOUDINARY_ONE_KEY: ${{ secrets.CLOUDINARY_ONE_KEY }}
-      CLOUDINARY_ONE_SECRET: ${{ secrets.CLOUDINARY_ONE_SECRET }}
-      CLOUDINARY_TWO_KEY: ${{ secrets.CLOUDINARY_TWO_KEY }}
-      CLOUDINARY_TWO_SECRET: ${{ secrets.CLOUDINARY_TWO_SECRET }}
-    outputs:
-      cloudinary-cloud: ${{ steps.get-cloudinary-cloud.outputs.result }}
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install NPM deps
-        run: yarn install
-      - uses: actions/github-script@v6
-        id: get-cloudinary-cloud
-        with:
-          result-encoding: string
-          script: |
-            const script = require('./scripts/calculate-cloudinary-cloud')
-            const result = await script();
-            console.log('Cloudinary:', result);
-            return result;
-
-  CalculateDeployKey:
-    runs-on: ubuntu-latest
-    outputs:
-      deploy-key: ${{ steps.get-title.outputs.result }}
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-      - uses: actions/github-script@v6
-        id: get-title
-        with:
-          result-encoding: string
-          script: |
-            const script = require('./scripts/calculate-deploy-key')
-            const result = script(context);
-            console.log('Deploy key:', result);
-            return result;
-
-  GetUniqueBuildId:
-    runs-on: ubuntu-latest
-    outputs:
-      buildId: ${{ steps.time.outputs.dateTime }}
-    steps:
-      - name: Get Time
-        id: time
-        uses: Plabick/Remote-Time-Action@V1.0
-        with:
-          timezone: "GMT"
-
   Jest:
     runs-on: ubuntu-latest
-    env:
-      REDIS_URL: ${{ secrets.REDIS_URL }}
-      GITHUB_SHA: ${{ github.sha }}
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -98,241 +32,126 @@ jobs:
         run: yarn install
 
       - name: Run Jest Tests
+        env:
+          REDIS_URL: ${{ secrets.REDIS_URL }}
         run: yarn test
 
-      - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
-        with:
-          name: jest-coverage
-          path: coverage
-          # Github has size limits so this avoids hitting them
-          retention-days: 1
-
-  ESLint:
+  BuildIntegrationOnDigitalOcean:
+    needs: [Jest]
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          node-version: "16"
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Create deployment
+        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait
 
-      - name: Install NPM deps
-        run: yarn install
+  CypressIntegration:
+    needs: [BuildIntegrationOnDigitalOcean]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
-      - name: Run ESLint
-        run: yarn run eslint .
-
-  DeployNetlifyIntegration:
+  BuildProductionOnDigitalOcean:
+    needs: [CypressIntegration]
     runs-on: ubuntu-latest
-    needs: [GetUniqueBuildId, CalculateDeployKey, CalculateCloudinaryCloud]
-    outputs:
-      deploy-name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
-      deploy-url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
-    environment:
-      name: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
-      url: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
-    env:
-      REDIS_URL: ${{ secrets.REDIS_URL }}
-      GITHUB_SHA: ${{ github.sha }}
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      IMAGE_URL: https://${{ needs.CalculateDeployKey.outputs.deploy-key }}--acecentreorguk.netlify.app
-      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
-      DEPLOY_KEY: ${{ needs.CalculateDeployKey.outputs.deploy-key }}
-      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-      SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
-      SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
-      SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
-      CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
-
     steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          node-version: "16"
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.netlify/cache
-          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
+      - name: Create deployment
+        run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait
 
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+  CypressProduction:
+    needs: [BuildProductionOnDigitalOcean]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+  GauntletRunOnePost:
+    needs: [CypressProduction]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-      - name: Install NPM deps
-        run: yarn install
+  GauntletRunTwoPost:
+    needs: [GauntletRunOnePost]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-      - name: Run netlify deploy and build
-        run: yarn netlify deploy --alias=${{ needs.CalculateDeployKey.outputs.deploy-key }} --build --context deploy-preview
+  GauntletRunThreePost:
+    needs: [GauntletRunTwoPost]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-  PrepareCypressIdPre:
-    runs-on: ubuntu-latest
-    outputs:
-      uuid: ${{ steps.uuid.outputs.value }}
-    steps:
-      - name: Generate unique ID 💎
-        id: uuid
-        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
+  GauntletRunFourPost:
+    needs: [GauntletRunThreePost]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-  Cypress:
-    needs: [DeployNetlifyIntegration, PrepareCypressIdPre]
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
+  GauntletRunFivePost:
+    needs: [GauntletRunFourPost]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: post-deploy
+      baseUrl: https://acecentre.org.uk
 
-    env:
-      CYPRESS_INCLUDE_TAGS: pre-deploy
+  GauntletRunOnePre:
+    needs: [CypressProduction]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
+  GauntletRunTwoPre:
+    needs: [GauntletRunOnePre]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+  GauntletRunThreePre:
+    needs: [GauntletRunTwoPre]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
+  GauntletRunFourPre:
+    needs: [GauntletRunThreePre]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
 
-      - name: Cypress run
-        with:
-          config: baseUrl=${{ needs.DeployNetlifyIntegration.outputs.deploy-url }}
-          record: true
-          install: false
-          parallel: false
-          group: Pre-Deploy Github Actions
-          browser: chrome
-          ci-build-id: ${{ needs.prepare.PrepareCypressIdPre.uuid }}
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
-
-  DeployNetlify:
-    runs-on: ubuntu-latest
-
-    if: github.ref == 'refs/heads/main'
-    needs: [GetUniqueBuildId, CalculateCloudinaryCloud, Cypress, Jest, ESLint]
-    outputs:
-      lighthousePathsFirst: ${{ steps.get-paths-first.outputs.result }}
-      lighthousePathsSecond: ${{ steps.get-paths-second.outputs.result }}
-      deploy-url: https://acecentre.org.uk
-    environment:
-      name: production
-      url: https://acecentre.org.uk
-    env:
-      REDIS_URL: ${{ secrets.REDIS_URL }}
-      GITHUB_SHA: ${{ github.sha }}
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      IMAGE_URL: https://acecentre.org.uk
-      BUILD_ID: ${{ needs.GetUniqueBuildId.outputs.buildId }}
-      DEPLOY_KEY: production
-      SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
-      SLACK_SECRET: ${{ secrets.SLACK_SECRET }}
-      SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
-      SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
-      CLOUDINARY_CLOUD: ${{ needs.CalculateCloudinaryCloud.outputs.cloudinary-cloud }}
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      - uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
-
-      - uses: actions/cache@v3
-        with:
-          path: ".netlify/cache"
-          key: ${{ runner.os }}-netlify-cache-${{ github.head_ref || github.ref_name }}
-
-      - name: Install NPM deps
-        run: yarn install
-
-      - name: Run netlify build and deploy
-        run: yarn netlify deploy --prod --build --context production
-
-  PrepareCypressIdPost:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    outputs:
-      uuid: ${{ steps.uuid.outputs.value }}
-    steps:
-      - name: Generate unique ID 💎
-        id: uuid
-        run: echo "::set-output name=value::sha-$GITHUB_SHA-time-$(date +"%s")"
-
-  CypressPostDeploy:
-    needs: [DeployNetlify, PrepareCypressIdPost]
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node18.12.0-chrome106-ff106
-    env:
-      CYPRESS_INCLUDE_TAGS: post-deploy
-
-    steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - run: npm i --force cypress @testing-library/cypress cypress-tags typescript
-
-      - name: Cypress run
-        with:
-          config: baseUrl=https://acecentre.org.uk
-          record: true
-          install: false
-          parallel: false
-          browser: chrome
-          ci-build-id: ${{ needs.PrepareCypressIdPost.outputs.uuid }}
-        env:
-          CYPRESS_MOODLE_USERNAME: ${{ secrets.CYPRESS_MOODLE_USERNAME }}
-          CYPRESS_MOODLE_PASSWORD: ${{ secrets.CYPRESS_MOODLE_PASSWORD }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_WORDPRESS_AUTH: ${{ secrets.WORDPRESS_AUTH }}
-          CYPRESS_MOODLE_AUTH: ${{ secrets.CYPRESS_MOODLE_AUTH }}
-        uses: cypress-io/github-action@v5.0.9
+  GauntletRunFivePre:
+    needs: [GauntletRunFourPre]
+    uses: ./.github/workflows/cypress.yml
+    secrets: inherit
+    with:
+      tags: pre-deploy
+      baseUrl: https://integration.acecentre.org.uk
