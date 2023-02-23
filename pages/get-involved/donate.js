@@ -7,7 +7,7 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { WhatMoneyCanDo } from "../../components/what-money-can-do/what-money-can-do";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { getSimpleStory } from "../../lib/story/get-story";
 
 import styles from "../../styles/donate.module.css";
@@ -71,7 +71,7 @@ export default function GetInvolved({ featuredStory }) {
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const featuredStory = await getSimpleStory("paul");
 
   return {

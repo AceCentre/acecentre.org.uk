@@ -6,7 +6,7 @@ import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { ServiceFinderMap } from "../../components/service-finder-map/service-finder-map";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllServices } from "../../lib/services-finder";
 
 export default function ServiceFinder({ services }) {
@@ -30,7 +30,7 @@ export default function ServiceFinder({ services }) {
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const services = await getAllServices();
   const reducedServices = services.map((x) => ({
     id: x.id,

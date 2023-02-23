@@ -3,7 +3,7 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { GettingStartedGrid } from "../../components/getting-started-grid/getting-started-grid";
 import { getAllCourses } from "../../lib/products/get-courses";
 import { CourseList } from "../../components/course-list/course-list";
@@ -44,7 +44,7 @@ export default function GettingStartedLanding({ gettingStartedCourses }) {
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const courses = await getAllCourses(true);
 
   const gettingStartedCourses = courses
