@@ -74,7 +74,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunOnePost:
     needs: [CypressProduction]
@@ -82,7 +82,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunTwoPost:
     needs: [GauntletRunOnePost]
@@ -90,7 +90,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunThreePost:
     needs: [GauntletRunTwoPost]
@@ -98,7 +98,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunFourPost:
     needs: [GauntletRunThreePost]
@@ -106,7 +106,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunFivePost:
     needs: [GauntletRunFourPost]
@@ -114,7 +114,7 @@ jobs:
     secrets: inherit
     with:
       tags: post-deploy
-      baseUrl: https://production.acecentre.org.uk
+      baseUrl: https://acecentre.org.uk
 
   GauntletRunOnePre:
     needs: [CypressProduction]
