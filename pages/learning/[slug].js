@@ -43,7 +43,7 @@ export default function LearningDetail({
   if (isFallback) return null;
 
   const { isEnrolledOnCourse, moodleUrl, moodleCourseId } = useEnrollStatus(
-    course.slug
+    course?.slug
   );
 
   return (
