@@ -46,7 +46,14 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Create deployment
-        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait --output json
+        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait --output json | tee deployment-integration.json
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: deployment-integration
+          path: ./deployment-integration.json
+          retention-days: 5
 
   CypressIntegration:
     needs: [BuildIntegrationOnDigitalOcean]
@@ -66,7 +73,14 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Create deployment
-        run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait --output json
+        run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait --output json | tee deployment-live.json
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: deployment-live
+          path: ./deployment-live.json
+          retention-days: 5
 
   CypressProduction:
     needs: [BuildProductionOnDigitalOcean]
