@@ -14,6 +14,7 @@ import styles from "../../styles/learning-detail.module.css";
 import {
   BundleDetailBox,
   LearningDetailBox,
+  useEnrollStatus,
 } from "../../components/learning-detail-box/learning-detail-box";
 import { LearningDetailMeta } from "../../components/learning-detail-meta/learning-detail-meta";
 
@@ -41,6 +42,10 @@ export default function LearningDetail({
 
   if (isFallback) return null;
 
+  const { isEnrolledOnCourse, moodleUrl, moodleCourseId } = useEnrollStatus(
+    course.slug
+  );
+
   return (
     <>
       <header>
@@ -53,9 +58,24 @@ export default function LearningDetail({
             <div className={styles.container}>
               <h2 className={styles.courseTitle}>{course.name}</h2>
             </div>
-            <LearningDetailBox course={course} />
+            <LearningDetailBox
+              isEnrolledOnCourse={isEnrolledOnCourse}
+              moodleUrl={moodleUrl}
+              moodleCourseId={moodleCourseId}
+              course={course}
+            />
             <div className={styles.contentBody}>
               <div>
+                {isEnrolledOnCourse && moodleCourseId === 0 && (
+                  <div className={styles.inlineCard}>
+                    <p>
+                      This course is run on Microsoft Teams. You will be sent an
+                      email with the teams link 2 days before the event. If you
+                      have issues accessing teams then{" "}
+                      <Link href="/contact">Contact Us.</Link>
+                    </p>
+                  </div>
+                )}
                 <ListOfBundles course={course} />
                 <div dangerouslySetInnerHTML={{ __html: course.content }} />
                 <p className={styles.timezone}>

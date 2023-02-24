@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { NoImage } from "../latest-from-blog/latest-from-blog";
 
-const useEnrollStatus = (courseSlug) => {
+export const useEnrollStatus = (courseSlug) => {
   const [isEnrolledOnCourse, setIsEnrolledOnCourse] = useState(false);
   const [moodleCourseId, setMoodleCourseId] = useState(123);
 
@@ -35,17 +35,21 @@ const useEnrollStatus = (courseSlug) => {
 
   return {
     isEnrolledOnCourse,
+    moodleCourseId,
     moodleUrl: `/api/moodle?mdl_course_id=${moodleCourseId}`,
   };
 };
 
-export const LearningDetailBox = ({ course }) => {
+export const LearningDetailBox = ({
+  course,
+  isEnrolledOnCourse,
+  moodleUrl,
+  moodleCourseId,
+}) => {
   const { disabled, addToCart, error } = useAddToCart();
   const [isModalOpen, toggleModal] = useState(false);
 
   const price = parseInt(course.price);
-
-  const { isEnrolledOnCourse, moodleUrl } = useEnrollStatus(course.slug);
 
   return (
     <>
@@ -92,9 +96,15 @@ export const LearningDetailBox = ({ course }) => {
           />
 
           {isEnrolledOnCourse ? (
-            <Button className={styles.bookButton} href={moodleUrl}>
-              Go to course
-            </Button>
+            <>
+              {moodleCourseId !== 0 && (
+                <>
+                  <Button className={styles.bookButton} href={moodleUrl}>
+                    Go to course
+                  </Button>
+                </>
+              )}
+            </>
           ) : (
             <Button
               className={styles.bookButton}
