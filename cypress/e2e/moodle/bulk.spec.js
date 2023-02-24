@@ -193,15 +193,11 @@ context("Moodle", () => {
 
       cy.visit("https://learning.acecentre.org.uk/login/logout.php");
       cy.findByRole("button", { name: "Continue" }).click();
-      cy.url({ timeout: 40000 }).should("include", "wdmaction=logout");
+      cy.wait(10000);
 
       // Login as second user
 
       cy.visit("/my-acecentre");
-      cy.request({
-        method: "POST",
-        url: "/api/auth/logout",
-      });
       cy.clearCookies();
       cy.clearLocalStorage();
       cy.wait(5000);

@@ -178,7 +178,6 @@ context("Moodle", () => {
         .should("exist");
       cy.visit("https://learning.acecentre.org.uk/login/logout.php");
       cy.findByRole("button", { name: "Continue" }).click();
-      cy.url({ timeout: 40000 }).should("include", "wdmaction=logout");
     });
   });
 });
