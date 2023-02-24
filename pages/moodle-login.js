@@ -49,7 +49,7 @@ export const getServerSideProps = withSession(async function ({ req, query }) {
 
       return {
         redirect: {
-          destination: "https://learning.acecentre.org.uk",
+          destination: "/",
           permanent: false,
         },
       };
