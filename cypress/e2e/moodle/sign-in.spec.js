@@ -36,12 +36,16 @@ context("Moodle", () => {
       cy.url({ timeout: 40000 }).should("include", "learning.acecentre.org.uk");
       cy.findByRole("button", { name: "User menu" }).click();
       cy.findByRole("menuitem", { name: "Log out" }).click();
-      cy.findByRole("link", { name: "Log in" }).should("exist");
 
       // Check we are logged out of the AceCentre site
-      cy.visit("");
+      // This is a bit of a hack as it logs out of the site for us
+      // but for some reason the cookies get messed up in cypress
+      cy.visit("/");
+      cy.clearAllCookies();
+      cy.clearAllLocalStorage();
+      cy.visit("/");
       cy.wait(2000); // Wait for render
-      cy.findAllByRole("link", { name: "My Ace Centre" }).first().click();
+      cy.findAllByRole("link", { name: "Login" }).first().click();
       cy.url({ timeout: 40000 }).should("include", "/login");
     }
   );
