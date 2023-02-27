@@ -31,8 +31,8 @@ export const ReadMoreStories = ({ stories }) => {
     <div>
       <div className={`${styles.titleContainer} ${styles.readMoreContainer}`}>
         <h2 className={styles.readMoreTitle}>Read more stories</h2>
-        <Link href="/people-we-support">
-          <a className={styles.viewAllLink}>View all &gt;</a>
+        <Link href="/people-we-support" className={styles.viewAllLink}>
+          View all &gt;
         </Link>
       </div>
       <AllStories stories={stories} className={styles.readMoreAll} />

@@ -24,8 +24,8 @@ export const GetInvolved = () => {
           </p>
           <div className={styles.buttonContainer}>
             <Button href="/get-involved">Ways to get involved</Button>
-            <Link href="/get-involved/donate">
-              <a className={styles.donationLink}>Make a donation</a>
+            <Link href="/get-involved/donate" className={styles.donationLink}>
+              Make a donation
             </Link>
           </div>
         </div>

@@ -92,7 +92,7 @@ const TreeLeaf = ({ node, root = false }) => {
     <Wrapper root={root}>
       <p>
         <Link href={node.fullPath}>
-          <a>{node.title}</a>
+          {node.title}
         </Link>
       </p>
       {node.children.length > 0 && (

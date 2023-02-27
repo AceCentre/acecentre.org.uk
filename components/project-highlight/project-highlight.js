@@ -45,8 +45,8 @@ export const CardHighlight = ({
           className={styles.description}
           dangerouslySetInnerHTML={{ __html: description }}
         />
-        <Link href={href}>
-          <a className={styles.viewAllLink}>{viewText} &gt;</a>
+        <Link href={href} className={styles.viewAllLink}>
+          {viewText} &gt;
         </Link>
       </div>
     </div>

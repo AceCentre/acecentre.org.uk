@@ -45,44 +45,40 @@ export const ShareButtons = ({
       <span className={styles.shareText}>{shareCta}</span>
       <Link
         href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`}
-      >
-        <a
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Twitter logo"
-          className={styles.avatarLink}
-        >
-          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
-            <TwitterIcon className={styles.logo} />
-          </Avatar>
-        </a>
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Twitter logo"
+        className={styles.avatarLink}>
+
+        <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
+          <TwitterIcon className={styles.logo} />
+        </Avatar>
+
       </Link>
 
       <Link
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`}
-      >
-        <a
-          target="_blank"
-          rel="noreferrer"
-          aria-label="LinkedIn logo"
-          className={styles.avatarLink}
-        >
-          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
-            <LinkedInIcon className={styles.logo} />
-          </Avatar>
-        </a>
+        target="_blank"
+        rel="noreferrer"
+        aria-label="LinkedIn logo"
+        className={styles.avatarLink}>
+
+        <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
+          <LinkedInIcon className={styles.logo} />
+        </Avatar>
+
       </Link>
-      <Link href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Facebook logo"
-          className={styles.avatarLink}
-        >
-          <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
-            <FacebookIcon className={styles.logo} />
-          </Avatar>
-        </a>
+      <Link
+        href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Facebook logo"
+        className={styles.avatarLink}>
+
+        <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
+          <FacebookIcon className={styles.logo} />
+        </Avatar>
+
       </Link>
     </div>
   );

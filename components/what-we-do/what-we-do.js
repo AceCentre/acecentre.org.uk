@@ -14,75 +14,61 @@ export const WhatWeDo = () => {
       <div className={styles.list}>
         <ul className={styles.unstyledList}>
           <li>
-            <Link href="/services/nhs">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                NHS Services
-              </a>
+            <Link href="/services/nhs" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>NHS Services
             </Link>
           </li>
           <li>
-            <Link href="/services/engineering">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Engineering
-              </a>
+            <Link href="/services/engineering" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Engineering
             </Link>
           </li>
           <li>
-            <Link href="/services/research">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Research
-              </a>
+            <Link href="/services/research" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Research
             </Link>
           </li>
           <li>
-            <Link href="/learning">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Ace Centre Learning
-              </a>
+            <Link href="/learning" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Ace Centre Learning
             </Link>
           </li>
         </ul>
         <ul className={styles.unstyledList}>
           <li>
-            <Link href="/services/assessments">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Assessment
-              </a>
+            <Link href="/services/assessments" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Assessment
             </Link>
           </li>
           <li>
-            <Link href="/services/advice-information">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Advice and Information
-              </a>
+            <Link href="/services/advice-information" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Advice and Information
             </Link>
           </li>
           <li>
-            <Link href="/services/partnerships">
-              <a className={styles.link}>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon />
-                </Avatar>
-                Partnerships
-              </a>
+            <Link href="/services/partnerships" className={styles.link}>
+
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon />
+              </Avatar>Partnerships
             </Link>
           </li>
         </ul>

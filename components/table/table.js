@@ -84,7 +84,7 @@ export const OrderDetailTable = ({ order }) => {
               <td>{line.type}</td>
               <td>
                 <Link href={line.href}>
-                  <a>{line.name}</a>
+                  {line.name}
                 </Link>
               </td>
               <td>{line.quantity}</td>
@@ -106,79 +106,77 @@ export const OrderSummaryTable = ({
   needsDelivered,
   vat,
 }) => {
-  return (
-    <>
-      <table
-        className={`${styles.container} ${styles.table} ${styles.noMargin}`}
-      >
-        <tbody>
-          <tr>
-            <th className={styles.hideOnMobile}>Type</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
+  return <>
+    <table
+      className={`${styles.container} ${styles.table} ${styles.noMargin}`}
+    >
+      <tbody>
+        <tr>
+          <th className={styles.hideOnMobile}>Type</th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
 
-          {lines.map((line) => {
-            return (
-              <tr key={line.name}>
-                <td className={styles.hideOnMobile}>{line.type}</td>
-                <td>
-                  <Link href={line.resourceHref}>
-                    <a className={styles.link}>{line.name}</a>
-                  </Link>
-                </td>
-                <td className={styles.center}>{line.quantity}</td>
-                <td>{line.price}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <table className={`${styles.container} ${styles.table}`}>
-        <tbody>
+        {lines.map((line) => {
+          return (
+            <tr key={line.name}>
+              <td className={styles.hideOnMobile}>{line.type}</td>
+              <td>
+                <Link href={line.resourceHref} className={styles.link}>
+                  {line.name}
+                </Link>
+              </td>
+              <td className={styles.center}>{line.quantity}</td>
+              <td>{line.price}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+    <table className={`${styles.container} ${styles.table}`}>
+      <tbody>
+        <tr>
+          <td className={styles.tableHeader}>Subtotal</td>
+          <td className={`${styles.cost} ${styles.rightAlignText}`}>
+            {subtotal}
+          </td>
+        </tr>
+        {discountTotal !== "£0.00" && (
           <tr>
-            <td className={styles.tableHeader}>Subtotal</td>
-            <td className={`${styles.cost} ${styles.rightAlignText}`}>
-              {subtotal}
+            <td className={styles.tableHeader}>Discount </td>
+            <td className={`${styles.rightAlignText} ${styles.cost} `}>
+              -{discountTotal}
             </td>
           </tr>
-          {discountTotal !== "£0.00" && (
-            <tr>
-              <td className={styles.tableHeader}>Discount </td>
-              <td className={`${styles.rightAlignText} ${styles.cost} `}>
-                -{discountTotal}
-              </td>
-            </tr>
-          )}
-          {needsDelivered && (
-            <tr>
-              <td className={styles.tableHeader}>Shipping</td>
-              <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-                <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
-              </td>
-            </tr>
-          )}
-          {vat !== "£0.00" && (
-            <tr>
-              <td className={styles.tableHeader}>VAT</td>
-              <td className={`${styles.rightAlignText} ${styles.shipping}`}>
-                <p className={`${styles.cost} ${styles.bold}`}>{vat}</p>
-              </td>
-            </tr>
-          )}
+        )}
+        {needsDelivered && (
           <tr>
-            <td className={styles.tableHeader}>Total</td>
-            <td
-              className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
-            >
-              {total}
+            <td className={styles.tableHeader}>Shipping</td>
+            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+              <p className={`${styles.cost} ${styles.bold}`}>{shipping}</p>
             </td>
           </tr>
-        </tbody>
-      </table>
-    </>
-  );
+        )}
+        {vat !== "£0.00" && (
+          <tr>
+            <td className={styles.tableHeader}>VAT</td>
+            <td className={`${styles.rightAlignText} ${styles.shipping}`}>
+              <p className={`${styles.cost} ${styles.bold}`}>{vat}</p>
+            </td>
+          </tr>
+        )}
+        <tr>
+          <td className={styles.tableHeader}>Total</td>
+          <td
+            className={`${styles.cost} ${styles.bold} ${styles.rightAlignText}`}
+          >
+            {total}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </>;
 };
 
 export const BasketTable = ({ lines, onQuantityChange }) => {
@@ -197,8 +195,8 @@ export const BasketTable = ({ lines, onQuantityChange }) => {
             <tr key={line.name}>
               <td className={styles.hideOnMobile}>{line.type}</td>
               <td>
-                <Link href={line.resourceHref}>
-                  <a className={styles.link}>{line.name}</a>
+                <Link href={line.resourceHref} className={styles.link}>
+                  {line.name}
                 </Link>
               </td>
               <td className={styles.center}>

@@ -637,8 +637,8 @@ const CheckoutForm = ({
 
       <div className={styles.tableLabel}>
         <h3>Order summary</h3>
-        <Link href="/basket">
-          <a className={styles.editBasket}>Edit basket</a>
+        <Link href="/basket" className={styles.editBasket}>
+          Edit basket
         </Link>
       </div>
 

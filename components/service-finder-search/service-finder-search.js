@@ -340,39 +340,37 @@ const ListOfServices = ({ services }) => {
     return <NoResults />;
   }
 
-  return (
-    <>
-      <ul className={styles.resultsContainer}>
-        {services.services.map((service) => (
-          <li className={styles.resultCard} key={service.id}>
-            <h3>{service.serviceName}</h3>
-            <Icons servicesOffered={service.servicesOffered} />
-            <p>
-              <strong>Services:</strong>{" "}
-              {service.servicesOffered.map((x) => x.title).join(", ")}
-            </p>
-            <p>
-              <strong>Address:</strong>
-            </p>
-            <div>
-              {service.addressLines.map((line) => (
-                <span className={styles.addressLine} key={line}>
-                  {line}
-                </span>
-              ))}
-            </div>
-            <p>
-              <strong>Phone:</strong> {service.phoneNumber}
-            </p>
-            <Link href={`/nhs-service-finder/${service.id}`}>
-              <a className={styles.findOutMore}>Find out more &gt;</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <ServiceFinderMailingList />
-    </>
-  );
+  return <>
+    <ul className={styles.resultsContainer}>
+      {services.services.map((service) => (
+        <li className={styles.resultCard} key={service.id}>
+          <h3>{service.serviceName}</h3>
+          <Icons servicesOffered={service.servicesOffered} />
+          <p>
+            <strong>Services:</strong>{" "}
+            {service.servicesOffered.map((x) => x.title).join(", ")}
+          </p>
+          <p>
+            <strong>Address:</strong>
+          </p>
+          <div>
+            {service.addressLines.map((line) => (
+              <span className={styles.addressLine} key={line}>
+                {line}
+              </span>
+            ))}
+          </div>
+          <p>
+            <strong>Phone:</strong> {service.phoneNumber}
+          </p>
+          <Link href={`/nhs-service-finder/${service.id}`} className={styles.findOutMore}>
+            Find out more &gt;
+          </Link>
+        </li>
+      ))}
+    </ul>
+    <ServiceFinderMailingList />
+  </>;
 };
 
 const NoResults = () => {

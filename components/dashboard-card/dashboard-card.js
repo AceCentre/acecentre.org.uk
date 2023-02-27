@@ -20,8 +20,8 @@ export const DashboardCard = ({
         {countAsInt > 0 && <div className={styles.count}>{count}</div>}
       </div>
       <p className={styles.description}>{description}</p>
-      <Link href={linkUrl}>
-        <a className={styles.link}>{linkText} &gt;</a>
+      <Link href={linkUrl} className={styles.link}>
+        {linkText} &gt;
       </Link>
     </div>
   );

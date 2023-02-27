@@ -16,16 +16,16 @@ export const Button = ({
 
   if (href)
     return (
-      <Link href={href}>
-        <a
-          {...newTabProps}
-          onClick={onClick}
-          className={`${styles.button} ${className}`}
-          download={download}
-        >
-          {children}
-        </a>
-      </Link>
+      (<Link
+        href={href}
+        {...newTabProps}
+        onClick={onClick}
+        className={`${styles.button} ${className}`}
+        download={download}>
+
+        {children}
+
+      </Link>)
     );
 
   if (type == "submit") {

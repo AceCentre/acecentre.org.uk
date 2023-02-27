@@ -95,8 +95,8 @@ const MetaItem = ({
         <div>
           <p className={styles.heading}>{heading}</p>
           {href ? (
-            <Link href={href}>
-              <a className={styles.link}>{subheading}</a>
+            <Link href={href} className={styles.link}>
+              {subheading}
             </Link>
           ) : (
             <p className={styles.subheading}>{subheading}</p>

@@ -14,7 +14,7 @@ export const NavCta = ({
   iconColour,
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} legacyBehavior>
       <a className={styles.link}>
         <div className={styles.container}>
           <style jsx>{`

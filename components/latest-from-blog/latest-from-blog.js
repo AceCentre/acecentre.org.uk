@@ -29,10 +29,9 @@ export const LatestFromBlog = ({ posts }) => {
         <p className={styles.tagLine}>
           Read the latest from Ace Centre news to project updates
         </p>
-        <Link href="/blog">
-          <a className={styles.visitBlogLink}>
-            Visit the blog <ChevronRightIcon />
-          </a>
+        <Link href="/blog" className={styles.visitBlogLink}>
+          Visit the blog<ChevronRightIcon />
+
         </Link>
       </div>
       <ul className={styles.list}>
@@ -71,34 +70,34 @@ export const Card = ({
           <span>{ribbonText}</span>
         </div>
       )}
-      <Link href={href}>
-        <a className={styles.listLink}>
-          {featuredImage ? (
-            <div
-              className={`${styles.imageContainer} ${imageContainerClassName}`}
-            >
-              <Image
-                src={featuredImage.src}
-                alt={`An thumbnail for the post: ${title}`}
-                className={styles.image}
-                layout="fill"
-              />
-              {background && <div className={styles.background} />}
-            </div>
-          ) : (
-            <NoImage
-              imageContainerClassName={imageContainerClassName}
-              title={title}
-              noImagePostCount={noImagePostCount}
-            />
-          )}
-          {showSubtitle && <p className={styles.blogTag}>{subtitle}</p>}
+      <Link href={href} className={styles.listLink}>
+
+        {featuredImage ? (
           <div
-            className={`${styles.postTitleContainer} ${postTitleContainerClassName}`}
+            className={`${styles.imageContainer} ${imageContainerClassName}`}
           >
-            {children}
+            <Image
+              src={featuredImage.src}
+              alt={`An thumbnail for the post: ${title}`}
+              className={styles.image}
+              layout="fill"
+            />
+            {background && <div className={styles.background} />}
           </div>
-        </a>
+        ) : (
+          <NoImage
+            imageContainerClassName={imageContainerClassName}
+            title={title}
+            noImagePostCount={noImagePostCount}
+          />
+        )}
+        {showSubtitle && <p className={styles.blogTag}>{subtitle}</p>}
+        <div
+          className={`${styles.postTitleContainer} ${postTitleContainerClassName}`}
+        >
+          {children}
+        </div>
+
       </Link>
     </li>
   );

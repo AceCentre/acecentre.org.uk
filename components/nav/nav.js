@@ -120,8 +120,8 @@ const InnerContainer = ({ children }) => {
 const NavLink = ({ href, children, className }) => {
   return (
     <li className={`${styles.listItem} ${className}`}>
-      <Link href={href}>
-        <a className={styles.navLink}>{children}</a>
+      <Link href={href} className={styles.navLink}>
+        {children}
       </Link>
     </li>
   );
@@ -135,17 +135,17 @@ const HomeButton = ({ nhs, nhsTitle }) => {
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
-        <a>
-          <Image
-            height={152}
-            width={290}
-            maxHeight={50}
-            src={"/nav-logo.png"}
-            alt="The Ace Centre logo"
-            placeOnTop
-            priority={true}
-          ></Image>
-        </a>
+
+        <Image
+          height={152}
+          width={290}
+          maxHeight={50}
+          src={"/nav-logo.png"}
+          alt="The Ace Centre logo"
+          placeOnTop
+          priority={true}
+        ></Image>
+
       </Link>
     </div>
   );
@@ -155,16 +155,16 @@ const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
-        <a>
-          <Image
-            height={118}
-            width={293}
-            maxHeight={50}
-            src={"/nhs-logo.jpg"}
-            alt="The NHS logo"
-            placeOnTop
-          ></Image>
-        </a>
+
+        <Image
+          height={118}
+          width={293}
+          maxHeight={50}
+          src={"/nhs-logo.jpg"}
+          alt="The NHS logo"
+          placeOnTop
+        ></Image>
+
       </Link>
       <p className={styles.nhsTitle}>{title}</p>
     </div>
