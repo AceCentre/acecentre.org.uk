@@ -24,8 +24,8 @@ const BundleItem = ({ course }) => {
           : course.date.tagline}
       </p>
       <p>{course.shortDescription}</p>
-      <Link href={`/learning/${course.slug}`}>
-        <a className={styles.link}>View course &gt;</a>
+      <Link href={`/learning/${course.slug}`} className={styles.link}>
+        View course &gt;
       </Link>
     </li>
   );

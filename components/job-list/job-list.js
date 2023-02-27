@@ -51,7 +51,7 @@ const JobCard = ({ job }) => {
           {job.location.toLowerCase().includes("remote") ? (
             <span>{job.location}</span>
           ) : (
-            <Link href={locationLink}>{job.location}</Link>
+            <Link href={locationLink} legacyBehavior>{job.location}</Link>
           )}
         </p>
       </div>

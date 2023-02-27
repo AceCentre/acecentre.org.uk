@@ -95,18 +95,18 @@ const NavItem = ({ navItem }) => {
         isHighlighted ? styles.activeItem : ""
       }`}
     >
-      <Link href={navItem.href}>
-        <a className={styles.navLink}>
-          {navItem.title}{" "}
-          <SvgIcon
-            className={`${styles.animate} ${
-              isHighlighted ? styles.rotated : ""
-            }`}
-            fontSize="inherit"
-          >
-            <KeyboardArrowRightIcon />
-          </SvgIcon>
-        </a>
+      <Link href={navItem.href} className={styles.navLink}>
+
+        {navItem.title}{" "}
+        <SvgIcon
+          className={`${styles.animate} ${
+            isHighlighted ? styles.rotated : ""
+          }`}
+          fontSize="inherit"
+        >
+          <KeyboardArrowRightIcon />
+        </SvgIcon>
+
       </Link>
 
       {isHighlighted && (
@@ -122,13 +122,13 @@ const NavItem = ({ navItem }) => {
                         className={styles.subListItem}
                         key={`subnav-item-first-${subItem.href}`}
                       >
-                        <Link href={subItem.href}>
-                          <a className={styles.subNavLink}>
-                            <Avatar className={styles.arrowAvatar}>
-                              <ArrowForwardIcon />
-                            </Avatar>
-                            {subItem.title}
-                          </a>
+                        <Link href={subItem.href} className={styles.subNavLink}>
+
+                          <Avatar className={styles.arrowAvatar}>
+                            <ArrowForwardIcon />
+                          </Avatar>
+                          {subItem.title}
+
                         </Link>
                       </li>
                     );
@@ -141,13 +141,13 @@ const NavItem = ({ navItem }) => {
                         className={styles.subListItem}
                         key={`subnav-item-second-${subItem.href}`}
                       >
-                        <Link href={subItem.href}>
-                          <a className={styles.subNavLink}>
-                            <Avatar className={styles.arrowAvatar}>
-                              <ArrowForwardIcon />
-                            </Avatar>
-                            {subItem.title}
-                          </a>
+                        <Link href={subItem.href} className={styles.subNavLink}>
+
+                          <Avatar className={styles.arrowAvatar}>
+                            <ArrowForwardIcon />
+                          </Avatar>
+                          {subItem.title}
+
                         </Link>
                       </li>
                     );

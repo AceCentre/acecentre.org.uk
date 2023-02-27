@@ -23,8 +23,8 @@ const Bundle = ({ course }) => {
     <li className={styles.inlineCard}>
       <h3>{course.title}</h3>
       <p>{course.shortDescription}</p>
-      <Link href={`/learning/${course.slug}`}>
-        <a className={styles.link}>View bundle &gt;</a>
+      <Link href={`/learning/${course.slug}`} className={styles.link}>
+        View bundle &gt;
       </Link>
     </li>
   );

@@ -33,30 +33,30 @@ export const Pagination = ({ pageCount, currentPage }) => {
       <ul className={styles.list}>
         {currentPageAsInt > 1 && (
           <li>
-            <Link href={changePageLink(currentPageAsInt - 1)}>
-              <a className={styles.listItem}>Previous</a>
+            <Link href={changePageLink(currentPageAsInt - 1)} className={styles.listItem}>
+              Previous
             </Link>
           </li>
         )}
         {arrayOfNumbers.map((currentPageNumber) => (
           <li key={`page-${currentPageNumber}`}>
-            <Link href={changePageLink(currentPageNumber)}>
-              <a
-                className={`${styles.listItem} ${
-                  currentPageNumber === currentPageAsInt
-                    ? styles.selectedItem
-                    : ""
-                }`}
-              >
-                {currentPageNumber}
-              </a>
+            <Link
+              href={changePageLink(currentPageNumber)}
+              className={`${styles.listItem} ${
+                currentPageNumber === currentPageAsInt
+                  ? styles.selectedItem
+                  : ""
+              }`}>
+
+              {currentPageNumber}
+
             </Link>
           </li>
         ))}
         {currentPageAsInt < pageCount && (
           <li>
-            <Link href={changePageLink(currentPageAsInt + 1)}>
-              <a className={styles.listItem}>Next</a>
+            <Link href={changePageLink(currentPageAsInt + 1)} className={styles.listItem}>
+              Next
             </Link>
           </li>
         )}

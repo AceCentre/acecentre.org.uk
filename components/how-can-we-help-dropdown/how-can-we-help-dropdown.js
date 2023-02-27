@@ -111,8 +111,8 @@ const aceCentreOrLocalService = (
   <>
     <h3>You should contact Ace Centre or your local AAC professional.</h3>
     <p>
-      <Link href="/contact">
-        <a className={styles.link}>Contact Ace Centre &gt;</a>
+      <Link href="/contact" className={styles.link}>
+        Contact Ace Centre &gt;
       </Link>
     </p>
     <p>
@@ -132,8 +132,8 @@ const aceCentreOrLocalService = (
 const aceCentre = (
   <>
     <h3>You should contact Ace Centre.</h3>
-    <Link href="/contact">
-      <a className={styles.link}>Contact Ace Centre &gt;</a>
+    <Link href="/contact" className={styles.link}>
+      Contact Ace Centre &gt;
     </Link>
     <p>
       Call us on: <strong>0800 080 3115</strong>
@@ -146,8 +146,8 @@ const SUPPLIERS = [
     supplier: "Smartbox",
     resources: (
       <p>
-        <Link href="https://thinksmartbox.com/smart-support/">
-          <a className={styles.link}>Smartbox support centre &gt;</a>
+        <Link href="https://thinksmartbox.com/smart-support/" className={styles.link}>
+          Smartbox support centre &gt;
         </Link>
       </p>
     ),
@@ -156,10 +156,14 @@ const SUPPLIERS = [
     supplier: "Tobii Dynavox",
     resources: (
       <p>
-        <Link href="https://uk.tobiidynavox.com/pages/contact-us">
-          <a target="_blank" rel="noreferrer" className={styles.link}>
+        <Link
+          href="https://uk.tobiidynavox.com/pages/contact-us"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.link}>
+          
             Contact Tobii Dynavox &gt;
-          </a>
+          
         </Link>
       </p>
     ),
@@ -168,10 +172,14 @@ const SUPPLIERS = [
     supplier: "Liberator",
     resources: (
       <p>
-        <Link href="https://www.liberator.co.uk/support">
-          <a target="_blank" rel="noreferrer" className={styles.link}>
+        <Link
+          href="https://www.liberator.co.uk/support"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.link}>
+          
             Liberator support centre &gt;
-          </a>
+          
         </Link>
       </p>
     ),
@@ -180,10 +188,14 @@ const SUPPLIERS = [
     supplier: "Techcess",
     resources: (
       <p>
-        <Link href="https://www.techcess.co.uk/support/">
-          <a target="_blank" rel="noreferrer" className={styles.link}>
+        <Link
+          href="https://www.techcess.co.uk/support/"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.link}>
+          
             Techess support page &gt;
-          </a>
+          
         </Link>
       </p>
     ),

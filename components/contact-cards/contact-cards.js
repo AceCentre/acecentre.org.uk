@@ -31,15 +31,15 @@ export const ContactCards = () => {
           <p className={styles.officeHours}>
             Office hours, 9AM - 5PM, Monday - Friday
           </p>
-          <Link href="mailto:enquiries@acecentre.org.uk">
-            <a className={styles.link}>Email us &gt;</a>
+          <Link href="mailto:enquiries@acecentre.org.uk" className={styles.link}>
+            Email us &gt;
           </Link>
         </Card>
         <Card>
           <h3>Technical Support</h3>
           <p>What to do when you&apos;re having device problems</p>
-          <Link href="/technical-support">
-            <a className={styles.link}>Get technical support &gt;</a>
+          <Link href="/technical-support" className={styles.link}>
+            Get technical support &gt;
           </Link>
         </Card>
         <Card>
@@ -62,13 +62,13 @@ export const ContactCards = () => {
 const UsefulLink = ({ children, href }) => {
   return (
     <li>
-      <Link href={href}>
-        <a className={styles.linkListLink}>
-          <Avatar className={styles.arrowAvatar}>
-            <ChevronRightIcon className={styles.avatarIcon} />
-          </Avatar>
-          {children}
-        </a>
+      <Link href={href} className={styles.linkListLink}>
+
+        <Avatar className={styles.arrowAvatar}>
+          <ChevronRightIcon className={styles.avatarIcon} />
+        </Avatar>
+        {children}
+
       </Link>
     </li>
   );

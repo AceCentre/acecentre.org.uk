@@ -66,8 +66,8 @@ export const LoginAndRegisterBoxes = () => {
               </Button>
             </div>
           </form>
-          <Link href="/my-acecentre/forgot-password">
-            <a className={styles.link}>Forgot your password?</a>
+          <Link href="/my-acecentre/forgot-password" className={styles.link}>
+            Forgot your password?
           </Link>
         </Card>
       </div>
@@ -259,8 +259,8 @@ export const LoginCheckout = () => {
             </Button>
           </div>
         </form>
-        <Link href="/my-acecentre/forgot-password">
-          <a className={styles.link}>Forgot your password?</a>
+        <Link href="/my-acecentre/forgot-password" className={styles.link}>
+          Forgot your password?
         </Link>
       </div>
     </div>

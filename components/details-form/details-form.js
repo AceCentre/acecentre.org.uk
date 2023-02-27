@@ -134,8 +134,8 @@ export const DetailsForm = ({ details }) => {
         id="email"
         defaultValue={details.email}
       />
-      <Link href="/my-acecentre/change-password">
-        <a className={styles.link}>Send password reset email</a>
+      <Link href="/my-acecentre/change-password" className={styles.link}>
+        Send password reset email
       </Link>
       <div>
         <Button disabled={buttonDisabled} type="submit">

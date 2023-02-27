@@ -42,45 +42,43 @@ export const GridSquare = ({
   objectFit = "cover",
   className,
 }) => {
-  return (
-    <>
-      <style jsx>{`
-        .overlayTint {
-          background-color: ${overlayColor};
-        }
+  return <>
+    <style jsx>{`
+      .overlayTint {
+        background-color: ${overlayColor};
+      }
 
-        .banner {
-          background-color: ${textBackground};
-        }
+      .banner {
+        background-color: ${textBackground};
+      }
 
-        .textColor {
-          color: ${textColor};
-        }
-      `}</style>
-      <li className={styles.listItem} key={`browse-articles-${href}`}>
-        <Link href={href}>
-          <a className={styles.link}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              layout="fill"
-              objectFit={objectFit}
-              className={`${className ? className : ""}`}
-            />
-            <div className={`${styles.yellowTint} overlayTint`} />
-            <div className={styles.blueBannerContainer}>
-              <div className={`${styles.blueBanner} banner`}>
-                <p className="textColor">{name}</p>
-                <Avatar className={styles.avatar}>
-                  <ArrowForwardIcon className={styles.icon} />
-                </Avatar>
-              </div>
+      .textColor {
+        color: ${textColor};
+      }
+    `}</style>
+    <li className={styles.listItem} key={`browse-articles-${href}`}>
+      <Link href={href} legacyBehavior>
+        <a className={styles.link}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            layout="fill"
+            objectFit={objectFit}
+            className={`${className ? className : ""}`}
+          />
+          <div className={`${styles.yellowTint} overlayTint`} />
+          <div className={styles.blueBannerContainer}>
+            <div className={`${styles.blueBanner} banner`}>
+              <p className="textColor">{name}</p>
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon className={styles.icon} />
+              </Avatar>
             </div>
-          </a>
-        </Link>
-      </li>
-    </>
-  );
+          </div>
+        </a>
+      </Link>
+    </li>
+  </>;
 };
 
 export const CategorySquare = ({

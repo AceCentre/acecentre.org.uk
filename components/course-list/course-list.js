@@ -27,8 +27,8 @@ export const CourseList = ({
       <div className={styles.titleContainer}>
         {title && <h2 className={styles.title}>{title}</h2>}
         {viewAllLink && (
-          <Link href={viewAllLink}>
-            <a className={styles.viewAllLink}>{viewAllText} &gt;</a>
+          <Link href={viewAllLink} className={styles.viewAllLink}>
+            {viewAllText} &gt;
           </Link>
         )}
       </div>

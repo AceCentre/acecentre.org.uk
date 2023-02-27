@@ -81,37 +81,35 @@ const HowWeHelpCard = ({
   iconColour,
   alt,
 }) => {
-  return (
-    <>
-      <style jsx>{`
-        .imageBackground {
-          background-color: ${background};
-          max-height: 239px;
-          height: 100%;
-          position: relative;
-        }
-      `}</style>
-      <Link href={href}>
-        <a className={styles.cardContainer}>
-          <div className="imageBackground">
-            <div className={styles.cardImageContainer}>
-              <Image alt={alt} src={src} layout="fill" objectFit="contain" />
-            </div>
-            {iconColour && (
-              <Avatar
-                style={{ backgroundColor: iconColour }}
-                className={styles.arrowAvatar}
-              >
-                <ArrowForward className={styles.arrowIcon} />
-              </Avatar>
-            )}
+  return <>
+    <style jsx>{`
+      .imageBackground {
+        background-color: ${background};
+        max-height: 239px;
+        height: 100%;
+        position: relative;
+      }
+    `}</style>
+    <Link href={href} legacyBehavior>
+      <a className={styles.cardContainer}>
+        <div className="imageBackground">
+          <div className={styles.cardImageContainer}>
+            <Image alt={alt} src={src} layout="fill" objectFit="contain" />
           </div>
-          <div className={styles.bottomSection}>
-            <p className={styles.cardHeadline}>{headline}</p>
-            <p>{secondaryLine}</p>
-          </div>
-        </a>
-      </Link>
-    </>
-  );
+          {iconColour && (
+            <Avatar
+              style={{ backgroundColor: iconColour }}
+              className={styles.arrowAvatar}
+            >
+              <ArrowForward className={styles.arrowIcon} />
+            </Avatar>
+          )}
+        </div>
+        <div className={styles.bottomSection}>
+          <p className={styles.cardHeadline}>{headline}</p>
+          <p>{secondaryLine}</p>
+        </div>
+      </a>
+    </Link>
+  </>;
 };

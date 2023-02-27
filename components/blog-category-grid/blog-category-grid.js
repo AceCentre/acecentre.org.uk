@@ -15,23 +15,23 @@ export const BlogCategoryGrid = ({ blogCategories }) => {
               className={styles.listItem}
               key={`browse-articles-${category.slug}`}
             >
-              <Link href={`/blog/category/${category.slug}`}>
-                <a className={styles.link}>
-                  <Image
-                    src={category.featuredImage.src}
-                    alt={category.featuredImage.alt}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                  <div className={styles.blueBannerContainer}>
-                    <div className={styles.blueBanner}>
-                      <p>{category.title}</p>
-                      <Avatar className={styles.avatar}>
-                        <ArrowForwardIcon className={styles.icon} />
-                      </Avatar>
-                    </div>
+              <Link href={`/blog/category/${category.slug}`} className={styles.link}>
+
+                <Image
+                  src={category.featuredImage.src}
+                  alt={category.featuredImage.alt}
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <div className={styles.blueBannerContainer}>
+                  <div className={styles.blueBanner}>
+                    <p>{category.title}</p>
+                    <Avatar className={styles.avatar}>
+                      <ArrowForwardIcon className={styles.icon} />
+                    </Avatar>
                   </div>
-                </a>
+                </div>
+
               </Link>
             </li>
           );

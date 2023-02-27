@@ -30,8 +30,8 @@ export const ResourceList = ({
         </div>
 
         {viewAllLink && (
-          <Link href={viewAllLink}>
-            <a className={styles.viewAllLink}>{viewAllText} &gt;</a>
+          <Link href={viewAllLink} className={styles.viewAllLink}>
+            {viewAllText} &gt;
           </Link>
         )}
       </div>
