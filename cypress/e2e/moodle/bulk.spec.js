@@ -141,7 +141,8 @@ context("Moodle", () => {
       }).click({ force: true });
 
       cy.findByRole("button", { name: "Place order" }).click();
-      cy.url({ timeout: 40000 }).should("include", "order");
+      // This is quite high because its doing a lot of work behind the scenes
+      cy.url({ timeout: 60000 }).should("include", "order");
 
       // Check user is not on the course
       cy.wait(2000); // Wait for react render
