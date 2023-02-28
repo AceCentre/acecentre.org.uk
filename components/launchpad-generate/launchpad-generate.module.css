@@ -8,6 +8,10 @@
   gap: 3rem;
 }
 
+.loadingMessage {
+  font-style: italic;
+}
+
 .share {
   margin: 1rem 0;
 }
