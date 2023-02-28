@@ -50,6 +50,13 @@ const COLOURS = [
   "#ba68c8",
 ];
 
+const LOADING_MESSAGES = [
+  "Gathering information about your new chart.....",
+  "Setting up your new chart.....",
+  "Building your custom chart.....",
+  "Saving your new custom chart.....",
+];
+
 const Progress = ({ totalTime }) => {
   const [value, setValue] = useState(0);
 
@@ -65,6 +72,15 @@ const Progress = ({ totalTime }) => {
     }, totalTime / 100);
   }, []);
 
+  const interval = 100 / LOADING_MESSAGES.length;
+  const currentMessageIndex = Math.min(
+    Math.floor(value / interval),
+    LOADING_MESSAGES.length - 1
+  );
+  const currentMessage = LOADING_MESSAGES[currentMessageIndex];
+
+  console.log({ interval, currentMessageIndex, currentMessage, value });
+
   return (
     <>
       <LinearProgress
@@ -72,6 +88,7 @@ const Progress = ({ totalTime }) => {
         variant="determinate"
         value={value}
       />
+      <p className={styles.loadingMessage}>{currentMessage}</p>
     </>
   );
 };
@@ -94,9 +111,8 @@ const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
             {errorMessage ? (
               <ErrorMessage errorMessage={errorMessage} />
             ) : (
-              <Progress totalTime={8000} />
+              <Progress totalTime={10000} />
             )}
-            <p>The download will begin automatically</p>
             <p>
               While you wait, why not sign up to our free newsletter to stay up
               to date with the latest resources from Ace Centre
