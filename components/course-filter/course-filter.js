@@ -15,6 +15,7 @@ const useSearchController = ({
   selectedLocation,
   selectedPrice,
   selectedOrderBy,
+  selectedAvailability,
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
@@ -83,6 +84,13 @@ const useSearchController = ({
     setOrderBy(event.target.value);
   };
 
+  const [availability, setAvailability] = useState(selectedAvailability);
+
+  const onChangeAvailability = (event) => {
+    updateSearchParams({ availability: event.target.value });
+    setAvailability(event.target.value);
+  };
+
   return {
     updateSearchParams,
     freeTextOnSubmit,
@@ -110,6 +118,10 @@ const useSearchController = ({
       onChange: onChangeOrderBy,
       value: orderBy,
     },
+    availabilitySelectProps: {
+      onChange: onChangeAvailability,
+      value: availability,
+    },
   };
 };
 
@@ -119,6 +131,7 @@ export const CourseFilter = ({
   allTypes,
   allLocations,
   allPrices,
+  allAvailabilities,
   allOrderBy,
   selectedType = null,
   selectedCategory = null,
@@ -126,6 +139,7 @@ export const CourseFilter = ({
   selectedLocation = null,
   selectedPrice = null,
   selectedOrderBy = null,
+  selectedAvailability = null,
   courseCount = 0,
   searchText,
 }) => {
@@ -137,6 +151,7 @@ export const CourseFilter = ({
     locationSelectProps,
     priceSelectProps,
     orderBySelectProps,
+    availabilitySelectProps,
   } = useSearchController({
     selectedCategory,
     selectedLevel,
@@ -144,6 +159,7 @@ export const CourseFilter = ({
     selectedLocation,
     selectedPrice,
     selectedOrderBy,
+    selectedAvailability,
   });
 
   return (
@@ -256,6 +272,25 @@ export const CourseFilter = ({
               return (
                 <option value={price.slug} key={`price-${price.slug}`}>
                   {price.name}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            maxWidth={["100%", "100%", 160]}
+            borderRadius={25}
+            backgroundColor="#F5F5F5"
+            {...availabilitySelectProps}
+            placeholder="Availability"
+            aria-label="Availability"
+          >
+            {allAvailabilities.map((availability) => {
+              return (
+                <option
+                  value={availability.slug}
+                  key={`availability-${availability.slug}`}
+                >
+                  {availability.name}
                 </option>
               );
             })}
