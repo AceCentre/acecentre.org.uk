@@ -29,6 +29,8 @@ export default function LearningSearchPage({
   selectedPrice,
   searchText,
   selectedOrderBy,
+  availabilities,
+  selectedAvailability,
 }) {
   const { currentYear } = useGlobalProps();
 
@@ -46,12 +48,14 @@ export default function LearningSearchPage({
           selectedLocation={selectedLocation}
           selectedPrice={selectedPrice}
           selectedOrderBy={selectedOrderBy}
+          selectedAvailability={selectedAvailability}
           allCategories={categories}
           allLevels={levels}
           allTypes={types}
           allLocations={locations}
           allPrices={prices}
           allOrderBy={orderByOptions}
+          allAvailabilities={availabilities}
           courseCount={courses.length}
           searchText={searchText}
         />
@@ -63,7 +67,7 @@ export default function LearningSearchPage({
 }
 
 export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
-  let courses = await getAllCourses(true);
+  let courses = await getAllCourses(false);
 
   /**
    * Get all unique categories
@@ -107,13 +111,45 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
   ];
 
   /**
+   * All unique availabilities
+   */
+  const availabilities = [
+    {
+      slug: "in-stock",
+      name: "In Stock",
+    },
+    {
+      slug: "out-of-stock",
+      name: "Out of Stock",
+    },
+    {
+      slug: "all",
+      name: "All",
+    },
+  ];
+
+  /**
    * All unique order by options
    */
-
   const orderByOptions = ORDER_BY_OPTIONS.map((x) => ({
     slug: x.slug,
     name: x.name,
   }));
+
+  /**
+   * Show out of stock, by default only show in-stock
+   */
+  const selectedAvailability = req.query.availability || "in-stock";
+  if (selectedAvailability === "in-stock") {
+    courses = courses.filter((course) => {
+      return course.inStock;
+    });
+  }
+  if (selectedAvailability === "out-of-stock") {
+    courses = courses.filter((course) => {
+      return !course.inStock;
+    });
+  }
 
   /**
    * Free text search
@@ -215,12 +251,14 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       selectedLocation,
       selectedPrice,
       selectedOrderBy,
+      selectedAvailability,
       levels,
       types,
       locations,
       prices,
       orderByOptions,
       searchText,
+      availabilities,
       seo: {
         title: "Ace Centre Learning",
         description:
