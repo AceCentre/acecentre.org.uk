@@ -40,6 +40,24 @@ export const useEnrollStatus = (courseSlug) => {
   };
 };
 
+export const useStock = (slug) => {
+  const [canEdit, setCanEdit] = useState(false);
+  const [stockLevel, setStockLevel] = useState(0);
+
+  useEffect(() => {
+    const fetchEditStatus = async () => {
+      const response = await fetch(`/api/can-edit-stock?course=${slug}`);
+      const { canEditStock, stockQuantity } = await response.json();
+      setCanEdit(canEditStock);
+      setStockLevel(stockQuantity);
+    };
+
+    fetchEditStatus();
+  }, []);
+
+  return { canEditStock: canEdit, stockLevel };
+};
+
 export const LearningDetailBox = ({
   course,
   isEnrolledOnCourse,
@@ -48,6 +66,7 @@ export const LearningDetailBox = ({
 }) => {
   const { disabled, addToCart, error } = useAddToCart();
   const [isModalOpen, toggleModal] = useState(false);
+  const { canEditStock, stockLevel } = useStock(course.slug);
 
   const price = parseInt(course.price);
 
@@ -80,6 +99,14 @@ export const LearningDetailBox = ({
               <h3 className={styles.title}>{course.title}</h3>
               <p className={styles.tagLine}>From Ace Centre Learning</p>
             </div>
+            {canEditStock && (
+              <div className={styles.editStockContainer}>
+                <p>Current stock level: {stockLevel}</p>
+                <Button href={`/api/decrease-stock?course=${course.slug}`}>
+                  Decrease stock by one
+                </Button>
+              </div>
+            )}
             <p className={styles.price}>{getPriceText(course.price)}</p>
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
