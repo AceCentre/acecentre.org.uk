@@ -78,7 +78,9 @@ context("Moodle", () => {
       cy.visit("/learning/on-demand-test-bundle");
 
       // Add to basket
+      cy.wait(3000);
       cy.findByRole("button", { name: "Buy this bundle" }).click();
+      cy.wait(3000);
       cy.findAllByRole("button", { name: "Add bundle to basket" })
         .last()
         .click();
