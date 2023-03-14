@@ -200,6 +200,41 @@ const REDIRECTS = [
     destination: "/my-acecentre/forgot-password",
     permanent: true,
   },
+  {
+    source: "/resources/abc-some-phrases",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/abc",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/abc-and-numbers",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/simple-charts-to-edit-in-word",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/abc-2",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/qwerty-and-numbers",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
+  {
+    source: "/resources/high-contrast-abc-qwerty",
+    destination: "/resources/qwerty-2",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
