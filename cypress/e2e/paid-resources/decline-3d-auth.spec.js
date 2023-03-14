@@ -21,7 +21,7 @@ context("Paid resources", () => {
     "can add product to cart, and checkout with a new account, decline 3D Auth",
     () => {
       newEmail = validEmail("decline-3d-auth");
-      cy.visit("/resources/simple-charts-to-edit-in-word");
+      cy.visit("/resources/qwerty-2");
       cy.findByRole("button", { name: "Add to cart" }).click();
       cy.url({ timeout: 60000 }).should("include", "basket");
       cy.findAllByRole("row", { name: /Total/g }).should("contain", "£10.00");
