@@ -115,7 +115,7 @@ context("Paid resources", () => {
         .should("have.length", 1)
         .first()
         .click();
-      cy.contains("Simple charts you can point to");
+      cy.contains("QWERTY");
     }
   );
 });
