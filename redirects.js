@@ -235,6 +235,11 @@ const REDIRECTS = [
     destination: "/resources/qwerty-2",
     permanent: true,
   },
+  {
+    source: "/service-leads-ms-bookings-calendars",
+    destination: "/page/service-leads-ms-bookings-calendars",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
