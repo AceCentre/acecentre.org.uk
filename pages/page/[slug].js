@@ -71,6 +71,42 @@ const ALL_PAGES = [
     altSlugs: [],
     description: "Support for the Pasco app",
   },
+  {
+    slug: "service-leads-ms-bookings-calendars",
+    altSlugs: [],
+    description: "Book some time with Service Leads",
+    replaceBackendLinks: true,
+  },
+  {
+    slug: "service-lead-bookings-assessments",
+    altSlugs: [],
+    description: "Book some time with Ace Centre Assessments",
+  },
+  {
+    slug: "service-lead-bookings-partnerships",
+    altSlugs: [],
+    description: "Book some time with Partnerships",
+  },
+  {
+    slug: "service-lead-bookings-ace-centre-learning",
+    altSlugs: [],
+    description: "Book some time with ACL",
+  },
+  {
+    slug: "service-lead-bookings-laaces-north",
+    altSlugs: [],
+    description: "Book some time with LAACES North",
+  },
+  {
+    slug: "service-lead-bookings-laaces-south",
+    altSlugs: [],
+    description: "Book some time with LAACES South",
+  },
+  {
+    slug: "service-lead-bookings-research-and-development",
+    altSlugs: [],
+    description: "Book some time with Research and Development",
+  },
 ];
 
 export async function getStaticPaths() {
@@ -96,13 +132,13 @@ export const getStaticProps = withGlobalPropsNoRevalidate(
       }
     }
 
-    const page = await getPage(realSlug);
+    const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
+
+    const page = await getPage(realSlug, hardCodedPage.replaceBackendLinks);
 
     if (!page) {
       return { notFound: true };
     }
-
-    const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
 
     return {
       props: {
