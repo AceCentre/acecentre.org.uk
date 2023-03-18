@@ -78,6 +78,6 @@
     "plop": "3.1.2",
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.0"
   }
 }
