@@ -17,7 +17,7 @@ export const InformationDays = ({ nhs = false }) => {
       </div>
       <div className={styles.right}>
         <h2>Information appointments</h2>
-        <p>A useful first step in any effective assessment process</p>
+        <p>Meet with our team to discuss your AAC/AT needs</p>
         <div className={styles.buttonContainer}>
           <Button
             className={`${styles.button} ${nhs ? styles.nhs : ""}`}
