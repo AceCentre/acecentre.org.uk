@@ -13,7 +13,6 @@ import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 
 import styles from "../../styles/advice-information.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
-// import { FeaturedStory } from "../../components/featured-story/featured-story";
 import { InformationDays } from "../../components/information-days/information-days";
 import { getAllProducts } from "../../lib/products/get-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
@@ -21,10 +20,7 @@ import { filterProducts } from "../../lib/products/filter-products";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { FormModal, INFO_APP_FEEDBACK } from "../../components/ms-form";
 
-export default function EngineeringPage({
-  // featuredStory,
-  gettingStartedResources,
-}) {
+export default function EngineeringPage({ ebookResources }) {
   const { currentYear } = useGlobalProps();
 
   return (
@@ -63,8 +59,8 @@ export default function EngineeringPage({
             </p>
             <h2>Free Advice Line</h2>
             <p>
-              Our advice line puts you in touch with our clinical staff who can
-              help find answers to your AAC/AT questions.
+              Our advice line connects you with our clinical staff who can help
+              find answers to your AAC/AT questions.
             </p>
             <p>
               Whether you are a professional, service user or carer we can help
@@ -73,28 +69,29 @@ export default function EngineeringPage({
             </p>
             <p>
               Call our advice line at{" "}
-              <a href="tel:08000803115">0800 080 3115</a> or send an email at{" "}
+              <a href="tel:08000803115">0800 080 3115</a> and we&apos;ll connect
+              you with a member of our clinical team as soon as possible. Or
+              send an email at{" "}
               <a href="mailto:enquiries@acecentre.org.uk">
                 enquiries@acecentre.org.uk
-              </a>
-              .
+              </a>{" "}
+              and we&apos;ll try our best to reply within 48hrs.
             </p>
             <h2>Information appointments:</h2>
             <ul className={styles.list}>
               <ListItem>Free</ListItem>
               <ListItem>Twice a month</ListItem>
-              <ListItem>Hour long appointments</ListItem>
+              <ListItem>Online appointments</ListItem>
             </ul>
             <p>
-              Whether you are just starting out with AAC/AT or you are an
-              experienced user ready to move on. Book an informal chat about
-              your needs with members of the Ace Centre team.
+              Book an informal chat about your needs with members of the Ace
+              Centre team.
             </p>
             <p>
               <strong>
-                Please note that this appointment is NOT an assessment, but
-                instead it is an opportunity to reflect on a range of AAC /
-                AT-related issues with members of our service delivery team.
+                Please note that this appointment is NOT an assessment, it is an
+                opportunity to reflect on a range of AAC / AT-related issues
+                with members of our service delivery team.
               </strong>
             </p>
 
@@ -137,15 +134,18 @@ export default function EngineeringPage({
             </div>
           </div>
         </div>
-        <ResourceList
+        {/* <ResourceList
           title="Resources to get started"
           viewAllLink="/resources/all?category=getting-started"
           products={gettingStartedResources}
+        /> */}
+        <ResourceList
+          title="Resources to get started"
+          viewAllLink="resources/all?category=made-by-ace"
+          products={ebookResources}
         />
+
         <InformationDays />
-        {/* <div className={styles.extraSpacing}>
-          <FeaturedStory {...featuredStory} />
-        </div> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -169,7 +169,7 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
   const products = await getAllProducts();
   const productCategories = await getAllProductCategories();
 
-  const { results: gettingStartedResources } = filterProducts(
+  let { results: gettingStartedResources } = filterProducts(
     products,
     productCategories,
     {
@@ -179,17 +179,40 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
     }
   );
 
-  const resources = gettingStartedResources.map((product) => ({
-    title: htmlDecode(product.name),
-    mainCategoryName: product.category.name,
-    featuredImage: product.image,
-    ...product,
-  }));
+  let { results: ebookResources } = filterProducts(
+    products,
+    productCategories,
+    {
+      page: 0,
+      productsPerPage: 1000,
+      category: "made-by-ace",
+      subcategory: "e-books",
+    }
+  );
+
+  ebookResources = ebookResources
+    .map((product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    }))
+    .slice(0, 4);
+
+  gettingStartedResources = gettingStartedResources
+    .map((product) => ({
+      title: htmlDecode(product.name),
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
+    }))
+    .slice(0, 4);
 
   return {
     props: {
       featuredStory,
-      gettingStartedResources: resources.slice(0, 4),
+      gettingStartedResources,
+      ebookResources,
       seo: {
         title: "Advice & information",
         description:
