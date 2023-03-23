@@ -29,7 +29,7 @@
     "@react-aria/visually-hidden": "3.6.1",
     "@react-stately/radio": "3.6.2",
     "@slack/bolt": "3.12.2",
-    "@stripe/react-stripe-js": "1.16.4",
+    "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "1.46.0",
     "@u-wave/react-vimeo": "0.9.10",
     "async-redis": "2.0.0",
