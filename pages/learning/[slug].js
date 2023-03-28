@@ -70,8 +70,8 @@ export default function LearningDetail({
                   <div className={styles.inlineCard}>
                     <p>
                       This course is run on Microsoft Teams. You will be sent an
-                      email with the teams link 2 days before the event. If you
-                      have issues accessing teams then{" "}
+                      email with the teams link before the event. If you have
+                      issues accessing teams then{" "}
                       <Link href="/contact">Contact Us.</Link>
                     </p>
                   </div>
