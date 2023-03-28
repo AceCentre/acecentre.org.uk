@@ -17,11 +17,13 @@ import { useRouter } from "next/router";
 
 export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
   const [modelOpen, setModelOpen] = useState(false);
+  const [newsletterSource, setNewsletterSource] = useState(undefined);
   const { loggedInStatus } = useGlobalProps();
   const { query } = useRouter();
 
   useEffect(() => {
     setModelOpen(query.newsletter !== undefined);
+    setNewsletterSource(query.newsletter);
   }, [query.newsletter]);
 
   const onClose = () => setModelOpen(false);
@@ -31,7 +33,7 @@ export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
       <NewsletterModal
         modelOpen={modelOpen}
         onClose={onClose}
-        signUpIdentifier="pop-over"
+        signUpIdentifier={newsletterSource || "pop-over"}
       />
       <FullWidthContainer>
         <InnerContainer>
@@ -135,7 +137,6 @@ const HomeButton = ({ nhs, nhsTitle }) => {
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
-
         <Image
           height={152}
           width={290}
@@ -145,7 +146,6 @@ const HomeButton = ({ nhs, nhsTitle }) => {
           placeOnTop
           priority={true}
         ></Image>
-
       </Link>
     </div>
   );
@@ -155,7 +155,6 @@ const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
   return (
     <div className={styles.homeImage}>
       <Link name="home" href="/">
-
         <Image
           height={118}
           width={293}
@@ -164,7 +163,6 @@ const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
           alt="The NHS logo"
           placeOnTop
         ></Image>
-
       </Link>
       <p className={styles.nhsTitle}>{title}</p>
     </div>
