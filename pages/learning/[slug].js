@@ -76,6 +76,16 @@ export default function LearningDetail({
                     </p>
                   </div>
                 )}
+                {course.outOfStockForm && (
+                  <div className={styles.inlineCard}>
+                    <p>
+                      This course is no longer accepting new applicants. Click
+                      the button above to register your interest and we will
+                      contact you when we re-open applications for the next
+                      intake.
+                    </p>
+                  </div>
+                )}
                 <ListOfBundles course={course} />
                 <div dangerouslySetInnerHTML={{ __html: course.content }} />
                 <p className={styles.timezone}>
