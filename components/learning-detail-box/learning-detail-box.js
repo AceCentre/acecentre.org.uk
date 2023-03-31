@@ -111,7 +111,11 @@ export const LearningDetailBox = ({
             <div className={styles.learningLevelContainer}>
               <LearningLevel course={course} />
             </div>
-            <CourseMeta course={course} bold withStockCount />
+            <CourseMeta
+              course={course}
+              bold
+              withStockCount={!course.outOfStockForm}
+            />
           </div>
         </div>
         <div className={styles.bottomContainer}>
@@ -133,15 +137,25 @@ export const LearningDetailBox = ({
               )}
             </>
           ) : (
-            <Button
-              className={styles.bookButton}
-              disabled={disabled || !course.inStock}
-              onClick={() => {
-                toggleModal(true);
-              }}
-            >
-              Book this course
-            </Button>
+            <>
+              {course.outOfStockForm ? (
+                <div className={styles.addToCartButtonContainer}>
+                  <Button newTab href={course.outOfStockForm}>
+                    Register Interest
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  className={styles.bookButton}
+                  disabled={disabled || !course.inStock}
+                  onClick={() => {
+                    toggleModal(true);
+                  }}
+                >
+                  Book this course
+                </Button>
+              )}
+            </>
           )}
         </div>
       </div>

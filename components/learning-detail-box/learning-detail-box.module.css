@@ -17,6 +17,10 @@
   margin-bottom: 1rem;
 }
 
+.addToCartButtonContainer {
+  margin: 1rem auto;
+}
+
 .closeButton {
   background: none;
   border: none;
