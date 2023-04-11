@@ -13,6 +13,7 @@ import Fuse from "fuse.js";
 
 import { uniqBy, uniq } from "lodash";
 import { ORDER_BY_OPTIONS } from "../../components/course-filter/order-by-options";
+import { VoteBanner } from "../../components/vote-banner/vote-banner";
 
 export default function LearningSearchPage({
   courses,
@@ -59,6 +60,7 @@ export default function LearningSearchPage({
           courseCount={courses.length}
           searchText={searchText}
         />
+        <VoteBanner />
         <CourseList products={courses} showDate withMeta threeWide />
       </main>
       <Footer currentYear={currentYear} />
