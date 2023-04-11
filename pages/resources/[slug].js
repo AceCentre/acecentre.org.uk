@@ -18,6 +18,7 @@ import { ResourceFullDescription } from "../../components/resource-full-descript
 import { getLaunchpadTemplate } from "../../lib/launchpad";
 import { LaunchpadPage } from "../../components/launchpad-generate/launchpad-generate";
 import { useRouter } from "next/router";
+import { ProductFaqs } from "../../components/product-faqs/product-faqs";
 
 export default function ResourceDetail({
   resource,
@@ -64,6 +65,7 @@ export default function ResourceDetail({
               <ResourceFullDescription resource={resource} />
             )}
             {project && <ProjectHighlight project={project} />}
+            {resource.faqs.length > 0 && <ProductFaqs faqs={resource.faqs} />}
             <ResourceListSwitch
               resource={resource}
               attachedResources={attachedResources}

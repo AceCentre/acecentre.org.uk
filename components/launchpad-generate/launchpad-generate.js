@@ -30,6 +30,7 @@ import Link from "next/link";
 import { BlockPicker } from "react-color";
 import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
 import { NewsletterSignup } from "../resources-download/resources-download";
+import { ProductFaqs } from "../product-faqs/product-faqs";
 
 const COLOURS = [
   "#B9ffB9",
@@ -167,6 +168,7 @@ export const LaunchpadPage = ({
         setModalOpen={setModalOpen}
         resource={resource}
       />
+      {resource.faqs.length > 0 && <ProductFaqs faqs={resource.faqs} />}
       <ResourceList
         className={styles.resourcesList}
         title={"Other resources you might like"}
