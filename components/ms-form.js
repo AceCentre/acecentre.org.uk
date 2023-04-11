@@ -78,6 +78,13 @@ export const AAC_INFO = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUMlNOU1JGR0xUNDdLOERYSkc2Tlk1TjFQMy4u",
 };
 
+export const ACL_VOTE = {
+  slug: "acl-vote",
+  title: "Vote on what course to run next",
+  height: 900,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrAMkFY0VGxNInNkKbPsrRolUODQzSzVCTFg2UFJWUDA2QUJUNTJONVFMVC4u",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
@@ -86,6 +93,7 @@ export const ALL_FORMS = [
   INTEREST,
   RESOURCE_FEEDBACK,
   FEEDBACK,
+  ACL_VOTE,
 ];
 
 export const FormModal = ({ children, form, className = "" }) => {
