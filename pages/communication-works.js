@@ -12,7 +12,7 @@ import { ImageWithLoader } from "../components/image";
 import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
 import Link from "next/link";
 import AssignmentIcon from "@material-ui/icons/Assignment";
-// import EventIcon from "@material-ui/icons/Event";
+import EventIcon from "@material-ui/icons/Event";
 import { getPage } from "../lib/generic-pages/get-page";
 
 export default function CommunicationWorks({ page }) {
@@ -59,7 +59,7 @@ export default function CommunicationWorks({ page }) {
                 </p>
               </div>
             </div>
-            {/* {page.communicationWorksUrl && (
+            {page.communicationWorksUrl && (
               <div className={styles.quote}>
                 <Avatar className={styles.avatar}>
                   <EventIcon className={styles.icon} />
@@ -74,7 +74,7 @@ export default function CommunicationWorks({ page }) {
                 </div>
               </div>
             )}
-            {page.communicationWorksSouthUrl && (
+            {/* {page.communicationWorksSouthUrl && (
               <div className={styles.quote}>
                 <Avatar className={styles.avatar}>
                   <EventIcon className={styles.icon} />
