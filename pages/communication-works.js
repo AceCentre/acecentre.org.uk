@@ -52,11 +52,20 @@ export default function CommunicationWorks({ page }) {
                 <h3>Communication Works NORTH</h3>
                 <p>Thursday, 25 May 2023</p>
                 <p>New Bridge Academy, Oldham, OL8 3PH</p>
+
+                <p>
+                  <strong>This event has reached full capacity</strong>
+                </p>
+
                 <p>
                   <Link href="https://www.eventbrite.co.uk/e/communication-works-2023-north-tickets-511840838727">
-                    Register for free here.
+                    <strong>
+                      Please click here to sign-up to the waitlist
+                    </strong>
                   </Link>
                 </p>
+
+                <p>We will contact you if a space becomes available</p>
               </div>
             </div>
             {page.communicationWorksUrl && (
