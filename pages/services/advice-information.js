@@ -70,8 +70,8 @@ export default function EngineeringPage({ ebookResources }) {
             <p>
               Call our advice line at{" "}
               <a href="tel:08000803115">0800 080 3115</a> and we&apos;ll connect
-              you with a member of our clinical team as soon as possible. Or
-              send an email at{" "}
+              you with a member of our admin team, who will put you in touch
+              with a clinical colleague as soon as possible. Or send an email at{" "}
               <a href="mailto:enquiries@acecentre.org.uk">
                 enquiries@acecentre.org.uk
               </a>{" "}
@@ -94,7 +94,6 @@ export default function EngineeringPage({ ebookResources }) {
                 with members of our service delivery team.
               </strong>
             </p>
-
             <div className={styles.inlineCard}>
               <h2>Been to an Information Appointment?</h2>
               <p>
