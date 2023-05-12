@@ -240,6 +240,11 @@ const REDIRECTS = [
     destination: "/page/service-leads-ms-bookings-calendars",
     permanent: true,
   },
+  {
+    source: "/blog/comm-works",
+    destination: "/communication-works",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
