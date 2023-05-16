@@ -106,6 +106,15 @@ export async function getStaticPaths() {
 
 export const getStaticProps = withGlobalProps(
   async ({ params: { post: postSlug } }) => {
+    if (postSlug === "comm-works") {
+      return {
+        redirect: {
+          destination: "/communication-works",
+          permanent: true,
+        },
+      };
+    }
+
     const allPosts = await getAllFullPosts();
 
     const currentPost = allPosts.find((post) => post.slug === postSlug);
