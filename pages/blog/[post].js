@@ -99,7 +99,9 @@ export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
 
   return {
-    paths: allPosts.map((post) => ({ params: { post: post.slug } })),
+    paths: allPosts
+      .map((post) => ({ params: { post: post.slug } }))
+      .filter((x) => x !== "comm-works"),
     fallback: true,
   };
 }
