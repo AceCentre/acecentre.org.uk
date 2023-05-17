@@ -9,7 +9,7 @@ import styles from "./service-finder-map.module.css";
 const waitForMap = async () => {
   return new Promise((res) => {
     let interval = setInterval(() => {
-      if (L) {
+      if (typeof L !== "undefined") {
         clearInterval(interval);
         res();
       }
