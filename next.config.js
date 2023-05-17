@@ -1,6 +1,7 @@
+const { withSentryConfig } = require("@sentry/nextjs");
 const REDIRECTS = require("./redirects");
 
-module.exports = {
+const normalConfig = {
   redirects: async () => {
     return REDIRECTS;
   },
@@ -13,3 +14,9 @@ module.exports = {
     cpus: 1,
   },
 };
+
+const SentryWebpackPluginOptions = {
+  silent: false,
+};
+
+module.exports = withSentryConfig(normalConfig, SentryWebpackPluginOptions);
