@@ -1,5 +1,6 @@
 import { changePassword } from "../support/change-password";
 import { deleteCoupon } from "../support/coupon";
+import { deleteCohorts } from "../support/delete-moodle-user";
 import { deleteUser } from "../support/delete-user";
 import { validEmail } from "../support/valid-email";
 
@@ -60,6 +61,10 @@ context("Moodle", () => {
         if (bulkEmailTwo) {
           await deleteUser(bulkEmailTwo, "backend", "bulk-bulk-two");
         }
+      });
+
+      cy.wrap(null, { timeout: 60000 }).then(async () => {
+        await deleteCohorts();
       });
     });
 
