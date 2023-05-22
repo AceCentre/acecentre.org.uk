@@ -45,7 +45,7 @@ function MyApp({
   useEffect(() => {
     const handleRouteChange = (url) => {
       // eslint-disable-next-line no-undef
-      if (gtag) {
+      if (typeof gtag !== "undefined" && gtag) {
         console.log("PING", url);
         // eslint-disable-next-line no-undef
         gtag("event", "conversion", {

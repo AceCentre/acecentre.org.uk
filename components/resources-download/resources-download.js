@@ -92,7 +92,7 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
           <Button
             onClick={() => {
               setModalOpen(true);
-              if (gtag) {
+              if (typeof gtag !== "undefined" && gtag) {
                 gtag("event", "conversion", {
                   send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
                 });
@@ -120,7 +120,7 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
           <Button
             newTab
             onClick={() => {
-              if (gtag) {
+              if (typeof gtag !== "undefined" && gtag) {
                 gtag("event", "conversion", {
                   send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
                 });
@@ -193,7 +193,7 @@ const External = ({ resource, posthog, posthogLoaded }) => {
       <Button
         newTab
         onClick={() => {
-          if (gtag) {
+          if (typeof gtag !== "undefined" && gtag) {
             gtag("event", "conversion", {
               send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
             });
@@ -473,7 +473,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
         <Button
           onClick={() => {
             setModalOpen(true);
-            if (gtag) {
+            if (typeof gtag !== "undefined" && gtag) {
               gtag("event", "conversion", {
                 send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
               });

@@ -289,7 +289,7 @@ const useCheckoutForm = (
       let source = {};
 
       // eslint-disable-next-line no-undef
-      if (gtag) {
+      if (typeof gtag !== "undefined" && gtag) {
         // eslint-disable-next-line no-undef
         gtag("event", "conversion", {
           send_to: "AW-10885468875/GGRdCIugwrQDEMulzMYo",
