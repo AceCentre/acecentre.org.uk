@@ -265,6 +265,9 @@ export const LaunchpadGenerate = ({
                     selected={selected}
                     key={currentGroup.id}
                     currentGroup={currentGroup}
+                    triggerDownload={triggerDownload}
+                    setModalOpen={setModalOpen}
+                    downloadDisabled={downloadDisabled}
                   />
                 );
               })}
@@ -303,7 +306,13 @@ const ErrorMessage = ({ errorMessage }) => {
   );
 };
 
-const VariableGroup = ({ currentGroup, selected }) => {
+const VariableGroup = ({
+  currentGroup,
+  selected,
+  triggerDownload,
+  setModalOpen,
+  downloadDisabled,
+}) => {
   return (
     <AccordionItem uuid={currentGroup.id} key={currentGroup.id}>
       <AccordionItemHeading>
@@ -327,6 +336,16 @@ const VariableGroup = ({ currentGroup, selected }) => {
             <TemplateVariable {...current} key={current.id} />
           ))}
         </div>
+        <Button
+          className={styles.downloadButton}
+          disabled={downloadDisabled}
+          onClick={() => {
+            triggerDownload();
+            setModalOpen(true);
+          }}
+        >
+          Download your customised resource
+        </Button>
       </AccordionItemPanel>
     </AccordionItem>
   );
