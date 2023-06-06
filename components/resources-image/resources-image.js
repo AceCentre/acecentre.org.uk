@@ -18,3 +18,16 @@ export const ResourcesImage = ({ resource, priority }) => {
     </div>
   );
 };
+
+export const ResourcesImageL2T = () => {
+  return (
+    <div className={styles.l2tContainer}>
+      <Image
+        src={"http://localhost:3000/Look2Talk.jpg"}
+        alt={"Look2Talk with eyes in the 'o'"}
+        layout="fill"
+        objectFit={"contain"}
+      />
+    </div>
+  );
+};
