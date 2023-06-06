@@ -23,7 +23,7 @@ export const ResourcesImageL2T = () => {
   return (
     <div className={styles.l2tContainer}>
       <Image
-        src={"./Look2Talk.jpg"}
+        src={"/Look2Talk.jpg"}
         alt={"Look2Talk with eyes in the 'o'"}
         layout="fill"
         objectFit={"contain"}
