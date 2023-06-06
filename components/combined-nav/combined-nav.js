@@ -18,7 +18,6 @@ import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
-import { TopBanner } from "../top-banner/top-banner";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,103 +78,100 @@ export const CombinedNav = ({
     }
   }, []);
 
-  return <>
-    <TopBanner />
-    <OldBrowserBanner />
+  return (
+    <>
+      <OldBrowserBanner />
 
-    <div
-      className={`${styles.desktopContainer} ${
-        isCypress ? styles.isCypressDesktop : ""
-      }`}
-    >
-      <Nav nhs={nhs} nhsTitle={nhsTitle} noPhoneNumber={noPhoneNumber} />
-      {!nhs && <SubNav navItems={defaultNavItems} />}
-    </div>
-    <div
-      className={`${styles.mobileContainer} ${
-        isDrawerOpen ? styles.noShadow : ""
-      } ${isCypress ? styles.isCypressMobile : ""}`}
-    >
-      {nhs ? (
-        (<Link name="home" href="/">
-
-          <Image
-            height={118}
-            width={293}
-            maxHeight={50}
-            src={"/nhs-logo.jpg"}
-            alt="The NHS logo"
-          ></Image>
-
-        </Link>)
-      ) : (
-        (<Link name="home" href="/">
-
-          <Image
-            height={152}
-            width={290}
-            maxHeight={50}
-            src={"/nav-logo.png"}
-            alt="The Ace Centre logo"
-          ></Image>
-
-        </Link>)
-      )}
-      <div className={styles.buttonContainer}>
-        <ChakraButton
-          className={`${styles.navButton} ${styles.menuButton} ${
-            isMenuOpen ? styles.buttonOpen : ""
-          }`}
-          variant="unstyled"
-          onClick={onClickMenu}
-        >
-          Menu
-          <SvgIcon className={styles.icon}>
-            <MenuIcon />
-          </SvgIcon>
-        </ChakraButton>
-        <ChakraButton
-          onClick={onClickSearch}
-          className={`${styles.navButton}  ${
-            isSearchOpen ? styles.buttonOpen : ""
-          }`}
-          variant="unstyled"
-          aria-label="Search button"
-        >
-          <SvgIcon className={styles.icon}>
-            <SearchIcon />
-          </SvgIcon>
-        </ChakraButton>
+      <div
+        className={`${styles.desktopContainer} ${
+          isCypress ? styles.isCypressDesktop : ""
+        }`}
+      >
+        <Nav nhs={nhs} nhsTitle={nhsTitle} noPhoneNumber={noPhoneNumber} />
+        {!nhs && <SubNav navItems={defaultNavItems} />}
       </div>
-    </div>
-    {isDrawerOpen && (
-      <div className={styles.drawer}>
-        {isMenuOpen && <MenuContent defaultNavItems={defaultNavItems} />}
-        {isSearchOpen && (
-          <form
-            action="/search"
-            method="GET"
-            className={styles.searchContainer}
-          >
-            <p className={styles.searchTagline}>Search our website</p>
-            <Input
-              ariaLabel="Search text"
-              name="searchText"
-              white
-              placeholder="Search"
-            >
-              <SvgIcon>
-                <SearchIcon />
-              </SvgIcon>
-            </Input>
-            <Button type="submit" className={styles.donateButton}>
-              Search
-            </Button>
-          </form>
+      <div
+        className={`${styles.mobileContainer} ${
+          isDrawerOpen ? styles.noShadow : ""
+        } ${isCypress ? styles.isCypressMobile : ""}`}
+      >
+        {nhs ? (
+          <Link name="home" href="/">
+            <Image
+              height={118}
+              width={293}
+              maxHeight={50}
+              src={"/nhs-logo.jpg"}
+              alt="The NHS logo"
+            ></Image>
+          </Link>
+        ) : (
+          <Link name="home" href="/">
+            <Image
+              height={152}
+              width={290}
+              maxHeight={50}
+              src={"/nav-logo.png"}
+              alt="The Ace Centre logo"
+            ></Image>
+          </Link>
         )}
+        <div className={styles.buttonContainer}>
+          <ChakraButton
+            className={`${styles.navButton} ${styles.menuButton} ${
+              isMenuOpen ? styles.buttonOpen : ""
+            }`}
+            variant="unstyled"
+            onClick={onClickMenu}
+          >
+            Menu
+            <SvgIcon className={styles.icon}>
+              <MenuIcon />
+            </SvgIcon>
+          </ChakraButton>
+          <ChakraButton
+            onClick={onClickSearch}
+            className={`${styles.navButton}  ${
+              isSearchOpen ? styles.buttonOpen : ""
+            }`}
+            variant="unstyled"
+            aria-label="Search button"
+          >
+            <SvgIcon className={styles.icon}>
+              <SearchIcon />
+            </SvgIcon>
+          </ChakraButton>
+        </div>
       </div>
-    )}
-  </>;
+      {isDrawerOpen && (
+        <div className={styles.drawer}>
+          {isMenuOpen && <MenuContent defaultNavItems={defaultNavItems} />}
+          {isSearchOpen && (
+            <form
+              action="/search"
+              method="GET"
+              className={styles.searchContainer}
+            >
+              <p className={styles.searchTagline}>Search our website</p>
+              <Input
+                ariaLabel="Search text"
+                name="searchText"
+                white
+                placeholder="Search"
+              >
+                <SvgIcon>
+                  <SearchIcon />
+                </SvgIcon>
+              </Input>
+              <Button type="submit" className={styles.donateButton}>
+                Search
+              </Button>
+            </form>
+          )}
+        </div>
+      )}
+    </>
+  );
 };
 
 const MenuContent = ({ defaultNavItems }) => {
@@ -193,107 +189,103 @@ const MenuContent = ({ defaultNavItems }) => {
     }
   };
 
-  return <>
-    <ul className={styles.menuContentList}>
-      {defaultNavItems.map((navItem, index) => {
-        return (
-          <li key={`navItem-${navItem.title}`}>
-            <div className={styles.menuContentListItem}>
-              <ChakraButton
-                className={styles.menuContentListButton}
-                variant="unstyled"
-                onClick={onNavItemClick(index)}
-              >
-                {navItem.title}
-                <SvgIcon className={styles.menuContentIcon}>
-                  <KeyboardArrowDownIcon />
-                </SvgIcon>
-              </ChakraButton>
-            </div>
-            {currentlyOpen === index && (
-              <div>
-                <p className={styles.tagLine}>{navItem.tagLine}</p>
-                <ul className={styles.subNavList}>
-                  {navItem.subItems.map((item) => {
-                    return (
-                      <li key={`subNav-${item.title}`}>
-                        <Link href={item.href} className={styles.subNavLink}>
-
-                          <Avatar className={styles.arrowAvatar}>
-                            <ChevronRightIcon
-                              className={styles.avatarIcon}
-                            />
-                          </Avatar>
-                          {item.title}
-
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+  return (
+    <>
+      <ul className={styles.menuContentList}>
+        {defaultNavItems.map((navItem, index) => {
+          return (
+            <li key={`navItem-${navItem.title}`}>
+              <div className={styles.menuContentListItem}>
+                <ChakraButton
+                  className={styles.menuContentListButton}
+                  variant="unstyled"
+                  onClick={onNavItemClick(index)}
+                >
+                  {navItem.title}
+                  <SvgIcon className={styles.menuContentIcon}>
+                    <KeyboardArrowDownIcon />
+                  </SvgIcon>
+                </ChakraButton>
               </div>
-            )}
-          </li>
-        );
-      })}
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/form/general-feedback" className={styles.subNavLink}>
-            Feedback
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/blog" className={styles.subNavLink}>
-            Blog
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/contact" className={styles.subNavLink}>
-            Contact
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/my-acecentre" className={styles.subNavLink}>
-
-            <SvgIcon>
-              <PersonOutlineOutlinedIcon />
-            </SvgIcon>
-            {loggedInStatus ? "My Ace Centre" : "Login"}
-
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="/basket" className={styles.subNavLink}>
-
-            <SvgIcon>
-              <ShoppingCartOutlinedIcon />
-            </SvgIcon>Checkout
-          </Link>
-        </div>
-      </li>
-      <li>
-        <div className={styles.menuContentListItem}>
-          <Link href="tel:0800 080 3115" className={styles.subNavLink}>
-
-            <SvgIcon>
-              <PhoneOutlinedIcon />
-            </SvgIcon>0800 080 3115
-          </Link>
-        </div>
-      </li>
-    </ul>
-    <div>
-      <Button className={styles.donateButton} href="/get-involved/donate">
-        Donate
-      </Button>
-    </div>
-  </>;
+              {currentlyOpen === index && (
+                <div>
+                  <p className={styles.tagLine}>{navItem.tagLine}</p>
+                  <ul className={styles.subNavList}>
+                    {navItem.subItems.map((item) => {
+                      return (
+                        <li key={`subNav-${item.title}`}>
+                          <Link href={item.href} className={styles.subNavLink}>
+                            <Avatar className={styles.arrowAvatar}>
+                              <ChevronRightIcon className={styles.avatarIcon} />
+                            </Avatar>
+                            {item.title}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </li>
+          );
+        })}
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/form/general-feedback" className={styles.subNavLink}>
+              Feedback
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/blog" className={styles.subNavLink}>
+              Blog
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/contact" className={styles.subNavLink}>
+              Contact
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/my-acecentre" className={styles.subNavLink}>
+              <SvgIcon>
+                <PersonOutlineOutlinedIcon />
+              </SvgIcon>
+              {loggedInStatus ? "My Ace Centre" : "Login"}
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="/basket" className={styles.subNavLink}>
+              <SvgIcon>
+                <ShoppingCartOutlinedIcon />
+              </SvgIcon>
+              Checkout
+            </Link>
+          </div>
+        </li>
+        <li>
+          <div className={styles.menuContentListItem}>
+            <Link href="tel:0800 080 3115" className={styles.subNavLink}>
+              <SvgIcon>
+                <PhoneOutlinedIcon />
+              </SvgIcon>
+              0800 080 3115
+            </Link>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <Button className={styles.donateButton} href="/get-involved/donate">
+          Donate
+        </Button>
+      </div>
+    </>
+  );
 };
