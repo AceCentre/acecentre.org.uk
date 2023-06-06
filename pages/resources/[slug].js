@@ -64,7 +64,7 @@ export default function ResourceDetail({
                   <ResourcesDownload resource={resource} />
                 )}
                 <ResourcesShare />
-                {resource.slug === "look2talk" && <ResourcesImageL2T />}
+                {/* {resource.slug === "look2talk" && <ResourcesImageL2T />} */}
               </div>
             </div>
             {resource.description && (
