@@ -57,7 +57,9 @@ export default function ResourceDetail({
               </div>
               <div className={styles.rightTopArea}>
                 <ResourcesDescription resource={resource} />
-                <ResourcesDownload resource={resource} />
+                {resource.slug !== "look2talk" && (
+                  <ResourcesDownload resource={resource} />
+                )}
                 <ResourcesShare />
               </div>
             </div>

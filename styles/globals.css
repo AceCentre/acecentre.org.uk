@@ -42,6 +42,20 @@ button {
   --secondaryColour: #e3e3e3;
 }
 
+.link-button {
+  font-weight: 700;
+  background-color: #00537f;
+  color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: table;
+  margin: 1rem 0;
+}
+
 .yt-lite {
   background-color: #000;
   position: relative;
