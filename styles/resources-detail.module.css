@@ -12,9 +12,14 @@
   margin: 3rem auto;
 }
 
+.rightTopArea {
+  position: relative;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .topArea {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 }
