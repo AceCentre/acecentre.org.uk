@@ -245,6 +245,11 @@ const REDIRECTS = [
     destination: "/communication-works",
     permanent: true,
   },
+  {
+    source: "/acl-comm",
+    destination: "/learning/search?category=communication",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
