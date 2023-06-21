@@ -326,6 +326,8 @@ const Price = ({ resource }) => {
 export const NewsletterSignup = ({
   signUpIdentifier = "none",
   withNames = false,
+  tags = [],
+  onSuccess = () => {},
 }) => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -355,6 +357,7 @@ export const NewsletterSignup = ({
                     lastName: e?.target?.lastName?.value || undefined,
                     location: signUpIdentifier,
                     method: "add-to-newsletter",
+                    tags,
                   }),
                   method: "POST",
                   headers: { "content-type": "application/json" },
@@ -367,6 +370,8 @@ export const NewsletterSignup = ({
                 console.warn(result);
                 throw new Error("Non 200 status");
               }
+
+              onSuccess();
 
               setSuccess(true);
             } catch (err) {
