@@ -26,7 +26,10 @@
 
 .bannerArea {
   position: relative;
-  min-height: 300px;
+  min-height: 410px;
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
 }
 
 .newsletterContainer {
@@ -73,5 +76,14 @@
 @media (max-width: 1090px) {
   .bottomSection {
     flex-direction: column;
+  }
+
+  .bannerArea {
+    min-height: 300px;
+  }
+}
+@media (max-width: 700px) {
+  .bannerArea {
+    min-height: 200px;
   }
 }
