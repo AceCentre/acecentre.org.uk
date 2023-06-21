@@ -32,6 +32,7 @@ export default function ResourceDetail({
 
   const storageKey = "look2talk-opt-in";
 
+  // eslint-disable-next-line no-unused-vars
   const openPopup = (newModelLink) => {
     if (localStorage.getItem(storageKey) === "true") {
       router.push(newModelLink);
