@@ -328,6 +328,7 @@ export const NewsletterSignup = ({
   withNames = false,
   tags = [],
   onSuccess = () => {},
+  subscribeText = "Subscribe",
 }) => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -414,7 +415,7 @@ export const NewsletterSignup = ({
             white
           ></Input>
           <Button type="submit" disabled={!!error || !!success || loading}>
-            Subscribe
+            {subscribeText}
           </Button>
         </div>
         {error && (

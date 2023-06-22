@@ -74,8 +74,12 @@ export default function ResourceDetail({
         <ModalContent>
           <ModalBody style={{ padding: "2rem" }}>
             <div className={styles.topSection}>
-              <h2>Look2Talk + Newsletter</h2>
-              <p>To access content join our mailing list. Placeholder text</p>
+              <h2>Learn more!</h2>
+              <p>
+                You can access this content by joining our mailing list to hear
+                about Ace Centre Learning courses on Look2Talk and other
+                training opportunities.
+              </p>
             </div>
 
             <div className={styles.newsletterContainer}>
@@ -346,7 +350,7 @@ export default function ResourceDetail({
                       );
                     }}
                   >
-                    Download Templates
+                    Download PCS Templates
                   </Button>
                 </div>
               </div>
