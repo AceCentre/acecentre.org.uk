@@ -127,7 +127,9 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
-  const allProducts = await getAllProducts(true);
+  let allProducts = await getAllProducts(true);
+
+  allProducts = allProducts.filter((x) => x.slug !== "look2talk");
 
   if (!allProducts) throw new Error("Could not get all the products");
 
