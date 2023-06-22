@@ -48,11 +48,17 @@ export default function ResourceDetail({
   };
 
   useEffect(() => {
-    if (
-      query.look2talk !== undefined &&
-      localStorage.getItem(storageKey) !== "true"
-    ) {
-      setModelOpen();
+    console.log({
+      look2talkquery: query.look2talk !== undefined,
+      localstorage: localStorage.getItem(storageKey) === "true",
+    });
+
+    if (query.look2talk !== undefined) {
+      if (localStorage.getItem(storageKey) === "true") {
+        router.push(modelLink);
+      } else {
+        setModelOpen(true);
+      }
     }
   }, [query.look2talk]);
   const onClose = () => setModelOpen(false);
