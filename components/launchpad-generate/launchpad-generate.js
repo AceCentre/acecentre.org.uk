@@ -94,7 +94,7 @@ const Progress = ({ totalTime }) => {
   );
 };
 
-const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
+const DownloadModal = ({ modalOpen, onClose, name, errorMessage, slug }) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -121,7 +121,10 @@ const DownloadModal = ({ modalOpen, onClose, name, errorMessage }) => {
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup signUpIdentifier="launchpad" />
+            <NewsletterSignup
+              tags={[{ name: slug }]}
+              signUpIdentifier="launchpad"
+            />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
@@ -279,6 +282,7 @@ export const LaunchpadGenerate = ({
               onClose={() => setModalOpen(false)}
               name={template.templateName}
               errorMessage={errorMessage}
+              slug={resource.slug}
             />
           </>
         )}

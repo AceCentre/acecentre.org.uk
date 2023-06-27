@@ -14,7 +14,10 @@ export const MailingList = ({
     <div className={styles.container}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <NewsletterSignup signUpIdentifier={signUpIdentifier} />
+      <NewsletterSignup
+        tags={[{ name: "service-finder" }]}
+        signUpIdentifier={signUpIdentifier}
+      />
     </div>
   );
 };
