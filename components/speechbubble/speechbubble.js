@@ -41,7 +41,10 @@ export const Speechbubble = ({ featuredResources }) => {
           Sign up to our free newsletter to stay up to date with the latest news
           from Ace Centre
         </p>
-        <NewsletterSignup signUpIdentifier="speechbubble" />
+        <NewsletterSignup
+          tags={[{ name: "speechbubble" }]}
+          signUpIdentifier="speechbubble"
+        />
       </div>
       <ResourceList
         className={styles.featuredResources}

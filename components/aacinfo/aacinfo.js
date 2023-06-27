@@ -39,7 +39,10 @@ export const Aacinfo = ({ featuredResources }) => {
           Sign up to our free newsletter to stay up to date with the latest news
           from Ace Centre
         </p>
-        <NewsletterSignup signUpIdentifier="aacinfo" />
+        <NewsletterSignup
+          tags={[{ name: "aac-info" }]}
+          signUpIdentifier="aacinfo"
+        />
       </div>
       <ResourceList
         className={styles.featuredResources}

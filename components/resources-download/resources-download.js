@@ -71,7 +71,11 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
 
   return (
     <>
-      <DownloadModal modalOpen={modalOpen} onClose={onClose} />
+      <DownloadModal
+        slug={resource.slug}
+        modalOpen={modalOpen}
+        onClose={onClose}
+      />
       <div className={styles.ebook}>
         {ebook.ibook && (
           <a
@@ -434,7 +438,7 @@ export const NewsletterSignup = ({
   );
 };
 
-const DownloadModal = ({ modalOpen, onClose }) => {
+const DownloadModal = ({ modalOpen, onClose, slug }) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -455,7 +459,10 @@ const DownloadModal = ({ modalOpen, onClose }) => {
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup signUpIdentifier="resource-download" />
+            <NewsletterSignup
+              tags={[{ name: slug }]}
+              signUpIdentifier="resource-download"
+            />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
@@ -504,7 +511,11 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
           Free download
         </Button>
       </div>
-      <DownloadModal modalOpen={modalOpen} onClose={onClose} />
+      <DownloadModal
+        slug={resource.slug}
+        modalOpen={modalOpen}
+        onClose={onClose}
+      />
     </>
   );
 };
