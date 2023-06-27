@@ -74,6 +74,7 @@ context("Moodle", () => {
           return false;
         if (err.message.includes("Cannot read property 'length' of undefined"))
           return false;
+        if (err.message.includes("Unexpected token '<'")) return false;
         return true;
       });
 

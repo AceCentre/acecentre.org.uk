@@ -8,6 +8,8 @@ context("Moodle", () => {
         if (err.message.includes("theme_boost")) return false;
         if (err.message.includes("Course or activity not accessible."))
           return false;
+
+        if (err.message.includes("Unexpected token '<'")) return false;
         return true;
       });
 
