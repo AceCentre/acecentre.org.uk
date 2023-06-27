@@ -327,7 +327,7 @@ export default function ResourceDetail({
                   href="#"
                   onClick={() => {
                     openPopup(
-                      "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Demonstration-Book-6.23-v2.ppsx"
+                      "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Demonstration-Book-6.23-v3.ppsx"
                     );
                   }}
                 >
