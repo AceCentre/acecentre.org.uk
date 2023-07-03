@@ -32,6 +32,7 @@
 .cyberEssentialsContainer {
   position: relative;
   height: 100px;
+  width: 100px;
   margin: 1rem auto;
 }
 
@@ -153,6 +154,11 @@
 
 .flatListItem {
   padding: 0 1rem;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 1024px) {
