@@ -250,6 +250,11 @@ const REDIRECTS = [
     destination: "/learning/search?category=communication",
     permanent: true,
   },
+  {
+    source: "/alphabet-charts",
+    destination: "/resources/all?category=alphabet-charts",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
