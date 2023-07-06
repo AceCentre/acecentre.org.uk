@@ -18,6 +18,7 @@ export const NewsletterModal = ({
   modelOpen,
   onClose,
   signUpIdentifier = "footer",
+  tags = [],
 }) => {
   return (
     <Modal
@@ -39,7 +40,11 @@ export const NewsletterModal = ({
           </div>
 
           <div className={styles.newsletterContainer}>
-            <NewsletterSignup withNames signUpIdentifier={signUpIdentifier} />
+            <NewsletterSignup
+              withNames
+              signUpIdentifier={signUpIdentifier}
+              tags={tags}
+            />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
