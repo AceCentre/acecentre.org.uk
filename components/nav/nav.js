@@ -18,12 +18,17 @@ import { useRouter } from "next/router";
 export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
   const [modelOpen, setModelOpen] = useState(false);
   const [newsletterSource, setNewsletterSource] = useState(undefined);
+  const [tags, setTags] = useState([]);
   const { loggedInStatus } = useGlobalProps();
   const { query } = useRouter();
 
   useEffect(() => {
     setModelOpen(query.newsletter !== undefined);
     setNewsletterSource(query.newsletter);
+
+    if (query.newsletter !== "1") {
+      setTags([{ name: query.newsletter }]);
+    }
   }, [query.newsletter]);
 
   const onClose = () => setModelOpen(false);
@@ -34,6 +39,7 @@ export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
         modelOpen={modelOpen}
         onClose={onClose}
         signUpIdentifier={newsletterSource || "pop-over"}
+        tags={tags}
       />
       <FullWidthContainer>
         <InnerContainer>
