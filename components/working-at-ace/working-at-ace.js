@@ -26,7 +26,7 @@ export const WorkingAtAce = () => {
             <p className={styles.quoteContent}>
               &quot;At Ace Centre I get to work with a dedicated team of
               experienced professionals. I enjoy collaborating on a wide variety
-              projects within Ace Centre and working with external
+              of projects within Ace Centre and working with external
               partners.&quot;
             </p>
             <div>
