@@ -337,7 +337,7 @@ const useCheckoutForm = (
         if (event.target.mailingList.checked) {
           try {
             const response = await fetch(
-              "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions",
+              "https://crm-connector.acecentre.org.uk/crm/crm-functions",
               {
                 body: JSON.stringify({
                   email: billingDetails.email,

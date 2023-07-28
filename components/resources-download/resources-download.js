@@ -341,9 +341,7 @@ export const NewsletterSignup = ({
   return (
     <>
       <form
-        action={
-          "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions"
-        }
+        action={"https://crm-connector.acecentre.org.uk/crm/crm-functions"}
         method="POST"
         className={styles.form}
         onSubmit={(e) => {
@@ -354,7 +352,7 @@ export const NewsletterSignup = ({
 
             try {
               const response = await fetch(
-                "https://crm-connector-k7gic.ondigitalocean.app/crm/crm-functions",
+                "https://crm-connector.acecentre.org.uk/crm/crm-functions",
                 {
                   body: JSON.stringify({
                     email: e.target.email.value,
