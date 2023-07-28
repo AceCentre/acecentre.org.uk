@@ -25,13 +25,18 @@ export const ContactCards = () => {
         <Card>
           <h3>Advice helpline</h3>
           <p>
-            If you’re looking for assistance call our advice helpline number:
+            If you&apos;re looking for assistance about Augmentative and
+            Alternative Communication (AAC) and Assistive Technology call our
+            advice helpline number:
           </p>
           <p className={styles.phoneNumber}>0800 080 3115</p>
           <p className={styles.officeHours}>
             Office hours, 9AM - 5PM, Monday - Friday
           </p>
-          <Link href="mailto:enquiries@acecentre.org.uk" className={styles.link}>
+          <Link
+            href="mailto:enquiries@acecentre.org.uk"
+            className={styles.link}
+          >
             Email us &gt;
           </Link>
         </Card>
@@ -63,12 +68,10 @@ const UsefulLink = ({ children, href }) => {
   return (
     <li>
       <Link href={href} className={styles.linkListLink}>
-
         <Avatar className={styles.arrowAvatar}>
           <ChevronRightIcon className={styles.avatarIcon} />
         </Avatar>
         {children}
-
       </Link>
     </li>
   );
