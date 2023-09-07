@@ -16,7 +16,7 @@
 .languageList {
   list-style-type: none;
   padding: 0;
-  width: 540px;
+  max-width: 540px;
   display: flex;
   gap: 1rem;
   margin: 1rem auto;
