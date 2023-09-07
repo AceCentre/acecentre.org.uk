@@ -15,6 +15,7 @@ export const Input = ({
   type,
   withLabel = false,
   required,
+  value,
 }) => {
   return (
     <InputGroup
@@ -30,6 +31,7 @@ export const Input = ({
         aria-label={ariaLabel}
         type={type}
         required={required}
+        value={value}
       />
       <InputRightElement zIndex={1}>{children}</InputRightElement>
     </InputGroup>
