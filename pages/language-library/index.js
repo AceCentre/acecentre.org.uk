@@ -7,6 +7,7 @@ import { getLanguageLibraryLandingPageData } from "../../lib/language-library";
 import { LanguageLibraryHeader } from "../../components/language-library-header/language-library-header";
 import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
 import { LanguageLibrarySubtitles } from "../../components/language-library-subtitles/language-library-subtitles";
+import { LanguageLibraryCredits } from "../../components/language-library-credits/language-library-credits";
 
 export default function LanguageLibrary({ languages }) {
   const { currentYear } = useGlobalProps();
@@ -22,17 +23,10 @@ export default function LanguageLibrary({ languages }) {
         <LanguageLibraryHeader />
         <LanguageLibraryLandingSearch languages={languages.nodes} />
         <LanguageLibrarySubtitles />
-        {/* <ul>
-          {resources.map((resource) => {
-            return (
-              <li key={resource.slug}>
-                <Link href={`/language-library/${resource.slug}`}>
-                  {resource.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul> */}
+        <h2 style={{ textAlign: "center" }}>
+          List of features resources will go here
+        </h2>
+        <LanguageLibraryCredits />
       </main>
       <Footer currentYear={currentYear} />
     </>

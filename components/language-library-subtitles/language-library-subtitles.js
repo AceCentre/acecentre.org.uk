@@ -17,6 +17,7 @@ export const LanguageLibrarySubtitles = () => {
               src="./collaboration.png"
               layout="fill"
               objectFit="contain"
+              alt="Icon of two people lifting blocks together"
             />
           </div>
         </div>
@@ -29,7 +30,12 @@ export const LanguageLibrarySubtitles = () => {
             section to discover how AAC is making a global difference,
           </p>
           <div className={styles.imageContainer}>
-            <Image src="./global.png" layout="fill" objectFit="contain" />
+            <Image
+              src="./global.png"
+              layout="fill"
+              objectFit="contain"
+              alt="Icon of a circular globe"
+            />
           </div>
         </div>
 
@@ -41,7 +47,12 @@ export const LanguageLibrarySubtitles = () => {
             individuals who use AAC in different languages.
           </p>
           <div className={styles.imageContainer}>
-            <Image src="./multilingual.png" layout="fill" objectFit="contain" />
+            <Image
+              src="./multilingual.png"
+              layout="fill"
+              objectFit="contain"
+              alt="Icon of a person with three speech bubbles, each speech bubble is using a different language"
+            />
           </div>
         </div>
       </div>

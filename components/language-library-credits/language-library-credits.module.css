@@ -1,0 +1,44 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  position: relative;
+  z-index: -1;
+}
+
+.outerContainer {
+  background: #eeeeee;
+  padding: 2rem 0;
+  z-index: -1;
+  position: relative;
+}
+
+.container h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.container p {
+  text-align: center;
+  margin: 0;
+}
+
+.logoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  grid-row-gap: 2rem;
+  margin-top: 1rem;
+}
+
+.imageContainer {
+  position: relative;
+  height: 80px;
+  width: 240px;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
