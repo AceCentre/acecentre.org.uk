@@ -12,6 +12,7 @@ import {
   GenericFaqs,
   LANGUAGE_LIBRARY_FAQS,
 } from "../../components/getting-started-faqs/getting-started-faqs";
+import { LanguageLibraryHowTo } from "../../components/language-library-how-to/language-library-how-to";
 
 export default function LanguageLibrary({ languages }) {
   const { currentYear } = useGlobalProps();
@@ -31,6 +32,7 @@ export default function LanguageLibrary({ languages }) {
           List of features resources will go here
         </h2>
         <LanguageLibraryCredits />
+        <LanguageLibraryHowTo />
         <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
       </main>
       <Footer currentYear={currentYear} />
