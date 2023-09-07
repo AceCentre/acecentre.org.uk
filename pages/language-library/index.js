@@ -1,16 +1,12 @@
-import Link from "next/link";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
-import {
-  getLanguageLibraryLandingPageData,
-  getLanguageLibraryResources,
-} from "../../lib/language-library";
-import { SearchBox } from "../../components/search-box/search-box";
+import { getLanguageLibraryLandingPageData } from "../../lib/language-library";
 import { LanguageLibraryHeader } from "../../components/language-library-header/language-library-header";
 import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
+import { LanguageLibrarySubtitles } from "../../components/language-library-subtitles/language-library-subtitles";
 
 export default function LanguageLibrary({ languages }) {
   const { currentYear } = useGlobalProps();
@@ -25,6 +21,7 @@ export default function LanguageLibrary({ languages }) {
       <main id="mainContent">
         <LanguageLibraryHeader />
         <LanguageLibraryLandingSearch languages={languages.nodes} />
+        <LanguageLibrarySubtitles />
         {/* <ul>
           {resources.map((resource) => {
             return (
