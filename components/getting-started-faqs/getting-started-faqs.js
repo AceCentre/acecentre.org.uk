@@ -60,6 +60,41 @@ export const GenericFaqs = ({ faqs }) => {
   );
 };
 
+export const LANGUAGE_LIBRARY_FAQS = [
+  {
+    question: "This is the first question",
+    answer: (
+      <>
+        <p>This is the answer to the question</p>
+      </>
+    ),
+  },
+  {
+    question: "This is the second question",
+    answer: (
+      <>
+        <p>This is the answer to the question</p>
+      </>
+    ),
+  },
+  {
+    question: "This is the third question",
+    answer: (
+      <>
+        <p>This is the answer to the question</p>
+      </>
+    ),
+  },
+  {
+    question: "This is the forth question",
+    answer: (
+      <>
+        <p>This is the answer to the question</p>
+      </>
+    ),
+  },
+];
+
 const FAQS = [
   {
     question: "Won’t using AAC hold back speech development?",
