@@ -4,12 +4,18 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
-import { getLanguageLibraryResources } from "../../lib/language-library";
+import {
+  getLanguageLibraryLandingPageData,
+  getLanguageLibraryResources,
+} from "../../lib/language-library";
+import { SearchBox } from "../../components/search-box/search-box";
+import { LanguageLibraryHeader } from "../../components/language-library-header/language-library-header";
+import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
 
-export default function LanguageLibrary({ resources }) {
+export default function LanguageLibrary({ languages }) {
   const { currentYear } = useGlobalProps();
 
-  console.log(resources);
+  console.log(languages);
 
   return (
     <>
@@ -17,7 +23,9 @@ export default function LanguageLibrary({ resources }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <ul>
+        <LanguageLibraryHeader />
+        <LanguageLibraryLandingSearch languages={languages.nodes} />
+        {/* <ul>
           {resources.map((resource) => {
             return (
               <li key={resource.slug}>
@@ -27,7 +35,7 @@ export default function LanguageLibrary({ resources }) {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </main>
       <Footer currentYear={currentYear} />
     </>
@@ -35,11 +43,11 @@ export default function LanguageLibrary({ resources }) {
 }
 
 export const getServerSideProps = withGlobalPropsNoRevalidate(async () => {
-  const resources = await getLanguageLibraryResources();
+  const props = await getLanguageLibraryLandingPageData();
 
   return {
     props: {
-      resources,
+      ...props,
       seo: { dontIndex: true, title: "Language Library" },
     },
   };
