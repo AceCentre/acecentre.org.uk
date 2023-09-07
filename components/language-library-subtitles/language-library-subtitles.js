@@ -14,7 +14,7 @@ export const LanguageLibrarySubtitles = () => {
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="./collaboration.png"
+              src="/collaboration.png"
               layout="fill"
               objectFit="contain"
               alt="Icon of two people lifting blocks together"
@@ -31,7 +31,7 @@ export const LanguageLibrarySubtitles = () => {
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="./global.png"
+              src="/global.png"
               layout="fill"
               objectFit="contain"
               alt="Icon of a circular globe"
@@ -48,7 +48,7 @@ export const LanguageLibrarySubtitles = () => {
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="./multilingual.png"
+              src="/multilingual.png"
               layout="fill"
               objectFit="contain"
               alt="Icon of a person with three speech bubbles, each speech bubble is using a different language"
