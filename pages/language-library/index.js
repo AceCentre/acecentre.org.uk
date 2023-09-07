@@ -8,6 +8,10 @@ import { LanguageLibraryHeader } from "../../components/language-library-header/
 import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
 import { LanguageLibrarySubtitles } from "../../components/language-library-subtitles/language-library-subtitles";
 import { LanguageLibraryCredits } from "../../components/language-library-credits/language-library-credits";
+import {
+  GenericFaqs,
+  LANGUAGE_LIBRARY_FAQS,
+} from "../../components/getting-started-faqs/getting-started-faqs";
 
 export default function LanguageLibrary({ languages }) {
   const { currentYear } = useGlobalProps();
@@ -27,6 +31,7 @@ export default function LanguageLibrary({ languages }) {
           List of features resources will go here
         </h2>
         <LanguageLibraryCredits />
+        <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
       </main>
       <Footer currentYear={currentYear} />
     </>
