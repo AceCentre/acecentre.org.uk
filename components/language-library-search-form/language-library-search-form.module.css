@@ -1,0 +1,61 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+
+.searchBar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 540px;
+  width: 100%;
+}
+
+.filtersAndResult {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.filterContainer {
+  background: #eeeeee;
+  padding: 1rem;
+  border-color: cyan;
+}
+
+.icon.icon {
+  font-size: 22px;
+}
+
+.filterContainer h3 {
+  margin: 0;
+}
+
+.optionsList {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pillButton {
+  background: #94c64e;
+  border: 0;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.pillButton:hover {
+  cursor: pointer;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .filtersAndResult {
+    grid-template-columns: 1fr;
+  }
+}
