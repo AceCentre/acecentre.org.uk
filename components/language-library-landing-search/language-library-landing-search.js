@@ -19,7 +19,7 @@ export const LanguageLibraryLandingSearch = ({ languages }) => {
           </Input>
           <Button type="submit">Search</Button>
         </div>
-        <input name="language" value={languageValue} type="hidden" />
+        <input name="languages" value={languageValue} type="hidden" />
         <ul className={styles.languageList}>
           {languages.map((language) => (
             <li className={styles.languageListItem} key={language.slug}>
