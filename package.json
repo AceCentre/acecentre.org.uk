@@ -44,6 +44,7 @@
     "lodash": "4.17.21",
     "next": "13.2.1",
     "next-iron-session": "4.2.0",
+    "next-usequerystate": "^1.7.3",
     "node-fetch": "3.3.0",
     "nprogress": "0.2.0",
     "polyfill-object.fromentries": "1.0.1",
