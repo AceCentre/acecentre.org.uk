@@ -12,7 +12,7 @@
 }
 
 .redGradient {
-  background-image: linear-gradient(#fff4f4, #f1d1d0);
+  background: linear-gradient(#fff4f4, #f1d1d0);
 }
 
 .blueGradient {
