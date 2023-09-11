@@ -7,58 +7,82 @@ import { useRouter } from "next/router";
 import { Checkbox as ChakraCheckbox } from "@chakra-ui/checkbox";
 import { useQueryState, queryTypes } from "next-usequerystate";
 import ClearIcon from "@material-ui/icons/Clear";
+import { useMemo } from "react";
+import Fuse from "fuse.js";
+import { LanguageLibraryCard } from "../language-library-card/language-library-card";
 
-export const LanguageLibrarySearchForm = () => {
+const useLanguages = (resources, results) => {
+  return useMemo(() => {
+    console.log("Running, useLanguages");
+
+    let languagesByKey = {};
+
+    for (let resource of resources.nodes) {
+      for (let language of resource.languages.nodes) {
+        languagesByKey[language.slug] = {
+          slug: language.slug,
+          name: language.name,
+          count: 0,
+        };
+      }
+    }
+
+    for (let resource of results) {
+      for (let language of resource.languages.nodes) {
+        languagesByKey[language.slug].count += 1;
+      }
+    }
+
+    return Object.values(languagesByKey);
+  }, [resources, results]);
+};
+
+function intersect(a, b) {
+  var setB = new Set(b);
+  return [...new Set(a)].filter((x) => setB.has(x));
+}
+
+const useFilter = (resources, { selectedLanguages, searchTerm }) => {
+  console.log("RESOURCE", resources);
+
+  let results = resources.nodes.filter((current) => {
+    let isValid = true;
+
+    // Languages
+    const langSlugs = current.languages.nodes.map((x) => x.slug);
+    const matchingLangs = intersect(langSlugs, selectedLanguages);
+    if (matchingLangs.length !== selectedLanguages.length) {
+      isValid = false;
+    }
+
+    return isValid;
+  });
+
+  // Search Term
+  if (searchTerm) {
+    const fuse = new Fuse(results, {
+      keys: ["title"],
+    });
+    results = fuse.search(searchTerm).map((x) => x.item);
+  }
+
+  return results;
+};
+
+export const LanguageLibrarySearchForm = ({ resources }) => {
   const { query } = useRouter();
   const defaultSearchTerm = query.searchTerm || "";
 
   const [selectedLanguages, setSelectedLanguages] = useQueryState(
     "languages",
-    queryTypes.array(queryTypes.string)
+    queryTypes.array(queryTypes.string).withDefault([])
   );
 
-  const languages = [
-    {
-      slug: "bengali",
-      name: "Bengali",
-      count: 1,
-    },
-    {
-      slug: "english",
-      name: "English",
-      count: 1,
-    },
-    {
-      slug: "french",
-      name: "French",
-      count: 1,
-    },
-    {
-      slug: "german",
-      name: "German",
-      count: 1,
-    },
-    {
-      slug: "mandarin",
-      name: "Mandarin",
-      count: 1,
-    },
-    {
-      slug: "polish",
-      name: "Polish",
-      count: 1,
-    },
-    {
-      slug: "spanish",
-      name: "Spanish",
-      count: 1,
-    },
-    {
-      slug: "urdu",
-      name: "Urdu",
-      count: 1,
-    },
-  ];
+  const results = useFilter(resources, {
+    selectedLanguages,
+    searchTerm: query.searchTerm,
+  });
+  const languages = useLanguages(resources, results);
 
   return (
     <div className={styles.container}>
@@ -66,7 +90,7 @@ export const LanguageLibrarySearchForm = () => {
         <div className={styles.searchBar}>
           <Input
             name="searchTerm"
-            value={defaultSearchTerm}
+            defaultValue={defaultSearchTerm}
             placeholder="Search language library"
           >
             <SvgIcon>
@@ -84,17 +108,22 @@ export const LanguageLibrarySearchForm = () => {
           {languages.map((current) => (
             <div key={current.slug}>
               <Checkbox
-                isChecked={(selectedLanguages || []).includes(current.slug)}
+                isChecked={selectedLanguages.includes(current.slug)}
                 onChange={(currentEvent) => {
                   console.log(currentEvent.target.checked);
                   const newCheckedValue = currentEvent.target.checked;
 
-                  let currentLanguages = selectedLanguages || [];
+                  let currentLanguages = selectedLanguages;
                   if (newCheckedValue) {
-                    setSelectedLanguages([...currentLanguages, current.slug]);
+                    setSelectedLanguages([...currentLanguages, current.slug], {
+                      shallow: true,
+                    });
                   } else {
                     setSelectedLanguages(
-                      currentLanguages.filter((x) => x != current.slug)
+                      currentLanguages.filter((x) => x != current.slug),
+                      {
+                        shallow: true,
+                      }
                     );
                   }
                 }}
@@ -105,29 +134,48 @@ export const LanguageLibrarySearchForm = () => {
           ))}
         </div>
         <div>
-          <div className={styles.optionsList}>
-            {(selectedLanguages || []).map((current) => {
-              const currentFullLanguage = languages.find(
-                (x) => x.slug == current
-              );
+          <p className={styles.resultsCount}>
+            {results.length == 0
+              ? "No results found"
+              : `Found ${results.length} resources`}
+          </p>
+          {selectedLanguages.length > 0 && (
+            <div className={styles.optionsList}>
+              {selectedLanguages.map((current) => {
+                const currentFullLanguage = languages.find(
+                  (x) => x.slug == current
+                );
 
-              return (
-                <button
-                  key={currentFullLanguage.slug}
-                  className={styles.pillButton}
-                  onClick={() => {
-                    setSelectedLanguages(
-                      selectedLanguages.filter((x) => x != current)
-                    );
-                  }}
-                >
-                  {currentFullLanguage.name}
-                  <SvgIcon className={styles.icon}>
-                    <ClearIcon />
-                  </SvgIcon>
-                </button>
-              );
-            })}
+                return (
+                  <button
+                    key={currentFullLanguage.slug}
+                    className={styles.pillButton}
+                    onClick={() => {
+                      setSelectedLanguages(
+                        selectedLanguages.filter((x) => x != current),
+                        {
+                          shallow: true,
+                        }
+                      );
+                    }}
+                  >
+                    {currentFullLanguage.name}
+                    <SvgIcon className={styles.icon}>
+                      <ClearIcon />
+                    </SvgIcon>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+          <div className={styles.resultsList}>
+            {results.map((current, index) => (
+              <LanguageLibraryCard
+                index={index}
+                key={current.slug}
+                resource={current}
+              />
+            ))}
           </div>
         </div>
       </div>

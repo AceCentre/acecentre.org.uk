@@ -2,6 +2,7 @@
   margin: 0 auto;
   width: 90%;
   max-width: var(--containerMaxWidth);
+  margin-bottom: 2rem;
 }
 
 .searchBar {
@@ -23,6 +24,10 @@
   background: #eeeeee;
   padding: 1rem;
   border-color: cyan;
+}
+
+.resultsCount {
+  margin-top: 0;
 }
 
 .icon.icon {
@@ -53,9 +58,30 @@
   cursor: pointer;
 }
 
+.resultsList {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1rem;
+}
+
+.cardContainer {
+}
+
+/** Mobile CSS */
+@media (max-width: 1000px) {
+  .resultsList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .filtersAndResult {
+    grid-template-columns: 1fr;
+  }
+
+  .resultsList {
     grid-template-columns: 1fr;
   }
 }
