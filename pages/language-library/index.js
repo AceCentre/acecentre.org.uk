@@ -13,11 +13,10 @@ import {
   LANGUAGE_LIBRARY_FAQS,
 } from "../../components/getting-started-faqs/getting-started-faqs";
 import { LanguageLibraryHowTo } from "../../components/language-library-how-to/language-library-how-to";
+import { LanguageLibraryFeatured } from "../../components/language-library-featured/language-library-featured";
 
-export default function LanguageLibrary({ languages }) {
+export default function LanguageLibrary({ languages, displayTag }) {
   const { currentYear } = useGlobalProps();
-
-  console.log(languages);
 
   return (
     <>
@@ -28,9 +27,7 @@ export default function LanguageLibrary({ languages }) {
         <LanguageLibraryHeader />
         <LanguageLibraryLandingSearch languages={languages.nodes} />
         <LanguageLibrarySubtitles />
-        <h2 style={{ textAlign: "center" }}>
-          List of features resources will go here
-        </h2>
+        <LanguageLibraryFeatured resources={displayTag.resources.nodes} />
         <LanguageLibraryCredits />
         <LanguageLibraryHowTo />
         <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
