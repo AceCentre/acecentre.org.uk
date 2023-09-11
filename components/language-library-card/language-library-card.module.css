@@ -1,0 +1,33 @@
+.image {
+  object-fit: contain;
+}
+
+.imageContainer {
+  padding: 8px;
+  z-index: -1;
+  position: relative;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.yellowGradient {
+  background: linear-gradient(to bottom right, #fffae1, #f6eec5);
+}
+
+.redGradient {
+  background: linear-gradient(to bottom right, #fff4f4, #f1d1d0);
+}
+
+.blueGradient {
+  background: linear-gradient(to bottom right, #eaf8ff, #bfdded);
+}
+
+.orangeGradient {
+  background: linear-gradient(to bottom right, #ffeed6, #f4d4a4);
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
