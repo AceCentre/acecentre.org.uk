@@ -26,8 +26,8 @@ export const LanguageLibraryCard = ({ resource, index = 0 }) => {
           className={`${styles.image}`}
         />
       </div>
-
-      {/* <h3>{resource.title}</h3> */}
+      <h3>{resource.title}</h3>
+      <p>Added by: {resource.authorUsername}</p>
     </div>
   );
 };

@@ -26,6 +26,11 @@
   background: linear-gradient(to bottom right, #ffeed6, #f4d4a4);
 }
 
+.container h3 {
+  margin: 8px 0;
+  font-weight: normal;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {
