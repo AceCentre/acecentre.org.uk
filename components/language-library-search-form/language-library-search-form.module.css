@@ -61,6 +61,7 @@
 .resultsList {
   display: grid;
   gap: 1rem;
+  row-gap: 3rem;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1rem;
 }
