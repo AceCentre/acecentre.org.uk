@@ -28,6 +28,7 @@ export const LanguageLibraryCard = ({ resource, index = 0 }) => {
       </div>
       <h3>{resource.title}</h3>
       <p>Added by: {resource.authorUsername}</p>
+      <p>{resource.languages.nodes.map((x) => x.name).join(", ")}</p>
     </div>
   );
 };
