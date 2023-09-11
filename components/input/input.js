@@ -16,6 +16,7 @@ export const Input = ({
   withLabel = false,
   required,
   value,
+  defaultValue,
 }) => {
   return (
     <InputGroup
@@ -32,6 +33,7 @@ export const Input = ({
         type={type}
         required={required}
         value={value}
+        defaultValue={defaultValue}
       />
       <InputRightElement zIndex={1}>{children}</InputRightElement>
     </InputGroup>
