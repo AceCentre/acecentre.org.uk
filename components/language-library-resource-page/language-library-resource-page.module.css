@@ -7,6 +7,11 @@
   margin: 2rem 0;
 }
 
+.downloadButton {
+  display: block;
+  margin-top: 2rem;
+}
+
 .topContainer {
   display: grid;
   grid-template-columns: 1fr 2fr;

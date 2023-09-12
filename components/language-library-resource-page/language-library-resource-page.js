@@ -1,4 +1,5 @@
 import { BackToLink } from "../back-to-link/back-to-link";
+import { Button } from "../button/button";
 import { Image } from "../image";
 import styles from "./language-library-resource-page.module.css";
 
@@ -36,7 +37,17 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
             width={400}
           />
         </div>
-        <h1>{resource.title}</h1>
+        <div>
+          <h1>{resource.title}</h1>
+          <p>{resource.description}</p>
+          {resource.resourceFiles.nodes.length === 1 && (
+            <div className={styles.downloadButton}>
+              <Button href={resource.resourceFiles.nodes[0].mediaItemUrl}>
+                Download Resource
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
