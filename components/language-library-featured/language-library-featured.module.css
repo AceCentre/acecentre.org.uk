@@ -4,6 +4,12 @@
   max-width: var(--containerMaxWidth);
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
