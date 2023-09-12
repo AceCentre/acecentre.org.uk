@@ -1,0 +1,51 @@
+.container {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+}
+.backTo {
+  margin: 2rem 0;
+}
+
+.topContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+}
+
+.topContainer h1 {
+  margin-top: 0;
+}
+
+.yellowGradient {
+  background: linear-gradient(to bottom right, #fffae1, #f6eec5);
+}
+
+.redGradient {
+  background: linear-gradient(to bottom right, #fff4f4, #f1d1d0);
+}
+
+.blueGradient {
+  background: linear-gradient(to bottom right, #eaf8ff, #bfdded);
+}
+
+.orangeGradient {
+  background: linear-gradient(to bottom right, #ffeed6, #f4d4a4);
+}
+.imageContainer {
+  position: relative;
+  z-index: -1;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.imageContainer img {
+  object-fit: contain;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+  }
+}
