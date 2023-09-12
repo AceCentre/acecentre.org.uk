@@ -104,6 +104,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
       <div className={styles.filtersAndResult}>
         <div className={styles.filterContainer}>
           <h3>Language</h3>
+          <p>The language of the resource</p>
 
           {languages.map((current) => (
             <div key={current.slug}>
