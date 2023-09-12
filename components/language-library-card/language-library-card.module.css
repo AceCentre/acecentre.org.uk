@@ -1,13 +1,27 @@
 .image {
   object-fit: contain;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
 .imageContainer {
-  padding: 8px;
+  /* padding: 8px; */
   z-index: -1;
   position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 1rem;
+  margin-bottom: 8px;
+}
+
+.container {
+  color: black;
+  text-decoration: none;
+  transition: box-shadow 0.1s;
+  border-radius: 1rem;
+  box-sizing: border-box;
 }
 
 .yellowGradient {
@@ -27,8 +41,32 @@
 }
 
 .container h3 {
-  margin: 8px 0;
+  margin: 0;
   font-weight: normal;
+}
+
+.container p {
+  margin: 0;
+}
+
+.languages {
+}
+
+.addedBy {
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.container:hover,
+.container:focus {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  transform: scale(1.025);
+  transition: transform 0.1s;
+  padding: 1rem;
+  margin: -1rem;
+  background: white;
+  /* border: 1px solid #00537f; */
+  box-shadow: 0px 0px 0px 1px#00537f inset;
 }
 
 /** Mobile CSS */
