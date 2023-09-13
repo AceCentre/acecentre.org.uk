@@ -104,7 +104,7 @@ export default function LearningDetail({
                 <LearningReviews reviews={reviews} />
               </div>
               <div>
-                <Certificate />
+                {course.price !== 0 && <Certificate />}
                 <LearningDetailMeta course={course} levels={levels} />
               </div>
             </div>
