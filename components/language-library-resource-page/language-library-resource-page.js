@@ -47,6 +47,11 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
               </Button>
             </div>
           )}
+          {resource.resourceUrl && (
+            <div className={styles.downloadButton}>
+              <Button href={resource.resourceUrl}>Visit Resource</Button>
+            </div>
+          )}
         </div>
       </div>
     </div>
