@@ -147,58 +147,66 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
           })}
         </div>
         <div className={styles.rightColumn}>
-          <p className={styles.resultsCount}>
-            {results.length == 0
-              ? "No results found"
-              : `Found ${results.length} resources`}
-          </p>
-          {Object.values(fullState).flat().length > 0 && (
-            <div className={styles.optionsList}>
-              {Object.entries(fullState).map((current) => {
-                const currentSection = flatSections(DETAILS_CONFIG).find(
-                  (x) => x.slug == current[0]
-                );
+          {Object.values(fullState).flat().length > 0 ? (
+            <>
+              <p className={styles.resultsCount}>
+                {results.length == 0
+                  ? "No results found matching the following criteria:"
+                  : `Found ${results.length} resources matching the following criteria:`}
+              </p>
+              <div className={styles.optionsList}>
+                {Object.entries(fullState).map((current) => {
+                  const currentSection = flatSections(DETAILS_CONFIG).find(
+                    (x) => x.slug == current[0]
+                  );
 
-                const uniqueValues = currentSection.getAllUniqueValues(
-                  resources.nodes,
-                  results
-                );
+                  const uniqueValues = currentSection.getAllUniqueValues(
+                    resources.nodes,
+                    results
+                  );
 
-                return (
-                  <>
-                    {current[1].map((value) => {
-                      let currentFull = uniqueValues.find(
-                        (x) => x.slug == value
-                      );
+                  return (
+                    <>
+                      {current[1].map((value) => {
+                        let currentFull = uniqueValues.find(
+                          (x) => x.slug == value
+                        );
 
-                      return (
-                        <button
-                          key={currentFull.slug}
-                          className={styles.pillButton}
-                          onClick={() => {
-                            setFullState(
-                              {
-                                [current[0]]: current[1].filter(
-                                  (x) => x != value
-                                ),
-                              },
-                              {
-                                shallow: true,
-                              }
-                            );
-                          }}
-                        >
-                          {currentFull.name}
-                          <SvgIcon className={styles.icon}>
-                            <ClearIcon />
-                          </SvgIcon>
-                        </button>
-                      );
-                    })}
-                  </>
-                );
-              })}
-            </div>
+                        return (
+                          <button
+                            key={currentFull.slug}
+                            className={styles.pillButton}
+                            onClick={() => {
+                              setFullState(
+                                {
+                                  [current[0]]: current[1].filter(
+                                    (x) => x != value
+                                  ),
+                                },
+                                {
+                                  shallow: true,
+                                }
+                              );
+                            }}
+                          >
+                            {currentFull.name}
+                            <SvgIcon className={styles.icon}>
+                              <ClearIcon />
+                            </SvgIcon>
+                          </button>
+                        );
+                      })}
+                    </>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <p className={styles.resultsCount}>
+              {results.length == 0
+                ? "No results found"
+                : `Found ${results.length} resources`}
+            </p>
           )}
 
           <div className={styles.resultsList}>
