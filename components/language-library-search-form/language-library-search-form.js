@@ -12,6 +12,7 @@ import {
   DETAILS_CONFIG,
   flatSections,
 } from "../language-library-details/language-library-details";
+import { Fragment } from "react";
 
 function intersect(a, b) {
   var setB = new Set(b);
@@ -166,7 +167,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
                   );
 
                   return (
-                    <>
+                    <Fragment key={current[0]}>
                       {current[1].map((value) => {
                         let currentFull = uniqueValues.find(
                           (x) => x.slug == value
@@ -196,7 +197,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
                           </button>
                         );
                       })}
-                    </>
+                    </Fragment>
                   );
                 })}
               </div>
