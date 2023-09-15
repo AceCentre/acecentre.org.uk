@@ -6,6 +6,7 @@ import styles from "./language-library-resource-page.module.css";
 import { SvgIcon } from "@material-ui/core";
 import { Tooltip } from "@chakra-ui/react";
 import { DETAILS_CONFIG } from "../language-library-details/language-library-details";
+import { Fragment } from "react";
 
 const listOfBackgrounds = [
   styles.blueGradient,
@@ -60,7 +61,7 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
       <div className={styles.details}>
         {DETAILS_CONFIG.sections.map((section) => {
           return (
-            <>
+            <Fragment key={`top-${section.slug}`}>
               <div className={styles.sectionsHeader}>
                 <h2>{section.name}</h2>
               </div>
@@ -100,7 +101,7 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
                   </div>
                 );
               })}
-            </>
+            </Fragment>
           );
         })}
       </div>

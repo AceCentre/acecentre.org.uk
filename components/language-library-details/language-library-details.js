@@ -49,7 +49,7 @@ export const DETAILS_CONFIG = {
             let methods = resource.translationMethods.nodes;
             if (methods.length !== 1) return null;
             let method = methods[0];
-            console.log(method);
+
             return method.description;
           },
           getDetail: (resource) => {
