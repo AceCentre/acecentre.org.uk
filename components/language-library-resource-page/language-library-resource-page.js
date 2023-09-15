@@ -1,7 +1,11 @@
+import HelpIcon from "@material-ui/icons/Help";
 import { BackToLink } from "../back-to-link/back-to-link";
 import { Button } from "../button/button";
 import { Image } from "../image";
 import styles from "./language-library-resource-page.module.css";
+import { SvgIcon } from "@material-ui/core";
+import { Tooltip } from "@chakra-ui/react";
+import { DETAILS_CONFIG } from "../language-library-details/language-library-details";
 
 const listOfBackgrounds = [
   styles.blueGradient,
@@ -15,7 +19,6 @@ const listOfBackgrounds = [
 ];
 
 export const LanguageLibraryResourcePage = ({ resource }) => {
-  console.log(resource);
   const backgroundClass =
     listOfBackgrounds[
       resource.databaseId == 0
@@ -53,6 +56,53 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
             </div>
           )}
         </div>
+      </div>
+      <div className={styles.details}>
+        {DETAILS_CONFIG.sections.map((section) => {
+          return (
+            <>
+              <div className={styles.sectionsHeader}>
+                <h2>{section.name}</h2>
+              </div>
+              {section.sections.map((subSection) => {
+                const currentValue = subSection.getDetail(resource);
+
+                if (!currentValue || currentValue == "") return null;
+
+                return (
+                  <div className={styles.row} key={subSection.name}>
+                    <div className={styles.category}>
+                      <p>{subSection.name}</p>
+                      <Tooltip
+                        placement="right"
+                        label={subSection.tooltip}
+                        closeDelay={500}
+                      >
+                        <SvgIcon>
+                          <HelpIcon />
+                        </SvgIcon>
+                      </Tooltip>
+                    </div>
+                    <div className={styles.value}>
+                      <p>{currentValue}</p>
+                      {subSection.getDetailTooltip && (
+                        <Tooltip
+                          placement="right"
+                          label={subSection.getDetailTooltip(resource)}
+                          closeDelay={500}
+                        >
+                          <SvgIcon>
+                            <HelpIcon />
+                          </SvgIcon>
+                        </Tooltip>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          );
+        })}
       </div>
     </div>
   );

@@ -3,6 +3,47 @@
   width: 90%;
   max-width: var(--containerMaxWidth);
 }
+
+.details {
+  max-width: 720px;
+  margin: 2rem auto;
+  width: 100%;
+  border: 2px solid #919191;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.sectionsHeader {
+  background: #eeeeee;
+  padding: 1rem;
+}
+
+.sectionsHeader h2 {
+  margin: 0;
+}
+
+.row {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.row p {
+  margin: 0;
+}
+
+.category {
+  display: flex;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.value {
+  display: flex;
+  gap: 4px;
+}
+
 .backTo {
   margin: 2rem 0;
 }
@@ -51,6 +92,7 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
+  .topContainer {
+    grid-template-columns: 1fr;
   }
 }
