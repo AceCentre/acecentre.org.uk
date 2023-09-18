@@ -2,7 +2,7 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLanguageLibraryLandingPageData } from "../../lib/language-library";
 import { LanguageLibraryHeader } from "../../components/language-library-header/language-library-header";
 import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
@@ -37,7 +37,7 @@ export default function LanguageLibrary({ languages, displayTag }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const props = await getLanguageLibraryLandingPageData();
 
   return {

@@ -5,7 +5,7 @@ import { LanguageLibrarySearchForm } from "../../components/language-library-sea
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
+import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLanguageLibrarySearchResultsProps } from "../../lib/language-library";
 import { useRouter } from "next/router";
 import { FullPageSpinner } from "../../components/full-page-spinner/full-page-spinner";
@@ -44,7 +44,7 @@ export default function LanguageLibrary({ resources }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = withGlobalProps(async () => {
   const props = await getLanguageLibrarySearchResultsProps();
 
   return {
