@@ -3,8 +3,11 @@ import { Footer } from "../../components/footer/footer";
 import { LanguageLibraryResourcePage } from "../../components/language-library-resource-page/language-library-resource-page";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
-import { getLanguageLibraryResource } from "../../lib/language-library";
+import { withGlobalProps } from "../../lib/global-props/inject";
+import {
+  getAllSlugs,
+  getLanguageLibraryResource,
+} from "../../lib/language-library";
 
 export default function LanguageLibrary({ resource }) {
   const { currentYear } = useGlobalProps();
@@ -22,16 +25,24 @@ export default function LanguageLibrary({ resource }) {
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(
-  async ({ params: { slug } }) => {
-    const resource = await getLanguageLibraryResource(slug);
+export async function getStaticPaths() {
+  const { resources } = await getAllSlugs();
 
-    return {
-      props: {
-        resource,
+  return {
+    paths: resources.nodes.map((post) => ({ params: { slug: post.slug } })),
+    fallback: false,
+  };
+}
 
-        seo: { dontIndex: true, title: resource.title },
-      },
-    };
-  }
-);
+export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+  const resource = await getLanguageLibraryResource(slug);
+
+  if (!resource.databaseId) return { notFound: true };
+
+  return {
+    props: {
+      resource,
+      seo: { dontIndex: true, title: resource.title },
+    },
+  };
+});
