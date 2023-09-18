@@ -32,11 +32,10 @@
   border-color: cyan;
 }
 
-.filterContainer p {
+.description {
   margin: 0;
   font-style: italic;
   font-size: 14px;
-  /* font-weight: lighter; */
 }
 
 .rightColumn {
@@ -53,14 +52,16 @@
   font-size: 22px;
 }
 
-.filterContainer h3 {
-  margin: 0;
-}
-
 .optionsList {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.sectionName {
+  font-size: 1.17em;
+  margin: 0;
+  font-weight: bold;
 }
 
 .pillButton {

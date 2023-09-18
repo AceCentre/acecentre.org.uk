@@ -39,6 +39,7 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
             src={resource.featuredImage.node.mediaItemUrl}
             height={200}
             width={400}
+            alt={`Screenshot of: ${resource.title}`}
           />
         </div>
         <div>
