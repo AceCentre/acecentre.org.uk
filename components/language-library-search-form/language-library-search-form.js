@@ -97,55 +97,62 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
         </div>
       </form>
       <div className={styles.filtersAndResult}>
-        <div className={styles.filterContainer}>
-          {flatSections(DETAILS_CONFIG).map((section) => {
-            const uniqueValues = section.getAllUniqueValues(
-              resources.nodes,
-              results
-            );
+        <div>
+          <div className={styles.filterContainer}>
+            {flatSections(DETAILS_CONFIG).map((section) => {
+              const uniqueValues = section.getAllUniqueValues(
+                resources.nodes,
+                results
+              );
 
-            return (
-              <div key={section.slug}>
-                <h3>{section.name}</h3>
-                <p>{section.tooltip}</p>
-                {uniqueValues.map((current) => (
-                  <div key={current.slug}>
-                    <Checkbox
-                      isChecked={fullState[section.slug].includes(current.slug)}
-                      onChange={(currentEvent) => {
-                        const newCheckedValue = currentEvent.target.checked;
+              return (
+                <div key={section.slug}>
+                  <p className={styles.sectionName}>{section.name}</p>
+                  <p className={styles.description}>{section.tooltip}</p>
+                  {uniqueValues.map((current) => (
+                    <div key={current.slug}>
+                      <Checkbox
+                        isChecked={fullState[section.slug].includes(
+                          current.slug
+                        )}
+                        onChange={(currentEvent) => {
+                          const newCheckedValue = currentEvent.target.checked;
 
-                        let currentValues = fullState[section.slug];
-                        if (newCheckedValue) {
-                          setFullState(
-                            {
-                              [section.slug]: [...currentValues, current.slug],
-                            },
-                            {
-                              shallow: true,
-                            }
-                          );
-                        } else {
-                          setFullState(
-                            {
-                              [section.slug]: currentValues.filter(
-                                (x) => x != current.slug
-                              ),
-                            },
-                            {
-                              shallow: true,
-                            }
-                          );
-                        }
-                      }}
-                    >
-                      ({current.count}) {current.name}
-                    </Checkbox>
-                  </div>
-                ))}
-              </div>
-            );
-          })}
+                          let currentValues = fullState[section.slug];
+                          if (newCheckedValue) {
+                            setFullState(
+                              {
+                                [section.slug]: [
+                                  ...currentValues,
+                                  current.slug,
+                                ],
+                              },
+                              {
+                                shallow: true,
+                              }
+                            );
+                          } else {
+                            setFullState(
+                              {
+                                [section.slug]: currentValues.filter(
+                                  (x) => x != current.slug
+                                ),
+                              },
+                              {
+                                shallow: true,
+                              }
+                            );
+                          }
+                        }}
+                      >
+                        ({current.count}) {current.name}
+                      </Checkbox>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className={styles.rightColumn}>
           {Object.values(fullState).flat().length > 0 ? (
