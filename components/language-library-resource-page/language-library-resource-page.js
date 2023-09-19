@@ -7,6 +7,11 @@ import { SvgIcon } from "@material-ui/core";
 import { Tooltip } from "@chakra-ui/react";
 import { DETAILS_CONFIG } from "../language-library-details/language-library-details";
 import { Fragment } from "react";
+import { LanguageLibraryRelevantResources } from "../language-library-relevant-resources/language-library-relevant-resources";
+import {
+  GenericFaqs,
+  LANGUAGE_LIBRARY_FAQS,
+} from "../getting-started-faqs/getting-started-faqs";
 
 const listOfBackgrounds = [
   styles.blueGradient,
@@ -27,85 +32,89 @@ export const LanguageLibraryResourcePage = ({ resource }) => {
         : resource.databaseId % listOfBackgrounds.length
     ];
   return (
-    <div className={styles.container}>
-      <BackToLink
-        className={styles.backTo}
-        href="/language-library/all"
-        where="language library"
-      />
-      <div className={styles.topContainer}>
-        <div className={`${styles.imageContainer} ${backgroundClass}`}>
-          <Image
-            src={resource.featuredImage.node.mediaItemUrl}
-            height={200}
-            width={400}
-            alt={`Screenshot of: ${resource.title}`}
-          />
-        </div>
-        <div>
-          <h1>{resource.title}</h1>
-          <p>{resource.description}</p>
-          {resource.resourceFiles.nodes.length === 1 && (
-            <div className={styles.downloadButton}>
-              <Button href={resource.resourceFiles.nodes[0].mediaItemUrl}>
-                Download Resource
-              </Button>
-            </div>
-          )}
-          {resource.resourceUrl && (
-            <div className={styles.downloadButton}>
-              <Button href={resource.resourceUrl}>Visit Resource</Button>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className={styles.details}>
-        {DETAILS_CONFIG.sections.map((section) => {
-          return (
-            <Fragment key={`top-${section.slug}`}>
-              <div className={styles.sectionsHeader}>
-                <h2>{section.name}</h2>
+    <>
+      <div className={styles.container}>
+        <BackToLink
+          className={styles.backTo}
+          href="/language-library/all"
+          where="language library"
+        />
+        <div className={styles.topContainer}>
+          <div className={`${styles.imageContainer} ${backgroundClass}`}>
+            <Image
+              src={resource.featuredImage.node.mediaItemUrl}
+              height={200}
+              width={400}
+              alt={`Screenshot of: ${resource.title}`}
+            />
+          </div>
+          <div>
+            <h1>{resource.title}</h1>
+            <p>{resource.description}</p>
+            {resource.resourceFiles.nodes.length === 1 && (
+              <div className={styles.downloadButton}>
+                <Button href={resource.resourceFiles.nodes[0].mediaItemUrl}>
+                  Download Resource
+                </Button>
               </div>
-              {section.sections.map((subSection) => {
-                const currentValue = subSection.getDetail(resource);
+            )}
+            {resource.resourceUrl && (
+              <div className={styles.downloadButton}>
+                <Button href={resource.resourceUrl}>Visit Resource</Button>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={styles.details}>
+          {DETAILS_CONFIG.sections.map((section) => {
+            return (
+              <Fragment key={`top-${section.slug}`}>
+                <div className={styles.sectionsHeader}>
+                  <h2>{section.name}</h2>
+                </div>
+                {section.sections.map((subSection) => {
+                  const currentValue = subSection.getDetail(resource);
 
-                if (!currentValue || currentValue == "") return null;
+                  if (!currentValue || currentValue == "") return null;
 
-                return (
-                  <div className={styles.row} key={subSection.name}>
-                    <div className={styles.category}>
-                      <p>{subSection.name}</p>
-                      <Tooltip
-                        placement="right"
-                        label={subSection.tooltip}
-                        closeDelay={500}
-                      >
-                        <SvgIcon>
-                          <HelpIcon />
-                        </SvgIcon>
-                      </Tooltip>
-                    </div>
-                    <div className={styles.value}>
-                      <p>{currentValue}</p>
-                      {subSection.getDetailTooltip && (
+                  return (
+                    <div className={styles.row} key={subSection.name}>
+                      <div className={styles.category}>
+                        <p>{subSection.name}</p>
                         <Tooltip
                           placement="right"
-                          label={subSection.getDetailTooltip(resource)}
+                          label={subSection.tooltip}
                           closeDelay={500}
                         >
                           <SvgIcon>
                             <HelpIcon />
                           </SvgIcon>
                         </Tooltip>
-                      )}
+                      </div>
+                      <div className={styles.value}>
+                        <p>{currentValue}</p>
+                        {subSection.getDetailTooltip && (
+                          <Tooltip
+                            placement="right"
+                            label={subSection.getDetailTooltip(resource)}
+                            closeDelay={500}
+                          >
+                            <SvgIcon>
+                              <HelpIcon />
+                            </SvgIcon>
+                          </Tooltip>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </Fragment>
-          );
-        })}
+                  );
+                })}
+              </Fragment>
+            );
+          })}
+        </div>
+        <LanguageLibraryRelevantResources resource={resource} />
       </div>
-    </div>
+      <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
+    </>
   );
 };

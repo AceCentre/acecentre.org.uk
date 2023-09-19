@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.titleAndLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleAndLink h2 {
+  margin: 0;
+}
+
+.description {
+  font-style: italic;
+  margin-top: 0;
+}
+
+/** Mobile CSS */
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 540px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .titleAndLink {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
