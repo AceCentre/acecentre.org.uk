@@ -8,12 +8,18 @@
   gap: 1rem;
 }
 
-.container h2 {
+.leftSide h2 {
   margin: 0;
 }
 
-.container p {
+.leftSide p {
   margin: 0;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /** Mobile CSS */
