@@ -18,6 +18,7 @@ const normalConfig = {
 const SentryWebpackPluginOptions = {
   silent: false,
   autoInstrumentServerFunctions: false,
+  hideSourceMaps: false,
 };
 
 module.exports = withSentryConfig(normalConfig, SentryWebpackPluginOptions);
