@@ -5,7 +5,7 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 export const LanguageLibraryHowTo = () => {
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.leftSide}>
         <h2>How to add to the Language Library</h2>
         <p>
           The Language Library is open for anyone to contribute to. The

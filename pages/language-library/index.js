@@ -43,7 +43,12 @@ export const getStaticProps = withGlobalProps(async () => {
   return {
     props: {
       ...props,
-      seo: { dontIndex: true, title: "Language Library" },
+      seo: {
+        dontIndex: true,
+        title: "Language Library",
+        description:
+          "Achieving Language Equity for Multilingual and Non-English Speaking AAC Users",
+      },
     },
   };
 });
