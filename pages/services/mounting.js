@@ -167,10 +167,6 @@ export default function MountingPage() {
             </p>
             <ul className={styles.list}>
               <ListItem>
-                £295 to fit the first system and £95 for each additional system
-                at your location
-              </ListItem>
-              <ListItem>
                 £295 to provide an assessment and fit the first system and £95
                 for each additional system at one of our assessment centres.
               </ListItem>
