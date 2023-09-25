@@ -61,13 +61,17 @@ export const deleteCohorts = async () => {
 
   const cohortids = testingCohorts.map((x) => x.id);
 
-  const fullCohorts = await client.call({
-    wsfunction: "core_cohort_get_cohort_members",
-    method: "POST",
-    args: {
-      cohortids,
-    },
-  });
+  let fullCohorts = [];
+
+  if (cohortids.length > 0) {
+    fullCohorts = await client.call({
+      wsfunction: "core_cohort_get_cohort_members",
+      method: "POST",
+      args: {
+        cohortids,
+      },
+    });
+  }
 
   const emptyCohorts = fullCohorts.filter((x) => x.userids.length === 0);
 
