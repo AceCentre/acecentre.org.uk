@@ -316,7 +316,7 @@ export default function ResourceDetail({
                     className={styles.downloadFormButton}
                     onClick={() => {
                       openPopup(
-                        "https://acecentreuk.sharepoint.com/:p:/s/AnonymousShares/EWN9rlMoAJtNr3PAjRtAolIB8IhyPYVD5H65qOI2iNpJUQ"
+                        "https://acecentreuk.sharepoint.com/:p:/s/AnonymousShares/EfexZJSb6gNAt8Q1BtwCK-4BHhgqo2D5jFKBFUTiIoL_jg"
                       );
                     }}
                   >
