@@ -240,8 +240,9 @@ export default function ResourceDetail({
               partner and the learner.
             </p>
             <p>
-              Interactive versions are available to view online or to download
-              and use in PowerPoint. A PDF version for printing is coming soon!
+              Interactive versions are available to view online or to view and
+              use in PowerPoint. There is also a printable PDF option if you
+              wish to assemble an example communication book.
             </p>
             <h2>Look2Talk Communication Book Templates</h2>
             <p>
@@ -327,11 +328,21 @@ export default function ResourceDetail({
                   href="#"
                   onClick={() => {
                     openPopup(
-                      "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Demonstration-Book-6.23-v3.ppsx"
+                      "https://backend.acecentre.org.uk/wp-content/uploads/2023/09/Look2Talk-Demonstration-Book-9.23.ppsx"
                     );
                   }}
                 >
-                  Download demo pages
+                  Download interactive Demo Pages
+                </Link>
+                <Link
+                  href="#"
+                  onClick={() => {
+                    openPopup(
+                      "https://backend.acecentre.org.uk/wp-content/uploads/2023/09/Look2Talk-Printable-Demonstration-Book-9.23.pdf"
+                    );
+                  }}
+                >
+                  Download printable Demo Pages
                 </Link>
               </div>
             </div>
