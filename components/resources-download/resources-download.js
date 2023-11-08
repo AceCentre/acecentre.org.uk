@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
 
@@ -72,7 +72,7 @@ const Ebook = ({ ebook, resource, posthog, posthogLoaded }) => {
   return (
     <>
       <DownloadModal
-        slug={resource.slug}
+        resource={resource}
         modalOpen={modalOpen}
         onClose={onClose}
       />
@@ -436,7 +436,127 @@ export const NewsletterSignup = ({
   );
 };
 
-const DownloadModal = ({ modalOpen, onClose, slug }) => {
+const ForcedEmail = ({ resource, modalOpen, onClose }) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Free download</h2>
+            <p>
+              You can access this content by joining our mailing list to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup
+              withNames
+              signUpIdentifier={"resource-download"}
+              tags={[{ name: resource.slug }]}
+              onSuccess={() => {
+                const link = document.createElement("a");
+                link.download = true;
+                link.href = `${config.baseUrl}${resource.downloadUrl}`;
+                link.click();
+              }}
+            />
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+const DownloadModal = ({ resource, modalOpen, onClose }) => {
+  if (resource.popupFormBehaviour == "forced-email") {
+    return (
+      <ForcedEmail
+        resource={resource}
+        onClose={onClose}
+        modalOpen={modalOpen}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "donation") {
+    return (
+      <OptionalDonate
+        slug={resource.slug}
+        onClose={onClose}
+        modalOpen={modalOpen}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "optional-email") {
+    return (
+      <OptionalDownloadModal
+        slug={resource.slug}
+        onClose={onClose}
+        modalOpen={modalOpen}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "no-popup") {
+    return null;
+  }
+
+  return (
+    <OptionalDownloadModal
+      slug={resource.slug}
+      onClose={onClose}
+      modalOpen={modalOpen}
+    />
+  );
+};
+
+const OptionalDonate = ({ modalOpen, onClose }) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Free download complete</h2>
+            <p>
+              If you found this resource helpful then please consider donating
+              so we can continue to make valuable resources.
+            </p>
+          </div>
+          <div className={styles.donateButton}>
+            <Button href="/get-involved/donate">Donate</Button>
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+const OptionalDownloadModal = ({ modalOpen, onClose, slug }) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -478,39 +598,45 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
 
   const onClose = () => setModalOpen(false);
 
+  const onClick = useCallback(() => {
+    setModalOpen(true);
+    if (typeof gtag !== "undefined" && gtag) {
+      gtag("event", "conversion", {
+        send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+      });
+    }
+
+    if (
+      posthogLoaded &&
+      window.location.origin === "https://acecentre.org.uk"
+    ) {
+      console.log("Capture", "resourceDownloaded", {
+        name: resource.slug,
+      });
+      posthog.capture("resourceDownloaded", {
+        name: resource.slug,
+        resourceType: "instant-download",
+      });
+    }
+  }, []);
+
   return (
     <>
       <div className={styles.downloadButtonContainer}>
-        <Button
-          onClick={() => {
-            setModalOpen(true);
-            if (typeof gtag !== "undefined" && gtag) {
-              gtag("event", "conversion", {
-                send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
-              });
-            }
-
-            if (
-              posthogLoaded &&
-              window.location.origin === "https://acecentre.org.uk"
-            ) {
-              console.log("Capture", "resourceDownloaded", {
-                name: resource.slug,
-              });
-              posthog.capture("resourceDownloaded", {
-                name: resource.slug,
-                resourceType: "instant-download",
-              });
-            }
-          }}
-          href={`${config.baseUrl}${resource.downloadUrl}`}
-          download
-        >
-          Free download
-        </Button>
+        {resource.popupFormBehaviour == "forced-email" ? (
+          <Button onClick={onClick}>Free download</Button>
+        ) : (
+          <Button
+            onClick={onClick}
+            href={`${config.baseUrl}${resource.downloadUrl}`}
+            download
+          >
+            Free download
+          </Button>
+        )}
       </div>
       <DownloadModal
-        slug={resource.slug}
+        resource={resource}
         modalOpen={modalOpen}
         onClose={onClose}
       />
