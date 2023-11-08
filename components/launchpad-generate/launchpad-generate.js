@@ -80,8 +80,6 @@ const Progress = ({ totalTime }) => {
   );
   const currentMessage = LOADING_MESSAGES[currentMessageIndex];
 
-  console.log({ interval, currentMessageIndex, currentMessage, value });
-
   return (
     <>
       <LinearProgress
@@ -94,7 +92,176 @@ const Progress = ({ totalTime }) => {
   );
 };
 
-const DownloadModal = ({ modalOpen, onClose, name, errorMessage, slug }) => {
+const DownloadModal = ({
+  modalOpen,
+  onClose,
+  name,
+  errorMessage,
+  slug,
+  resource,
+  triggerDownload,
+}) => {
+  if (resource.popupFormBehaviour == "donation") {
+    return (
+      <DonationModal
+        modalOpen={modalOpen}
+        onClose={onClose}
+        name={name}
+        errorMessage={errorMessage}
+        slug={slug}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "no-popup") {
+    return (
+      <OptionalEmailDownloadModal
+        modalOpen={modalOpen}
+        onClose={onClose}
+        name={name}
+        errorMessage={errorMessage}
+        slug={slug}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "optional-email") {
+    return (
+      <OptionalEmailDownloadModal
+        modalOpen={modalOpen}
+        onClose={onClose}
+        name={name}
+        errorMessage={errorMessage}
+        slug={slug}
+      />
+    );
+  }
+
+  if (resource.popupFormBehaviour == "forced-email") {
+    return (
+      <ForcedEmailDownloadModal
+        modalOpen={modalOpen}
+        onClose={onClose}
+        name={name}
+        errorMessage={errorMessage}
+        slug={slug}
+        triggerDownload={triggerDownload}
+      />
+    );
+  }
+
+  return (
+    <OptionalEmailDownloadModal
+      modalOpen={modalOpen}
+      onClose={onClose}
+      name={name}
+      errorMessage={errorMessage}
+      slug={slug}
+    />
+  );
+};
+
+const ForcedEmailDownloadModal = ({
+  modalOpen,
+  onClose,
+  name,
+  errorMessage,
+  slug,
+  triggerDownload,
+}) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Preparing {name} for download</h2>
+
+            {errorMessage ? (
+              <ErrorMessage errorMessage={errorMessage} />
+            ) : (
+              <Progress totalTime={10000} />
+            )}
+            <p>
+              You can access this content by joining our mailing list to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup
+              tags={[{ name: slug }]}
+              signUpIdentifier="launchpad"
+              withNames
+              onSuccess={() => {
+                triggerDownload();
+              }}
+            />
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+const DonationModal = ({ modalOpen, onClose, name, errorMessage }) => {
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Preparing {name} for download</h2>
+
+            {errorMessage ? (
+              <ErrorMessage errorMessage={errorMessage} />
+            ) : (
+              <Progress totalTime={10000} />
+            )}
+            <p>
+              If you found this resource helpful then please consider donating
+              so we can continue to make valuable resources.
+            </p>
+          </div>
+
+          <div className={styles.donateButton}>
+            <Button href="/get-involved/donate">Donate</Button>
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+const OptionalEmailDownloadModal = ({
+  modalOpen,
+  onClose,
+  name,
+  errorMessage,
+  slug,
+}) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -249,7 +416,9 @@ export const LaunchpadGenerate = ({
               className={styles.downloadButton}
               disabled={downloadDisabled}
               onClick={() => {
-                triggerDownload();
+                if (resource.popupFormBehaviour !== "forced-email") {
+                  triggerDownload();
+                }
                 setModalOpen(true);
               }}
             >
@@ -265,6 +434,7 @@ export const LaunchpadGenerate = ({
               {variableGroupsProps.map((currentGroup) => {
                 return (
                   <VariableGroup
+                    resource={resource}
                     selected={selected}
                     key={currentGroup.id}
                     currentGroup={currentGroup}
@@ -278,6 +448,8 @@ export const LaunchpadGenerate = ({
             <div></div>
 
             <DownloadModal
+              triggerDownload={triggerDownload}
+              resource={resource}
               modalOpen={modalOpen}
               onClose={() => setModalOpen(false)}
               name={template.templateName}
@@ -316,6 +488,7 @@ const VariableGroup = ({
   triggerDownload,
   setModalOpen,
   downloadDisabled,
+  resource,
 }) => {
   return (
     <AccordionItem uuid={currentGroup.id} key={currentGroup.id}>
@@ -344,7 +517,9 @@ const VariableGroup = ({
           className={styles.downloadButton}
           disabled={downloadDisabled}
           onClick={() => {
-            triggerDownload();
+            if (resource.popupFormBehaviour !== "forced-email") {
+              triggerDownload();
+            }
             setModalOpen(true);
           }}
         >
