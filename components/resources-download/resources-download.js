@@ -1,5 +1,6 @@
+/* eslint-disable indent */
 /* eslint-disable no-undef */
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
 
@@ -9,6 +10,8 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { usePosthog } from "../../lib/use-posthog";
 import { useRouter } from "next/router";
 import { Input } from "../input/input";
+
+const storageKey = "newsletter-opt-in";
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
@@ -375,6 +378,7 @@ export const NewsletterSignup = ({
               }
 
               onSuccess();
+              localStorage.setItem(storageKey, true);
 
               setSuccess(true);
             } catch (err) {
@@ -480,14 +484,26 @@ const ForcedEmail = ({ resource, modalOpen, onClose }) => {
 };
 
 const DownloadModal = ({ resource, modalOpen, onClose }) => {
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   if (resource.popupFormBehaviour == "forced-email") {
-    return (
-      <ForcedEmail
-        resource={resource}
-        onClose={onClose}
-        modalOpen={modalOpen}
-      />
-    );
+    if (hasOptedInToNewsletter) {
+      return null;
+    } else {
+      return (
+        <ForcedEmail
+          resource={resource}
+          onClose={onClose}
+          modalOpen={modalOpen}
+        />
+      );
+    }
   }
 
   if (resource.popupFormBehaviour == "donation") {
@@ -598,6 +614,14 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
 
   const onClose = () => setModalOpen(false);
 
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   const onClick = useCallback(() => {
     setModalOpen(true);
     if (typeof gtag !== "undefined" && gtag) {
@@ -623,7 +647,8 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
   return (
     <>
       <div className={styles.downloadButtonContainer}>
-        {resource.popupFormBehaviour == "forced-email" ? (
+        {resource.popupFormBehaviour == "forced-email" &&
+        !hasOptedInToNewsletter ? (
           <Button onClick={onClick}>Free download</Button>
         ) : (
           <Button
