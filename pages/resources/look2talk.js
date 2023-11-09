@@ -36,7 +36,7 @@ export default function ResourceDetail({
   const router = useRouter();
   const { query } = router;
 
-  const storageKey = "look2talk-opt-in";
+  const storageKey = "newsletter-opt-in";
 
   const openPopup = (newModelLink) => {
     if (localStorage.getItem(storageKey) === "true") {

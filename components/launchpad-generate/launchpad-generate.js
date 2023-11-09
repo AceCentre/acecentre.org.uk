@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./launchpad-generate.module.css";
 import { launchpadUrl } from "../../lib/config";
@@ -31,6 +31,8 @@ import { BlockPicker } from "react-color";
 import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
 import { NewsletterSignup } from "../resources-download/resources-download";
 import { ProductFaqs } from "../product-faqs/product-faqs";
+
+const storageKey = "newsletter-opt-in";
 
 const COLOURS = [
   "#B9ffB9",
@@ -101,6 +103,14 @@ const DownloadModal = ({
   resource,
   triggerDownload,
 }) => {
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   if (resource.popupFormBehaviour == "donation") {
     return (
       <DonationModal
@@ -137,7 +147,10 @@ const DownloadModal = ({
     );
   }
 
-  if (resource.popupFormBehaviour == "forced-email") {
+  if (
+    resource.popupFormBehaviour == "forced-email" &&
+    !hasOptedInToNewsletter
+  ) {
     return (
       <ForcedEmailDownloadModal
         modalOpen={modalOpen}
@@ -368,6 +381,14 @@ export const LaunchpadGenerate = ({
     setSelected(defaultSelected);
   }, [defaultSelected]);
 
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   return (
     <>
       <div className={styles.topArea}>
@@ -416,7 +437,10 @@ export const LaunchpadGenerate = ({
               className={styles.downloadButton}
               disabled={downloadDisabled}
               onClick={() => {
-                if (resource.popupFormBehaviour !== "forced-email") {
+                if (
+                  resource.popupFormBehaviour !== "forced-email" ||
+                  hasOptedInToNewsletter
+                ) {
                   triggerDownload();
                 }
                 setModalOpen(true);
@@ -490,6 +514,14 @@ const VariableGroup = ({
   downloadDisabled,
   resource,
 }) => {
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   return (
     <AccordionItem uuid={currentGroup.id} key={currentGroup.id}>
       <AccordionItemHeading>
@@ -517,7 +549,10 @@ const VariableGroup = ({
           className={styles.downloadButton}
           disabled={downloadDisabled}
           onClick={() => {
-            if (resource.popupFormBehaviour !== "forced-email") {
+            if (
+              resource.popupFormBehaviour !== "forced-email" ||
+              hasOptedInToNewsletter
+            ) {
               triggerDownload();
             }
             setModalOpen(true);
