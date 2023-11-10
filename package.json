@@ -62,7 +62,7 @@
     "@swc/jest": "0.2.24",
     "@swc/register": "0.1.10",
     "@testing-library/cypress": "9.0.0",
-    "compare-versions": "^5.0.1",
+    "compare-versions": "^6.1.0",
     "cypress": "13.2.0",
     "cypress-tags": "1.1.2",
     "dotenv": "^16.0.3",
