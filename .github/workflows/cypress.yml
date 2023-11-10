@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Get Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate UUID
         id: generate-uuid
