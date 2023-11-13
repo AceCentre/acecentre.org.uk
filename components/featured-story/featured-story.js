@@ -1,10 +1,10 @@
 import styles from "./featured-story.module.css";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { Button } from "../button/button";
 
 import Link from "next/link";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { VideoPopover } from "../video-popover/video-popover";
 import { useState } from "react";
 
@@ -101,8 +101,8 @@ const OverlayCard = ({ title, summary, slug, className, nhs = false }) => {
           Read full story
         </Button>
         <Link href="/people-we-support" className={styles.allStories}>
-          All Stories<ChevronRightIcon />
-
+          All Stories
+          <ChevronRightIcon />
         </Link>
       </div>
     </div>

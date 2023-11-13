@@ -1,8 +1,8 @@
 import styles from "./blog-category-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 
 export const BlogCategoryGrid = ({ blogCategories }) => {
   return (
@@ -15,8 +15,10 @@ export const BlogCategoryGrid = ({ blogCategories }) => {
               className={styles.listItem}
               key={`browse-articles-${category.slug}`}
             >
-              <Link href={`/blog/category/${category.slug}`} className={styles.link}>
-
+              <Link
+                href={`/blog/category/${category.slug}`}
+                className={styles.link}
+              >
                 <Image
                   src={category.featuredImage.src}
                   alt={category.featuredImage.alt}
@@ -31,7 +33,6 @@ export const BlogCategoryGrid = ({ blogCategories }) => {
                     </Avatar>
                   </div>
                 </div>
-
               </Link>
             </li>
           );

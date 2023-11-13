@@ -1,9 +1,9 @@
 import styles from "./blog-meta.module.css";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import config from "../../lib/config";
@@ -48,12 +48,11 @@ export const ShareButtons = ({
         target="_blank"
         rel="noreferrer"
         aria-label="Twitter logo"
-        className={styles.avatarLink}>
-
+        className={styles.avatarLink}
+      >
         <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
           <TwitterIcon className={styles.logo} />
         </Avatar>
-
       </Link>
 
       <Link
@@ -61,24 +60,22 @@ export const ShareButtons = ({
         target="_blank"
         rel="noreferrer"
         aria-label="LinkedIn logo"
-        className={styles.avatarLink}>
-
+        className={styles.avatarLink}
+      >
         <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
           <LinkedInIcon className={styles.logo} />
         </Avatar>
-
       </Link>
       <Link
         href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
         target="_blank"
         rel="noreferrer"
         aria-label="Facebook logo"
-        className={styles.avatarLink}>
-
+        className={styles.avatarLink}
+      >
         <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
           <FacebookIcon className={styles.logo} />
         </Avatar>
-
       </Link>
     </div>
   );

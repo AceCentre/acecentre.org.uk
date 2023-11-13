@@ -2,17 +2,17 @@ import { Input } from "@chakra-ui/input";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
 import styles from "./service-finder-search.module.css";
-import MyLocationIcon from "@material-ui/icons/MyLocation";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
 import { ServiceFinderMailingList } from "../service-finder-mailing-list/service-finder-mailing-list";
 
-import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-import AccessibleIcon from "@material-ui/icons/Accessible";
-import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
-import Tooltip from "@material-ui/core/Tooltip";
-import Avatar from "@material-ui/core/Avatar";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import AccessibleIcon from "@mui/icons-material/Accessible";
+import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
 
 import { usePosthog } from "../../lib/use-posthog";
 
@@ -340,37 +340,42 @@ const ListOfServices = ({ services }) => {
     return <NoResults />;
   }
 
-  return <>
-    <ul className={styles.resultsContainer}>
-      {services.services.map((service) => (
-        <li className={styles.resultCard} key={service.id}>
-          <h3>{service.serviceName}</h3>
-          <Icons servicesOffered={service.servicesOffered} />
-          <p>
-            <strong>Services:</strong>{" "}
-            {service.servicesOffered.map((x) => x.title).join(", ")}
-          </p>
-          <p>
-            <strong>Address:</strong>
-          </p>
-          <div>
-            {service.addressLines.map((line) => (
-              <span className={styles.addressLine} key={line}>
-                {line}
-              </span>
-            ))}
-          </div>
-          <p>
-            <strong>Phone:</strong> {service.phoneNumber}
-          </p>
-          <Link href={`/nhs-service-finder/${service.id}`} className={styles.findOutMore}>
-            Find out more &gt;
-          </Link>
-        </li>
-      ))}
-    </ul>
-    <ServiceFinderMailingList />
-  </>;
+  return (
+    <>
+      <ul className={styles.resultsContainer}>
+        {services.services.map((service) => (
+          <li className={styles.resultCard} key={service.id}>
+            <h3>{service.serviceName}</h3>
+            <Icons servicesOffered={service.servicesOffered} />
+            <p>
+              <strong>Services:</strong>{" "}
+              {service.servicesOffered.map((x) => x.title).join(", ")}
+            </p>
+            <p>
+              <strong>Address:</strong>
+            </p>
+            <div>
+              {service.addressLines.map((line) => (
+                <span className={styles.addressLine} key={line}>
+                  {line}
+                </span>
+              ))}
+            </div>
+            <p>
+              <strong>Phone:</strong> {service.phoneNumber}
+            </p>
+            <Link
+              href={`/nhs-service-finder/${service.id}`}
+              className={styles.findOutMore}
+            >
+              Find out more &gt;
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ServiceFinderMailingList />
+    </>
+  );
 };
 
 const NoResults = () => {

@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/button";
-import Avatar from "@material-ui/core/Avatar";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import Avatar from "@mui/material/Avatar";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useEffect, useRef, useState } from "react";
 import { VideoPopover } from "../video-popover/video-popover";
 import styles from "./landing-page-cover.module.css";

@@ -1,8 +1,8 @@
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { useMemo, useState } from "react";
 import styles from "./learning-reviews.module.css";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const LearningReviews = ({ reviews }) => {
   if (reviews.length === 0) {

@@ -6,8 +6,8 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
-// import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import Avatar from "@material-ui/core/Avatar";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import Avatar from "@mui/material/Avatar";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
@@ -15,7 +15,7 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
-import BuildIcon from "@material-ui/icons/Build";
+import BuildIcon from "@mui/icons-material/Build";
 import { getAllProducts } from "../../../lib/products/get-products";
 import { getAllProductCategories } from "../../../lib/products/get-all-categories";
 import { filterProducts } from "../../../lib/products/filter-products";

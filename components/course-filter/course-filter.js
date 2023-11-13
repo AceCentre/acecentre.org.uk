@@ -2,8 +2,8 @@ import styles from "./course-filter.module.css";
 
 import { PageTitle } from "../page-title/page-title";
 import { Input } from "../input/input";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import SearchIcon from "@material-ui/icons/Search";
+import SvgIcon from "@mui/material/SvgIcon";
+import SearchIcon from "@mui/icons-material/Search";
 import { useRouter } from "next/router";
 import { Select } from "@chakra-ui/select";
 import { useState } from "react";

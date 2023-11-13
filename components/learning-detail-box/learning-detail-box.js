@@ -4,11 +4,11 @@ import { ImageWithLoader as Image } from "../image";
 import { Button } from "../button/button";
 import { ShareButtons } from "../blog-meta/blog-meta";
 import { useAddToCart } from "../resources-download/resources-download";
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { Input as ChakraInput } from "@chakra-ui/input";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { NoImage } from "../latest-from-blog/latest-from-blog";

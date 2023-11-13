@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from "./contact-cards.module.css";
 
-import Avatar from "@material-ui/core/Avatar";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Avatar from "@mui/material/Avatar";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Button } from "../button/button";
 import { CONTACT_FORM, FormModal } from "../ms-form";
 

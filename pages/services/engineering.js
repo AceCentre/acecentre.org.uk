@@ -6,11 +6,11 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import Avatar from "@material-ui/core/Avatar";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import Avatar from "@mui/material/Avatar";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import AccessibleIcon from "@material-ui/icons/Accessible";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import AccessibleIcon from "@mui/icons-material/Accessible";
 
 import styles from "../../styles/engineering.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";

@@ -1,9 +1,9 @@
-import HelpIcon from "@material-ui/icons/Help";
+import HelpIcon from "@mui/icons-material/Help";
 import { BackToLink } from "../back-to-link/back-to-link";
 import { Button } from "../button/button";
 import { Image } from "../image";
 import styles from "./language-library-resource-page.module.css";
-import { SvgIcon } from "@material-ui/core";
+import SvgIcon from "@mui/material/SvgIcon";
 import { Tooltip } from "@chakra-ui/react";
 import { DETAILS_CONFIG } from "../language-library-details/language-library-details";
 import { Fragment } from "react";

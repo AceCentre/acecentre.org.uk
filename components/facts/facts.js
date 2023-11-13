@@ -1,10 +1,10 @@
 import styles from "./facts.module.css";
 
-import EventNoteIcon from "@material-ui/icons/EventNote";
-import AccessibleIcon from "@material-ui/icons/Accessible";
-import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
-import NoteIcon from "@material-ui/icons/Note";
-import Avatar from "@material-ui/core/Avatar";
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import AccessibleIcon from "@mui/icons-material/Accessible";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import NoteIcon from "@mui/icons-material/Note";
+import Avatar from "@mui/material/Avatar";
 
 export const Facts = () => {
   return (

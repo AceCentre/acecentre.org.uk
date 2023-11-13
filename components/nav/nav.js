@@ -1,8 +1,8 @@
-import SvgIcon from "@material-ui/core/SvgIcon";
-import PhoneOutlinedIcon from "@material-ui/icons/PhoneOutlined";
-import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import SearchIcon from "@material-ui/icons/Search";
+import SvgIcon from "@mui/material/SvgIcon";
+import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 
 import Link from "next/link";
 import { Button } from "../button/button";

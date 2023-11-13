@@ -4,7 +4,7 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 
 import { CropToSquareAroundFace } from "../image";
 import { useState } from "react";
-import Phone from "@material-ui/icons/Phone";
+import Phone from "@mui/icons-material/Phone";
 import { useRouter } from "next/router";
 
 export const StaffList = ({ staffList, currentActive }) => {

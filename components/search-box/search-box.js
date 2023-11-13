@@ -1,8 +1,8 @@
 import styles from "./search-box.module.css";
 import { Input } from "../input/input";
 
-import SvgIcon from "@material-ui/core/SvgIcon";
-import SearchIcon from "@material-ui/icons/Search";
+import SvgIcon from "@mui/material/SvgIcon";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const SearchBox = ({
   title,

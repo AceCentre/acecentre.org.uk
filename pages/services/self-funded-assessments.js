@@ -6,11 +6,11 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import ListAltIcon from "@material-ui/icons/ListAlt";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
 
 import styles from "../../styles/self-funded-assessments.module.css";
 import { InformationDays } from "../../components/information-days/information-days";

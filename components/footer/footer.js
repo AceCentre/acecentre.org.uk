@@ -1,18 +1,18 @@
-import Avatar from "@material-ui/core/Avatar";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import Avatar from "@mui/material/Avatar";
+import SvgIcon from "@mui/material/SvgIcon";
 
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import PhoneIcon from "@material-ui/icons/Phone";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import PhoneIcon from "@mui/icons-material/Phone";
 import Link from "next/link";
 import { ImageWithLoader, Image } from "../image";
 import styles from "./footer.module.css";
 import { NewsletterSignup } from "../resources-download/resources-download";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { useState } from "react";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export const NewsletterModal = ({
   modelOpen,

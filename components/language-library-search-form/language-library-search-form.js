@@ -1,11 +1,11 @@
-import { SvgIcon } from "@material-ui/core";
+import SvgIcon from "@mui/material/SvgIcon";
 import { Input } from "../input/input";
 import styles from "./language-library-search-form.module.css";
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "../button/button";
 import { Checkbox as ChakraCheckbox } from "@chakra-ui/checkbox";
 import { useQueryStates, queryTypes } from "next-usequerystate";
-import ClearIcon from "@material-ui/icons/Clear";
+import ClearIcon from "@mui/icons-material/Clear";
 import Fuse from "fuse.js";
 import { LanguageLibraryCard } from "../language-library-card/language-library-card";
 import {

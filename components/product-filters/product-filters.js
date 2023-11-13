@@ -5,8 +5,8 @@ import { priceRanges } from "../../lib/products/price-range-consts";
 import { ORDER_BY_OPTIONS } from "./order-by-options";
 import { PageTitle } from "../page-title/page-title";
 import { Input } from "../input/input";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import SearchIcon from "@material-ui/icons/Search";
+import SvgIcon from "@mui/material/SvgIcon";
+import SearchIcon from "@mui/icons-material/Search";
 import { useRouter } from "next/router";
 
 const useSearchController = ({
