@@ -1,11 +1,11 @@
 import { useHover, useFocusWithin } from "@react-aria/interactions";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import Avatar from "@material-ui/core/Avatar";
+import SvgIcon from "@mui/material/SvgIcon";
+import Avatar from "@mui/material/Avatar";
 
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
 import { useState } from "react";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import styles from "./sub-nav.module.css";
 import { NavCta } from "../nav-cta/nav-cta";
@@ -96,17 +96,13 @@ const NavItem = ({ navItem }) => {
       }`}
     >
       <Link href={navItem.href} className={styles.navLink}>
-
         {navItem.title}{" "}
         <SvgIcon
-          className={`${styles.animate} ${
-            isHighlighted ? styles.rotated : ""
-          }`}
+          className={`${styles.animate} ${isHighlighted ? styles.rotated : ""}`}
           fontSize="inherit"
         >
           <KeyboardArrowRightIcon />
         </SvgIcon>
-
       </Link>
 
       {isHighlighted && (
@@ -123,12 +119,10 @@ const NavItem = ({ navItem }) => {
                         key={`subnav-item-first-${subItem.href}`}
                       >
                         <Link href={subItem.href} className={styles.subNavLink}>
-
                           <Avatar className={styles.arrowAvatar}>
                             <ArrowForwardIcon />
                           </Avatar>
                           {subItem.title}
-
                         </Link>
                       </li>
                     );
@@ -142,12 +136,10 @@ const NavItem = ({ navItem }) => {
                         key={`subnav-item-second-${subItem.href}`}
                       >
                         <Link href={subItem.href} className={styles.subNavLink}>
-
                           <Avatar className={styles.arrowAvatar}>
                             <ArrowForwardIcon />
                           </Avatar>
                           {subItem.title}
-
                         </Link>
                       </li>
                     );

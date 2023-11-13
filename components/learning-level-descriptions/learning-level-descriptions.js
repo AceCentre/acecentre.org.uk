@@ -1,7 +1,7 @@
-import { Avatar } from "@material-ui/core";
+import Avatar from "@mui/material/Avatar";
 import Link from "next/link";
 import styles from "./learning-level-descriptions.module.css";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 export const LearningLevelDescriptions = () => {
   return (

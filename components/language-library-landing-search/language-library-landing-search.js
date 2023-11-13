@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
 import styles from "./language-library-landing-search.module.css";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import SearchIcon from "@material-ui/icons/Search";
+import SvgIcon from "@mui/material/SvgIcon";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const LanguageLibraryLandingSearch = ({ languages }) => {
   const [languageValue, setLanguageValue] = useState("");

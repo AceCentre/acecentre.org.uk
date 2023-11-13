@@ -9,7 +9,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { useDropzone } from "react-dropzone";
-import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
+import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import { useLaunchpad } from "../../lib/use-launchpad";
 import {
   Accordion,
@@ -18,9 +18,10 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import { Avatar, LinearProgress } from "@material-ui/core";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import Avatar from "@mui/material/Avatar";
+import LinearProgress from "@mui/material/LinearProgress";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { ResourcesImage } from "../resources-image/resources-image";
 import { ResourcesDescription } from "../resources-description/resources-description";

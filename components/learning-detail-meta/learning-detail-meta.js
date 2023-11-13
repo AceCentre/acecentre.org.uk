@@ -1,11 +1,11 @@
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import styles from "./learning-detail-meta.module.css";
-import HomeWorkIcon from "@material-ui/icons/HomeWork";
-import EventIcon from "@material-ui/icons/Event";
-import LanguageIcon from "@material-ui/icons/Language";
-import CategoryIcon from "@material-ui/icons/Category";
-import DesktopWindowsIcon from "@material-ui/icons/DesktopWindows";
-import ClassIcon from "@material-ui/icons/Class";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import EventIcon from "@mui/icons-material/Event";
+import LanguageIcon from "@mui/icons-material/Language";
+import CategoryIcon from "@mui/icons-material/Category";
+import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
+import ClassIcon from "@mui/icons-material/Class";
 import Link from "next/link";
 import { LearningLevelPopup } from "../learning-levels/learning-levels";
 import { levelsToNumberOfCircles } from "../learning-detail-box/learning-detail-box";

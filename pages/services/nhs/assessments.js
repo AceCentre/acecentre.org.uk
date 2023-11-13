@@ -6,10 +6,10 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import { useGlobalProps } from "../../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
-import ListAltIcon from "@material-ui/icons/ListAlt";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import Avatar from "@material-ui/core/Avatar";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import Avatar from "@mui/material/Avatar";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";

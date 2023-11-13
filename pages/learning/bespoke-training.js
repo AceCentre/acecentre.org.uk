@@ -1,4 +1,4 @@
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from "@mui/material/Avatar";
 import { Button } from "../../components/button/button";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
@@ -11,9 +11,9 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { useGlobalProps } from "../../lib/global-props/hook";
 import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import styles from "../../styles/bespoke.module.css";
 
 export default function BespokeTraining() {

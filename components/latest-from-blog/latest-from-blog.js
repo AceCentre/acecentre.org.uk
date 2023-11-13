@@ -1,4 +1,4 @@
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Link from "next/link";
 import styles from "./latest-from-blog.module.css";
 import { ImageWithLoader as Image } from "../image";
@@ -30,8 +30,8 @@ export const LatestFromBlog = ({ posts }) => {
           Read the latest from Ace Centre news to project updates
         </p>
         <Link href="/blog" className={styles.visitBlogLink}>
-          Visit the blog<ChevronRightIcon />
-
+          Visit the blog
+          <ChevronRightIcon />
         </Link>
       </div>
       <ul className={styles.list}>
@@ -71,7 +71,6 @@ export const Card = ({
         </div>
       )}
       <Link href={href} className={styles.listLink}>
-
         {featuredImage ? (
           <div
             className={`${styles.imageContainer} ${imageContainerClassName}`}
@@ -97,7 +96,6 @@ export const Card = ({
         >
           {children}
         </div>
-
       </Link>
     </li>
   );

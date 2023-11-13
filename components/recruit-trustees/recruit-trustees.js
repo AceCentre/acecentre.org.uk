@@ -1,5 +1,5 @@
 import styles from "./recruit-trustees.module.css";
-import PeopleIcon from "@material-ui/icons/People";
+import PeopleIcon from "@mui/icons-material/People";
 export const RecruitTrustees = () => {
   return (
     <div className={styles.container}>

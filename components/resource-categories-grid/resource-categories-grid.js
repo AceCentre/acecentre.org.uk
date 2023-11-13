@@ -1,7 +1,7 @@
 import styles from "./resource-categories-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
-import Avatar from "@material-ui/core/Avatar";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Avatar from "@mui/material/Avatar";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 
 export const ResourceCategoriesGrid = ({ productCategories }) => {
@@ -26,8 +26,10 @@ export const ResourceCategoriesGrid = ({ productCategories }) => {
 const CategorySquare = ({ category }) => {
   return (
     <li className={styles.listItem} key={`browse-articles-${category.slug}`}>
-      <Link href={`/resources/all?category=${category.slug}`} className={styles.link}>
-
+      <Link
+        href={`/resources/all?category=${category.slug}`}
+        className={styles.link}
+      >
         <Image
           src={category.image.src}
           alt={category.image.alt}
@@ -43,7 +45,6 @@ const CategorySquare = ({ category }) => {
             </Avatar>
           </div>
         </div>
-
       </Link>
     </li>
   );

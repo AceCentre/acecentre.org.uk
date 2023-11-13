@@ -1,8 +1,8 @@
 import styles from "./getting-started-faqs.module.css";
 
-import Avatar from "@material-ui/core/Avatar";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import Avatar from "@mui/material/Avatar";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import {
   Accordion,

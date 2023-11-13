@@ -17,11 +17,11 @@ import { useRouter } from "next/router";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { Image } from "../../components/image";
 import { Button } from "../../components/button/button";
-import Avatar from "@material-ui/core/Avatar";
-import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
-import EmojiSymbolsIcon from "@material-ui/icons/EmojiSymbols";
-import DashboardIcon from "@material-ui/icons/Dashboard";
+import Avatar from "@mui/material/Avatar";
+import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import EmojiSymbolsIcon from "@mui/icons-material/EmojiSymbols";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import Link from "next/link";
 
 export default function ResourceDetail({

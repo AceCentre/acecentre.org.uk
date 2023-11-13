@@ -1,5 +1,5 @@
-import Avatar from "@material-ui/core/Avatar";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Avatar from "@mui/material/Avatar";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import styles from "./what-we-do.module.css";
 
@@ -15,60 +15,60 @@ export const WhatWeDo = () => {
         <ul className={styles.unstyledList}>
           <li>
             <Link href="/services/nhs" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>NHS Services
+              </Avatar>
+              NHS Services
             </Link>
           </li>
           <li>
             <Link href="/services/engineering" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Engineering
+              </Avatar>
+              Engineering
             </Link>
           </li>
           <li>
             <Link href="/services/research" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Research
+              </Avatar>
+              Research
             </Link>
           </li>
           <li>
             <Link href="/learning" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Ace Centre Learning
+              </Avatar>
+              Ace Centre Learning
             </Link>
           </li>
         </ul>
         <ul className={styles.unstyledList}>
           <li>
             <Link href="/services/assessments" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Assessment
+              </Avatar>
+              Assessment
             </Link>
           </li>
           <li>
             <Link href="/services/advice-information" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Advice and Information
+              </Avatar>
+              Advice and Information
             </Link>
           </li>
           <li>
             <Link href="/services/partnerships" className={styles.link}>
-
               <Avatar className={styles.avatar}>
                 <ArrowForwardIcon />
-              </Avatar>Partnerships
+              </Avatar>
+              Partnerships
             </Link>
           </li>
         </ul>

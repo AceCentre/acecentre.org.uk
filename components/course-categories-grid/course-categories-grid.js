@@ -1,7 +1,7 @@
 import styles from "./course-categories-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
-import Avatar from "@material-ui/core/Avatar";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Avatar from "@mui/material/Avatar";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 
 export const CourseCategoriesGrid = ({
@@ -42,43 +42,45 @@ export const GridSquare = ({
   objectFit = "cover",
   className,
 }) => {
-  return <>
-    <style jsx>{`
-      .overlayTint {
-        background-color: ${overlayColor};
-      }
+  return (
+    <>
+      <style jsx>{`
+        .overlayTint {
+          background-color: ${overlayColor};
+        }
 
-      .banner {
-        background-color: ${textBackground};
-      }
+        .banner {
+          background-color: ${textBackground};
+        }
 
-      .textColor {
-        color: ${textColor};
-      }
-    `}</style>
-    <li className={styles.listItem} key={`browse-articles-${href}`}>
-      <Link href={href} legacyBehavior>
-        <a className={styles.link}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            layout="fill"
-            objectFit={objectFit}
-            className={`${className ? className : ""}`}
-          />
-          <div className={`${styles.yellowTint} overlayTint`} />
-          <div className={styles.blueBannerContainer}>
-            <div className={`${styles.blueBanner} banner`}>
-              <p className="textColor">{name}</p>
-              <Avatar className={styles.avatar}>
-                <ArrowForwardIcon className={styles.icon} />
-              </Avatar>
+        .textColor {
+          color: ${textColor};
+        }
+      `}</style>
+      <li className={styles.listItem} key={`browse-articles-${href}`}>
+        <Link href={href} legacyBehavior>
+          <a className={styles.link}>
+            <Image
+              src={image.src}
+              alt={image.alt}
+              layout="fill"
+              objectFit={objectFit}
+              className={`${className ? className : ""}`}
+            />
+            <div className={`${styles.yellowTint} overlayTint`} />
+            <div className={styles.blueBannerContainer}>
+              <div className={`${styles.blueBanner} banner`}>
+                <p className="textColor">{name}</p>
+                <Avatar className={styles.avatar}>
+                  <ArrowForwardIcon className={styles.icon} />
+                </Avatar>
+              </div>
             </div>
-          </div>
-        </a>
-      </Link>
-    </li>
-  </>;
+          </a>
+        </Link>
+      </li>
+    </>
+  );
 };
 
 export const CategorySquare = ({

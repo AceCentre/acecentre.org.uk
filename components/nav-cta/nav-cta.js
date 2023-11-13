@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./nav-cta.module.css";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Avatar from "@material-ui/core/Avatar";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Avatar from "@mui/material/Avatar";
 
 import { ImageWithLoader as Image } from "../image";
 
