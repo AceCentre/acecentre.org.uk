@@ -1,3 +1,16 @@
+const alphabetical = (productA, productB) => {
+  const nameA = productA.name.toUpperCase();
+  const nameB = productB.name.toUpperCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  return 0;
+};
+
 // The first will always be the default
 export const ORDER_BY_OPTIONS = [
   {
@@ -5,6 +18,35 @@ export const ORDER_BY_OPTIONS = [
     title: "Most popular",
     sort: (productA, productB) => {
       return productB.totalSales - productA.totalSales;
+    },
+  },
+  {
+    slug: "relevant",
+    title: "Relevant",
+    sort: (productA, productB) => {
+      const productAMenuOrder =
+        productA.menuOrder == 0 ? 9999 : productA.menuOrder;
+      const productBMenuOrder =
+        productB.menuOrder == 0 ? 9999 : productB.menuOrder;
+
+      console.log({
+        productA: {
+          slug: productA.slug,
+          original: productA.menuOrder,
+          altered: productAMenuOrder,
+        },
+        productB: {
+          slug: productB.slug,
+          original: productB.menuOrder,
+          altered: productBMenuOrder,
+        },
+      });
+
+      if (productAMenuOrder == productBMenuOrder) {
+        return alphabetical(productA, productA);
+      }
+
+      return productAMenuOrder - productBMenuOrder;
     },
   },
   {
@@ -29,18 +71,7 @@ export const ORDER_BY_OPTIONS = [
   {
     slug: "alphabetical",
     title: "Alphabetical (A-Z)",
-    sort: (productA, productB) => {
-      const nameA = productA.name.toUpperCase();
-      const nameB = productB.name.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-
-      return 0;
-    },
+    sort: alphabetical,
   },
   {
     slug: "alphabetical-reverse",
