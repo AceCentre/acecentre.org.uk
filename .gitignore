@@ -49,3 +49,6 @@ yarn-error.log*
 .netlify
 !.netlify/functions-internal/add-to-cohort-background.js
 !.netlify/functions-internal/add-to-cohort.js
+
+# Sentry Config File
+.sentryclirc
