@@ -1,7 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -62,8 +60,6 @@ export default function ResourceDetail({
     }
   }, [query.look2talk]);
   const onClose = () => setModelOpen(false);
-
-  const { currentYear } = useGlobalProps();
 
   const project = resource.projects[0] || null;
 
@@ -405,7 +401,7 @@ export default function ResourceDetail({
           relatedResources={relatedResources}
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -439,7 +435,7 @@ const ResourceListSwitch = ({
   );
 };
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const slug = "look2talk";
   const allProducts = await getAllProducts(true);
 
@@ -500,6 +496,7 @@ export const getStaticProps = withGlobalProps(async () => {
   const seoInStock = currentResource.inStock;
 
   return {
+    revalidate: 60,
     props: {
       resource: currentResource,
       relatedResources: relatedResources.slice(0, 4),
@@ -522,7 +519,7 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

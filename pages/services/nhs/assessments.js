@@ -3,8 +3,6 @@ import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
 import ListAltIcon from "@mui/icons-material/ListAlt";
 
@@ -22,8 +20,6 @@ import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 import { CardHighlight } from "../../../components/project-highlight/project-highlight";
 
 export default function NHSLanding() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -259,12 +255,12 @@ export default function NHSLanding() {
         <InformationDays nhs />
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("paul");
 
   return {
@@ -277,4 +273,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

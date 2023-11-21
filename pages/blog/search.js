@@ -3,14 +3,10 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
 import Fuse from "fuse.js";
 
 export default function SearchBlog({ allPosts, searchText }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -24,12 +20,12 @@ export default function SearchBlog({ allPosts, searchText }) {
           posts={allPosts}
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+export const getServerSideProps = async (req) => {
   const allPosts = await getAllFullPosts();
   const searchText = req.query.searchText || false;
 
@@ -57,4 +53,4 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       },
     },
   };
-});
+};

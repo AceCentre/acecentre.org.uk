@@ -3,8 +3,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
@@ -18,8 +16,6 @@ import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 import Link from "next/link";
 
 export default function MountingPage() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -220,7 +216,7 @@ export default function MountingPage() {
           </div>
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -240,7 +236,7 @@ const OrderedListItem = ({ children }) => {
   return <li className={styles.orderedListItem}>{children}</li>;
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("patrick");
   const unfilteredPosts = await getAllFullPosts();
 
@@ -259,4 +255,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

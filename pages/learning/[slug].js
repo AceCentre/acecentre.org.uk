@@ -1,7 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import {
   getAllBundles,
@@ -38,7 +36,6 @@ export default function LearningDetail({
   levels,
 }) {
   const { isFallback } = useRouter();
-  const { currentYear } = useGlobalProps();
 
   if (isFallback) return null;
 
@@ -142,7 +139,7 @@ export default function LearningDetail({
           </>
         )}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -164,7 +161,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const allCourses = await getAllCourses(undefined, true);
   const allBundles = await getAllBundles();
 
@@ -237,6 +234,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   }
 
   return {
+    revalidate: 60,
     props: {
       course: currentCourse || null,
       bundle: currentBundle || null,
@@ -246,4 +244,4 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       seo,
     },
   };
-});
+};

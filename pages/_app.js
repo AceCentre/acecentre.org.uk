@@ -3,8 +3,6 @@ import { DefaultHead } from "../components/default-head";
 import { ChakraProvider } from "@chakra-ui/provider";
 import { SSRProvider } from "@react-aria/ssr";
 
-import { GlobalsContext } from "../lib/global-props/context";
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useEffect } from "react";
@@ -19,6 +17,7 @@ import { extendTheme } from "../lib/chakra-theme";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import config from "../lib/config";
+import { AuthContext } from "../lib/auth-hook";
 
 const theme = createTheme();
 
@@ -29,7 +28,7 @@ const chakraTheme = extendTheme({
 
 function MyApp({
   Component,
-  pageProps: { globalProps = {}, seo = {}, uncaughtError, trace, ...pageProps },
+  pageProps: { seo = {}, uncaughtError, trace, ...pageProps },
 }) {
   const router = useRouter();
 
@@ -64,9 +63,8 @@ function MyApp({
   return (
     <>
       <SkipLink />
-      <GlobalsContext.Provider
+      <AuthContext.Provider
         value={{
-          ...globalProps,
           loggedInStatus,
           refreshLoginStatus,
         }}
@@ -106,7 +104,7 @@ function MyApp({
             </SSRProvider>
           </ChakraProvider>
         </ThemeProvider>
-      </GlobalsContext.Provider>
+      </AuthContext.Provider>
     </>
   );
 }

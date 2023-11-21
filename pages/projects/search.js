@@ -2,15 +2,11 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 import Fuse from "fuse.js";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 export default function SearchProjects({ allProjects, searchText = "" }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -24,12 +20,12 @@ export default function SearchProjects({ allProjects, searchText = "" }) {
           linkPrefix="projects"
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+export const getServerSideProps = async (req) => {
   const allProjects = await getFullProjects();
 
   const searchText = req.query.searchText || false;
@@ -60,4 +56,4 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       },
     },
   };
-});
+};

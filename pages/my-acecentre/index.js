@@ -6,14 +6,12 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { useLogout } from "../../lib/auth/hooks";
 import withSession from "../../lib/auth/with-session";
-import { useGlobalProps } from "../../lib/global-props/hook";
 import { getCourseCount } from "../../lib/products/get-courses";
 import { getOrderCount } from "../../lib/products/get-orders";
 
 import styles from "../../styles/my-acecentre.module.css";
 
 export default function LoginPage({ orderCount, courseCount }) {
-  const { currentYear } = useGlobalProps();
   const { doLogout, logoutAllowed, error: logoutError } = useLogout();
 
   return (
@@ -63,7 +61,7 @@ export default function LoginPage({ orderCount, courseCount }) {
           />
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

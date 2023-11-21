@@ -2,8 +2,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { LearningSearch } from "../../components/learning-search/learning-search";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { LearningTicks } from "../../components/resources-ticks/resources-ticks";
 import { getAllCoursesByPopularity } from "../../lib/products/get-courses";
 import { CourseList } from "../../components/course-list/course-list";
@@ -16,8 +14,6 @@ import { TrainingTypes } from "../../components/training-types/training-types";
 import { LearningLevelDescriptions } from "../../components/learning-level-descriptions/learning-level-descriptions";
 
 export default function Learning({ categories, featuredCourses }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -48,12 +44,12 @@ export default function Learning({ categories, featuredCourses }) {
         />
         <LearningLevelDescriptions />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const popularCourses = await getAllCoursesByPopularity(true);
   const categories = await getAllCourseCategories();
   const featuredCourses = popularCourses.filter(
@@ -61,6 +57,7 @@ export const getStaticProps = withGlobalProps(async () => {
   );
 
   return {
+    revalidate: 60,
     props: {
       categories,
       featuredCourses,
@@ -71,4 +68,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

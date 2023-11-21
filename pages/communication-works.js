@@ -1,8 +1,6 @@
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
 
 import Avatar from "@mui/material/Avatar";
 
@@ -16,8 +14,6 @@ import EventIcon from "@mui/icons-material/Event";
 import { getPage } from "../lib/generic-pages/get-page";
 
 export default function CommunicationWorks({ page }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -116,15 +112,16 @@ export default function CommunicationWorks({ page }) {
           </div>
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const page = await getPage("communication-works");
 
   return {
+    revalidate: 60,
     props: {
       page,
 
@@ -135,4 +132,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

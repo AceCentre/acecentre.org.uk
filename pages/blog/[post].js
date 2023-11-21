@@ -2,8 +2,6 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import {
   getAllFullPosts,
   getAllPostsForCategory,
@@ -15,7 +13,6 @@ import { BlogMeta } from "../../components/blog-meta/blog-meta";
 import { useRouter } from "next/router";
 
 export default function CategoryPage({ currentPost, featuredPosts }) {
-  const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -90,7 +87,7 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         />
       </main>
 
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -106,37 +103,36 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(
-  async ({ params: { post: postSlug } }) => {
-    if (postSlug === "comm-works") {
-      return {
-        redirect: {
-          destination: "/communication-works",
-          permanent: true,
-        },
-      };
-    }
-
-    const allPosts = await getAllFullPosts();
-
-    const currentPost = allPosts.find((post) => post.slug === postSlug);
-
-    if (!currentPost) return { notFound: true };
-
-    const featuredPosts = (
-      await getAllPostsForCategory(currentPost.featuredCategoryName)
-    ).filter((post) => post.slug !== currentPost.slug);
-
+export const getStaticProps = async ({ params: { post: postSlug } }) => {
+  if (postSlug === "comm-works") {
     return {
-      props: {
-        currentPost,
-        featuredPosts: featuredPosts.slice(0, 3),
-        seo: {
-          title: currentPost.title,
-          description: currentPost.description,
-          image: currentPost.featuredImage,
-        },
+      redirect: {
+        destination: "/communication-works",
+        permanent: true,
       },
     };
   }
-);
+
+  const allPosts = await getAllFullPosts();
+
+  const currentPost = allPosts.find((post) => post.slug === postSlug);
+
+  if (!currentPost) return { notFound: true };
+
+  const featuredPosts = (
+    await getAllPostsForCategory(currentPost.featuredCategoryName)
+  ).filter((post) => post.slug !== currentPost.slug);
+
+  return {
+    revalidate: 60,
+    props: {
+      currentPost,
+      featuredPosts: featuredPosts.slice(0, 3),
+      seo: {
+        title: currentPost.title,
+        description: currentPost.description,
+        image: currentPost.featuredImage,
+      },
+    },
+  };
+};

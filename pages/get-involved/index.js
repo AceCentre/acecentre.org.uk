@@ -5,15 +5,11 @@ import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
 import { WaysToGetInvolved } from "../../components/ways-to-get-involved/ways-to-get-involved";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getSimpleStory } from "../../lib/story/get-story";
 
 import styles from "../../styles/get-involved.module.css";
 
 export default function GetInvolved() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -67,15 +63,16 @@ export default function GetInvolved() {
         <WaysToGetInvolved />
         {/* <FeaturedStory {...featuredStory} /> */}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("paul");
 
   return {
+    revalidate: 60,
     props: {
       featuredStory,
       seo: {
@@ -85,4 +82,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

@@ -2,8 +2,6 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { PageTitle } from "../components/page-title/page-title";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -64,8 +62,6 @@ const useSitemap = () => {
 };
 
 export default function Sitemap() {
-  const { currentYear } = useGlobalProps();
-
   const sitemap = useSitemap();
 
   return (
@@ -82,7 +78,7 @@ export default function Sitemap() {
           {sitemap && <TreeLeaf node={sitemap} root />}
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -91,9 +87,7 @@ const TreeLeaf = ({ node, root = false }) => {
   return (
     <Wrapper root={root}>
       <p>
-        <Link href={node.fullPath}>
-          {node.title}
-        </Link>
+        <Link href={node.fullPath}>{node.title}</Link>
       </p>
       {node.children.length > 0 && (
         <ul>
@@ -114,7 +108,7 @@ const Wrapper = ({ root, children }) => {
   }
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   return {
     props: {
       seo: {
@@ -123,7 +117,7 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};
 
 const toTitleCase = (str) => {
   let replaced = str

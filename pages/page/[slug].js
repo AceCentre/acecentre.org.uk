@@ -1,7 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getPage } from "../../lib/generic-pages/get-page";
@@ -10,7 +8,6 @@ import { PageContent } from "../../components/page-content/page-content";
 import { useRouter } from "next/router";
 
 export default function GenericPage({ page }) {
-  const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -26,7 +23,7 @@ export default function GenericPage({ page }) {
         </div>
         <PageContent content={page.content} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -122,32 +119,31 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(
-  async ({ params: { slug: urlSlug } }) => {
-    let realSlug = urlSlug;
+export const getStaticProps = async ({ params: { slug: urlSlug } }) => {
+  let realSlug = urlSlug;
 
-    for (const page of ALL_PAGES) {
-      if (page.altSlugs.includes(urlSlug.toLowerCase())) {
-        realSlug = page.slug;
-      }
+  for (const page of ALL_PAGES) {
+    if (page.altSlugs.includes(urlSlug.toLowerCase())) {
+      realSlug = page.slug;
     }
-
-    const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
-
-    const page = await getPage(realSlug, hardCodedPage.replaceBackendLinks);
-
-    if (!page) {
-      return { notFound: true };
-    }
-
-    return {
-      props: {
-        page,
-        seo: {
-          title: page.title,
-          description: hardCodedPage.description,
-        },
-      },
-    };
   }
-);
+
+  const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
+
+  const page = await getPage(realSlug, hardCodedPage.replaceBackendLinks);
+
+  if (!page) {
+    return { notFound: true };
+  }
+
+  return {
+    revalidate: 60,
+    props: {
+      page,
+      seo: {
+        title: page.title,
+        description: hardCodedPage.description,
+      },
+    },
+  };
+};

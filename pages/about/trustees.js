@@ -4,15 +4,11 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { RecruitTrustees } from "../../components/recruit-trustees/recruit-trustees";
 import { TrusteeList } from "../../components/staff-list/staff-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllTrustees } from "../../lib/trustees/get-trustees";
 
 import styles from "../../styles/trustees.module.css";
 
 export default function AllTrusteesPage({ allTrustees, recruitingTrustees }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -27,12 +23,12 @@ export default function AllTrusteesPage({ allTrustees, recruitingTrustees }) {
         </p>
         <TrusteeList trusteeList={allTrustees} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const allTrustees = await getAllTrustees();
 
   const [day, month, year] = "16/9/2022".split("/");
@@ -43,6 +39,7 @@ export const getStaticProps = withGlobalProps(async () => {
   const recruitingTrustees = nowDate.getTime() < closingDate.getTime();
 
   return {
+    revalidate: 60,
     props: {
       allTrustees,
       recruitingTrustees,
@@ -53,4 +50,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

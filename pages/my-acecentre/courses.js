@@ -3,15 +3,12 @@ import { MyCourseList } from "../../components/course-list/course-list";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import withSession from "../../lib/auth/with-session";
-import { useGlobalProps } from "../../lib/global-props/hook";
 import { getMyCourses } from "../../lib/products/get-courses";
 import { PageTitle } from "../../components/page-title/page-title";
 
 import styles from "../../styles/my-acecentre.module.css";
 
 export default function CoursesPage({ courses }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -28,7 +25,7 @@ export default function CoursesPage({ courses }) {
         </div>
         <MyCourseList courses={courses} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

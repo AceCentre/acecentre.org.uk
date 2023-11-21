@@ -5,8 +5,6 @@ import { ORDER_BY_OPTIONS } from "../../components/product-filters/order-by-opti
 import { ProductFilters } from "../../components/product-filters/product-filters";
 import { ResourceList } from "../../components/resource-list/resource-list";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import { filterProducts } from "../../lib/products/filter-products";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProducts } from "../../lib/products/get-products";
@@ -23,8 +21,6 @@ export default function AllResources({
   selectedPriceRange,
   selectedOrderBy,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -43,13 +39,13 @@ export default function AllResources({
         <ResourceList showPrice products={resources} />
         <Pagination currentPage={currentPage} pageCount={pageCount} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
 // This will run every page run
-export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+export const getServerSideProps = async (req) => {
   const page = req.query.page || 1;
   const searchText = req.query.searchText || "";
   const category = req.query.category || "";
@@ -100,7 +96,7 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

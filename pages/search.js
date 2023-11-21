@@ -1,8 +1,6 @@
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { BackToLink } from "../components/back-to-link/back-to-link";
@@ -23,8 +21,6 @@ export default function Search({
   courses,
   searchText,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -75,12 +71,12 @@ export default function Search({
           )}
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+export const getServerSideProps = async (req) => {
   const searchText = req.query.searchText || false;
 
   if (!searchText) {
@@ -158,7 +154,7 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       courses: filteredCourses.slice(0, 4),
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

@@ -2,12 +2,8 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { LoginCheckout } from "../components/login-and-register-boxes/login-and-register-boxes";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 
 export default function LoginPage() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -16,9 +12,7 @@ export default function LoginPage() {
       <main id="mainContent">
         <LoginCheckout />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
-
-export const getStaticProps = withGlobalPropsNoRevalidate();

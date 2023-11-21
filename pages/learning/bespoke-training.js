@@ -9,16 +9,12 @@ import {
 } from "../../components/ms-form";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import styles from "../../styles/bespoke.module.css";
 
 export default function BespokeTraining() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -165,7 +161,7 @@ export default function BespokeTraining() {
           </div>
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -181,7 +177,7 @@ const ListItem = ({ children }) => {
   );
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   return {
     props: {
       seo: {
@@ -191,4 +187,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

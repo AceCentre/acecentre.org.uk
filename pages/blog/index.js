@@ -4,16 +4,12 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllCategories } from "../../lib/posts/get-categories";
 import { getAllPostCards } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/blog.module.css";
 
 export default function Home({ latestsPosts, blogCategories }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -28,12 +24,12 @@ export default function Home({ latestsPosts, blogCategories }) {
         />
         <BlogCategoryGrid blogCategories={blogCategories} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const latestsPosts = await getAllPostCards();
 
   if (!latestsPosts) throw new Error("Couldn't get latests posts");
@@ -43,6 +39,7 @@ export const getStaticProps = withGlobalProps(async () => {
   if (!blogCategories) throw new Error("Couldn't get the blog categories");
 
   return {
+    revalidate: 60,
     props: {
       latestsPosts: latestsPosts.slice(0, 6),
       blogCategories,
@@ -53,4 +50,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

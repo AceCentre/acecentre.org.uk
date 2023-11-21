@@ -11,14 +11,11 @@ import {
 } from "../../components/service-cards/service-cards";
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllServices } from "../../lib/services-finder";
 
 import styles from "../../styles/nhs-service-finder.module.css";
 
 export default function ServiceDetails({ service }) {
-  const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -53,7 +50,7 @@ export default function ServiceDetails({ service }) {
         <ServiceCards service={service} />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
-      <Footer noPhoneNumber currentYear={currentYear} />
+      <Footer noPhoneNumber />
     </>
   );
 }
@@ -67,7 +64,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const services = await getAllServices();
   const service = services.find((service) => service.id === slug);
 
@@ -76,6 +73,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   // console.log(service);
 
   return {
+    revalidate: 60,
     props: {
       service,
       seo: {
@@ -84,4 +82,4 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       },
     },
   };
-});
+};

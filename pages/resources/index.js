@@ -6,8 +6,6 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { ResourcesSearch } from "../../components/resources-search/resources-search";
 import { ResourcesTicks } from "../../components/resources-ticks/resources-ticks";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProductCategories } from "../../lib/products/get-all-categories";
 import { getAllProductsByPopularity } from "../../lib/products/get-products";
 
@@ -18,8 +16,6 @@ export default function Resources({
   featuredResources,
   productCategories,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -50,12 +46,12 @@ export default function Resources({
           viewAllText="View all resources"
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
     title: htmlDecode(product.name),
@@ -76,6 +72,7 @@ export const getStaticProps = withGlobalProps(async () => {
     }));
 
   return {
+    revalidate: 60,
     props: {
       popularResources,
       featuredResources,
@@ -87,7 +84,7 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

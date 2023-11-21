@@ -9,13 +9,10 @@ import { LatestFromBlog } from "../components/latest-from-blog/latest-from-blog"
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { WhatWeDo } from "../components/what-we-do/what-we-do";
 
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
 import { getLandingPagePosts } from "../lib/posts/get-posts";
 import { getSimpleStoryByIndex } from "../lib/story/get-story";
 
 export default function Home({ featuredStory, landingPagePosts }) {
-  const { currentYear } = useGlobalProps();
   const router = useRouter();
   const { query } = router;
 
@@ -39,12 +36,12 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <LatestFromBlog posts={landingPagePosts} />
         <GetInvolved />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStoryByIndex(0);
 
   if (!featuredStory) throw new Error("Could not fetch story for landing page");
@@ -54,6 +51,7 @@ export const getStaticProps = withGlobalProps(async () => {
   if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
 
   return {
+    revalidate: 60,
     props: { featuredStory, landingPagePosts, seo: { showSearchBox: true } },
   };
-});
+};

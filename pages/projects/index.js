@@ -4,15 +4,11 @@ import { Footer } from "../../components/footer/footer";
 import { ProjectsSearch } from "../../components/projects-search/projects-search";
 import { ResearchCta } from "../../components/research-cta/research-cta";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/projects.module.css";
 
 export default function Home({ latestProjects }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -29,17 +25,18 @@ export default function Home({ latestProjects }) {
         />
         <ResearchCta />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const latestProjects = await getAllProjects();
 
   if (!latestProjects) throw new Error("Could not get the latest projects");
 
   return {
+    revalidate: 60,
     props: {
       latestProjects: latestProjects.slice(0, 3),
       seo: {
@@ -49,4 +46,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

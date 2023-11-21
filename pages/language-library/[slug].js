@@ -2,16 +2,12 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { LanguageLibraryResourcePage } from "../../components/language-library-resource-page/language-library-resource-page";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import {
   getAllSlugs,
   getLanguageLibraryResource,
 } from "../../lib/language-library";
 
 export default function LanguageLibrary({ resource }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -20,7 +16,7 @@ export default function LanguageLibrary({ resource }) {
       <main id="mainContent">
         <LanguageLibraryResourcePage resource={resource} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -34,15 +30,16 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const resource = await getLanguageLibraryResource(slug);
 
   if (!resource.databaseId) return { notFound: true };
 
   return {
+    revalidate: 60,
     props: {
       resource,
       seo: { dontIndex: true, title: resource.title },
     },
   };
-});
+};

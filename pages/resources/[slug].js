@@ -1,7 +1,5 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
@@ -28,7 +26,6 @@ export default function ResourceDetail({
   attachedResources,
   launchpadTemplate,
 }) {
-  const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -79,7 +76,7 @@ export default function ResourceDetail({
           </>
         )}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -140,7 +137,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const allProducts = await getAllProducts(true);
 
   if (!allProducts) throw new Error("Could not get all the products");
@@ -210,6 +207,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   }
 
   return {
+    revalidate: 60,
     props: {
       launchpadTemplate,
       resource: currentResource,
@@ -233,7 +231,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

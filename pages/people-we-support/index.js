@@ -5,8 +5,6 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { StoryHighlight } from "../../components/story-highlight/story-highlight";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { WordsFrom } from "../../components/words-from/words-from";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import {
   getAllStories,
   getSimpleStoryByIndex,
@@ -19,8 +17,6 @@ export default function StoriesLandingPage({
   storyHighlight,
   wordsFrom,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -38,12 +34,12 @@ export default function StoriesLandingPage({
         <WordsFrom {...wordsFrom} />
         <AllStories stories={featuredStories} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const allStories = await getAllStories();
 
   const storyHighlight = await getSimpleStoryByIndex(0);
@@ -53,6 +49,7 @@ export const getStaticProps = withGlobalProps(async () => {
     throw new Error("Could not get all the stories for stories page");
 
   return {
+    revalidate: 60,
     props: {
       featuredStories: allStories,
       storyHighlight,
@@ -64,4 +61,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

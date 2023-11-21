@@ -3,8 +3,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { CourseFilter } from "../../components/course-filter/course-filter";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CourseList } from "../../components/course-list/course-list";
 import { getAllCourses, LOCATIONS } from "../../lib/products/get-courses";
@@ -33,8 +31,6 @@ export default function LearningSearchPage({
   availabilities,
   selectedAvailability,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -63,12 +59,12 @@ export default function LearningSearchPage({
         <VoteBanner />
         <CourseList products={courses} showDate withMeta threeWide />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
+export const getServerSideProps = async (req) => {
   let courses = await getAllCourses(false);
 
   /**
@@ -268,4 +264,4 @@ export const getServerSideProps = withGlobalPropsNoRevalidate(async (req) => {
       },
     },
   };
-});
+};
