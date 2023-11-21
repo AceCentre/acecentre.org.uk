@@ -20,6 +20,7 @@
     "build-sitemap": "next-sitemap"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.7",
     "@chakra-ui/react": "2.5.1",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
