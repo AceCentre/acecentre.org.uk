@@ -19,6 +19,8 @@ import { getLaunchpadTemplate } from "../../lib/launchpad";
 import { LaunchpadPage } from "../../components/launchpad-generate/launchpad-generate";
 import { useRouter } from "next/router";
 import { ProductFaqs } from "../../components/product-faqs/product-faqs";
+import createApolloClient from "../../lib-v2/apollo-client";
+import { gql } from "@apollo/client";
 
 export default function ResourceDetail({
   resource,
@@ -112,16 +114,26 @@ const ResourceListSwitch = ({
 };
 
 export async function getStaticPaths() {
-  let allProducts = await getAllProducts(true);
-
-  allProducts = allProducts.filter((x) => x.slug !== "look2talk");
-
-  if (!allProducts) throw new Error("Could not get all the products");
+  const client = createApolloClient();
+  const { data } = await client.query({
+    query: gql`
+      query getResourcePaths($tag: String) {
+        products(first: 999, where: { tagIn: [$tag] }) {
+          nodes {
+            slug
+          }
+        }
+      }
+    `,
+    variables: {
+      tag: "resource",
+    },
+  });
 
   return {
-    paths: allProducts.map((product) => ({
+    paths: data.products.nodes.map((product) => ({
       params: {
-        slug: product.slug,
+        slug: product,
       },
     })),
     fallback: true,
