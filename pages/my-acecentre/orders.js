@@ -4,12 +4,9 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { OrderTable } from "../../components/table/table";
 import withSession from "../../lib/auth/with-session";
-import { useGlobalProps } from "../../lib/global-props/hook";
 import { getOrders } from "../../lib/products/get-orders";
 
 export default function OrdersPage({ orders }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -19,7 +16,7 @@ export default function OrdersPage({ orders }) {
         <PageTitle heading="My orders" description="A summary of your orders" />
         <OrderTable orders={orders} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

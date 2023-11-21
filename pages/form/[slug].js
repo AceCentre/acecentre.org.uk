@@ -1,15 +1,11 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import styles from "../../styles/form.module.css";
 import { ALL_FORMS, MsForm } from "../../components/ms-form";
 
 export default function FormPage({ form }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -20,7 +16,7 @@ export default function FormPage({ form }) {
           <MsForm form={form} />
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -34,20 +30,18 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(
-  async ({ params: { slug } }) => {
-    const form = ALL_FORMS.find((current) => current.slug === slug);
+export const getStaticProps = async ({ params: { slug } }) => {
+  const form = ALL_FORMS.find((current) => current.slug === slug);
 
-    if (!form) {
-      return { notFound: true };
-    }
-
-    return {
-      props: {
-        slug,
-        form,
-        seo: { title: form.title },
-      },
-    };
+  if (!form) {
+    return { notFound: true };
   }
-);
+
+  return {
+    props: {
+      slug,
+      form,
+      seo: { title: form.title },
+    },
+  };
+};

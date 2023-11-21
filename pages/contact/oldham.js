@@ -2,8 +2,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
@@ -13,8 +11,6 @@ import { ImageWithLoader as Image } from "../../components/image";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 
 export default function Contact() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -163,7 +159,7 @@ export default function Contact() {
           </div>
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -179,7 +175,7 @@ const ChangingPlaceImage = ({ src, description }) => {
   );
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   return {
     props: {
       seo: {
@@ -189,4 +185,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

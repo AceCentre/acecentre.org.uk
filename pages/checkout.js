@@ -9,7 +9,6 @@ import {
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { Footer } from "../components/footer/footer";
-import { useGlobalProps } from "../lib/global-props/hook";
 import withSession from "../lib/auth/with-session";
 import { getCart } from "../lib/cart/get";
 import { OrderSummaryTable } from "../components/table/table";
@@ -32,6 +31,7 @@ import config from "../lib/config";
 import { cloneDeep } from "lodash";
 import { validateEmail } from "../lib/auth/hooks";
 import { useRouter } from "next/router";
+import { useAuth } from "../lib/auth-hook";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -52,7 +52,7 @@ const useCheckoutForm = (
   billingDetails,
   rawTotal
 ) => {
-  const { refreshLoginStatus } = useGlobalProps();
+  const { refreshLoginStatus } = useAuth();
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [forceUkDelivery, setForceUkDelivery] = useState(
@@ -498,8 +498,6 @@ export default function Checkout({
   defaultEmail,
   rawTotal,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -525,7 +523,7 @@ export default function Checkout({
           />
         </Elements>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

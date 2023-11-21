@@ -2,8 +2,6 @@ import { SearchBox } from "../../components/search-box/search-box";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { GettingStartedGrid } from "../../components/getting-started-grid/getting-started-grid";
 import { getAllCourses } from "../../lib/products/get-courses";
 import { CourseList } from "../../components/course-list/course-list";
@@ -13,8 +11,6 @@ import { GettingStartedFaqs } from "../../components/getting-started-faqs/gettin
 import styles from "../../styles/getting-started.module.css";
 
 export default function GettingStartedLanding({ gettingStartedCourses }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -39,12 +35,12 @@ export default function GettingStartedLanding({ gettingStartedCourses }) {
         />
         <GettingStartedFaqs />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const courses = await getAllCourses(true);
 
   const gettingStartedCourses = courses
@@ -52,6 +48,7 @@ export const getStaticProps = withGlobalProps(async () => {
     .filter((course) => course.level.toLowerCase() === "introductory");
 
   return {
+    revalidate: 60,
     props: {
       gettingStartedCourses: gettingStartedCourses.slice(0, 4),
       seo: {
@@ -61,4 +58,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

@@ -3,13 +3,9 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllProjects } from "../../lib/posts/get-posts";
 
 export default function AllProjects({ allProjects }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -23,16 +19,17 @@ export default function AllProjects({ allProjects }) {
           posts={allProjects}
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const allProjects = await getAllProjects();
   if (!allProjects) throw new Error("Could not get the latest projects");
 
   return {
+    revalidate: 60,
     props: {
       allProjects,
       seo: {
@@ -42,4 +39,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

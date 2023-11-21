@@ -3,8 +3,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
@@ -21,8 +19,6 @@ import { ResourceList } from "../../components/resource-list/resource-list";
 import { FormModal, INFO_APP_FEEDBACK } from "../../components/ms-form";
 
 export default function EngineeringPage({ ebookResources }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -146,7 +142,7 @@ export default function EngineeringPage({ ebookResources }) {
 
         <InformationDays />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -162,7 +158,7 @@ const ListItem = ({ children }) => {
   );
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("paul");
 
   const products = await getAllProducts();
@@ -219,7 +215,7 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

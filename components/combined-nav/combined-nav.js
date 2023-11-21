@@ -16,8 +16,8 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Button } from "../button/button";
 import { Input } from "../input/input";
-import { useGlobalProps } from "../../lib/global-props/hook";
 import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
+import { useAuth } from "../../lib/auth-hook";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -177,7 +177,7 @@ export const CombinedNav = ({
 const MenuContent = ({ defaultNavItems }) => {
   // No index will match -1
   const [currentlyOpen, setCurrentlyOpen] = useState(-1);
-  const { loggedInStatus } = useGlobalProps();
+  const { loggedInStatus } = useAuth();
 
   const onNavItemClick = (index) => () => {
     if (currentlyOpen === -1) {

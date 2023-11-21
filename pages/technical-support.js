@@ -2,15 +2,11 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import { PageTitle } from "../components/page-title/page-title";
 import { HowCanWeHelpDropdown } from "../components/how-can-we-help-dropdown/how-can-we-help-dropdown";
 import { StillHavingProblems } from "../components/still-having-problems/still-having-problems";
 
 export default function TechnicalSupport() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -24,12 +20,12 @@ export default function TechnicalSupport() {
         <HowCanWeHelpDropdown />
         <StillHavingProblems />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   return {
     props: {
       seo: {
@@ -38,4 +34,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

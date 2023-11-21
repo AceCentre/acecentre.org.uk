@@ -2,8 +2,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 
 import styles from "../../styles/finding-the-right-aid.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -15,8 +13,6 @@ import { filterProducts } from "../../lib/products/filter-products";
 import { GettingStartedQuote } from "../../components/getting-started-quote/getting-started-quote";
 
 export default function GettingStartedLanding({ story, resources }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -100,12 +96,12 @@ export default function GettingStartedLanding({ story, resources }) {
           className={styles.resourcesList}
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const story = await getSimpleStory("jess");
 
   const products = await getAllProducts();
@@ -129,6 +125,7 @@ export const getStaticProps = withGlobalProps(async () => {
   }));
 
   return {
+    revalidate: 60,
     props: {
       story,
       resources,
@@ -139,7 +136,7 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

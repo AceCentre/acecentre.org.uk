@@ -3,14 +3,10 @@ import { Footer } from "../components/footer/footer";
 import { FormModal, INFORMATION_RESERVE } from "../components/ms-form";
 import { PageTitle } from "../components/page-title/page-title";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../lib/global-props/inject";
 import Link from "next/link";
 import styles from "../styles/information-appointments.module.css";
 
 export default function Contact() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -108,12 +104,12 @@ export default function Contact() {
           </>
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   return {
     props: {
       seo: {
@@ -123,4 +119,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

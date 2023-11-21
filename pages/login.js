@@ -3,11 +3,8 @@ import { Footer } from "../components/footer/footer";
 import { LoginAndRegisterBoxes } from "../components/login-and-register-boxes/login-and-register-boxes";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import withSession from "../lib/auth/with-session";
-import { useGlobalProps } from "../lib/global-props/hook";
 
 export default function LoginPage() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -16,7 +13,7 @@ export default function LoginPage() {
       <main id="mainContent">
         <LoginAndRegisterBoxes />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

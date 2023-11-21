@@ -3,8 +3,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
@@ -21,8 +19,6 @@ import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 import Link from "next/link";
 
 export default function EngineeringPage({ featuredStory, allPosts }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -189,7 +185,7 @@ export default function EngineeringPage({ featuredStory, allPosts }) {
           </div>
         )}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -205,7 +201,7 @@ const ListItem = ({ children }) => {
   );
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("patrick");
   const unfilteredPosts = await getAllFullPosts();
 
@@ -224,4 +220,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};

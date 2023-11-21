@@ -4,8 +4,6 @@ import { Footer } from "../../components/footer/footer";
 import { LanguageLibrarySearchForm } from "../../components/language-library-search-form/language-library-search-form";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLanguageLibrarySearchResultsProps } from "../../lib/language-library";
 import { useRouter } from "next/router";
 import { FullPageSpinner } from "../../components/full-page-spinner/full-page-spinner";
@@ -22,8 +20,6 @@ const useRouterReady = () => {
 };
 
 export default function LanguageLibrary({ resources }) {
-  const { currentYear } = useGlobalProps();
-
   const isReady = useRouterReady();
 
   return (
@@ -39,18 +35,19 @@ export default function LanguageLibrary({ resources }) {
           <FullPageSpinner />
         )}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const props = await getLanguageLibrarySearchResultsProps();
 
   return {
+    revalidate: 60,
     props: {
       ...props,
       seo: { dontIndex: true, title: "Language Library" },
     },
   };
-});
+};

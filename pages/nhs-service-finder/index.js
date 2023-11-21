@@ -5,14 +5,10 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { ServiceFinderSearch } from "../../components/service-finder-search/service-finder-search";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 import Link from "next/link";
 import styles from "../../styles/nhs-service-finder.module.css";
 
 export default function ServiceFinder() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -32,12 +28,12 @@ export default function ServiceFinder() {
         <ServiceFinderSearch />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(() => {
+export const getStaticProps = () => {
   return {
     props: {
       seo: {
@@ -46,4 +42,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(() => {
       },
     },
   };
-});
+};

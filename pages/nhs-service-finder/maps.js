@@ -5,13 +5,9 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { serviceFinderFaqs } from "../../components/service-finder-faq";
 import { ServiceFinderMap } from "../../components/service-finder-map/service-finder-map";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getAllServices } from "../../lib/services-finder";
 
 export default function ServiceFinder({ services }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -25,12 +21,12 @@ export default function ServiceFinder({ services }) {
         <ServiceFinderMap services={services} />
         <GenericFaqs faqs={serviceFinderFaqs} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const services = await getAllServices();
   const reducedServices = services.map((x) => ({
     id: x.id,
@@ -38,6 +34,7 @@ export const getStaticProps = withGlobalProps(async () => {
   }));
 
   return {
+    revalidate: 60,
     props: {
       services: reducedServices,
       seo: {
@@ -46,4 +43,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

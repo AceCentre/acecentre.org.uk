@@ -5,12 +5,9 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { getUserDetails } from "../../lib/auth/get-user";
 import withSession from "../../lib/auth/with-session";
-import { useGlobalProps } from "../../lib/global-props/hook";
 // import styles from "../../styles/my-acecentre.module.css";
 
 export default function DetailsPage({ details }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -23,7 +20,7 @@ export default function DetailsPage({ details }) {
         />
         <DetailsForm details={details} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

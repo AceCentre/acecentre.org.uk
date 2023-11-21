@@ -3,8 +3,6 @@ import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
 // import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import Avatar from "@mui/material/Avatar";
@@ -23,8 +21,6 @@ import { ResourceList } from "../../../components/resource-list/resource-list";
 import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 
 export default function Laaces({ gettingStartedResources }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -263,12 +259,12 @@ export default function Laaces({ gettingStartedResources }) {
         />
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
+export const getStaticProps = async () => {
   const featuredStory = await getSimpleStory("paul");
 
   const products = await getAllProducts();
@@ -302,7 +298,7 @@ export const getStaticProps = withGlobalPropsNoRevalidate(async () => {
       },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

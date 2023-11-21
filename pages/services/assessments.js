@@ -3,8 +3,6 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../components/video-with-card-cover/video-with-card-cover";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../lib/global-props/inject";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
@@ -17,8 +15,6 @@ import { InformationDays } from "../../components/information-days/information-d
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -124,7 +120,7 @@ export default function EngineeringPage() {
         </div>
         <InformationDays />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -180,7 +176,7 @@ const ListItem = ({ children, nhs = false }) => {
   );
 };
 
-export const getStaticProps = withGlobalPropsNoRevalidate(() => {
+export const getStaticProps = () => {
   return {
     props: {
       seo: {
@@ -190,4 +186,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(() => {
       },
     },
   };
-});
+};

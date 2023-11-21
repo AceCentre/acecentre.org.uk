@@ -10,16 +10,16 @@ import { Button } from "../button/button";
 import { Image } from "../image";
 import { Input } from "../input/input";
 import styles from "./nav.module.css";
-import { useGlobalProps } from "../../lib/global-props/hook";
 import { useEffect, useState } from "react";
 import { NewsletterModal } from "../footer/footer";
 import { useRouter } from "next/router";
+import { useAuth } from "../../lib/auth-hook";
 
 export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
   const [modelOpen, setModelOpen] = useState(false);
   const [newsletterSource, setNewsletterSource] = useState(undefined);
   const [tags, setTags] = useState([]);
-  const { loggedInStatus } = useGlobalProps();
+  const { loggedInStatus } = useAuth();
   const { query } = useRouter();
 
   useEffect(() => {

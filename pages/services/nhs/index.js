@@ -3,12 +3,8 @@ import { Footer } from "../../../components/footer/footer";
 import { PageTitle } from "../../../components/page-title/page-title";
 import { ServicesGrid } from "../../../components/services-grid/services-grid";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalPropsNoRevalidate } from "../../../lib/global-props/inject";
 
 export default function NHSLanding() {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -18,7 +14,7 @@ export default function NHSLanding() {
         <PageTitle heading="Ace Centre" description="NHS Services" />
         <ServicesGrid gridItems={gridItems} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -50,7 +46,7 @@ const gridItems = [
   },
 ];
 
-export const getStaticProps = withGlobalPropsNoRevalidate(() => {
+export const getStaticProps = () => {
   return {
     props: {
       seo: {
@@ -60,4 +56,4 @@ export const getStaticProps = withGlobalPropsNoRevalidate(() => {
       },
     },
   };
-});
+};

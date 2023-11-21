@@ -3,13 +3,9 @@ import { Footer } from "../components/footer/footer";
 import { Speechbubble } from "../components/speechbubble/speechbubble";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
-import { useGlobalProps } from "../lib/global-props/hook";
-import { withGlobalProps } from "../lib/global-props/inject";
 import { getAllProductsByPopularity } from "../lib/products/get-products";
 
 export default function SpeechBubblePage({ featuredResources }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -18,12 +14,12 @@ export default function SpeechBubblePage({ featuredResources }) {
       <main id="mainContent">
         <Speechbubble featuredResources={featuredResources}></Speechbubble>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const allProducts = await getAllProductsByPopularity();
 
   const featuredResources = allProducts
@@ -36,12 +32,13 @@ export const getStaticProps = withGlobalProps(async () => {
     }));
 
   return {
+    revalidate: 60,
     props: {
       featuredResources,
       seo: { dontIndex: true, title: "SpeechBubble" },
     },
   };
-});
+};
 
 function htmlDecode(input) {
   return input.replace(/&amp;/g, "&");

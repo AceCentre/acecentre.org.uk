@@ -57,8 +57,9 @@ export const NewsletterModal = ({
   );
 };
 
-export const Footer = ({ currentYear, noPhoneNumber = false }) => {
+export const Footer = ({ noPhoneNumber = false }) => {
   const [modelOpen, setModelOpen] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   const onClose = () => setModelOpen(false);
 

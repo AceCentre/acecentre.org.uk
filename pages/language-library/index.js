@@ -1,8 +1,6 @@
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getLanguageLibraryLandingPageData } from "../../lib/language-library";
 import { LanguageLibraryHeader } from "../../components/language-library-header/language-library-header";
 import { LanguageLibraryLandingSearch } from "../../components/language-library-landing-search/language-library-landing-search";
@@ -16,8 +14,6 @@ import { LanguageLibraryHowTo } from "../../components/language-library-how-to/l
 import { LanguageLibraryFeatured } from "../../components/language-library-featured/language-library-featured";
 
 export default function LanguageLibrary({ languages, displayTag }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -32,15 +28,16 @@ export default function LanguageLibrary({ languages, displayTag }) {
         <LanguageLibraryHowTo />
         <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
 
-export const getStaticProps = withGlobalProps(async () => {
+export const getStaticProps = async () => {
   const props = await getLanguageLibraryLandingPageData();
 
   return {
+    revalidate: 60,
     props: {
       ...props,
       seo: {
@@ -51,4 +48,4 @@ export const getStaticProps = withGlobalProps(async () => {
       },
     },
   };
-});
+};

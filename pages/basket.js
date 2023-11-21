@@ -3,7 +3,6 @@ import { Footer } from "../components/footer/footer";
 import withSession from "../lib/auth/with-session"; // import { getCart } from "../lib/cart/get";
 import { defaultNavItems } from "../components/sub-nav/sub-nav-items";
 import { getCart } from "../lib/cart/get";
-import { useGlobalProps } from "../lib/global-props/hook";
 import { Button } from "../components/button/button";
 import { CouponArea } from "../components/coupon-area/coupon-area";
 import { PageTitle } from "../components/page-title/page-title";
@@ -23,8 +22,6 @@ export default function Basket({
   vat,
   isLoggedIn,
 }) {
-  const { currentYear } = useGlobalProps();
-
   const {
     onQuantityChange,
     sendUpdate,
@@ -89,7 +86,7 @@ export default function Basket({
           </div>
         )}
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

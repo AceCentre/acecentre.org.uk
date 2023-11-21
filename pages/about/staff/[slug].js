@@ -1,14 +1,11 @@
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../../lib/global-props/hook";
-import { withGlobalProps } from "../../../lib/global-props/inject";
 import { getAllStaff } from "../../../lib/staff/get-staff";
 import { StaffPage as Staff } from "../../../components/staff-page/staff-page";
 import { useRouter } from "next/router";
 
 export default function StaffPage({ allStaff, currentActive }) {
-  const { currentYear } = useGlobalProps();
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -21,7 +18,7 @@ export default function StaffPage({ allStaff, currentActive }) {
       <main id="mainContent">
         <Staff allStaff={allStaff} currentActive={currentActive} />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -34,7 +31,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: true };
 };
 
-export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const allStaff = await getAllStaff();
 
   if (allStaff.find((x) => x.slug === slug) === undefined) {
@@ -43,6 +40,7 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
   }
 
   return {
+    revalidate: 60,
     props: {
       allStaff,
       currentActive: slug,
@@ -53,4 +51,4 @@ export const getStaticProps = withGlobalProps(async ({ params: { slug } }) => {
       },
     },
   };
-});
+};

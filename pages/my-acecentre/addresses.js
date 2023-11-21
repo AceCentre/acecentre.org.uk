@@ -8,7 +8,6 @@ import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav-items";
 import { getAddresses } from "../../lib/auth/get-user";
 import withSession from "../../lib/auth/with-session";
-import { useGlobalProps } from "../../lib/global-props/hook";
 
 import styles from "../../styles/addresses.module.css";
 
@@ -17,8 +16,6 @@ export default function Addresses({
   shippingDetails,
   countries,
 }) {
-  const { currentYear } = useGlobalProps();
-
   return (
     <>
       <header>
@@ -34,7 +31,7 @@ export default function Addresses({
           <ShippingDetails details={shippingDetails} countries={countries} />
         </div>
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }

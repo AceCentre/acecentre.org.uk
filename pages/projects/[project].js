@@ -2,8 +2,6 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { useGlobalProps } from "../../lib/global-props/hook";
-import { withGlobalProps } from "../../lib/global-props/inject";
 import { getFullProjects } from "../../lib/posts/get-posts";
 
 import styles from "../../styles/project-detail.module.css";
@@ -13,8 +11,6 @@ import { BlogMeta } from "../../components/blog-meta/blog-meta";
 import { useRouter } from "next/router";
 
 export default function CategoryPage({ currentProject, featuredProjects }) {
-  const { currentYear } = useGlobalProps();
-
   const { isFallback } = useRouter();
 
   if (isFallback) return null;
@@ -51,7 +47,7 @@ export default function CategoryPage({ currentProject, featuredProjects }) {
           viewAllLink="/projects/all"
         />
       </main>
-      <Footer currentYear={currentYear} />
+      <Footer />
     </>
   );
 }
@@ -69,34 +65,33 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = withGlobalProps(
-  async ({ params: { project: projectSlug } }) => {
-    const allProjects = await getFullProjects();
+export const getStaticProps = async ({ params: { project: projectSlug } }) => {
+  const allProjects = await getFullProjects();
 
-    if (!allProjects) throw new Error("Could not get all the projects");
+  if (!allProjects) throw new Error("Could not get all the projects");
 
-    const currentProject = allProjects.find(
-      (project) => project.slug === projectSlug
-    );
+  const currentProject = allProjects.find(
+    (project) => project.slug === projectSlug
+  );
 
-    if (!currentProject) {
-      return { notFound: true };
-    }
-
-    const featuredProjects = allProjects.filter(
-      (project) => project.slug !== currentProject.slug
-    );
-
-    return {
-      props: {
-        currentProject,
-        featuredProjects: featuredProjects.slice(0, 3),
-        seo: {
-          title: currentProject.title,
-          description: currentProject.description,
-          image: currentProject.featuredImage,
-        },
-      },
-    };
+  if (!currentProject) {
+    return { notFound: true };
   }
-);
+
+  const featuredProjects = allProjects.filter(
+    (project) => project.slug !== currentProject.slug
+  );
+
+  return {
+    revalidate: 60,
+    props: {
+      currentProject,
+      featuredProjects: featuredProjects.slice(0, 3),
+      seo: {
+        title: currentProject.title,
+        description: currentProject.description,
+        image: currentProject.featuredImage,
+      },
+    },
+  };
+};
