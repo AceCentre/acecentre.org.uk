@@ -36,8 +36,9 @@ export const getStaticProps = async () => {
 
   if (!latestsPosts) throw new Error("Couldn't get latests posts");
 
-  const blogCategories = await getAllCategories();
-
+  const blogCategories = (await getAllCategories()).filter(
+    (x) => x.slug !== "at-scholar"
+  );
   if (!blogCategories) throw new Error("Couldn't get the blog categories");
 
   return {
