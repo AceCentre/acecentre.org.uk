@@ -168,7 +168,9 @@ const ListItem = ({ children }) => {
 };
 
 export const getStaticProps = async () => {
-  const blogPosts = await getAllPostCards();
+  const blogPosts = (await getAllPostCards()).filter(
+    (x) => x.mainCategoryName == "AT Scholar"
+  );
 
   return {
     props: {

@@ -30,7 +30,9 @@ export default function Home({ latestsPosts, blogCategories }) {
 }
 
 export const getStaticProps = async () => {
-  const latestsPosts = await getAllPostCards();
+  const latestsPosts = (await getAllPostCards()).filter(
+    (x) => x.mainCategoryName !== "AT Scholar"
+  );
 
   if (!latestsPosts) throw new Error("Couldn't get latests posts");
 
