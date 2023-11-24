@@ -1,44 +1,65 @@
-import Link from "next/link";
-import { CombinedNav } from "../components/combined-nav/combined-nav";
-import { Footer } from "../components/footer/footer";
-import { defaultNavItems } from "../components/sub-nav/sub-nav";
+// import Link from "next/link";
+// import { CombinedNav } from "../components/combined-nav/combined-nav";
+// import { Footer } from "../components/footer/footer";
+// import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
 // pages/404.js
-export default function Custom404() {
-  return (
-    <>
-      <style jsx>{`
-        span {
-          font-size: 100px;
-        }
-
-        main {
+const MaintenancePage = () => (
+  <>
+    <title>Site Maintenance</title>
+    <style jsx>
+      {`
+        body {
           text-align: center;
-          width: 90%;
-          margin: 0 auto;
-          max-width: 1024px;
-          padding: 6rem 0;
+          padding: 150px;
         }
 
         h1 {
-          font-weight: normal;
+          font-size: 50px;
         }
-      `}</style>
-      <header>
-        <CombinedNav defaultNavItems={defaultNavItems} />
-      </header>
-      <main id="mainContent">
-        <span>404</span>
-        <h1>Not found</h1>
+
+        body {
+          font: 20px Helvetica, sans-serif;
+          color: #333;
+        }
+
+        article {
+          display: block;
+          text-align: left;
+          width: 650px;
+          margin: 0 auto;
+        }
+
+        a {
+          color: #dc8100;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: #333;
+          text-decoration: none;
+        }
+
+        .hidden {
+          display: none;
+        }
+      `}
+    </style>
+
+    <article>
+      <h1>We&rsquo;ll be back soon!</h1>
+      <div>
         <p>
-          We can&apos;t find what you are looking for. If you think there should
-          be something here then{" "}
-          <Link href="/contact" legacyBehavior>
-            <a>Contact Us</a>
-          </Link>
+          Sorry for the inconvenience but we&rsquo;re performing some
+          maintenance at the moment. If you need to you can always{" "}
+          <a href="mailto:enquiries@acecentre.org.uk">contact us</a>, otherwise
+          we&rsquo;ll be back online shortly!
         </p>
-      </main>
-      <Footer />
-    </>
-  );
-}
+        <p>&mdash; The Ace Centre Team</p>
+      </div>
+      <span className="hidden">Netlify</span>
+    </article>
+  </>
+);
+
+export default MaintenancePage;
