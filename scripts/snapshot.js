@@ -1,7 +1,7 @@
 const { createApiClient } = require("dots-wrapper");
 
 const DROPLET = 335294617;
-const RETENTION_DAYS = 0;
+const RETENTION_DAYS = 7;
 const NAME_PREFIX = "github_generated_snapshot";
 
 const script = async () => {
