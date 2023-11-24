@@ -1,11 +1,6 @@
 const REDIRECTS = [
   {
     source: "/:path*",
-    destination: "https://acecentre.org.uk/maintenance-page",
-    permanent: false,
-  },
-  {
-    source: "/:path*",
     has: [{ type: "host", value: "www.acecentre.org.uk" }],
     destination: "https://acecentre.org.uk/:path*",
     permanent: true,
