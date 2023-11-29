@@ -1,7 +1,7 @@
 import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
-import { Footer } from "../components/footer/footer";
+import { Footer, NewsletterModal } from "../components/footer/footer";
 import { CONTACT_FORM, FormModal } from "../components/ms-form";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
@@ -9,12 +9,15 @@ import { getAllPostCards } from "../lib/posts/get-posts";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 
 import styles from "../styles/at-scholar.module.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function AtScholar({ posts }) {
+  const [modelOpen, setModelOpen] = useState(false);
+  const onClose = () => setModelOpen(false);
+
   return (
     <>
       <header>
@@ -28,8 +31,8 @@ export default function AtScholar({ posts }) {
           heightClass={styles.coverHeight}
         >
           <p className={styles.cardDescription}>
-            AT Scholar funds top AT professionals to experience the world’s top
-            assistive technology event.
+            Funding top British AT professionals to experience the world’s best
+            assistive technology events.
           </p>
           <FormModal form={CONTACT_FORM}>
             {({ onClick }) => (
@@ -44,61 +47,103 @@ export default function AtScholar({ posts }) {
 
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
-            <h2>A nice heading here</h2>
+            <h2>About AT Scholars</h2>
             <p>
-              We have a strong and developing engineering and technical team
-              that can support and enhance your own multi-disciplinary team. Our
-              skills can compliment those you already offer in areas such as:
+              Established in 2020, the British Assistive Technology Scholarship
+              funds AT Scholars, talented UK professionals working in the field
+              of Assistive Technology (ATech) and Augmentative and Alternative
+              Communication (AAC), to experience the world’s top events in the
+              field.
+            </p>
+            <p>
+              AT Scholars are selected to attend events to learn from and share
+              best practice on the international stage. To facilitate this the
+              British Assistive Technology Scholarship funds:{" "}
             </p>
             <ul className={styles.list}>
-              <ListItem>Point 1</ListItem>
-              <ListItem>Point 1</ListItem>
-              <ListItem>Point 1</ListItem>
-              <ListItem>Point 1</ListItem>
+              <ListItem>Travel </ListItem>
+              <ListItem>Accommodation</ListItem>
+              <ListItem>Conference fees</ListItem>
             </ul>
             <p>
-              Using our in-house workshops that we complement with external
-              partners and consultants we are able to manufacture a wide range
-              of devices and bespoke assistive technologies including:
+              On their return AT Scholars will disseminate their findings via
+              reports to our partners (see below) and through UK based event.
             </p>
+            <h2>How it began</h2>
+            <p>
+              Started by Martin Littler FRSA, a co-founder of Inclusive
+              Technology, championed AT Scholars since 2020. This has been by
+              sending them to Assistive Technology Industry Association
+              Conference held annually in Orland, USA where most global advances
+              in assistive technology are showcased and first evaluated.{" "}
+            </p>
+            <p>
+              Originally organised through Inclusive Technology, over 30
+              professionals have attended events in person or online. In 2023
+              Ace Centre took on the administration of the program and with the
+              continued support of our partners and Martin Littler we hope to
+              grow the AT Scholar program from strength to strength.{" "}
+            </p>
+
+            <p>British Assistive Technology Scholarship Partners: </p>
+
             <ul className={styles.list}>
               <ListItem>
-                Custom moulded access devices such as switches and joystick tops
-                using digital manufacturing including 3D scanning and 3D
-                printing.
+                <Link href="https://www.policyconnect.org.uk/appgat">
+                  All Party Parliamentary Group for Assistive Technology
+                  (APPGAT)
+                </Link>
               </ListItem>
-              <ListItem>Complex mounting and positioning systems</ListItem>
-              <ListItem>Specialist seating and mobility components</ListItem>
-            </ul>
-            <p>
-              We can enhance your team with Rehabilitation Engineering or other
-              technical support on a contract basis for a defined period of time
-              to cover absence, for a specific number of hours per month or to
-              increase the capacity of your service for the short or medium
-              term. All members of our team who provide this support have had an
-              enhanced DBS check, are fully competent and registered where
-              appropriate.
-            </p>
-            <p>This type of support of ideally suited to:</p>
-            <ul className={styles.list}>
-              <ListItem>NHS Wheelchair services</ListItem>
               <ListItem>
-                Commercial seating, mobility, assistive technology and postural
-                management service providers
+                <Link href="https://www.bataonline.org.uk/">
+                  British Assistive Technology Association (BATA)
+                </Link>
               </ListItem>
-              <ListItem>Charitable organisations</ListItem>
+
+              <ListItem>
+                <Link href="https://www.communicationmatters.org.uk">
+                  Communication Matters
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://cenmac.com/">CENMAC</Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://www.inclusive.com/uk/">
+                  Inclusive Technology
+                </Link>
+              </ListItem>
             </ul>
             <p>
-              For more information please do{" "}
-              <FormModal form={CONTACT_FORM}>
-                {({ onClick }) => (
-                  <a className={styles.clickableLink} onClick={onClick}>
-                    get in touch with us using this form
-                  </a>
-                )}
-              </FormModal>{" "}
-              or <Link href="/contact">contact us.</Link>
+              <Link href="/blog/at-scholar-history">
+                Read more about the history by clicking here
+              </Link>
             </p>
+            <h2>Get involved</h2>
+            <p>
+              The British Assistive Technology Scholarship welcomes applications
+              from any UK based professional actively working in the field of
+              ATech and/or AAC. The judging panel looks for those who have a
+              passion for learning more, sharing information on and promoting
+              use of assistive technology.
+            </p>
+            <p>
+              Information on application opening and closing dates can vary.
+              Please check this website for more information or{" "}
+              <a
+                onClick={() => setModelOpen(true)}
+                className={styles.buttonAsLink}
+              >
+                sign up to receive updates by clicking here.
+              </a>
+            </p>
+
+            <NewsletterModal
+              modelOpen={modelOpen}
+              onClose={onClose}
+              signUpIdentifier={"at-scholar"}
+              tags={["at-scholar"]}
+            />
           </div>
           <div>
             <div className={styles.quote}>
@@ -107,44 +152,17 @@ export default function AtScholar({ posts }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;AT Scholar is great. I really enjoyed it. its brilliant.
-                  AT Scholar is great. I really enjoyed it. its brilliant.&quot;
+                  &quot;AT scholars could spread the word about the latest
+                  developments elsewhere on the planet, which would benefit
+                  disabled people here.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>John Smith</strong>
+                    <strong>Martin Littler</strong>
                   </p>
-                  <p>Person</p>
+                  <p>AT Scholar Founder</p>
                 </div>
               </div>
-            </div>
-            <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <ContentPasteIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <h3>Application</h3>
-                <p>
-                  Fill out the application to be considered for next years round
-                  of AT Scholar
-                </p>
-                <div className={styles.downloadButtonContainer}>
-                  <Button href="/">Application</Button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h2>Pricing</h2>
-            <p>
-              We’ve provided below our standard pricing and guide pricing for
-              additional services. Please do get in touch for more information
-              and a detailed quotation.
-            </p>
-            <div className={styles.pricingButton}>
-              <Button newTab href="/engineering-pricing.pdf">
-                Download pricing
-              </Button>
             </div>
           </div>
         </div>
