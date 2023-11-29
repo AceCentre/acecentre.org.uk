@@ -3,6 +3,11 @@
   margin-top: 1.5rem;
 }
 
+.buttonAsLink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .clickableLink {
   cursor: pointer;
   text-decoration: underline;
