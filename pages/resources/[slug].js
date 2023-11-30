@@ -130,7 +130,7 @@ export async function getStaticPaths() {
   return {
     paths: data.products.nodes.map((product) => ({
       params: {
-        slug: product,
+        slug: product.slug,
       },
     })),
     fallback: true,
