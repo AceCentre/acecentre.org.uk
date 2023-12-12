@@ -15,7 +15,7 @@ import { NewsletterModal } from "../footer/footer";
 import { useRouter } from "next/router";
 import { useAuth } from "../../lib/auth-hook";
 
-export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
+export const Nav = ({ nhs, atScholar, nhsTitle, noPhoneNumber = false }) => {
   const [modelOpen, setModelOpen] = useState(false);
   const [newsletterSource, setNewsletterSource] = useState(undefined);
   const [tags, setTags] = useState([]);
@@ -43,9 +43,9 @@ export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
       />
       <FullWidthContainer>
         <InnerContainer>
-          <HomeButton nhsTitle={nhsTitle} nhs={nhs} />
+          <HomeButton nhsTitle={nhsTitle} nhs={nhs} atScholar={atScholar} />
           <NavList>
-            {!nhs && (
+            {!nhs && !atScholar && (
               <>
                 <NavLink href="/blog">Blog</NavLink>
                 <NavLink href="/feedback">Feedback</NavLink>
@@ -95,13 +95,25 @@ export const Nav = ({ nhs, nhsTitle, noPhoneNumber = false }) => {
               </Input>
             </form>
           </div>
-          {nhs ? (
+          {nhs && (
             <div className={styles.hideOnMediumScreens}>
               <Button href="/services" className={styles.nhsButton}>
                 View all services
               </Button>
             </div>
-          ) : (
+          )}
+
+          {atScholar && (
+            <>
+              <div className={styles.hideOnMediumScreens}>
+                <Button href="/" className={styles.donateButton}>
+                  Ace Centre Home
+                </Button>
+              </div>
+            </>
+          )}
+
+          {!nhs && !atScholar && (
             <div className={styles.hideOnMediumScreens}>
               <Button
                 href="/get-involved/donate"
@@ -135,9 +147,13 @@ const NavLink = ({ href, children, className }) => {
   );
 };
 
-const HomeButton = ({ nhs, nhsTitle }) => {
+const HomeButton = ({ nhs, nhsTitle, atScholar }) => {
   if (nhs) {
     return <NHSHomeButton title={nhsTitle} />;
+  }
+
+  if (atScholar) {
+    return <ATScholarHomeButton></ATScholarHomeButton>;
   }
 
   return (
@@ -171,6 +187,23 @@ const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
         ></Image>
       </Link>
       <p className={styles.nhsTitle}>{title}</p>
+    </div>
+  );
+};
+
+const ATScholarHomeButton = () => {
+  return (
+    <div className={styles.homeImage}>
+      <Link name="home" href="/">
+        <Image
+          height={500}
+          width={500}
+          maxHeight={100}
+          src={"/at-scholar-logo.png"}
+          alt="The AT Scholar logo"
+          placeOnTop
+        ></Image>
+      </Link>
     </div>
   );
 };
