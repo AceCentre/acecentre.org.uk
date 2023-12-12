@@ -115,10 +115,10 @@ export const CombinedNav = ({
         {atScholar && (
           <Link name="home" href="/">
             <Image
-              height={500}
-              width={500}
+              height={720}
+              width={1800}
               maxHeight={100}
-              src={"/at-scholar-logo.png"}
+              src={"/at-scholar-logo2.png"}
               alt="The AT Scholar logo"
             ></Image>
           </Link>
