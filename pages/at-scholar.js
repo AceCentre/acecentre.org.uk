@@ -2,7 +2,6 @@ import { Button } from "../components/button/button";
 import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { Footer, NewsletterModal } from "../components/footer/footer";
-import { CONTACT_FORM, FormModal } from "../components/ms-form";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../components/video-with-card-cover/video-with-card-cover";
 import { getAllPostCards } from "../lib/posts/get-posts";
@@ -34,15 +33,15 @@ export default function AtScholar({ posts }) {
             Funding top British AT professionals to experience the world’s best
             assistive technology events.
           </p>
-          <FormModal form={CONTACT_FORM}>
-            {({ onClick }) => (
-              <div className={styles.cardButtonContainer}>
-                <Button onClick={onClick} className={styles.cardButton}>
-                  Ask us a question
-                </Button>
-              </div>
-            )}
-          </FormModal>
+
+          <div className={styles.cardButtonContainer}>
+            <Button
+              href="mailto:info@atscholar.co.uk"
+              className={styles.cardButton}
+            >
+              Ask us a question
+            </Button>
+          </div>
         </VideoWithCardCover>
 
         <div className={styles.bottomContainer}>

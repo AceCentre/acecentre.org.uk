@@ -58,6 +58,7 @@ const useMobileNav = () => {
 export const CombinedNav = ({
   defaultNavItems,
   nhs = false,
+  atScholar = false,
   nhsTitle,
   noPhoneNumber = false,
 }) => {
@@ -87,15 +88,20 @@ export const CombinedNav = ({
           isCypress ? styles.isCypressDesktop : ""
         }`}
       >
-        <Nav nhs={nhs} nhsTitle={nhsTitle} noPhoneNumber={noPhoneNumber} />
-        {!nhs && <SubNav navItems={defaultNavItems} />}
+        <Nav
+          nhs={nhs}
+          atScholar={atScholar}
+          nhsTitle={nhsTitle}
+          noPhoneNumber={noPhoneNumber}
+        />
+        {!nhs && !atScholar && <SubNav navItems={defaultNavItems} />}
       </div>
       <div
         className={`${styles.mobileContainer} ${
           isDrawerOpen ? styles.noShadow : ""
         } ${isCypress ? styles.isCypressMobile : ""}`}
       >
-        {nhs ? (
+        {nhs && (
           <Link name="home" href="/">
             <Image
               height={118}
@@ -105,7 +111,19 @@ export const CombinedNav = ({
               alt="The NHS logo"
             ></Image>
           </Link>
-        ) : (
+        )}
+        {atScholar && (
+          <Link name="home" href="/">
+            <Image
+              height={500}
+              width={500}
+              maxHeight={100}
+              src={"/at-scholar-logo.png"}
+              alt="The AT Scholar logo"
+            ></Image>
+          </Link>
+        )}
+        {!nhs && !atScholar && (
           <Link name="home" href="/">
             <Image
               height={152}
