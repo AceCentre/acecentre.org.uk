@@ -19,7 +19,11 @@ export default function CategoryPage({ posts, category }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <PageTitle description={category.title} heading="Ace Centre blog" />
+        {category.slug == "at-scholar" ? (
+          <PageTitle heading="AT Scholar blog" />
+        ) : (
+          <PageTitle description={category.title} heading="Ace Centre blog" />
+        )}
         <p className={styles.container}>{posts.length} articles</p>
         <FeaturedPosts posts={posts} />
       </main>
