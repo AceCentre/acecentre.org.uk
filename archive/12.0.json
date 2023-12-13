@@ -1,0 +1,3625 @@
+{
+  "data": {
+    "productCategories": {
+      "nodes": [
+        {
+          "name": "ABC spelling charts",
+          "id": "dGVybTo1OA==",
+          "slug": "abc-spelling-boards",
+          "products": {
+            "nodes": [
+              {
+                "slug": "alphabet-flip-chart",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "encoded-abc-numbers-direct-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "combination-access-abc",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "aeiou-row-column-listener-mediated-scanning",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-some-phrases",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-and-numbers",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-with-symbols",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-pink.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 1069,
+              "height": 551
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Access",
+          "id": "dGVybToxNTY=",
+          "slug": "access",
+          "products": {
+            "nodes": [
+              {
+                "slug": "demo-atu",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "demo-atu"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "look2talk-i-15th-dec-21",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "look2talk-i-15th-dec-21"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "ios-accessibility-d",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "ios-accessibility-d"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-access_Blue_800x800.png",
+            "altText": "Access Logo Icon",
+            "mediaDetails": {
+              "width": 800,
+              "height": 800
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToxNjA="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Ace Centre Courses",
+          "id": "dGVybToxNTU=",
+          "slug": "acecentrecourses",
+          "products": {
+            "nodes": []
+          },
+          "image": null,
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Ace Centre Learning",
+          "id": "dGVybToxNjA=",
+          "slug": "learning",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/Online_Green_800x800.png",
+            "altText": "Learning Logo Icon",
+            "mediaDetails": {
+              "width": 800,
+              "height": 800
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "demo-atu",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "demo-atu"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "look2talk-i-15th-dec-21",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "look2talk-i-15th-dec-21"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "ios-accessibility-d",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "ios-accessibility-d"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "name": "Access",
+                "id": "dGVybToxNTY=",
+                "slug": "access",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-access_Blue_800x800.png",
+                  "altText": "Access Logo Icon",
+                  "mediaDetails": {
+                    "width": 800,
+                    "height": 800
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "how-to-develop-and-use-a-communication-book-d-9th-30th-nov-21",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "how-to-develop-and-use-a-communication-book-d-9th-30th-nov-21"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "developing-and-using-a-communication-book-i-18th-oct-21",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "aac-solutions-for-people-with-aphasia-d-8th-sept-21",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "aac-solutions-for-people-with-aphasia-d-8th-sept-21"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "communication-partner-skills-i-15th-july-21",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "communication-partner-skills-i-15th-july-21"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "podd-2-day-introductory-workshop-d",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "podd-2-day-introductory-workshop-d-16th-17th-feb-2021"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "implementing-the-pragmatics-profile-for-people-who-use-aac-d-28th-apr-19th-may-21",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "implementing-the-pragmatics-profile-for-people-who-use-aac-d-28th-apr-19th-may-21"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "communication-partners-i",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "communication-partners-i"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "name": "Communication",
+                "id": "dGVybToxNTc=",
+                "slug": "communication",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-communication_Blue_800x800.png",
+                  "altText": "Communication Logo Icon",
+                  "mediaDetails": {
+                    "width": 800,
+                    "height": 800
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "assistive-technology-unit-e-sept-2021",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "assistive-technology-unit-e-sept-2021"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "slug": "splash-training-i",
+                      "moodleCourses": {
+                        "nodes": [
+                          {
+                            "slug": "splash-training-i"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "name": "Education",
+                "id": "dGVybToxNTg=",
+                "slug": "education",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-Education_Blue_800x800.png",
+                  "altText": "Education Logo Icon",
+                  "mediaDetails": {
+                    "width": 800,
+                    "height": 800
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Additional Packs",
+          "id": "dGVybTozMQ==",
+          "slug": "additional-packs",
+          "products": {
+            "nodes": [
+              {
+                "slug": "you-matter-education-pack",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "you-matter-pack",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": null,
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNg=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Alphabet Charts",
+          "id": "dGVybToyNw==",
+          "slug": "alphabet-charts",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2021/02/simple-alphabet-charts-in-word.png",
+            "altText": "simple alphabet charts in word",
+            "mediaDetails": {
+              "width": 623,
+              "height": 254
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "alphabet-flip-chart",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "encoded-abc-numbers-direct-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "combination-access-abc",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "aeiou-row-column-listener-mediated-scanning",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-some-phrases",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-and-numbers",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-with-symbols",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "ABC spelling charts",
+                "id": "dGVybTo1OA==",
+                "slug": "abc-spelling-boards",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-pink.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 1069,
+                    "height": 551
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "number-encoded",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-upper-case-laminator-required",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-lower-case-laminator-required",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Alphabets you can eye point to",
+                "id": "dGVybToxMjU=",
+                "slug": "alphabet-eye-point",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/colour-upper-optional-laminate.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 444,
+                    "height": 322
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "simple-charts-to-edit-in-word",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "high-contrast-abc-qwerty",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-2",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "qwerty-2",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "number-encoded-abc-for-pointing",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-abc-for-pointing",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "coded-abc-chart",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "frequency-layout-fitaly",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Alphabets you can point to",
+                "id": "dGVybToxMjI=",
+                "slug": "alphabet-point",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/point-category.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 233,
+                    "height": 178
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "frequency-listener-scan-charts",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-listener-scan-charts",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "alphabet-flip-charts-high-contrast",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "aeiou-row-column-listener-mediated-scanning",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Charts for Listener Mediated Scanning",
+                "id": "dGVybToxMjY=",
+                "slug": "alphabet-lms",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/LMS-main-tile.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 458,
+                    "height": 258
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": []
+                },
+                "name": "Charts with alphabet + words/phrases you can point to",
+                "id": "dGVybToxMjM=",
+                "slug": "words-phrases-point",
+                "image": null,
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "abc-with-core-words",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "qwerty-with-core-words",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "qwerty-chart-with-useful-words-for-a-child",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-and-core-vocabulary",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abc-some-phrases",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Charts with the alphabet + some words and phrases to point to",
+                "id": "dGVybTo2Mw==",
+                "slug": "spelling-boards-with-words-and-phrases",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-with-some-phrases-cream.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 1056,
+                    "height": 650
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "coded-abc-chart",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Coded alphabet charts",
+                "id": "dGVybToxMDk=",
+                "slug": "alphabet-coded",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Coded-alphabet-chart-thumbnail.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 559,
+                    "height": 382
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": []
+                },
+                "name": "Communication boards",
+                "id": "dGVybToxMDg=",
+                "slug": "communication-boards",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Listener-mediated-scanning-chart-with-phrases-thumbnail.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 462,
+                    "height": 344
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "number-encoded-abc-for-pointing",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-abc-for-pointing",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "number-encoded",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-upper-case-laminator-required",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colour-encoded-lower-case-laminator-required",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "encoded-abc-numbers-direct-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "encoded-coloured-borders-e-tran",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Encoded alphabet charts",
+                "id": "dGVybTo1OQ==",
+                "slug": "alphabet-encoded",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-olour-border.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 301,
+                    "height": 216
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "frequency-listener-scan-charts",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "frequency-layout-fitaly",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Frequency layout spelling charts",
+                "id": "dGVybTo2MA==",
+                "slug": "frequency-layout-spelling-boards",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/freq-pink.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 436,
+                    "height": 301
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "high-contrast-abc-qwerty",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "alphabet-flip-charts-high-contrast",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "aeiou-black-yellow",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "High contrast charts",
+                "id": "dGVybTo2MQ==",
+                "slug": "high-contrast-charts",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/01/AEIOU-black-on-yellow.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 903,
+                    "height": 620
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "abbreviation-expansions-blank-template",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "abbreviation-expansions",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Letter codes",
+                "id": "dGVybToxMTA=",
+                "slug": "letter-codes",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Abbreviation-expansions-thumbnail.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 314,
+                    "height": 441
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "qwerty-and-numbers",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "QWERTY alphabet charts",
+                "id": "dGVybTo2Mg==",
+                "slug": "qwerty-alphabet-charts",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/qwerty-cream.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 717,
+                    "height": 407
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Alphabet communication book templates",
+          "id": "dGVybToxMjE=",
+          "slug": "alphabet-books",
+          "products": {
+            "nodes": [
+              {
+                "slug": "a5-communication-book-direct-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "speakbook",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "qwerty-and-core-fringe-words",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "listener-mediated-scanning-chart-with-phrases",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "pragmatic-based-phrase-book-a4-auditory-scan-book",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "a4-category-based-phrase-book",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/02/picture-for-thumnail.png",
+            "altText": "communication book",
+            "mediaDetails": {
+              "width": 336,
+              "height": 449
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Alphabets you can eye point to",
+          "id": "dGVybToxMjU=",
+          "slug": "alphabet-eye-point",
+          "products": {
+            "nodes": [
+              {
+                "slug": "number-encoded",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-upper-case-laminator-required",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-lower-case-laminator-required",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/colour-upper-optional-laminate.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 444,
+              "height": 322
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Alphabets you can point to",
+          "id": "dGVybToxMjI=",
+          "slug": "alphabet-point",
+          "products": {
+            "nodes": [
+              {
+                "slug": "simple-charts-to-edit-in-word",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "high-contrast-abc-qwerty",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-2",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "qwerty-2",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "number-encoded-abc-for-pointing",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-abc-for-pointing",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "coded-abc-chart",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "frequency-layout-fitaly",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/point-category.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 233,
+              "height": 178
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Altered colours",
+          "id": "dGVybTo5MA==",
+          "slug": "altered-colours",
+          "products": {
+            "nodes": [
+              {
+                "slug": "core-8-high-contrast-pcs",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "core-8-yellow-symbol-cell-background-black-page-widgit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Core-8-with-yellow-symbol-cell-background-on-black-page-PCS.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 736,
+              "height": 519
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybTo4OQ=="
+              },
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Altered spacing to support direct access",
+          "id": "dGVybTo5MQ==",
+          "slug": "altered-spacing-to-support-direct-access",
+          "products": {
+            "nodes": [
+              {
+                "slug": "core-5-arc-shape",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "balloons-8-bigger-gaps-widgit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Balloons-with-bigger-gaps-PCS.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 763,
+              "height": 544
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybTo4OQ=="
+              },
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Alternative access symbol charts",
+          "id": "dGVybTo4OQ==",
+          "slug": "alternative-access-symbol-charts",
+          "products": {
+            "nodes": [
+              {
+                "slug": "strictly-come-dancingtv-commenting-chart",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "animals-36-numerical-encoding",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "sing-old-mcdonald-8-intro-encoding",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "animals-36-colour-encoded-borders",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "animals-36-colour-encoded-dots",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "blocks-24-combination-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "train-play-20-coded-access-chart-give-code",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "train-play-20-coded-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "core-5-arc-shape",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "core-8-high-contrast-pcs",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "core-8-yellow-symbol-cell-background-black-page-widgit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "balloons-8-bigger-gaps-widgit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Core-8-with-yellow-symbol-cell-background-on-black-page-PCS.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 736,
+              "height": 519
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "core-8-high-contrast-pcs",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "core-8-yellow-symbol-cell-background-black-page-widgit",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Altered colours",
+                "id": "dGVybTo5MA==",
+                "slug": "altered-colours",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Core-8-with-yellow-symbol-cell-background-on-black-page-PCS.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 736,
+                    "height": 519
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "core-5-arc-shape",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "balloons-8-bigger-gaps-widgit",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Altered spacing to support direct access",
+                "id": "dGVybTo5MQ==",
+                "slug": "altered-spacing-to-support-direct-access",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Balloons-with-bigger-gaps-PCS.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 763,
+                    "height": 544
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "train-play-20-coded-access-chart-give-code",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "train-play-20-coded-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Coded access",
+                "id": "dGVybTo5Mg==",
+                "slug": "coded-access",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Train-Play-20-coded-access-chart-with-target-symbols-W.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 760,
+                    "height": 544
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "blocks-24-combination-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Combination access",
+                "id": "dGVybTo5Mw==",
+                "slug": "combination-access",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Blocks-24-combination-access-W.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 681,
+                    "height": 478
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "animals-36-numerical-encoding",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "sing-old-mcdonald-8-intro-encoding",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "animals-36-colour-encoded-borders",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "animals-36-colour-encoded-dots",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Encoding",
+                "id": "dGVybTo5NA==",
+                "slug": "encoding",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Animals-36-colour-encoded-with-borders-PCS.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 765,
+                    "height": 542
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Archive",
+          "id": "dGVybTo3NA==",
+          "slug": "archive",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/11/archive.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 256,
+              "height": 256
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNg=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Charts for Listener Mediated Scanning",
+          "id": "dGVybToxMjY=",
+          "slug": "alphabet-lms",
+          "products": {
+            "nodes": [
+              {
+                "slug": "frequency-listener-scan-charts",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-listener-scan-charts",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "alphabet-flip-charts-high-contrast",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "aeiou-row-column-listener-mediated-scanning",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/08/LMS-main-tile.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 458,
+              "height": 258
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Charts with alphabet + words/phrases you can point to",
+          "id": "dGVybToxMjM=",
+          "slug": "words-phrases-point",
+          "products": {
+            "nodes": []
+          },
+          "image": null,
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Charts with the alphabet + some words and phrases to point to",
+          "id": "dGVybTo2Mw==",
+          "slug": "spelling-boards-with-words-and-phrases",
+          "products": {
+            "nodes": [
+              {
+                "slug": "abc-with-core-words",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "qwerty-with-core-words",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "qwerty-chart-with-useful-words-for-a-child",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-and-core-vocabulary",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-some-phrases",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-with-some-phrases-cream.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 1056,
+              "height": 650
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "ChristmAce",
+          "id": "dGVybToxMTI=",
+          "slug": "christmace-2018",
+          "products": {
+            "nodes": [
+              {
+                "slug": "make-your-own-flip-joke-book",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "core-word-classroom-5-minute-filler",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "make-your-own-switch-adapted-christmas-tree-lights",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "simon-says-sing-a-carol",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "make-your-own-biscuit-christmas-tree",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "christmas-place-mat",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "elf-on-the-shelf",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/12/AceCentre-Xmas-Logo-2018-dragged.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 2084,
+              "height": 1350
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToxMjA="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Coded access",
+          "id": "dGVybTo5Mg==",
+          "slug": "coded-access",
+          "products": {
+            "nodes": [
+              {
+                "slug": "train-play-20-coded-access-chart-give-code",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "train-play-20-coded-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Train-Play-20-coded-access-chart-with-target-symbols-W.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 760,
+              "height": 544
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybTo4OQ=="
+              },
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Coded alphabet charts",
+          "id": "dGVybToxMDk=",
+          "slug": "alphabet-coded",
+          "products": {
+            "nodes": [
+              {
+                "slug": "coded-abc-chart",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Coded-alphabet-chart-thumbnail.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 559,
+              "height": 382
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Combination access",
+          "id": "dGVybTo5Mw==",
+          "slug": "combination-access",
+          "products": {
+            "nodes": [
+              {
+                "slug": "blocks-24-combination-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Blocks-24-combination-access-W.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 681,
+              "height": 478
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybTo4OQ=="
+              },
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Communication",
+          "id": "dGVybToxNTc=",
+          "slug": "communication",
+          "products": {
+            "nodes": [
+              {
+                "slug": "how-to-develop-and-use-a-communication-book-d-9th-30th-nov-21",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "how-to-develop-and-use-a-communication-book-d-9th-30th-nov-21"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "developing-and-using-a-communication-book-i-18th-oct-21",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "aac-solutions-for-people-with-aphasia-d-8th-sept-21",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "aac-solutions-for-people-with-aphasia-d-8th-sept-21"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "communication-partner-skills-i-15th-july-21",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "communication-partner-skills-i-15th-july-21"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "podd-2-day-introductory-workshop-d",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "podd-2-day-introductory-workshop-d-16th-17th-feb-2021"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "implementing-the-pragmatics-profile-for-people-who-use-aac-d-28th-apr-19th-may-21",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "implementing-the-pragmatics-profile-for-people-who-use-aac-d-28th-apr-19th-may-21"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "communication-partners-i",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "communication-partners-i"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-communication_Blue_800x800.png",
+            "altText": "Communication Logo Icon",
+            "mediaDetails": {
+              "width": 800,
+              "height": 800
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToxNjA="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Communication boards",
+          "id": "dGVybToxMDg=",
+          "slug": "communication-boards",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Listener-mediated-scanning-chart-with-phrases-thumbnail.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 462,
+              "height": 344
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Education",
+          "id": "dGVybToxNTg=",
+          "slug": "education",
+          "products": {
+            "nodes": [
+              {
+                "slug": "assistive-technology-unit-e-sept-2021",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "assistive-technology-unit-e-sept-2021"
+                    }
+                  ]
+                }
+              },
+              {
+                "slug": "splash-training-i",
+                "moodleCourses": {
+                  "nodes": [
+                    {
+                      "slug": "splash-training-i"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-Education_Blue_800x800.png",
+            "altText": "Education Logo Icon",
+            "mediaDetails": {
+              "width": 800,
+              "height": 800
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToxNjA="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Encoded alphabet charts",
+          "id": "dGVybTo1OQ==",
+          "slug": "alphabet-encoded",
+          "products": {
+            "nodes": [
+              {
+                "slug": "number-encoded-abc-for-pointing",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-abc-for-pointing",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "number-encoded",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-upper-case-laminator-required",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colour-encoded-lower-case-laminator-required",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "encoded-abc-numbers-direct-access",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "encoded-coloured-borders-e-tran",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/abc-olour-border.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 301,
+              "height": 216
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Encoding",
+          "id": "dGVybTo5NA==",
+          "slug": "encoding",
+          "products": {
+            "nodes": [
+              {
+                "slug": "animals-36-numerical-encoding",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "sing-old-mcdonald-8-intro-encoding",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "animals-36-colour-encoded-borders",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "animals-36-colour-encoded-dots",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Animals-36-colour-encoded-with-borders-PCS.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 765,
+              "height": 542
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybTo4OQ=="
+              },
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Frequency layout spelling charts",
+          "id": "dGVybTo2MA==",
+          "slug": "frequency-layout-spelling-boards",
+          "products": {
+            "nodes": [
+              {
+                "slug": "frequency-listener-scan-charts",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "frequency-layout-fitaly",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/freq-pink.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 436,
+              "height": 301
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Getting Started",
+          "id": "dGVybToxNzY=",
+          "slug": "getting-started",
+          "products": {
+            "nodes": [
+              {
+                "slug": "new-product-2",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "qwerty-with-core-words",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abc-listener-scan-charts",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2021/06/IMG_6928-scaled.jpeg",
+            "altText": "Ace centre staff member creating a product",
+            "mediaDetails": {
+              "width": 2560,
+              "height": 1632
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "High contrast charts",
+          "id": "dGVybTo2MQ==",
+          "slug": "high-contrast-charts",
+          "products": {
+            "nodes": [
+              {
+                "slug": "high-contrast-listener-mediated-scan-charts-abc-frequency",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "high-contrast-abc-qwerty",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "alphabet-flip-charts-high-contrast",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "aeiou-black-yellow",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/01/AEIOU-black-on-yellow.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 903,
+              "height": 620
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Information Sheets",
+          "id": "dGVybToyOQ==",
+          "slug": "information-sheets",
+          "products": {
+            "nodes": []
+          },
+          "image": null,
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "LAACES",
+          "id": "dGVybToxNTQ=",
+          "slug": "laaces",
+          "products": {
+            "nodes": []
+          },
+          "image": null,
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Letter codes",
+          "id": "dGVybToxMTA=",
+          "slug": "letter-codes",
+          "products": {
+            "nodes": [
+              {
+                "slug": "abbreviation-expansions-blank-template",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "abbreviation-expansions",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/09/Abbreviation-expansions-thumbnail.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 314,
+              "height": 441
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Partnerships",
+          "id": "dGVybToxNzI=",
+          "slug": "partnerships",
+          "products": {
+            "nodes": []
+          },
+          "image": null,
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Publications",
+          "id": "dGVybToyNg==",
+          "slug": "publications",
+          "products": {
+            "nodes": [
+              {
+                "slug": "understanding-features-of-electronic-text-based-aac",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "readiness-for-aac",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "being-a-communication-partner",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "getting-started-aac",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "switch-assessment-planning-framework-individuals-physical-disabilities",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "developing-using-communication-book-templates",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "pragmatics-profile-people-use-aac",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "developing-aac-policies-schools",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "making-software-inclusive",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "switch-access-technology",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "matter-education-edition",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "you-matter",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "look2talk",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "developing-using-communication-book",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/You-Matter-Books.png",
+            "altText": "You Matter Books",
+            "mediaDetails": {
+              "width": 501,
+              "height": 502
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "you-matter-education-pack",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "you-matter-pack",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Additional Packs",
+                "id": "dGVybTozMQ==",
+                "slug": "additional-packs",
+                "image": null,
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": []
+                },
+                "name": "Archive",
+                "id": "dGVybTo3NA==",
+                "slug": "archive",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/11/archive.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 256,
+                    "height": 256
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "QWERTY alphabet charts",
+          "id": "dGVybTo2Mg==",
+          "slug": "qwerty-alphabet-charts",
+          "products": {
+            "nodes": [
+              {
+                "slug": "qwerty-and-numbers",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/qwerty-cream.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 717,
+              "height": 407
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyNw=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Seasonal resources",
+          "id": "dGVybToxMjA=",
+          "slug": "seasonal",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2021/07/file-20191118-169393-r78x4o.jpeg",
+            "altText": "Santa",
+            "mediaDetails": {
+              "width": 1200,
+              "height": 675
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "make-your-own-flip-joke-book",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "core-word-classroom-5-minute-filler",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "make-your-own-switch-adapted-christmas-tree-lights",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "simon-says-sing-a-carol",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "make-your-own-biscuit-christmas-tree",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "christmas-place-mat",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "elf-on-the-shelf",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "ChristmAce",
+                "id": "dGVybToxMTI=",
+                "slug": "christmace-2018",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/12/AceCentre-Xmas-Logo-2018-dragged.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 2084,
+                    "height": 1350
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Software",
+          "id": "dGVybTo2NQ==",
+          "slug": "software",
+          "products": {
+            "nodes": [
+              {
+                "slug": "textaloud",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "new-product-2",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "gridwiz",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "talk-together",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "large-pointers",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/10/software_for_communication.png",
+            "altText": "communication software",
+            "mediaDetails": {
+              "width": 500,
+              "height": 500
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol Charts",
+          "id": "dGVybToyOA==",
+          "slug": "symbol-charts",
+          "products": {
+            "nodes": []
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/Core-15-Widgit.png",
+            "altText": "Core 15 - Widgit",
+            "mediaDetails": {
+              "width": 666,
+              "height": 465
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": [
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "strictly-come-dancingtv-commenting-chart",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "animals-36-numerical-encoding",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "sing-old-mcdonald-8-intro-encoding",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "animals-36-colour-encoded-borders",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "animals-36-colour-encoded-dots",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "blocks-24-combination-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "train-play-20-coded-access-chart-give-code",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "train-play-20-coded-access",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "core-5-arc-shape",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "core-8-high-contrast-pcs",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "core-8-yellow-symbol-cell-background-black-page-widgit",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "balloons-8-bigger-gaps-widgit",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Alternative access symbol charts",
+                "id": "dGVybTo4OQ==",
+                "slug": "alternative-access-symbol-charts",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Core-8-with-yellow-symbol-cell-background-on-black-page-PCS.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 736,
+                    "height": 519
+                  }
+                },
+                "children": {
+                  "nodes": [
+                    {
+                      "id": "dGVybTo5MA==",
+                      "slug": "altered-colours",
+                      "name": "Altered colours",
+                      "image": {
+                        "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Core-8-with-yellow-symbol-cell-background-on-black-page-PCS.png",
+                        "altText": "",
+                        "mediaDetails": {
+                          "width": 736,
+                          "height": 519
+                        }
+                      }
+                    },
+                    {
+                      "id": "dGVybTo5MQ==",
+                      "slug": "altered-spacing-to-support-direct-access",
+                      "name": "Altered spacing to support direct access",
+                      "image": {
+                        "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Balloons-with-bigger-gaps-PCS.png",
+                        "altText": "",
+                        "mediaDetails": {
+                          "width": 763,
+                          "height": 544
+                        }
+                      }
+                    },
+                    {
+                      "id": "dGVybTo5Mg==",
+                      "slug": "coded-access",
+                      "name": "Coded access",
+                      "image": {
+                        "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Train-Play-20-coded-access-chart-with-target-symbols-W.png",
+                        "altText": "",
+                        "mediaDetails": {
+                          "width": 760,
+                          "height": 544
+                        }
+                      }
+                    },
+                    {
+                      "id": "dGVybTo5Mw==",
+                      "slug": "combination-access",
+                      "name": "Combination access",
+                      "image": {
+                        "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Blocks-24-combination-access-W.png",
+                        "altText": "",
+                        "mediaDetails": {
+                          "width": 681,
+                          "height": 478
+                        }
+                      }
+                    },
+                    {
+                      "id": "dGVybTo5NA==",
+                      "slug": "encoding",
+                      "name": "Encoding",
+                      "image": {
+                        "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/03/Thumbnail-image-of-Animals-36-colour-encoded-with-borders-PCS.png",
+                        "altText": "",
+                        "mediaDetails": {
+                          "width": 765,
+                          "height": 542
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "simon-says",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for active play",
+                "id": "dGVybTo1Mw==",
+                "slug": "symbol-charts-for-active-play",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/01/simon-says-8-widgit.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 857,
+                    "height": 594
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "singing",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "colours",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "arts-crafts",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "sing-wheels-on-the-bus",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "sing-old-macdonald",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for creative play",
+                "id": "dGVybTo1Ng==",
+                "slug": "symbol-charts-for-creative-play",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/colours-widgit.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 860,
+                    "height": 589
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "make-up",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "bath",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for daily routines",
+                "id": "dGVybTo1Nw==",
+                "slug": "symbol-charts-for-daily-routines",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/bath-15-wigit.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 881,
+                    "height": 607
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "tea-party",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "medical-kit",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "dressing-up-as-a-princess",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for imaginative play",
+                "id": "dGVybTo1MQ==",
+                "slug": "symbol-charts-for-imaginative-play",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/tea-party-12-ss.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 796,
+                    "height": 541
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "kerplunk",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "snakes-ladders",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for playing games",
+                "id": "dGVybTo1Mg==",
+                "slug": "symbol-charts-for-playing-games",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/kerplunk-24-widgit.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 826,
+                    "height": 574
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "mr-potato-head",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "dolly",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "bubbles",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "blocks",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "balloons",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "turn-taking",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "train-play",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for playing with toys",
+                "id": "dGVybTo1MA==",
+                "slug": "symbol-charts-for-playing-with-toys",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/bubbles-8-pcs-1.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 902,
+                    "height": 627
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "read-dear-zoo",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "reading",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "look-at-photos",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "creating-stories",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for reading, looking at photos & telling stories",
+                "id": "dGVybTo1NA==",
+                "slug": "symbol-charts-for-reading-looking-at-photos-telling-stories",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/reading-15-ss.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 841,
+                    "height": 568
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "peppa",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    },
+                    {
+                      "slug": "chat-about-tv",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts for watching television",
+                "id": "dGVybTo1NQ==",
+                "slug": "symbol-charts-for-watching-television",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/tv-15-ss.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 849,
+                    "height": 575
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              },
+              {
+                "products": {
+                  "nodes": [
+                    {
+                      "slug": "core",
+                      "moodleCourses": {
+                        "nodes": []
+                      }
+                    }
+                  ]
+                },
+                "name": "Symbol charts with core vocabulary",
+                "id": "dGVybTo0OQ==",
+                "slug": "symbol-charts-with-core-vocabulary",
+                "image": {
+                  "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/core-15-pcs.png",
+                  "altText": "",
+                  "mediaDetails": {
+                    "width": 894,
+                    "height": 626
+                  }
+                },
+                "children": {
+                  "nodes": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Symbol charts for active play",
+          "id": "dGVybTo1Mw==",
+          "slug": "symbol-charts-for-active-play",
+          "products": {
+            "nodes": [
+              {
+                "slug": "simon-says",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2018/01/simon-says-8-widgit.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 857,
+              "height": 594
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for creative play",
+          "id": "dGVybTo1Ng==",
+          "slug": "symbol-charts-for-creative-play",
+          "products": {
+            "nodes": [
+              {
+                "slug": "singing",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "colours",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "arts-crafts",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "sing-wheels-on-the-bus",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "sing-old-macdonald",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/colours-widgit.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 860,
+              "height": 589
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for daily routines",
+          "id": "dGVybTo1Nw==",
+          "slug": "symbol-charts-for-daily-routines",
+          "products": {
+            "nodes": [
+              {
+                "slug": "make-up",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "bath",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/bath-15-wigit.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 881,
+              "height": 607
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for imaginative play",
+          "id": "dGVybTo1MQ==",
+          "slug": "symbol-charts-for-imaginative-play",
+          "products": {
+            "nodes": [
+              {
+                "slug": "tea-party",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "medical-kit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "dressing-up-as-a-princess",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/tea-party-12-ss.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 796,
+              "height": 541
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for playing games",
+          "id": "dGVybTo1Mg==",
+          "slug": "symbol-charts-for-playing-games",
+          "products": {
+            "nodes": [
+              {
+                "slug": "kerplunk",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "snakes-ladders",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/kerplunk-24-widgit.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 826,
+              "height": 574
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for playing with toys",
+          "id": "dGVybTo1MA==",
+          "slug": "symbol-charts-for-playing-with-toys",
+          "products": {
+            "nodes": [
+              {
+                "slug": "mr-potato-head",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "dolly",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "bubbles",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "blocks",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "balloons",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "turn-taking",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "train-play",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/bubbles-8-pcs-1.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 902,
+              "height": 627
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for reading, looking at photos & telling stories",
+          "id": "dGVybTo1NA==",
+          "slug": "symbol-charts-for-reading-looking-at-photos-telling-stories",
+          "products": {
+            "nodes": [
+              {
+                "slug": "read-dear-zoo",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "reading",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "look-at-photos",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "creating-stories",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/reading-15-ss.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 841,
+              "height": 568
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts for watching television",
+          "id": "dGVybTo1NQ==",
+          "slug": "symbol-charts-for-watching-television",
+          "products": {
+            "nodes": [
+              {
+                "slug": "peppa",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "chat-about-tv",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/tv-15-ss.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 849,
+              "height": 575
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Symbol charts with core vocabulary",
+          "id": "dGVybTo0OQ==",
+          "slug": "symbol-charts-with-core-vocabulary",
+          "products": {
+            "nodes": [
+              {
+                "slug": "core",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2017/09/core-15-pcs.png",
+            "altText": "",
+            "mediaDetails": {
+              "width": 894,
+              "height": 626
+            }
+          },
+          "ancestors": {
+            "nodes": [
+              {
+                "id": "dGVybToyOA=="
+              }
+            ]
+          },
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Training",
+          "id": "dGVybToxMTE=",
+          "slug": "training",
+          "products": {
+            "nodes": [
+              {
+                "slug": "podd-introductory-workshop-3rd-4th-nov-2018",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2020/11/AT-for-communication_Blue_800x800.png",
+            "altText": "Communication Logo Icon",
+            "mediaDetails": {
+              "width": 800,
+              "height": 800
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        },
+        {
+          "name": "Uncategorised",
+          "id": "dGVybToxMDA=",
+          "slug": "uncategorised",
+          "products": {
+            "nodes": [
+              {
+                "slug": "textaloud",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "smart-bundle",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              },
+              {
+                "slug": "e-tran-frame-kit",
+                "moodleCourses": {
+                  "nodes": []
+                }
+              }
+            ]
+          },
+          "image": {
+            "sourceUrl": "https://digitalocean.acecentre.org.uk/wp-content/uploads/2021/05/Ace-logo-trans-e1621524170187.png",
+            "altText": "Ace centre logo",
+            "mediaDetails": {
+              "width": 296,
+              "height": 198
+            }
+          },
+          "ancestors": null,
+          "children": {
+            "nodes": []
+          }
+        }
+      ]
+    }
+  },
+  "extensions": {
+    "debug": [],
+    "queryAnalyzer": {
+      "keys": "fe54da0071d7f0a3a2c09016a3c611eb33dcf359f32b1d6f4204acf2da785322 graphql:Query operation:GetAllProductCategories list:productcategory dGVybTo1OA== dGVybToxNTY= dGVybToxNTU= dGVybToxNjA= dGVybTozMQ== dGVybToyNw== dGVybToxMjE= dGVybToxMjU= dGVybToxMjI= dGVybTo5MA== dGVybTo5MQ== dGVybTo4OQ== dGVybTo3NA== dGVybToxMjY= dGVybToxMjM= dGVybTo2Mw== dGVybToxMTI= dGVybTo5Mg== dGVybToxMDk= dGVybTo5Mw== dGVybToxNTc= dGVybToxMDg= dGVybToxNTg= dGVybTo1OQ== dGVybTo5NA== dGVybTo2MA== dGVybToxNzY= dGVybTo2MQ== dGVybToyOQ== dGVybToxNTQ= dGVybToxMTA= dGVybToxNzI= dGVybToyNg== dGVybTo2Mg== dGVybToxMjA= dGVybTo2NQ== dGVybToyOA== dGVybTo1Mw== dGVybTo1Ng== dGVybTo1Nw== dGVybTo1MQ== dGVybTo1Mg== dGVybTo1MA== dGVybTo1NA== dGVybTo1NQ== dGVybTo0OQ== dGVybToxMTE= dGVybToxMDA= cG9zdDo0Mjk3 cG9zdDoyNTkyMw== cG9zdDoyNTkyMg== cG9zdDoyNzQwNw== cG9zdDoyMzIyNA== cG9zdDoyNDIxMg== cG9zdDoyNDIzOQ== cG9zdDo1Mjk0 cG9zdDo1MzE2 cG9zdDozMDE3 cG9zdDoyNDI1Ng== cG9zdDo0MTgw cG9zdDoxMDQ4Mw== cG9zdDo1MzE0 cG9zdDo4NDk1 cG9zdDo1MzEx cG9zdDoyNTkyNA== cG9zdDo4NDcw cG9zdDoyNTkyNQ== cG9zdDo0MzA0 cG9zdDo1MzA5 cG9zdDo0MzEw cG9zdDoyODkxNQ== cG9zdDo0MzEz cG9zdDo4NTA0 cG9zdDo5MTI= cG9zdDo0MzE4 cG9zdDoyODk2Mg== cG9zdDoxNjI2 cG9zdDo5MDg= cG9zdDo0NDIz cG9zdDo0NTM3 cG9zdDo0NDEy cG9zdDo0NDk1 cG9zdDo0NTA0 cG9zdDo0Mzgw cG9zdDo0NDgx cG9zdDo0NDU2 cG9zdDo0NDQ4 cG9zdDoyODU5NQ== cG9zdDo3NjIwNg== cG9zdDoyODgyNA== cG9zdDoyNTc4Mw== cG9zdDoyODczNA== cG9zdDoyODU1MA== cG9zdDoyODU0OQ== cG9zdDoyNjA4Nw== cG9zdDoyNTc5NA== cG9zdDoyNTc4NQ== cG9zdDoyNjUwMg== cG9zdDoyNTc4Mg==",
+      "keysLength": 1516,
+      "keysCount": 103,
+      "skippedKeys": "",
+      "skippedKeysSize": 0,
+      "skippedKeysCount": 0,
+      "skippedTypes": []
+    }
+  }
+}
