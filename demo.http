@@ -38,3 +38,83 @@ Authorization: Basic {{authToken}}
 GET https://backend.acecentre.org.uk/wp-json/wc/v3/coupons/{{couponId}}?force=true
 Content-Type: application/json
 Authorization: Basic {{authToken}}
+
+### GraphQL
+
+POST https://digitalocean.acecentre.org.uk/index.php?graphql
+Accept: application/json
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query GetAllProductCategories {
+    productCategories(first: 1000) {
+      nodes {
+        name
+        id
+        slug
+        products(first: 1000) {
+          nodes {
+            slug
+            moodleCourses {
+              nodes {
+                slug
+              }
+            }
+          }
+        }
+        image {
+          sourceUrl
+          altText
+          mediaDetails {
+            width
+            height
+          }
+        }
+        ancestors {
+          nodes {
+            id
+          }
+        }
+        children(first: 1000) {
+          nodes {
+            products(first: 1000) {
+              nodes {
+                slug
+                moodleCourses {
+                  nodes {
+                    slug
+                  }
+                }
+              }
+            }
+            name
+            id
+            slug
+            image {
+              sourceUrl
+              altText
+              mediaDetails {
+                width
+                height
+              }
+            }
+            children(first: 1000) {
+              nodes {
+                id
+                slug
+                name
+                image {
+                  sourceUrl
+                  altText
+                  mediaDetails {
+                    width
+                    height
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
