@@ -24,8 +24,8 @@ export default function Atun() {
           imageClassName={styles.image}
         >
           <p className={styles.cardDescription}>
-            The <strong>Assistive Tech User's Network (ATUN)</strong> puts users
-            at the heart of innovation.
+            The <strong>Assistive Tech User&apos;s Network (ATUN)</strong> puts
+            users at the heart of innovation.
           </p>
 
           <div className={styles.cardButtonContainer}>
@@ -42,7 +42,7 @@ export default function Atun() {
           <div className={styles.leftContent}>
             <h2>Our Vision</h2>
             <p>
-              Ace Centre's vision is a society where everyone is given the
+              Ace Centre&apos;s vision is a society where everyone is given the
               support they need to communicate, be understood and fulfil their
               potential. We believe that this vision can only be achieved by
               open and collaborative working.
@@ -85,7 +85,7 @@ export default function Atun() {
               the administration of such a group where other organisations may
               struggle to do this for the long term. We want to facilitate the
               members to shape the organisation. Ultimately, we plan to recruit
-              to the Assitive Tech User's Network(ATUN) - from three main
+              to the Assitive Tech User&apos;s Network(ATUN) - from three main
               groups:
             </p>
 
@@ -114,19 +114,21 @@ export default function Atun() {
             <ul className={styles.list}>
               <ListItem>
                 We wanted it to be owned by end users. As much as Ace Centre is
-                keen to invest in end users' opinions and lived experience, the
-                charity does not own their views. So, for this reason, we felt
-                removing the Ace Centre's name from the title was important (an
-                earlier version was "Ace Centre Experts Network").
+                keen to invest in end users&apos; opinions and lived experience,
+                the charity does not own their views. So, for this reason, we
+                felt removing the Ace Centre&apos;s name from the title was
+                important (an earlier version was &quot;Ace Centre Experts
+                Network&apos;).
               </ListItem>
               <ListItem>
-                As such, it's not about Assistive Technology. The focus is on
-                the end users' experience and interactions with technology. We
-                felt keeping to "accessible" tech rather than "assistive" made
-                this differentiation clearer. It's about anything that makes
-                technology accessible. A game controller isn't per se an
-                assistive technology - but it might make your iPad accessible if
-                you have difficulties controlling your hands.{" "}
+                As such, it&apos;s not about Assistive Technology. The focus is
+                on the end users&apos; experience and interactions with
+                technology. We felt keeping to &quot;accessible&quot; tech
+                rather than &quot;assistive&quot; made this differentiation
+                clearer. It&apos;s about anything that makes technology
+                accessible. A game controller isn&apos;t per se an assistive
+                technology - but it might make your iPad accessible if you have
+                difficulties controlling your hands.{" "}
               </ListItem>
               <ListItem>
                 ATUN is Spanish (Atún, at least) for Tuna. Atun is also a name
@@ -137,12 +139,12 @@ export default function Atun() {
                 languages, so again, we feel this is a fitting name.
               </ListItem>
               <ListItem>
-                "In Native American culture, tuna symbolises good luck and
+                &quot;In Native American culture, tuna symbolises good luck and
                 abundance. The fish is also associated with strength, courage,
                 and perseverance. Tuna is also a popular totem animal. A totem
                 is an animal that is revered and respected by a particular group
                 of people. In some cultures, it is believed that a person can
-                take on the qualities of their totem animal."
+                take on the qualities of their totem animal.&quot;
               </ListItem>
             </ul>
           </div>
