@@ -1,0 +1,122 @@
+.cardButtonContainer {
+  margin: 1rem 0;
+  margin-top: 1.5rem;
+}
+
+.image {
+  object-position: center !important;
+}
+
+.buttonAsLink {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clickableLink {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bottomContainer {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  grid-gap: 1rem;
+  margin-bottom: 6rem;
+}
+
+.avatar.avatar {
+  width: 60px;
+  height: 60px;
+  background: #bfdded;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.listAvatar.listAvatar {
+  width: 20px;
+  height: 20px;
+  background-color: #94c64e;
+}
+
+.quote {
+  padding: 2rem 0;
+  display: flex;
+  gap: 0.5rem;
+  flex: 0 0 445px;
+  max-width: 90%;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.downloadButtonContainer {
+  margin-top: 1rem;
+}
+
+.quoteText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quoteText h3 {
+  margin: 0;
+}
+
+.quoteText p {
+  margin: 0;
+}
+
+.icon.icon {
+  color: #5589b7;
+  font-size: 40px;
+}
+
+.buttonPadding {
+  padding-top: 1rem;
+}
+
+.downloadFormButtonContainer {
+  margin: 1rem 0;
+}
+
+.downloadFormButton {
+  background-color: #005eb8;
+}
+
+.pricingButton {
+  margin-top: 2rem;
+}
+
+.leftContent {
+  margin-top: -4rem;
+}
+
+/** Mobile CSS */
+@media (max-width: 1024px) {
+  .leftContent {
+    margin-top: 0;
+  }
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .bottomContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    object-position: center !important;
+  }
+}
