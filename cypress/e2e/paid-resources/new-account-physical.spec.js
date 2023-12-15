@@ -75,7 +75,9 @@ context("Paid resources", () => {
         .its("0.contentDocument")
         .then(cy.wrap)
         .findAllByRole("textbox", {
-          name: "Credit or debit card expiration date",
+          // Credit or debit card expiry date
+          // Credit or debit card expiration date
+          name: /\bCredit\s+or\s+debit\s+card\s+(expiry|expiration)\s+date\b/g,
         })
         .type("1224");
 
