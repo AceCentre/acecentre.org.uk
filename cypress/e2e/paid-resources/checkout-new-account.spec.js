@@ -70,11 +70,15 @@ context("Paid resources", () => {
         .findAllByRole("textbox", { name: "Credit or debit card number" })
         .type("4242424242424242");
 
+      // data-elements-stable-field-name="cardExpiry"
+
       cy.get('iframe[title="Secure card payment input frame"]')
         .its("0.contentDocument")
         .then(cy.wrap)
         .findAllByRole("textbox", {
-          name: "Credit or debit card expiration date",
+          // Credit or debit card expiry date
+          // Credit or debit card expiration date
+          name: /\bCredit\s+or\s+debit\s+card\s+(expiry|expiration)\s+date\b/g,
         })
         .type("1224");
 
