@@ -48,7 +48,7 @@ jobs:
       - name: Create deployment
         run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait --force-rebuild --output json --verbose
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: deployment-integration
@@ -75,7 +75,7 @@ jobs:
       - name: Create deployment
         run: doctl apps create-deployment 67b77fd5-aa83-400f-8572-e73c52dc3aca --wait --force-rebuild --output json --verbose
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: deployment-live
