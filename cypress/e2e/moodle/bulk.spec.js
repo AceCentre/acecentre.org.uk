@@ -83,7 +83,7 @@ context("Moodle", () => {
       bulkEmailTwo = validEmail("bulk-3");
 
       // Visit splash
-      cy.visit("/learning/splash-training-i");
+      cy.visit("/learning/splash-v-3-i");
 
       // Add to basket
       cy.findByRole("button", { name: "Book this course" }).click();
