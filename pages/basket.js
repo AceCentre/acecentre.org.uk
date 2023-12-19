@@ -92,7 +92,7 @@ export default function Basket() {
   );
 }
 
-export const getServerSideProps = withSession(async function ({ req }) {
+export const getServerSideProps = withSession(async function () {
   // const {
   //   lines,
   //   subtotal,
