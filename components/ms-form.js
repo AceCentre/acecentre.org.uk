@@ -22,6 +22,13 @@ export const CONTACT_FORM = {
   height: 2000,
 };
 
+export const ATUN = {
+  slug: "atun",
+  title: "ATUN form",
+  url: "https://forms.office.com/pages/responsepage.aspx?id=bFwgTJtTgU-Raj-O_eaPrNZFPqw5Il9Hp4B1mWQ_eQhUQkpGWFRCNU4zVUQ0MUVMRlY0WjdIT1ZWWS4u&embed=true",
+  height: 2000,
+};
+
 export const INFO_APP_FEEDBACK = {
   slug: "information-appointment-feedback",
   title: "Information appointment feedback",
