@@ -9,6 +9,7 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import styles from "../../styles/atun.module.css";
+import { ATUN, FormModal } from "../../components/ms-form";
 
 export default function Atun() {
   return (
@@ -28,14 +29,15 @@ export default function Atun() {
             users at the heart of innovation.
           </p>
 
-          <div className={styles.cardButtonContainer}>
-            <Button
-              href="mailto:wwade@acecentre.org.uk?subject=Joining%20ATUN&body=Hi%20Will%0D%0A%0D%0AI%20would%20like%20to%20join%20the%20Accessible%20Tech%20User'%20Network.%0D%0A%0D%0AThanks"
-              className={styles.cardButton}
-            >
-              Join the Network
-            </Button>
-          </div>
+          <FormModal form={ATUN}>
+            {({ onClick }) => (
+              <div className={styles.cardButtonContainer}>
+                <Button onClick={onClick} className={styles.cardButton}>
+                  Join the Network
+                </Button>
+              </div>
+            )}
+          </FormModal>
         </VideoWithCardCover>
 
         <div className={styles.bottomContainer}>
