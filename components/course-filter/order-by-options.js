@@ -12,11 +12,11 @@ export const ORDER_BY_OPTIONS = [
       }
 
       if (productA.date.type === "On-demand") {
-        return -1;
+        return 1;
       }
 
       if (productB.date.type === "On-demand") {
-        return 1;
+        return -1;
       }
 
       const [dayA, monthA, yearA] = productA.date.card.split("/");
