@@ -73,7 +73,7 @@ export default function LearningDetail({
                     </p>
                   </div>
                 )}
-                {course.outOfStockForm && (
+                {/* {course.outOfStockForm && (
                   <div className={styles.inlineCard}>
                     <p>
                       This course is no longer accepting new applicants. Click
@@ -82,7 +82,7 @@ export default function LearningDetail({
                       intake.
                     </p>
                   </div>
-                )}
+                )} */}
                 <ListOfBundles course={course} />
                 <div dangerouslySetInnerHTML={{ __html: course.content }} />
                 <p className={styles.timezone}>
