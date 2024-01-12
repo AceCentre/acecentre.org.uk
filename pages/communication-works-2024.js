@@ -22,10 +22,10 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/CW2023.png"
+            src="/CW2024_banner_website.png"
             alt="Communication works banner"
-            width={1640}
-            height={924}
+            width={538}
+            height={340}
           />
         </div>
         <div className={styles.bottomContainer}>
@@ -118,9 +118,9 @@ export const getStaticProps = async () => {
       page,
 
       seo: {
-        title: "Communication Works 2023",
+        title: "Communication Works 2024",
         description:
-          "Communication Works 2023 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
+          "Communication Works 2024 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },
     },
   };
