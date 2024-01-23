@@ -18,6 +18,7 @@ import { Button } from "../button/button";
 import { Input } from "../input/input";
 import { OldBrowserBanner } from "../old-browser-banner/old-browser-banner";
 import { useAuth } from "../../lib/auth-hook";
+import { TopBanner } from "../top-banner/top-banner";
 
 const useMobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,6 +82,7 @@ export const CombinedNav = ({
 
   return (
     <>
+      <TopBanner />
       <OldBrowserBanner />
 
       <div
