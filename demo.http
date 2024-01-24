@@ -2,6 +2,36 @@
 @authToken = {{$dotenv CYPRESS_WORDPRESS_AUTH}}
 @couponId = 30080
 
+### Language Library
+
+GET https://language-library.acecentre.org.uk/wp-json
+Content-Type: application/json
+
+
+### Language Library
+
+GET https://language-library.acecentre.org.uk/wp-json/language-library/v1/fields
+Content-Type: application/json
+
+### Language Library
+
+GET https://language-library.acecentre.org.uk/wp-json/language-library/v1/slugs
+Content-Type: application/json
+
+### Language Library
+
+POST https://language-library.acecentre.org.uk/wp-json/language-library/v1/resources
+Content-Type: application/json
+
+{
+  "slugs": ["this-is-a-new-resources"]
+}
+
+### Language Library
+
+GET https://language-library.acecentre.org.uk/wp-json/language-library/v1/resources
+Content-Type: application/json
+
 ### GraphQL Query for all prodducts
 
 POST https://backend.acecentre.org.uk/graphql
