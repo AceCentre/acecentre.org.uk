@@ -24,7 +24,7 @@ POST https://language-library.acecentre.org.uk/wp-json/language-library/v1/resou
 Content-Type: application/json
 
 {
-  "slugs": ["this-is-a-new-resources"]
+  "slugs": ["this-is-a-new-resources", "listener-mediated-phrasebook-34"]
 }
 
 ### Language Library
