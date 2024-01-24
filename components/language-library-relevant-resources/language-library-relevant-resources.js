@@ -22,7 +22,7 @@ export const LanguageLibraryRelevantResources = ({ resource }) => {
         {resource.relevantResources.map((current, index) => (
           <LanguageLibraryCard
             index={index}
-            key={current.slug}
+            key={current.post.post_name}
             resource={current}
           />
         ))}

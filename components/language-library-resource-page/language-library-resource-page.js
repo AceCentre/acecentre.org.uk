@@ -1,6 +1,6 @@
 import HelpIcon from "@mui/icons-material/Help";
 import { BackToLink } from "../back-to-link/back-to-link";
-// import { Button } from "../button/button";
+import { Button } from "../button/button";
 import { Image } from "../image";
 import styles from "./language-library-resource-page.module.css";
 import SvgIcon from "@mui/material/SvgIcon";
@@ -42,23 +42,25 @@ export const LanguageLibraryResourcePage = ({ resource, randomNumber }) => {
               height={200}
               width={400}
               alt={`Screenshot of: ${resource.post.post_title}`}
+              priority
             />
           </div>
           <div>
             <h1>{resource.post.post_title}</h1>
-            {/* <p>{resource.description}</p> */}
-            {/* {resource.resourceFiles.nodes.length === 1 && (
+            <p>{resource.post.post_content}</p>
+            {resource.file && (
               <div className={styles.downloadButton}>
-                <Button href={resource.resourceFiles.nodes[0].mediaItemUrl}>
-                  Download Resource
+                <Button href={resource.file}>Download Resource</Button>
+              </div>
+            )}
+
+            {resource.meta.resource_url[0] != "" && (
+              <div className={styles.downloadButton}>
+                <Button href={resource.meta.resource_url[0]}>
+                  Visit Resource
                 </Button>
               </div>
             )}
-            {resource.resourceUrl && (
-              <div className={styles.downloadButton}>
-                <Button href={resource.resourceUrl}>Visit Resource</Button>
-              </div>
-            )} */}
           </div>
         </div>
         <div className={styles.details}>
