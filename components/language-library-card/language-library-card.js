@@ -19,21 +19,21 @@ export const LanguageLibraryCard = ({ resource, index = 0 }) => {
 
   return (
     <Link
-      href={`/language-library/${resource.slug}`}
+      href={`/language-library/${resource.post.post_name}`}
       className={styles.container}
-      title={`Link to full resource: ${resource.title}`}
+      title={`Link to full resource: ${resource.post.post_title}`}
     >
       <div className={`${styles.imageContainer} ${backgroundClass}`}>
         <Image
-          src={resource.featuredImage.node.mediaItemUrl}
+          src={resource.image}
           width={200}
           height={150}
           className={`${styles.image}`}
-          alt={`Screenshot of resource: ${resource.title}`}
+          alt={`Screenshot of resource: ${resource.post.post_title}`}
         />
       </div>
-      <h3>{resource.title}</h3>
-      <p className={styles.addedBy}>Added by: {resource.authorUsername}</p>
+      <h3>{resource.post.post_title}</h3>
+      <p className={styles.addedBy}>Added by: {resource.author}</p>
     </Link>
   );
 };

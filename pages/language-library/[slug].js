@@ -7,14 +7,17 @@ import {
   getLanguageLibraryResource,
 } from "../../lib/language-library";
 
-export default function LanguageLibrary({ resource }) {
+export default function LanguageLibrary({ resource, randomNumber }) {
   return (
     <>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <LanguageLibraryResourcePage resource={resource} />
+        <LanguageLibraryResourcePage
+          resource={resource}
+          randomNumber={randomNumber}
+        />
       </main>
       <Footer />
     </>
@@ -22,10 +25,10 @@ export default function LanguageLibrary({ resource }) {
 }
 
 export async function getStaticPaths() {
-  const { resources } = await getAllSlugs();
+  const slugs = await getAllSlugs();
 
   return {
-    paths: resources.nodes.map((post) => ({ params: { slug: post.slug } })),
+    paths: slugs.map((x) => ({ params: { slug: x } })),
     fallback: false,
   };
 }
@@ -33,13 +36,12 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params: { slug } }) => {
   const resource = await getLanguageLibraryResource(slug);
 
-  if (!resource.databaseId) return { notFound: true };
-
   return {
     revalidate: 60,
     props: {
       resource,
-      seo: { dontIndex: true, title: resource.title },
+      randomNumber: Math.floor(Math.random() * 8),
+      seo: { dontIndex: true, title: resource.post.post_title },
     },
   };
 };

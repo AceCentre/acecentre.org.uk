@@ -13,7 +13,7 @@ import {
 import { LanguageLibraryHowTo } from "../../components/language-library-how-to/language-library-how-to";
 import { LanguageLibraryFeatured } from "../../components/language-library-featured/language-library-featured";
 
-export default function LanguageLibrary({ languages, displayTag }) {
+export default function LanguageLibrary({ languages, featuredPosts }) {
   return (
     <>
       <header>
@@ -21,9 +21,9 @@ export default function LanguageLibrary({ languages, displayTag }) {
       </header>
       <main id="mainContent">
         <LanguageLibraryHeader />
-        <LanguageLibraryLandingSearch languages={languages.nodes} />
+        <LanguageLibraryLandingSearch languages={languages} />
         <LanguageLibrarySubtitles />
-        <LanguageLibraryFeatured resources={displayTag.resources.nodes} />
+        <LanguageLibraryFeatured resources={featuredPosts} />
         <LanguageLibraryCredits />
         <LanguageLibraryHowTo />
         <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />

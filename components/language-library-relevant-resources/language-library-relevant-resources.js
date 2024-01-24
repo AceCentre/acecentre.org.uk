@@ -8,7 +8,7 @@ export const LanguageLibraryRelevantResources = ({ resource }) => {
       <div className={styles.titleAndLink}>
         <h2>Related Resources</h2>
         <Link
-          href={`/language-library/all?languages=${resource.languages.nodes
+          href={`/language-library/all?languages=${resource.languages
             .map((x) => x.slug)
             .join(",")}`}
         >
@@ -16,7 +16,7 @@ export const LanguageLibraryRelevantResources = ({ resource }) => {
         </Link>
       </div>
       <p className={styles.description}>
-        Resources available in {formatList(resource.languages.nodes, "name")}
+        Resources available in {formatList(resource.languages, "name")}
       </p>
       <div className={styles.container}>
         {resource.relevantResources.map((current, index) => (

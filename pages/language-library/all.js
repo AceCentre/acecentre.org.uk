@@ -41,12 +41,12 @@ export default function LanguageLibrary({ resources }) {
 }
 
 export const getStaticProps = async () => {
-  const props = await getLanguageLibrarySearchResultsProps();
+  const resources = await getLanguageLibrarySearchResultsProps();
 
   return {
     revalidate: 60,
     props: {
-      ...props,
+      resources,
       seo: { dontIndex: true, title: "Language Library" },
     },
   };
