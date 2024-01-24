@@ -73,7 +73,7 @@ const filter = (resources, fullState, searchTerm) => {
 export const LanguageLibrarySearchForm = ({ resources }) => {
   const { searchTerm, setFullState, ...fullState } = useSearchFormState();
 
-  let results = filter(resources.nodes, fullState, searchTerm);
+  let results = filter(resources, fullState, searchTerm);
 
   return (
     <div className={styles.container}>
@@ -101,7 +101,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
           <div className={styles.filterContainer}>
             {flatSections(DETAILS_CONFIG).map((section) => {
               const uniqueValues = section.getAllUniqueValues(
-                resources.nodes,
+                resources,
                 results
               );
 
@@ -169,7 +169,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
                   );
 
                   const uniqueValues = currentSection.getAllUniqueValues(
-                    resources.nodes,
+                    resources,
                     results
                   );
 
