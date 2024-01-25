@@ -24,6 +24,11 @@ const listOfBackgrounds = [
   styles.yellowGradient,
 ];
 
+const stripHTML = (desc) => {
+  const strippedString = desc.replace(/(<([^>]+)>)/gi, "");
+  return strippedString.trim();
+};
+
 export const LanguageLibraryResourcePage = ({
   resource,
   randomNumber,
@@ -51,7 +56,7 @@ export const LanguageLibraryResourcePage = ({
           </div>
           <div>
             <h1>{resource.post.post_title}</h1>
-            <p>{resource.post.post_content}</p>
+            <p>{stripHTML(resource.post.post_content)}</p>
             {resource.file && (
               <div className={styles.downloadButton}>
                 <Button href={resource.file}>Download Resource</Button>
