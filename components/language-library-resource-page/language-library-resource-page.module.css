@@ -4,6 +4,11 @@
   max-width: var(--containerMaxWidth);
 }
 
+.rule {
+  border-color: #eeeeee;
+  margin: 0 1rem;
+}
+
 .details {
   max-width: 720px;
   margin: 2rem auto;
@@ -26,7 +31,7 @@
   margin: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  gap: 1rem;
 }
 
 .row p {

@@ -21,7 +21,9 @@ function intersect(a, b) {
 
 const useSearchFormState = () => {
   const stateOptions = flatSections(DETAILS_CONFIG).reduce((acc, current) => {
-    acc[current.slug] = current.queryType;
+    if (current.queryType && current.allowFilter !== false) {
+      acc[current.slug] = current.queryType;
+    }
     return acc;
   }, {});
 
@@ -70,7 +72,7 @@ const filter = (resources, fullState, searchTerm) => {
   return results;
 };
 
-export const LanguageLibrarySearchForm = ({ resources }) => {
+export const LanguageLibrarySearchForm = ({ resources, fields }) => {
   const { searchTerm, setFullState, ...fullState } = useSearchFormState();
 
   let results = filter(resources, fullState, searchTerm);
@@ -100,9 +102,12 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
         <div>
           <div className={styles.filterContainer}>
             {flatSections(DETAILS_CONFIG).map((section) => {
+              if (section.allowFilter == false) return null;
+
               const uniqueValues = section.getAllUniqueValues(
                 resources,
-                results
+                results,
+                fields
               );
 
               return (
@@ -170,7 +175,8 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
 
                   const uniqueValues = currentSection.getAllUniqueValues(
                     resources,
-                    results
+                    results,
+                    fields
                   );
 
                   return (
@@ -221,7 +227,7 @@ export const LanguageLibrarySearchForm = ({ resources }) => {
             {results.map((current, index) => (
               <LanguageLibraryCard
                 index={index}
-                key={current.slug}
+                key={current.post.post_name}
                 resource={current}
               />
             ))}
@@ -245,13 +251,12 @@ export const Checkbox = ({ children, spacing = "1rem", ...props }) => {
 };
 
 const CHECKBOX_CLASSES = {
-  h: "20px",
   my: "4px",
   p: "0px",
   w: "fit-content",
   _checked: {
     bg: bgColor,
-    h: "20px",
+    // h: "20px",
     // px: "12px",
     borderRadius: "1px",
   },
