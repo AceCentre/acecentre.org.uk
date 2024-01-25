@@ -89,6 +89,9 @@
   padding: 1rem;
   text-align: center;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .imageContainer img {

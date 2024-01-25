@@ -599,15 +599,15 @@ export const DETAILS_CONFIG = {
         },
         {
           name: "What keyboards are available?",
-          slug: "what_keyboards_are_available__",
+          slug: "which_keyboards_are_available",
           allowFilter: false,
           getDetail: (resource, fields) => {
             const value = getValue(
-              resource?.meta?.what_keyboards_are_available__
+              resource?.meta?.which_keyboards_are_available
             );
 
             const field = fields.find(
-              (x) => x.name == "what_keyboards_are_available__"
+              (x) => x.name == "which_keyboards_are_available"
             );
 
             return field.options[value];
