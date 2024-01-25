@@ -45,6 +45,149 @@ export const DETAILS_CONFIG = {
           getFilterValues: (resource) => resource.languages.map((x) => x.slug),
         },
         {
+          slug: "does_this_vocabulary_cost_to_access_",
+          queryType: queryTypes.array(queryTypes.string).withDefault([]),
+          name: "Does this vocabulary cost to access?",
+          allowFilter: true,
+          getDetail: (resource, fields) => {
+            const value = getValue(
+              resource?.meta?.does_this_vocabulary_cost_to_access_
+            );
+            const field = fields.find(
+              (x) => x.name == "does_this_vocabulary_cost_to_access_"
+            );
+
+            return field.options[value];
+          },
+          getAllUniqueValues: (resources, results, fields) => {
+            let byKey = {};
+
+            const field = fields.find(
+              (x) => x.name == "does_this_vocabulary_cost_to_access_"
+            );
+            let values = Object.keys(field.options);
+
+            for (const value of values) {
+              byKey[value] = {
+                slug: value,
+                name: field.options[value],
+                count: 0,
+              };
+            }
+
+            for (const resource of results) {
+              const current = getValue(
+                resource?.meta?.does_this_vocabulary_cost_to_access_
+              );
+              if (current !== "" && byKey[current]) {
+                byKey[current].count += 1;
+              }
+            }
+
+            return Object.values(byKey);
+          },
+          getFilterValues: (resource) => {
+            const current =
+              resource?.meta?.does_this_vocabulary_cost_to_access_ || [];
+            return current.filter((x) => x !== "");
+          },
+        },
+        {
+          name: "Cost",
+          slug: "cost",
+          allowFilter: true,
+          queryType: queryTypes.array(queryTypes.string).withDefault([]),
+
+          getAllUniqueValues: (resources, results) => {
+            let byKey = {
+              free: {
+                slug: "free",
+                name: "Free",
+                count: 0,
+              },
+              ten: {
+                slug: "ten",
+                name: "£0 - £10",
+                count: 0,
+              },
+              fifty: {
+                slug: "fifty",
+                name: "£10 - £50",
+                count: 0,
+              },
+              greater: {
+                slug: "greater",
+                name: "£50 +",
+                count: 0,
+              },
+            };
+
+            for (const resource of results) {
+              const oneOff = getValue(resource?.meta?.one_off_purchase_cost);
+              const sub = getValue(resource?.meta?.subscription_cost);
+
+              const value = oneOff || sub;
+              const cost = isNaN(parseInt(value)) ? 0 : parseInt(value);
+
+              if (cost == 0) {
+                byKey["free"].count++;
+                continue;
+              }
+              if (cost < 10) {
+                byKey["ten"].count++;
+                continue;
+              }
+              if (cost < 50) {
+                byKey["fifty"].count++;
+                continue;
+              }
+              if (cost >= 50) {
+                byKey["greater"].count++;
+                continue;
+              }
+            }
+            return Object.values(byKey);
+          },
+
+          getFilterValues: (resource) => {
+            const oneOff = getValue(resource?.meta?.one_off_purchase_cost);
+            const sub = getValue(resource?.meta?.subscription_cost);
+
+            const value = oneOff || sub;
+            const cost = isNaN(parseInt(value)) ? 0 : parseInt(value);
+
+            if (cost == 0) {
+              return ["free"];
+            }
+            if (cost < 10) {
+              return ["ten"];
+            }
+            if (cost < 50) {
+              return ["fifty"];
+            }
+            if (cost >= 50) {
+              return ["greater"];
+            }
+
+            return ["free"];
+          },
+
+          getDetail: (resource) => {
+            const oneOff = getValue(resource?.meta?.one_off_purchase_cost);
+            const sub = getValue(resource?.meta?.subscription_cost);
+
+            if (oneOff && oneOff !== "") {
+              return `£${oneOff} (one off)`;
+            }
+            if (sub && sub !== "") {
+              return `£${oneOff} per month`;
+            }
+
+            return "";
+          },
+        },
+
+        {
           name: "Format",
           slug: "format",
           queryType: queryTypes.array(queryTypes.string).withDefault([]),

@@ -56,6 +56,12 @@ export const LanguageLibraryResourcePage = ({
           </div>
           <div>
             <h1>{resource.post.post_title}</h1>
+            <p className={styles.date}>
+              Last updated:{" "}
+              {new Date(resource.post.post_modified_gmt).toLocaleDateString(
+                "en-GB"
+              )}
+            </p>
             <p>{stripHTML(resource.post.post_content)}</p>
             {resource.file && (
               <div className={styles.downloadButton}>
