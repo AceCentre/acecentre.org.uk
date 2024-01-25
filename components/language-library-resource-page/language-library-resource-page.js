@@ -68,59 +68,81 @@ export const LanguageLibraryResourcePage = ({
           </div>
         </div>
         <div className={styles.details}>
-          {DETAILS_CONFIG.sections.map((section) => {
-            return (
-              <Fragment key={`top-${section.slug}`}>
-                <div className={styles.sectionsHeader}>
-                  <h2>{section.name}</h2>
-                </div>
-                {section.sections
-                  .map((subSection) => {
-                    const currentValue = subSection.getDetail(resource, fields);
+          {DETAILS_CONFIG.sections
+            .map((section) => {
+              let count = 0;
 
-                    if (!currentValue || currentValue == "") return null;
+              for (const sub of section.sections) {
+                let val = sub.getDetail(resource, fields);
+                if (val && val !== "") {
+                  count++;
+                }
+              }
+              return { ...section, count };
+            })
+            .filter((x) => x.count > 0)
+            .map((section) => {
+              return (
+                <Fragment key={`top-${section.slug}`}>
+                  <div className={styles.sectionsHeader}>
+                    <h2>{section.name}</h2>
+                  </div>
+                  {section.sections
+                    .map((subSection) => {
+                      return {
+                        ...subSection,
+                        detail: subSection.getDetail(resource, fields),
+                      };
+                    })
+                    .filter((subSection) => {
+                      return subSection.detail && subSection.detail !== "";
+                    })
+                    .map((subSection) => {
+                      const currentValue = subSection.detail;
 
-                    return (
-                      <div className={styles.row} key={subSection.name}>
-                        <div className={styles.category}>
-                          <p>{subSection.name}</p>
-                          {subSection.tooltip && (
-                            <Tooltip
-                              placement="right"
-                              label={subSection.tooltip}
-                              closeDelay={500}
-                            >
-                              <SvgIcon>
-                                <HelpIcon />
-                              </SvgIcon>
-                            </Tooltip>
-                          )}
+                      if (!currentValue || currentValue == "") return null;
+
+                      return (
+                        <div className={styles.row} key={subSection.name}>
+                          <div className={styles.category}>
+                            <p>{subSection.name}</p>
+                            {subSection.tooltip && (
+                              <Tooltip
+                                placement="right"
+                                label={subSection.tooltip}
+                                closeDelay={500}
+                              >
+                                <SvgIcon>
+                                  <HelpIcon />
+                                </SvgIcon>
+                              </Tooltip>
+                            )}
+                          </div>
+                          <div className={styles.value}>
+                            <p>{currentValue}</p>
+                            {subSection.getDetailTooltip && (
+                              <Tooltip
+                                placement="right"
+                                label={subSection.getDetailTooltip(resource)}
+                                closeDelay={500}
+                              >
+                                <SvgIcon>
+                                  <HelpIcon />
+                                </SvgIcon>
+                              </Tooltip>
+                            )}
+                          </div>
                         </div>
-                        <div className={styles.value}>
-                          <p>{currentValue}</p>
-                          {subSection.getDetailTooltip && (
-                            <Tooltip
-                              placement="right"
-                              label={subSection.getDetailTooltip(resource)}
-                              closeDelay={500}
-                            >
-                              <SvgIcon>
-                                <HelpIcon />
-                              </SvgIcon>
-                            </Tooltip>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })
-                  .reduce((prev, curr) => [
-                    prev,
-                    <hr className={styles.rule} key="silence" />,
-                    curr,
-                  ])}
-              </Fragment>
-            );
-          })}
+                      );
+                    })
+                    .reduce((prev, curr) => [
+                      prev,
+                      <hr className={styles.rule} key="silence" />,
+                      curr,
+                    ])}
+                </Fragment>
+              );
+            })}
         </div>
         <LanguageLibraryRelevantResources resource={resource} />
       </div>
