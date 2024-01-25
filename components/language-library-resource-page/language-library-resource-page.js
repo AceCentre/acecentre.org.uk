@@ -24,7 +24,11 @@ const listOfBackgrounds = [
   styles.yellowGradient,
 ];
 
-export const LanguageLibraryResourcePage = ({ resource, randomNumber }) => {
+export const LanguageLibraryResourcePage = ({
+  resource,
+  randomNumber,
+  fields,
+}) => {
   const backgroundClass = listOfBackgrounds[randomNumber];
 
   return (
@@ -70,42 +74,50 @@ export const LanguageLibraryResourcePage = ({ resource, randomNumber }) => {
                 <div className={styles.sectionsHeader}>
                   <h2>{section.name}</h2>
                 </div>
-                {section.sections.map((subSection) => {
-                  const currentValue = subSection.getDetail(resource);
+                {section.sections
+                  .map((subSection) => {
+                    const currentValue = subSection.getDetail(resource, fields);
 
-                  if (!currentValue || currentValue == "") return null;
+                    if (!currentValue || currentValue == "") return null;
 
-                  return (
-                    <div className={styles.row} key={subSection.name}>
-                      <div className={styles.category}>
-                        <p>{subSection.name}</p>
-                        <Tooltip
-                          placement="right"
-                          label={subSection.tooltip}
-                          closeDelay={500}
-                        >
-                          <SvgIcon>
-                            <HelpIcon />
-                          </SvgIcon>
-                        </Tooltip>
+                    return (
+                      <div className={styles.row} key={subSection.name}>
+                        <div className={styles.category}>
+                          <p>{subSection.name}</p>
+                          {subSection.tooltip && (
+                            <Tooltip
+                              placement="right"
+                              label={subSection.tooltip}
+                              closeDelay={500}
+                            >
+                              <SvgIcon>
+                                <HelpIcon />
+                              </SvgIcon>
+                            </Tooltip>
+                          )}
+                        </div>
+                        <div className={styles.value}>
+                          <p>{currentValue}</p>
+                          {subSection.getDetailTooltip && (
+                            <Tooltip
+                              placement="right"
+                              label={subSection.getDetailTooltip(resource)}
+                              closeDelay={500}
+                            >
+                              <SvgIcon>
+                                <HelpIcon />
+                              </SvgIcon>
+                            </Tooltip>
+                          )}
+                        </div>
                       </div>
-                      <div className={styles.value}>
-                        <p>{currentValue}</p>
-                        {subSection.getDetailTooltip && (
-                          <Tooltip
-                            placement="right"
-                            label={subSection.getDetailTooltip(resource)}
-                            closeDelay={500}
-                          >
-                            <SvgIcon>
-                              <HelpIcon />
-                            </SvgIcon>
-                          </Tooltip>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })
+                  .reduce((prev, curr) => [
+                    prev,
+                    <hr className={styles.rule} key="silence" />,
+                    curr,
+                  ])}
               </Fragment>
             );
           })}

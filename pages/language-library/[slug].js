@@ -5,9 +5,10 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import {
   getAllSlugs,
   getLanguageLibraryResource,
+  getFields,
 } from "../../lib/language-library";
 
-export default function LanguageLibrary({ resource, randomNumber }) {
+export default function LanguageLibrary({ resource, fields, randomNumber }) {
   return (
     <>
       <header>
@@ -17,6 +18,7 @@ export default function LanguageLibrary({ resource, randomNumber }) {
         <LanguageLibraryResourcePage
           resource={resource}
           randomNumber={randomNumber}
+          fields={fields}
         />
       </main>
       <Footer />
@@ -35,10 +37,12 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const resource = await getLanguageLibraryResource(slug);
+  const fields = await getFields();
 
   return {
     revalidate: 60,
     props: {
+      fields,
       resource,
       randomNumber: Math.floor(Math.random() * 8),
       seo: { dontIndex: true, title: resource.post.post_title },

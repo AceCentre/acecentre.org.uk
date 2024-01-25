@@ -4,7 +4,10 @@ import { Footer } from "../../components/footer/footer";
 import { LanguageLibrarySearchForm } from "../../components/language-library-search-form/language-library-search-form";
 import { PageTitle } from "../../components/page-title/page-title";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
-import { getLanguageLibrarySearchResultsProps } from "../../lib/language-library";
+import {
+  getFields,
+  getLanguageLibrarySearchResultsProps,
+} from "../../lib/language-library";
 import { useRouter } from "next/router";
 import { FullPageSpinner } from "../../components/full-page-spinner/full-page-spinner";
 
@@ -19,7 +22,7 @@ const useRouterReady = () => {
   return isReady;
 };
 
-export default function LanguageLibrary({ resources }) {
+export default function LanguageLibrary({ resources, fields }) {
   const isReady = useRouterReady();
 
   return (
@@ -30,7 +33,7 @@ export default function LanguageLibrary({ resources }) {
       <main id="mainContent">
         <PageTitle heading="Explore" description="Language Library" />
         {isReady ? (
-          <LanguageLibrarySearchForm resources={resources} />
+          <LanguageLibrarySearchForm resources={resources} fields={fields} />
         ) : (
           <FullPageSpinner />
         )}
@@ -42,10 +45,12 @@ export default function LanguageLibrary({ resources }) {
 
 export const getStaticProps = async () => {
   const resources = await getLanguageLibrarySearchResultsProps();
+  const fields = await getFields();
 
   return {
     revalidate: 60,
     props: {
+      fields,
       resources,
       seo: { dontIndex: true, title: "Language Library" },
     },
