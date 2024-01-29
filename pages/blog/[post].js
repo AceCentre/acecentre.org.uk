@@ -113,6 +113,15 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     };
   }
 
+  if (postSlug === "comm-works-2024") {
+    return {
+      redirect: {
+        destination: "/communication-works-2024",
+        permanent: true,
+      },
+    };
+  }
+
   const allPosts = await getAllFullPosts();
 
   const currentPost = allPosts.find((post) => post.slug === postSlug);
