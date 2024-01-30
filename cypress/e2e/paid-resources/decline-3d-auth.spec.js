@@ -102,11 +102,7 @@ context("Paid resources", () => {
         .find("#challengeFrame")
         .its("0.contentDocument")
         .then(cy.wrap)
-        .findByRole("document")
-        .find('iframe[name="acsFrame"]')
-        .its("0.contentDocument")
-        .then(cy.wrap)
-        .findByRole("button", { name: "Fail authentication" })
+        .findByRole("button", { name: "Fail" })
         .click();
 
       cy.url({ timeout: 60000 }).should("include", "order");
