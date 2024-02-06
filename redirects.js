@@ -260,6 +260,12 @@ const REDIRECTS = [
     destination: "/resources/all?category=alphabet-charts",
     permanent: true,
   },
+  {
+    source: "/page/service-leads-ms-bookings-calendars",
+    destination:
+      "https://backend.acecentre.org.uk/service-leads-ms-bookings-calendars/",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
