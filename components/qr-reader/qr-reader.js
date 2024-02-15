@@ -21,6 +21,29 @@ export const QrReader = () => {
         example &apos;https://acecentre.org.uk/contact&apos; will link to our
         contact us page
       </p>
+      <h2>Considerations</h2>
+      <p>
+        QR codes can be great but they come with lots of problems. The best use
+        case is physically printed QR codes.
+      </p>
+      <p>
+        We should stick to hyperlinks (or copy pasting links) in the digital
+        space as much as possible as this gives the end user the best experience
+        and will work best across most devices and platforms.
+      </p>
+      <ul>
+        <li>
+          Always write out the link in the content you are using a QR code. If
+          you don&amp;t do this you are locking out people without a QR code
+          reader.
+        </li>
+        <li>
+          Consider where the user is viewing the QR code. If you are using it in
+          a social media post, how are they going to scan the code if they are
+          viewing on their QR scanner? Or if they are viewing on a computer you
+          are forcing them onto their phone which they probably don&amp;t want.
+        </li>
+      </ul>
 
       <form
         onSubmit={(event) => {
