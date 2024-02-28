@@ -9,9 +9,9 @@ export const LanguageLibraryHowTo = () => {
         <h2>How to add to the Language Library</h2>
         <p>
           The Language Library is open for anyone to contribute to. The
-          resources are edited by a team of editors to ensure a high quality is
-          maintained. If you would like to add a new resource click the link
-          below or watch the intructional video.
+          resources are moderated by a team of editors to ensure a high quality
+          is maintained. If you would like to add a new resource click the link
+          below or watch the instructional video.
         </p>
         <Link href="http://language-library.acecentre.org.uk/">
           Contribute to the Language Library &gt;
