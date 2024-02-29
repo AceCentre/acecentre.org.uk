@@ -40,19 +40,19 @@ const useSearchController = ({
     updateSearchParams({ searchText });
   };
 
-  const [topLevelCategory, setTopLevelCategory] =
-    useState(defaultTopLevelValue);
+  // const [topLevelCategory, setTopLevelCategory] =
+  //   useState(defaultTopLevelValue);
 
   const onChangeTopLevelCategory = (event) => {
     updateSearchParams({ category: event.target.value, subcategory: null });
-    setTopLevelCategory(event.target.value);
+    // setTopLevelCategory(event.target.value);
   };
 
-  const [subcategory, setSubcategory] = useState(defaultSubcategoryValue);
+  // const [subcategory, setSubcategory] = useState(defaultSubcategoryValue);
 
   const onChangeSubcategory = (event) => {
     updateSearchParams({ subcategory: event.target.value });
-    setSubcategory(event.target.value);
+    // setSubcategory(event.target.value);
   };
 
   const [priceRange, setPriceRange] = useState(defaultPriceRange);
@@ -76,11 +76,11 @@ const useSearchController = ({
     freeTextOnSubmit,
     topLevelCategorySelectProps: {
       onChange: onChangeTopLevelCategory,
-      value: topLevelCategory,
+      value: defaultTopLevelValue,
     },
     subcategorySelectProps: {
       onChange: onChangeSubcategory,
-      value: subcategory,
+      value: defaultSubcategoryValue,
     },
     priceRangeSelectProps: {
       onChange: onChangePriceRange,
