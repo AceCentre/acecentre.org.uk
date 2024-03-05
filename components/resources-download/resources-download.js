@@ -622,7 +622,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
     }
   }, []);
 
-  const onClick = useCallback(() => {
+  const onClickForcedEmail = useCallback(() => {
     setModalOpen(true);
     if (typeof gtag !== "undefined" && gtag) {
       gtag("event", "conversion", {
@@ -644,20 +644,41 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
     }
   }, []);
 
+  const onClickOptional = useCallback(() => {
+    setModalOpen(true);
+    if (typeof gtag !== "undefined" && gtag) {
+      gtag("event", "conversion", {
+        send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+      });
+    }
+
+    if (
+      posthogLoaded &&
+      window.location.origin === "https://acecentre.org.uk"
+    ) {
+      console.log("Capture", "resourceDownloaded", {
+        name: resource.slug,
+      });
+      posthog.capture("resourceDownloaded", {
+        name: resource.slug,
+        resourceType: "instant-download",
+      });
+    }
+
+    const link = document.createElement("a");
+    link.download = true;
+    link.href = `${config.baseUrl}${resource.downloadUrl}`;
+    link.click();
+  }, []);
+
   return (
     <>
       <div className={styles.downloadButtonContainer}>
         {resource.popupFormBehaviour == "forced-email" &&
         !hasOptedInToNewsletter ? (
-          <Button onClick={onClick}>Free download</Button>
+          <Button onClick={onClickForcedEmail}>Free download</Button>
         ) : (
-          <Button
-            onClick={onClick}
-            href={`${config.baseUrl}${resource.downloadUrl}`}
-            download
-          >
-            Free download
-          </Button>
+          <Button onClick={onClickOptional}>Free download</Button>
         )}
       </div>
       <DownloadModal
