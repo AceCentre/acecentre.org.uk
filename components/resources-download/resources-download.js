@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable no-undef */
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Radio, RadioGroup } from "../filter-people/filter-people";
 import styles from "./resources-download.module.css";
 
@@ -622,7 +622,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
     }
   }, []);
 
-  const onClickForcedEmail = useCallback(() => {
+  const onClickForcedEmail = () => {
     setModalOpen(true);
     if (typeof gtag !== "undefined" && gtag) {
       gtag("event", "conversion", {
@@ -642,9 +642,9 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
         resourceType: "instant-download",
       });
     }
-  }, []);
+  };
 
-  const onClickOptional = useCallback(() => {
+  const onClickOptional = () => {
     setModalOpen(true);
     if (typeof gtag !== "undefined" && gtag) {
       gtag("event", "conversion", {
@@ -669,7 +669,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
     link.download = true;
     link.href = `${config.baseUrl}${resource.downloadUrl}`;
     link.click();
-  }, []);
+  };
 
   return (
     <>
