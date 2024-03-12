@@ -31,7 +31,7 @@ context("Free resources", () => {
           event.preventDefault();
         });
 
-        cy.findByRole("link", { name: "Free download" }).click();
+        cy.findByRole("button", { name: "Free download" }).click();
         cy.findByRole("heading", { name: "Free download complete" }).should(
           "exist"
         );
