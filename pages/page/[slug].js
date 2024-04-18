@@ -135,7 +135,7 @@ export const getStaticProps = async ({ params: { slug: urlSlug } }) => {
 
   const hardCodedPage = ALL_PAGES.find((page) => page.slug === realSlug);
 
-  const page = await getPage(realSlug, hardCodedPage.replaceBackendLinks);
+  const page = await getPage(realSlug, hardCodedPage?.replaceBackendLinks);
 
   if (!page) {
     return { notFound: true };
@@ -147,7 +147,9 @@ export const getStaticProps = async ({ params: { slug: urlSlug } }) => {
       page,
       seo: {
         title: page.title,
-        description: hardCodedPage.description,
+        description:
+          hardCodedPage?.description ||
+          "Ace Centre is a registered charity (No. 1089313) providing Assistive Technology and Augmentative and Alternative Communication services for people with complex needs.",
       },
     },
   };
