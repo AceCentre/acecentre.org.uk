@@ -1,14 +1,13 @@
 const { createApiClient } = require("dots-wrapper");
 
-const DROPLET = 335294617;
 const RETENTION_DAYS = 7;
 const NAME_PREFIX = "github_generated_snapshot";
 
-const script = async () => {
+const backupDroplet = async (id) => {
   const dots = createApiClient({ token: process.env.DO_TOKEN });
   const {
     data: { snapshots },
-  } = await dots.droplet.listDropletSnapshots({ droplet_id: DROPLET });
+  } = await dots.droplet.listDropletSnapshots({ droplet_id: id });
 
   console.log("");
   console.log("ALL SNAPSHOTS");
@@ -52,10 +51,19 @@ const script = async () => {
   const {
     data: { action },
   } = await dots.droplet.snapshotDroplet({
-    droplet_id: DROPLET,
+    droplet_id: id,
     name: `${NAME_PREFIX}_${Date.now()}`,
   });
   console.log("Result", action);
+
+  console.log("");
+  console.log("=============================================");
+  console.log("");
+};
+
+const script = async () => {
+  await backupDroplet(335294617);
+  await backupDroplet(402491167);
 };
 
 module.exports = script;
