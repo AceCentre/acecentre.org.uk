@@ -22,10 +22,10 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/CW2023.png"
+            src="/comm-works-2024.png"
             alt="Communication works banner"
-            width={1640}
-            height={924}
+            width={6912}
+            height={3456}
           />
         </div>
         <div className={styles.bottomContainer}>
@@ -46,22 +46,14 @@ export default function CommunicationWorks({ page }) {
               </Avatar>
               <div>
                 <h3>Communication Works NORTH</h3>
-                <p>Thursday, 25 May 2023</p>
+                <p>Thursday, 23 May 2024</p>
                 <p>New Bridge Academy, Oldham, OL8 3PH</p>
 
                 <p>
-                  <strong>This event has reached full capacity</strong>
-                </p>
-
-                <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2023-north-tickets-511840838727">
-                    <strong>
-                      Please click here to sign-up to the waitlist
-                    </strong>
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-north-tickets-764385857677?aff=oddtdtcreator">
+                    Register for free here.
                   </Link>
                 </p>
-
-                <p>We will contact you if a space becomes available</p>
               </div>
             </div>
             {page.communicationWorksUrl && (
@@ -79,7 +71,7 @@ export default function CommunicationWorks({ page }) {
                 </div>
               </div>
             )}
-            {/* {page.communicationWorksSouthUrl && (
+            {page.communicationWorksSouthUrl && (
               <div className={styles.quote}>
                 <Avatar className={styles.avatar}>
                   <EventIcon className={styles.icon} />
@@ -93,17 +85,17 @@ export default function CommunicationWorks({ page }) {
                   </p>
                 </div>
               </div>
-            )} */}
+            )}
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <AssignmentIcon className={styles.icon} />
               </Avatar>
               <div>
                 <h3>Communication Works SOUTH</h3>
-                <p>Thursday, 18 May 2023</p>
+                <p>Thursday, 6 June 2024</p>
                 <p>Charlton Athletic Football Club, London SE7 8BL</p>
                 <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2023-south-tickets-427227548097">
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-south-tickets-696507130577?aff=oddtdtcreator">
                     Register for free here.
                   </Link>
                 </p>
@@ -118,7 +110,7 @@ export default function CommunicationWorks({ page }) {
 }
 
 export const getStaticProps = async () => {
-  const page = await getPage("communication-works");
+  const page = await getPage("communication-works-2024");
 
   return {
     revalidate: 60,
@@ -126,9 +118,9 @@ export const getStaticProps = async () => {
       page,
 
       seo: {
-        title: "Communication Works 2023",
+        title: "Communication Works 2024",
         description:
-          "Communication Works 2023 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
+          "Communication Works 2024 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },
     },
   };

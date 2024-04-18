@@ -104,6 +104,11 @@ const ALL_PAGES = [
     altSlugs: [],
     description: "Book some time with Research and Development",
   },
+  {
+    slug: "new-acl",
+    altSlugs: [],
+    description: "Find out about the latest Ace Centre Learning platform",
+  },
 ];
 
 export async function getStaticPaths() {
