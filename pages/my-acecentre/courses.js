@@ -15,6 +15,15 @@ export default function CoursesPage({ courses }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
+        <div className={styles.bannerContainer}>
+          <p className={styles.bannerText}>
+            ⚠️ We are now using a brand new Ace Centre Learning system.{" "}
+            <a href="https://acecentre.org.uk/page/new-acl">
+              Click here to find out what this means for you.
+            </a>
+            ⚠️
+          </p>
+        </div>
         <PageTitle
           heading="My courses"
           description="A summary of your courses"
