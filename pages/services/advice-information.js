@@ -90,19 +90,6 @@ export default function EngineeringPage({ ebookResources }) {
                 with members of our service delivery team.
               </strong>
             </p>
-            <div className={styles.inlineCard}>
-              <h2>Been to an Information Appointment?</h2>
-              <p>
-                Please give us some feedback help us monitor and evaluate our
-                services. We will not share the data provided with anyone else
-              </p>
-
-              <FormModal form={INFO_APP_FEEDBACK}>
-                {({ onClick }) => (
-                  <Button onClick={onClick}>Leave feedback</Button>
-                )}
-              </FormModal>
-            </div>
           </div>
           <div>
             <div className={styles.quote}>
@@ -134,13 +121,24 @@ export default function EngineeringPage({ ebookResources }) {
           viewAllLink="/resources/all?category=getting-started"
           products={gettingStartedResources}
         /> */}
+        <InformationDays />
+
         <ResourceList
           title="Resources to get started"
           viewAllLink="resources/all?category=made-by-ace"
           products={ebookResources}
         />
+        <div className={styles.inlineCard}>
+          <h2>Been to an Information Appointment?</h2>
+          <p>
+            Please give us some feedback help us monitor and evaluate our
+            services. We will not share the data provided with anyone else
+          </p>
 
-        <InformationDays />
+          <FormModal form={INFO_APP_FEEDBACK}>
+            {({ onClick }) => <Button onClick={onClick}>Leave feedback</Button>}
+          </FormModal>
+        </div>
       </main>
       <Footer />
     </>
