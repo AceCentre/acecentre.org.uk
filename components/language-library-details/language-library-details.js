@@ -45,25 +45,28 @@ export const DETAILS_CONFIG = {
           getFilterValues: (resource) => resource.languages.map((x) => x.slug),
         },
         {
-          slug: "does_this_vocabulary_cost_to_access_",
+          slug: "does_this_vocabulary_cost_to_access_multi",
           queryType: queryTypes.array(queryTypes.string).withDefault([]),
           name: "Does this vocabulary cost to access?",
           allowFilter: true,
           getDetail: (resource, fields) => {
             const value = getValue(
-              resource?.meta?.does_this_vocabulary_cost_to_access_
+              resource?.meta?.does_this_vocabulary_cost_to_access_multi
             );
             const field = fields.find(
-              (x) => x.name == "does_this_vocabulary_cost_to_access_"
+              (x) => x.name == "does_this_vocabulary_cost_to_access_multi"
             );
 
-            return field.options[value];
+            const values = value.split("|").map((x) => x.trim());
+            const fullValues = values.map((x) => field.options[x]);
+
+            return fullValues.join(", ");
           },
           getAllUniqueValues: (resources, results, fields) => {
             let byKey = {};
 
             const field = fields.find(
-              (x) => x.name == "does_this_vocabulary_cost_to_access_"
+              (x) => x.name == "does_this_vocabulary_cost_to_access_multi"
             );
             let values = Object.keys(field.options);
 
@@ -77,8 +80,17 @@ export const DETAILS_CONFIG = {
 
             for (const resource of results) {
               const current = getValue(
-                resource?.meta?.does_this_vocabulary_cost_to_access_
+                resource?.meta?.does_this_vocabulary_cost_to_access_multi
               );
+
+              let options = current.split("|").map((x) => x.trim());
+
+              for (const option of options) {
+                if (option !== "" && byKey[option]) {
+                  byKey[option].count += 1;
+                }
+              }
+
               if (current !== "" && byKey[current]) {
                 byKey[current].count += 1;
               }
@@ -88,8 +100,13 @@ export const DETAILS_CONFIG = {
           },
           getFilterValues: (resource) => {
             const current =
-              resource?.meta?.does_this_vocabulary_cost_to_access_ || [];
-            return current.filter((x) => x !== "");
+              resource?.meta?.does_this_vocabulary_cost_to_access_multi || [];
+
+            let options = current.flatMap((x) =>
+              x.split("|").map((y) => y.trim())
+            );
+
+            return options.filter((x) => x !== "");
           },
         },
         {
@@ -180,7 +197,7 @@ export const DETAILS_CONFIG = {
               return `£${oneOff} (one off)`;
             }
             if (sub && sub !== "") {
-              return `£${oneOff} per month`;
+              return `£${sub} per month`;
             }
 
             return "";
@@ -284,7 +301,7 @@ export const DETAILS_CONFIG = {
       slug: "tts",
       sections: [
         {
-          name: "Are Text-To-Speech voices available in the same language(s) as the vocabulary?",
+          name: "Are voices available in the same language(s) as the vocabulary?",
           slug: "are_text_to_speech_voices_available_in_the_same_language_s__as_the_vocabulary_",
           allowFilter: true,
           queryType: queryTypes.array(queryTypes.string).withDefault([]),
@@ -437,7 +454,7 @@ export const DETAILS_CONFIG = {
           },
         },
         {
-          name: "Describe how the creation of the vocabulary package considered the language that it is for.",
+          name: "When the vocabulary was created what features of the language were considered?",
           slug: "describe_how_the_creation_of_the_vocabulary_package_considered_the_language_that_it_is_for___",
           allowFilter: false,
           getDetail: (resource) => {
@@ -517,22 +534,6 @@ export const DETAILS_CONFIG = {
 
             const field = fields.find(
               (x) => x.name == "what_keyboards_are_available__"
-            );
-
-            return field.options[value];
-          },
-        },
-        {
-          name: "Do the keyboard pages work with the TTS voice?",
-          slug: "do_the_keyboard_pages_work_with_the_tts_voice_",
-          allowFilter: false,
-          getDetail: (resource, fields) => {
-            const value = getValue(
-              resource?.meta?.do_the_keyboard_pages_work_with_the_tts_voice_
-            );
-
-            const field = fields.find(
-              (x) => x.name == "do_the_keyboard_pages_work_with_the_tts_voice_"
             );
 
             return field.options[value];

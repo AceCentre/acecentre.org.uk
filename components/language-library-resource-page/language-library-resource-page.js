@@ -76,6 +76,20 @@ export const LanguageLibraryResourcePage = ({
                 </Button>
               </div>
             )}
+
+            {resource.meta
+              .how_will_people_access_the_resource___other__please_specify_ !=
+              "" && (
+              <div>
+                <h2>How to access the resource:</h2>
+                <p>
+                  {
+                    resource.meta
+                      .how_will_people_access_the_resource___other__please_specify_
+                  }
+                </p>
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.details}>
