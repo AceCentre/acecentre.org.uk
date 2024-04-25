@@ -11,7 +11,7 @@ export const FullPageSpinner = () => {
           emptyColor="gray.200"
           color="blue.500"
         />
-        <p>Loading results from the language library</p>
+        <p>Loading results from the AAC language library</p>
       </div>
     </div>
   );

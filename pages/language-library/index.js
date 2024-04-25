@@ -42,7 +42,7 @@ export const getStaticProps = async () => {
       ...props,
       seo: {
         dontIndex: true,
-        title: "Language Library",
+        title: "AAC Language Library",
         description:
           "Achieving Language Equity for Multilingual and Non-English Speaking AAC Users",
       },

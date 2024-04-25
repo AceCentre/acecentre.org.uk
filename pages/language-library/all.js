@@ -31,7 +31,7 @@ export default function LanguageLibrary({ resources, fields }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <PageTitle heading="Explore" description="Language Library" />
+        <PageTitle heading="Explore" description="AAC Language Library" />
         {isReady ? (
           <LanguageLibrarySearchForm resources={resources} fields={fields} />
         ) : (
@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
     props: {
       fields,
       resources,
-      seo: { dontIndex: true, title: "Language Library" },
+      seo: { dontIndex: true, title: "AAC Language Library" },
     },
   };
 };
