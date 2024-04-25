@@ -12,7 +12,7 @@ export const LanguageLibraryHeader = () => {
               src="/dash-black.svg"
               alt="A brush stroke"
             />
-            <h1>Language Library</h1>
+            <h1>AAC Language Library</h1>
           </div>
           <p className={`${styles.description} description`}>
             Achieving Language Equity for Multilingual and Non-English Speaking

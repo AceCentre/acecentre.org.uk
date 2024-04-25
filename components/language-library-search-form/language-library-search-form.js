@@ -89,7 +89,7 @@ export const LanguageLibrarySearchForm = ({ resources, fields }) => {
           <Input
             name="searchTerm"
             defaultValue={searchTerm}
-            placeholder="Search language library"
+            placeholder="Search AAC language library"
           >
             <SvgIcon>
               <SearchIcon />

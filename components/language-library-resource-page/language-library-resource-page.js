@@ -42,7 +42,7 @@ export const LanguageLibraryResourcePage = ({
         <BackToLink
           className={styles.backTo}
           href="/language-library/all"
-          where="language library"
+          where="AAC language library"
         />
         <div className={styles.topContainer}>
           <div className={`${styles.imageContainer} ${backgroundClass}`}>

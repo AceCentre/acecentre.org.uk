@@ -12,7 +12,7 @@ export const LanguageLibraryLandingSearch = ({ languages }) => {
     <div className={styles.container}>
       <form action="/language-library/all">
         <div className={styles.searchBar}>
-          <Input name="searchTerm" placeholder="Search language library">
+          <Input name="searchTerm" placeholder="Search AAC language library">
             <SvgIcon>
               <SearchIcon />
             </SvgIcon>
