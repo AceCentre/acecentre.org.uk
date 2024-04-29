@@ -35,7 +35,11 @@ export default function LearningDetail({
   relatedCourses,
   levels,
 }) {
-  const { isFallback } = useRouter();
+  const { isFallback, ...router } = useRouter();
+
+  if (course.arloRedirect) {
+    router.push(course.arloRedirect);
+  }
 
   if (isFallback) return null;
 
@@ -179,19 +183,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   if (currentCourse) {
     currentCourse = addBundles(currentCourse, allBundles);
-
-    console.log("=====");
-
-    console.log(currentCourse.arloRedirect);
-
-    if (currentCourse.arloRedirect) {
-      return {
-        redirect: {
-          destination: currentCourse.arloRedirect,
-          permanent: true,
-        },
-      };
-    }
 
     relatedCourses = allCourses
       .filter((course) => course.slug !== slug)
