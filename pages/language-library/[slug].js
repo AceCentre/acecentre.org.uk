@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { LanguageLibraryResourcePage } from "../../components/language-library-resource-page/language-library-resource-page";
@@ -9,6 +10,10 @@ import {
 } from "../../lib/language-library";
 
 export default function LanguageLibrary({ resource, fields, randomNumber }) {
+  const { isFallback } = useRouter();
+
+  if (isFallback) return null;
+
   return (
     <>
       <header>
@@ -31,7 +36,7 @@ export async function getStaticPaths() {
 
   return {
     paths: slugs.map((x) => ({ params: { slug: x } })),
-    fallback: false,
+    fallback: true,
   };
 }
 
