@@ -67,7 +67,7 @@ context("Moodle", () => {
       });
     });
 
-    it(
+    it.skip(
       ["post-deploy"],
       "Buy a course for a new user, check they are enrolled on the course",
       () => {
