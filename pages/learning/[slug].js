@@ -27,6 +27,7 @@ import { addBundles } from "../../lib/add-bundles";
 import { ListOfBundles } from "../../components/list-of-bundles/list-of-bundles";
 import { ORDER_BY_OPTIONS } from "../../components/course-filter/order-by-options";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function LearningDetail({
   course,
@@ -37,9 +38,11 @@ export default function LearningDetail({
 }) {
   const { isFallback, ...router } = useRouter();
 
-  if (course.arloRedirect) {
-    router.push(course.arloRedirect);
-  }
+  useEffect(() => {
+    if (course.arloRedirect) {
+      router.push(course.arloRedirect);
+    }
+  });
 
   if (isFallback) return null;
 
