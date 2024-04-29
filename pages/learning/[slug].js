@@ -180,6 +180,19 @@ export const getStaticProps = async ({ params: { slug } }) => {
   if (currentCourse) {
     currentCourse = addBundles(currentCourse, allBundles);
 
+    console.log("=====");
+
+    console.log(currentCourse.arloRedirect);
+
+    if (currentCourse.arloRedirect) {
+      return {
+        redirect: {
+          destination: currentCourse.arloRedirect,
+          permanent: true,
+        },
+      };
+    }
+
     relatedCourses = allCourses
       .filter((course) => course.slug !== slug)
       .sort((a, b) => {
