@@ -19,7 +19,7 @@ export const LanguageLibraryHowTo = () => {
       </div>
       <div className={styles.youtubePlayer}>
         <LiteYouTubeEmbed
-          id={"R-R0KrXvWbc"}
+          id={"UKewXPsCW5Y"}
           title="A youtube video about how to contribute to the AAC language library"
           noCookie={true}
         />
