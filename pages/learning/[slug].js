@@ -39,7 +39,7 @@ export default function LearningDetail({
   const { isFallback, ...router } = useRouter();
 
   useEffect(() => {
-    if (course.arloRedirect) {
+    if (course && course.arloRedirect) {
       router.push(course.arloRedirect);
     }
   });
