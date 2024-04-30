@@ -42,6 +42,13 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const resource = await getLanguageLibraryResource(slug);
+
+  if (!resource) {
+    return {
+      notFound: true,
+    };
+  }
+
   const fields = await getFields();
 
   return {
