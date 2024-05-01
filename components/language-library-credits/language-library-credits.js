@@ -41,6 +41,14 @@ export const LanguageLibraryCredits = () => {
               alt="'NHS Cumbria, Northumberland, Tyne and Wear, NHS Foundation Trust'"
             />
           </div>
+          <div className={styles.imageContainer}>
+            <Image
+              src="/NorthBristol.png"
+              layout="fill"
+              objectFit="contain"
+              alt="'North Bristol NHS Trust'"
+            />
+          </div>
         </div>
       </div>
     </div>
