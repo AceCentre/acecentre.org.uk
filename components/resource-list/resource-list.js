@@ -48,7 +48,7 @@ export const ResourceList = ({
               key={`${title}-card-${product.slug}`}
               noImagePostCount={product.noImagePostCount}
               subtitle={product.mainCategoryName}
-              featuredImage={product.featuredImage}
+              featuredImage={product.thumbnailImage || product.featuredImage}
               title={product.title}
               ribbonText={shouldShowRibbon(product)}
             >
