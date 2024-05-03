@@ -15,8 +15,7 @@ export const LanguageLibraryHeader = () => {
             <h1>AAC Language Library</h1>
           </div>
           <p className={`${styles.description} description`}>
-            Achieving Language Equity for Multilingual and Non-English Speaking
-            AAC Users
+            A library of AAC resources catalogued by language.
           </p>
         </div>
       </div>
