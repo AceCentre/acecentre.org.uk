@@ -670,21 +670,25 @@ export const DETAILS_CONFIG = {
         },
         {
           name: "What level of language ability does this package support? (pick the best fit category)",
-          slug: "what_level_of_language_ability_does_this_package_support___pick_the_best_fit_category_",
+          slug: "what_level_of_language_ability_does_this_package_support_",
           allowFilter: false,
           getDetail: (resource, fields) => {
             const value = getValue(
               resource?.meta
-                ?.what_level_of_language_ability_does_this_package_support___pick_the_best_fit_category_
+                ?.what_level_of_language_ability_does_this_package_support_
             );
 
             const field = fields.find(
               (x) =>
                 x.name ==
-                "what_level_of_language_ability_does_this_package_support___pick_the_best_fit_category_"
+                "what_level_of_language_ability_does_this_package_support_"
             );
 
-            return field.options[value];
+            return value
+              .split("|")
+              .map((x) => x.trim())
+              .map((x) => field.options[x])
+              .join("\n");
           },
         },
         {
