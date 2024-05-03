@@ -17,41 +17,41 @@ export const LanguageLibrarySubtitles = () => {
               src="/collaboration.png"
               layout="fill"
               objectFit="contain"
-              alt="Icon of two people lifting blocks together"
+              alt="Icon of three people in a circle"
             />
           </div>
         </div>
 
         <div>
-          <h2>Global</h2>
+          <h2>Equity</h2>
           <p>
-            We highlight diverse perspectives and experiences of AAC users and
-            professionals from different corners of the globe. Explore this
-            section to discover how AAC is making a global difference,
+            We recognise that AAC users have various language needs and we
+            believe that they should have the exact resources and opportunities
+            to effectively communicate.
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="/global.png"
+              src="/equity.png"
               layout="fill"
               objectFit="contain"
-              alt="Icon of a circular globe"
+              alt="Icon of scales with a person on each side"
             />
           </div>
         </div>
 
         <div>
-          <h2>Multilingual</h2>
+          <h2>Discover</h2>
           <p>
-            We understand that communication is not limited to a single tongue,
-            and this section provides resources, tools, and guidance for
-            individuals who use AAC in different languages.
+            We know how hard it is for professionals to find resources in a
+            language you don&apos;t speak. The library makes this easier and
+            giving to focus on supporting AAC users.
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="/multilingual.png"
+              src="/discover.png"
               layout="fill"
               objectFit="contain"
-              alt="Icon of a person with three speech bubbles, each speech bubble is using a different language"
+              alt="Icon of a magnifying glass"
             />
           </div>
         </div>
