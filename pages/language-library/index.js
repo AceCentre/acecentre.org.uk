@@ -43,8 +43,7 @@ export const getStaticProps = async () => {
       seo: {
         dontIndex: true,
         title: "AAC Language Library",
-        description:
-          "Achieving Language Equity for Multilingual and Non-English Speaking AAC Users",
+        description: "A library of AAC resources catalogued by language.",
       },
     },
   };
