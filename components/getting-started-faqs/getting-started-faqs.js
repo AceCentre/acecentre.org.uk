@@ -65,7 +65,7 @@ export const GenericFaqs = ({ faqs }) => {
 
 export const LANGUAGE_LIBRARY_FAQS = [
   {
-    question: "Why sort of vocabularies are in the library?",
+    question: "What sort of vocabularies are in the library?",
     answer: (
       <>
         <p>
