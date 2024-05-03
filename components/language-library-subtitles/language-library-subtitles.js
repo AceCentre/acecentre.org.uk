@@ -26,8 +26,8 @@ export const LanguageLibrarySubtitles = () => {
           <h2>Equity</h2>
           <p>
             We recognise that AAC users have various language needs and we
-            believe that they should have the exact resources and opportunities
-            to effectively communicate.
+            believe that they should have the right resources to effectively
+            communicate.
           </p>
           <div className={styles.imageContainer}>
             <Image
