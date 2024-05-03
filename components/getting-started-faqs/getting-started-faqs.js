@@ -12,6 +12,9 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import { useState } from "react";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import { FormModal, LANG_LIB } from "../ms-form";
+import Link from "next/link";
 
 export const GettingStartedFaqs = () => {
   return <GenericFaqs faqs={FAQS} />;
@@ -62,34 +65,152 @@ export const GenericFaqs = ({ faqs }) => {
 
 export const LANGUAGE_LIBRARY_FAQS = [
   {
-    question: "This is the first question",
+    question: "Why sort of vocabularies are in the library?",
     answer: (
       <>
-        <p>This is the answer to the question</p>
+        <p>
+          The library is a list of AAC vocabularies in Languages Other than
+          English. There are vocabularies that have symbols and others that are
+          text-only. There are vocabularies that are available on
+          electronic/powered AAC devices and ones that are available as
+          paper-based AAC.
+        </p>
       </>
     ),
   },
   {
-    question: "This is the second question",
+    question: "Who can add a vocabulary to the library?",
     answer: (
       <>
-        <p>This is the answer to the question</p>
+        <p>
+          Anyone who has created a vocabulary can add it to the library to let
+          other people know it exists. If you’re adding a vocabulary make sure
+          you let people know where they can get it from.
+        </p>
       </>
     ),
   },
   {
-    question: "This is the third question",
+    question: "How do I add a vocabulary to the library?",
     answer: (
       <>
-        <p>This is the answer to the question</p>
+        <p>
+          Watch our demo video on how to create an account and start adding
+          vocabularies.
+        </p>
+        <LiteYouTubeEmbed
+          id={"UKewXPsCW5Y"}
+          title="A youtube video about how to contribute to the AAC language library"
+          noCookie={true}
+        />
       </>
     ),
   },
   {
-    question: "This is the forth question",
+    question: "What information do I need to add a vocabulary to the library?",
     answer: (
       <>
-        <p>This is the answer to the question</p>
+        <p>
+          You need to add in quite a bit of information including, the
+          language(s) of the vocabulary, the features of the vocabulary and how
+          the vocabulary was created. The entry-form will take you through it
+          step-by-step.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "How should I answer the question “when the vocabulary was created what features of the language were considered”?",
+    answer: (
+      <>
+        <p>
+          It is helpful to give as much information as possible here about what
+          steps were taken to make the resource appropriate for the language.
+          This could include things like:
+        </p>
+        <ul>
+          <li>
+            The language is read right to left so the vocabulary in the resource
+            is laid out right to left
+          </li>
+          <li>
+            The fringe words in the vocabulary (e.g. names of festivals, foods &
+            places) have been picked as they are words that someone
+            communicating in that language is likely to want to talk about
+          </li>
+          <li>
+            The core words in the vocabulary have been picked because they are
+            the most frequently used core words in that language
+          </li>
+          <li>
+            The resource is set-up to allow the user to create grammatically
+            correct utterances e.g. the correct gender forms of words are
+            available
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    question: "Why hasn’t the vocabulary I added been made public?",
+    answer: (
+      <>
+        <p>
+          A team of AAC professionals based in England read through the
+          information that has been submitted before it is made public.
+        </p>
+        <p>
+          If the team think the information provided may not be helpful enough
+          for people using the library they will get back to you to discuss the
+          vocabulary before making your entry public.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "Is information about the vocabularies checked/moderated?",
+    answer: (
+      <>
+        <p>
+          To stop spam, a team of AAC professionals based in England read
+          through the information that has been submitted before it is made
+          public.
+        </p>
+        <p>
+          It isn’t possible for the team to guarantee the quality/accuracy of
+          vocabularies or the information about them. Before you pay for a
+          vocabulary it is best to contact the supplier to check it meets your
+          needs.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "How can I give feedback about a vocabulary in the library?",
+    answer: (
+      <>
+        <p>
+          Please send all your feedback and feature requests about vocabularies
+          directly to the person/company who made the vocabulary.
+        </p>
+        <p>
+          If your feedback is about how a vocabulary is listed in the library
+          e.g. if a listed vocabulary is no longer available, please fill out
+          the form below and we’ll look into it.
+        </p>
+
+        <FormModal form={LANG_LIB}>
+          {({ onClick }) => (
+            <p>
+              <Link href="#" onClick={onClick}>
+                Click here to open the correction form
+              </Link>
+            </p>
+          )}
+        </FormModal>
+
+        <p></p>
       </>
     ),
   },

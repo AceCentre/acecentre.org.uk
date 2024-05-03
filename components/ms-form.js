@@ -99,6 +99,13 @@ export const TEXTALOUD = {
   url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrNZFPqw5Il9Hp4B1mWQ_eQhUNzBFOEhKWFEwUVhBTEYzQkFIQTRMTjhaSS4u",
 };
 
+export const LANG_LIB = {
+  slug: "lang_lib",
+  title: "Give us feedback about the Language Library",
+  height: 1000,
+  url: "https://forms.office.com/Pages/ResponsePage.aspx?id=bFwgTJtTgU-Raj-O_eaPrEio9bWrHCRGoqxiKrWB3RlUQTRNMlo3R1k5QkI5NUQxSE9GSVdSS0RKRCQlQCN0PWcu",
+};
+
 export const ALL_FORMS = [
   CONTACT_FORM,
   INFO_APP_FEEDBACK,
