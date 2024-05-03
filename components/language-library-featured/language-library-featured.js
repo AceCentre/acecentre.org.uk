@@ -13,7 +13,7 @@ export const LanguageLibraryFeatured = ({ resources }) => {
         {resources.map((current, index) => (
           <LanguageLibraryCard
             index={index}
-            key={current.slug}
+            key={current.post.post_name}
             resource={current}
           />
         ))}
