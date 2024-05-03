@@ -42,9 +42,9 @@ export const LanguageLibrarySubtitles = () => {
         <div>
           <h2>Discover</h2>
           <p>
-            We know how hard it is for professionals to find resources in a
-            language you don&apos;t speak. The library makes this easier and
-            giving to focus on supporting AAC users.
+            We know how hard it is as professionals to find resources in a
+            language you don&apos;t speak. The library makes this easier, giving
+            you more time to focus on supporting AAC users.
           </p>
           <div className={styles.imageContainer}>
             <Image
