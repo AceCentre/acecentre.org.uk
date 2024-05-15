@@ -266,6 +266,11 @@ const REDIRECTS = [
       "https://backend.acecentre.org.uk/service-leads-ms-bookings-calendars/",
     permanent: true,
   },
+  {
+    source: "/blog/at-scholar-2024",
+    destination: "/at-scholar",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
