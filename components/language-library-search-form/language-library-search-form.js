@@ -186,6 +186,8 @@ export const LanguageLibrarySearchForm = ({ resources, fields }) => {
                           (x) => x.slug == value
                         );
 
+                        if (!currentFull) return null;
+
                         return (
                           <button
                             key={currentFull.slug}
