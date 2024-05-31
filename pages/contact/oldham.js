@@ -57,8 +57,10 @@ export default function Contact() {
               </li>
             </ul>
             <p>
-              Please report to reception when you arrive and a member of staff
-              will come and meet you
+              Please register your car using the machine at reception when you
+              arrive. If you do not register your car you will get a fine. The
+              staff at reception will give you directions to our office or ring
+              us so we can come and meet you
             </p>
             <p>
               Disabled parking spaces are available close to the Business Centre
