@@ -82,7 +82,6 @@ export const CombinedNav = ({
 
   return (
     <>
-      <TopBanner />
       <OldBrowserBanner />
 
       <div
