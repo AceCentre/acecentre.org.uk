@@ -366,6 +366,18 @@ export default function ResourceDetail({
                     Download PCS Templates
                   </Button>
                 </div>
+                <div className={styles.downloadFormButtonContainer}>
+                  <Button
+                    className={styles.downloadFormButton}
+                    onClick={() => {
+                      openPopup(
+                        "https://backend.acecentre.org.uk/wp-content/uploads/2024/06/Look2Talk-InPrint-Templates-AceCentre-June2024.zip"
+                      );
+                    }}
+                  >
+                    Download Widgit Templates
+                  </Button>
+                </div>
               </div>
             </div>
             <div className={styles.quote}>
