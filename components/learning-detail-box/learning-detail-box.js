@@ -145,15 +145,26 @@ export const LearningDetailBox = ({
                   </Button>
                 </div>
               ) : (
-                <Button
-                  className={styles.bookButton}
-                  disabled={disabled || !course.inStock}
-                  onClick={() => {
-                    toggleModal(true);
-                  }}
-                >
-                  Book this course
-                </Button>
+                <>
+                  {course.arloRedirect ? (
+                    <Button
+                      className={styles.bookButton}
+                      href={course.arloRedirect}
+                    >
+                      Book this course
+                    </Button>
+                  ) : (
+                    <Button
+                      className={styles.bookButton}
+                      disabled={disabled || !course.inStock}
+                      onClick={() => {
+                        toggleModal(true);
+                      }}
+                    >
+                      Book this course
+                    </Button>
+                  )}
+                </>
               )}
             </>
           )}

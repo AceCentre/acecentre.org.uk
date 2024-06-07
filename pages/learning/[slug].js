@@ -38,11 +38,11 @@ export default function LearningDetail({
 }) {
   const { isFallback, ...router } = useRouter();
 
-  useEffect(() => {
-    if (course && course.arloRedirect) {
-      router.push(course.arloRedirect);
-    }
-  });
+  // useEffect(() => {
+  //   if (course && course.arloRedirect) {
+  //     router.push(course.arloRedirect);
+  //   }
+  // });
 
   if (isFallback) return null;
 
