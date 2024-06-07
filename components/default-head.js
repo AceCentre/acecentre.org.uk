@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { imageLoaders } from "../lib/config";
+import config, { imageLoaders } from "../lib/config";
 import {
   cloudinaryLoader,
   imageKitLoader,
@@ -43,6 +43,10 @@ export const DefaultHead = ({
   return (
     <Head>
       {dontIndex && <meta name="robots" content="noindex" />}
+
+      {config.environment !== "production" && (
+        <meta name="robots" content="noindex" />
+      )}
 
       {/* Favicon */}
       <>
