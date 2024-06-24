@@ -133,7 +133,7 @@ export default function AtScholar({ posts }) {
               </strong>
             </p>
             <p>
-              <strong>Deadline is midnight on the 5th of July 2024.</strong>
+              <strong>Deadline is midnight on the 23rd of July 2024.</strong>
             </p>
             <p>
               Please check this website for more information or{" "}
