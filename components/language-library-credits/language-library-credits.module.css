@@ -37,6 +37,14 @@
   width: 240px;
 }
 
+.logoImageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  min-height: 150px;
+  margin: 0 auto;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .container {

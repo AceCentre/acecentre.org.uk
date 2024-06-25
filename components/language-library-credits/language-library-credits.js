@@ -5,8 +5,17 @@ export const LanguageLibraryCredits = () => {
   return (
     <div className={styles.outerContainer}>
       <div className={styles.container}>
-        <h2>Built and managed by Ace Centre</h2>
-        <p>In collaboration with:</p>
+        <div>
+          <h2>Built and managed by</h2>
+          <div className={styles.logoImageContainer}>
+            <Image
+              layout="fill"
+              objectFit="contain"
+              src={"/nav-logo.png"}
+              alt="The Ace Centre logo"
+            ></Image>
+          </div>
+        </div>
 
         <div className={styles.logoContainer}>
           <div className={styles.imageContainer}>
