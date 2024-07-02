@@ -1,7 +1,15 @@
 .container {
-  background: #eeeeee;
   width: 100%;
+}
+
+.whiteBackground {
+  background: white;
+}
+
+.greyBackground {
   margin-top: 4rem;
+
+  background: #eeeeee;
 }
 
 .innerContainer {

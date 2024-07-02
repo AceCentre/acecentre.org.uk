@@ -14,7 +14,7 @@ export const LanguageLibrarySubtitles = () => {
           </p>
           <div className={styles.imageContainer}>
             <Image
-              src="/collaboration.png"
+              src="/collaboration2.png"
               layout="fill"
               objectFit="contain"
               alt="Icon of three people in a circle"

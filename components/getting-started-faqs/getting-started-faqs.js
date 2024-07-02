@@ -20,11 +20,15 @@ export const GettingStartedFaqs = () => {
   return <GenericFaqs faqs={FAQS} />;
 };
 
-export const GenericFaqs = ({ faqs }) => {
+export const GenericFaqs = ({ faqs, whiteBackground = false }) => {
   const [selected, setSelected] = useState([]);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        whiteBackground ? styles.whiteBackground : styles.greyBackground
+      }`}
+    >
       <div className={styles.innerContainer}>
         <h2 className={styles.faqTitle}>FAQs</h2>
         <p className={styles.faqTagline}>
