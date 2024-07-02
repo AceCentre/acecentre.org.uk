@@ -12,8 +12,13 @@ import {
 } from "../../components/getting-started-faqs/getting-started-faqs";
 import { LanguageLibraryHowTo } from "../../components/language-library-how-to/language-library-how-to";
 import { LanguageLibraryFeatured } from "../../components/language-library-featured/language-library-featured";
+import { LanguageLibraryHelpfulLinks } from "../../components/language-library-helpful-links/language-library-helpful-links";
 
-export default function LanguageLibrary({ languages, featuredPosts }) {
+export default function LanguageLibrary({
+  languages,
+  featuredPosts,
+  helpfulLinks,
+}) {
   return (
     <>
       <header>
@@ -26,7 +31,8 @@ export default function LanguageLibrary({ languages, featuredPosts }) {
         <LanguageLibraryFeatured resources={featuredPosts} />
         <LanguageLibraryCredits />
         <LanguageLibraryHowTo />
-        <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} />
+        <LanguageLibraryHelpfulLinks helpfulLinks={helpfulLinks} />
+        <GenericFaqs faqs={LANGUAGE_LIBRARY_FAQS} whiteBackground />
       </main>
       <Footer />
     </>
