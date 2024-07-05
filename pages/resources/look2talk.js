@@ -245,7 +245,10 @@ export default function ResourceDetail({
               Free downloadable files for creating, personalising and printing
               pages for an eye pointing communication book.
             </p>
-            <p>InPrint3 templates coming soon!</p>
+            <p>
+              Compatible with Boardmaker 7 to access Picture Communication
+              Symbols (PCS) and InPrint 3 for Widgit symbols.
+            </p>
             <p>
               Please note: these files download as a .zip files. Please extract
               the individual template files before opening in your symbol
@@ -363,7 +366,7 @@ export default function ResourceDetail({
                       );
                     }}
                   >
-                    Download PCS Templates
+                    Boardmaker 7 (PCS)
                   </Button>
                 </div>
                 <div className={styles.downloadFormButtonContainer}>
@@ -375,7 +378,7 @@ export default function ResourceDetail({
                       );
                     }}
                   >
-                    Download Widgit Templates
+                    InPrint 3 (Widgit)
                   </Button>
                 </div>
               </div>
