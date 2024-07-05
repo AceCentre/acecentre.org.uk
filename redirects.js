@@ -271,6 +271,11 @@ const REDIRECTS = [
     destination: "/at-scholar",
     permanent: true,
   },
+  {
+    source: "/look2talk",
+    destination: "/resources/look2talk",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
