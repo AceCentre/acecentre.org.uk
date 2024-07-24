@@ -3,14 +3,10 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { GettingStartedGrid } from "../../components/getting-started-grid/getting-started-grid";
-import { getAllCourses } from "../../lib/products/get-courses";
-import { CourseList } from "../../components/course-list/course-list";
 import { AacBooksCta } from "../../components/aac-books-cta/aac-books-cta";
 import { GettingStartedFaqs } from "../../components/getting-started-faqs/getting-started-faqs";
 
-import styles from "../../styles/getting-started.module.css";
-
-export default function GettingStartedLanding({ gettingStartedCourses }) {
+export default function GettingStartedLanding() {
   return (
     <>
       <header>
@@ -27,12 +23,6 @@ export default function GettingStartedLanding({ gettingStartedCourses }) {
         />
         <GettingStartedGrid />
         <AacBooksCta />
-        <CourseList
-          products={gettingStartedCourses}
-          title="Ace Centre Learning Courses to get started"
-          viewAllLink="/learning/search?level=introductory"
-          className={styles.resourcesList}
-        />
         <GettingStartedFaqs />
       </main>
       <Footer />
@@ -41,16 +31,9 @@ export default function GettingStartedLanding({ gettingStartedCourses }) {
 }
 
 export const getStaticProps = async () => {
-  const courses = await getAllCourses(true);
-
-  const gettingStartedCourses = courses
-    .filter((course) => course.level !== null)
-    .filter((course) => course.level.toLowerCase() === "introductory");
-
   return {
     revalidate: 60,
     props: {
-      gettingStartedCourses: gettingStartedCourses.slice(0, 4),
       seo: {
         title: "Getting started",
         description:
