@@ -1,11 +1,8 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { redirect } from "next/navigation";
 
 export default function LearningDetail() {
-  redirect("https://acecentre.arlo.co/w/events/");
-
   return (
     <>
       <header>
@@ -24,9 +21,10 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async ({ res }) => {
-  res.writeHead(301, { Location: "https://acecentre.arlo.co/w/events/" });
-  res.end();
-
-  return { props: {} };
+export const getStaticProps = async () => {
+  return {
+    redirect: {
+      destination: "https://acecentre.arlo.co/w/events/",
+    },
+  };
 };
