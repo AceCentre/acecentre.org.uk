@@ -19,7 +19,7 @@ export const CourseCategoriesGrid = ({
         category={{
           name: "Access",
           image: {
-            src: "access.png",
+            src: "./access.png",
             alt: "Access Logo",
           },
           href: "https://acecentre.arlo.co/w/events/cat-4-access/",
@@ -34,7 +34,7 @@ export const CourseCategoriesGrid = ({
         category={{
           name: "Communication",
           image: {
-            src: "communication.png",
+            src: "./communication.png",
             alt: "Communication Logo",
           },
           href: "https://acecentre.arlo.co/w/events/cat-2-communication/",
@@ -49,7 +49,7 @@ export const CourseCategoriesGrid = ({
         category={{
           name: "Education",
           image: {
-            src: "education.png",
+            src: "./education.png",
             alt: "Education Logo",
           },
           href: "https://acecentre.arlo.co/w/events/cat-6-education/",
@@ -64,7 +64,7 @@ export const CourseCategoriesGrid = ({
         category={{
           name: "Engineering",
           image: {
-            src: "engineering.png",
+            src: "./engineering.png",
             alt: "Engineering Logo",
           },
           href: "https://acecentre.arlo.co/w/events/cat-7-engineering/",
