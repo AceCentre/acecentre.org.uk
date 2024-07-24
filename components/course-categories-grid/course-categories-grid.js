@@ -5,29 +5,73 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 
 export const CourseCategoriesGrid = ({
-  productCategories,
   overlayColor = "rgba(138, 217, 202, 0.2)",
   textBackground = "rgba(227,190,189,0.8)",
   textColor = "#333333",
   objectFit = "cover",
 }) => {
-  const isEven = productCategories.length % 2 === 0;
-
   return (
-    <ul className={`${styles.container} ${isEven ? styles.evenContainer : ""}`}>
-      {productCategories.map((category) => {
-        return (
-          <CategorySquare
-            overlayColor={overlayColor}
-            textBackground={textBackground}
-            textColor={textColor}
-            key={`category-square-${category.name}`}
-            category={category}
-            objectFit={objectFit}
-            className={styles.backgroundColor}
-          />
-        );
-      })}
+    <ul className={`${styles.container} ${styles.evenContainer}`}>
+      <CategorySquare
+        overlayColor={overlayColor}
+        textBackground={textBackground}
+        textColor={textColor}
+        category={{
+          name: "Access",
+          image: {
+            src: "access.png",
+            alt: "Access Logo",
+          },
+          href: "https://acecentre.arlo.co/w/events/cat-4-access/",
+        }}
+        objectFit={objectFit}
+        className={styles.backgroundColor}
+      />
+      <CategorySquare
+        overlayColor={overlayColor}
+        textBackground={textBackground}
+        textColor={textColor}
+        category={{
+          name: "Communication",
+          image: {
+            src: "communication.png",
+            alt: "Communication Logo",
+          },
+          href: "https://acecentre.arlo.co/w/events/cat-2-communication/",
+        }}
+        objectFit={objectFit}
+        className={styles.backgroundColor}
+      />
+      <CategorySquare
+        overlayColor={overlayColor}
+        textBackground={textBackground}
+        textColor={textColor}
+        category={{
+          name: "Education",
+          image: {
+            src: "education.png",
+            alt: "Education Logo",
+          },
+          href: "https://acecentre.arlo.co/w/events/cat-6-education/",
+        }}
+        objectFit={objectFit}
+        className={styles.backgroundColor}
+      />
+      <CategorySquare
+        overlayColor={overlayColor}
+        textBackground={textBackground}
+        textColor={textColor}
+        category={{
+          name: "Engineering",
+          image: {
+            src: "engineering.png",
+            alt: "Engineering Logo",
+          },
+          href: "https://acecentre.arlo.co/w/events/cat-7-engineering/",
+        }}
+        objectFit={objectFit}
+        className={styles.backgroundColor}
+      />
     </ul>
   );
 };
@@ -93,7 +137,11 @@ export const CategorySquare = ({
 }) => {
   return (
     <GridSquare
-      href={`/learning/search?category=${category.slug}`}
+      href={
+        category.href
+          ? category.href
+          : `/learning/search?category=${category.slug}`
+      }
       image={category.image}
       name={category.name}
       overlayColor={overlayColor}
