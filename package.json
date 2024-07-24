@@ -17,7 +17,8 @@
     "cypress:prod:open": "CYPRESS_BASE_URL=https://acecentre.org.uk cypress open --config retries=0",
     "lighthouse": "lhci autorun",
     "plop": "plop",
-    "build-sitemap": "next-sitemap"
+    "build-sitemap": "next-sitemap",
+    "dead-code": "node madge.js"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
@@ -79,6 +80,7 @@
     "got": "11.8.3",
     "jest": "29.4.3",
     "jest-css-modules-transform": "4.4.2",
+    "madge": "^7.0.0",
     "next-sitemap": "4.0.2",
     "nock": "13.3.0",
     "plop": "4.0.0",
