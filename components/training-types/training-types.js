@@ -28,7 +28,9 @@ export const TrainingTypes = () => {
             theory and practical, with an emphasis on developing skills and
             confidence.
           </p>
-          <Link href="/learning/search?type=live">View live courses &gt;</Link>
+          <Link href="https://acecentre.arlo.co/w/webinars/">
+            View live courses &gt;
+          </Link>
         </div>
         <div>
           <h2>On-demand</h2>
@@ -37,7 +39,7 @@ export const TrainingTypes = () => {
             online learning platform designed for professionals, carers and
             families to complete in their own time at their own pace.
           </p>
-          <Link href="/learning/search?type=on-demand">
+          <Link href="https://acecentre.arlo.co/w/ondemand/">
             View on-demand courses &gt;
           </Link>
         </div>

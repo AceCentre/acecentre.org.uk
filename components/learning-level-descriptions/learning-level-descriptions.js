@@ -1,5 +1,4 @@
 import Avatar from "@mui/material/Avatar";
-import Link from "next/link";
 import styles from "./learning-level-descriptions.module.css";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -17,9 +16,6 @@ export const LearningLevelDescriptions = () => {
               Case studies to illustrate the resources and its implementation.
             </ListItem>
           </ul>
-          <Link href="/learning/search?level=introductory">
-            View introductory courses &gt;
-          </Link>
         </div>
         <div className={styles.level}>
           <h3>Developing</h3>
@@ -30,9 +26,6 @@ export const LearningLevelDescriptions = () => {
             <ListItem>Knowledge about assessment and implementation</ListItem>
             <ListItem>Information of strategies and resources</ListItem>
           </ul>
-          <Link href="/learning/search?level=developing">
-            View developing courses &gt;
-          </Link>
         </div>
 
         <div className={styles.level}>
@@ -44,9 +37,6 @@ export const LearningLevelDescriptions = () => {
             </ListItem>
             <ListItem>Interdisciplinary requirements of ATs</ListItem>
           </ul>
-          <Link href="/learning/search?level=enhanced">
-            View enhanced courses &gt;
-          </Link>
         </div>
 
         <div className={styles.level}>
@@ -58,9 +48,6 @@ export const LearningLevelDescriptions = () => {
               Explore opportunities for consultation, collaboration and coaching
             </ListItem>
           </ul>
-          <Link href="/learning/search?level=specialist">
-            View specialist courses &gt;
-          </Link>
         </div>
       </div>
     </div>
