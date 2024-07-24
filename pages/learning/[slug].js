@@ -24,7 +24,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getServerSideProps = async ({ res }) => {
+export const getStaticProps = async ({ res }) => {
   res.writeHead(301, { Location: "https://acecentre.arlo.co/w/events/" });
   res.end();
 
