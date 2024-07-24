@@ -147,22 +147,22 @@ export const defaultNavItems = [
         title: "Bespoke training",
         href: "/learning/bespoke-training",
       },
-      { title: "All courses", href: "/learning/search" },
+      { title: "All courses", href: "https://acecentre.arlo.co/w/events/" },
       {
         title: "Access courses",
-        href: "/learning/search?category=access",
+        href: "https://acecentre.arlo.co/w/events/cat-4-access/",
       },
       {
         title: "Communication courses",
-        href: "/learning/search?category=communication",
+        href: "https://acecentre.arlo.co/w/events/cat-2-communication/",
       },
       {
         title: "Education courses",
-        href: "/learning/search?category=education",
+        href: "https://acecentre.arlo.co/w/events/cat-6-education/",
       },
       {
         title: "Engineering courses",
-        href: "/learning/search?category=engineering",
+        href: "https://acecentre.arlo.co/w/events/cat-7-engineering/",
       },
     ],
   },

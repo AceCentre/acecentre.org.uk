@@ -9,18 +9,10 @@ import { getAllFullPosts, getFullProjects } from "../lib/posts/get-posts";
 import Fuse from "fuse.js";
 import { getAllProducts } from "../lib/products/get-products";
 import { ResourceList } from "../components/resource-list/resource-list";
-import { CourseList } from "../components/course-list/course-list";
-import { getAllCourses } from "../lib/products/get-courses";
 
 import styles from "../styles/search.module.css";
 
-export default function Search({
-  blogPosts,
-  projects,
-  products,
-  courses,
-  searchText,
-}) {
+export default function Search({ blogPosts, projects, products, searchText }) {
   return (
     <>
       <header>
@@ -59,14 +51,6 @@ export default function Search({
               linkPrefix="projects"
               viewAllLink={`/projects/search?searchText=${searchText}`}
               viewAllText="Search all projects"
-            />
-          )}
-          {courses.length > 0 && (
-            <CourseList
-              viewAllLink={`/learning/search?searchText=${searchText}`}
-              viewAllText="Search all courses"
-              title="Ace Centre Learning"
-              products={courses}
             />
           )}
         </div>
@@ -131,13 +115,6 @@ export const getServerSideProps = async (req) => {
 
   const filteredProducts = productsResult.map((result) => result.item);
 
-  const allCourses = await getAllCourses(true);
-  const coursesFuse = new Fuse(allCourses, {
-    keys: ["name", "description", "shortDescription"],
-  });
-  const courseResults = coursesFuse.search(searchText);
-  const filteredCourses = courseResults.map((result) => result.item);
-
   return {
     props: {
       blogPosts: filteredPosts.slice(0, 4),
@@ -151,7 +128,6 @@ export const getServerSideProps = async (req) => {
         }))
         .slice(0, 4),
       searchText,
-      courses: filteredCourses.slice(0, 4),
     },
   };
 };
