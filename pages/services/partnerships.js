@@ -28,7 +28,7 @@ export default function EngineeringPage({ featuredStory }) {
         >
           <h1 className={styles.cardTitle}>Partnerships</h1>
           <p className={styles.cardDescription}>
-            For 35 years Ace Centre has supported people with alternative and
+            For 40 years Ace Centre has supported people with alternative and
             augmentative communication (AAC) and assistive technology (AT)
             needs.
           </p>
