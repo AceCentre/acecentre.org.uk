@@ -172,12 +172,14 @@ export const Footer = ({ noPhoneNumber = false }) => {
                   />
                 </div>
                 <div className={styles.cyberEssentialsContainer}>
-                  <ImageWithLoader
-                    objectFit="contain"
-                    layout="fill"
-                    src="/ca-logo.png"
-                    alt="Communication Access Logo"
-                  />
+                  <a href="https://communication-access.co.uk/author/acecentreuk/">
+                    <ImageWithLoader
+                      objectFit="contain"
+                      layout="fill"
+                      src="/ca-logo.png"
+                      alt="Communication Access Logo"
+                    />
+                  </a>
                 </div>
               </div>
             </div>

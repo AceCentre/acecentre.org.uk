@@ -99,6 +99,19 @@ export default function Contact() {
                 White Horse Leisure & Tennis Centre.
               </a>
             </p>
+            <div className={styles.address}>
+              <p>White Horse Leisure & Tennis Centre</p>
+              <p>Audlett Drive</p>
+              <p>Abingdon Oxfordshire</p>
+              <p>OX14 3PJ </p>
+              <p>United Kingdom</p>
+            </div>
+            <p>
+              Find other changing places by{" "}
+              <a href="https://www.changing-places.org/find">
+                visiting the changing places website which includes a map.
+              </a>
+            </p>
           </div>
           <div>
             <iframe

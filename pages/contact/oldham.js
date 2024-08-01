@@ -23,13 +23,7 @@ export default function Contact() {
           heading="Oldham office"
           description="Details if you are planning a visit to our Oldham office."
         />
-        <div className={styles.youtubeVideo}>
-          <LiteYouTubeEmbed
-            id={"AZ3lJohANmU"}
-            title={"Visiting Ace Centre - Oldham office"}
-            noCookie={true}
-          />
-        </div>
+
         <div className={styles.officeInfoContainer}>
           <div>
             <h2>North office address</h2>
