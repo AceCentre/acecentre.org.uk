@@ -8,8 +8,6 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import styles from "../../styles/contact.module.css";
 import { ImageWithLoader as Image } from "../../components/image";
 
-import LiteYouTubeEmbed from "react-lite-youtube-embed";
-
 export default function Contact() {
   return (
     <>
