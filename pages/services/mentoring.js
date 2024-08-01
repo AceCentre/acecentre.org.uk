@@ -22,8 +22,8 @@ export default function EngineeringPage({ featuredStory }) {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/mentorship2.png"
-          alt="Four clinicians looking at an AAC device"
+          src="/services/mentoring4-compressed.jpeg"
+          alt="Two clinicians looking at an AAC device"
           heightClass={styles.coverHeight}
           imageClassName={styles.coverImage}
         >

@@ -27,7 +27,7 @@
 }
 
 .coverImage {
-  object-position: center -150px !important;
+  object-position: left center !important;
 }
 
 .inlineCard h2 {
@@ -121,11 +121,11 @@
   margin-top: -4rem;
 }
 
-@media (max-width: 1300px) {
+/* @media (max-width: 1300px) {
   .coverImage {
     object-position: left bottom !important;
   }
-}
+} */
 
 /** Mobile CSS */
 @media (max-width: 1024px) {
