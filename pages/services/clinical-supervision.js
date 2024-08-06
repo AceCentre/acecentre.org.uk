@@ -29,8 +29,9 @@ export default function EngineeringPage({ featuredStory }) {
         >
           <h1 className={styles.cardTitle}>Clinical Supervision</h1>
           <p className={styles.cardDescription}>
-            A short snappy sentence that describes what mentorship and
-            supervision is.
+            Transform your AAC practice with Ace Centre&apos;s exceptional
+            clinical supervision; our expert therapists provide personalised
+            support to boost your professional growth.
           </p>
           <FormModal form={CONTACT_FORM}>
             {({ onClick }) => (
