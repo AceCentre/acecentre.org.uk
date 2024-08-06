@@ -22,7 +22,7 @@ export default function EngineeringPage({ featuredStory }) {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/mentoring4-compressed.jpeg"
+          src="/services/mentoring5.jpg"
           alt="Two clinicians looking at an AAC device"
           heightClass={styles.coverHeight}
           imageClassName={styles.coverImage}
