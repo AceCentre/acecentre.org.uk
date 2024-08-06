@@ -29,7 +29,9 @@ export default function EngineeringPage({ featuredStory }) {
         >
           <h1 className={styles.cardTitle}>Mentoring</h1>
           <p className={styles.cardDescription}>
-            Empower Your AAC Support with Our Expert Mentoring Service
+            Boost your AAC support skills with Ace Centre&apos;s mentoring,
+            offering personalised guidance from our experienced team to enhance
+            your knowledge.
           </p>
           <FormModal form={CONTACT_FORM}>
             {({ onClick }) => (
