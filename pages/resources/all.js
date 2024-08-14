@@ -18,6 +18,7 @@ export default function AllResources({
   productCategories,
   selectedSubcategory,
   selectedCategory,
+  selectedCategoryDesc,
   selectedPriceRange,
   selectedOrderBy,
 }) {
@@ -29,6 +30,7 @@ export default function AllResources({
       <main id="mainContent">
         <ProductFilters
           selectedCategory={selectedCategory}
+          selectedCategoryDesc={selectedCategoryDesc}
           selectedSubCategory={selectedSubcategory}
           selectedPriceRange={selectedPriceRange}
           selectedOrderBy={selectedOrderBy}
@@ -55,7 +57,8 @@ export const getServerSideProps = async (req) => {
   const productsPerPage = 20;
 
   const products = await getAllProducts();
-  const productCategories = await getAllProductCategories();
+  const { slugs: productCategories, fullCategories } =
+    await getAllProductCategories();
 
   const {
     results: filteredProducts,
@@ -77,6 +80,14 @@ export const getServerSideProps = async (req) => {
     featuredImage: product.image,
     ...product,
   }));
+
+  let selectedCategoryDesc = "";
+  let currentFullCategory = fullCategories.find((x) => x.slug == category);
+
+  if (currentFullCategory) {
+    selectedCategoryDesc = currentFullCategory.description;
+  }
+
   return {
     props: {
       resources,
@@ -86,6 +97,7 @@ export const getServerSideProps = async (req) => {
       totalResourcesCount,
       productCategories,
       selectedCategory: category,
+      selectedCategoryDesc,
       selectedSubcategory: subcategory,
       selectedPriceRange: priceRange,
       selectedOrderBy: orderBy,

@@ -96,6 +96,7 @@ const useSearchController = ({
 export const ProductFilters = ({
   categories,
   selectedCategory = "",
+  selectedCategoryDesc = "",
   selectedSubCategory = "",
   selectedPriceRange = "",
   resourceCount = 0,
@@ -123,7 +124,11 @@ export const ProductFilters = ({
 
   return (
     <>
-      <PageTitle heading="Resources" description="Our resources">
+      <PageTitle
+        heading="Resources"
+        description="Our resources"
+        className={`${selectedCategoryDesc ? styles.pageTitle : ""}`}
+      >
         <form onSubmit={freeTextOnSubmit}>
           <Input
             name="searchText"
@@ -143,6 +148,12 @@ export const ProductFilters = ({
           </Input>
         </form>
       </PageTitle>
+      {selectedCategoryDesc && (
+        <div className={styles.container}>
+          <p>{selectedCategoryDesc}</p>
+        </div>
+      )}
+
       <div className={styles.container}>
         {searchText && <p>{`You searched for: "${searchText}"`}</p>}
         <div className={styles.selectContainer}>
