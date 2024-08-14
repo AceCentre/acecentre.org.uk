@@ -90,11 +90,7 @@ export const LaunchpadList = ({ title, templates, className = "" }) => {
   );
 };
 
-const shouldShowRibbon = (product) => {
-  if (product?.isLaunchpadTemplate) {
-    return "Customise";
-  }
-
+const shouldShowRibbon = () => {
   return false;
 };
 
