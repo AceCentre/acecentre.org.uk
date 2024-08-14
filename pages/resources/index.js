@@ -60,7 +60,7 @@ export const getStaticProps = async () => {
     ...product,
   }));
 
-  const productCategories = await getAllProductCategories();
+  const { slugs: productCategories } = await getAllProductCategories();
 
   const featuredResources = allProducts
     .filter((resource) => resource.featured)

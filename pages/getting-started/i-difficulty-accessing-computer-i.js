@@ -105,7 +105,7 @@ export const getStaticProps = async () => {
   const story = await getSimpleStory("jess");
 
   const products = await getAllProducts();
-  const productCategories = await getAllProductCategories();
+  const { slugs: productCategories } = await getAllProductCategories();
 
   const { results: gettingStartedResources } = filterProducts(
     products,
