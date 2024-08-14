@@ -4,6 +4,10 @@
   max-width: var(--containerMaxWidth);
 }
 
+.pageTitle.pageTitle {
+  padding-bottom: 1rem;
+}
+
 .selectContainer {
   display: flex;
   gap: 1rem;
