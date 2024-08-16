@@ -14,6 +14,10 @@ export const ContactCards = () => {
         <Card>
           <h3>Contact us</h3>
           <p>Get in touch with Ace Centre by filling out our contact form.</p>
+          <p className={styles.phoneNumber}>0800 080 3115</p>
+          <p className={styles.officeHours}>
+            Office hours, 9AM - 5PM, Monday - Friday
+          </p>
           <FormModal form={CONTACT_FORM}>
             {({ onClick }) => (
               <div className={styles.buttonMargin}>
@@ -29,14 +33,13 @@ export const ContactCards = () => {
             Alternative Communication (AAC) and Assistive Technology call our
             advice helpline number:
           </p>
-          <p className={styles.phoneNumber}>0800 080 3115</p>
-          <p className={styles.officeHours}>
-            Office hours, 9AM - 5PM, Monday - Friday
+          <p className={styles.phoneNumber}>
+            0800 080 3115 <span className={styles.option}>option 2</span>
           </p>
-          <Link
-            href="mailto:enquiries@acecentre.org.uk"
-            className={styles.link}
-          >
+          <p className={styles.officeHours}>
+            Adviceline Hours - Monday, Wednesday and Friday from 1PM- 5PM
+          </p>
+          <Link href="mailto:advice@acecentre.org.uk" className={styles.link}>
             Email us &gt;
           </Link>
         </Card>

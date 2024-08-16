@@ -24,12 +24,12 @@ export const StillHavingProblems = () => {
         </Card>
         <Card>
           <h3>Give us a call</h3>
-          <p>
-            Looking for assistance? Call our advice helpline number for support:
-          </p>
+          <p>Looking for assistance? Call our technical team for support:</p>
           <div className={styles.end}>
             <p className={styles.phoneNumber}>
-              <strong>0800 080 3115</strong>
+              <strong>
+                0800 080 3115 <span className={styles.option}>option 1</span>
+              </strong>
             </p>
             <p className={styles.officeHours}>
               Office hours, 9AM - 5PM, Monday - Friday
