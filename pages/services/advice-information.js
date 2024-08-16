@@ -68,8 +68,8 @@ export default function EngineeringPage({ ebookResources }) {
               <a href="tel:08000803115">0800 080 3115</a> and we&apos;ll connect
               you with a member of our admin team, who will put you in touch
               with a clinical colleague as soon as possible. Or send an email at{" "}
-              <a href="mailto:enquiries@acecentre.org.uk">
-                enquiries@acecentre.org.uk
+              <a href="mailto:advice@acecentre.org.uk">
+                advice@acecentre.org.uk
               </a>{" "}
               and we&apos;ll try our best to reply within 48hrs.
             </p>

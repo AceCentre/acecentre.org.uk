@@ -4,6 +4,11 @@
   max-width: var(--containerMaxWidth);
 }
 
+.option {
+  font-weight: normal;
+  font-style: italic;
+}
+
 .buttonMargin {
   margin-top: auto;
 }
