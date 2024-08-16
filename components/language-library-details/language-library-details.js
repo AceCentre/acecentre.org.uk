@@ -274,6 +274,15 @@ export const DETAILS_CONFIG = {
                 "is_the_settings_software_menu_available_in_the_same_language_s__as_the_vocabulary_"
             );
 
+            console.log(field, value);
+
+            if (value === "other") {
+              return getValue(
+                resource?.meta
+                  ?.other___is_the_settings_software_menu_available_in_the_same_language_s__as_the_vocabulary_
+              );
+            }
+
             return field.options[value];
           },
         },
