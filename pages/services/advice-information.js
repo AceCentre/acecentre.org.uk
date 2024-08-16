@@ -43,7 +43,7 @@ export default function EngineeringPage({ ebookResources }) {
           </div>
 
           <p className={styles.cardContact}>
-            or call our advice line on <strong>0800 080 3115</strong>
+            Call our adviceline on <strong>0800 080 3115</strong> option 2
           </p>
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
@@ -65,9 +65,10 @@ export default function EngineeringPage({ ebookResources }) {
             </p>
             <p>
               Call our advice line at{" "}
-              <a href="tel:08000803115">0800 080 3115</a> and we&apos;ll connect
-              you with a member of our admin team, who will put you in touch
-              with a clinical colleague as soon as possible. Or send an email at{" "}
+              <a href="tel:08000803115">0800 080 3115 (option 2)</a> and
+              we&apos;ll connect you with a member of our admin team, who will
+              put you in touch with a clinical colleague as soon as possible. Or
+              send an email at{" "}
               <a href="mailto:advice@acecentre.org.uk">
                 advice@acecentre.org.uk
               </a>{" "}
