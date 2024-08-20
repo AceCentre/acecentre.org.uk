@@ -65,14 +65,13 @@ export default function EngineeringPage({ ebookResources }) {
             </p>
             <p>
               Call our advice line at{" "}
-              <a href="tel:08000803115">0800 080 3115 (option 2)</a> and
-              we&apos;ll connect you with a member of our admin team, who will
-              put you in touch with a clinical colleague as soon as possible. Or
-              send an email at{" "}
+              <a href="tel:08000803115">0800 080 3115 (option 2)</a> on Monday,
+              Wednesday or Friday from 1-5PM to connect with a member of our
+              clinical team. You can email us anytime at{" "}
               <a href="mailto:advice@acecentre.org.uk">
                 advice@acecentre.org.uk
-              </a>{" "}
-              and we&apos;ll try our best to reply within 48hrs.
+              </a>
+              with your query and we&apos;ll try our best to reply within 48hrs.
             </p>
             <h2>Information appointments:</h2>
             <ul className={styles.list}>
