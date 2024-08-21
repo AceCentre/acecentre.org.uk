@@ -16,16 +16,15 @@ export const Button = ({
 
   if (href)
     return (
-      (<Link
+      <Link
         href={href}
         {...newTabProps}
         onClick={onClick}
         className={`${styles.button} ${className}`}
-        download={download}>
-
+        download={download}
+      >
         {children}
-
-      </Link>)
+      </Link>
     );
 
   if (type == "submit") {
@@ -50,6 +49,7 @@ export const Button = ({
         disabled ? styles.disabled : ""
       }`}
       disabled={disabled}
+      type={type}
       {...props}
     >
       {children}
