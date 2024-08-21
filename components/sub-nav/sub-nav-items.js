@@ -96,6 +96,10 @@ export const defaultNavItems = [
         title: "eBooks",
         href: "/resources/all?category=made-by-ace&subcategory=e-books",
       },
+      {
+        title: "Language Library",
+        href: "/language-library",
+      },
     ],
   },
   {
