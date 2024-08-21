@@ -19,6 +19,20 @@ export const ResourceCategoriesGrid = ({ productCategories }) => {
           />
         );
       })}
+      <li className={styles.listItem} key={"lang-lib"}>
+        <Link href={"/language-library"} className={styles.link}>
+          <Image src="/lang-lib.png" layout="fill" objectFit="contain" />
+          <div className={styles.yellowTint} />
+          <div className={styles.blueBannerContainer}>
+            <div className={styles.blueBanner}>
+              <p>Language Library</p>
+              <Avatar className={styles.avatar}>
+                <ArrowForwardIcon className={styles.icon} />
+              </Avatar>
+            </div>
+          </div>
+        </Link>
+      </li>
     </ul>
   );
 };

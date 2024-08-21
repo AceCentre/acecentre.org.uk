@@ -4,6 +4,23 @@
   max-width: var(--containerMaxWidth);
 }
 
+.downIcon.downIcon {
+  transform: rotate(90deg);
+}
+
+.upIcon.upIcon {
+  transform: rotate(-90deg);
+}
+
+.showMore {
+  border: 4px solid #94c64e;
+  background-color: transparent;
+  color: black;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .searchBar {
   display: flex;
   gap: 1rem;
@@ -16,7 +33,7 @@
 .languageList {
   list-style-type: none;
   padding: 0;
-  max-width: 540px;
+  max-width: 730px;
   display: flex;
   gap: 1rem;
   margin: 1rem auto;
