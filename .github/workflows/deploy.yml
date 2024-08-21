@@ -36,35 +36,8 @@ jobs:
           REDIS_URL: ${{ secrets.REDIS_URL }}
         run: yarn test
 
-  BuildIntegrationOnDigitalOcean:
-    needs: [Jest]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-
-      - name: Create deployment
-        run: doctl apps create-deployment 64e56aae-8e76-4055-8196-38561f2264e0 --wait --force-rebuild --output json --verbose
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ always() }}
-        with:
-          name: deployment-integration
-          path: ./deployment-integration.json
-          retention-days: 5
-
-  CypressIntegration:
-    needs: [BuildIntegrationOnDigitalOcean]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
-
   BuildProductionOnDigitalOcean:
-    needs: [CypressIntegration]
+    needs: [Jest]
     runs-on: ubuntu-latest
     steps:
       - name: Install doctl
@@ -82,16 +55,8 @@ jobs:
           path: ./deployment-live.json
           retention-days: 5
 
-  CypressProduction:
-    needs: [BuildProductionOnDigitalOcean]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: post-deploy
-      baseUrl: https://acecentre.org.uk
-
   GauntletRunOnePost:
-    needs: [CypressProduction]
+    needs: [BuildProductionOnDigitalOcean]
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
@@ -131,7 +96,7 @@ jobs:
       baseUrl: https://acecentre.org.uk
 
   GauntletRunOnePre:
-    needs: [CypressProduction]
+    needs: [BuildProductionOnDigitalOcean]
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
