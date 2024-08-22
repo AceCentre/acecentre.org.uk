@@ -64,6 +64,8 @@ const backupDroplet = async (id) => {
 const script = async () => {
   await backupDroplet(335294617);
   await backupDroplet(402491167);
+  await backupDroplet(360556688);
+  await backupDroplet(280782976);
 };
 
 module.exports = script;
