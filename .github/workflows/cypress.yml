@@ -2,9 +2,6 @@ name: Reusable Cypress Job
 on:
   workflow_call:
     inputs:
-      tags:
-        required: true
-        type: string
       baseUrl:
         required: true
         type: string
