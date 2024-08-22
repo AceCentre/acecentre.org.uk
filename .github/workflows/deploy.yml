@@ -60,7 +60,6 @@ jobs:
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
-      tags: post-deploy
       baseUrl: https://acecentre.org.uk
 
   GauntletRunTwoPost:
@@ -68,7 +67,6 @@ jobs:
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
-      tags: post-deploy
       baseUrl: https://acecentre.org.uk
 
   GauntletRunThreePost:
@@ -76,7 +74,6 @@ jobs:
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
-      tags: post-deploy
       baseUrl: https://acecentre.org.uk
 
   GauntletRunFourPost:
@@ -84,7 +81,6 @@ jobs:
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
-      tags: post-deploy
       baseUrl: https://acecentre.org.uk
 
   GauntletRunFivePost:
@@ -92,45 +88,4 @@ jobs:
     uses: ./.github/workflows/cypress.yml
     secrets: inherit
     with:
-      tags: post-deploy
       baseUrl: https://acecentre.org.uk
-
-  GauntletRunOnePre:
-    needs: [BuildProductionOnDigitalOcean]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
-
-  GauntletRunTwoPre:
-    needs: [GauntletRunOnePre]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
-
-  GauntletRunThreePre:
-    needs: [GauntletRunTwoPre]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
-
-  GauntletRunFourPre:
-    needs: [GauntletRunThreePre]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
-
-  GauntletRunFivePre:
-    needs: [GauntletRunFourPre]
-    uses: ./.github/workflows/cypress.yml
-    secrets: inherit
-    with:
-      tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
