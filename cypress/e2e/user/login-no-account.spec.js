@@ -1,7 +1,7 @@
 const NO_ACC_EMAIL = "thisisnotanaccount@gavin.com";
 
 context("Login", () => {
-  it(["pre-deploy"], "shows an error when no account exists", () => {
+  it("shows an error when no account exists", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");

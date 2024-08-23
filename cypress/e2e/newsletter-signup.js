@@ -1,5 +1,5 @@
 context("Newsletter Sign Up", () => {
-  it(["pre-deploy"], "Signs up for the newsletter", () => {
+  it("Signs up for the newsletter", () => {
     const email = "cypress@gavinhenderson.co.uk";
 
     cy.visit("/");

@@ -2,7 +2,7 @@ const VALID_PASSWORD = "averyvalidpassword";
 const EXISTING_EMAIL = "ghenderson@acecentre.org.uk";
 
 context("Register", () => {
-  it(["pre-deploy"], "Shows an error when the email address is in use", () => {
+  it("Shows an error when the email address is in use", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");

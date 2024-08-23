@@ -3,7 +3,7 @@ import { validEmail } from "../../support/valid-email";
 const SHORT_PASSWORD = "short";
 
 context("Register", () => {
-  it(["pre-deploy"], "Shows an error when you password is to short", () => {
+  it("Shows an error when you password is to short", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");

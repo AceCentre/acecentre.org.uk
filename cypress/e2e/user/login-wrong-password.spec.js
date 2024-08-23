@@ -1,7 +1,7 @@
 const ACCOUNT_EXISTS = "ghenderson@acecentre.org.uk";
 
 context("Login", () => {
-  it(["pre-deploy"], "shows an error when password is wrong", () => {
+  it("shows an error when password is wrong", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");

@@ -2,7 +2,7 @@ const TEST_ACC = "cypress@test.com";
 const TEST_PASS = "cypresstestpassword";
 
 context("Login", () => {
-  it(["pre-deploy"], "successfully logs in to a valid account", () => {
+  it("successfully logs in to a valid account", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");

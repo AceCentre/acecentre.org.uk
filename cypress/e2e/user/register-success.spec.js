@@ -16,7 +16,7 @@ context("Register", () => {
     });
   });
 
-  it(["pre-deploy"], "Registers in, checks email in details, logs out", () => {
+  it("Registers in, checks email in details, logs out", () => {
     // Store email address for later
     newEmail = validEmail("register-success");
 
