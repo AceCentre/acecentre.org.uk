@@ -1,5 +1,5 @@
 context("Service Finder", () => {
-  it(["pre-deploy"], "Finds services based on geolocation", () => {
+  it("Finds services based on geolocation", () => {
     cy.visit("/nhs-service-finder", {
       onBeforeLoad(win) {
         // Force manchester
@@ -19,20 +19,16 @@ context("Service Finder", () => {
     cy.contains("North West AT Service").should("exist");
   });
 
-  it(
-    ["pre-deploy"],
-    "Shows an error when you given an invalid postcode",
-    () => {
-      cy.visit("/nhs-service-finder");
+  it("Shows an error when you given an invalid postcode", () => {
+    cy.visit("/nhs-service-finder");
 
-      cy.findByRole("textbox", { name: "Enter your postcode" }).type("ABCDE");
-      cy.findByRole("button", { name: "Find services" }).click();
+    cy.findByRole("textbox", { name: "Enter your postcode" }).type("ABCDE");
+    cy.findByRole("button", { name: "Find services" }).click();
 
-      cy.contains("Postcode not found").should("exist");
-    }
-  );
+    cy.contains("Postcode not found").should("exist");
+  });
 
-  it(["pre-deploy"], "Finds services based on postcode", () => {
+  it("Finds services based on postcode", () => {
     cy.visit("/nhs-service-finder");
 
     cy.findByRole("textbox", { name: "Enter your postcode" }).type("OL83QL");
@@ -42,7 +38,7 @@ context("Service Finder", () => {
     cy.contains("North West AT Service").should("exist");
   });
 
-  it(["pre-deploy"], "Can click through to service page", () => {
+  it("Can click through to service page", () => {
     cy.visit("/nhs-service-finder");
 
     cy.findByRole("textbox", { name: "Enter your postcode" }).type("OL83QL");
@@ -52,7 +48,7 @@ context("Service Finder", () => {
     cy.contains("Ace Centre North").should("exist");
   });
 
-  it(["pre-deploy"], "Can click through to map", () => {
+  it("Can click through to map", () => {
     Cypress.on("uncaught:exception", (err) => {
       if (err.message.includes("L is not defined")) return false;
 

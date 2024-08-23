@@ -2,7 +2,7 @@ const VALID_PASSWORD = "averyvalidpassword";
 const INVALID_EMAIL = "email@email@email.com";
 
 context("Register", () => {
-  it(["pre-deploy"], "Shows an error when you email is not valid", () => {
+  it("Shows an error when you email is not valid", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Login" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "/login");
