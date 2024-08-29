@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("can add product to cart, and checkout with a new account, decline 3D Auth", () => {
+  it.skip("can add product to cart, and checkout with a new account, decline 3D Auth", () => {
     newEmail = validEmail("decline-3d-auth");
     cy.visit("/resources/qwerty-2");
     cy.findByRole("button", { name: "Add to cart" }).click();

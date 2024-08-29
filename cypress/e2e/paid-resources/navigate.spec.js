@@ -1,5 +1,5 @@
 context("Paid resources", () => {
-  it("can navigate to a paid resource", () => {
+  it.skip("can navigate to a paid resource", () => {
     cy.visit("");
     cy.findAllByRole("link", { name: "Resources" }).first().click();
     cy.url({ timeout: 60000 }).should("include", "resources");

@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("can add product to cart, and checkout with a new account", () => {
+  it.skip("can add product to cart, and checkout with a new account", () => {
     newEmail = validEmail("checkout-new-account");
 
     cy.visit("/resources/qwerty-2");

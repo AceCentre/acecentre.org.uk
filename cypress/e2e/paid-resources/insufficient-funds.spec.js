@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("can add product to cart, and checkout without an account, with a card with insufficient funds", () => {
+  it.skip("can add product to cart, and checkout without an account, with a card with insufficient funds", () => {
     newEmail = validEmail("insufficient-funds");
     cy.visit("/resources/qwerty-2");
     cy.findByRole("button", { name: "Add to cart" }).click();

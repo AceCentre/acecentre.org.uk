@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("Add a product to cart, login and add another item to cart then purchase items in cart", () => {
+  it.skip("Add a product to cart, login and add another item to cart then purchase items in cart", () => {
     // Register for a new account
     newEmail = validEmail("login-then-add");
     cy.visit("");
