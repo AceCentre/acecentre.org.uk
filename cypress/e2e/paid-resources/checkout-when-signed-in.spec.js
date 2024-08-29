@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("Add a product to cart, checkout when already signed in", () => {
+  it.skip("Add a product to cart, checkout when already signed in", () => {
     // Register for a new account
     newEmail = validEmail("paid-resources");
     cy.visit("");

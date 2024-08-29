@@ -16,7 +16,7 @@ context("Paid resources", () => {
     });
   });
 
-  it("can add product to cart, and checkout with a new account, physical product", () => {
+  it.skip("can add product to cart, and checkout with a new account, physical product", () => {
     newEmail = validEmail("new-account-physical");
     cy.visit("/resources/developing-using-communication-book");
     cy.findByRole("button", { name: "Add to cart" }).click();

@@ -4,6 +4,9 @@ context("Free resources", () => {
     cy.findAllByRole("link", { name: "Resources" }).first().click();
     cy.findAllByRole("link", { name: "View all resources" }).first().click();
     cy.findAllByRole("combobox", { name: "Price range" }).select("Free");
+    cy.wait(5000);
+    cy.findAllByRole("combobox", { name: "Sort by" }).select("Oldest");
+
     cy.url({ timeout: 40000 }).should("include", "pricerange=free");
     cy.wait(5000);
     cy.findByRole("main")
