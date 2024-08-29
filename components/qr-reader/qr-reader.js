@@ -4,9 +4,18 @@ import { Input as ChakraInput } from "@chakra-ui/input";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
 import { useState } from "react";
+import { Checkbox } from "@chakra-ui/react";
 
 export const QrReader = () => {
   const [qrTarget, setQrTarget] = useState(null);
+  const [showLogo, setShowLogo] = useState(true);
+
+  const logoDetails = {
+    height: 25,
+    width: 48,
+    src: imageUri,
+    excavate: true,
+  };
 
   return (
     <div className={styles.container}>
@@ -77,6 +86,17 @@ export const QrReader = () => {
           id="url"
           type="url"
         />
+        <div>
+          <Checkbox
+            isChecked={showLogo}
+            onChange={(event) => {
+              setShowLogo(event.target.checked);
+            }}
+          >
+            Show Ace Centre logo
+          </Checkbox>
+        </div>
+
         <Button className={styles.button} type="submit">
           Download QR Code
         </Button>
@@ -88,12 +108,7 @@ export const QrReader = () => {
           level="H"
           height={200}
           width={200}
-          imageSettings={{
-            height: 25,
-            width: 48,
-            src: imageUri,
-            excavate: true,
-          }}
+          imageSettings={showLogo ? logoDetails : undefined}
           value={qrTarget}
         />
       )}
