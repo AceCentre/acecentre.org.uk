@@ -81,7 +81,23 @@ const defaultGridItems = [
     href: "/services/mounting",
     image: {
       src: "/services/mounting.jpeg",
+      alt: "An AAC user with their device mounted",
+    },
+  },
+  {
+    name: "Clinical Supervision",
+    href: "/services/clinical-supervision",
+    image: {
+      src: "/supervision-thumbnail.jpeg",
       alt: "Two people looking at a communication device",
+    },
+  },
+  {
+    name: "Mentoring",
+    href: "/services/mentoring",
+    image: {
+      src: "/mentoring-thumbnail.jpg",
+      alt: "Two people looking at a communication aid",
     },
   },
 ];

@@ -129,8 +129,10 @@ export const defaultNavItems = [
       },
       { title: "Research", href: "/services/research" },
       { title: "Partnerships", href: "/services/partnerships" },
-      { title: "Ace Centre Learning", href: "/learning" },
+      // { title: "Ace Centre Learning", href: "/learning" },
       { title: "Mount Installation", href: "/services/mounting" },
+      { title: "Clinical Supervision", href: "/services/clinical-supervision" },
+      { title: "Mentoring", href: "/services/mentoring" },
     ],
   },
   {
