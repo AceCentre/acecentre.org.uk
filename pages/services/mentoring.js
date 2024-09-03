@@ -119,15 +119,19 @@ export default function EngineeringPage({ featuredStory }) {
               </Avatar>
               <div className={styles.quoteText}>
                 <p className={styles.quoteContent}>
-                  &quot;This should be a quote about how great about mentoring
-                  and supervision.&quot;
+                  &quot;Visiting Ace Centre has been valuable in observing why
+                  they are best placed to mentor me. I am where I am today with
+                  their support, and we have built a strong working relationship
+                  by sharing knowledge and comparing ideas. I continue to grow
+                  in confidence and feel fully capable in my working
+                  context.&quot;
                 </p>
                 <div>
                   <p>
-                    <strong>John Smith</strong>
+                    <strong>Kay Barnes</strong>
                   </p>
-                  <p>Speech and Language Therapist</p>
-                  <p>Disneyland Community Hub</p>
+                  <p>Assistive Technologist</p>
+                  <p>Leonard Cheshire</p>
                 </div>
               </div>
             </div>
