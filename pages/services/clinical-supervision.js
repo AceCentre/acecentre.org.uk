@@ -7,7 +7,7 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Avatar from "@mui/material/Avatar";
 
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import styles from "../../styles/clinical-supervision.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
@@ -119,7 +119,7 @@ export default function EngineeringPage({ featuredStory }) {
             </p>
           </div>
           <div>
-            <div className={styles.quote}>
+            {/* <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <FormatQuoteIcon className={styles.icon} />
               </Avatar>
@@ -136,7 +136,7 @@ export default function EngineeringPage({ featuredStory }) {
                   <p>Disneyland Community Hub</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.extraSpacing}>
