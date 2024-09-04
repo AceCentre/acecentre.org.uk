@@ -199,7 +199,7 @@ const External = ({ resource, posthog, posthogLoaded }) => {
 
   const hasOptedInToNewsletter = useMemo(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem(storageKey) == "true";
+      return localStorage.getItem(`${storageKey}-${resource.slug}`) == "true";
     } else {
       return false;
     }
@@ -434,7 +434,7 @@ export const NewsletterSignup = ({
               }
 
               onSuccess();
-              localStorage.setItem(storageKey, true);
+              localStorage.setItem(`${storageKey}-${resource.slug}`, true);
 
               setSuccess(true);
             } catch (err) {
@@ -546,7 +546,7 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
 const DownloadModal = ({ resource, modalOpen, onClose }) => {
   const hasOptedInToNewsletter = useMemo(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem(storageKey) == "true";
+      return localStorage.getItem(`${storageKey}-${resource.slug}`) == "true";
     } else {
       return false;
     }
@@ -676,7 +676,7 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
 
   const hasOptedInToNewsletter = useMemo(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem(storageKey) == "true";
+      return localStorage.getItem(`${storageKey}-${resource.slug}`) == "true";
     } else {
       return false;
     }
