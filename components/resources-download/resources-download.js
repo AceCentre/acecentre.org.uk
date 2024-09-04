@@ -195,31 +195,87 @@ export const useAddToCart = () => {
 };
 
 const External = ({ resource, posthog, posthogLoaded }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const hasOptedInToNewsletter = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(storageKey) == "true";
+    } else {
+      return false;
+    }
+  }, []);
+
   return (
     <div className={styles.downloadButtonContainer}>
-      <Button
-        newTab
-        onClick={() => {
-          if (typeof gtag !== "undefined" && gtag) {
-            gtag("event", "conversion", {
-              send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
-            });
-          }
+      {resource.popupFormBehaviour == "forced-email" && (
+        <ForcedEmail
+          resource={resource}
+          modalOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          onSuccess={() => {
+            if (typeof gtag !== "undefined" && gtag) {
+              gtag("event", "conversion", {
+                send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+              });
+            }
 
+            if (
+              posthogLoaded &&
+              window.location.origin === "https://acecentre.org.uk"
+            ) {
+              console.log("Capture", "resourceDownloaded", {
+                name: resource.slug,
+              });
+              posthog.capture("resourceDownloaded", {
+                name: resource.slug,
+                resourceType: "external",
+              });
+            }
+
+            const link = document.createElement("a");
+            link.href = resource.external.url;
+            link.target = "_blank";
+            link.rel = "noreferrer";
+
+            link.click();
+          }}
+        />
+      )}
+      <Button
+        onClick={() => {
           if (
-            posthogLoaded &&
-            window.location.origin === "https://acecentre.org.uk"
+            hasOptedInToNewsletter ||
+            resource.popupFormBehaviour != "forced-email"
           ) {
-            console.log("Capture", "resourceDownloaded", {
-              name: resource.slug,
-            });
-            posthog.capture("resourceDownloaded", {
-              name: resource.slug,
-              resourceType: "external",
-            });
+            if (typeof gtag !== "undefined" && gtag) {
+              gtag("event", "conversion", {
+                send_to: "AW-10885468875/Px_SCKzf9LQDEMulzMYo",
+              });
+            }
+
+            if (
+              posthogLoaded &&
+              window.location.origin === "https://acecentre.org.uk"
+            ) {
+              console.log("Capture", "resourceDownloaded", {
+                name: resource.slug,
+              });
+              posthog.capture("resourceDownloaded", {
+                name: resource.slug,
+                resourceType: "external",
+              });
+            }
+
+            const link = document.createElement("a");
+            link.href = resource.external.url;
+            link.target = "_blank";
+            link.rel = "noreferrer";
+
+            link.click();
+          } else {
+            setModalOpen(true);
           }
         }}
-        href={resource.external.url}
       >
         {resource.external.cta}
       </Button>
@@ -440,7 +496,7 @@ export const NewsletterSignup = ({
   );
 };
 
-const ForcedEmail = ({ resource, modalOpen, onClose }) => {
+const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
   return (
     <Modal
       scrollBehavior="inside"
@@ -464,12 +520,16 @@ const ForcedEmail = ({ resource, modalOpen, onClose }) => {
               withNames
               signUpIdentifier={"resource-download"}
               tags={[{ name: resource.slug }]}
-              onSuccess={() => {
-                const link = document.createElement("a");
-                link.download = true;
-                link.href = `${config.baseUrl}${resource.downloadUrl}`;
-                link.click();
-              }}
+              onSuccess={
+                onSuccess
+                  ? onSuccess
+                  : () => {
+                      const link = document.createElement("a");
+                      link.download = true;
+                      link.href = `${config.baseUrl}${resource.downloadUrl}`;
+                      link.click();
+                    }
+              }
             />
           </div>
           <div className={styles.bottomContainer}>
