@@ -238,6 +238,8 @@ const External = ({ resource, posthog, posthogLoaded }) => {
             link.rel = "noreferrer";
 
             link.click();
+
+            localStorage.setItem(`${storageKey}-${resource.slug}`, true);
           }}
         />
       )}
@@ -434,7 +436,6 @@ export const NewsletterSignup = ({
               }
 
               onSuccess();
-              localStorage.setItem(`${storageKey}-${resource.slug}`, true);
 
               setSuccess(true);
             } catch (err) {
@@ -528,6 +529,10 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
                       link.download = true;
                       link.href = `${config.baseUrl}${resource.downloadUrl}`;
                       link.click();
+                      localStorage.setItem(
+                        `${storageKey}-${resource.slug}`,
+                        true
+                      );
                     }
               }
             />
