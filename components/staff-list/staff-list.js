@@ -33,6 +33,7 @@ const LOCATION_MAP = {
   oldham: "North office",
   abingdon: "South office",
   remote: "Remote",
+  both: "North and South",
 };
 
 const listOfBackgrounds = [
