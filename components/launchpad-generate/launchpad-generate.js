@@ -215,6 +215,7 @@ const ForcedEmailDownloadModal = ({
               withNames
               onSuccess={() => {
                 triggerDownload();
+                localStorage.setItem(`${storageKey}-${slug}`, true);
               }}
             />
           </div>
