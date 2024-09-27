@@ -127,15 +127,6 @@ export default function AtScholar({ posts }) {
               use of assistive technology.
             </p>
             <p>
-              <strong>
-                Now accepting applications for the 2025 Scholar Program!{" "}
-                <Link href="/blog/at-scholar-2025">Click here to apply.</Link>
-              </strong>
-            </p>
-            <p>
-              <strong>Deadline is midnight on the 23rd of July 2024.</strong>
-            </p>
-            <p>
               Please check this website for more information or{" "}
               <a
                 onClick={() => setModelOpen(true)}
