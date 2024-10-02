@@ -289,7 +289,7 @@ const FAQS = [
           attention to the box of cereal they would like you to pass them, make
           a sound to greet a friend, and use their high tech AAC device to have
           a discussion around an issue that is important to them.{" "}
-          <a href="http://aacbooks.net/books/UsingLowTechSymbolSystemsChildren/#movie1.1-beth">
+          <a href="https://youtu.be/jpf1Xs1CLnw">
             Beth explains this beautifully in her video.
           </a>
         </p>
