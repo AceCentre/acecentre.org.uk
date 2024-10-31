@@ -64,7 +64,7 @@ const filter = (resources, fullState, searchTerm) => {
 
   if (searchTerm) {
     const fuse = new Fuse(results, {
-      keys: ["title"],
+      keys: ["title", "post.post_title", "languages.name", "meta.software_required"],
     });
     results = fuse.search(searchTerm).map((x) => x.item);
   }
