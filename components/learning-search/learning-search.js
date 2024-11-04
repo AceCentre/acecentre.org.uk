@@ -5,7 +5,7 @@ export const LearningSearch = () => {
     <SearchBox
       title={"Ace Centre Learning"}
       description={
-        "Ace Centre Learning offers a wide range of Assistive Technology (AT) training across four areas and levels of learning"
+        "Ace Centre Learning offers a wide range of training opportunities for Assistive Technology (AT), including Alternative & Augmentative Communication solutions (AAC) across four key areas."
       }
       searchEndpoint={"/learning/search"}
       ariaLabel={"Search learning"}
