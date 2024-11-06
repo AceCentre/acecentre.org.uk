@@ -276,6 +276,11 @@ const REDIRECTS = [
     destination: "/resources/look2talk",
     permanent: true,
   },
+  {
+    source: "/my-acecentre/courses",
+    destination: "https://moodle.acecentre.org.uk/login/index.php",
+    permanent: true,
+  }
 ];
 
 module.exports = REDIRECTS;
