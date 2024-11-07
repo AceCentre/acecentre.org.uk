@@ -37,7 +37,7 @@ export default function LoginPage({ orderCount, courseCount }) {
             title="My courses"
             count={courseCount}
             linkText="View your courses"
-            linkUrl="/my-acecentre/courses"
+            linkUrl="https://moodle.acecentre.org.uk/login/index.php"
             description="View a list of all the courses you are enrolled on. Select a course to be taken to the Moodle site for that course"
           />
           <DashboardCard
