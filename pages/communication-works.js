@@ -22,7 +22,7 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/comm-works-2024.png"
+            src="/comm-works-2025.png"
             alt="Communication works banner"
             width={6912}
             height={3456}
@@ -50,7 +50,7 @@ export default function CommunicationWorks({ page }) {
                 <p>New Bridge Academy, Oldham, OL8 3PH</p>
 
                 <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-north-tickets-764385857677?aff=oddtdtcreator">
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2025-north-tickets-1070433809339">
                     Register for free here.
                   </Link>
                 </p>
@@ -95,7 +95,7 @@ export default function CommunicationWorks({ page }) {
                 <p>Thursday, 6 June 2024</p>
                 <p>Charlton Athletic Football Club, London SE7 8BL</p>
                 <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-south-tickets-696507130577?aff=oddtdtcreator">
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2025-south-tickets-1026780567317">
                     Register for free here.
                   </Link>
                 </p>
@@ -110,7 +110,7 @@ export default function CommunicationWorks({ page }) {
 }
 
 export const getStaticProps = async () => {
-  const page = await getPage("communication-works-2024");
+  const page = await getPage("communication-works-2025");
 
   return {
     revalidate: 60,

@@ -8,7 +8,7 @@ export const TopBanner = () => {
     <div className={styles.container}>
       <p>
         🎉 Communication Works: live AT events coming in May 2024.{" "}
-        <Link href="/communication-works-2024">
+        <Link href="/communication-works-2025">
           Click here to find out more!
         </Link>
       </p>

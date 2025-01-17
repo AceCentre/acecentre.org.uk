@@ -117,7 +117,7 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
   if (postSlug === "comm-works-2024") {
     return {
       redirect: {
-        destination: "/communication-works-2024",
+        destination: "/communication-works-2025",
         permanent: true,
       },
     };

@@ -247,7 +247,7 @@ const REDIRECTS = [
   },
   {
     source: "/blog/comm-works-2024",
-    destination: "/communication-works-2024",
+    destination: "/communication-works-2025",
     permanent: true,
   },
   {
