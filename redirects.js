@@ -246,7 +246,7 @@ const REDIRECTS = [
     permanent: true,
   },
   {
-    source: "/blog/comm-works-2024",
+    source: "/blog/comm-works-2025",
     destination: "/communication-works-2025",
     permanent: true,
   },
