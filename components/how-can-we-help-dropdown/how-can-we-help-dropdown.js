@@ -185,16 +185,16 @@ const SUPPLIERS = [
     ),
   },
   {
-    supplier: "Techcess",
+    supplier: "Jabbla UK",
     resources: (
       <p>
         <Link
-          href="https://www.techcess.co.uk/support/"
+          href="https://www.jabbla.co.uk/support-training/"
           target="_blank"
           rel="noreferrer"
           className={styles.link}>
           
-            Techess support page &gt;
+          Jabbla UK support page &gt;
           
         </Link>
       </p>
