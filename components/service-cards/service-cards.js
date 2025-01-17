@@ -3,7 +3,12 @@ import { Fragment } from "react";
 import { Button } from "../button/button";
 import styles from "./service-cards.module.css";
 
-export const ImportantCallout = () => {
+export const ImportantCallout = ({ service }) => {
+  // Don't display the callout for ace-n or ace-s services
+  if (!service || service.id === "ace-n" || service.id === "ace-s") {
+    return null;
+  }
+
   return (
     <div className={styles.fullContainer}>
       <div className={`${styles.card} ${styles.warning}`}>

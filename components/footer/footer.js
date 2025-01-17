@@ -172,7 +172,7 @@ export const Footer = ({ noPhoneNumber = false }) => {
                   />
                 </div>
                 <div className={styles.cyberEssentialsContainer}>
-                  <a href="https://communication-access.co.uk/author/acecentreuk/">
+                  <a href="https://communication-access.co.uk/">
                     <ImageWithLoader
                       objectFit="contain"
                       layout="fill"
