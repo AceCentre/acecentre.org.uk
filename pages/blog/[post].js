@@ -99,7 +99,7 @@ export async function getStaticPaths() {
     paths: allPosts
       .map((post) => ({ params: { post: post.slug } }))
       .filter((x) => x.params.post !== "comm-works")
-      .filter((x) => x.params.post !== "comm-works-2024"),
+      .filter((x) => x.params.post !== "comm-works-2025"),
     fallback: true,
   };
 }
