@@ -20,14 +20,14 @@ export default function CommunicationWorks({ page }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <div className={styles.imageContainer}>
+        {/* <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/comm-works-2025.png"
+            // src="/comm-works-2024.png"
             alt="Communication works banner"
             width={6912}
             height={3456}
           />
-        </div>
+        </div> */}
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
             <div
@@ -39,7 +39,7 @@ export default function CommunicationWorks({ page }) {
               description="Sign up to our free newsletter to get emails about other Ace Centre events and news."
             />
           </div>
-          <div>
+          {/* <div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <AssignmentIcon className={styles.icon} />
@@ -101,7 +101,8 @@ export default function CommunicationWorks({ page }) {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
+
         </div>
       </main>
       <Footer />
@@ -110,7 +111,7 @@ export default function CommunicationWorks({ page }) {
 }
 
 export const getStaticProps = async () => {
-  const page = await getPage("communication-works-2025");
+  const page = await getPage("communication-works");
 
   return {
     revalidate: 60,
@@ -118,7 +119,7 @@ export const getStaticProps = async () => {
       page,
 
       seo: {
-        title: "Communication Works 2024",
+        title: "Communication Works 2025",
         description:
           "Communication Works 2024 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },

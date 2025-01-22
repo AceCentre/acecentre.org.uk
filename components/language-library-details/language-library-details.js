@@ -38,7 +38,15 @@ export const DETAILS_CONFIG = {
               }
             }
 
-            return Object.values(byKey);
+            return Object.values(byKey)
+            .sort((a, b) => {
+              // Primary sort by count (descending)
+              const countDiff = b.count - a.count;
+              if (countDiff !== 0) return countDiff;
+              
+              // Secondary sort by name (ascending) when counts are equal
+              return a.name.localeCompare(b.name);
+            });
           },
           getDetail: (resource) =>
             resource.languages.map((x) => x.name).join(", "),
