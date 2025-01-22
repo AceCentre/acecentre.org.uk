@@ -122,6 +122,22 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
       },
     };
   }
+  if (postSlug === "comm-works-2024") {
+    return {
+      redirect: {
+        destination: "/communication-works-2024",
+        permanent: true,
+      },
+    };
+  }
+  if (postSlug === "comm-works-2023") {
+    return {
+      redirect: {
+        destination: "/communication-works-2023",
+        permanent: true,
+      },
+    };
+  }
 
   const allPosts = await getAllFullPosts();
 

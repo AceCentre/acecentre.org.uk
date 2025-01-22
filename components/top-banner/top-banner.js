@@ -7,9 +7,9 @@ export const TopBanner = () => {
   return (
     <div className={styles.container}>
       <p>
-        🎉 Communication Works: live AT events coming in May 2024.{" "}
+      🎉 Join us for Communication Works North oon Friday 16th May!{" "}
         <Link href="/communication-works-2025">
-          Click here to find out more!
+        Find out more and register for your FREE ticket here
         </Link>
       </p>
     </div>
