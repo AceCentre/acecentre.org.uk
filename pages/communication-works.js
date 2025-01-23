@@ -2,15 +2,15 @@ import { CombinedNav } from "../components/combined-nav/combined-nav";
 import { Footer } from "../components/footer/footer";
 import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 
 import styles from "../styles/communication-works.module.css";
 
-import { ImageWithLoader } from "../components/image";
+// import { ImageWithLoader } from "../components/image";
 import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
-import Link from "next/link";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import EventIcon from "@mui/icons-material/Event";
+// import Link from "next/link";
+// import AssignmentIcon from "@mui/icons-material/Assignment";
+// import EventIcon from "@mui/icons-material/Event";
 import { getPage } from "../lib/generic-pages/get-page";
 
 export default function CommunicationWorks({ page }) {
