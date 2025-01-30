@@ -18,8 +18,7 @@ export default function AllTrusteesPage({ allTrustees, recruitingTrustees }) {
         <PageTitle heading="Our trustees" description="Meet our amazing team" />
         {recruitingTrustees && <RecruitTrustees />}
         <p className={styles.container}>
-          The Ace Centre is hugely thankful for our Trustees who help steer and
-          oversee the organisation direction.
+          Ace Centre is hugely thankful to its trustees, who help steer and oversee the organisation’s direction.
         </p>
         <TrusteeList trusteeList={allTrustees} />
       </main>
@@ -46,7 +45,7 @@ export const getStaticProps = async () => {
       seo: {
         title: "Our Trustees",
         description:
-          "The Ace Centre is hugely thankful for our Trustees who help steer and oversee the organisation direction.",
+          "Ace Centre is hugely thankful to its trustees, who help steer and oversee the organisation’s direction.",
       },
     },
   };
