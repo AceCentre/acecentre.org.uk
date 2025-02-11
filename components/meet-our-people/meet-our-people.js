@@ -23,16 +23,16 @@ export const MeetOurPeople = () => {
           </Avatar>
           <div className={styles.quoteText}>
             <p className={styles.quoteContent}>
-              &quot;At Ace Centre I get to work with a dedicated team of
-              experienced professionals. I enjoy collaborating on a wide variety
-              of projects within Ace Centre and working with external
-              partners.&quot;
+              &quot;People are at the heart of everything we do here at Ace Centre, and this drives us 
+              to constantly explore innovative ideas and develop better services. It is a privilege to 
+              work alongside such a dynamic and energetic team who share this passion for  delivering 
+              excellence, and commitment to helping people communicate.&quot;
             </p>
             <div>
               <p>
-                <strong>Gavin Henderson</strong>
+                <strong>Bob Birchall</strong>
               </p>
-              <p>Software Engineer</p>
+              <p>CEO</p>
             </div>
           </div>
         </div>
