@@ -12,10 +12,14 @@ import Link from "next/link";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import EventIcon from "@mui/icons-material/Event";
 import { getPage } from "../lib/generic-pages/get-page";
+import Head from 'next/head';
 
 export default function CommunicationWorks({ page }) {
   return (
     <>
+    <Head>
+        <script defer data-domain="scecentre.org.uk/communication-works-2025" src="https://stats.scecentre.org.uk/js/script.js"></script>
+      </Head>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
