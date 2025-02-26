@@ -10,6 +10,7 @@ import {
 } from "../../lib/language-library";
 import { useRouter } from "next/router";
 import { FullPageSpinner } from "../../components/full-page-spinner/full-page-spinner";
+import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 const useRouterReady = () => {
   const [isReady, setIsReady] = useState(false);
@@ -31,6 +32,7 @@ export default function LanguageLibrary({ resources, fields }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
+        <BackToLink where="language library info page" href="/language-library" />
         <PageTitle heading="Explore" description="AAC Language Library" />
         {isReady ? (
           <LanguageLibrarySearchForm resources={resources} fields={fields} />
