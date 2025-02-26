@@ -165,7 +165,7 @@ export default function ResourceDetail({
                 <strong>Training:</strong>&nbsp;Introductory and Developing
                 levels from Ace Centre Learning&nbsp;
                 <p>
-              <a href="https://acecentre.arlo.co/w/events/30-look2talk">
+                  <a href="https://acecentre.arlo.co/w/events/30-look2talk">
                     Click here to view the Look2Talk Training Courses
                   </a>
                 </p>
@@ -398,7 +398,7 @@ export default function ResourceDetail({
                   <strong>Training</strong>
                 </p>
                 <p>Ace Centre Learning offers two levels of courses</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton} 
                     href="https://acecentre.arlo.co/w/events/30-look2talk" 
