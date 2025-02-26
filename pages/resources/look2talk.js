@@ -20,6 +20,7 @@ import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import EmojiSymbolsIcon from "@mui/icons-material/EmojiSymbols";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import SchoolIcon from "@mui/icons-material/School";
 import Link from "next/link";
 
 export default function ResourceDetail({
@@ -163,6 +164,11 @@ export default function ResourceDetail({
               <li>
                 <strong>Training:</strong>&nbsp;Introductory and Developing
                 levels from Ace Centre Learning&nbsp;
+                <p>
+              <a href="https://acecentre.arlo.co/w/events/30-look2talk">
+                    Click here to view the Look2Talk Training Courses
+                  </a>
+                </p>
               </li>
             </ul>
             <h2>
@@ -379,6 +385,25 @@ export default function ResourceDetail({
                     }}
                   >
                     InPrint 3 (Widgit)
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.quote}>
+              <Avatar className={styles.avatar}>
+                <SchoolIcon className={styles.icon} />
+              </Avatar>
+              <div className={styles.quoteText}>
+                <p>
+                  <strong>Training</strong>
+                </p>
+                <p>Ace Centre Learning offers two levels of courses</p>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                  <Button
+                    className={styles.downloadFormButton} 
+                    href="https://acecentre.arlo.co/w/events/30-look2talk" 
+                  >
+                    Learn More
                   </Button>
                 </div>
               </div>
