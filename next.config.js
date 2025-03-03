@@ -13,7 +13,6 @@ const nextConfig = {
     workerThreads: false,
     cpus: 1,
   },
-  staticPageGenerationTimeout: 180,
   sentry: {
     // For all available options, see:
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
