@@ -56,14 +56,14 @@ export default function ResourceDetail({
         </div>
         <div className={styles.descriptionContainer}>
           <p>
-          Developing and Using a Communication Book (DUCB) is a much-loved guide used by many carers, 
-          parents and professionals who need to make and use a communication book for people who are
-           preliterate and rely on symbols to support their communication. 
+            Developing and Using a Communication Book (DUCB) is a much-loved guide used by many carers, 
+            parents and professionals who need to make and use a communication book for people who are
+            preliterate and rely on symbols to support their communication. 
           </p>
           <p>
-          This fully revised second edition builds on all that was good about the original guide, 
-          incorporating the wealth of experience of the full Ace Centre team spanning nearly two decades 
-          since it was first developed. 
+            This fully revised second edition builds on all that was good about the original guide, 
+            incorporating the wealth of experience of the full Ace Centre team spanning nearly two decades 
+            since it was first developed. 
           </p>
         </div>
         <div className={styles.pageContainer}>
@@ -101,14 +101,14 @@ export default function ResourceDetail({
               <li>An updated, stable core vocabulary that is available from every topic page to
                  promote its use.  The core vocabulary is developed through five stages and includes 
                  a newly simplified Stage One.</li>
-              <li>Ideas for developing a fringe vocabulary that can meet an individual's interests, 
+              <li>Ideas for developing a fringe vocabulary that can meet an individual&apos;s interests, 
                 needs and varied environments, with plenty of examples included.</li>
               <li>A continued promotion of the communication of rich ideas through symbols rather than 
                 the production of grammatically correct sentences for face-to-face communication.</li>
               <li>A new approach to organising pages and accessing vocabulary with a suggested menu, tabs 
                 and supports for navigating around the book.</li>
               <li>The importance of a communication partner who is taught, through the guide, to use 
-                and model the symbols during communication and to support and scaffold the learner's 
+                and model the symbols during communication and to support and scaffold the learner&apos;s 
                 own communication attempts.</li>
             </ul>
             <h2>Developing and Using a Communication Book Demonstration Pages </h2>
@@ -154,7 +154,7 @@ export default function ResourceDetail({
               <ResourcesShare />
               {/* {resource.slug === "look2talk" && <ResourcesImageL2T />} */}
             </div>
-            </div>
+          </div>
           <div className={styles.right}>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
