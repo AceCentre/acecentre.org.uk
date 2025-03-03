@@ -3,30 +3,27 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { getAllProducts } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
-
-import { NewsletterSignup } from "../../components/resources-download/resources-download";
-
+// import { NewsletterSignup } from "../../components/resources-download/resources-download";
 import styles from "../../styles/resources-detail.module.css";
-import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
+// import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
 import { ResourceList } from "../../components/resource-list/resource-list";
-import { ProductFaqs } from "../../components/product-faqs/product-faqs";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
+// import { ProductFaqs } from "../../components/product-faqs/product-faqs";
+// import { useEffect, useState } from "react";
+// import { useRouter } from "next/router";
+// import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { Image } from "../../components/image";
 import { Button } from "../../components/button/button";
 import Avatar from "@mui/material/Avatar";
 import LocalLibraryIcon from "@mui/icons-material/LocalLibrary";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SchoolIcon from '@mui/icons-material/School';
-import Link from "next/link";
-import { School } from "@mui/icons-material";
+import SchoolIcon from "@mui/icons-material/School";
+// import Link from "next/link";
 
-import { ResourcesImage } from "../../components/resources-image/resources-image";
-import { ResourcesDescription } from "../../components/resources-description/resources-description";
+// import { ResourcesImage } from "../../components/resources-image/resources-image";
+// import { ResourcesDescription } from "../../components/resources-description/resources-description";
 import { ResourcesDownload } from "../../components/resources-download/resources-download";
-import { ResourcesShare } from "../../components/resources-share/resources-share";
+// import { ResourcesShare } from "../../components/resources-share/resources-share";
 
 export default function ResourceDetail({
   resource,
@@ -101,14 +98,14 @@ export default function ResourceDetail({
               <li>An updated, stable core vocabulary that is available from every topic page to
                  promote its use.  The core vocabulary is developed through five stages and includes 
                  a newly simplified Stage One.</li>
-              <li>Ideas for developing a fringe vocabulary that can meet an individual’s interests, 
+              <li>Ideas for developing a fringe vocabulary that can meet an individual's interests, 
                 needs and varied environments, with plenty of examples included.</li>
               <li>A continued promotion of the communication of rich ideas through symbols rather than 
                 the production of grammatically correct sentences for face-to-face communication.</li>
               <li>A new approach to organising pages and accessing vocabulary with a suggested menu, tabs 
                 and supports for navigating around the book.</li>
               <li>The importance of a communication partner who is taught, through the guide, to use 
-                and model the symbols during communication and to support and scaffold the learner’s 
+                and model the symbols during communication and to support and scaffold the learner's 
                 own communication attempts.</li>
             </ul>
             <h2>Developing and Using a Communication Book Demonstration Pages </h2>
@@ -152,21 +149,21 @@ export default function ResourceDetail({
                   <strong>Guidebook</strong>
                 </p>
                 <p>Printed A5 Manual including Demo Pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
-                <ResourcesDownload resource={resource} />
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>  
+                  <ResourcesDownload resource={resource} />
                 </div>
               </div>
             </div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <School className={styles.icon} />
+                <SchoolIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
                 <p>
                   <strong>Training</strong>
                 </p>
                 <p>Ace Centre Learning offers 2 levels of courses</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://acecentre.arlo.co/w/events/17-how-to-develop-and-use-a-communication-book-ducb" 
@@ -185,7 +182,7 @@ export default function ResourceDetail({
                   <strong>Boardmaker (PCS) Templates</strong>
                 </p>
                 <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Communication-Book-Templates-Ace-Centre-June23.zip" // TODO: Add correct link
@@ -194,7 +191,7 @@ export default function ResourceDetail({
                     Boardmaker 7 (PCS)
                   </Button>
                 </div>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '2rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "2rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2024/06/Look2Talk-InPrint-Templates-AceCentre-June2024.zip" // TODO: Add correct link
@@ -214,7 +211,7 @@ export default function ResourceDetail({
                   <strong>Widgit Templates</strong>
                 </p>
                 <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://acecentreuk.sharepoint.com/:p:/s/AnonymousShares/EfexZJSb6gNAt8Q1BtwCK-4BHhgqo2D5jFKBFUTiIoL_jg" // TODO: Add correct link
@@ -233,7 +230,7 @@ export default function ResourceDetail({
                   <strong>MindExpress Templates</strong>
                 </p>
                 <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Introductory-Stage-More-Stop-6.23.zip" // TODO: Add correct link
@@ -253,7 +250,7 @@ export default function ResourceDetail({
                   <strong>Vocabulary Templates</strong>
                 </p>
                 <p>Free downloadable worksheet for personalising a communication book</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: '1rem' }}>
+                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
                   <Button
                     className={styles.downloadFormButton}
                     href="https://acecentre.org.uk/resources/identifying-vocabulary-to-personalise-aac"
