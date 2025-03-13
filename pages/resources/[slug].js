@@ -111,7 +111,7 @@ const ResourceListSwitch = ({
 export async function getStaticPaths() {
   let allProducts = await getAllProducts(true);
 
-  allProducts = allProducts.filter((x) => x.slug !== "look2talk");
+  allProducts = allProducts.filter((x) => x.slug !== "look2talk" && x.slug !== "developing-using-communication-book");
 
   if (!allProducts) throw new Error("Could not get all the products");
 
