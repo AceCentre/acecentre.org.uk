@@ -43,11 +43,11 @@ export default function ResourceDetail({
         <div className={styles.bannerArea}>
           <Image
             priority
-            layout="fill"
-            objectFit="contain"
+            width={1200}
+            height={450}
             src="/DUCB-banner.png"
             alt={
-              "DUCB banner Image."
+              "Developing and Using a Communication Book (DUCB) banner Image."
             }
           />
         </div>
