@@ -58,10 +58,6 @@ export default function ResourceDetail({
           communication book for people who are preliterate and rely on symbols to support their 
           communication. 
           </p>
-          <p>
-          The fully revised second edition builds on all that was good about the original guide, 
-          incorporating the wealth of experience of the Ace Centre team.  
-          </p>
         </div>
         <div className={styles.pageContainer}>
           <div className={styles.left}>
