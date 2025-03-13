@@ -203,6 +203,10 @@ export const LANGUAGE_LIBRARY_FAQS = [
           e.g. if a listed vocabulary is no longer available, please fill out
           the form below and we’ll look into it.
         </p>
+        <p>
+          If the vocabulary you were looking for is not available, please use the
+          form below to provide more information on this.
+        </p>
 
         <FormModal form={LANG_LIB}>
           {({ onClick }) => (
