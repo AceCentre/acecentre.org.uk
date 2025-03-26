@@ -20,7 +20,7 @@ export const LanguageLibraryHelpfulLinks = ({ helpfulLinks }) => {
                 className={styles.card}
                 postTitleContainerClassName={styles.postTitleContainer}
                 imageContainerClassName={styles.imageContainer}
-                href={helpfulLink.helpfulLink}
+                href={Array.isArray(helpfulLink.helpfulLink) ? helpfulLink.helpfulLink[0] : helpfulLink.helpfulLink}
                 key={`${helpfulLink.title}-card`}
                 featuredImage={{ src: helpfulLink.image }}
                 title={helpfulLink.title}
