@@ -157,6 +157,47 @@ export const LANGUAGE_LIBRARY_FAQS = [
     ),
   },
   {
+    question: "Can I add paper-based resources to the library?",
+    answer: (
+      <>
+        <p>
+        Paper-based AAC includes resources such as alphabet charts, symbol charts and communication 
+        books.  It is great when paper-based resources are shared.  You can add them by uploading 
+        the file to the library, sharing a link to where the resource can be downloaded or sharing 
+        your contact details so people can ask you to send them the resource.
+        </p>
+        <p>
+        If you are adding paper-based resources that have symbols or pictures please see the FAQ question
+         ‘What are the copyright implications for uploading resources with symbols?’
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What are the copyright implications for uploading resources with symbols?",
+    answer: (
+      <>
+        <p>
+        There are no copyright implications if you upload an original file format e.g. 
+        if you make the resource in Boardmaker and then upload the Boardmaker file, if you make the 
+        resource in InPrint and then upload the InPrint file etc.
+        </p>
+        <p>
+        If you upload resources in another file format (e.g. PDF, screenshot etc) it is your 
+        responsibility to ensure you comply with the company’s copyright regulations.
+        </p>
+        <p>
+        Information on copyright for sharing PCS symbols is available here:
+          <a href="https://uk.tobiidynavox.com/pages/pcs-licensing"> https://uk.tobiidynavox.com/pages/pcs-licensing</a>
+        </p>
+        <p>
+          Information on copyright for sharing Widgit symbols is available here: 
+          <a href="https://www.widgit.com/symbol-services/licensing.htm"> https://www.widgit.com/symbol-services/licensing.htm</a>
+        </p>
+      </>
+    ),
+  },
+  {
     question: "Why hasn’t the vocabulary I added been made public?",
     answer: (
       <>
