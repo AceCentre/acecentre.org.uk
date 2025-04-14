@@ -14,7 +14,7 @@ export const StaffPage = ({ allStaff, currentActive }) => {
         heading="Our team"
         description="Our team is our greatest strength"
       />
-      <MeetOurPeople />
+      {/* <MeetOurPeople /> teporarily hiding this component */}
       <FilterPeople onChange={setCurrentFilter} />
       <StaffList staffList={filteredStaff} currentActive={currentActive} />
     </>
