@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FilterPeople, OPTIONS } from "../filter-people/filter-people";
-import { MeetOurPeople } from "../meet-our-people/meet-our-people";
+//import { MeetOurPeople } from "../meet-our-people/meet-our-people";
 import { PageTitle } from "../page-title/page-title";
 import { StaffList } from "../staff-list/staff-list";
 
