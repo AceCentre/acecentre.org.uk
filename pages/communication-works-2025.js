@@ -50,15 +50,10 @@ export default function CommunicationWorks({ page }) {
               </Avatar>
               <div>
                 <h3>Communication Works NORTH</h3>
-                <p>Friday, 16 May 2025</p>
+                <p>Friday, 16 May 2025 ; 09:30am - 04:00pm</p>
                 <p>New Bridge Academy, Oldham, OL8 3PH</p>
                 <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2025-north-tickets-1070433809339">
-                    Register for free here.
-                  </Link>
-                </p>
-                <p>
-                  <Link href="/communication-works-north-2025-programme.pdf" download>
+                  <Link href="/Communication-Works-North-2025-Seminar-Programme-V2-FINAL.pdf" download>
                     View Seminar Programme
                   </Link>
                 </p>
@@ -126,9 +121,9 @@ export const getStaticProps = async () => {
       page,
 
       seo: {
-        title: "Communication Works 2024",
+        title: "Communication Works 2025",
         description:
-          "Communication Works 2024 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
+          "Communication Works 2025 is a free live event allowing attendees the opportunity to see first-hand a range of assistive and accessible technology, communication tools, digital strategies, and person-centred approaches.",
       },
     },
   };
