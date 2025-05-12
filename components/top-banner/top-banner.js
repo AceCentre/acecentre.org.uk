@@ -9,7 +9,7 @@ export const TopBanner = () => {
       <p>
         🎉 Join us for Communication Works North on Friday 16th May!{" "}
         <Link href="/communication-works-2025">
-        Find out more and register for your FREE ticket here
+        Click here to find out more and see the seminar programme
         </Link>
       </p>
     </div>
