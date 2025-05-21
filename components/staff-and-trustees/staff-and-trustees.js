@@ -26,7 +26,7 @@ export const StaffAndTrustees = () => {
           <Button href="/about/staff">Meet the team</Button>
         </div>
       </div>
-      <div className={styles.trusteeImage}>
+      {/* <div className={styles.trusteeImage}>
         <div className={styles.background} />
         <Image
           alt="A collage of head shots of trustees"
@@ -34,7 +34,7 @@ export const StaffAndTrustees = () => {
           layout="fill"
           objectFit="cover"
         />
-      </div>
+      </div> */}
       <div className={styles.trusteeDescription}>
         <h2>Our Trustees</h2>
         <p>
