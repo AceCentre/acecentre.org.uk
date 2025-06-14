@@ -47,7 +47,7 @@
     "jwt-decode": "4.0.0",
     "linkedom": "0.14.22",
     "lodash": "4.17.21",
-    "next": "13.2.1",
+    "next": "14.2.30",
     "next-iron-session": "4.2.0",
     "next-usequerystate": "^1.7.3",
     "node-fetch": "3.3.0",
