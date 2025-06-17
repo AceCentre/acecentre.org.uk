@@ -222,7 +222,7 @@ export default function EngineeringPage() {
                 </p>
                 <div>
                   <p>
-                    <strong>Mum of little girl new to AAC</strong>
+                    <strong> Mum of little girl new to AAC</strong>
                   </p>
                 </div>
               </div>
