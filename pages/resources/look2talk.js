@@ -159,7 +159,7 @@ export default function ResourceDetail({
               </li>
               <li>
                 <strong>Communication Easel:&nbsp;</strong>A4 and A3 options
-                available from Ability World
+                available from Inclusive Technology
               </li>
               <li>
                 <strong>Training:</strong>&nbsp;Introductory and Developing
@@ -266,17 +266,13 @@ export default function ResourceDetail({
               communication book user and their partner when it is displayed on
               an easel file. As the book can get quite big (and heavy!) it is
               best that a sturdy easel file is used. We recommend the
-              Communication Easel by Ability World which is available in an A4
-              as well as A3 version should larger pages be needed.
+              Communication Easel by Inclusive Technology which is available in
+              an A4 as well as A3 version should larger pages be needed.
             </p>
             <p>
-              <a href="https://www.ability-world.com/a4-communication-easel-5395-p.asp">
-                Click here to view the Ability World A4 Communication Easel
-              </a>
-            </p>
-            <p>
-              <a href="https://www.ability-world.com/a3-communication-easel-5397-p.asp">
-                Click here to view the Ability World A3 Communication Easel
+              <a href="https://www.inclusive.com/products/communication-easel?_pos=1&_psq=easel&_ss=e&_v=1.0">
+                Click here to view the Inclusive Technology A4 Communication
+                Easel
               </a>
             </p>
             <h2>Look2Talk Introductory Stage Symbols</h2>
@@ -398,10 +394,13 @@ export default function ResourceDetail({
                   <strong>Training</strong>
                 </p>
                 <p>Ace Centre Learning offers two levels of courses</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
-                    className={styles.downloadFormButton} 
-                    href="https://acecentre.arlo.co/w/events/30-look2talk" 
+                    className={styles.downloadFormButton}
+                    href="https://acecentre.arlo.co/w/events/30-look2talk"
                   >
                     Learn More
                   </Button>
