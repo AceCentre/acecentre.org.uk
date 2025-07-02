@@ -459,7 +459,7 @@ export default function NHSLanding() {
           </div>
         </div>
         {/* <InformationDays nhs /> */}
-        <AdviceLine nhs />
+        <AdviceLine />
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer />
