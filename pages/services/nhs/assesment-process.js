@@ -15,7 +15,7 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
-import { AssessmentEligibility } from "../assessments";
+// import { AssessmentEligibility } from "../assessments";
 import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 import { CardHighlight } from "../../../components/project-highlight/project-highlight";
 import { GenericFaqs } from "../../../components/getting-started-faqs/getting-started-faqs";
