@@ -20,7 +20,7 @@ import Link from "next/link";
 import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 import { CardHighlight } from "../../../components/project-highlight/project-highlight";
 import { Card } from "../../../components/contact-cards/contact-cards";
-// import contactCardStyles from "../../../components/contact-cards/contact-cards.module.css";
+// import contactCardStyles from "../../../components/contact-cards/contact-cards.module.css" ;
 export default function NHSLanding() {
   return (
     <>
@@ -319,13 +319,13 @@ export default function NHSLanding() {
           </div>
         </div>
         <div style={{ width: "100%", maxWidth: "400px", margin: "1rem auto" }}>
-          <Card>
+          {/* <Card>
             <h3>Technical Support</h3>
             <p>What to do when you&apos;re having device problems</p>
             <Link href="/technical-support" className={styles.link}>
               Get technical support &gt;
             </Link>
-          </Card>
+          </Card> */}
         </div>
 
         {/* <InformationDays nhs /> */}
