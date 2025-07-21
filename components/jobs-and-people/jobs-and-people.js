@@ -8,7 +8,7 @@ export const JobsAndPeople = () => {
     <div className={styles.container}>
       <div className={styles.peopleImage}>
         <Image
-          src="/meet-our-people.jpeg"
+          src="/Gabi-and-Nat.jpg"
           layout="fill"
           objectFit="cover"
           objectPosition="top"
