@@ -33,7 +33,7 @@
     "@react-aria/visually-hidden": "3.6.1",
     "@react-stately/radio": "3.6.2",
     "@sentry/nextjs": "^7.80.1",
-    "@slack/bolt": "3.12.2",
+    "@slack/bolt": "^4.4.0",
     "@stripe/react-stripe-js": "2.1.0",
     "@stripe/stripe-js": "2.1.11",
     "@u-wave/react-vimeo": "0.9.10",
@@ -86,5 +86,8 @@
     "request": "2.88.2",
     "request-promise-native": "1.0.9",
     "typescript": "^5.0.0"
+  },
+  "resolutions": {
+    "form-data": "^4.0.4"
   }
 }
