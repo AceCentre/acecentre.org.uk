@@ -62,7 +62,7 @@ export default function NHSLanding() {
               across the North West and Wessex & Thames Valley NHSE specialised
               commissioning regions. These services are for children and adults
               who need AAC and meet{" "}
-              <Link href="/docs/NHS Eligibility guidance and decision chart.pdf">
+              <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
                 NHSE eligibility criteria.
               </Link>
             </p>
