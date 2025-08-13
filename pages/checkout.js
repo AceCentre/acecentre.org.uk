@@ -64,8 +64,6 @@ const useCheckoutForm = (
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
   const [tsAndCsError, setTsAndCsError] = useState(null);
-  const [source, setSource] = useState("web");
-  const { refreshLoginStatus } = useAuth();
   const { posthogLoaded, posthog } = usePosthog();
 
   const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {

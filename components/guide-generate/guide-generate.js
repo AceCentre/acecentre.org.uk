@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "../button/button";
 import styles from "./guide-generate.module.css";
 import {
@@ -12,10 +12,8 @@ import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { ResourcesImage } from "../resources-image/resources-image";
 import { ResourcesDescription } from "../resources-description/resources-description";
 import { ResourcesShare } from "../resources-share/resources-share";
-import { ResourceList } from "../resource-list/resource-list";
 import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
 import { NewsletterSignup } from "../resources-download/resources-download";
-import { ProductFaqs } from "../product-faqs/product-faqs";
 
 const storageKey = "newsletter-opt-in";
 
@@ -162,12 +160,7 @@ const OptionalEmailDownloadModal = ({
 
 // Placeholder GuidePage component - replace with actual implementation when ready
 
-export const GuidePage = ({
-  resource,
-  guideTemplate,
-  attachedResources,
-  relatedResources,
-}) => {
+export const GuidePage = ({ resource, guideTemplate }) => {
   return (
     <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
       <h1>{resource?.name || "Guide"}</h1>
@@ -367,7 +360,8 @@ export const GuideGenerate = ({
   );
 };
 
-// Custom hook for guide functionality
+// Custom hook for guide functionality - commented out until needed
+/*
 const useGuide = (template) => {
   const [loading, setLoading] = useState(true);
   const [freshTemplate, setFreshTemplate] = useState(null);
@@ -483,3 +477,4 @@ const useGuide = (template) => {
     freshTemplate,
   };
 };
+*/
