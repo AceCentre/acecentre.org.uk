@@ -32,6 +32,7 @@ import { cloneDeep } from "lodash";
 import { validateEmail } from "../lib/auth/hooks";
 import { useRouter } from "next/router";
 import { useAuth } from "../lib/auth-hook";
+import { usePosthog } from "../lib/use-posthog";
 
 const getMissingRequiredFields = (billingDetails, requiredFields) => {
   const missingFields = [];
@@ -63,6 +64,9 @@ const useCheckoutForm = (
   const [cardError, setCardError] = useState(null);
   const [generalError, setGeneralError] = useState(null);
   const [tsAndCsError, setTsAndCsError] = useState(null);
+  const [source, setSource] = useState("web");
+  const { refreshLoginStatus } = useAuth();
+  const { posthogLoaded, posthog } = usePosthog();
 
   const { defaultGroupPurchases, emptyEmailErrors } = useMemo(() => {
     let defaultGroupPurchases = {};
@@ -357,6 +361,23 @@ const useCheckoutForm = (
             if (response.status !== 200) {
               console.warn(result);
               throw new Error("Non 200 status");
+            }
+
+            // Track successful newsletter signup during checkout
+            if (
+              posthogLoaded &&
+              window.location.origin === "https://acecentre.org.uk"
+            ) {
+              console.log("Capture", "newsletterSignup", {
+                location: "checkout",
+                tags: [],
+                hasNames: true,
+              });
+              posthog.capture("newsletterSignup", {
+                location: "checkout",
+                tags: [],
+                hasNames: true,
+              });
             }
           } catch (error) {
             // If we cant update the CRM we still want to complete the transaction

@@ -398,6 +398,21 @@ export const NewsletterSignup = ({
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { posthogLoaded, posthog } = usePosthog();
+
+  // Track when user starts interacting with the form
+  const handleFormInteraction = () => {
+    if (
+      posthogLoaded &&
+      window.location.origin === "https://acecentre.org.uk"
+    ) {
+      posthog.capture("newsletterFormInteraction", {
+        location: signUpIdentifier,
+        tags: tags.map((tag) => tag.name),
+        hasNames: withNames,
+      });
+    }
+  };
 
   return (
     <>
@@ -435,12 +450,42 @@ export const NewsletterSignup = ({
                 throw new Error("Non 200 status");
               }
 
+              // Track successful newsletter signup
+              if (
+                posthogLoaded &&
+                window.location.origin === "https://acecentre.org.uk"
+              ) {
+                console.log("Capture", "newsletterSignup", {
+                  location: signUpIdentifier,
+                  tags: tags.map((tag) => tag.name),
+                  hasNames: withNames,
+                });
+                posthog.capture("newsletterSignup", {
+                  location: signUpIdentifier,
+                  tags: tags.map((tag) => tag.name),
+                  hasNames: withNames,
+                });
+              }
+
               onSuccess();
 
               setSuccess(true);
             } catch (err) {
               console.warn(err);
               setError("An error occurred");
+
+              // Track newsletter signup errors
+              if (
+                posthogLoaded &&
+                window.location.origin === "https://acecentre.org.uk"
+              ) {
+                posthog.capture("newsletterSignupError", {
+                  location: signUpIdentifier,
+                  tags: tags.map((tag) => tag.name),
+                  hasNames: withNames,
+                  error: err.message,
+                });
+              }
             }
 
             setLoading(false);
@@ -457,6 +502,7 @@ export const NewsletterSignup = ({
               placeholder={"First name"}
               ariaLabel="First name"
               white
+              onFocus={handleFormInteraction}
             ></Input>
             <Input
               withLabel
@@ -464,6 +510,7 @@ export const NewsletterSignup = ({
               placeholder={"Last name"}
               ariaLabel="Last name"
               white
+              onFocus={handleFormInteraction}
             ></Input>
           </div>
         )}
@@ -476,6 +523,7 @@ export const NewsletterSignup = ({
             ariaLabel="Email address"
             type="email"
             white
+            onFocus={handleFormInteraction}
           ></Input>
           <Button type="submit" disabled={!!error || !!success || loading}>
             {subscribeText}
