@@ -54,6 +54,9 @@ export const ResourceList = ({
             >
               {showPrice && <Price product={product} />}
               <p className={styles.productTitle}>{product.title}</p>
+              {/* {product.isGuideTemplate && (
+                <span className={styles.badge}>{product.name}</span>
+              )} */}
             </Card>
           );
         })}

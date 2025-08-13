@@ -1,0 +1,37 @@
+/* Placeholder CSS for guide-generate component - to be implemented */
+
+.progressContainer {
+  margin: 2rem 0;
+}
+
+.progressBar {
+  margin-bottom: 1rem;
+}
+
+.loadingMessage {
+  text-align: center;
+  color: #666;
+}
+
+.errorContainer {
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.errorMessage {
+  color: #c33;
+  margin: 0;
+}
+
+.topSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.donateButton {
+  text-align: center;
+  margin-top: 2rem;
+}
