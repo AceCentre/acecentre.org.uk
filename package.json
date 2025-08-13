@@ -83,7 +83,7 @@
     "got": "11.8.3",
     "jest": "^30.0.5",
     "jest-css-modules-transform": "4.4.2",
-    "madge": "^7.0.0",
+    "madge": "^8.0.0",
     "next-sitemap": "4.0.2",
     "nock": "13.3.0",
     "plop": "4.0.0",
