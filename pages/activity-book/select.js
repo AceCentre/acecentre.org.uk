@@ -5,6 +5,7 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import styles from "../../styles/activity-book.module.css";
+import config from "../../lib/config";
 
 export default function GuideSelect() {
   const [guides, setGuides] = useState([]);
@@ -21,14 +22,16 @@ export default function GuideSelect() {
   const [userName, setUserName] = useState("");
   const [userPhoto, setUserPhoto] = useState(null);
   const [devicePhoto, setDevicePhoto] = useState(null);
+  // to connect to local change the config.launchpadUrl to http://localhost:4000
+  // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const [guidesRes, subcategoriesRes, gearsRes] = await Promise.all([
-          fetch("http://localhost:4000/api/activity-book"),
-          fetch("http://localhost:4000/api/activity-book/subcategories"),
-          fetch("http://localhost:4000/api/activity-book/gears"),
+          fetch(`${config.launchpadUrl}/api/activity-book`),
+          fetch(`${config.launchpadUrl}/api/activity-book/subcategories`),
+          fetch(`${config.launchpadUrl}/api/activity-book/gears`),
         ]);
 
         const guidesData = await guidesRes.json();
@@ -150,7 +153,7 @@ export default function GuideSelect() {
         }
 
         const uploadResponse = await fetch(
-          "http://localhost:4000/api/upload-photos",
+          `${config.launchpadUrl}/api/upload-photos`,
           {
             method: "POST",
             body: formData,
@@ -177,7 +180,7 @@ export default function GuideSelect() {
       console.log("Sending to bulk download:", requestBody);
 
       const bulkResponse = await fetch(
-        "http://localhost:4000/api/activity-book/bulk-download",
+        `${config.launchpadUrl}/api/activity-book/bulk-download`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -244,7 +247,7 @@ export default function GuideSelect() {
     instantDownloadAvailable: true,
     image: {
       src: guide.mainImage
-        ? `http://localhost:4000/${guide.mainImage.replace(/^\/?/, "")}`
+        ? `${config.launchpadUrl}/${guide.mainImage.replace(/^\/?/, "")}`
         : "/images/default-guide.png",
       alt: `Guide: ${guide.title}`,
     },
