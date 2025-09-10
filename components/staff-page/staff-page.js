@@ -6,7 +6,9 @@ import { StaffList } from "../staff-list/staff-list";
 
 export const StaffPage = ({ allStaff, currentActive }) => {
   const [currentFilter, setCurrentFilter] = useState(OPTIONS.ALL);
-  const filteredStaff = allStaff.filter(staffFilters[currentFilter]);
+  const filteredStaff = allStaff
+    .filter(staffFilters[currentFilter])
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <>
