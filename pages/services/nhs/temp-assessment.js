@@ -7,7 +7,7 @@ import { VideoWithCardCover } from "../../../components/video-with-card-cover/vi
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import InfoIcon from "@mui/icons-material/Info";
 
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import Avatar from "@mui/material/Avatar";
 import { Image } from "../../../components/image";
 
@@ -17,9 +17,9 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
 // import { AssessmentEligibility } from "../assessments";
-import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
-import { CardHighlight } from "../../../components/project-highlight/project-highlight";
-import { AdviceLine } from "../../../components/advice-line/advice-line";
+// import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
+// import { CardHighlight } from "../../../components/project-highlight/project-highlight";
+// import { AdviceLine } from "../../../components/advice-line/advice-line";
 // import { ContactCards } from "../../../components/contact-cards/contact-cards";
 import { GenericFaqs } from "../../../components/getting-started-faqs/getting-started-faqs";
 
@@ -40,9 +40,8 @@ const EVIDENCE_CONSIDERATION = [
           <li>Accessing a computer or other technology</li>
           <li>
             Completing activities that demonstrate the physical movements they
-            are capable of
+            are capable of and in the typical range of positions they work in
           </li>
-          <li>In the typical range of positions they work in</li>
         </ul>
       </>
     ),
@@ -53,7 +52,7 @@ const PRIORITISATION_CRITERIA = [
     question: "NHS England Prioritisation Criteria:",
     answer: (
       <>
-        <p>Priority will be given to patients:</p>
+        <p>Priority will be given to clients:</p>
         <ul>
           <li>
             <strong>with a rapidly degenerative condition</strong>, e.g. Motor
@@ -70,8 +69,9 @@ const PRIORITISATION_CRITERIA = [
             needs
           </li>
           <li>
-            facing a transition to a new school/college/workplace environment or
-            currently in rehabilitation provision.
+            <strong>facing a transition</strong> to a new
+            school/college/workplace environment or currently in rehabilitation
+            provision.
           </li>
           <li>
             <strong>
@@ -82,13 +82,6 @@ const PRIORITISATION_CRITERIA = [
             aid.
           </li>
         </ul>
-        <p>
-          As the referrer, you will be the main contact. It will be your
-          responsibility to disseminate information from Ace Centre to the
-          client, parent/carer/significant other and relevant professionals, and
-          to co-ordinate their attendance and/or contribution to the assessment
-          process.{" "}
-        </p>
       </>
     ),
   },
@@ -107,29 +100,16 @@ export default function NHSLanding() {
           nhs
           heightClass={styles.coverHeight}
         >
-          <h1 className={styles.cardTitle}>NHS England Assessment</h1>
+          {/* <h1 className={styles.cardTitle}>NHS England Assessment</h1>
           <p className={styles.cardDescription}>
             Specialist AAC Service supporting the North West and Thames Valley &
             Wessex regions
-          </p>
-          <FormModal form={CONTACT_FORM}>
-            {({ onClick }) => (
-              <div className={styles.cardButtonContainer}>
-                <Button onClick={onClick} className={styles.cardButton}>
-                  Make an online enquiry
-                </Button>
-              </div>
-            )}
-          </FormModal>
-
-          <p className={styles.cardContact}>
-            or call our advice line on <strong>0800 080 3115</strong>
-          </p>
+          </p> */}
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
             <h2>
-              Understanding the referral process for the NHSE Specialised AAC
+              Understandings the referral process for the NHSE Specialised AAC
               Service
             </h2>
             <p>
@@ -137,7 +117,7 @@ export default function NHSLanding() {
               (NHSE) to carry out Augmentative and Alternative Communication
               (AAC) Assessments across the North West and Thames Valley and
               Wessex regions. These services are for children and adults who
-              need AAC and the{" "}
+              need AAC and meet the{" "}
               <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
                 NHSE eligibility criteria.
               </Link>
@@ -155,7 +135,7 @@ export default function NHSLanding() {
               </li>
               <li>
                 Support the establishment, training and development of Local AAC
-                Services (LAACES). For more information on please see our{" "}
+                Services (LAACES). For more information please see our{" "}
                 <Link href="/services/nhs/laaces">LAACES page.</Link>
               </li>
             </ul>
@@ -169,28 +149,40 @@ export default function NHSLanding() {
               for full eligibility information.{" "}
             </p>
             <p>
-              To be eligible for the NHS England Specialised AAC Services, a
-              person must:{" "}
+              To be eligible for the NHSE Specialised AAC Services, a person
+              must:{" "}
             </p>
             <ul>
               <li>be a resident in England </li>
               <li>be registered with a GP practice in England </li>
+              <li>
+                meet the eligibility criteria. Please refer to the{" "}
+                <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
+                  Eligibility Criteria guidance document
+                </Link>{" "}
+                and Decision Chart (below) prior to making a referral to the
+                service.{" "}
+              </li>
             </ul>
-            <p>
-              As part of the Eligibility Criteria guidance document for the NHSE
-              Specialised AAC Service,{" "}
-              <Link href="/refferal-decision-flow-chart.png">
-                a decision chart has been developed.
-              </Link>{" "}
-              Prior to making a referral to the service, please use this to
-              understand the eligibility criteria.{" "}
-            </p>
+            <Link
+              href="/refferal-decision-flow-chart.png"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                height={252}
+                width={290}
+                maxHeight={290}
+                src={"/refferal-decision-flow-chart.png"}
+                alt="Decision Chart"
+              />
+            </Link>
             <h2>Who can refer?</h2>
             <p>
-              Referrals are accepted from health, education and social care
-              professionals working employed by a statutory body or local teams.
-              We are unable to accept referrals from individuals, family members
-              or independent therapists.
+              Referrals are can be made by health, education and social care
+              professionals employed and/or funded employed by a statutory body
+              or local team. We are unable to accept referrals from individuals,
+              family members or independent therapists.
             </p>
             <p>
               The referrer should have prior and regular ongoing involvement
@@ -201,21 +193,23 @@ export default function NHSLanding() {
             <p>Steps for submitting a referral:</p>
             <ol>
               <li>
+                Download and read the{" "}
                 <Link
                   href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf"
                   style={{ textDecoration: "underline" }}
                 >
-                  Download and read the Eligibility Guidance Document
+                  Eligibility Guidance Document
                 </Link>
               </li>
               <li>
+                Download the{" "}
                 <Link
                   href="/docs/NHS-England-Specialised-AAC-Services-Referral-Form-v6-2022.docx"
                   style={{ textDecoration: "underline" }}
                 >
-                  Download the referral form
+                  referral form
                 </Link>
-                - please note all referrals should be made on the latest
+                - please note all referrals should be made on this latest
                 referral form.
               </li>
               <li>
@@ -247,8 +241,8 @@ export default function NHSLanding() {
                     <a href="mailto:acecentre.admin@nhs.net">
                       acecentre.admin@nhs.net
                     </a>{" "}
-                    immediately after they have been uploaded so we can add it
-                    to the individual&apos;s referral.
+                    immediately after you have uploaded the evidence so we can
+                    add it to the individual&apos;s referral.
                   </li>
                 </ul>
               </li>
@@ -280,11 +274,18 @@ export default function NHSLanding() {
             </p>
             <p>
               Please note that the date offered will depend on{" "}
-              <strong>NHS England Prioritisation criteria.</strong>
+              <strong>NHSE Prioritisation criteria.</strong>
             </p>
             <div className="assessment-faqs-override">
               <GenericFaqs faqs={PRIORITISATION_CRITERIA} />
             </div>
+            <p>
+              As the referrer, you will be the main contact. It will be your
+              responsibility to disseminate information from Ace Centre to the
+              client, parent/carer/significant other and relevant professionals,
+              and to co-ordinate their attendance and/or contribution to the
+              assessment process.{" "}
+            </p>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <Avatar>
                 <InfoIcon sx={{ fontSize: 50, color: "black" }} />
@@ -343,15 +344,9 @@ export default function NHSLanding() {
                 Please go to the LAACES section of our website to learn more.
               </Link>
             </p>
-            <CardHighlight
-              title="Find an assistive technology service near you"
-              description="Find your nearest NHS AAC Service, Environmental Control Service or Wheelchair Service."
-              viewText="Visit service finder"
-              href="/nhs-service-finder"
-            />
           </div>
           <div>
-            <div className={styles.serviceProvidedByContainer}>
+            {/* <div className={styles.serviceProvidedByContainer}>
               <p>Service provided by:</p>
               <Image
                 height={152}
@@ -376,7 +371,7 @@ export default function NHSLanding() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
@@ -459,7 +454,7 @@ export default function NHSLanding() {
           </div>
         </div>
         {/* <InformationDays nhs /> */}
-        <AdviceLine />
+        {/* <AdviceLine /> */}
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer />
@@ -485,6 +480,14 @@ export default function NHSLanding() {
           padding-bottom: 0 !important;
           margin-top: 0 !important;
           margin-bottom: 0 !important;
+        }
+        /* Hide the blue card when it has no content but keep hero full width */
+        .cardColor:empty {
+          display: none !important;
+        }
+        /* Ensure hero maintains full width even when card is empty */
+        .cardColor:empty ~ * {
+          display: none !important;
         }
       `}</style>
     </>
