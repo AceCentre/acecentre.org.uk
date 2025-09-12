@@ -8,7 +8,22 @@ export const StaffPage = ({ allStaff, currentActive }) => {
   const [currentFilter, setCurrentFilter] = useState(OPTIONS.ALL);
   const filteredStaff = allStaff
     .filter(staffFilters[currentFilter])
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => {
+      // Split names into parts for comparison
+      const nameA = a.name.split(" ");
+      const nameB = b.name.split(" ");
+
+      // Compare first names
+      const firstNameComparison = nameA[0].localeCompare(nameB[0]);
+      if (firstNameComparison !== 0) {
+        return firstNameComparison;
+      }
+
+      // If first names are the same, compare last names
+      const lastNameA = nameA[nameA.length - 1] || "";
+      const lastNameB = nameB[nameB.length - 1] || "";
+      return lastNameA.localeCompare(lastNameB);
+    });
 
   return (
     <>
@@ -37,12 +52,12 @@ const staffFilters = {
   // Only staff members with the location set to Oldham
   [OPTIONS.NORTH]: (currentStaff) => {
     const location = currentStaff.location;
-    return location === "Oldham";
+    return location && location.toLowerCase() === "oldham";
   },
 
   // Only staff members with the location set to Abingdon
   [OPTIONS.SOUTH]: (currentStaff) => {
     const location = currentStaff.location;
-    return location === "Abingdon";
+    return location && location.toLowerCase() === "abingdon";
   },
 };
