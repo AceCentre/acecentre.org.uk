@@ -187,6 +187,9 @@ const NHSHomeButton = ({ title = "NHS England Assessment Service" }) => {
         ></Image>
       </Link>
       <p className={styles.nhsTitle}>{title}</p>
+      <p className={styles.nhsSubtitle}>
+        North West and Thames Valley & Wessex
+      </p>
     </div>
   );
 };

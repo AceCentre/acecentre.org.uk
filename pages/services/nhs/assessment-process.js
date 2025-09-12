@@ -1,23 +1,24 @@
-import { Button } from "../../../components/button/button";
+// import { Button } from "../../../components/button/button";
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
 import { Footer } from "../../../components/footer/footer";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
 
-import ListAltIcon from "@mui/icons-material/ListAlt";
+// import ListAltIcon from "@mui/icons-material/ListAlt";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import Avatar from "@mui/material/Avatar";
-import { Image } from "../../../components/image";
+// import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
 import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
-import { InformationDays } from "../../../components/information-days/information-days";
+// import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
 // import { AssessmentEligibility } from "../assessments";
-import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
-import { CardHighlight } from "../../../components/project-highlight/project-highlight";
+// import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
+// import { CardHighlight } from "../../../components/project-highlight/project-highlight";
 import { GenericFaqs } from "../../../components/getting-started-faqs/getting-started-faqs";
 
 const LANGUAGE_FAQS = [
@@ -37,17 +38,17 @@ const LANGUAGE_FAQS = [
         </p>
         <p>
           We will discuss with you what options are available in the language
-          you use or whether we can create something new. Bespoke vocabularies
-          can take a long time to create, but we will discuss this with you
-          during your assessment.
+          you use or whether we can create something new. Making new
+          vocabularies can take a long time to create, but we will discuss this
+          with you during your assessment.
         </p>
         <p>
-          We will work with you and with a translator to provide some initial
+          We will work with you and with a interpreter to provide some initial
           resources in all the languages you use.
         </p>
         <p>
           If you have electronic AAC, the system, settings etc. might still be
-          in English
+          in English.
         </p>
       </>
     ),
@@ -67,7 +68,7 @@ export default function NHSLanding() {
           nhs
           heightClass={styles.coverHeight}
         >
-          <h1 className={styles.cardTitle}>NHS England Assessment</h1>
+          {/* <h1 className={styles.cardTitle}>NHS England Assessment</h1>
           <p className={styles.cardDescription}>
             Specialist AAC Service supporting the North West and Thames Valley &
             Wessex regions
@@ -84,7 +85,7 @@ export default function NHSLanding() {
 
           <p className={styles.cardContact}>
             or call our advice line on <strong>0800 080 3115</strong>
-          </p>
+          </p> */}
         </VideoWithCardCover>
         <div className={styles.bottomContainer}>
           <div className={styles.leftContent}>
@@ -94,19 +95,18 @@ export default function NHSLanding() {
               Ace Centre provides an NHS England (NHSE) service for AAC
               Assessments. AAC means &apos;Augmentative and Alternative
               Communication&apos; which is anything other than speech that can
-              be used for communication. This could be electronic equipment,
-              like a tablet, or paper-based, like a book or chart. You can use
-              AAC as well as using your speech.
+              be used for communication. This could be electronic equipment
+              (like a tablet), or paper-based (like a book or chart). You can
+              use AAC as well as using your speech.
             </p>
             <p>
-              An NHSE Specialised AAC Service assessment help the team at Ace
-              Centre find the best AAC for the people who have been referred to
-              us.{" "}
+              The assessment process helps the team at Ace Centre find the best
+              AAC for the people who have been referred to us.{" "}
             </p>
             <h2>Why have I been referred?</h2>
             <p>
               Your Speech Therapist or another professional has referred you
-              because they feel you would benefit from AAC.{" "}
+              because they feel you would benefit from new or different AAC.{" "}
             </p>
             <h2>Who should be involved?</h2>
             <p>
@@ -116,10 +116,10 @@ export default function NHSLanding() {
             <p>
               The Ace Centre team will include AAC Consultants who could be
               Speech Therapists, Occupational Therapists or Teachers. Often an
-              Assistant Practitioners will be there too.
+              Assistant Practitioner will be there too.
             </p>
             <p>
-              A translator will join the assessment if you speak a language
+              A interpreter will join the assessment if you speak a language
               other than English, even if you also speak some English.
             </p>
             <h2>Where will the assessment be? </h2>
@@ -140,17 +140,14 @@ export default function NHSLanding() {
               you. If you know that a certain time of the day is usually easier
               or harder for you, please tell us.
             </p>
-            <p>
-              If we need more time, we can come back for a second assessment
-              another day.
-            </p>
+            <p>If we need more time, we can come back another day.</p>
             <h2>What happens at the assessment?</h2>
             <p>The assessment is very informal and is not a test.</p>
             <p>
               The Ace Centre team, made of 2-3 members of staff, will join you
               and your local team. If you, or anyone on your team, speaks a
-              language other than English a translator will also join us for the
-              whole assessment.
+              language other than English a interpreter will also join us for
+              the whole assessment.
             </p>
             <p>
               We will talk about what is working well with your communication,
@@ -181,20 +178,20 @@ export default function NHSLanding() {
             <p>We will come back to give you the AAC when it is ready.</p>
             <p>
               We will provide training on how to use it, for you and the people
-              who help you. A translator will join this appointment if you, or
+              who help you. A interpreter will join this appointment if you, or
               anyone on your team, speaks a language other than English.{" "}
             </p>
             <p>You can ask us any questions about the AAC. </p>
 
-            <CardHighlight
+            {/* <CardHighlight
               title="Find an assistive technology service near you"
               description="Find your nearest NHS AAC Service, Environmental Control Service or Wheelchair Service."
               viewText="Visit service finder"
               href="/nhs-service-finder"
-            />
+            /> */}
           </div>
           <div>
-            <div className={styles.serviceProvidedByContainer}>
+            {/* <div className={styles.serviceProvidedByContainer}>
               <p>Service provided by:</p>
               <Image
                 height={152}
@@ -219,15 +216,15 @@ export default function NHSLanding() {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
+                <LocationOnIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
                 <p>
-                  <strong>Visiting ACE Centre</strong>
+                  <strong>Visiting Ace Centre</strong>
                 </p>
                 <p>
                   <Link href="https://acecentre.org.uk/contact/oldham">
@@ -241,7 +238,7 @@ export default function NHSLanding() {
                 </p>
               </div>
             </div>
-            <div className={styles.quote}>
+            {/* <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <ListAltIcon className={styles.icon} />
               </Avatar>
@@ -276,10 +273,10 @@ export default function NHSLanding() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-        <InformationDays nhs />
+        {/* <InformationDays nhs /> */}
         {/* <FeaturedStory nhs {...featuredStory} /> */}
       </main>
       <Footer />
@@ -305,6 +302,14 @@ export default function NHSLanding() {
           padding-bottom: 0 !important;
           margin-top: 0 !important;
           margin-bottom: 0 !important;
+        }
+        /* Hide the blue card when it has no content but keep hero full width */
+        .cardColor:empty {
+          display: none !important;
+        }
+        /* Ensure hero maintains full width even when card is empty */
+        .cardColor:empty ~ * {
+          display: none !important;
         }
       `}</style>
     </>
