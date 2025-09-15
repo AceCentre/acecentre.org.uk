@@ -224,7 +224,7 @@ export default function Laaces({ gettingStartedResources }) {
                 alt="The Ace Centre logo"
               ></Image>
             </div>
-            <div className={styles.quote}>
+            {/* <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <BuildIcon className={styles.icon} />
               </Avatar>
@@ -247,7 +247,7 @@ export default function Laaces({ gettingStartedResources }) {
                   </Button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <InformationDays nhs />
