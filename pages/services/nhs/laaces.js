@@ -5,7 +5,7 @@ import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
 import { VideoWithCardCover } from "../../../components/video-with-card-cover/video-with-card-cover";
 
 // import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import { Image } from "../../../components/image";
 
 import styles from "../../../styles/nhs-assessment.module.css";
@@ -13,7 +13,7 @@ import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
 import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
-import BuildIcon from "@mui/icons-material/Build";
+// import BuildIcon from "@mui/icons-material/Build";
 import { getAllProducts } from "../../../lib/products/get-products";
 import { getAllProductCategories } from "../../../lib/products/get-all-categories";
 import { filterProducts } from "../../../lib/products/filter-products";
@@ -232,7 +232,7 @@ export default function Laaces({ gettingStartedResources }) {
                 <p>
                   <strong>AAC Services Toolkit</strong>
                 </p> 
-                
+
                 <p>
                   The Local Services Working Party created a Local AAC Services
                   Commissioning Toolkit to signpost professionals working in the
