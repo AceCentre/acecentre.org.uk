@@ -231,7 +231,8 @@ export default function Laaces({ gettingStartedResources }) {
               <div className={styles.quoteText}>
                 <p>
                   <strong>AAC Services Toolkit</strong>
-                </p>
+                </p> 
+                
                 <p>
                   The Local Services Working Party created a Local AAC Services
                   Commissioning Toolkit to signpost professionals working in the
