@@ -108,7 +108,27 @@ const ResourceListSwitch = ({
   );
 };
 
-export const getServerSideProps = async ({ params: { slug } }) => {
+export async function getStaticPaths() {
+  let allProducts = await getAllProducts(true);
+
+  allProducts = allProducts.filter(
+    (x) =>
+      x.slug !== "look2talk" && x.slug !== "developing-using-communication-book"
+  );
+
+  if (!allProducts) throw new Error("Could not get all the products");
+
+  return {
+    paths: allProducts.map((product) => ({
+      params: {
+        slug: product.slug,
+      },
+    })),
+    fallback: true,
+  };
+}
+
+export const getStaticProps = async ({ params: { slug } }) => {
   const allProducts = await getAllProducts(true);
 
   if (!allProducts) throw new Error("Could not get all the products");

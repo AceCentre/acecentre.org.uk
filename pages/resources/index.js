@@ -51,18 +51,13 @@ export default function Resources({
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
     title: htmlDecode(product.name),
-    mainCategoryName: product.category?.name || "",
-    featuredImage: product.image || null,
-    slug: product.slug || "",
-    id: product.id || "",
-    price: product.price || null,
-    shortDescription: product.shortDescription || "",
-    featured: product.featured || false,
-    totalSales: product.totalSales || 0,
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
+    ...product,
   }));
 
   const { slugs: productCategories } = await getAllProductCategories();
@@ -71,17 +66,13 @@ export const getServerSideProps = async () => {
     .filter((resource) => resource.featured)
     .map((product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category?.name || "",
-      featuredImage: product.image || null,
-      slug: product.slug || "",
-      id: product.id || "",
-      price: product.price || null,
-      shortDescription: product.shortDescription || "",
-      featured: product.featured || false,
-      totalSales: product.totalSales || 0,
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
     }));
 
   return {
+    revalidate: 60,
     props: {
       popularResources,
       featuredResources,

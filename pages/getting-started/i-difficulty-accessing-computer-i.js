@@ -101,7 +101,7 @@ export default function GettingStartedLanding({ story, resources }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const story = await getSimpleStory("jess");
 
   const products = await getAllProducts();
@@ -119,24 +119,20 @@ export const getServerSideProps = async () => {
 
   const resources = gettingStartedResources.map((product) => ({
     title: htmlDecode(product.name),
-    mainCategoryName: product.category?.name || "",
-    featuredImage: product.image || null,
-    slug: product.slug || "",
-    id: product.id || "",
-    price: product.price || null,
-    shortDescription: product.shortDescription || "",
-    featured: product.featured || false,
-    totalSales: product.totalSales || 0,
+    mainCategoryName: product.category.name,
+    featuredImage: product.image,
+    ...product,
   }));
 
   return {
+    revalidate: 60,
     props: {
       story,
       resources,
       seo: {
         title: "How can I access my computer better?",
         description:
-          "Access to screen based technology such as computers and tablets is vitally important. It's about more than controlling a communication aid effectively, although that is pretty crucial!  It's also about being able to engage with digital age – be that government websites, banking, learning resources, games and social media.",
+          "Access to screen based technology such as computers and tablets is vitally important. It’s about more than controlling a communication aid effectively, although that is pretty crucial!  It’s also about being able to engage with digital age – be that government websites, banking, learning resources, games and social media.",
       },
     },
   };
