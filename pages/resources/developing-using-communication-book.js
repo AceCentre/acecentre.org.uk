@@ -30,11 +30,8 @@ export default function ResourceDetail({
   relatedResources,
   attachedResources,
 }) {
-
-
   return (
     <>
-    
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
@@ -53,58 +50,82 @@ export default function ResourceDetail({
         </div>
         <div className={styles.descriptionContainer}>
           <p>
-          Developing and Using a Communication Book (DUCB) is a much-loved guide. It is used by 
-          many carers, parents and professionals who need to make and support the use of a 
-          communication book for people who are preliterate and rely on symbols to support their 
-          communication. 
+            Developing and Using a Communication Book (DUCB) is a much-loved
+            guide. It is used by many carers, parents and professionals who need
+            to make and support the use of a communication book for people who
+            are preliterate and rely on symbols to support their communication.
           </p>
         </div>
         <div className={styles.pageContainer}>
           <div className={styles.left}>
             <h2>Developing and Using a Communication Book Package</h2>
-            <p>
-            DUCB package contains several elements which include:
-            </p>
+            <p>DUCB package contains several elements which include:</p>
             <ul>
               <li>
                 <strong>Guidebook</strong>
                 <strong>:&nbsp;</strong>presented in an A5 file
               </li>
               <li>
-                <strong>Demonstration Pages:&nbsp;</strong>included in the guidebook
+                <strong>Demonstration Pages:&nbsp;</strong>included in the
+                guidebook
               </li>
               <li>
-                <strong>Templates: </strong>Free to download for Boardmaker, InPrint and Mindexpress
+                <strong>Templates: </strong>Free to download for Boardmaker,
+                InPrint and Mindexpress
               </li>
               <li>
-                <strong>Training:&nbsp;</strong> <a href="https://acecentre.arlo.co/w/events/17-how-to-develop-and-use-a-communication-book-ducb">Introductory and Developing
-                levels from Ace Centre Learning&nbsp;</a>
+                <strong>Training:&nbsp;</strong>{" "}
+                <a href="https://acecentre.arlo.co/w/events/17-how-to-develop-and-use-a-communication-book-ducb">
+                  Introductory and Developing levels from Ace Centre
+                  Learning&nbsp;
+                </a>
               </li>
             </ul>
             <h2>
               <b>Guidebook:</b>
             </h2>
             <p>
-            The guide offers clarity for parents, carers and professionals in developing 
-            communication books that progressively helps people to communicate an increasing
-             number of messages.   
+              The guide offers clarity for parents, carers and professionals in
+              developing communication books that progressively helps people to
+              communicate an increasing number of messages.
             </p>
             <strong>The guide sets out:</strong>
             <ul>
-              <li>A stable core vocabulary that is available from every topic page, encouraging its use. 
-                The core vocabulary is developed through five stages.</li>
-              <li>Suggestions for developing a fringe (topic-based) vocabulary that can meet an individual’s interests, 
-                needs and varied environments at each stage, with plenty of examples included. </li>
-              <li>An emphasis on combining symbols to communicate rich ideas rather than focusing on producing 
-                grammatically correct sentences for face-to-face communication .</li>
-              <li>A suggested structure for organising pages and accessing vocabulary with a menu, tabs and supports 
-                for moving around the book. </li>
-              <li>The importance of a communication partner who is taught, through the guide, to model and use the symbols 
-                during communication and to support and scaffold the learner’s own communication attempts.</li>
-              <li>For each stage, clear guidance on readiness, along with specific aims for both the communication 
-                partner and the learner. </li>
+              <li>
+                A stable core vocabulary that is available from every topic
+                page, encouraging its use. The core vocabulary is developed
+                through five stages.
+              </li>
+              <li>
+                Suggestions for developing a fringe (topic-based) vocabulary
+                that can meet an individual’s interests, needs and varied
+                environments at each stage, with plenty of examples included.{" "}
+              </li>
+              <li>
+                An emphasis on combining symbols to communicate rich ideas
+                rather than focusing on producing grammatically correct
+                sentences for face-to-face communication .
+              </li>
+              <li>
+                A suggested structure for organising pages and accessing
+                vocabulary with a menu, tabs and supports for moving around the
+                book.{" "}
+              </li>
+              <li>
+                The importance of a communication partner who is taught, through
+                the guide, to model and use the symbols during communication and
+                to support and scaffold the learner’s own communication
+                attempts.
+              </li>
+              <li>
+                For each stage, clear guidance on readiness, along with specific
+                aims for both the communication partner and the learner.{" "}
+              </li>
             </ul>
-            <p>The guidebook covers all of the essential questions that need to be answered when creating a communication book, such as:</p>
+            <p>
+              The guidebook covers all of the essential questions that need to
+              be answered when creating a communication book, such as:
+            </p>
             <ul>
               <li>What vocabulary do I put in the book?</li>
               <li>How many pictures or symbols do I use on a page?</li>
@@ -113,38 +134,53 @@ export default function ResourceDetail({
             </ul>
             <h2>Demonstration Pages</h2>
             <p>
-            The Demonstration Pages are example communication book pages that aim to bring to life the practices 
-            and principles described within the guide.  There are multiple pages included at each stage that 
-            illustrate how pages can be made to suit a wide variety of ages and interests. 
+              The Demonstration Pages are example communication book pages that
+              aim to bring to life the practices and principles described within
+              the guide. There are multiple pages included at each stage that
+              illustrate how pages can be made to suit a wide variety of ages
+              and interests.
             </p>
 
             <h2>
               <b>Templates</b>
             </h2>
-            <p>Free downloadable files for creating, personalising and printing pages for a communication book
-              within your own software. The templates are compatible with:   </p>
+            <p>
+              Free downloadable files for creating, personalising and printing
+              pages for a communication book within your own software. The
+              templates are compatible with:{" "}
+            </p>
             <ul>
-              <li>Boardmaker 6 and Boardmaker 7 for Picture Communication Symbols (PCS)</li>
+              <li>
+                Boardmaker 6 and Boardmaker 7 for Picture Communication Symbols
+                (PCS)
+              </li>
               <li>InPrint for Widgit symbols </li>
               <ul>
                 <li>InPrint 3 users download templates from this page </li>
-                <li>InPrint 4 users can find the DUCB templates freely available within the 
-                  &apos;Communication&apos; template folder included in InPrint 4  
+                <li>
+                  InPrint 4 users can find the DUCB templates freely available
+                  within the &apos;Communication&apos; template folder included
+                  in InPrint 4
                 </li>
               </ul>
-              <li>MindExpress for Symbol Stix, can be edited for PCS or Widgit</li>
+              <li>
+                MindExpress for Symbol Stix, can be edited for PCS or Widgit
+              </li>
             </ul>
             <p>
-            Please note: these files download as a .zip files. 
-            Please extract the individual template files before opening in your symbol software.
+              Please note: these files download as a .zip files. Please extract
+              the individual template files before opening in your symbol
+              software.
             </p>
-            
+
             <h2>
               <b>Vocabulary Worksheet</b>
             </h2>
-            <p>Support to help generate ideas about words and pages relevant to an individual which can 
-              be used to personalise or expand their communication book.</p>
-
+            <p>
+              Support to help generate ideas about words and pages relevant to
+              an individual which can be used to personalise or expand their
+              communication book.
+            </p>
           </div>
           <div className={styles.right}>
             <div className={styles.quote}>
@@ -156,7 +192,10 @@ export default function ResourceDetail({
                   <strong>Guidebook</strong>
                 </p>
                 <p>Printed A5 Manual including Demo Pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>  
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <ResourcesDownload resource={resource} />
                 </div>
               </div>
@@ -170,18 +209,24 @@ export default function ResourceDetail({
                   <strong>Training</strong>
                 </p>
                 <p>Ace Centre Learning offers 2 levels of courses</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://acecentre.arlo.co/w/events/34-how-to-develop-and-use-a-communication-book-ducb-free-webinar" 
+                    href="https://acecentre.arlo.co/w/events/34-how-to-develop-and-use-a-communication-book-ducb-free-webinar"
                   >
                     Introductory
                   </Button>
                 </div>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "2rem" }}>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "2rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://acecentre.arlo.co/w/events/17-how-to-develop-and-use-a-communication-book-ducb" 
+                    href="https://acecentre.arlo.co/w/events/17-how-to-develop-and-use-a-communication-book-ducb"
                   >
                     &nbsp;Developing&nbsp;
                   </Button>
@@ -196,8 +241,14 @@ export default function ResourceDetail({
                 <p>
                   <strong>Boardmaker (PCS) Templates</strong>
                 </p>
-                <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <p>
+                  Free downloadable files for creating, personalising and
+                  printing pages
+                </p>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-BM6-Templates-2.25.zip"
@@ -206,7 +257,10 @@ export default function ResourceDetail({
                     Boardmaker 6 (PCS)
                   </Button>
                 </div>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "2rem" }}>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "2rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-BM7-Templates-2.25.zip"
@@ -225,11 +279,17 @@ export default function ResourceDetail({
                 <p>
                   <strong>Widgit Templates</strong>
                 </p>
-                <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <p>
+                  Free downloadable files for creating, personalising and
+                  printing pages
+                </p>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-InPrint-3-Templates-2.25.zip" 
+                    href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-InPrint-3-Templates-2.25.zip"
                   >
                     Inprint 3
                   </Button>
@@ -244,8 +304,14 @@ export default function ResourceDetail({
                 <p>
                   <strong>MindExpress Templates</strong>
                 </p>
-                <p>Free downloadable files for creating, personalising and printing pages</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <p>
+                  Free downloadable files for creating, personalising and
+                  printing pages
+                </p>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-MindExpress-Templates-2.25.zip"
@@ -264,8 +330,14 @@ export default function ResourceDetail({
                 <p>
                   <strong>Vocabulary Worksheets</strong>
                 </p>
-                <p>Free downloadable worksheet for personalising a communication book</p>
-                <div className={styles.downloadFormButtonContainer} style={{ marginTop: "1rem" }}>
+                <p>
+                  Free downloadable worksheet for personalising a communication
+                  book
+                </p>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Button
                     className={styles.downloadFormButton}
                     href="https://acecentre.org.uk/resources/identifying-vocabulary-to-personalise-aac"
@@ -278,7 +350,7 @@ export default function ResourceDetail({
             </div>
           </div>
         </div>
-        
+
         <ResourceListSwitch
           resource={resource}
           attachedResources={attachedResources}
@@ -319,7 +391,7 @@ const ResourceListSwitch = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const slug = "developing-using-communication-book";
   const allProducts = await getAllProducts(true);
 
