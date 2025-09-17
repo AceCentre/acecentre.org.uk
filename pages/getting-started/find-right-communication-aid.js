@@ -113,7 +113,7 @@ export default function GettingStartedLanding({ story, resources }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const story = await getSimpleStory("glyn");
 
   const products = await getAllProducts();
@@ -131,20 +131,24 @@ export const getStaticProps = async () => {
 
   const resources = gettingStartedResources.map((product) => ({
     title: htmlDecode(product.name),
-    mainCategoryName: product.category.name,
-    featuredImage: product.image,
-    ...product,
+    mainCategoryName: product.category?.name || "",
+    featuredImage: product.image || null,
+    slug: product.slug || "",
+    id: product.id || "",
+    price: product.price || null,
+    shortDescription: product.shortDescription || "",
+    featured: product.featured || false,
+    totalSales: product.totalSales || 0,
   }));
 
   return {
-    revalidate: 60,
     props: {
       story,
       resources,
       seo: {
         title: "Which is the right communication aid for me?",
         description:
-          "Without doubt, AT such as communication aids can be life-changing!  The problem is that there is no ‘one size fits all’ communication aid solution.",
+          "Without doubt, AT such as communication aids can be life-changing!  The problem is that there is no 'one size fits all' communication aid solution.",
       },
     },
   };
