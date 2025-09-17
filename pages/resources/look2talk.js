@@ -474,7 +474,7 @@ const ResourceListSwitch = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const slug = "look2talk";
   const allProducts = await getAllProducts(true);
 
