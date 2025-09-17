@@ -19,24 +19,20 @@ export default function SpeechBubblePage({ featuredResources }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const allProducts = await getAllProductsByPopularity();
 
   const featuredResources = allProducts
     .filter((resource) => resource.featured)
     .map((product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category?.name || "",
-      featuredImage: product.image || null,
-      slug: product.slug || "",
-      id: product.id || "",
-      price: product.price || null,
-      shortDescription: product.shortDescription || "",
-      featured: product.featured || false,
-      totalSales: product.totalSales || 0,
+      mainCategoryName: product.category.name,
+      featuredImage: product.image,
+      ...product,
     }));
 
   return {
+    revalidate: 60,
     props: {
       featuredResources,
       seo: { dontIndex: true, title: "SpeechBubble" },
