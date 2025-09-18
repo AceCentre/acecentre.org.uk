@@ -56,9 +56,20 @@ export const getServerSideProps = async (req) => {
   const orderBy = req.query.orderby || ORDER_BY_OPTIONS[0].slug;
   const productsPerPage = 20;
 
-  const products = await getAllProducts();
-  const { slugs: productCategories, fullCategories } =
-    await getAllProductCategories();
+  // Temporary fallback while WPGraphQL is having issues
+  let products = [];
+  let productCategories = [];
+  let fullCategories = [];
+
+  try {
+    products = await getAllProducts();
+    const categoriesData = await getAllProductCategories();
+    productCategories = categoriesData.slugs;
+    fullCategories = categoriesData.fullCategories;
+  } catch (error) {
+    console.error("GraphQL request failed:", error);
+    // Return empty data to prevent 500 error
+  }
 
   const {
     results: filteredProducts,
