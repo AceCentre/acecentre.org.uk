@@ -1,0 +1,1108 @@
+{
+  "format": "open-board-0.1",
+  "id": "listener-mediated-frequency-launchpad",
+  "locale": "en-GB",
+  "description_html": "Listener Mediated Frequency board",
+  "ext_launchpad_options": {
+    "padding": 10,
+    "gap": 2,
+    "row_gap": 2,
+    "button_border_width": 0,
+    "button_radius": 0,
+    "full_background_color": "rgb(255,255,255)",
+    "autofit_label_text": true,
+    "ext_launchpad_prepend_pdf": "./listener-mediated-chart-cover.pdf",
+    "use_ace_branding": true,
+    "custom_branding_text": "To use: (1) Hold the chart so it can be seen. (2) Agree on a signal for \"yes\" (and one for \"no\" if possible). (3) Ask if it is okay to guess what they are spelling. (4) Point to and/or read out the first item on each row, one row at a time. When the person says \"yes\" to a row, go through each item in that row (including the first item) until they say \"yes\" to the one they want. (5) Say the chosen item out loud, then start again. (6) Write down the letters to keep track. (7) Before you finish, ask if they have more to say.\n\nVisit www.acecentre.org.uk for more information.",
+    "use_page_numbers": false,
+    "text_color_on_background": "rgb(0,0,0)",
+    "font_size": 31
+  },
+  "name": "Listener Mediated Frequency Template",
+  "buttons": [
+    {
+      "id": "1",
+      "label": "1",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "2",
+      "label": "2",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "3",
+      "label": "3",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "4",
+      "label": "4",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "5",
+      "label": "5",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "6",
+      "label": "6",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "7",
+      "label": "7",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "8",
+      "label": "8",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "9",
+      "label": "9",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "0",
+      "label": "0",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "a",
+      "label": "A",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "b",
+      "label": "B",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "c",
+      "label": "C",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "d",
+      "label": "D",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "e",
+      "label": "E",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "f",
+      "label": "F",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "g",
+      "label": "G",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "h",
+      "label": "H",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "i",
+      "label": "I",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "j",
+      "label": "J",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "k",
+      "label": "K",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "l",
+      "label": "L",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "m",
+      "label": "M",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "n",
+      "label": "N",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "o",
+      "label": "O",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "p",
+      "label": "P",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "qu",
+      "label": "QU",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "q",
+      "label": "Q",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "r",
+      "label": "R",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "s",
+      "label": "S",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "t",
+      "label": "T",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "u",
+      "label": "U",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "v",
+      "label": "V",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "w",
+      "label": "W",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "y",
+      "label": "Y",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "z",
+      "label": "Z",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": ",",
+      "label": ",",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": ".",
+      "label": ".",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "?",
+      "label": "?",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "!",
+      "label": "!",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "delete",
+      "label": "DELETE",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "capital"
+    },
+    {
+      "id": "delete-letter",
+      "label": "DELETE\nLETTER",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "capital"
+    },
+    {
+      "id": "space",
+      "label": "SPACE",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "capital"
+    },
+    {
+      "id": "start-again",
+      "label": "START AGAIN",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "capital"
+    },
+    {
+      "id": "start-again-new-line",
+      "label": "START\nAGAIN",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "capital"
+    },
+    {
+      "id": "empty-cell-one",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-two",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-three",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-four",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-five",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-six",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-seven",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    },
+    {
+      "id": "empty-cell-eight",
+      "label": "",
+      "border_color": "rgb(0,0,0)",
+      "background_color": "rgb(255,255,255)",
+      "ext_launchpad_label_color": "rgb(0,0,0)",
+      "ext_launchpad_label_font_style": "bold",
+      "ext_launchpad_label_font": "helvetica",
+      "ext_launchpad_label_font_size": 20,
+      "ext_launchpad_label_casing": "upper"
+    }
+  ],
+  "pages": [
+    {
+      "grid": {
+        "rows": 6,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "."
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "qu",
+            "z",
+            ","
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-one",
+            "empty-cell-two",
+            "empty-cell-three",
+            "empty-cell-four"
+          ]
+        ]
+      },
+      "id": "frequency-layout-with-commands",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 6,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "empty-cell-one"
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "qu",
+            "z",
+            "empty-cell-two"
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-three",
+            "empty-cell-four",
+            "empty-cell-five",
+            "empty-cell-six"
+          ]
+        ]
+      },
+      "id": "frequency-layout-without-commands",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 8,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "."
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "qu",
+            "z",
+            ","
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-one",
+            "empty-cell-two",
+            "empty-cell-three",
+            "empty-cell-four"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8",
+            "9",
+            "0",
+            "empty-cell-five",
+            "empty-cell-six"
+          ]
+        ]
+      },
+      "id": "frequency-layout-with-commands-and-numbers",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 8,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "empty-cell-one"
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "qu",
+            "z",
+            "empty-cell-two"
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-three",
+            "empty-cell-four",
+            "empty-cell-five",
+            "empty-cell-six"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8",
+            "9",
+            "0",
+            "empty-cell-seven",
+            "empty-cell-eight"
+          ]
+        ]
+      },
+      "id": "frequency-layout-without-commands-but-with-numbers",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 6,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "."
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "q",
+            "z",
+            ","
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-one",
+            "empty-cell-two",
+            "empty-cell-three",
+            "empty-cell-four"
+          ]
+        ]
+      },
+      "id": "frequency-layout-using-Q-with-commands",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 6,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "empty-cell-one"
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "q",
+            "z",
+            "empty-cell-two"
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-three",
+            "empty-cell-four",
+            "empty-cell-five",
+            "empty-cell-six"
+          ]
+        ]
+      },
+      "id": "frequency-layout-using-Q-without-commands",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 8,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "."
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "q",
+            "z",
+            ","
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-one",
+            "empty-cell-two",
+            "empty-cell-three",
+            "empty-cell-four"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8",
+            "9",
+            "0",
+            "empty-cell-five",
+            "empty-cell-six"
+          ]
+        ]
+      },
+      "id": "frequency-layout-using-Q-with-commands-and-numbers",
+      "orientation": "landscape"
+    },
+    {
+      "grid": {
+        "rows": 8,
+        "columns": 6,
+        "order": [
+          [
+            "space",
+            "e",
+            "a",
+            "r",
+            "d",
+            "u"
+          ],
+          [
+            "t",
+            "o",
+            "i",
+            "l",
+            "g",
+            "v"
+          ],
+          [
+            "n",
+            "s",
+            "f",
+            "y",
+            "x",
+            "?"
+          ],
+          [
+            "h",
+            "c",
+            "p",
+            "k",
+            "j",
+            "empty-cell-one"
+          ],
+          [
+            "m",
+            "b",
+            "w",
+            "q",
+            "z",
+            "empty-cell-two"
+          ],
+          [
+            "delete",
+            "start-again",
+            "empty-cell-three",
+            "empty-cell-four",
+            "empty-cell-five",
+            "empty-cell-six"
+          ],
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "7",
+            "8",
+            "9",
+            "0",
+            "empty-cell-seven",
+            "empty-cell-eight"
+          ]
+        ]
+      },
+      "id": "frequency-layout-using-Q-without-commands-and-with-numbers",
+      "orientation": "landscape"
+    }
+  ],
+  "images": []
+}

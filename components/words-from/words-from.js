@@ -14,7 +14,7 @@ export const WordsFrom = ({ shortTitle, quote, featuredImage, slug }) => {
       <div className={styles.lowerContainer}>
         <div className={styles.imageContainer}>
           <Image
-            src={featuredImage.src}
+            src={featuredImage?.src || "/placeholder-image.jpg"}
             alt={`Image of ${shortTitle}`}
             layout="fill"
             objectFit="cover"

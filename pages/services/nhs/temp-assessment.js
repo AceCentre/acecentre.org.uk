@@ -127,7 +127,7 @@ export default function NHSLanding() {
               <Link href="/nhs-service-finder">NHS Service Finder</Link> to see
               if Ace Centre is the Specialised AAC Service for your area.
             </p>
-            <h2>What we do as an NHSE Specialised AAC Service:</h2>
+            <h3>What we do as an NHSE Specialised AAC Service:</h3>
             <ul>
               <li>
                 Specialised AAC assessment, prescription and set up of AAC
@@ -189,7 +189,7 @@ export default function NHSLanding() {
               with the person being referred and be prepared to support that
               person through the NHSE Specialised AAC Service assessment.
             </p>
-            <h2>How do I refer?</h2>
+            <strong>How do I refer?</strong>
             <p>Steps for submitting a referral:</p>
             <ol>
               <li>

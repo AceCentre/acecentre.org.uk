@@ -44,7 +44,7 @@ export const StoryHighlight = ({
           <div className={styles.nextImageContainer}>
             <Image
               alt={`An image of: ${title}`}
-              src={featuredImage.src}
+              src={featuredImage?.src || '/placeholder-image.jpg'}
               layout="fill"
               objectFit="cover"
               objectPosition="top"
@@ -65,6 +65,9 @@ export const StoryHighlight = ({
 };
 
 const makeBold = (item, keyword) => {
+  if (!item || !keyword) {
+    return item || '';
+  }
   var re = new RegExp(keyword, "g");
   return item.replace(re, "<strong>" + keyword + "</strong>");
 };

@@ -4,6 +4,9 @@ import styles from "./latest-from-blog.module.css";
 import { ImageWithLoader as Image } from "../image";
 
 export const usePostsWithoutImageCounters = (posts) => {
+  if (!posts || !Array.isArray(posts)) {
+    return [];
+  }
   let imageCounter = 1;
   const postsWithoutImageCounters = posts.map((post) => {
     if (post.featuredImage) {

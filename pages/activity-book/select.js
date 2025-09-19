@@ -10,9 +10,9 @@ import config from "../../lib/config";
 export default function GuideSelect() {
   const [guides, setGuides] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
-  const [gears, setGears] = useState([]);
+  const [switchImages, setSwitchImages] = useState([]);
   const [selectedSubcategory, setSelectedSubcategory] = useState("");
-  const [selectedGear, setSelectedGear] = useState("");
+  const [selectedSwitchImage, setSelectedSwitchImage] = useState("");
   const [filteredGuides, setFilteredGuides] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedGuides, setSelectedGuides] = useState(new Set());
@@ -28,23 +28,23 @@ export default function GuideSelect() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [guidesRes, subcategoriesRes, gearsRes] = await Promise.all([
+        const [guidesRes, subcategoriesRes, switchesRes] = await Promise.all([
           fetch(`${config.launchpadUrl}/api/activity-book`),
           fetch(`${config.launchpadUrl}/api/activity-book/subcategories`),
-          fetch(`${config.launchpadUrl}/api/activity-book/gears`),
+          fetch(`${config.launchpadUrl}/api/activity-book/switches`),
         ]);
 
         const guidesData = await guidesRes.json();
         const subcategoriesData = await subcategoriesRes.json();
-        const gearsData = await gearsRes.json();
+        const switchesData = await switchesRes.json();
 
         console.log("Fetched guides:", guidesData);
         console.log("Fetched subcategories:", subcategoriesData);
-        console.log("Fetched gears:", gearsData);
+        console.log("Fetched switch images:", switchesData);
 
         setGuides(guidesData);
         setSubcategories(subcategoriesData);
-        setGears(gearsData);
+        setSwitchImages(switchesData);
         setFilteredGuides(guidesData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -69,26 +69,20 @@ export default function GuideSelect() {
       );
     }
 
-    if (selectedGear) {
-      filtered = filtered.filter(
-        (guide) => guide.gear === parseInt(selectedGear)
-      );
-    }
-
     setFilteredGuides(filtered);
-  }, [guides, selectedSubcategory, selectedGear]);
+  }, [guides, selectedSubcategory]);
 
   const handleSubcategoryChange = (e) => {
     setSelectedSubcategory(e.target.value);
   };
 
-  const handleGearChange = (e) => {
-    setSelectedGear(e.target.value);
+  const handleSwitchImageChange = (e) => {
+    setSelectedSwitchImage(e.target.value);
   };
 
   const clearFilters = () => {
     setSelectedSubcategory("");
-    setSelectedGear("");
+    setSelectedSwitchImage("");
   };
 
   const handleGuideSelection = (guideId) => {
@@ -175,6 +169,7 @@ export default function GuideSelect() {
         userName: userName || "User",
         userPhotoPath: photoPaths.userPhotoPath,
         devicePhotoPath: photoPaths.devicePhotoPath,
+        selectedSwitchImage: selectedSwitchImage || null,
       };
 
       console.log("Sending to bulk download:", requestBody);
@@ -287,7 +282,7 @@ export default function GuideSelect() {
             <h1>Activity Book</h1>
             <p>
               Use the filters below to find guides that match your needs. Select
-              a subcategory and gear to see relevant guides.
+              a subcategory to see relevant guides.
             </p>
           </div>
 
@@ -310,17 +305,17 @@ export default function GuideSelect() {
             </div>
 
             <div className={styles.filterGroup}>
-              <label htmlFor="gear">Gear:</label>
+              <label htmlFor="switchImage">Switch Image:</label>
               <select
-                id="gear"
-                value={selectedGear}
-                onChange={handleGearChange}
+                id="switchImage"
+                value={selectedSwitchImage}
+                onChange={handleSwitchImageChange}
                 className={styles.select}
               >
-                <option value="">All Gears</option>
-                {gears.map((gear) => (
-                  <option key={gear} value={gear}>
-                    {gear}
+                <option value="">Default Images</option>
+                {switchImages.map((switchImage) => (
+                  <option key={switchImage.filename} value={switchImage.path}>
+                    {switchImage.displayName}
                   </option>
                 ))}
               </select>
@@ -359,7 +354,9 @@ export default function GuideSelect() {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="userPhoto">Your Photo (Optional):</label>
+                  <label htmlFor="userPhoto">
+                    1 Switch Setup Photo (Optional):
+                  </label>
                   <input
                     type="file"
                     id="userPhoto"
@@ -376,7 +373,7 @@ export default function GuideSelect() {
 
                 <div className={styles.formGroup}>
                   <label htmlFor="devicePhoto">
-                    Your Device Photo (Optional):
+                    2 Switch Setup Photo (Optional):
                   </label>
                   <input
                     type="file"
