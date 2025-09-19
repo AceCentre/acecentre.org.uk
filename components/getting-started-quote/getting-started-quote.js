@@ -6,6 +6,11 @@ import Avatar from "@mui/material/Avatar";
 import { Button } from "../../components/button/button";
 
 export const GettingStartedQuote = ({ story, pronoun = "their" }) => {
+  // Don't render if no story or quote data
+  if (!story || !story.quote) {
+    return null;
+  }
+
   return (
     <div className={styles.quote}>
       <Avatar className={styles.avatar}>

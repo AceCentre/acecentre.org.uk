@@ -12,7 +12,7 @@
     "test": "jest --forceExit",
     "dev": "ENV=development next dev",
     "dev:live": "USE_LIVE_DATA=true ENV=development next dev",
-    "build": "node ./scripts/pre-build.js && next build && node ./scripts/post-build.js",
+    "build": "node ./scripts/pre-build.js && node ./scripts/build-with-fallback.js && node ./scripts/post-build.js",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",

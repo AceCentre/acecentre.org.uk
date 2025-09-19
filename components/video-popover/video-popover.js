@@ -9,6 +9,11 @@ import { Suspense } from "react";
 export const VideoPopover = ({ isPopoverOpen, onClose, youtubeUrl, title }) => {
   const videoId = urlToVideoId(youtubeUrl);
 
+  // Don't render if no valid video ID
+  if (!videoId) {
+    return null;
+  }
+
   return (
     <Modal size="6xl" isCentered isOpen={isPopoverOpen} onClose={onClose}>
       <ModalOverlay />
@@ -51,5 +56,13 @@ export const VimeoPopover = ({ isPopoverOpen, onClose, vimeoUrl }) => {
 };
 
 const urlToVideoId = (url) => {
-  return new URL(url).searchParams.get("v");
+  if (!url || url === 'undefined') {
+    return null;
+  }
+  try {
+    return new URL(url).searchParams.get("v");
+  } catch (error) {
+    console.warn("Invalid YouTube URL:", url);
+    return null;
+  }
 };

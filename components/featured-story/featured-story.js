@@ -52,7 +52,7 @@ export const FeaturedStory = ({
           <div className={styles.nextImageContainer}>
             <Image
               alt={`An image of: ${title}`}
-              src={featuredImage.src}
+              src={featuredImage?.src || '/placeholder-image.jpg'}
               layout="fill"
               objectFit="cover"
               objectPosition={objectPosition}

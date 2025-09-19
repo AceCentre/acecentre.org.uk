@@ -44,11 +44,15 @@ export default function Home({ featuredStory, landingPagePosts }) {
 export const getStaticProps = async () => {
   const featuredStory = await getSimpleStoryByIndex(0);
 
-  if (!featuredStory) throw new Error("Could not fetch story for landing page");
+  if (!featuredStory) {
+    console.warn("Could not fetch story for landing page, using fallback");
+  }
 
   const landingPagePosts = await getLandingPagePosts();
 
-  if (!landingPagePosts) throw new Error("Could not fetch landing page posts");
+  if (!landingPagePosts) {
+    console.warn("Could not fetch landing page posts, using fallback");
+  }
 
   return {
     revalidate: 60,
