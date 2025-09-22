@@ -183,7 +183,7 @@ const ListItem = ({ children }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const blogPosts = (await getAllPostCards()).filter(
     (x) => x.mainCategoryName == "AT Scholar"
   );
