@@ -575,7 +575,12 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
                   : () => {
                       const link = document.createElement("a");
                       link.download = true;
-                      link.href = `${config.baseUrl}${resource.downloadUrl}`;
+                      const absoluteUrl =
+                        typeof resource.downloadUrl === "string" &&
+                        resource.downloadUrl.startsWith("http")
+                          ? resource.downloadUrl
+                          : `${config.baseUrl}${resource.downloadUrl}`;
+                      link.href = absoluteUrl;
                       link.click();
                       localStorage.setItem(
                         `${storageKey}-${resource.slug}`,
@@ -780,7 +785,12 @@ const SingleDownloadableProduct = ({ resource, posthog, posthogLoaded }) => {
 
     const link = document.createElement("a");
     link.download = true;
-    link.href = `${config.baseUrl}${resource.downloadUrl}`;
+    const absoluteUrl =
+      typeof resource.downloadUrl === "string" &&
+      resource.downloadUrl.startsWith("http")
+        ? resource.downloadUrl
+        : `${config.baseUrl}${resource.downloadUrl}`;
+    link.href = absoluteUrl;
     link.click();
   };
 
