@@ -52,3 +52,7 @@ yarn-error.log*
 
 # Sentry Config File
 .sentryclirc
+
+# Cookie files (contain sensitive authentication data)
+cookies.txt
+*.cookies
