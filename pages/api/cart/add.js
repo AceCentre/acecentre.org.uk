@@ -3,7 +3,13 @@ import { addToCart } from "../../../lib/cart/add";
 import { getCart } from "../../../lib/cart/get";
 
 async function handler(req, res) {
-  const body = JSON.parse(req.body);
+  let body;
+  if (typeof req.body === "string") {
+    body = JSON.parse(req.body);
+  } else {
+    body = req.body;
+  }
+
   const productId = body.productId;
   const variationId = body.variationId || null;
   const quantity = body.quantity || 1;
@@ -30,9 +36,13 @@ async function handler(req, res) {
     const result = await addToCart(req, { productId, variationId, quantity });
     res.send({ success: true, result });
   } catch (error) {
-    console.log(error);
-    res.send({ success: false });
-    throw error;
+    const message =
+      error?.response?.errors?.[0]?.message ||
+      error?.message ||
+      "Unknown error";
+    // Log full error for server diagnostics
+    console.log("Add to cart error:", message, error?.response?.errors);
+    return res.status(200).send({ success: false, error: message });
   }
 }
 

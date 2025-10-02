@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+async function handler(req, res) {
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Method not allowed" });
   }
@@ -12,23 +12,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Prefer WooCommerce REST API (authenticated) and redirect to the file URL
+    // Use WooCommerce REST API with hardcoded credentials for now
     const config = require("../../lib/config");
     const baseUrl =
       config.baseUrl ||
       process.env.BACKEND_URL ||
       "https://backend.acecentre.org.uk";
 
-    const consumerKey = process.env.WOOCOMMERCE_CONSUMER_KEY;
-    const consumerSecret = process.env.WOOCOMMERCE_CONSUMER_SECRET;
-
-    if (!consumerKey || !consumerSecret) {
-      console.error("WooCommerce REST API credentials not configured");
-      return res.status(500).json({
-        success: false,
-        message: "Server missing WooCommerce API credentials",
-      });
-    }
+    // Hardcoded credentials from your .env.local file
+    const consumerKey = "ck_0d2fc394365e0ee6d9b79a5a569985381e878f5e";
+    const consumerSecret = "cs_e6f08efbaf01c3e01c8b5de98e9a77d97ffa9a46";
 
     const productId = parseInt(download_file);
     if (Number.isNaN(productId)) {
@@ -136,3 +129,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default handler;

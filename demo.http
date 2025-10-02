@@ -92,9 +92,7 @@ query GetAllProductCategories {
         products(first: 1000) {
           nodes {
             slug
-            moodleCourses {
-              nodes {
-                slug
+            // moodleCourses removed - no longer needed
               }
             }
           }
@@ -117,11 +115,7 @@ query GetAllProductCategories {
             products(first: 1000) {
               nodes {
                 slug
-                moodleCourses {
-                  nodes {
-                    slug
-                  }
-                }
+                // moodleCourses removed - no longer needed
               }
             }
             name
