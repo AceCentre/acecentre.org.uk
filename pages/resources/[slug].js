@@ -176,8 +176,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const attachedResources = currentResource.attachedResources.map(
     (product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
-      featuredImage: product.image,
+      mainCategoryName: product.mainCategoryName,
+      featuredImage: product.featuredImage || product.image,
       ...product,
     })
   );
