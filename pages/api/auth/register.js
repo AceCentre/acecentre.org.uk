@@ -19,7 +19,7 @@ const REGISTER_MUTATION = gql`
 
 async function handler(req, res) {
   // get user from database then
-  const body = JSON.parse(req.body);
+  const body = req.body;
   const email = body.email;
   const password = body.password;
 
@@ -93,6 +93,10 @@ const normaliseError = (errorMessage) => {
       "An account is already registered with your email address"
     )
   ) {
+    return "This email is already in use";
+  }
+
+  if (errorMessage.includes("An account is already registered with")) {
     return "This email is already in use";
   }
 

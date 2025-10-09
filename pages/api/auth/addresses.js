@@ -23,7 +23,12 @@ const UPDATE_SHIPPING = gql`
 `;
 
 async function handler(req, res) {
-  const body = JSON.parse(req.body);
+  let body;
+  if (typeof req.body === "string") {
+    body = JSON.parse(req.body);
+  } else {
+    body = req.body;
+  }
   const addressType = body.addressType;
   const user = req.session.get("user");
 

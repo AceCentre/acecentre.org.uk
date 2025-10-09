@@ -13,7 +13,12 @@ const APPLY_COUPON = gql`
 `;
 
 async function handler(req, res) {
-  const body = JSON.parse(req.body);
+  let body;
+  if (typeof req.body === "string") {
+    body = JSON.parse(req.body);
+  } else {
+    body = req.body;
+  }
   const currentCoupon = body.currentCoupon || "";
 
   try {

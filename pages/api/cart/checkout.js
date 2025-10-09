@@ -7,7 +7,13 @@ import fetch from "node-fetch";
 async function handler(req, res) {
   console.log("-------");
   console.log("Checkout began");
-  const body = JSON.parse(req.body);
+  
+  let body;
+  if (typeof req.body === "string") {
+    body = JSON.parse(req.body);
+  } else {
+    body = req.body;
+  }
 
   let startTime = Date.now();
   let endTime = Date.now();

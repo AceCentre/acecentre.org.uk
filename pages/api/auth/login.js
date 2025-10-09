@@ -23,7 +23,12 @@ export const LOGIN_MUTATION = gql`
 
 async function handler(req, res) {
   // get user from database then
-  const body = JSON.parse(req.body);
+  let body;
+  if (typeof req.body === "string") {
+    body = JSON.parse(req.body);
+  } else {
+    body = req.body;
+  }
   const username = body.username;
   const password = body.password;
 
