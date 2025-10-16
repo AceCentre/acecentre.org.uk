@@ -100,9 +100,12 @@ export async function getStaticPaths() {
       .map((post) => ({ params: { post: post.slug } }))
       .filter(
         (x) =>
-          !["comm-works", "comm-works-2025", "comm-works-2024"].includes(
-            x.params.post
-          )
+          ![
+            "comm-works",
+            "comm-works-2025",
+            "comm-works-2024",
+            "comm-works-2026",
+          ].includes(x.params.post)
       ),
     fallback: true,
   };
