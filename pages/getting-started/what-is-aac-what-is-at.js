@@ -71,7 +71,7 @@ export default function GettingStartedLanding({ story, resources }) {
         </div>
         <ResourceList
           title="Resources to get started"
-          viewAllLink="/resources/all?category=getting-started"
+          viewAllLink="/resources/all?category=made-by-ace&subcategory=getting-started"
           products={resources}
         />
         <GenericFaqs faqs={FAQS} />
@@ -180,7 +180,8 @@ export const getStaticProps = async () => {
     {
       page: 0,
       productsPerPage: 1000,
-      category: "getting-started",
+      category: "made-by-ace",
+      subcategory: "getting-started",
     }
   );
 

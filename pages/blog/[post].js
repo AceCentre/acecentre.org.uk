@@ -98,8 +98,13 @@ export async function getStaticPaths() {
   return {
     paths: allPosts
       .map((post) => ({ params: { post: post.slug } }))
-      .filter((x) => !["comm-works", "comm-works-2025", "comm-works-2024"].includes(x.params.post)), 
-    fallback: true, 
+      .filter(
+        (x) =>
+          !["comm-works", "comm-works-2025", "comm-works-2024"].includes(
+            x.params.post
+          )
+      ),
+    fallback: true,
   };
 }
 
@@ -133,6 +138,14 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     return {
       redirect: {
         destination: "/communication-works-2023",
+        permanent: true,
+      },
+    };
+  }
+  if (postSlug === "comm-works-2026") {
+    return {
+      redirect: {
+        destination: "/communication-works-2026",
         permanent: true,
       },
     };
