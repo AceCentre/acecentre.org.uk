@@ -22,6 +22,9 @@ import { CardHighlight } from "../../../components/project-highlight/project-hig
 // import { Card } from "../../../components/contact-cards/contact-cards";
 // import contactCardStyles from "../../../components/contact-cards/contact-cards.module.css" ;
 import { GenericFaqs } from "../../../components/getting-started-faqs/getting-started-faqs";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import { CONTACT_FORM, FormModal } from "../../../components/ms-form";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 
 const SUPPORT = [
@@ -31,11 +34,7 @@ const SUPPORT = [
       <>
         <p>
           Your local team will support you with using the AAC device provided by
-          Ace Centre. There is information on the{" "}
-          <Link href="/technical-support">
-            Ace Centre Technical Support page
-          </Link>{" "}
-          that can help.
+          Ace Centre.
         </p>
 
         <p>Please contact your local team if you need support with:</p>
@@ -81,11 +80,10 @@ const UPDATE_DEVICE = [
           <li>
             Your AAC device is no longer meeting your communication needs.
           </li>
-          <li>Your AAC device is nearing the end of life.</li>
+          <li>Your AAC device is old and no longer working properly.</li>
           <li>
-            If you are a long term AAC user and the use of your AAC device has
-            significantly changed following a change in your home and support
-            situation.
+            The use of your AAC device has significantly changed following a
+            change in your home and support situation.
           </li>
         </ul>
 
@@ -101,9 +99,9 @@ const UPDATE_DEVICE = [
         </p>
 
         <p>
-          If you do not currently have a local team supporting you with your
-          communication but feel you need a change or update to your AAC device,
-          you and your care team can contact Ace Centre team to discuss this by:
+          You may feel that you need a change or update to your AAC device but
+          do not currently have a local team supporting you. You and your care
+          team can contact Ace Centre to discuss this by:
         </p>
         <ul>
           <li>Phone call: 0800 080 3115 option 3</li>
@@ -308,54 +306,63 @@ export default function NHSLanding() {
 
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <SupportAgentIcon className={styles.icon} />
+                <EmailIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
-                <br />
-                <strong>Tech Support</strong>
-                <br /> Contact Ace Centre Technical Support
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button
-                    className={styles.downloadFormButton}
-                    href="/technical-support"
-                  >
-                    Get technical support
-                  </Button>
-                </div>
-              </div>
-            </div>
-            {/* <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <p>
-                  <strong>Easy Read Doc</strong>
-                </p>
-                <p>coming soon</p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button className={styles.downloadFormButton} href="#">
-                    Download form
-                  </Button>
-                </div>
+                <strong>Get in touch</strong>
+                Send an email and we&apos;ll be in touch as soon as possible.
+                <FormModal form={CONTACT_FORM}>
+                  {({ onClick }) => (
+                    <div className={styles.downloadFormButtonContainer}>
+                      <Button
+                        className={styles.downloadFormButton}
+                        onClick={onClick}
+                      >
+                        Contact form
+                      </Button>
+                    </div>
+                  )}
+                </FormModal>
               </div>
             </div>
             <div className={styles.quote}>
               <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
+                <PhoneIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
-                <p>
-                  <strong>LOTE Docs</strong>
-                </p>
-                <p>coming soon</p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button className={styles.downloadFormButton} href="#">
-                    Download form
-                  </Button>
+                <strong>Give us a call</strong>
+                Call our technical team for support:
+                <span>
+                  <strong>0800 080 3115</strong> <i>option 1</i>
+                </span>
+                9AM - 5PM, Monday – Friday
+              </div>
+            </div>
+
+            <div className={styles.quote}>
+              <div className={styles.quote}>
+                <Avatar className={styles.avatar}>
+                  <SupportAgentIcon className={styles.icon} />
+                </Avatar>
+                <div className={styles.quoteText}>
+                  <p>
+                    <strong>Remote support</strong>
+                  </p>
+                  <p>
+                    Download this app when remote support from the Ace Centre is
+                    needed
+                  </p>
+                  <div className={styles.downloadFormButtonContainer}>
+                    <Button
+                      className={styles.downloadFormButton}
+                      href="https://get.teamviewer.com/ace_centre"
+                    >
+                      Download
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
         <div style={{ width: "100%", maxWidth: "400px", margin: "1rem auto" }}>

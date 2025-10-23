@@ -117,15 +117,21 @@ export default function NHSLanding() {
               (NHSE) to carry out Augmentative and Alternative Communication
               (AAC) Assessments across the North West and Thames Valley and
               Wessex regions. These services are for children and adults who
-              need AAC and meet the{" "}
-              <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
-                NHSE eligibility criteria.
-              </Link>
+              need AAC and meet the NHSE eligibility criteria.
+            </p>
+            <p>
+              The primary aim of referrals to a specialised AAC service must be
+              related to a significant difficulty communicating through speech.
+              Should your client need environmental controls and/or computer
+              access, including email, messaging, or phone access, you are
+              advised to refer your client to your regional Environmental
+              Control Service.
             </p>
             <p>
               You can check the{" "}
-              <Link href="/nhs-service-finder">NHS Service Finder</Link> to see
-              if Ace Centre is the Specialised AAC Service for your area.
+              <Link href="/nhs-service-finder">NHS Service Finder</Link> to find
+              the Specialised AAC Service and Environmental Control Service in
+              your area.
             </p>
             <h3>What we do as an NHSE Specialised AAC Service:</h3>
             <ul>
@@ -142,11 +148,14 @@ export default function NHSLanding() {
             {/* <AssessmentEligibility nhs /> */}
             <h2>Who is eligible for an NHSE Specialised AAC Assessment?</h2>
             <p>
-              Please refer to the{" "}
-              <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
+              Please refer to the decision chart and guidance document prior to
+              making a referral to this service. This decision chart (below) and
+              the{" "}
+              <Link href="/docs/Eligibility-Guidance-July-2025-final.pdf">
                 Eligibility Criteria guidance document
               </Link>{" "}
-              for full eligibility information.{" "}
+              are designed to support the decision-making process regarding
+              eligibility.{" "}
             </p>
             <p>
               To be eligible for the NHSE Specialised AAC Services, a person
@@ -156,12 +165,18 @@ export default function NHSLanding() {
               <li>be a resident in England </li>
               <li>be registered with a GP practice in England </li>
               <li>
-                meet the eligibility criteria. Please refer to the{" "}
-                <Link href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf">
-                  Eligibility Criteria guidance document
-                </Link>{" "}
-                and Decision Chart (below) prior to making a referral to the
-                service.{" "}
+                have a severe/complex communication difficulty associated with a
+                range of physical, cognitive, learning, or sensory deficits
+              </li>
+              <li>
+                have a clear discrepancy between their level of understanding
+                and their ability to speak
+              </li>
+              <li>be able to understand the purpose of a communication aid</li>
+              <li>have developed beyond cause and effect understanding</li>
+              <li>
+                have experience in using low-tech AAC that is insufficient to
+                enable them to realise their communicative potential
               </li>
             </ul>
             <Link
@@ -180,9 +195,9 @@ export default function NHSLanding() {
             <h2>Who can refer?</h2>
             <p>
               Referrals are can be made by health, education and social care
-              professionals employed and/or funded employed by a statutory body
-              or local team. We are unable to accept referrals from individuals,
-              family members or independent therapists.
+              professionals employed and/or funded by a statutory body or local
+              team. We are unable to accept referrals from individuals, family
+              members or independent therapists.
             </p>
             <p>
               The referrer should have prior and regular ongoing involvement
@@ -195,7 +210,7 @@ export default function NHSLanding() {
               <li>
                 Download and read the{" "}
                 <Link
-                  href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf"
+                  href="/docs/Eligibility-Guidance-July-2025-final.pdf"
                   style={{ textDecoration: "underline" }}
                 >
                   Eligibility Guidance Document
@@ -256,10 +271,18 @@ export default function NHSLanding() {
               <strong>
                 All referrals will be acknowledged within ten days of receipt.
               </strong>{" "}
-              Responses will state whether the referral has been accepted or
-              delayed due to the referral having insufficient evidence of the
+              Responses will state whether the referral has been accepted or not
+              accepted due to the referral having insufficient evidence of the
               individual meeting eligibility criteria for the NHSE Specialised
               AAC Service.
+            </p>
+            <p>
+              Please note that should your client’s referral be accepted for a
+              specialised assessment, this does not guarantee that AAC equipment
+              will be provided. At the point of assessment, in the event of your
+              client being assessed as not meeting eligibility for the NHSE
+              Specialised AAC Service, the Service Delivery Team will offer you
+              guidance on how you can seek alternative funding routes.
             </p>
             <p>
               <strong>
@@ -275,6 +298,17 @@ export default function NHSLanding() {
             <p>
               Please note that the date offered will depend on{" "}
               <strong>NHSE Prioritisation criteria.</strong>
+            </p>
+            <p>
+              <strong>
+                If you have received a letter stating your referral has not been
+                accepted
+              </strong>{" "}
+              this will include information about why the referral has not been
+              accepted and provide guidance on how, as a local service, you can
+              support your client in developing their use of AAC. The letter
+              will also advise how you can speak with a member of the screening
+              team should you wish to discuss this further.
             </p>
             <div className="assessment-faqs-override">
               <GenericFaqs faqs={PRIORITISATION_CRITERIA} />
@@ -337,13 +371,6 @@ export default function NHSLanding() {
                 using different access methods.{" "}
               </li>
             </ul>
-            <p>
-              Through the LAACES program Ace Centre can also assist local teams
-              with the evidencing of AAC need at a local level.{" "}
-              <Link href="/services/nhs/laaces">
-                Please go to the LAACES section of our website to learn more.
-              </Link>
-            </p>
           </div>
           <div>
             {/* <div className={styles.serviceProvidedByContainer}>
@@ -400,13 +427,16 @@ export default function NHSLanding() {
               </Avatar>
               <div className={styles.quoteText}>
                 <p>
-                  <strong>Eligibility Criteria</strong>
+                  <strong>Guidance Document</strong>
                 </p>
-                <p>Eligibility Criteria for NHSE Specialised AAC Services</p>
+                <p>
+                  Use this Eligibility Criteria guidance document to support
+                  making a referral{" "}
+                </p>
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
-                    href="/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf"
+                    href="https://acecentreuk.sharepoint.com/:b:/s/files/EX8q5mI6DZ1FlBYRTcresW4BXzz1Geu8TH1_wPgjOZD3og?e=XEQu9h"
                   >
                     Download form
                   </Button>
@@ -432,7 +462,7 @@ export default function NHSLanding() {
                 </div>
               </div>
             </div>
-            <div className={styles.quote}>
+            {/* <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <ListAltIcon className={styles.icon} />
               </Avatar>
@@ -450,7 +480,7 @@ export default function NHSLanding() {
                   </Button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* <InformationDays nhs /> */}

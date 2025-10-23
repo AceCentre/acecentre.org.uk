@@ -43,7 +43,7 @@ const LANGUAGE_FAQS = [
           with you during your assessment.
         </p>
         <p>
-          We will work with you and with a interpreter to provide some initial
+          We will work with you and with a translator to provide some initial
           resources in all the languages you use.
         </p>
         <p>
@@ -111,7 +111,8 @@ export default function NHSLanding() {
             <h2>Who should be involved?</h2>
             <p>
               Ace Centre will support you and your team. This means anyone who
-              helps you with your communication can be involved.
+              helps you with your communication can be involved, such as your
+              carer or teacher.
             </p>
             <p>
               The Ace Centre team will include AAC Consultants who could be
@@ -119,7 +120,7 @@ export default function NHSLanding() {
               Assistant Practitioner will be there too.
             </p>
             <p>
-              A interpreter will join the assessment if you speak a language
+              An interpreter will join the assessment if you speak a language
               other than English, even if you also speak some English.
             </p>
             <h2>Where will the assessment be? </h2>
@@ -134,7 +135,6 @@ export default function NHSLanding() {
               longer or shorter. This depends on things like whether more than
               one language is involved.
             </p>
-            <p>We can do multiple assessments to keep sessions short.</p>
             <p>
               If you&apos;re getting tired or need to stop, we will listen to
               you. If you know that a certain time of the day is usually easier
@@ -146,7 +146,7 @@ export default function NHSLanding() {
             <p>
               The Ace Centre team, made of 2-3 members of staff, will join you
               and your local team. If you, or anyone on your team, speaks a
-              language other than English a interpreter will also join us for
+              language other than English an interpreter will also join us for
               the whole assessment.
             </p>
             <p>
@@ -172,13 +172,12 @@ export default function NHSLanding() {
             <h2>What happens after the assessment? </h2>
             <p>
               Once we have found something that works for you, we can order it
-              or make it. This usually takes about six weeks but may be longer
-              if bespoke language resources need to be created.
+              or make it.
             </p>
             <p>We will come back to give you the AAC when it is ready.</p>
             <p>
               We will provide training on how to use it, for you and the people
-              who help you. A interpreter will join this appointment if you, or
+              who help you. An interpreter will join this appointment if you, or
               anyone on your team, speaks a language other than English.{" "}
             </p>
             <p>You can ask us any questions about the AAC. </p>
