@@ -46,6 +46,16 @@ export default function GuideSelect() {
         setSubcategories(subcategoriesData);
         setSwitchImages(switchesData);
         setFilteredGuides(guidesData);
+
+        // Set default switch image to bigmack-switch
+        const bigmackSwitch = switchesData.find(
+          (switchImage) =>
+            switchImage.filename.includes("bigmack-switch") ||
+            switchImage.displayName.toLowerCase().includes("bigmack")
+        );
+        if (bigmackSwitch) {
+          setSelectedSwitchImage(bigmackSwitch.path);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
         console.error("Error details:", {
@@ -82,7 +92,15 @@ export default function GuideSelect() {
 
   const clearFilters = () => {
     setSelectedSubcategory("");
-    setSelectedSwitchImage("");
+    // Reset switch image to bigmack-switch default
+    const bigmackSwitch = switchImages.find(
+      (switchImage) =>
+        switchImage.filename.includes("bigmack-switch") ||
+        switchImage.displayName.toLowerCase().includes("bigmack")
+    );
+    if (bigmackSwitch) {
+      setSelectedSwitchImage(bigmackSwitch.path);
+    }
   };
 
   const handleGuideSelection = (guideId) => {
@@ -169,7 +187,7 @@ export default function GuideSelect() {
         userName: userName || "User",
         userPhotoPath: photoPaths.userPhotoPath,
         devicePhotoPath: photoPaths.devicePhotoPath,
-        selectedSwitchImage: selectedSwitchImage || null,
+        selectedSwitchImage: selectedSwitchImage,
       };
 
       console.log("Sending to bulk download:", requestBody);
@@ -312,7 +330,6 @@ export default function GuideSelect() {
                 onChange={handleSwitchImageChange}
                 className={styles.select}
               >
-                <option value="">Default Images</option>
                 {switchImages.map((switchImage) => (
                   <option key={switchImage.filename} value={switchImage.path}>
                     {switchImage.displayName}
