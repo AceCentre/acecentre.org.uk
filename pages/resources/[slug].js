@@ -192,9 +192,18 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   let launchpadTemplate = null;
   if (currentResource.isLaunchpadTemplate) {
-    launchpadTemplate = await getLaunchpadTemplate(
-      currentResource.launchpadSlug
-    );
+    try {
+      const template = await getLaunchpadTemplate(
+        currentResource.launchpadSlug
+      );
+      launchpadTemplate = template || null;
+    } catch (error) {
+      console.error(
+        `Failed to get launchpad template for ${currentResource.slug}:`,
+        error
+      );
+      launchpadTemplate = null;
+    }
   }
 
   return {
