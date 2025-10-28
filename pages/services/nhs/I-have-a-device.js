@@ -91,7 +91,7 @@ const UPDATE_DEVICE = [
           This should be discussed with your local team first. A re-referral
           should be made by a health, social care or education professional.
           More information can be found here on the{" "}
-          <Link href="/services/nhs/temp-assessment">
+          <Link href="/services/nhs/referral-process">
             Understanding the referral process for the NHSE Specialised AAC
             Service
           </Link>{" "}
@@ -221,8 +221,8 @@ export default function NHSLanding() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/device-hero.png"
-          alt="A child laughing"
+          src="/services/I-have-a-device-button.JPG"
+          alt="AAC devices on a shelf"
           nhs
           heightClass={styles.coverHeight}
         >

@@ -21,10 +21,26 @@ export default function NHSLanding() {
 
 const gridItems = [
   {
-    name: "NHS England Assessment",
-    href: "/services/nhs/assessments",
+    name: "Understanding the referral process",
+    href: "/services/nhs/referral-process",
     image: {
-      src: "/services/nhs-assessment.jpg",
+      src: "/services/referral-process.JPG",
+      alt: "A client communicating",
+    },
+  },
+  {
+    name: "What happens at an assessment",
+    href: "/services/nhs/assessment-process",
+    image: {
+      src: "/services/assesments-hero-cover.png",
+      alt: "Ace centre employee showing a client how to use a communication device",
+    },
+  },
+  {
+    name: "I have an Ace Centre device",
+    href: "/services/nhs/I-have-a-device",
+    image: {
+      src: "/services/I-have-a-device-button.JPG",
       alt: "A client communicating",
     },
   },
