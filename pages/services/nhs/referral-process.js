@@ -468,11 +468,9 @@ export default function NHSLanding() {
               </Avatar>
               <div className={styles.quoteText}>
                 <p>
-                  <strong>
-                    Read the NHSE Specialised AAC Service Specifications{" "}
-                  </strong>
+                  <strong>Service Specification </strong>
                 </p>
-                <p>Service Specifications</p>
+                <p>Read the NHSE Specialised AAC Service Specifications</p>
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
