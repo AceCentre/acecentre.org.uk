@@ -95,7 +95,7 @@ export default function NHSLanding() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/referal-process-cover.png"
+          src="https://acecentre.org.uk/services/referal-process-cover.png?v=2"
           alt="looking at a communication book"
           nhs
           heightClass={styles.coverHeight}
@@ -472,7 +472,7 @@ export default function NHSLanding() {
                     Read the NHSE Specialised AAC Service Specifications{" "}
                   </strong>
                 </p>
-                <p>NHSE Specialised AAC Service Specifications and Guidance</p>
+                <p>Service Specifications</p>
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}

@@ -221,7 +221,7 @@ export default function NHSLanding() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/I-have-a-device-cover.png"
+          src="/services/I-have-a-device-cover.png?v=2"
           alt="AAC devices on a shelf"
           nhs
           heightClass={styles.coverHeight}

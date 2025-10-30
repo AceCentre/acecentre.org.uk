@@ -24,7 +24,7 @@ const gridItems = [
     name: "Understanding the referral process",
     href: "/services/nhs/referral-process",
     image: {
-      src: "/services/referal-process-cover.png",
+      src: "https://acecentre.org.uk/services/referal-process-cover.png?v=2",
       alt: "A client communicating",
     },
   },
@@ -40,7 +40,7 @@ const gridItems = [
     name: "I have an Ace Centre device",
     href: "/services/nhs/I-have-a-device",
     image: {
-      src: "/services/I-have-a-device-cover.png",
+      src: "https://acecentre.org.uk/services/I-have-a-device-cover.png?v=2",
       alt: "A client communicating",
     },
   },
