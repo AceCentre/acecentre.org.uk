@@ -95,7 +95,7 @@ export default function NHSLanding() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="https://acecentre.org.uk/services/referal-process-cover.png?v=2"
+          src="/services/referral-process-cover-3.jpeg"
           alt="looking at a communication book"
           nhs
           heightClass={styles.coverHeight}
