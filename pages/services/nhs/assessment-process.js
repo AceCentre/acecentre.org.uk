@@ -237,42 +237,6 @@ export default function NHSLanding() {
                 </p>
               </div>
             </div>
-            {/* <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <p>
-                  <strong>Easy Read Doc</strong>
-                </p>
-                <p>
-                  <em>coming soon</em>
-                </p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button className={styles.downloadFormButton} href="#">
-                    Download form
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className={styles.quote}>
-              <Avatar className={styles.avatar}>
-                <ListAltIcon className={styles.icon} />
-              </Avatar>
-              <div className={styles.quoteText}>
-                <p>
-                  <strong>LOTE Docs</strong>
-                </p>
-                <p>
-                  <em>coming soon</em>
-                </p>
-                <div className={styles.downloadFormButtonContainer}>
-                  <Button className={styles.downloadFormButton} href="#">
-                    Download form
-                  </Button>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
         {/* <InformationDays nhs /> */}

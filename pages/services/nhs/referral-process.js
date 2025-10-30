@@ -95,8 +95,8 @@ export default function NHSLanding() {
       </header>
       <main id="mainContent">
         <VideoWithCardCover
-          src="/services/referal-process1.jpg"
-          alt="Employee with a child using a communication book"
+          src="/services/referal-process-cover.png"
+          alt="looking at a communication book"
           nhs
           heightClass={styles.coverHeight}
         >
@@ -192,9 +192,10 @@ export default function NHSLanding() {
                 alt="Decision Chart"
               />
             </Link>
+            click image to enlarge
             <h2>Who can refer?</h2>
             <p>
-              Referrals are can be made by health, education and social care
+              Referrals can be made by health, education and social care
               professionals employed and/or funded by a statutory body or local
               team. We are unable to accept referrals from individuals, family
               members or independent therapists.
@@ -262,7 +263,6 @@ export default function NHSLanding() {
                 </ul>
               </li>
             </ol>
-
             <div className="assessment-faqs-override">
               <GenericFaqs faqs={EVIDENCE_CONSIDERATION} />
             </div>
@@ -416,7 +416,7 @@ export default function NHSLanding() {
                     className={styles.downloadFormButton}
                     href="/refferal-decision-flow-chart.png"
                   >
-                    Download form
+                    Download
                   </Button>
                 </div>
               </div>
@@ -436,9 +436,9 @@ export default function NHSLanding() {
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://acecentreuk.sharepoint.com/:b:/s/files/EX8q5mI6DZ1FlBYRTcresW4BXzz1Geu8TH1_wPgjOZD3og?e=XEQu9h"
+                    href="/docs/Eligibility-Guidance-July-2025-final.pdf"
                   >
-                    Download form
+                    Download
                   </Button>
                 </div>
               </div>
@@ -462,13 +462,15 @@ export default function NHSLanding() {
                 </div>
               </div>
             </div>
-            {/* <div className={styles.quote}>
+            <div className={styles.quote}>
               <Avatar className={styles.avatar}>
                 <ListAltIcon className={styles.icon} />
               </Avatar>
               <div className={styles.quoteText}>
                 <p>
-                  <strong>NHSE Specialised AAC Service Specifications </strong>
+                  <strong>
+                    Read the NHSE Specialised AAC Service Specifications{" "}
+                  </strong>
                 </p>
                 <p>NHSE Specialised AAC Service Specifications and Guidance</p>
                 <div className={styles.downloadFormButtonContainer}>
@@ -476,11 +478,11 @@ export default function NHSLanding() {
                     className={styles.downloadFormButton}
                     href="/docs/NHSE-Specialised-AAC-Service-Specifications.pdf"
                   >
-                    Download form
+                    Download
                   </Button>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
         {/* <InformationDays nhs /> */}
