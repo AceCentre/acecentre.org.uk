@@ -65,7 +65,7 @@ export default function EngineeringPage() {
                 provision of equipment and long-term equipment maintenance
                 support.
               </p>
-              <Link href="/services/nhs/assessments" className={styles.link}>
+              <Link href="/services/nhs" className={styles.link}>
                 View service &gt;
               </Link>
             </div>

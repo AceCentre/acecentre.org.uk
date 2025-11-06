@@ -57,8 +57,8 @@ export default function EngineeringPage({ featuredStory }) {
             </p>
             <h2>Why Choose Our Mentoring Service?</h2>
             <p>
-              Clinical supervision is essential for professional growth and
-              excellence. Here&apos;s why our service stands out:
+              Mentoring is essential for professional growth and excellence.
+              Here&apos;s why our service stands out:
             </p>
             <ul className={styles.list}>
               <ListItem>

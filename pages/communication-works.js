@@ -18,7 +18,11 @@ export default function CommunicationWorks({ page }) {
   return (
     <>
       <Head>
-        <script defer data-domain="scecentre.org.uk/communication-works-2025" src="https://stats.scecentre.org.uk/js/script.js"></script>
+        <script
+          defer
+          data-domain="scecentre.org.uk/communication-works-2025"
+          src="https://stats.scecentre.org.uk/js/script.js"
+        ></script>
       </Head>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />

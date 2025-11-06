@@ -8,7 +8,7 @@ import styles from "../styles/communication-works.module.css";
 
 import { ImageWithLoader } from "../components/image";
 import { MailingList } from "../components/service-finder-mailing-list/service-finder-mailing-list";
-// import Link from "next/link";
+import Link from "next/link";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import EventIcon from "@mui/icons-material/Event";
 import { getPage } from "../lib/generic-pages/get-page";
@@ -46,14 +46,18 @@ export default function CommunicationWorks({ page }) {
               </Avatar>
               <div>
                 <h3>Communication Works NORTH</h3>
-                <p>Date TBC</p>
-                <p>Location TBC</p>
+                <p>Friday 22nd May</p>
+                <p>09:30am - 04:00pm</p>
+                <p>
+                  Oldham Events Centre, Boundary Park Stadium, Hilbre Ave,
+                  Oldham OL2 5BL
+                </p>
 
-                {/* <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-north-tickets-764385857677?aff=oddtdtcreator">
+                <p>
+                  <Link href="https://bit.ly/CW2026North">
                     Register for free here.
                   </Link>
-                </p> */}
+                </p>
               </div>
             </div>
             {page.communicationWorksUrl && (
@@ -92,13 +96,14 @@ export default function CommunicationWorks({ page }) {
               </Avatar>
               <div>
                 <h3>Communication Works SOUTH</h3>
-                <p>Date TBC</p>
-                <p>Location TBC</p>
-                {/* <p>
-                  <Link href="https://www.eventbrite.co.uk/e/communication-works-2024-south-tickets-696507130577?aff=oddtdtcreator">
+                <p>Wednesday 24th June</p>
+                <p>09:15am - 04:00pm</p>
+                <p>Charlton Athletic Football Club, London SE7 8BL</p>
+                <p>
+                  <Link href="https://bit.ly/CW2026_EventBrite">
                     Register for free here.
                   </Link>
-                </p> */}
+                </p>
               </div>
             </div>
           </div>

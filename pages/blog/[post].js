@@ -5,6 +5,7 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import {
   getAllFullPosts,
   getAllPostsForCategory,
+  getPostBySlug,
 } from "../../lib/posts/get-posts";
 import styles from "../../styles/blog-post.module.css";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -154,11 +155,35 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     };
   }
 
-  const allPosts = await getAllFullPosts();
+  // Try to get the post directly by slug first (more reliable)
+  let currentPost = await getPostBySlug(postSlug);
 
-  const currentPost = allPosts.find((post) => post.slug === postSlug);
+  // Fallback to searching all posts if direct query fails
+  if (!currentPost) {
+    const allPosts = await getAllFullPosts();
+    currentPost = allPosts.find((post) => post.slug === postSlug);
 
-  if (!currentPost) return { notFound: true };
+    if (!currentPost) {
+      // Log available slugs for debugging (only in development)
+      if (process.env.NODE_ENV === "development") {
+        console.error(`Post not found with slug: "${postSlug}"`);
+        console.log(
+          "Available post slugs (first 10):",
+          allPosts.slice(0, 10).map((p) => p.slug)
+        );
+        // Check for similar slugs
+        const similarSlugs = allPosts
+          .map((p) => p.slug)
+          .filter((slug) =>
+            slug.toLowerCase().includes(postSlug.toLowerCase().substring(0, 10))
+          );
+        if (similarSlugs.length > 0) {
+          console.log("Similar slugs found:", similarSlugs);
+        }
+      }
+      return { notFound: true };
+    }
+  }
 
   const featuredPosts = (
     await getAllPostsForCategory(currentPost.featuredCategoryName)
