@@ -22,7 +22,7 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/comm-works-2024.png"
+            src="/comm-works-2026.png"
             alt="Communication works banner"
             width={6912}
             height={3456}
