@@ -50,7 +50,7 @@ export default function ResourceDetail({
         </div>
         <div className={styles.descriptionContainer}>
           <p>
-            Developing and Using a Communication Book (DUCB) is a much-loved
+            Deeveloping and Using a Communication Book (DUCB) is a much-loved
             guide. It is used by many carers, parents and professionals who need
             to make and support the use of a communication book for people who
             are preliterate and rely on symbols to support their communication.
@@ -251,7 +251,7 @@ export default function ResourceDetail({
                 >
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-BM6-Templates-2.25.zip"
+                    href="https://backend.acecentre.org.uk/wp-content/uploads/2025/11/DUCB-Templates-Boardmaker-6-Ace-Centre-4.24.zip"
                     download
                   >
                     Boardmaker 6 (PCS)
@@ -263,7 +263,7 @@ export default function ResourceDetail({
                 >
                   <Button
                     className={styles.downloadFormButton}
-                    href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-BM7-Templates-2.25.zip"
+                    href="https://backend.acecentre.org.uk/wp-content/uploads/2025/11/DUCB-Templates-Boardmaker-7-Ace-Centre-2.25.zip"
                     download
                   >
                     Boardmaker 7 (PCS)
@@ -290,6 +290,7 @@ export default function ResourceDetail({
                   <Button
                     className={styles.downloadFormButton}
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-InPrint-3-Templates-2.25.zip"
+                    download
                   >
                     Inprint 3
                   </Button>
