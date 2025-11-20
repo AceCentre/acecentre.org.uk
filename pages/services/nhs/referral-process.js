@@ -180,7 +180,7 @@ export default function NHSLanding() {
               </li>
             </ul>
             <Link
-              href="/refferal-decision-flow-chart.png"
+              href="/referral-decision-flow-chart.png"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -188,7 +188,7 @@ export default function NHSLanding() {
                 height={252}
                 width={290}
                 maxHeight={290}
-                src={"/refferal-decision-flow-chart.png"}
+                src={"/referral-decision-flow-chart.png"}
                 alt="Decision Chart"
               />
             </Link>
@@ -414,7 +414,7 @@ export default function NHSLanding() {
                 <div className={styles.downloadFormButtonContainer}>
                   <Button
                     className={styles.downloadFormButton}
-                    href="/refferal-decision-flow-chart.png"
+                    href="/referral-decision-flow-chart.png"
                   >
                     Download
                   </Button>

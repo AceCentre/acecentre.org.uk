@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.innerContainer.activityBookContainer {
+  padding: 0.5rem 1rem;
+}
+
 .noStyleButton {
   background: none;
   border: none;
@@ -27,6 +31,17 @@
 
 .homeImage {
   flex-grow: 1;
+}
+
+.activityBookLogo {
+  padding: 0;
+  margin: 0;
+}
+
+.activityBookLogo a {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
 .navIcon {

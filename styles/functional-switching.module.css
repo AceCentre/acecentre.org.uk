@@ -1,0 +1,235 @@
+.container {
+  max-width: var(--containerMaxWidth);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #00537f 0%, #0066cc 100%);
+  color: white;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+}
+
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 1rem 0;
+  max-width: 800px;
+}
+
+.intro a {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+.intro a:hover {
+  color: #fff;
+}
+
+.section {
+  margin: 1rem 0;
+  padding: 0.5rem 0;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: #00537f;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.featureList li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.featureList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #0066cc;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.gearSection {
+  margin: 4rem 0;
+  padding: 2.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border-left: 5px solid #0066cc;
+}
+
+.gearHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gearBadge {
+  display: inline-block;
+  background: #0066cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.gearSection h2 {
+  font-size: 1.8rem;
+  color: #00537f;
+  margin: 0;
+  font-weight: 700;
+}
+
+.gearSection p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.faqContainer {
+  margin: 1.5rem 0;
+}
+
+.resourcesList {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.resourcesList li {
+  padding: 0.75rem 0;
+}
+
+.resourcesList a {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1.05rem;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.resourcesList a:hover {
+  background-color: #e8f4f8;
+  text-decoration: underline;
+}
+
+.acknowledgement {
+  margin: 4rem 0;
+  padding: 2rem;
+  background: #f0f7fa;
+  border-radius: 8px;
+  border-top: 3px solid #0066cc;
+}
+
+.acknowledgement h2 {
+  font-size: 1.8rem;
+  color: #00537f;
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+}
+
+.acknowledgement p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.credit {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.credit a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.credit a:hover {
+  color: #00537f;
+}
+
+/** Mobile CSS */
+@media (max-width: 760px) {
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .section {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .gearSection {
+    padding: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .gearHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .gearSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .resourcesList {
+    grid-template-columns: 1fr;
+  }
+
+  .acknowledgement {
+    padding: 1.5rem;
+  }
+}

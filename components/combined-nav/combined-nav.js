@@ -59,6 +59,7 @@ export const CombinedNav = ({
   defaultNavItems,
   nhs = false,
   atScholar = false,
+  activityBook = false,
   nhsTitle,
   noPhoneNumber = false,
 }) => {
@@ -91,15 +92,20 @@ export const CombinedNav = ({
         <Nav
           nhs={nhs}
           atScholar={atScholar}
+          activityBook={activityBook}
           nhsTitle={nhsTitle}
           noPhoneNumber={noPhoneNumber}
         />
-        {!nhs && !atScholar && <SubNav navItems={defaultNavItems} />}
+        {!nhs && !atScholar && !activityBook && (
+          <SubNav navItems={defaultNavItems} />
+        )}
       </div>
       <div
         className={`${styles.mobileContainer} ${
           isDrawerOpen ? styles.noShadow : ""
-        } ${isCypress ? styles.isCypressMobile : ""}`}
+        } ${isCypress ? styles.isCypressMobile : ""} ${
+          activityBook ? styles.activityBookMobile : ""
+        }`}
       >
         {nhs && (
           <Link name="home" href="/">
@@ -123,7 +129,22 @@ export const CombinedNav = ({
             ></Image>
           </Link>
         )}
-        {!nhs && !atScholar && (
+        {activityBook && (
+          <Link
+            name="home"
+            href="/"
+            style={{ padding: 0, margin: 0, display: "block" }}
+          >
+            <Image
+              height={404}
+              width={980}
+              maxHeight={100}
+              src={"/activity-book/activity-book-logo.png"}
+              alt="FUNctional Switching logo"
+            ></Image>
+          </Link>
+        )}
+        {!nhs && !atScholar && !activityBook && (
           <Link name="home" href="/">
             <Image
               height={152}

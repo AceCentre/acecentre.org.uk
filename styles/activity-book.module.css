@@ -19,7 +19,7 @@
 .header p {
   font-size: 1.2rem;
   color: #666;
-  max-width: 600px;
+  max-width: 1100px;
   margin: 0 auto;
   line-height: 1.6;
 }
@@ -233,6 +233,10 @@
   position: relative;
 }
 
+.cardWithTooltip {
+  position: relative;
+}
+
 .checkboxContainer {
   position: relative;
 }
@@ -268,6 +272,53 @@
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  max-width: 400px;
+  min-width: 250px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem 1rem;
+}
+
+.cardWithTooltip:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.tooltipText {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #333;
+  text-align: center;
+  margin: 0;
+}
+
+/* Tooltip arrow */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
 }
 
 .imageContainer {
@@ -356,5 +407,10 @@
 
   .customizationSection {
     padding: 1rem;
+  }
+
+  /* Hide tooltip on mobile for better UX */
+  .tooltip {
+    display: none;
   }
 }

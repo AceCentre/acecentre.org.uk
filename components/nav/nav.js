@@ -15,7 +15,13 @@ import { NewsletterModal } from "../footer/footer";
 import { useRouter } from "next/router";
 import { useAuth } from "../../lib/auth-hook";
 
-export const Nav = ({ nhs, atScholar, nhsTitle, noPhoneNumber = false }) => {
+export const Nav = ({
+  nhs,
+  atScholar,
+  activityBook,
+  nhsTitle,
+  noPhoneNumber = false,
+}) => {
   const [modelOpen, setModelOpen] = useState(false);
   const [newsletterSource, setNewsletterSource] = useState(undefined);
   const [tags, setTags] = useState([]);
@@ -42,10 +48,17 @@ export const Nav = ({ nhs, atScholar, nhsTitle, noPhoneNumber = false }) => {
         tags={tags}
       />
       <FullWidthContainer>
-        <InnerContainer>
-          <HomeButton nhsTitle={nhsTitle} nhs={nhs} atScholar={atScholar} />
+        <InnerContainer
+          className={activityBook ? styles.activityBookContainer : ""}
+        >
+          <HomeButton
+            nhsTitle={nhsTitle}
+            nhs={nhs}
+            atScholar={atScholar}
+            activityBook={activityBook}
+          />
           <NavList>
-            {!nhs && !atScholar && (
+            {!nhs && !atScholar && !activityBook && (
               <>
                 <NavLink href="/blog">Blog</NavLink>
                 <NavLink href="/feedback">Feedback</NavLink>
@@ -113,7 +126,15 @@ export const Nav = ({ nhs, atScholar, nhsTitle, noPhoneNumber = false }) => {
             </>
           )}
 
-          {!nhs && !atScholar && (
+          {activityBook && (
+            <div className={styles.hideOnMediumScreens}>
+              <Button href="/" className={styles.donateButton}>
+                Ace Centre Home
+              </Button>
+            </div>
+          )}
+
+          {!nhs && !atScholar && !activityBook && (
             <div className={styles.hideOnMediumScreens}>
               <Button
                 href="/get-involved/donate"
@@ -147,13 +168,31 @@ const NavLink = ({ href, children, className }) => {
   );
 };
 
-const HomeButton = ({ nhs, nhsTitle, atScholar }) => {
+const HomeButton = ({ nhs, nhsTitle, atScholar, activityBook }) => {
   if (nhs) {
     return <NHSHomeButton title={nhsTitle} />;
   }
 
   if (atScholar) {
     return <ATScholarHomeButton></ATScholarHomeButton>;
+  }
+
+  if (activityBook) {
+    return (
+      <div className={`${styles.homeImage} ${styles.activityBookLogo}`}>
+        <Link name="home" href="/">
+          <Image
+            height={304}
+            width={980}
+            maxHeight={100}
+            src={"/activity-book/activity-book-logo.png"}
+            alt="FUNctional Switching logo"
+            placeOnTop
+            priority={true}
+          ></Image>
+        </Link>
+      </div>
+    );
   }
 
   return (

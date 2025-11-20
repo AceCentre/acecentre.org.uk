@@ -7,6 +7,53 @@ import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import styles from "../../styles/activity-book.module.css";
 import config from "../../lib/config";
 
+// Simple Text Tooltip Component
+const TextTooltip = ({ text }) => {
+  if (!text) return null;
+
+  return (
+    <div className={styles.tooltip}>
+      <div className={styles.tooltipText}>{text}</div>
+    </div>
+  );
+};
+
+// Guide Card with Tooltip Component
+const GuideCardWithTooltip = ({ product, styles, Card }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Custom tooltip text - you can customize this per product
+  const tooltipText =
+    product.tooltipText ||
+    product.description ||
+    `Click to select ${product.title}`;
+
+  return (
+    <div
+      className={styles.cardWithTooltip}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Card
+        className={styles.card}
+        imageContainerClassName={styles.imageContainer}
+        href="#"
+        noImagePostCount={0}
+        subtitle={product.subcategory}
+        featuredImage={product.image}
+        title={product.title}
+      >
+        <p className={styles.productTitle}>{product.title}</p>
+        {product.badgeText && (
+          <span className={styles.badge}>{product.badgeText}</span>
+        )}
+      </Card>
+      {/* Hover Tooltip with Custom Text */}
+      {isHovered && <TextTooltip text={tooltipText} />}
+    </div>
+  );
+};
+
 export default function GuideSelect() {
   const [guides, setGuides] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
@@ -46,16 +93,6 @@ export default function GuideSelect() {
         setSubcategories(subcategoriesData);
         setSwitchImages(switchesData);
         setFilteredGuides(guidesData);
-
-        // Set default switch image to bigmack-switch
-        const bigmackSwitch = switchesData.find(
-          (switchImage) =>
-            switchImage.filename.includes("bigmack-switch") ||
-            switchImage.displayName.toLowerCase().includes("bigmack")
-        );
-        if (bigmackSwitch) {
-          setSelectedSwitchImage(bigmackSwitch.path);
-        }
       } catch (error) {
         console.error("Error fetching data:", error);
         console.error("Error details:", {
@@ -92,15 +129,7 @@ export default function GuideSelect() {
 
   const clearFilters = () => {
     setSelectedSubcategory("");
-    // Reset switch image to bigmack-switch default
-    const bigmackSwitch = switchImages.find(
-      (switchImage) =>
-        switchImage.filename.includes("bigmack-switch") ||
-        switchImage.displayName.toLowerCase().includes("bigmack")
-    );
-    if (bigmackSwitch) {
-      setSelectedSwitchImage(bigmackSwitch.path);
-    }
+    setSelectedSwitchImage("");
   };
 
   const handleGuideSelection = (guideId) => {
@@ -187,7 +216,7 @@ export default function GuideSelect() {
         userName: userName || "User",
         userPhotoPath: photoPaths.userPhotoPath,
         devicePhotoPath: photoPaths.devicePhotoPath,
-        selectedSwitchImage: selectedSwitchImage,
+        selectedSwitchImage: selectedSwitchImage || null,
       };
 
       console.log("Sending to bulk download:", requestBody);
@@ -269,6 +298,7 @@ export default function GuideSelect() {
     badgeText: guide.badgeText,
     title: guide.title,
     subcategory: guide.subcategory,
+    tooltipText: guide.tooltipText, // Include tooltipText from guide data
   }));
 
   if (loading) {
@@ -297,10 +327,46 @@ export default function GuideSelect() {
 
         <div className={styles.container}>
           <div className={styles.header}>
-            <h1>Activity Book</h1>
+            <h1>Switch Activity Book</h1>
             <p>
-              Use the filters below to find guides that match your needs. Select
-              a subcategory to see relevant guides.
+              The activities in this book fall under different ‘Gears’. In Gear
+              1 activities, you only need one switch, Gear 2 looks at finding a
+              second movement/body part to activate a switch and all other gears
+              require 2 switches to be used at the same time.
+            </p>{" "}
+            <p>
+              Please insert images of how the person that this book belongs to
+              uses one switch (for Gear 1 activities) and how they use two
+              switches (for activities in Gears 3-5). If a second body
+              part/movement has not been found yet, leave the 2 switch set up
+              blank until you have explored Gear 1 and 2 activities.
+            </p>{" "}
+            <p>
+              For more information check out{" "}
+              <a href="https://functionalswitching.com">
+                FUNctionalswitching.com
+              </a>
+            </p>
+            <p>
+              <br />
+              Hover on the guides to see the full description and <b>
+                select
+              </b>{" "}
+              the checkbox then select the <b>Download</b> button to download.
+            </p>
+            <p>
+              You can filter the guides by subcategory and use the switch image
+              selector to select the switch in use.
+            </p>
+            <p>
+              Click{" "}
+              <a
+                href="/activity-book/example-activity-page.png"
+                target="_blank"
+              >
+                here
+              </a>{" "}
+              to view an example of an activity book page.
             </p>
           </div>
 
@@ -330,6 +396,7 @@ export default function GuideSelect() {
                 onChange={handleSwitchImageChange}
                 className={styles.select}
               >
+                <option value="">Default Images</option>
                 {switchImages.map((switchImage) => (
                   <option key={switchImage.filename} value={switchImage.path}>
                     {switchImage.displayName}
@@ -493,20 +560,11 @@ const ActivityBookList = ({
                 htmlFor={`guide-${product.id}`}
                 className={styles.checkboxLabel}
               >
-                <Card
-                  className={styles.card}
-                  imageContainerClassName={styles.imageContainer}
-                  href="#"
-                  noImagePostCount={0}
-                  subtitle={product.subcategory}
-                  featuredImage={product.image}
-                  title={product.title}
-                >
-                  <p className={styles.productTitle}>{product.title}</p>
-                  {product.badgeText && (
-                    <span className={styles.badge}>{product.badgeText}</span>
-                  )}
-                </Card>
+                <GuideCardWithTooltip
+                  product={product}
+                  styles={styles}
+                  Card={Card}
+                />
               </label>
             </div>
           </li>
