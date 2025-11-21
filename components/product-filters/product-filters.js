@@ -1,5 +1,5 @@
 import styles from "./product-filters.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Select } from "@chakra-ui/select";
 import { priceRanges } from "../../lib/products/price-range-consts";
 import { ORDER_BY_OPTIONS } from "./order-by-options";
@@ -17,11 +17,50 @@ const useSearchController = ({
 }) => {
   const { query, push: pushNewUrl } = useRouter();
 
-  const updateSearchParams = (newParams) => {
-    const newQuery = { ...query, ...newParams, page: 1 };
+  // Maintain local state for all filter values to avoid race conditions
+  const [topLevelCategory, setTopLevelCategory] = useState(defaultTopLevelValue);
+  const [subcategory, setSubcategory] = useState(defaultSubcategoryValue);
+  const [priceRange, setPriceRange] = useState(defaultPriceRange);
+  const [orderByValue, setOrderByValue] = useState(
+    defaultOrderBy || ORDER_BY_OPTIONS[0].slug
+  );
+
+  // Sync local state with router query when it changes (e.g., direct navigation)
+  useEffect(() => {
+    if (query.category !== undefined && query.category !== topLevelCategory) {
+      setTopLevelCategory(query.category || "");
+    }
+    if (query.subcategory !== undefined && query.subcategory !== subcategory) {
+      setSubcategory(query.subcategory || "");
+    }
+    if (query.pricerange !== undefined && query.pricerange !== priceRange) {
+      setPriceRange(query.pricerange || "");
+    }
+    if (query.orderby !== undefined && query.orderby !== orderByValue) {
+      setOrderByValue(query.orderby || ORDER_BY_OPTIONS[0].slug);
+    }
+  }, [query.category, query.subcategory, query.pricerange, query.orderby]);
+
+  const updateSearchParams = (newParams, currentState = {}) => {
+    // Use provided currentState or fall back to local state values
+    // This ensures that when one filter changes, we preserve the values of other filters
+    const stateValues = {
+      category: currentState.category ?? topLevelCategory ?? null,
+      subcategory: currentState.subcategory ?? subcategory ?? null,
+      pricerange: currentState.pricerange ?? priceRange ?? null,
+      orderby: currentState.orderby ?? orderByValue ?? null,
+    };
+    
+    const currentQuery = {
+      ...query, // Keep other query params like searchText
+      ...stateValues,
+      ...newParams, // Override with new params
+      page: 1,
+    };
+    
     const queryStringPairs = [];
 
-    for (const [key, value] of Object.entries(newQuery)) {
+    for (const [key, value] of Object.entries(currentQuery)) {
       if (value === null) continue;
       if (value === "") continue;
 
@@ -40,35 +79,41 @@ const useSearchController = ({
     updateSearchParams({ searchText });
   };
 
-  // const [topLevelCategory, setTopLevelCategory] =
-  //   useState(defaultTopLevelValue);
-
   const onChangeTopLevelCategory = (event) => {
-    updateSearchParams({ category: event.target.value, subcategory: null });
-    // setTopLevelCategory(event.target.value);
+    const newCategory = event.target.value;
+    setTopLevelCategory(newCategory);
+    setSubcategory(""); // Clear subcategory when category changes
+    updateSearchParams(
+      { category: newCategory, subcategory: null },
+      { category: newCategory, subcategory: "", pricerange: priceRange, orderby: orderByValue }
+    );
   };
-
-  // const [subcategory, setSubcategory] = useState(defaultSubcategoryValue);
 
   const onChangeSubcategory = (event) => {
-    updateSearchParams({ subcategory: event.target.value });
-    // setSubcategory(event.target.value);
+    const newSubcategory = event.target.value;
+    setSubcategory(newSubcategory);
+    updateSearchParams(
+      { subcategory: newSubcategory },
+      { category: topLevelCategory, subcategory: newSubcategory, pricerange: priceRange, orderby: orderByValue }
+    );
   };
-
-  const [priceRange, setPriceRange] = useState(defaultPriceRange);
 
   const onChangePriceRange = (event) => {
-    updateSearchParams({ pricerange: event.target.value });
-    setPriceRange(event.target.value);
+    const newPriceRange = event.target.value;
+    setPriceRange(newPriceRange);
+    updateSearchParams(
+      { pricerange: newPriceRange },
+      { category: topLevelCategory, subcategory: subcategory, pricerange: newPriceRange, orderby: orderByValue }
+    );
   };
 
-  const [orderByValue, setOrderByValue] = useState(
-    defaultOrderBy || ORDER_BY_OPTIONS[0].slug
-  );
-
   const onChangeOrderBy = (event) => {
-    updateSearchParams({ orderby: event.target.value });
-    setOrderByValue(event.target.value);
+    const newOrderBy = event.target.value;
+    setOrderByValue(newOrderBy);
+    updateSearchParams(
+      { orderby: newOrderBy },
+      { category: topLevelCategory, subcategory: subcategory, pricerange: priceRange, orderby: newOrderBy }
+    );
   };
 
   return {
@@ -76,11 +121,11 @@ const useSearchController = ({
     freeTextOnSubmit,
     topLevelCategorySelectProps: {
       onChange: onChangeTopLevelCategory,
-      value: defaultTopLevelValue,
+      value: topLevelCategory,
     },
     subcategorySelectProps: {
       onChange: onChangeSubcategory,
-      value: defaultSubcategoryValue,
+      value: subcategory,
     },
     priceRangeSelectProps: {
       onChange: onChangePriceRange,
@@ -112,7 +157,7 @@ export const ProductFilters = ({
   } = useSearchController({
     defaultTopLevelValue: selectedCategory,
     defaultSubcategoryValue: selectedSubCategory,
-    defaultPriceRangeValue: selectedPriceRange,
+    defaultPriceRange: selectedPriceRange,
     defaultOrderBy: selectedOrderBy,
   });
 

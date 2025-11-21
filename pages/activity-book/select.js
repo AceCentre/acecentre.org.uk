@@ -69,6 +69,10 @@ export default function GuideSelect() {
   const [userName, setUserName] = useState("");
   const [userPhoto, setUserPhoto] = useState(null);
   const [devicePhoto, setDevicePhoto] = useState(null);
+  const [uploadError, setUploadError] = useState(null);
+
+  // Maximum file size: 5MB (in bytes)
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
   // to connect to local change the config.launchpadUrl to http://localhost:4000
   // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
 
@@ -154,16 +158,52 @@ export default function GuideSelect() {
   // File upload handlers
   const handleUserPhotoChange = (e) => {
     const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      setUserPhoto(file);
+    setUploadError(null);
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setUploadError("Please select an image file.");
+      e.target.value = ""; // Clear the input
+      return;
     }
+
+    if (file.size > MAX_FILE_SIZE) {
+      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      const maxSizeMB = (MAX_FILE_SIZE / (1024 * 1024)).toFixed(0);
+      setUploadError(
+        `File size (${fileSizeMB}MB) exceeds the maximum allowed size of ${maxSizeMB}MB. Please compress or resize your image.`
+      );
+      e.target.value = ""; // Clear the input
+      return;
+    }
+
+    setUserPhoto(file);
   };
 
   const handleDevicePhotoChange = (e) => {
     const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      setDevicePhoto(file);
+    setUploadError(null);
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setUploadError("Please select an image file.");
+      e.target.value = ""; // Clear the input
+      return;
     }
+
+    if (file.size > MAX_FILE_SIZE) {
+      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+      const maxSizeMB = (MAX_FILE_SIZE / (1024 * 1024)).toFixed(0);
+      setUploadError(
+        `File size (${fileSizeMB}MB) exceeds the maximum allowed size of ${maxSizeMB}MB. Please compress or resize your image.`
+      );
+      e.target.value = ""; // Clear the input
+      return;
+    }
+
+    setDevicePhoto(file);
   };
 
   const downloadSelectedGuides = async () => {
@@ -201,12 +241,42 @@ export default function GuideSelect() {
           }
         );
 
-        if (uploadResponse.ok) {
-          const uploadData = await uploadResponse.json();
-          if (uploadData.success) {
-            photoPaths = uploadData.paths;
-            console.log("Photo paths received from upload:", photoPaths);
+        if (!uploadResponse.ok) {
+          let errorMessage = "Failed to upload photos.";
+          try {
+            const errorData = await uploadResponse.json();
+            errorMessage = errorData.error || errorData.message || errorMessage;
+          } catch (e) {
+            // If response is not JSON, try to get text
+            try {
+              const errorText = await uploadResponse.text();
+              if (errorText) {
+                errorMessage = errorText;
+              }
+            } catch (e2) {
+              // Use default error message
+            }
           }
+
+          // Check for common error status codes
+          if (uploadResponse.status === 413) {
+            errorMessage =
+              "File size too large. Please use images smaller than 5MB.";
+          } else if (uploadResponse.status === 400) {
+            errorMessage =
+              errorMessage ||
+              "Invalid file format. Please use JPG, PNG, or GIF images.";
+          }
+
+          throw new Error(errorMessage);
+        }
+
+        const uploadData = await uploadResponse.json();
+        if (uploadData.success) {
+          photoPaths = uploadData.paths;
+          console.log("Photo paths received from upload:", photoPaths);
+        } else {
+          throw new Error(uploadData.error || "Photo upload failed.");
         }
       }
 
@@ -250,13 +320,31 @@ export default function GuideSelect() {
         );
         setSelectedGuides(new Set()); // Clear selection after download
       } else {
-        const errorData = await bulkResponse.json();
-        console.error("Server error:", errorData);
-        alert(`Failed to create PDF: ${errorData.error || "Unknown error"}`);
+        let errorMessage = "Failed to create PDF.";
+        try {
+          const errorData = await bulkResponse.json();
+          errorMessage = errorData.error || errorData.message || errorMessage;
+        } catch (e) {
+          // If response is not JSON, try to get text
+          try {
+            const errorText = await bulkResponse.text();
+            if (errorText) {
+              errorMessage = errorText;
+            }
+          } catch (e2) {
+            // Use default error message
+          }
+        }
+        console.error("Server error:", errorMessage);
+        setUploadError(errorMessage);
+        alert(`Failed to create PDF: ${errorMessage}`);
       }
     } catch (error) {
       console.error("Error creating bulk download:", error);
-      alert(`Error creating bulk download: ${error.message}`);
+      const errorMessage =
+        error.message || "An unexpected error occurred. Please try again.";
+      setUploadError(errorMessage);
+      alert(`Error creating bulk download: ${errorMessage}`);
     } finally {
       setDownloading(false);
     }
@@ -423,6 +511,31 @@ export default function GuideSelect() {
                 Add your name and photos to make your activity book more
                 personal
               </p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  color: "#666",
+                  marginTop: "0.5rem",
+                }}
+              >
+                Maximum file size: 5MB per image. Supported formats: JPG, PNG,
+                GIF
+              </p>
+
+              {uploadError && (
+                <div
+                  style={{
+                    padding: "1rem",
+                    marginBottom: "1rem",
+                    backgroundColor: "#fee",
+                    border: "1px solid #fcc",
+                    borderRadius: "4px",
+                    color: "#c33",
+                  }}
+                >
+                  <strong>Error:</strong> {uploadError}
+                </div>
+              )}
 
               <div className={styles.customizationForm}>
                 <div className={styles.formGroup}>
@@ -450,7 +563,8 @@ export default function GuideSelect() {
                   />
                   {userPhoto && (
                     <p className={styles.fileInfo}>
-                      ✓ {userPhoto.name} selected
+                      ✓ {userPhoto.name} selected (
+                      {(userPhoto.size / (1024 * 1024)).toFixed(2)}MB)
                     </p>
                   )}
                 </div>
@@ -468,7 +582,8 @@ export default function GuideSelect() {
                   />
                   {devicePhoto && (
                     <p className={styles.fileInfo}>
-                      ✓ {devicePhoto.name} selected
+                      ✓ {devicePhoto.name} selected (
+                      {(devicePhoto.size / (1024 * 1024)).toFixed(2)}MB)
                     </p>
                   )}
                 </div>
