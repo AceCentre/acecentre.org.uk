@@ -190,6 +190,74 @@
   white-space: nowrap;
 }
 
+/* Location input with autocomplete */
+.locationInputWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.suggestionsList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestionItem {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.15s ease;
+}
+
+.suggestionItem:last-child {
+  border-bottom: none;
+}
+
+.suggestionItem:hover {
+  background-color: #f7fafc;
+}
+
+.suggestionName {
+  font-weight: 500;
+  color: #1a202c;
+}
+
+.suggestionCounty {
+  font-size: 0.85em;
+  color: #718096;
+}
+
+/* Location info display */
+.locationInfo {
+  margin: 1.5rem auto 0;
+  width: 90%;
+  max-width: var(--containerMaxWidth);
+  padding: 0.75rem 1rem;
+  background: #f0f9ff;
+  border-left: 4px solid #00537f;
+  border-radius: 0 4px 4px 0;
+  color: #1e4e79;
+}
+
+.locationInfo strong {
+  color: #00537f;
+}
+
 /** Mobile CSS */
 
 @media (max-width: 1024px) {
@@ -210,5 +278,16 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .locationInputWrapper {
+    width: 100%;
+  }
+
+  .suggestionsList {
+    position: relative;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-top: 0.5rem;
   }
 }
