@@ -3,7 +3,7 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Button } from "../button/button";
 import styles from "./service-finder-search.module.css";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { CORRECTION_FORM, FormModal } from "../ms-form";
 import { ServiceFinderMailingList } from "../service-finder-mailing-list/service-finder-mailing-list";
@@ -40,9 +40,11 @@ const GetServicesFromCoords = gql`
   }
 `;
 
-const GetServicesFromPostcode = gql`
-  query GetServicesFromPostcode($postcode: String!) {
-    servicesForPostcode(postcode: $postcode) {
+const UnifiedSearch = gql`
+  query UnifiedSearch($query: String!) {
+    search(query: $query) {
+      locationType
+      resolvedLocation
       services {
         id
         serviceName
@@ -62,11 +64,23 @@ const GetServicesFromPostcode = gql`
   }
 `;
 
+const GetPlaceSuggestions = gql`
+  query GetPlaceSuggestions($query: String!, $limit: Int) {
+    placeSuggestions(query: $query, limit: $limit) {
+      name
+      county
+      country
+    }
+  }
+`;
+
 const useServices = () => {
   const [geo, setGeo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [services, setServices] = useState(null);
+  const [resolvedLocation, setResolvedLocation] = useState(null);
+  const [locationType, setLocationType] = useState(null);
   const { posthogLoaded, posthog } = usePosthog();
 
   useEffect(() => {
@@ -79,6 +93,8 @@ const useServices = () => {
     setLoading(true);
     setError(null);
     setServices(null);
+    setResolvedLocation(null);
+    setLocationType(null);
 
     if (
       posthogLoaded &&
@@ -128,6 +144,7 @@ const useServices = () => {
       } = parsed;
 
       setServices(servicesForCoords);
+      setLocationType("GEO");
       setLoading(false);
 
       if (
@@ -149,25 +166,27 @@ const useServices = () => {
     } catch (error) {
       console.warn(error);
 
-      setError("Failed to load services for your postcode.");
+      setError("Failed to load services for your location.");
       setLoading(false);
     }
   };
 
-  const getServicesFromPostcodeAsync = async (currentEvent) => {
+  const searchServices = async (currentEvent) => {
     setLoading(true);
     setError(null);
     setServices(null);
+    setResolvedLocation(null);
+    setLocationType(null);
 
     if (
       posthogLoaded &&
       window.location.origin === "https://acecentre.org.uk"
     ) {
-      posthog.capture("serviceSearchStarted", { type: "postcode" });
+      posthog.capture("serviceSearchStarted", { type: "unified" });
     }
 
     try {
-      const postcode = currentEvent.target.postcode.value;
+      const query = currentEvent.target.location.value;
       const result = await fetch(
         "https://servicefinder.acecentre.net/.netlify/functions/graphql",
         {
@@ -176,9 +195,9 @@ const useServices = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            query: GetServicesFromPostcode,
+            query: UnifiedSearch,
             variables: {
-              postcode,
+              query,
             },
           }),
         }
@@ -192,17 +211,19 @@ const useServices = () => {
         return;
       }
 
-      if (!parsed && !parsed.data && !parsed.servicesForPostcode) {
-        setError("Failed to get services for your postcode.");
+      if (!parsed && !parsed.data && !parsed.search) {
+        setError("Failed to get services for your location.");
         setLoading(false);
         return;
       }
 
       const {
-        data: { servicesForPostcode },
+        data: { search },
       } = parsed;
 
-      setServices(servicesForPostcode);
+      setServices(search);
+      setResolvedLocation(search.resolvedLocation);
+      setLocationType(search.locationType);
       setLoading(false);
 
       if (
@@ -210,13 +231,14 @@ const useServices = () => {
         window.location.origin === "https://acecentre.org.uk"
       ) {
         posthog.capture("serviceSearchFinished", {
-          type: "postcode",
-          numberOfServices: servicesForPostcode.services.length,
+          type: search.locationType.toLowerCase(),
+          resolvedLocation: search.resolvedLocation,
+          numberOfServices: search.services.length,
         });
 
-        for (const current of servicesForPostcode.services) {
+        for (const current of search.services) {
           posthog.capture("serviceFound", {
-            type: "postcode",
+            type: search.locationType.toLowerCase(),
             serviceId: current.id,
           });
         }
@@ -224,14 +246,14 @@ const useServices = () => {
     } catch (error) {
       console.warn(error);
 
-      setError("Failed to load services for your postcode.");
+      setError("Failed to load services for your location.");
       setLoading(false);
     }
   };
 
-  const getServicesFromPostcode = async (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault();
-    getServicesFromPostcodeAsync(event);
+    searchServices(event);
   };
 
   return {
@@ -240,7 +262,86 @@ const useServices = () => {
     error,
     getServicesFromGeo,
     services,
-    getServicesFromPostcode,
+    handleSearch,
+    resolvedLocation,
+    locationType,
+  };
+};
+
+const useSuggestions = () => {
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const debounceRef = useRef(null);
+
+  const fetchSuggestions = useCallback(async (query) => {
+    if (!query || query.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+
+    // Don't fetch suggestions for things that look like postcodes
+    const postcodePattern = /^[A-Z]{1,2}[0-9]/i;
+    if (postcodePattern.test(query.trim())) {
+      setSuggestions([]);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const result = await fetch(
+        "https://servicefinder.acecentre.net/.netlify/functions/graphql",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            query: GetPlaceSuggestions,
+            variables: {
+              query: query.trim(),
+              limit: 5,
+            },
+          }),
+        }
+      );
+
+      const parsed = await result.json();
+
+      if (parsed.data && parsed.data.placeSuggestions) {
+        setSuggestions(parsed.data.placeSuggestions);
+      } else {
+        setSuggestions([]);
+      }
+    } catch (error) {
+      console.warn("Failed to fetch suggestions:", error);
+      setSuggestions([]);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const debouncedFetch = useCallback(
+    (query) => {
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
+      debounceRef.current = setTimeout(() => {
+        fetchSuggestions(query);
+      }, 300);
+    },
+    [fetchSuggestions]
+  );
+
+  const clearSuggestions = useCallback(() => {
+    setSuggestions([]);
+  }, []);
+
+  return {
+    suggestions,
+    loading,
+    fetchSuggestions: debouncedFetch,
+    clearSuggestions,
   };
 };
 
@@ -253,14 +354,35 @@ export const ServiceFinderSearch = () => {
     error,
     getServicesFromGeo,
     services,
-    getServicesFromPostcode,
+    handleSearch,
+    resolvedLocation,
+    locationType,
   } = useServices();
+
+  const { suggestions, fetchSuggestions, clearSuggestions } = useSuggestions();
+
+  const handleInputChange = (value) => {
+    setTextInput(value);
+    fetchSuggestions(value);
+  };
+
+  const handleSuggestionSelect = (suggestion) => {
+    setTextInput(suggestion.name);
+    clearSuggestions();
+  };
 
   return (
     <div>
       <div className={styles.container}>
-        <form onSubmit={getServicesFromPostcode} className={styles.searchBar}>
-          <PostcodeInput updateTextInput={setTextInput} disabled={loading} />
+        <form onSubmit={handleSearch} className={styles.searchBar}>
+          <LocationInput
+            value={textInput}
+            updateTextInput={handleInputChange}
+            disabled={loading}
+            suggestions={suggestions}
+            onSuggestionSelect={handleSuggestionSelect}
+            onBlur={clearSuggestions}
+          />
           <div className={styles.buttonContainer}>
             <Button type="submit" disabled={loading || textInput === ""}>
               Find services
@@ -293,7 +415,11 @@ export const ServiceFinderSearch = () => {
           ))}
         </ul>
       ) : (
-        <ListOfServices services={services} />
+        <ListOfServices
+          services={services}
+          resolvedLocation={resolvedLocation}
+          locationType={locationType}
+        />
       )}
 
       {error && <p className={styles.error}>{error}</p>}
@@ -333,15 +459,37 @@ const Icons = ({ servicesOffered }) => {
   );
 };
 
-const ListOfServices = ({ services }) => {
+const LocationTypeLabel = ({ locationType, resolvedLocation }) => {
+  if (!locationType || !resolvedLocation) return null;
+
+  const labels = {
+    POSTCODE: "postcode",
+    OUTCODE: "area",
+    PLACE: "location",
+    GEO: "current location",
+  };
+
+  return (
+    <p className={styles.locationInfo}>
+      Showing results for {labels[locationType] || "location"}:{" "}
+      <strong>{resolvedLocation}</strong>
+    </p>
+  );
+};
+
+const ListOfServices = ({ services, resolvedLocation, locationType }) => {
   if (services == null) return null;
 
   if (services.services.length === 0) {
-    return <NoResults />;
+    return <NoResults resolvedLocation={resolvedLocation} />;
   }
 
   return (
     <>
+      <LocationTypeLabel
+        locationType={locationType}
+        resolvedLocation={resolvedLocation}
+      />
       <ul className={styles.resultsContainer}>
         {services.services.map((service) => (
           <li className={styles.resultCard} key={service.id}>
@@ -378,10 +526,16 @@ const ListOfServices = ({ services }) => {
   );
 };
 
-const NoResults = () => {
+const NoResults = ({ resolvedLocation }) => {
   return (
     <div className={styles.noResults}>
       <h2>Sorry, we could not find any services in your area</h2>
+      {resolvedLocation && (
+        <p>
+          We searched for services near <strong>{resolvedLocation}</strong> but
+          didn&apos;t find any matches.
+        </p>
+      )}
       <p>
         If you think this is wrong, or if you know the service that should have
         come up then click the button below and fill out the form.
@@ -399,20 +553,76 @@ const NoResults = () => {
   );
 };
 
-const PostcodeInput = ({ disabled, updateTextInput }) => {
+const LocationInput = ({
+  disabled,
+  updateTextInput,
+  value,
+  suggestions,
+  onSuggestionSelect,
+  onBlur,
+}) => {
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const inputRef = useRef(null);
+
+  const handleFocus = () => {
+    if (suggestions.length > 0) {
+      setShowSuggestions(true);
+    }
+  };
+
+  const handleBlur = () => {
+    // Delay hiding suggestions to allow click to register
+    setTimeout(() => {
+      setShowSuggestions(false);
+      onBlur();
+    }, 200);
+  };
+
+  useEffect(() => {
+    if (suggestions.length > 0) {
+      setShowSuggestions(true);
+    } else {
+      setShowSuggestions(false);
+    }
+  }, [suggestions]);
+
   return (
-    <FormControl>
-      <FormLabel>Enter your postcode</FormLabel>
+    <FormControl className={styles.locationInputWrapper}>
+      <FormLabel>Enter postcode, town or city</FormLabel>
       <Input
-        name="postcode"
+        ref={inputRef}
+        name="location"
         disabled={disabled}
-        placeholder="eg. OL8 3QL"
+        placeholder="e.g. OL8 3QL, Manchester, or M1"
         type="text"
         className={styles.postcodeInput}
+        value={value}
         onChange={(event) => {
           updateTextInput(event.target.value);
         }}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        autoComplete="off"
       />
+      {showSuggestions && suggestions.length > 0 && (
+        <ul className={styles.suggestionsList}>
+          {suggestions.map((suggestion, index) => (
+            <li
+              key={`${suggestion.name}-${index}`}
+              className={styles.suggestionItem}
+              onClick={() => onSuggestionSelect(suggestion)}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              <span className={styles.suggestionName}>{suggestion.name}</span>
+              {suggestion.county && (
+                <span className={styles.suggestionCounty}>
+                  {suggestion.county}, {suggestion.country}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </FormControl>
   );
 };
