@@ -23,8 +23,8 @@ export default function Home({ featuredStory, landingPagePosts }) {
         <VideoWithCardCover
           // objectPosition="0px -100px"
           imageClassName={styles.coverImage}
-          src="/about-cover.jpeg"
-          alt="cover photo of client and clinician using AAC"
+          src="/nov25staff.jpg"
+          alt="cover photo of Ace Centre staff"
         >
           <h1>About us</h1>
           <p>

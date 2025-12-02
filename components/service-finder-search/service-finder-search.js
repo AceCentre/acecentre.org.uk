@@ -62,6 +62,34 @@ const GetServicesFromPostcode = gql`
   }
 `;
 
+// New unified search query (PR #81) - supports postcode, outcode, and place names
+const GetServicesFromLocation = gql`
+  query GetServicesFromLocation($query: String!) {
+    search(query: $query) {
+      services {
+        id
+        serviceName
+        addressLines
+        phoneNumber
+        servicesOffered {
+          title
+          id
+        }
+      }
+      nearbyServices {
+        id
+        serviceName
+      }
+      locationType
+      resolvedLocation
+      coordinates {
+        latitude
+        longitude
+      }
+    }
+  }
+`;
+
 const useServices = () => {
   const [geo, setGeo] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -167,22 +195,38 @@ const useServices = () => {
     }
 
     try {
-      const postcode = currentEvent.target.postcode.value;
-      const result = await fetch(
-        "https://servicefinder.acecentre.net/.netlify/functions/graphql",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            query: GetServicesFromPostcode,
-            variables: {
-              postcode,
-            },
-          }),
-        }
-      );
+      const query = currentEvent.target.postcode.value.trim();
+
+      // Use local API if running on localhost, otherwise use production
+      // You can also set this via localStorage: localStorage.setItem('useLocalServiceFinder', 'true')
+      const useLocalAPI =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        localStorage.getItem("useLocalServiceFinder") === "true";
+
+      const apiUrl = useLocalAPI
+        ? "https://servicefinder.acecentre.net/.netlify/functions/graphql"
+        : "https://servicefinder.acecentre.net/.netlify/functions/graphql";
+
+      // Use the new unified search query (PR #81) which supports postcode, outcode, and place names
+      // Fall back to old query if the new one isn't available
+      const useUnifiedSearch = true; // Set to false to use old query
+
+      const graphqlQuery = useUnifiedSearch
+        ? GetServicesFromLocation
+        : GetServicesFromPostcode;
+      const variables = useUnifiedSearch ? { query } : { postcode: query };
+
+      const result = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: graphqlQuery,
+          variables,
+        }),
+      });
 
       const parsed = await result.json();
 
@@ -192,31 +236,50 @@ const useServices = () => {
         return;
       }
 
-      if (!parsed && !parsed.data && !parsed.servicesForPostcode) {
-        setError("Failed to get services for your postcode.");
+      // Handle both old and new response structures
+      let serviceData;
+      if (useUnifiedSearch && parsed.data?.search) {
+        // New unified search response (LocationSearchResult)
+        serviceData = parsed.data.search;
+        console.log(
+          "Using unified search - Location type:",
+          serviceData.locationType,
+          "Resolved:",
+          serviceData.resolvedLocation
+        );
+      } else if (parsed.data?.servicesForPostcode) {
+        // Old postcode search response (ServiceResult)
+        serviceData = parsed.data.servicesForPostcode;
+      } else {
+        setError("Failed to get services. Please try again.");
         setLoading(false);
         return;
       }
 
-      const {
-        data: { servicesForPostcode },
-      } = parsed;
+      if (!serviceData || !serviceData.services) {
+        setError("Failed to get services for your location.");
+        setLoading(false);
+        return;
+      }
 
-      setServices(servicesForPostcode);
+      setServices(serviceData);
       setLoading(false);
 
       if (
         posthogLoaded &&
         window.location.origin === "https://acecentre.org.uk"
       ) {
+        const searchType =
+          serviceData.locationType?.toLowerCase() || "postcode";
         posthog.capture("serviceSearchFinished", {
-          type: "postcode",
-          numberOfServices: servicesForPostcode.services.length,
+          type: searchType,
+          numberOfServices: serviceData.services.length,
+          resolvedLocation: serviceData.resolvedLocation,
         });
 
-        for (const current of servicesForPostcode.services) {
+        for (const current of serviceData.services) {
           posthog.capture("serviceFound", {
-            type: "postcode",
+            type: searchType,
             serviceId: current.id,
           });
         }
@@ -402,11 +465,11 @@ const NoResults = () => {
 const PostcodeInput = ({ disabled, updateTextInput }) => {
   return (
     <FormControl>
-      <FormLabel>Enter your postcode</FormLabel>
+      <FormLabel>Enter your postcode, town, or city</FormLabel>
       <Input
         name="postcode"
         disabled={disabled}
-        placeholder="eg. OL8 3QL"
+        placeholder="eg. OL8 3QL, Manchester, or SW1A"
         type="text"
         className={styles.postcodeInput}
         onChange={(event) => {
