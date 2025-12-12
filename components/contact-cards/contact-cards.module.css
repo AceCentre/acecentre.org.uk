@@ -101,6 +101,10 @@
   margin-top: 0;
 }
 
+.warningText {
+  color: red;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .list {
