@@ -39,7 +39,7 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
         imageContainerClassName={styles.imageContainer}
         href="#"
         noImagePostCount={0}
-        subtitle={product.subcategory}
+        subtitle={product.category}
         featuredImage={product.image}
         title={product.title}
       >
@@ -56,9 +56,9 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
 
 export default function GuideSelect() {
   const [guides, setGuides] = useState([]);
-  const [subcategories, setSubcategories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [switchImages, setSwitchImages] = useState([]);
-  const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSwitchImage, setSelectedSwitchImage] = useState("");
   const [filteredGuides, setFilteredGuides] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -70,31 +70,28 @@ export default function GuideSelect() {
   const [userPhoto, setUserPhoto] = useState(null);
   const [devicePhoto, setDevicePhoto] = useState(null);
   const [uploadError, setUploadError] = useState(null);
-
-  // Maximum file size: 5MB (in bytes)
-  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
   // to connect to local change the config.launchpadUrl to http://localhost:4000
   // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [guidesRes, subcategoriesRes, switchesRes] = await Promise.all([
+        const [guidesRes, categoriesRes, switchesRes] = await Promise.all([
           fetch(`${config.launchpadUrl}/api/activity-book`),
-          fetch(`${config.launchpadUrl}/api/activity-book/subcategories`),
+          fetch(`${config.launchpadUrl}/api/activity-book/categories`),
           fetch(`${config.launchpadUrl}/api/activity-book/switches`),
         ]);
 
         const guidesData = await guidesRes.json();
-        const subcategoriesData = await subcategoriesRes.json();
+        const categoriesData = await categoriesRes.json();
         const switchesData = await switchesRes.json();
 
         console.log("Fetched guides:", guidesData);
-        console.log("Fetched subcategories:", subcategoriesData);
+        console.log("Fetched categories:", categoriesData);
         console.log("Fetched switch images:", switchesData);
 
         setGuides(guidesData);
-        setSubcategories(subcategoriesData);
+        setCategories(categoriesData);
         setSwitchImages(switchesData);
         setFilteredGuides(guidesData);
       } catch (error) {
@@ -114,17 +111,17 @@ export default function GuideSelect() {
   useEffect(() => {
     let filtered = guides;
 
-    if (selectedSubcategory) {
+    if (selectedCategory) {
       filtered = filtered.filter(
-        (guide) => guide.subcategory === selectedSubcategory
+        (guide) => guide.category === selectedCategory
       );
     }
 
     setFilteredGuides(filtered);
-  }, [guides, selectedSubcategory]);
+  }, [guides, selectedCategory]);
 
-  const handleSubcategoryChange = (e) => {
-    setSelectedSubcategory(e.target.value);
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
   };
 
   const handleSwitchImageChange = (e) => {
@@ -132,7 +129,7 @@ export default function GuideSelect() {
   };
 
   const clearFilters = () => {
-    setSelectedSubcategory("");
+    setSelectedCategory("");
     setSelectedSwitchImage("");
   };
 
@@ -155,55 +152,34 @@ export default function GuideSelect() {
     setSelectedGuides(new Set());
   };
 
+  // Helper function to format file size
+  const formatFileSize = (bytes) => {
+    if (bytes === 0) return "0 Bytes";
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
+  };
+
   // File upload handlers
   const handleUserPhotoChange = (e) => {
     const file = e.target.files[0];
-    setUploadError(null);
-
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      setUploadError("Please select an image file.");
-      e.target.value = ""; // Clear the input
-      return;
+    if (file && file.type.startsWith("image/")) {
+      setUserPhoto(file);
+      setUploadError(null); // Clear any previous errors
+    } else if (file) {
+      setUploadError("Please select an image file");
     }
-
-    if (file.size > MAX_FILE_SIZE) {
-      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      const maxSizeMB = (MAX_FILE_SIZE / (1024 * 1024)).toFixed(0);
-      setUploadError(
-        `File size (${fileSizeMB}MB) exceeds the maximum allowed size of ${maxSizeMB}MB. Please compress or resize your image.`
-      );
-      e.target.value = ""; // Clear the input
-      return;
-    }
-
-    setUserPhoto(file);
   };
 
   const handleDevicePhotoChange = (e) => {
     const file = e.target.files[0];
-    setUploadError(null);
-
-    if (!file) return;
-
-    if (!file.type.startsWith("image/")) {
-      setUploadError("Please select an image file.");
-      e.target.value = ""; // Clear the input
-      return;
+    if (file && file.type.startsWith("image/")) {
+      setDevicePhoto(file);
+      setUploadError(null); // Clear any previous errors
+    } else if (file) {
+      setUploadError("Please select an image file");
     }
-
-    if (file.size > MAX_FILE_SIZE) {
-      const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
-      const maxSizeMB = (MAX_FILE_SIZE / (1024 * 1024)).toFixed(0);
-      setUploadError(
-        `File size (${fileSizeMB}MB) exceeds the maximum allowed size of ${maxSizeMB}MB. Please compress or resize your image.`
-      );
-      e.target.value = ""; // Clear the input
-      return;
-    }
-
-    setDevicePhoto(file);
   };
 
   const downloadSelectedGuides = async () => {
@@ -225,58 +201,84 @@ export default function GuideSelect() {
       // Upload photos first if they exist
       let photoPaths = {};
       if (userPhoto || devicePhoto) {
+        setUploadError(null); // Clear previous errors
         const formData = new FormData();
         if (userPhoto) {
           formData.append("userPhoto", userPhoto);
+          console.log(
+            `Uploading user photo: ${userPhoto.name} (${formatFileSize(
+              userPhoto.size
+            )})`
+          );
         }
         if (devicePhoto) {
           formData.append("devicePhoto", devicePhoto);
+          console.log(
+            `Uploading device photo: ${devicePhoto.name} (${formatFileSize(
+              devicePhoto.size
+            )})`
+          );
         }
 
-        const uploadResponse = await fetch(
-          `${config.launchpadUrl}/api/upload-photos`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-
-        if (!uploadResponse.ok) {
-          let errorMessage = "Failed to upload photos.";
-          try {
-            const errorData = await uploadResponse.json();
-            errorMessage = errorData.error || errorData.message || errorMessage;
-          } catch (e) {
-            // If response is not JSON, try to get text
-            try {
-              const errorText = await uploadResponse.text();
-              if (errorText) {
-                errorMessage = errorText;
-              }
-            } catch (e2) {
-              // Use default error message
+        try {
+          const uploadResponse = await fetch(
+            `${config.launchpadUrl}/api/upload-photos`,
+            {
+              method: "POST",
+              body: formData,
             }
+          );
+
+          if (uploadResponse.ok) {
+            const uploadData = await uploadResponse.json();
+            if (uploadData.success) {
+              photoPaths = uploadData.paths;
+              console.log("Photo paths received from upload:", photoPaths);
+            } else {
+              const errorMsg =
+                uploadData.error ||
+                uploadData.message ||
+                "Failed to upload photos";
+              setUploadError(errorMsg);
+              throw new Error(errorMsg);
+            }
+          } else {
+            // Try to get error message from response
+            let errorMsg = "Failed to upload photos";
+            try {
+              const errorData = await uploadResponse.json();
+              errorMsg =
+                errorData.error ||
+                errorData.message ||
+                `Server returned ${uploadResponse.status}: ${uploadResponse.statusText}`;
+            } catch (e) {
+              errorMsg = `Server returned ${uploadResponse.status}: ${uploadResponse.statusText}`;
+            }
+            setUploadError(errorMsg);
+            throw new Error(errorMsg);
           }
-
-          // Check for common error status codes
-          if (uploadResponse.status === 413) {
-            errorMessage =
-              "File size too large. Please use images smaller than 5MB.";
-          } else if (uploadResponse.status === 400) {
-            errorMessage =
-              errorMessage ||
-              "Invalid file format. Please use JPG, PNG, or GIF images.";
+        } catch (error) {
+          console.error("Error uploading photos:", error);
+          if (
+            error.message.includes("Failed to fetch") ||
+            error.message.includes("NetworkError")
+          ) {
+            setUploadError(
+              "Network error: Could not connect to server. Please check your connection and try again."
+            );
+          } else if (
+            error.message.includes("413") ||
+            error.message.includes("Request Entity Too Large")
+          ) {
+            setUploadError(
+              "File too large: The server rejected the upload. Please try a smaller image or contact support."
+            );
+          } else {
+            setUploadError(
+              error.message || "Failed to upload photos. Please try again."
+            );
           }
-
-          throw new Error(errorMessage);
-        }
-
-        const uploadData = await uploadResponse.json();
-        if (uploadData.success) {
-          photoPaths = uploadData.paths;
-          console.log("Photo paths received from upload:", photoPaths);
-        } else {
-          throw new Error(uploadData.error || "Photo upload failed.");
+          throw error;
         }
       }
 
@@ -320,31 +322,21 @@ export default function GuideSelect() {
         );
         setSelectedGuides(new Set()); // Clear selection after download
       } else {
-        let errorMessage = "Failed to create PDF.";
-        try {
-          const errorData = await bulkResponse.json();
-          errorMessage = errorData.error || errorData.message || errorMessage;
-        } catch (e) {
-          // If response is not JSON, try to get text
-          try {
-            const errorText = await bulkResponse.text();
-            if (errorText) {
-              errorMessage = errorText;
-            }
-          } catch (e2) {
-            // Use default error message
-          }
-        }
-        console.error("Server error:", errorMessage);
-        setUploadError(errorMessage);
-        alert(`Failed to create PDF: ${errorMessage}`);
+        const errorData = await bulkResponse.json();
+        console.error("Server error:", errorData);
+        alert(`Failed to create PDF: ${errorData.error || "Unknown error"}`);
       }
     } catch (error) {
       console.error("Error creating bulk download:", error);
-      const errorMessage =
-        error.message || "An unexpected error occurred. Please try again.";
-      setUploadError(errorMessage);
-      alert(`Error creating bulk download: ${errorMessage}`);
+      // If uploadError is already set, it will be displayed in the UI
+      // Otherwise show a generic error
+      if (!uploadError) {
+        setUploadError(error.message || "An error occurred. Please try again.");
+        alert(`Error creating bulk download: ${error.message}`);
+      } else {
+        // Upload error is already displayed, just show alert for download error
+        alert(`Error: ${uploadError}`);
+      }
     } finally {
       setDownloading(false);
     }
@@ -371,7 +363,7 @@ export default function GuideSelect() {
     variations: [],
     gallery: [],
     inStock: true,
-    category: { name: guide.category },
+    activityType: { name: guide.activityType },
     projects: [],
     ebook: null,
     instantDownloadAvailable: true,
@@ -385,7 +377,7 @@ export default function GuideSelect() {
     guideSlug: guide.title,
     badgeText: guide.badgeText,
     title: guide.title,
-    subcategory: guide.subcategory,
+    category: guide.category,
     tooltipText: guide.tooltipText, // Include tooltipText from guide data
   }));
 
@@ -414,63 +406,78 @@ export default function GuideSelect() {
         <BackToLink where="home" href="/" />
 
         <div className={styles.container}>
-          <div className={styles.header}>
-            <h1>Switch Activity Book</h1>
+          <div className={styles.header} style={{ textAlign: "left" }}>
+            <h1>Create a Switch Activity Book</h1>
             <p>
-              The activities in this book fall under different ‘Gears’. In Gear
-              1 activities, you only need one switch, Gear 2 looks at finding a
-              second movement/body part to activate a switch and all other gears
-              require 2 switches to be used at the same time.
-            </p>{" "}
-            <p>
-              Please insert images of how the person that this book belongs to
-              uses one switch (for Gear 1 activities) and how they use two
-              switches (for activities in Gears 3-5). If a second body
-              part/movement has not been found yet, leave the 2 switch set up
-              blank until you have explored Gear 1 and 2 activities.
-            </p>{" "}
-            <p>
-              For more information check out{" "}
-              <a href="https://functionalswitching.com">
-                FUNctionalswitching.com
-              </a>
-            </p>
-            <p>
-              <br />
-              Hover on the guides to see the full description and <b>
-                select
-              </b>{" "}
-              the checkbox then select the <b>Download</b> button to download.
-            </p>
-            <p>
-              You can filter the guides by subcategory and use the switch image
-              selector to select the switch in use.
-            </p>
-            <p>
-              Click{" "}
+              This resource generates a downloadable PDF book with activity
+              guides that introduce switches and help build understanding of how
+              they work and what they can do through fun, motivating activities.{" "}
               <a
                 href="/activity-book/example-activity-page.png"
                 target="_blank"
               >
-                here
+                Click here
               </a>{" "}
-              to view an example of an activity book page.
+              to view an example of an activity guide.
+            </p>
+            <p>
+              <br />
+              The activity guides are part of the FUNctional Switching approach,
+              a collaboration between CENMAC and Ace Centre, designed to develop
+              switch skills. This approach uses a &apos;Gear&apos; analogy to
+              show the level a learner is working at and how to support their
+              progress. To learn more about the Gears and building switch skills
+              <a href="https://functionalswitching.com">here</a>.
+            </p>
+            <p>
+              <br />
+              Each activity is designed to develop a range of skills that the
+              learner can apply to other FUNctional tasks like controlling a
+              communication device, accessing the school curriculum, using a
+              computer, and much more.
+            </p>
+            <p>
+              <br />
+              <b>To generate a Switch Activity Book</b>
+            </p>
+            <p>Use the drop-down menus to:</p>
+            <ul>
+              <li>
+                <b>Category:</b> filter the activity guides by areas of
+                interest.
+              </li>
+              <li>
+                <b>Switch Image:</b> insert an image of a specific switch into
+                the guide.
+              </li>
+            </ul>
+            <p>
+              <b>Hover</b> on the tiles below to see a description of the
+              activity.
+            </p>
+            <p>
+              <b>Select the checkbox</b> to include an activity guide in the
+              download.
+            </p>
+            <p>
+              Click on the <b>Download</b> button to generate your Switch
+              Activity Book.
             </p>
           </div>
 
           <div className={styles.filters}>
             <div className={styles.filterGroup}>
-              <label htmlFor="subcategory">Subcategory:</label>
+              <label htmlFor="category">Category:</label>
               <select
-                id="subcategory"
-                value={selectedSubcategory}
-                onChange={handleSubcategoryChange}
+                id="category"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
                 className={styles.select}
               >
-                <option value="">All Subcategories</option>
-                {subcategories.map((subcategory) => (
-                  <option key={subcategory} value={subcategory}>
-                    {subcategory}
+                <option value="">All Categories</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
                   </option>
                 ))}
               </select>
@@ -508,38 +515,16 @@ export default function GuideSelect() {
             <div className={styles.customizationSection}>
               <h3>Personalize Your Activity Book (Optional)</h3>
               <p>
-                Add your name and photos to make your activity book more
-                personal
+                Add the learner’s name and photos of how their switches are set
+                up to personalise the activity guides. Maximum file size: 5MB
+                per image. Supported formats: JPG, PNG, GIF
               </p>
-              <p
-                style={{
-                  fontSize: "0.9rem",
-                  color: "#666",
-                  marginTop: "0.5rem",
-                }}
-              >
-                Maximum file size: 5MB per image. Supported formats: JPG, PNG,
-                GIF
-              </p>
-
-              {uploadError && (
-                <div
-                  style={{
-                    padding: "1rem",
-                    marginBottom: "1rem",
-                    backgroundColor: "#fee",
-                    border: "1px solid #fcc",
-                    borderRadius: "4px",
-                    color: "#c33",
-                  }}
-                >
-                  <strong>Error:</strong> {uploadError}
-                </div>
-              )}
 
               <div className={styles.customizationForm}>
                 <div className={styles.formGroup}>
-                  <label htmlFor="userName">Your Name:</label>
+                  <label htmlFor="userName">
+                    Name: enter learner’s name (in text box){" "}
+                  </label>
                   <input
                     type="text"
                     id="userName"
@@ -564,7 +549,7 @@ export default function GuideSelect() {
                   {userPhoto && (
                     <p className={styles.fileInfo}>
                       ✓ {userPhoto.name} selected (
-                      {(userPhoto.size / (1024 * 1024)).toFixed(2)}MB)
+                      {formatFileSize(userPhoto.size)})
                     </p>
                   )}
                 </div>
@@ -583,11 +568,26 @@ export default function GuideSelect() {
                   {devicePhoto && (
                     <p className={styles.fileInfo}>
                       ✓ {devicePhoto.name} selected (
-                      {(devicePhoto.size / (1024 * 1024)).toFixed(2)}MB)
+                      {formatFileSize(devicePhoto.size)})
                     </p>
                   )}
                 </div>
               </div>
+              {uploadError && (
+                <div
+                  className={styles.errorMessage}
+                  style={{
+                    marginTop: "1rem",
+                    padding: "0.75rem",
+                    backgroundColor: "#fee",
+                    border: "1px solid #fcc",
+                    borderRadius: "4px",
+                    color: "#c33",
+                  }}
+                >
+                  ⚠ {uploadError}
+                </div>
+              )}
             </div>
 
             {filteredGuides.length > 0 && (
@@ -628,7 +628,7 @@ export default function GuideSelect() {
           </div>
 
           <ActivityBookList
-            title="Available Guides"
+            title="Activity  Guides"
             products={guideProducts}
             className={styles.guidesList}
             selectedGuides={selectedGuides}
