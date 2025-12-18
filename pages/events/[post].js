@@ -13,9 +13,12 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { BlogMeta } from "../../components/blog-meta/blog-meta";
 import { useRouter } from "next/router";
 
-export default function CategoryPage({ currentPost, featuredPosts }) {
-  const { isFallback } = useRouter();
+const isEventPost = (post) =>
+  Array.isArray(post?.categories) &&
+  post.categories.some((c) => c?.slug === "events");
 
+export default function EventPostPage({ currentPost, featuredPosts }) {
+  const { isFallback } = useRouter();
   if (isFallback) return null;
 
   const publishedDate = new Date(currentPost.publishedDate);
@@ -66,12 +69,9 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
         <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <BackToLink
-          href={`/blog/category/${currentPost.featuredCategorySlug}`}
-          where={currentPost.featuredCategoryName.toLowerCase()}
-        />
+        <BackToLink href="/events" where="events" />
         <PageTitle
-          heading="Ace Centre blog"
+          heading="Events"
           description={currentPost.title}
           className={styles.pageTitle}
         />
@@ -81,10 +81,12 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
           className={styles.contentContainer}
           dangerouslySetInnerHTML={{ __html: currentPost.content }}
         ></div>
+
         <FeaturedPosts
-          title={`More from ${currentPost.featuredCategoryName}`}
+          title="More events"
           posts={featuredPosts}
-          viewAllLink={`/blog/category/${currentPost.featuredCategorySlug}`}
+          linkPrefix="events"
+          viewAllLink="/events"
         />
       </main>
 
@@ -95,28 +97,16 @@ export default function CategoryPage({ currentPost, featuredPosts }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
-  const isEventPost = (post) =>
-    Array.isArray(post?.categories) &&
-    post.categories.some((c) => c?.slug === "events");
+  const eventPosts = allPosts.filter(isEventPost);
 
   return {
-    paths: allPosts
-      .filter((post) => !isEventPost(post))
-      .map((post) => ({ params: { post: post.slug } }))
-      .filter(
-        (x) =>
-          ![
-            "comm-works",
-            "comm-works-2025",
-            "comm-works-2024",
-            "comm-works-2026",
-          ].includes(x.params.post)
-      ),
+    paths: eventPosts.map((post) => ({ params: { post: post.slug } })),
     fallback: true,
   };
 }
 
 export const getStaticProps = async ({ params: { post: postSlug } }) => {
+  // Legacy redirects (mirrors /blog/[post] behavior)
   if (postSlug === "comm-works") {
     return {
       redirect: {
@@ -159,49 +149,24 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     };
   }
 
-  // Try to get the post directly by slug first (more reliable)
+  // Try to get the post directly by slug first
   let currentPost = await getPostBySlug(postSlug);
 
   // Fallback to searching all posts if direct query fails
   if (!currentPost) {
     const allPosts = await getAllFullPosts();
     currentPost = allPosts.find((post) => post.slug === postSlug);
-
-    if (!currentPost) {
-      // Log available slugs for debugging (only in development)
-      if (process.env.NODE_ENV === "development") {
-        console.error(`Post not found with slug: "${postSlug}"`);
-        console.log(
-          "Available post slugs (first 10):",
-          allPosts.slice(0, 10).map((p) => p.slug)
-        );
-        // Check for similar slugs
-        const similarSlugs = allPosts
-          .map((p) => p.slug)
-          .filter((slug) =>
-            slug.toLowerCase().includes(postSlug.toLowerCase().substring(0, 10))
-          );
-        if (similarSlugs.length > 0) {
-          console.log("Similar slugs found:", similarSlugs);
-        }
-      }
-      return { notFound: true };
-    }
+    if (!currentPost) return { notFound: true };
   }
 
-  // If this post is an Event, route it through /events instead of /blog
-  if (currentPost?.categories?.some((c) => c?.slug === "events")) {
-    return {
-      redirect: {
-        destination: `/events/${postSlug}`,
-        permanent: true,
-      },
-    };
+  // Only allow posts in the Events category to render here
+  if (!isEventPost(currentPost)) {
+    return { notFound: true };
   }
 
-  const featuredPosts = (
-    await getAllPostsForCategory(currentPost.featuredCategoryName)
-  ).filter((post) => post.slug !== currentPost.slug);
+  const featuredPosts = (await getAllPostsForCategory("Events")).filter(
+    (post) => post.slug !== currentPost.slug
+  );
 
   return {
     revalidate: 60,

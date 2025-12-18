@@ -12,7 +12,13 @@ import { ResourceList } from "../components/resource-list/resource-list";
 
 import styles from "../styles/search.module.css";
 
-export default function Search({ blogPosts, projects, products, searchText }) {
+export default function Search({
+  blogPosts,
+  events,
+  projects,
+  products,
+  searchText,
+}) {
   return (
     <>
       <header>
@@ -41,6 +47,16 @@ export default function Search({ blogPosts, projects, products, searchText }) {
               posts={blogPosts}
               viewAllLink={`/blog/search?searchText=${searchText}`}
               viewAllText="Search all blog posts"
+            />
+          )}
+          {events.length > 0 && (
+            <FeaturedPosts
+              title="Events"
+              smallCards
+              posts={events}
+              linkPrefix="events"
+              viewAllLink="/events"
+              viewAllText="View all events"
             />
           )}
           {projects.length > 0 && (
@@ -73,11 +89,24 @@ export const getServerSideProps = async (req) => {
   }
 
   const allPosts = await getAllFullPosts();
-  const blogFuse = new Fuse(allPosts, {
+  const isEventPost = (post) =>
+    Array.isArray(post?.categories) &&
+    post.categories.some((c) => c?.slug === "events");
+
+  const blogPostsSource = allPosts.filter((p) => !isEventPost(p));
+  const eventsSource = allPosts.filter(isEventPost);
+
+  const blogFuse = new Fuse(blogPostsSource, {
     keys: ["content", "title"],
   });
   const blogResults = blogFuse.search(searchText);
   const filteredPosts = blogResults.map((result) => result.item);
+
+  const eventsFuse = new Fuse(eventsSource, {
+    keys: ["content", "title"],
+  });
+  const eventsResults = eventsFuse.search(searchText);
+  const filteredEvents = eventsResults.map((result) => result.item);
 
   const allProjects = await getFullProjects();
   const projectsFuse = new Fuse(allProjects, { keys: ["content", "title"] });
@@ -118,6 +147,7 @@ export const getServerSideProps = async (req) => {
   return {
     props: {
       blogPosts: filteredPosts.slice(0, 4),
+      events: filteredEvents.slice(0, 4),
       projects: filteredProjects.slice(0, 4),
       products: filteredProducts
         .map((product) => ({

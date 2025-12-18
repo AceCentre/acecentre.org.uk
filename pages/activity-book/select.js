@@ -412,11 +412,12 @@ export default function GuideSelect() {
               This resource generates a downloadable PDF book with activity
               guides that introduce switches and help build understanding of how
               they work and what they can do through fun, motivating activities.{" "}
+              Click{" "}
               <a
                 href="/activity-book/example-activity-page.png"
                 target="_blank"
               >
-                Click here
+                here
               </a>{" "}
               to view an example of an activity guide.
             </p>
@@ -426,8 +427,8 @@ export default function GuideSelect() {
               a collaboration between CENMAC and Ace Centre, designed to develop
               switch skills. This approach uses a &apos;Gear&apos; analogy to
               show the level a learner is working at and how to support their
-              progress. To learn more about the Gears and building switch skills
-              <a href="https://functionalswitching.com">here</a>.
+              progress. To learn more about the Gears and building switch skills{" "}
+              <a href="https://functionalswitching.com">here.</a>
             </p>
             <p>
               <br />

@@ -39,14 +39,25 @@ export async function getStaticPaths() {
   if (!blogCategories) throw new Error("Couldn't get categories");
 
   return {
-    paths: blogCategories.map((category) => ({
-      params: { slug: category.slug },
-    })),
+    paths: blogCategories
+      .filter((category) => category.slug !== "events")
+      .map((category) => ({
+        params: { slug: category.slug },
+      })),
     fallback: true,
   };
 }
 
 export const getStaticProps = async ({ params: { slug } }) => {
+  if (slug === "events") {
+    return {
+      redirect: {
+        destination: "/events",
+        permanent: true,
+      },
+    };
+  }
+
   const blogCategories = await getAllCategories();
   if (!blogCategories) throw new Error("Couldn't get categories");
 

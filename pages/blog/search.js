@@ -27,6 +27,9 @@ export default function SearchBlog({ allPosts, searchText }) {
 
 export const getServerSideProps = async (req) => {
   const allPosts = await getAllFullPosts();
+  const nonEventPosts = allPosts.filter(
+    (p) => !p?.categories?.some((c) => c?.slug === "events")
+  );
   const searchText = req.query.searchText || false;
 
   if (!searchText) {
@@ -38,7 +41,7 @@ export const getServerSideProps = async (req) => {
     };
   }
 
-  const fuse = new Fuse(allPosts, { keys: ["content", "title"] });
+  const fuse = new Fuse(nonEventPosts, { keys: ["content", "title"] });
   const results = fuse.search(searchText);
   const filteredPosts = results.map((result) => result.item);
 

@@ -19,6 +19,7 @@ export const defaultNavItems = [
       { title: "People we support", href: "/people-we-support" },
       { title: "Blog", href: "/blog" },
       { title: "Projects", href: "/projects" },
+      { title: "Events", href: "/events" },
     ],
   },
   {
