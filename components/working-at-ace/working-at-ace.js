@@ -11,7 +11,7 @@ export const WorkingAtAce = () => {
       <div className={styles.innerContainer}>
         <div className={styles.imageContainer}>
           <Image
-            src="/staff-photo-2024.jpeg"
+            src="/nov25staff.jpg"
             layout="fill"
             objectFit="cover"
             alt="Two people outside looking happy"
@@ -24,9 +24,10 @@ export const WorkingAtAce = () => {
           </Avatar>
           <div className={styles.quoteText}>
             <p className={styles.quoteContent}>
-              &quot;People are at the heart of everything we do at Ace Centre. It is a privilege to work
-               alongside a dynamic and energetic team who share a passion for delivering excellence and
-                commitment to helping people communicate.&quot;
+              &quot;People are at the heart of everything we do at Ace Centre.
+              It is a privilege to work alongside a dynamic and energetic team
+              who share a passion for delivering excellence and commitment to
+              helping people communicate.&quot;
             </p>
             <div>
               <p>
