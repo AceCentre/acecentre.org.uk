@@ -59,3 +59,10 @@ yarn-error.log*
 # Cookie files (contain sensitive authentication data)
 cookies.txt
 *.cookies
+
+# Debugging/investigation scripts (keep build scripts and existing scripts tracked)
+scripts/check-product-*.js
+scripts/check-textaloud-*.js
+scripts/find-*.js
+scripts/investigate-*.js
+scripts/list-*.js

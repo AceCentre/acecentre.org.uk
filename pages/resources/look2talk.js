@@ -1,7 +1,10 @@
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
-import { getAllProducts } from "../../lib/products/get-products";
+import {
+  getAllProducts,
+  getProductFaqs,
+} from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
 import { NewsletterSignup } from "../../components/resources-download/resources-download";
@@ -490,6 +493,13 @@ export const getStaticProps = async () => {
     };
   }
 
+  // Fetch FAQs separately to avoid breaking builds when one product's FAQs are broken
+  const faqs = await getProductFaqs(currentResource.id);
+  const resourceWithFaqs = {
+    ...currentResource,
+    faqs: faqs.length > 0 ? faqs : currentResource.faqs || [],
+  };
+
   const currentCategory = currentResource.category.name;
 
   const relatedResources = allProducts
@@ -537,7 +547,7 @@ export const getStaticProps = async () => {
   return {
     revalidate: 60,
     props: {
-      resource: currentResource,
+      resource: resourceWithFaqs,
       relatedResources: relatedResources.slice(0, 4),
       attachedResources: attachedResources.slice(0, 4),
       seo: {
