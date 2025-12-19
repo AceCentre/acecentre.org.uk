@@ -99,55 +99,28 @@ export async function getStaticPaths() {
   const allPosts = await getAllFullPosts();
   const eventPosts = allPosts.filter(isEventPost);
 
+  // Exclude legacy comm-works slugs from static generation (handled by redirects.js)
+  const legacySlugs = [
+    "comm-works",
+    "comm-works-2023",
+    "comm-works-2024",
+    "comm-works-2025",
+    "comm-works-2026",
+  ];
+
+  const paths = eventPosts
+    .filter((post) => !legacySlugs.includes(post.slug))
+    .map((post) => ({ params: { post: post.slug } }));
+
   return {
-    paths: eventPosts.map((post) => ({ params: { post: post.slug } })),
+    paths,
     fallback: true,
   };
 }
 
 export const getStaticProps = async ({ params: { post: postSlug } }) => {
-  // Legacy redirects (mirrors /blog/[post] behavior)
-  if (postSlug === "comm-works") {
-    return {
-      redirect: {
-        destination: "/communication-works",
-        permanent: true,
-      },
-    };
-  }
-
-  if (postSlug === "comm-works-2025") {
-    return {
-      redirect: {
-        destination: "/communication-works-2025",
-        permanent: true,
-      },
-    };
-  }
-  if (postSlug === "comm-works-2024") {
-    return {
-      redirect: {
-        destination: "/communication-works-2024",
-        permanent: true,
-      },
-    };
-  }
-  if (postSlug === "comm-works-2023") {
-    return {
-      redirect: {
-        destination: "/communication-works-2023",
-        permanent: true,
-      },
-    };
-  }
-  if (postSlug === "comm-works-2026") {
-    return {
-      redirect: {
-        destination: "/communication-works-2026",
-        permanent: true,
-      },
-    };
-  }
+  // Legacy redirects are handled in redirects.js to avoid issues during static generation
+  // These paths are excluded from getStaticPaths below
 
   // Try to get the post directly by slug first
   let currentPost = await getPostBySlug(postSlug);

@@ -251,6 +251,31 @@ const REDIRECTS = [
     permanent: true,
   },
   {
+    source: "/events/comm-works",
+    destination: "/communication-works",
+    permanent: true,
+  },
+  {
+    source: "/events/comm-works-2023",
+    destination: "/communication-works-2023",
+    permanent: true,
+  },
+  {
+    source: "/events/comm-works-2024",
+    destination: "/communication-works-2024",
+    permanent: true,
+  },
+  {
+    source: "/events/comm-works-2025",
+    destination: "/communication-works-2025",
+    permanent: true,
+  },
+  {
+    source: "/events/comm-works-2026",
+    destination: "/communication-works-2026",
+    permanent: true,
+  },
+  {
     source: "/acl-comm",
     destination: "/learning/search?category=communication",
     permanent: true,
@@ -280,7 +305,12 @@ const REDIRECTS = [
     source: "/my-acecentre/courses",
     destination: "https://moodle.acecentre.org.uk/login/index.php",
     permanent: true,
-  }
+  },
+  {
+    source: "/resources/communication-partners",
+    destination: "https://acecentre.arlo.co/w/events/9-communication-partners-free-resources",
+    permanent: true,
+  },
 ];
 
 module.exports = REDIRECTS;
