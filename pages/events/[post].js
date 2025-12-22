@@ -119,8 +119,52 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params: { post: postSlug } }) => {
-  // Legacy redirects are handled in redirects.js to avoid issues during static generation
-  // These paths are excluded from getStaticPaths below
+  // Legacy redirects (these slugs are excluded from getStaticPaths, so they won't be prerendered)
+  // This allows redirects to work at runtime without breaking the build
+  if (postSlug === "comm-works") {
+    return {
+      redirect: {
+        destination: "/communication-works",
+        permanent: true,
+      },
+    };
+  }
+
+  if (postSlug === "comm-works-2023") {
+    return {
+      redirect: {
+        destination: "/communication-works-2023",
+        permanent: true,
+      },
+    };
+  }
+
+  if (postSlug === "comm-works-2024") {
+    return {
+      redirect: {
+        destination: "/communication-works-2024",
+        permanent: true,
+      },
+    };
+  }
+
+  if (postSlug === "comm-works-2025") {
+    return {
+      redirect: {
+        destination: "/communication-works-2025",
+        permanent: true,
+      },
+    };
+  }
+
+  if (postSlug === "comm-works-2026") {
+    return {
+      redirect: {
+        destination: "/communication-works-2026",
+        permanent: true,
+      },
+    };
+  }
 
   // Try to get the post directly by slug first
   let currentPost = await getPostBySlug(postSlug);
