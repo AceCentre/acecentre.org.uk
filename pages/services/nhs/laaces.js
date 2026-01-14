@@ -71,7 +71,7 @@ export default function Laaces({ gettingStartedResources }) {
                 healthcare professionals have not risen to the challenge.”
               </span>{" "}
               -{" "}
-              <a href="https://www.communicationmatters.org.uk/wp-content/uploads/2019/01/2013_Shining_a_Light_on_AAC.pdf">
+              <a href="https://e-space.mmu.ac.uk/611555/1/2013_Shining_a_Light_on_AAC.pdf">
                 Source
               </a>
             </p>
