@@ -62,7 +62,8 @@ const GEAR_1_FAQS = [
           <li>Play music</li>
         </ul>
         <p>
-          Find activity ideas with guides on how to set them up
+          <b>Find activity ideas with guides on how to set them up</b>
+          {""}
           <Link href="/activity-book/select"> here.</Link>
         </p>
       </>
@@ -88,7 +89,8 @@ const GEAR_2_FAQS = [
           <li>Play simple computer games</li>
         </ul>
         <p>
-          Find activity ideas with guides on how to set them up
+          <b>Find activity ideas with guides on how to set them up</b>
+          {""}
           <Link href="/activity-book/select"> here.</Link>
         </p>
       </>
@@ -141,7 +143,7 @@ const GEAR_3_FAQS = [
           </li>
         </ul>
         <p>
-          Find activity ideas with guides on how to set them up
+          <b>Find activity ideas with guides on how to set them up</b>
           <Link href="/activity-book/select"> here.</Link>
         </p>
       </>
@@ -193,7 +195,8 @@ const GEAR_4_FAQS = [
           </li>
         </ul>
         <p>
-          Find activity ideas with guides on how to set them up
+          <b>Find activity ideas with guides on how to set them up</b>
+          {""}
           <Link href="/activity-book/select"> here.</Link>
         </p>
       </>
@@ -217,7 +220,8 @@ const GEAR_5_FAQS = [
           </li>
         </ul>
         <p>
-          Find activity ideas with guides on how to set them up
+          <b>Find activity ideas with guides on how to set them up</b>
+          {""}
           <Link href="/activity-book/select"> here.</Link>
         </p>
       </>
