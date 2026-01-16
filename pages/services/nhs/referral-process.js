@@ -306,9 +306,7 @@ export default function NHSLanding() {
               </strong>{" "}
               this will include information about why the referral has not been
               accepted and provide guidance on how, as a local service, you can
-              support your client in developing their use of AAC. The letter
-              will also advise how you can speak with a member of the screening
-              team should you wish to discuss this further.
+              support your client in developing their use of AAC.
             </p>
             <div className="assessment-faqs-override">
               <GenericFaqs faqs={PRIORITISATION_CRITERIA} />

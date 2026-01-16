@@ -39,10 +39,6 @@ export const ContactCards = () => {
           <p className={styles.officeHours}>
             Adviceline Hours - Monday, Wednesday and Friday from 1PM- 5PM
           </p>
-          <p className={styles.warningText}>
-            The advice line will be temporarily closed over christmas from 24th
-            December 2025 to 1st January 2026.
-          </p>
           <Link href="mailto:advice@acecentre.org.uk" className={styles.link}>
             Email us &gt;
           </Link>
