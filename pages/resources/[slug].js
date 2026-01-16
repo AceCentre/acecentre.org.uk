@@ -116,7 +116,9 @@ export async function getStaticPaths() {
 
   allProducts = allProducts.filter(
     (x) =>
-      x.slug !== "look2talk" && x.slug !== "developing-using-communication-book"
+      x.slug !== "look2talk" &&
+      x.slug !== "developing-using-communication-book" &&
+      x.slug !== "functional-switching"
   );
 
   if (!allProducts) throw new Error("Could not get all the products");
