@@ -4,6 +4,8 @@ import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
+import { ResourcesShare } from "../../components/resources-share/resources-share";
+import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
 import styles from "../../styles/activity-book.module.css";
 import config from "../../lib/config";
 
@@ -303,28 +305,88 @@ export default function GuideSelect() {
       );
 
       if (bulkResponse.ok) {
-        const bulkData = await bulkResponse.json();
+        let bulkData;
+        try {
+          bulkData = await bulkResponse.json();
+        } catch (jsonError) {
+          console.error("Error parsing bulk response JSON:", jsonError);
+          throw new Error("Invalid response from server. Please try again.");
+        }
+
+        if (!bulkData.pdfLocation) {
+          console.error("No PDF location in response:", bulkData);
+          throw new Error(
+            "Server did not return a PDF location. Please try again."
+          );
+        }
 
         // Download the PDF file
-        const pdfResponse = await fetch(bulkData.pdfLocation);
-        const pdfBlob = await pdfResponse.blob();
-        const pdfUrl = window.URL.createObjectURL(pdfBlob);
-        const pdfLink = document.createElement("a");
-        pdfLink.href = pdfUrl;
-        pdfLink.download = "activity-book-with-customization.pdf";
-        document.body.appendChild(pdfLink);
-        pdfLink.click();
-        document.body.removeChild(pdfLink);
-        window.URL.revokeObjectURL(pdfUrl);
+        try {
+          const pdfResponse = await fetch(bulkData.pdfLocation);
 
-        console.log(
-          `PDF download completed for ${selectedGuideProducts.length} guides`
-        );
-        setSelectedGuides(new Set()); // Clear selection after download
+          if (!pdfResponse.ok) {
+            throw new Error(
+              `Failed to fetch PDF: ${pdfResponse.status} ${pdfResponse.statusText}`
+            );
+          }
+
+          const pdfBlob = await pdfResponse.blob();
+
+          // Verify it's actually a PDF
+          if (pdfBlob.type !== "application/pdf" && pdfBlob.size === 0) {
+            throw new Error(
+              "Downloaded file is not a valid PDF. Please try again."
+            );
+          }
+
+          const pdfUrl = window.URL.createObjectURL(pdfBlob);
+          const pdfLink = document.createElement("a");
+          pdfLink.href = pdfUrl;
+          pdfLink.download = "activity-book-with-customization.pdf";
+          document.body.appendChild(pdfLink);
+          pdfLink.click();
+          document.body.removeChild(pdfLink);
+          window.URL.revokeObjectURL(pdfUrl);
+
+          console.log(
+            `PDF download completed for ${selectedGuideProducts.length} guides`
+          );
+          setSelectedGuides(new Set()); // Clear selection after download
+        } catch (pdfError) {
+          console.error("Error downloading PDF:", pdfError);
+          throw new Error(
+            `Failed to download PDF: ${pdfError.message || "Unknown error"}`
+          );
+        }
       } else {
-        const errorData = await bulkResponse.json();
-        console.error("Server error:", errorData);
-        alert(`Failed to create PDF: ${errorData.error || "Unknown error"}`);
+        let errorMessage = "Unknown error occurred";
+        try {
+          const errorData = await bulkResponse.json();
+          console.error("Server error:", errorData);
+
+          // Avoid duplicate error messages
+          if (errorData.error) {
+            // If error already contains "Failed to create PDF", use it as-is
+            errorMessage = errorData.error.includes("Failed to create PDF")
+              ? errorData.error
+              : `Failed to create PDF: ${errorData.error}`;
+          } else if (errorData.message) {
+            errorMessage = errorData.message.includes("Failed to create PDF")
+              ? errorData.message
+              : `Failed to create PDF: ${errorData.message}`;
+          } else if (errorData.details) {
+            errorMessage = `Failed to create PDF: ${errorData.details}`;
+          } else {
+            errorMessage = `Failed to create PDF: Server returned ${bulkResponse.status} ${bulkResponse.statusText}`;
+          }
+        } catch (jsonError) {
+          // If we can't parse the error response, use status info
+          console.error("Error parsing error response:", jsonError);
+          errorMessage = `Failed to create PDF: Server returned ${bulkResponse.status} ${bulkResponse.statusText}`;
+        }
+
+        setUploadError(errorMessage);
+        alert(errorMessage);
       }
     } catch (error) {
       console.error("Error creating bulk download:", error);
@@ -437,6 +499,25 @@ export default function GuideSelect() {
               communication device, accessing the school curriculum, using a
               computer, and much more.
             </p>
+            <div style={{ marginTop: "3.5rem", marginBottom: "1.5rem" }}>
+              <FormModal form={RESOURCE_FEEDBACK}>
+                {({ onClick }) => (
+                  <a
+                    href={RESOURCE_FEEDBACK.url}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onClick(event);
+                    }}
+                  >
+                    Click here to share your feedback on this resource
+                  </a>
+                )}
+              </FormModal>
+
+              <div style={{ marginTop: "1rem" }}>
+                <ResourcesShare />
+              </div>
+            </div>
             <p>
               <br />
               <b>To generate a Switch Activity Book</b>

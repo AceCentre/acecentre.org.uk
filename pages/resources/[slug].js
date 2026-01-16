@@ -116,18 +116,28 @@ export async function getStaticPaths() {
 
   allProducts = allProducts.filter(
     (x) =>
-      x.slug !== "look2talk" && x.slug !== "developing-using-communication-book"
+      x.slug !== "look2talk" &&
+      x.slug !== "developing-using-communication-book" &&
+      x.slug !== "functional-switching"
   );
 
   if (!allProducts) throw new Error("Could not get all the products");
 
+  // Exclude Learning category products from static generation
+  // They will redirect to Arlo URLs at runtime
+  const nonLearningProducts = allProducts.filter(
+    (product) =>
+      product.category?.name !== "Learning" &&
+      product.category?.slug !== "learning"
+  );
+
   return {
-    paths: allProducts.map((product) => ({
+    paths: nonLearningProducts.map((product) => ({
       params: {
         slug: product.slug,
       },
     })),
-    fallback: true,
+    fallback: true, // Learning products will be handled via fallback + redirect
   };
 }
 
@@ -141,6 +151,37 @@ export const getStaticProps = async ({ params: { slug } }) => {
   if (!currentResource) {
     return {
       notFound: true,
+    };
+  }
+
+  // Redirect Learning category products to Arlo
+  // Check if product is in Learning category
+  const isLearningProduct =
+    currentResource.category?.name === "Learning" ||
+    currentResource.category?.slug === "learning";
+
+  if (isLearningProduct) {
+    // Option 1: Use stored Arlo URL if available (manual override)
+    const arloUrl = currentResource.arloUrl;
+    if (arloUrl) {
+      return {
+        redirect: {
+          destination: arloUrl,
+          permanent: true,
+        },
+      };
+    }
+
+    // Option 2: Dynamic redirect to Arlo search with product name
+    // This automatically works for all Learning products without manual maintenance
+    const productName = encodeURIComponent(currentResource.name);
+    const arloSearchUrl = `https://acecentre.arlo.co/w/events/?search=${productName}`;
+
+    return {
+      redirect: {
+        destination: arloSearchUrl,
+        permanent: false, // Use 302 since it's a search redirect
+      },
     };
   }
 
