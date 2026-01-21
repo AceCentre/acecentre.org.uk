@@ -78,6 +78,12 @@ const REDIRECTS = [
     destination: "/page/safeguarding-policies",
     permanent: true,
   },
+  // Specific legacy upload path before generic wp-content redirect
+  {
+    source: "/wp-content/uploads/formid",
+    destination: "/resources/all",
+    permanent: true,
+  },
   {
     source: "/wp-content/:splat*",
     destination: "https://backend.acecentre.org.uk/wp-content/:splat*",
@@ -308,7 +314,551 @@ const REDIRECTS = [
   },
   {
     source: "/resources/communication-partners",
-    destination: "https://acecentre.arlo.co/w/events/9-communication-partners-free-resources",
+    destination:
+      "https://acecentre.arlo.co/w/events/9-communication-partners-free-resources",
+    permanent: true,
+  },
+  // Activity Book / FUNctional Switching legacy resource URLs
+  // Redirect old resource/activity-book URLs to the main activity-book page
+  {
+    source: "/resources/fancy-dress",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/red-light-green-light",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/disco",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/musical-statues",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/tickle-time",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/body-bop",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/next-page",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/bigger-or-smaller",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/humans-as-animals",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/whos-calling",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/sharing-news",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/freeze",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/were-going-on-a-bear-hunt",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/follow-the-cup",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/brown-bear-brown-bear",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/dance-selector",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/doggy-tricks",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/resources/spin-to-position",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/initiate-conversation",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/show-and-tell",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/fart-prank",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/news-sharing",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/communication-guide",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/school-errands",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  {
+    source: "/activity-book/dance-selector-guide",
+    destination: "/activity-book",
+    permanent: true,
+  },
+  // Deleted/legacy resources – send to resources overview
+  {
+    source: "/resources/baubles",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/clue-book",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/just-test",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/dressing-up-as-a-princess",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/medical-kit",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/communication-guide",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/blocks-eye-pointing",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/e-tran-frame",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  // Alphabet charts / listener-mediated resources
+  {
+    source: "/resources/listener-mediated-chart-pack",
+    destination: "/resources/all?category=alphabet-charts",
+    permanent: true,
+  },
+  {
+    source: "/resources/listener-mediated-launchpad",
+    destination: "/resources/all?category=alphabet-charts",
+    permanent: true,
+  },
+  {
+    source: "/product-category/alphabet-charts/coded-spelling-boards/",
+    destination: "/resources/all?category=alphabet-charts",
+    permanent: true,
+  },
+  // Blog and news legacy URLs → blog index
+  {
+    source: "/blog/tribute-professor-stephen-hawking",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/blog/send-technology-research-2019-summary",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/blog/annual-inspection-and-review-of-nhse-client-equipment",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/blog/estimated-prevalence-aac-population-data-2023-2024",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/blog/the-assistive-tech-conundrum-in-app-vs-os-level-integration",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/blog/test-for-general",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/blog/test-for-none",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  // News pagination URLs – we already send /news/:splat* → /blog/:splat*,
+  // but these specific legacy URLs should land on the blog index.
+  {
+    source: "/news/finding-my-voice-to-make-a-difference/",
+    destination: "/blog",
+    permanent: true,
+  },
+  // Services / NHS legacy URLs
+  {
+    source: "/services/nhs/assessments",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/nhs/not-temp-assesment",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/nhs/not-assesment-process",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/nhs/temp-assessment",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/assessment/nhs-referral/",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/assessment/nhs-referral",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/nhs/temp-assesment",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/nhs/assesment-process",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source:
+      "/nhs-service-finder/www.stgeorges.nhs.uk/services/community-services/wheelchair-service-and-rehabilitation-engineering",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  {
+    source: "/services/consultancy/",
+    destination: "/services/nhs",
+    permanent: true,
+  },
+  // NHS Service Finder legacy URLs
+  {
+    source: "/nhs-service-finder/bcas",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.shropshirecommunityhealth.nhs.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/soh-tr.info@nhs.net",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.kentcht.nhs.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.rhn.org.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source:
+      "/nhs-service-finder/www.blatchford.co.uk/locations/hull-nhs-wheelchair-service",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.knowsleycil.org",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.islington.gov.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.dorsetwheelchairs.nhs.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.liverpoollifehouse.org.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.inspirecommunitytrust.org",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.bhamcommunity.nhs.uk/wheelchair",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/n/a",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.nuh.nhs.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  {
+    source: "/nhs-service-finder/www.opcare.co.uk",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
+  // Ebooks landing pages
+  {
+    source:
+      "/ebooks/paper-based-resources-to-support-communication-for-adults-with-progressive-conditions",
+    destination: "/ebooks/",
+    permanent: true,
+  },
+  {
+    source: "/ebooks/designing-and-using-alphabet-charts",
+    destination: "/ebooks/",
+    permanent: true,
+  },
+  // Projects
+  {
+    source: "/project/look2talk/",
+    destination: "/projects/all",
+    permanent: true,
+  },
+  {
+    source: "/project/rite-project-2001-2006-dare/",
+    destination: "/projects/all",
+    permanent: true,
+  },
+  // People we support
+  {
+    source: "/people-we-support/share-your-ace-story_1046/",
+    destination: "/people-we-support",
+    permanent: true,
+  },
+  // About / staff
+  {
+    source: "/about/staff/page/2/",
+    destination: "/about/staff",
+    permanent: true,
+  },
+  {
+    source: "/about/our-networks/",
+    destination: "/about/staff",
+    permanent: true,
+  },
+  {
+    source: "/about/staff/martin-fisher",
+    destination: "/about/staff",
+    permanent: true,
+  },
+  {
+    source: "/about/staff/gavin-henderson",
+    destination: "/about/staff",
+    permanent: true,
+  },
+  // 410 → /resources/all
+  {
+    source: "/support-us/community-corporate-support/",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/support-us/why-support-ace/",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/support-us/fundraise/",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/events/learning/currently-available-courses/",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/event/aacunit1-2/",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/event/network-day",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source:
+      "/blog/clare-latham-from-communication-books-to-childrens-booksTable",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/blog/introducing-the-",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/resources/pragmatics-profile-people-use-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/get-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/switch-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/pragmatics-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/wp-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/project/switch-scanning-frequency-analysis/With",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/people-we-support/case-study/undefined",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/communication-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/look2talk",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/wp-includes/css/dist/bloc",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/wp-includes/css/dashicons",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/creating-",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/people-we-support이거",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/resources/speakbook)",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/docs/Eligibility-Criteria-for-NHSE-Specialised-AAC-Services.pdf",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/contact/email-correspondence/",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/aac-awareness-month-31-tips-for-31-days/",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/library",
+    destination: "/resources/all",
+    permanent: true,
+  },
+  {
+    source: "/lti",
+    destination: "/resources/all",
     permanent: true,
   },
 ];
