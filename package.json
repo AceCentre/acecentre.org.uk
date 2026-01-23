@@ -73,7 +73,7 @@
     "@swc/register": "0.1.10",
     "@testing-library/cypress": "10.0.1",
     "compare-versions": "^6.1.0",
-    "cypress": "13.2.0",
+    "cypress": "15.9.0",
     "dotenv": "^16.0.3",
     "eslint": "8.34.0",
     "eslint-config-next": "14.0.2",
