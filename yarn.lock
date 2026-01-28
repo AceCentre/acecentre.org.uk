@@ -2494,10 +2494,10 @@
     p-queue "^6.6.1"
     p-retry "^4.0.0"
 
-"@stripe/react-stripe-js@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/@stripe/react-stripe-js/-/react-stripe-js-2.1.0.tgz"
-  integrity sha512-Zb6Ycrj5QuhYkvtlvvLzo+cysUyA6wkx3zWHQ7uVnHRYRM/n1jtQD6VGBrdmptC8e8PJN6L091gBCyB5P0FqmA==
+"@stripe/react-stripe-js@5.6.0":
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-5.6.0.tgz#0e8fa984d3b982adf57a9bb81c9445e6d1dc0478"
+  integrity sha512-tucu/vTGc+5NXbo2pUiaVjA4ENdRBET8qGS00BM4BAU8J4Pi3eY6BHollsP2+VSuzzlvXwMg0it3ZLhbCj2fPg==
   dependencies:
     prop-types "^15.7.2"
 
