@@ -53,7 +53,7 @@ export const ContactCards = () => {
             NHS clients or upcoming appointments:{" "}
           </p>
           <p className={styles.phoneNumber}>
-            0800 080 3115 <span className={styles.option}>option 2</span>
+            0800 080 3115 <span className={styles.option}>option 3</span>
           </p>
           <p className={styles.officeHours}>
             Office hours, 9AM - 5PM, Monday - Friday
