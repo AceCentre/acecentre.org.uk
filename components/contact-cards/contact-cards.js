@@ -3,8 +3,8 @@ import styles from "./contact-cards.module.css";
 
 import Avatar from "@mui/material/Avatar";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Button } from "../button/button";
-import { CONTACT_FORM, FormModal } from "../ms-form";
+// import { Button } from "../button/button";
+// import { CONTACT_FORM, FormModal } from "../ms-form";
 
 export const ContactCards = () => {
   return (
@@ -12,26 +12,29 @@ export const ContactCards = () => {
       <h2 className={styles.heading}>How can we help you?</h2>
       <ul className={styles.list}>
         <Card>
-          <h3>Contact us</h3>
-          <p>Get in touch with Ace Centre by filling out our contact form.</p>
+          <h3>General Enquiries</h3>
+          <p>
+            For general enquiries about our charitable services, resources,
+            billing and accounts, events or marketing contact our enquiries
+            line:
+          </p>
           <p className={styles.phoneNumber}>0800 080 3115</p>
           <p className={styles.officeHours}>
             Office hours, 9AM - 5PM, Monday - Friday
           </p>
-          <FormModal form={CONTACT_FORM}>
-            {({ onClick }) => (
-              <div className={styles.buttonMargin}>
-                <Button onClick={onClick}>Contact form</Button>
-              </div>
-            )}
-          </FormModal>
+          <Link
+            href="mailto:enquiries@acecentre.org.uk"
+            className={styles.link}
+          >
+            Email us &gt;
+          </Link>
         </Card>
         <Card>
           <h3>Advice helpline</h3>
           <p>
-            If you&apos;re looking for assistance about Augmentative and
-            Alternative Communication (AAC) and Assistive Technology call our
-            advice helpline number:
+            If you have a question about Augmentative and Alternative
+            Communication (AAC) and Assistive Technology call our advice
+            helpline number:
           </p>
           <p className={styles.phoneNumber}>
             0800 080 3115 <span className={styles.option}>option 2</span>
@@ -44,22 +47,45 @@ export const ContactCards = () => {
           </Link>
         </Card>
         <Card>
-          <h3>Technical Support</h3>
-          <p>What to do when you&apos;re having device problems</p>
+          <h3>NHSE Specialised AAC Service</h3>
+          <p>
+            Contact our NHS admin team regarding the status of NHS referrals,
+            NHS clients or upcoming appointments:{" "}
+          </p>
+          <p className={styles.phoneNumber}>
+            0800 080 3115 <span className={styles.option}>option 2</span>
+          </p>
+          <p className={styles.officeHours}>
+            Office hours, 9AM - 5PM, Monday - Friday
+          </p>
+          <Link href="mailto:acecentre.admin@nhs.net" className={styles.link}>
+            Email us &gt;
+          </Link>
+          <p>
+            <br />
+            <b>Technical Support:</b> help if you are having problems with a
+            device from Ace Centre{" "}
+          </p>
           <Link href="/technical-support" className={styles.link}>
             Get technical support &gt;
           </Link>
         </Card>
         <Card>
-          <h3>Useful links</h3>
+          <h3>FAQs</h3>
           <ul className={styles.linkList}>
-            <UsefulLink href="/resources">Resources</UsefulLink>
-            <UsefulLink href="/getting-started">Getting started</UsefulLink>
-            <UsefulLink href="/services/partnerships">Partnerships</UsefulLink>
-            <UsefulLink href="/information-appointments">
-              Information appointments
+            <UsefulLink href="/services/nhs/referral-process">
+              How do I refer someone for an NHSE assessment?
             </UsefulLink>
-            <UsefulLink href="/feedback">Give us feedback</UsefulLink>
+            <UsefulLink href="/services/nhs/I-have-a-device">
+              What do I do if my Ace Centre device is broken or needs updating?
+            </UsefulLink>
+            <UsefulLink href="/getting-started/what-is-aac-what-is-at">
+              How can I get started with AAC?
+            </UsefulLink>
+            <UsefulLink href="/learning">
+              What training do you offer?
+            </UsefulLink>
+            <UsefulLink href="/feedback">How can I give feedback?</UsefulLink>
           </ul>
         </Card>
       </ul>
