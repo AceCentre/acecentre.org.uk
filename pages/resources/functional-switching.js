@@ -252,7 +252,10 @@ export default function FunctionalSwitching() {
               FUNctional Switching are clear and easy to follow.
             </p>
             <div style={{ marginTop: "2rem" }}>
-              <Button href="/activity-book/select">
+              <Button
+                href="/activity-book/select"
+                className={styles.fuctionalSwitchingButton}
+              >
                 Create a Switch Activity Book
               </Button>
             </div>

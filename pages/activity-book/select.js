@@ -6,6 +6,9 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import { ResourcesShare } from "../../components/resources-share/resources-share";
 import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
+import { NewsletterSignup } from "../../components/resources-download/resources-download";
+import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
+import LinearProgress from "@mui/material/LinearProgress";
 import styles from "../../styles/activity-book.module.css";
 import config from "../../lib/config";
 
@@ -56,6 +59,91 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
   );
 };
 
+const LOADING_MESSAGES = [
+  "Gathering information about your activity book.....",
+  "Setting up your activity book.....",
+  "Building your custom activity book.....",
+  "Saving your new custom activity book.....",
+];
+
+const ActivityBookProgress = ({ totalTime }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const tempId = setInterval(() => {
+      setValue((current) => {
+        if (current >= 100) {
+          clearInterval(tempId);
+          return 100;
+        }
+        return current + 1;
+      });
+    }, totalTime / 100);
+
+    return () => clearInterval(tempId);
+  }, [totalTime]);
+
+  const interval = 100 / LOADING_MESSAGES.length;
+  const currentMessageIndex = Math.min(
+    Math.floor(value / interval),
+    LOADING_MESSAGES.length - 1
+  );
+  const currentMessage = LOADING_MESSAGES[currentMessageIndex];
+
+  return (
+    <>
+      <LinearProgress
+        className={styles.progress}
+        variant="determinate"
+        value={value}
+      />
+      <p className={styles.loadingMessage}>{currentMessage}</p>
+    </>
+  );
+};
+
+const ActivityBookDownloadModal = ({ modalOpen, onClose }) => {
+  const name = "your Switch Activity Book";
+  const slug = "switch-activity-book";
+
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Preparing {name} for download</h2>
+
+            <ActivityBookProgress totalTime={10000} />
+            <p>
+              While you wait, why not sign up to our free newsletter to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup
+              tags={[{ name: slug }]}
+              signUpIdentifier="activity-book"
+            />
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
 export default function GuideSelect() {
   const [guides, setGuides] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -66,6 +154,7 @@ export default function GuideSelect() {
   const [loading, setLoading] = useState(true);
   const [selectedGuides, setSelectedGuides] = useState(new Set());
   const [downloading, setDownloading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Customization state
   const [userName, setUserName] = useState("");
@@ -284,7 +373,7 @@ export default function GuideSelect() {
         }
       }
 
-      // Use the new bulk download endpoint with customization
+      // Use the async bulk download endpoint with customization
       const requestBody = {
         templateIds: selectedGuideProducts.map((product) => product.slug),
         userName: userName || "User",
@@ -295,7 +384,7 @@ export default function GuideSelect() {
 
       console.log("Sending to bulk download:", requestBody);
 
-      const bulkResponse = await fetch(
+      const createResponse = await fetch(
         `${config.launchpadUrl}/api/activity-book/bulk-download`,
         {
           method: "POST",
@@ -304,89 +393,100 @@ export default function GuideSelect() {
         }
       );
 
-      if (bulkResponse.ok) {
-        let bulkData;
+      if (!createResponse.ok) {
+        let errorMessage = "Failed to create bulk download job";
         try {
-          bulkData = await bulkResponse.json();
-        } catch (jsonError) {
-          console.error("Error parsing bulk response JSON:", jsonError);
-          throw new Error("Invalid response from server. Please try again.");
+          const errorData = await createResponse.json();
+          errorMessage =
+            errorData.error ||
+            errorData.message ||
+            `Server returned ${createResponse.status} ${createResponse.statusText}`;
+        } catch (_e) {
+          errorMessage = `Server returned ${createResponse.status} ${createResponse.statusText}`;
         }
+        throw new Error(errorMessage);
+      }
 
-        if (!bulkData.pdfLocation) {
-          console.error("No PDF location in response:", bulkData);
-          throw new Error(
-            "Server did not return a PDF location. Please try again."
+      const { jobId } = await createResponse.json();
+      if (!jobId) {
+        throw new Error("Server did not return a job ID");
+      }
+
+      // Poll for job completion
+      const pollIntervalMs = 2000;
+      const maxWaitMs = 5 * 60 * 1000; // 5 minutes
+      const startTime = Date.now();
+      let pdfLocation = null;
+
+      while (Date.now() - startTime < maxWaitMs) {
+        try {
+          const statusResponse = await fetch(
+            `${config.launchpadUrl}/api/activity-book/bulk-download/${jobId}`
           );
-        }
 
-        // Download the PDF file
-        try {
-          const pdfResponse = await fetch(bulkData.pdfLocation);
+          if (!statusResponse.ok) {
+            let errorMessage = "Failed to check bulk download status";
+            try {
+              const errorData = await statusResponse.json();
+              errorMessage =
+                errorData.error ||
+                errorData.message ||
+                `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
+            } catch (_e) {
+              errorMessage = `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
+            }
+            console.error(errorMessage);
+            // On status errors, keep polling until timeout instead of failing immediately.
+            await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+            continue;
+          }
 
-          if (!pdfResponse.ok) {
+          const statusData = await statusResponse.json();
+
+          if (statusData.status === "error") {
             throw new Error(
-              `Failed to fetch PDF: ${pdfResponse.status} ${pdfResponse.statusText}`
+              statusData.error || "Failed to create PDF on the server"
             );
           }
 
-          const pdfBlob = await pdfResponse.blob();
-
-          // Verify it's actually a PDF
-          if (pdfBlob.type !== "application/pdf" && pdfBlob.size === 0) {
-            throw new Error(
-              "Downloaded file is not a valid PDF. Please try again."
-            );
+          if (statusData.status === "done" && statusData.pdfLocation) {
+            pdfLocation = statusData.pdfLocation;
+            break;
           }
-
-          const pdfUrl = window.URL.createObjectURL(pdfBlob);
-          const pdfLink = document.createElement("a");
-          pdfLink.href = pdfUrl;
-          pdfLink.download = "activity-book-with-customization.pdf";
-          document.body.appendChild(pdfLink);
-          pdfLink.click();
-          document.body.removeChild(pdfLink);
-          window.URL.revokeObjectURL(pdfUrl);
-
-          console.log(
-            `PDF download completed for ${selectedGuideProducts.length} guides`
-          );
-          setSelectedGuides(new Set()); // Clear selection after download
-        } catch (pdfError) {
-          console.error("Error downloading PDF:", pdfError);
-          throw new Error(
-            `Failed to download PDF: ${pdfError.message || "Unknown error"}`
-          );
-        }
-      } else {
-        let errorMessage = "Unknown error occurred";
-        try {
-          const errorData = await bulkResponse.json();
-          console.error("Server error:", errorData);
-
-          // Avoid duplicate error messages
-          if (errorData.error) {
-            // If error already contains "Failed to create PDF", use it as-is
-            errorMessage = errorData.error.includes("Failed to create PDF")
-              ? errorData.error
-              : `Failed to create PDF: ${errorData.error}`;
-          } else if (errorData.message) {
-            errorMessage = errorData.message.includes("Failed to create PDF")
-              ? errorData.message
-              : `Failed to create PDF: ${errorData.message}`;
-          } else if (errorData.details) {
-            errorMessage = `Failed to create PDF: ${errorData.details}`;
-          } else {
-            errorMessage = `Failed to create PDF: Server returned ${bulkResponse.status} ${bulkResponse.statusText}`;
-          }
-        } catch (jsonError) {
-          // If we can't parse the error response, use status info
-          console.error("Error parsing error response:", jsonError);
-          errorMessage = `Failed to create PDF: Server returned ${bulkResponse.status} ${bulkResponse.statusText}`;
+        } catch (statusError) {
+          // Network / transient errors (including "Load failed") during status checks
+          // are logged but do not immediately fail the whole operation.
+          console.error("Error checking bulk download status:", statusError);
         }
 
-        setUploadError(errorMessage);
-        alert(errorMessage);
+        await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+      }
+
+      if (!pdfLocation) {
+        throw new Error(
+          "Timed out waiting for the server to generate the PDF. Please try again."
+        );
+      }
+
+      // Download the PDF file by navigating directly to the URL.
+      // This avoids loading a ~400MB+ Blob into JS memory, which can cause "Load failed" errors.
+      try {
+        const pdfLink = document.createElement("a");
+        pdfLink.href = pdfLocation;
+        pdfLink.download = "activity-book-with-customization.pdf";
+        document.body.appendChild(pdfLink);
+        pdfLink.click();
+        document.body.removeChild(pdfLink);
+
+        console.log(
+          `PDF download triggered for ${selectedGuideProducts.length} guides`
+        );
+        setSelectedGuides(new Set()); // Clear selection after download
+      } catch (pdfError) {
+        console.error("Error downloading PDF:", pdfError);
+        throw new Error(
+          `Failed to download PDF: ${pdfError.message || "Unknown error"}`
+        );
       }
     } catch (error) {
       console.error("Error creating bulk download:", error);
@@ -533,18 +633,6 @@ export default function GuideSelect() {
                 the guide.
               </li>
             </ul>
-            <p>
-              <b>Hover</b> on the tiles below to see a description of the
-              activity.
-            </p>
-            <p>
-              <b>Select the checkbox</b> to include an activity guide in the
-              download.
-            </p>
-            <p>
-              Click on the <b>Download</b> button to generate your Switch
-              Activity Book.
-            </p>
           </div>
 
           <div className={styles.filters}>
@@ -671,6 +759,18 @@ export default function GuideSelect() {
                 </div>
               )}
             </div>
+            <p>
+              <b>Hover</b> on the tiles below to see a description of the
+              activity.
+            </p>
+            <p>
+              <b>Select the checkbox</b> to include an activity guide in the
+              download.
+            </p>
+            <p>
+              Click on the <b>Download</b> button to generate your Switch
+              Activity Book.
+            </p>
 
             {filteredGuides.length > 0 && (
               <div className={styles.bulkActions}>
@@ -696,7 +796,10 @@ export default function GuideSelect() {
 
                 {selectedGuides.size > 0 && (
                   <button
-                    onClick={downloadSelectedGuides}
+                    onClick={() => {
+                      setModalOpen(true);
+                      downloadSelectedGuides();
+                    }}
                     className={styles.downloadButton}
                     disabled={downloading}
                   >
@@ -716,6 +819,11 @@ export default function GuideSelect() {
             selectedGuides={selectedGuides}
             onGuideSelection={handleGuideSelection}
             downloading={downloading}
+          />
+
+          <ActivityBookDownloadModal
+            modalOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
           />
         </div>
       </main>
