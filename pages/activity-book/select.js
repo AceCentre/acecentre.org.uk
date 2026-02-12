@@ -407,64 +407,67 @@ export default function GuideSelect() {
         throw new Error(errorMessage);
       }
 
-      const { jobId } = await createResponse.json();
-      if (!jobId) {
-        throw new Error("Server did not return a job ID");
-      }
+      const createData = await createResponse.json();
 
-      // Poll for job completion
-      const pollIntervalMs = 2000;
-      const maxWaitMs = 5 * 60 * 1000; // 5 minutes
-      const startTime = Date.now();
-      let pdfLocation = null;
+      // Backend returns pdfLocation directly (synchronous) or jobId for async polling
+      let pdfLocation =
+        createData.pdfLocation || null;
 
-      while (Date.now() - startTime < maxWaitMs) {
-        try {
-          const statusResponse = await fetch(
-            `${config.launchpadUrl}/api/activity-book/bulk-download/${jobId}`
-          );
+      if (!pdfLocation && createData.jobId) {
+        // Async flow: poll for job completion
+        const pollIntervalMs = 2000;
+        const maxWaitMs = 5 * 60 * 1000; // 5 minutes
+        const startTime = Date.now();
 
-          if (!statusResponse.ok) {
-            let errorMessage = "Failed to check bulk download status";
-            try {
-              const errorData = await statusResponse.json();
-              errorMessage =
-                errorData.error ||
-                errorData.message ||
-                `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
-            } catch (_e) {
-              errorMessage = `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
-            }
-            console.error(errorMessage);
-            // On status errors, keep polling until timeout instead of failing immediately.
-            await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
-            continue;
-          }
-
-          const statusData = await statusResponse.json();
-
-          if (statusData.status === "error") {
-            throw new Error(
-              statusData.error || "Failed to create PDF on the server"
+        while (Date.now() - startTime < maxWaitMs) {
+          try {
+            const statusResponse = await fetch(
+              `${config.launchpadUrl}/api/activity-book/bulk-download/${createData.jobId}`
             );
+
+            if (!statusResponse.ok) {
+              let errorMessage = "Failed to check bulk download status";
+              try {
+                const errorData = await statusResponse.json();
+                errorMessage =
+                  errorData.error ||
+                  errorData.message ||
+                  `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
+              } catch (_e) {
+                errorMessage = `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
+              }
+              console.error(errorMessage);
+              await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+              continue;
+            }
+
+            const statusData = await statusResponse.json();
+
+            if (statusData.status === "error") {
+              throw new Error(
+                statusData.error || "Failed to create PDF on the server"
+              );
+            }
+
+            if (statusData.status === "done" && statusData.pdfLocation) {
+              pdfLocation = statusData.pdfLocation;
+              break;
+            }
+          } catch (statusError) {
+            console.error("Error checking bulk download status:", statusError);
           }
 
-          if (statusData.status === "done" && statusData.pdfLocation) {
-            pdfLocation = statusData.pdfLocation;
-            break;
-          }
-        } catch (statusError) {
-          // Network / transient errors (including "Load failed") during status checks
-          // are logged but do not immediately fail the whole operation.
-          console.error("Error checking bulk download status:", statusError);
+          await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
         }
 
-        await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
-      }
-
-      if (!pdfLocation) {
+        if (!pdfLocation) {
+          throw new Error(
+            "Timed out waiting for the server to generate the PDF. Please try again."
+          );
+        }
+      } else if (!pdfLocation) {
         throw new Error(
-          "Timed out waiting for the server to generate the PDF. Please try again."
+          "Server did not return a PDF location. Please try again."
         );
       }
 
