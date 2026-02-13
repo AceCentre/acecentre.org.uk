@@ -21,7 +21,10 @@
     "lighthouse": "lhci autorun",
     "plop": "plop",
     "build-sitemap": "next-sitemap",
-    "dead-code": "node madge.js"
+    "dead-code": "node madge.js",
+    "audit-unused-links": "node scripts/audit-unused-links.js",
+    "list-broken-links": "node scripts/list-broken-links.js",
+    "remove-broken-links": "node scripts/remove-broken-links.js"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
@@ -41,6 +44,7 @@
     "@stripe/stripe-js": "2.1.11",
     "@u-wave/react-vimeo": "0.9.10",
     "async-redis": "2.0.0",
+    "browser-image-compression": "^2.0.2",
     "dots-wrapper": "^3.11.4",
     "formidable": "^3.5.4",
     "framer-motion": "10.0.0",

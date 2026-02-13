@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import ArrowForward from "@mui/icons-material/ArrowForward";
+import { ArrowForward } from "@mui/icons-material";
 import Link from "next/link";
 import styles from "./how-can-we-help-cards.module.css";
 import { ImageWithLoader as Image } from "../image";

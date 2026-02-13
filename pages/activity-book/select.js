@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import imageCompression from "browser-image-compression";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
@@ -243,6 +244,23 @@ export default function GuideSelect() {
     setSelectedGuides(new Set());
   };
 
+  // Compress image if over ~800KB to stay under App Platform 1MB limit
+  const compressIfNeeded = async (file) => {
+    const THRESHOLD_BYTES = 800 * 1024;
+    if (!file || file.size <= THRESHOLD_BYTES) return file;
+    try {
+      const compressed = await imageCompression(file, {
+        maxSizeMB: 0.9,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+      });
+      return compressed;
+    } catch (err) {
+      console.warn("Image compression failed, using original:", err);
+      return file;
+    }
+  };
+
   // Helper function to format file size
   const formatFileSize = (bytes) => {
     if (bytes === 0) return "0 Bytes";
@@ -294,19 +312,21 @@ export default function GuideSelect() {
       if (userPhoto || devicePhoto) {
         setUploadError(null); // Clear previous errors
         const formData = new FormData();
-        if (userPhoto) {
-          formData.append("userPhoto", userPhoto);
+        const userFile = userPhoto ? await compressIfNeeded(userPhoto) : null;
+        const deviceFile = devicePhoto ? await compressIfNeeded(devicePhoto) : null;
+        if (userFile) {
+          formData.append("userPhoto", userFile);
           console.log(
-            `Uploading user photo: ${userPhoto.name} (${formatFileSize(
-              userPhoto.size
+            `Uploading user photo: ${userFile.name} (${formatFileSize(
+              userFile.size
             )})`
           );
         }
-        if (devicePhoto) {
-          formData.append("devicePhoto", devicePhoto);
+        if (deviceFile) {
+          formData.append("devicePhoto", deviceFile);
           console.log(
-            `Uploading device photo: ${devicePhoto.name} (${formatFileSize(
-              devicePhoto.size
+            `Uploading device photo: ${deviceFile.name} (${formatFileSize(
+              deviceFile.size
             )})`
           );
         }
