@@ -1,6 +1,6 @@
 import styles from "./blog-category-grid.module.css";
 import { ImageWithLoader as Image } from "../image";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import Link from "next/link";
 import Avatar from "@mui/material/Avatar";
 

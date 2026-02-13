@@ -5,7 +5,7 @@ import Avatar from "@mui/material/Avatar";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
 import { useState } from "react";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 
 import styles from "./sub-nav.module.css";
 import { NavCta } from "../nav-cta/nav-cta";

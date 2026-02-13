@@ -46,6 +46,10 @@ const SentryWebpackPluginOptions = {
   silent: true,
   org: "ace-centre",
   project: "acecentreorguk",
+  // Don't fail build when Sentry upload fails (e.g. local SSL/cert issues)
+  errorHandler: (err) => {
+    console.warn("Sentry source map upload failed (build continues):", err.message);
+  },
 };
 
 module.exports = withSentryConfig(nextConfig, SentryWebpackPluginOptions);

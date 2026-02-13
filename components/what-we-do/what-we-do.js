@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import Link from "next/link";
 import styles from "./what-we-do.module.css";
 
