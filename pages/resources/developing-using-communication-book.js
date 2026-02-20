@@ -50,7 +50,7 @@ export default function ResourceDetail({
         </div>
         <div className={styles.descriptionContainer}>
           <p>
-            Deeveloping and Using a Communication Book (DUCB) is a much-loved
+            Developing and Using a Communication Book (DUCB) is a much-loved
             guide. It is used by many carers, parents and professionals who need
             to make and support the use of a communication book for people who
             are preliterate and rely on symbols to support their communication.
@@ -99,7 +99,8 @@ export default function ResourceDetail({
               <li>
                 Suggestions for developing a fringe (topic-based) vocabulary
                 that can meet an individual’s interests, needs and varied
-                environments at each stage, with plenty of examples included.{" "}
+                environments at each stage, with plenty of examples
+                included.{" "}
               </li>
               <li>
                 An emphasis on combining symbols to communicate rich ideas
@@ -154,7 +155,7 @@ export default function ResourceDetail({
                 Boardmaker 6 and Boardmaker 7 for Picture Communication Symbols
                 (PCS)
               </li>
-              <li>InPrint for Widgit symbols </li>
+              <li>InPrint and Widgit Online for Widgit symbols </li>
               <ul>
                 <li>InPrint 3 users download templates from this page </li>
                 <li>
@@ -162,6 +163,7 @@ export default function ResourceDetail({
                   within the &apos;Communication&apos; template folder included
                   in InPrint 4
                 </li>
+                <li>Widgit Online users download templates from this page </li>
               </ul>
               <li>
                 MindExpress for Symbol Stix, can be edited for PCS or Widgit
@@ -292,7 +294,20 @@ export default function ResourceDetail({
                     href="https://backend.acecentre.org.uk/wp-content/uploads/2017/09/DUCB-Ace-Centre-InPrint-3-Templates-2.25.zip"
                     download
                   >
-                    Inprint 3
+                    InPrint 3
+                  </Button>
+                </div>
+                <div
+                  className={styles.downloadFormButtonContainer}
+                  style={{ marginTop: "0.5rem" }}
+                >
+                  <br></br>
+                  <Button
+                    className={styles.downloadFormButton}
+                    href="/DUCB-Widgit-Online-Ace-Centre-2.26.zip"
+                    download
+                  >
+                    Widgit Online
                   </Button>
                 </div>
               </div>
@@ -446,7 +461,7 @@ export const getStaticProps = async () => {
       mainCategoryName: product.category.name,
       featuredImage: product.image,
       ...product,
-    })
+    }),
   );
 
   const seoPrice = currentResource.price;
