@@ -48,7 +48,7 @@ export default function ResourceDetail({
         </div>
         <div className={styles.descriptionContainer}>
           <p>
-            Developing and Using a Communication Book (DUCB) is a much-loved
+            Devvvveloping and Using a Communication Book (DUCB) is a much-loved
             guide used by many carers, parents and professionals who need to
             make and use a communication book for people who are preliterate and
             rely on symbols to support their communication.
@@ -420,7 +420,7 @@ export const getStaticProps = async () => {
       mainCategoryName: product.category.name,
       featuredImage: product.image,
       ...product,
-    })
+    }),
   );
 
   const seoPrice = currentResource.price;
