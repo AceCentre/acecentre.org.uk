@@ -78,6 +78,11 @@ const REDIRECTS = [
     destination: "/page/safeguarding-policies",
     permanent: true,
   },
+  {
+    source: "/resources/language-library",
+    destination: "/language-library",
+    permanent: true,
+  },
   // Specific legacy upload path before generic wp-content redirect
   {
     source: "/wp-content/uploads/formid",
@@ -114,6 +119,11 @@ const REDIRECTS = [
   {
     source: "/services/assessment",
     destination: "/services/assessments",
+    permanent: true,
+  },
+  {
+    source: "/services/mentoring",
+    destination: "/services/clinical-supervision",
     permanent: true,
   },
   {

@@ -85,19 +85,11 @@ const defaultGridItems = [
     },
   },
   {
-    name: "Clinical Supervision",
+    name: "Supervision and Mentoring",
     href: "/services/clinical-supervision",
     image: {
       src: "/supervision-thumbnail.jpeg",
       alt: "Two people looking at a communication device",
-    },
-  },
-  {
-    name: "Mentoring",
-    href: "/services/mentoring",
-    image: {
-      src: "/mentoring-thumbnail.jpg",
-      alt: "Two people looking at a communication aid",
     },
   },
 ];
