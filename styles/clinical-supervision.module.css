@@ -71,6 +71,7 @@
   gap: 0.5rem;
   flex: 0 0 445px;
   max-width: 90%;
+  border-bottom: 1px solid #dfdfdf;
 }
 
 .quoteText {
@@ -120,6 +121,24 @@
 
 .leftContent {
   margin-top: -4rem;
+}
+
+.bulletList {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.bulletList li {
+  margin-bottom: 0.75rem;
+}
+
+.leftContent .list + p {
+  margin-top: 0;
+}
+
+.leftContent .bulletList + .list {
+  margin-top: 2rem;
 }
 
 /** Mobile CSS */
