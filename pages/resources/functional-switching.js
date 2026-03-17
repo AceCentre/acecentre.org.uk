@@ -62,9 +62,14 @@ const GEAR_1_FAQS = [
           <li>Play music</li>
         </ul>
         <p>
-          <b>Find activity ideas with guides on how to set them up</b>
-          {""}
-          <Link href="/activity-book/select"> here.</Link>
+          Visit the{" "}
+          <Link
+            href="/activity-book/select"
+            style={{ textDecoration: "underline" }}
+          >
+            Switch Activity Book creator
+          </Link>{" "}
+          for more activity ideas and setup guides.
         </p>
       </>
     ),
@@ -89,9 +94,14 @@ const GEAR_2_FAQS = [
           <li>Play simple computer games</li>
         </ul>
         <p>
-          <b>Find activity ideas with guides on how to set them up</b>
-          {""}
-          <Link href="/activity-book/select"> here.</Link>
+          Visit the{" "}
+          <Link
+            href="/activity-book/select"
+            style={{ textDecoration: "underline" }}
+          >
+            Switch Activity Book creator
+          </Link>{" "}
+          for more activity ideas and setup guides.
         </p>
       </>
     ),
@@ -143,8 +153,14 @@ const GEAR_3_FAQS = [
           </li>
         </ul>
         <p>
-          <b>Find activity ideas with guides on how to set them up</b>
-          <Link href="/activity-book/select"> here.</Link>
+          Visit the{" "}
+          <Link
+            href="/activity-book/select"
+            style={{ textDecoration: "underline" }}
+          >
+            Switch Activity Book creator
+          </Link>{" "}
+          for more activity ideas and setup guides.
         </p>
       </>
     ),
@@ -195,9 +211,14 @@ const GEAR_4_FAQS = [
           </li>
         </ul>
         <p>
-          <b>Find activity ideas with guides on how to set them up</b>
-          {""}
-          <Link href="/activity-book/select"> here.</Link>
+          Visit the{" "}
+          <Link
+            href="/activity-book/select"
+            style={{ textDecoration: "underline" }}
+          >
+            Switch Activity Book creator
+          </Link>{" "}
+          for more activity ideas and setup guides.
         </p>
       </>
     ),
@@ -220,9 +241,14 @@ const GEAR_5_FAQS = [
           </li>
         </ul>
         <p>
-          <b>Find activity ideas with guides on how to set them up</b>
-          {""}
-          <Link href="/activity-book/select"> here.</Link>
+          Visit the{" "}
+          <Link
+            href="/activity-book/select"
+            style={{ textDecoration: "underline" }}
+          >
+            Switch Activity Book creator
+          </Link>{" "}
+          for more activity ideas and setup guides.
         </p>
       </>
     ),
@@ -242,14 +268,14 @@ export default function FunctionalSwitching() {
           <div className={styles.container}>
             <h1>FUNctional Switching</h1>
             <p className={styles.intro}>
-              FUNctional Switching is an approach to developing switch skills
-              created through a CENMAC and Ace Centre collaboration.
-            </p>
-            <p className={styles.intro}>
               The focus of FUNctional Switching is the use of fun activities
               that encourage engagement between the learner, their peers, and
               family members while developing switch skills. The five stages of
               FUNctional Switching are clear and easy to follow.
+            </p>
+            <p className={styles.intro}>
+              This work builds on contributions from many individuals. See the{" "}
+              <a href="#acknowledgements">acknowledgements section</a> below.
             </p>
             <div style={{ marginTop: "2rem" }}>
               <Button
@@ -349,7 +375,7 @@ export default function FunctionalSwitching() {
           <section className={styles.gearSection}>
             <div className={styles.gearHeader}>
               <span className={styles.gearBadge}>First Gear</span>
-              <h2>Cause and Effect</h2>
+              <h2>Existing movements</h2>
             </div>
             <p>
               Recognising that a switch makes something happen is an essential
@@ -451,6 +477,144 @@ export default function FunctionalSwitching() {
           </section>
 
           <section className={styles.acknowledgement}>
+            <h2>Helpful Resources</h2>
+            <ul className={styles.bulletList}>
+              <li>
+                <a
+                  href="https://lindaburkhart.com/wp-content/uploads/2018/06/ASHA_Persepctives_Switches_Burkhart.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Stepping Stones to Switch Access by Linda Burkhart
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://jiao.life/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Jiao.Life – Seven Stages of Switch Development by Luke
+                  Thompson
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://indigo.org.au/resources/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Indigo Unlocking Abilities – Switch Resources
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://talksense.weebly.com/switching-skills.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  TalkSense Switching to Success by Tony Jones
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.judylynn.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Judy Lynn Software, Inc.
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.helpkidzlearn.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  HelpKidzLearn from Inclusive Technology
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://thepacecentre.org/advice-items/my-way-app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Pace Centre My Way
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.inclusive.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Inclusive Technology
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.pretorianuk.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Pretorian Technologies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://mindexpress.jabbla.com/en/download/steps-before-step-scanning-2-5-2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Steps Before Step Scanning 2.5 (Mind Express by Jabbla) by
+                  Linda Burkhart and Flo Quinn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.oneswitch.org.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  OneSwitch by Barrie Ellis
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://aacgameplay.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  AAC Gameplay (formerly Tar Heel Gameplay)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.specialbites.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  SpecialBites
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <section className={styles.acknowledgement}>
             <h2>Developed by</h2>
             <p>
               Charlie Danger in collaboration with CENMAC and Kezia Hesketh at
@@ -458,14 +622,14 @@ export default function FunctionalSwitching() {
             </p>
           </section>
 
-          <section className={styles.acknowledgement}>
+          <section className={styles.acknowledgement} id="acknowledgements">
             <h2>Acknowledgements</h2>
             <p>
               This work builds on successful strategies developed by Linda
               Burkhart, Judy King, Tony Jones, Ian Bean and Michelle Lange.
             </p>
             <p>
-              This model was inspired by the teachers and therapists at Mada and
+              The model was inspired by the teachers and therapists at Mada and
               Hamad Medical Corporation, Qatar. A special thanks for their
               feedback and frequent reminders to keep it simple.
             </p>

@@ -79,6 +79,17 @@
   font-size: 1.2rem;
 }
 
+.bulletList {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+}
+
+.bulletList li {
+  padding: 0.5rem 0;
+  line-height: 1.6;
+}
+
 .gearSection {
   margin: 4rem 0;
   padding: 2.5rem;

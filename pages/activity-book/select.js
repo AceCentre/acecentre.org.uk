@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import imageCompression from "browser-image-compression";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
-import { ResourcesShare } from "../../components/resources-share/resources-share";
 import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
 import { NewsletterSignup } from "../../components/resources-download/resources-download";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
@@ -87,7 +87,7 @@ const ActivityBookProgress = ({ totalTime }) => {
   const interval = 100 / LOADING_MESSAGES.length;
   const currentMessageIndex = Math.min(
     Math.floor(value / interval),
-    LOADING_MESSAGES.length - 1
+    LOADING_MESSAGES.length - 1,
   );
   const currentMessage = LOADING_MESSAGES[currentMessageIndex];
 
@@ -157,6 +157,27 @@ export default function GuideSelect() {
   const [downloading, setDownloading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const getGearNumber = (guide) => {
+    const text = (guide?.badgeText || "").toLowerCase();
+    if (text.includes("first")) return 1;
+    if (text.includes("second")) return 2;
+    if (text.includes("third")) return 3;
+    if (text.includes("fourth")) return 4;
+    if (text.includes("fifth")) return 5;
+
+    const numericMatch = text.match(/\b([1-5])\b/);
+    if (numericMatch) return Number(numericMatch[1]);
+
+    return Number.POSITIVE_INFINITY;
+  };
+
+  const sortGuidesByGearAscending = (guidesToSort) =>
+    [...guidesToSort].sort((a, b) => {
+      const gearDiff = getGearNumber(a) - getGearNumber(b);
+      if (gearDiff !== 0) return gearDiff;
+      return String(a?.title || "").localeCompare(String(b?.title || ""));
+    });
+
   // Customization state
   const [userName, setUserName] = useState("");
   const [userPhoto, setUserPhoto] = useState(null);
@@ -164,6 +185,20 @@ export default function GuideSelect() {
   const [uploadError, setUploadError] = useState(null);
   // to connect to local change the config.launchpadUrl to http://localhost:4000
   // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
+
+  const normalizeSwitchImageName = (name) => {
+    const key = String(name || "").trim().toLowerCase();
+    const renameMap = {
+      "dog talking buttons": "Recordable button",
+      "talking tilles crop": "Talking tile",
+      "big step by step": "Big step-by-step",
+      "little step by step": "Little syep-by-step",
+      "little mack": "Little mack",
+      "smooth talker with levels": "Smooth talker",
+    };
+
+    return renameMap[key] ?? name;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -182,10 +217,18 @@ export default function GuideSelect() {
         console.log("Fetched categories:", categoriesData);
         console.log("Fetched switch images:", switchesData);
 
-        setGuides(guidesData);
+        const sortedGuides = sortGuidesByGearAscending(guidesData);
+        setGuides(sortedGuides);
         setCategories(categoriesData);
-        setSwitchImages(switchesData);
-        setFilteredGuides(guidesData);
+        setSwitchImages(
+          Array.isArray(switchesData)
+            ? switchesData.map((s) => ({
+              ...s,
+              displayName: normalizeSwitchImageName(s?.displayName),
+            }))
+            : switchesData,
+        );
+        setFilteredGuides(sortedGuides);
       } catch (error) {
         console.error("Error fetching data:", error);
         console.error("Error details:", {
@@ -205,11 +248,11 @@ export default function GuideSelect() {
 
     if (selectedCategory) {
       filtered = filtered.filter(
-        (guide) => guide.category === selectedCategory
+        (guide) => guide.category === selectedCategory,
       );
     }
 
-    setFilteredGuides(filtered);
+    setFilteredGuides(sortGuidesByGearAscending(filtered));
   }, [guides, selectedCategory]);
 
   const handleCategoryChange = (e) => {
@@ -300,11 +343,11 @@ export default function GuideSelect() {
     setDownloading(true);
     try {
       const selectedGuideProducts = guideProducts.filter((product) =>
-        selectedGuides.has(product.id)
+        selectedGuides.has(product.id),
       );
 
       console.log(
-        `Creating bulk download for ${selectedGuideProducts.length} guides...`
+        `Creating bulk download for ${selectedGuideProducts.length} guides...`,
       );
 
       // Upload photos first if they exist
@@ -313,21 +356,23 @@ export default function GuideSelect() {
         setUploadError(null); // Clear previous errors
         const formData = new FormData();
         const userFile = userPhoto ? await compressIfNeeded(userPhoto) : null;
-        const deviceFile = devicePhoto ? await compressIfNeeded(devicePhoto) : null;
+        const deviceFile = devicePhoto
+          ? await compressIfNeeded(devicePhoto)
+          : null;
         if (userFile) {
           formData.append("userPhoto", userFile);
           console.log(
             `Uploading user photo: ${userFile.name} (${formatFileSize(
-              userFile.size
-            )})`
+              userFile.size,
+            )})`,
           );
         }
         if (deviceFile) {
           formData.append("devicePhoto", deviceFile);
           console.log(
             `Uploading device photo: ${deviceFile.name} (${formatFileSize(
-              deviceFile.size
-            )})`
+              deviceFile.size,
+            )})`,
           );
         }
 
@@ -337,7 +382,7 @@ export default function GuideSelect() {
             {
               method: "POST",
               body: formData,
-            }
+            },
           );
 
           if (uploadResponse.ok) {
@@ -375,18 +420,18 @@ export default function GuideSelect() {
             error.message.includes("NetworkError")
           ) {
             setUploadError(
-              "Network error: Could not connect to server. Please check your connection and try again."
+              "Network error: Could not connect to server. Please check your connection and try again.",
             );
           } else if (
             error.message.includes("413") ||
             error.message.includes("Request Entity Too Large")
           ) {
             setUploadError(
-              "File too large: The server rejected the upload. Please try a smaller image or contact support."
+              "File too large: The server rejected the upload. Please try a smaller image or contact support.",
             );
           } else {
             setUploadError(
-              error.message || "Failed to upload photos. Please try again."
+              error.message || "Failed to upload photos. Please try again.",
             );
           }
           throw error;
@@ -410,7 +455,7 @@ export default function GuideSelect() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),
-        }
+        },
       );
 
       if (!createResponse.ok) {
@@ -430,19 +475,18 @@ export default function GuideSelect() {
       const createData = await createResponse.json();
 
       // Backend returns pdfLocation directly (synchronous) or jobId for async polling
-      let pdfLocation =
-        createData.pdfLocation || null;
+      let pdfLocation = createData.pdfLocation || null;
 
       if (!pdfLocation && createData.jobId) {
         // Async flow: poll for job completion
         const pollIntervalMs = 2000;
-        const maxWaitMs = 5 * 60 * 1000; // 5 minutes
+        const maxWaitMs = 5 * 60 * 1000; // one hour
         const startTime = Date.now();
 
         while (Date.now() - startTime < maxWaitMs) {
           try {
             const statusResponse = await fetch(
-              `${config.launchpadUrl}/api/activity-book/bulk-download/${createData.jobId}`
+              `${config.launchpadUrl}/api/activity-book/bulk-download/${createData.jobId}`,
             );
 
             if (!statusResponse.ok) {
@@ -457,7 +501,9 @@ export default function GuideSelect() {
                 errorMessage = `Server returned ${statusResponse.status} ${statusResponse.statusText}`;
               }
               console.error(errorMessage);
-              await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+              await new Promise((resolve) =>
+                setTimeout(resolve, pollIntervalMs),
+              );
               continue;
             }
 
@@ -465,7 +511,7 @@ export default function GuideSelect() {
 
             if (statusData.status === "error") {
               throw new Error(
-                statusData.error || "Failed to create PDF on the server"
+                statusData.error || "Failed to create PDF on the server",
               );
             }
 
@@ -482,12 +528,12 @@ export default function GuideSelect() {
 
         if (!pdfLocation) {
           throw new Error(
-            "Timed out waiting for the server to generate the PDF. Please try again."
+            "Timed out waiting for the server to generate the PDF. Please try again.",
           );
         }
       } else if (!pdfLocation) {
         throw new Error(
-          "Server did not return a PDF location. Please try again."
+          "Server did not return a PDF location. Please try again.",
         );
       }
 
@@ -502,13 +548,13 @@ export default function GuideSelect() {
         document.body.removeChild(pdfLink);
 
         console.log(
-          `PDF download triggered for ${selectedGuideProducts.length} guides`
+          `PDF download triggered for ${selectedGuideProducts.length} guides`,
         );
         setSelectedGuides(new Set()); // Clear selection after download
       } catch (pdfError) {
         console.error("Error downloading PDF:", pdfError);
         throw new Error(
-          `Failed to download PDF: ${pdfError.message || "Unknown error"}`
+          `Failed to download PDF: ${pdfError.message || "Unknown error"}`,
         );
       }
     } catch (error) {
@@ -597,14 +643,13 @@ export default function GuideSelect() {
               This resource generates a downloadable PDF book with activity
               guides that introduce switches and help build understanding of how
               they work and what they can do through fun, motivating activities.{" "}
-              Click{" "}
+              See an{" "}
               <a
                 href="/activity-book/example-activity-page.png"
                 target="_blank"
               >
-                here
+                example activity guide.
               </a>{" "}
-              to view an example of an activity guide.
             </p>
             <p>
               <br />
@@ -612,17 +657,17 @@ export default function GuideSelect() {
               a collaboration between CENMAC and Ace Centre, designed to develop
               switch skills. This approach uses a &apos;Gear&apos; analogy to
               show the level a learner is working at and how to support their
-              progress. To learn more about the Gears and building switch skills{" "}
-              <a href="https://functionalswitching.com">here.</a>
+              progress.{" "}
+              <Link href="/resources/functional-switching">
+                Learn more about the Gears and building switch skills.
+              </Link>
             </p>
             <p>
               <br />
               Each activity is designed to develop a range of skills that the
               learner can apply to other FUNctional tasks like controlling a
               communication device, accessing the school curriculum, using a
-              computer, and much more.
-            </p>
-            <div style={{ marginTop: "3.5rem", marginBottom: "1.5rem" }}>
+              computer, and much more.{" "}
               <FormModal form={RESOURCE_FEEDBACK}>
                 {({ onClick }) => (
                   <a
@@ -632,15 +677,22 @@ export default function GuideSelect() {
                       onClick(event);
                     }}
                   >
-                    Click here to share your feedback on this resource
+                    We would really appreciate feedback.
                   </a>
                 )}
               </FormModal>
-
-              <div style={{ marginTop: "1rem" }}>
-                <ResourcesShare />
-              </div>
-            </div>
+            </p>
+            <br></br>
+            <p>
+              See{" "}
+              <Link
+                href="/activity-book/Types-of-Switches-FUNctional-Switching 2.26.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                examples of equipment used in the activities.
+              </Link>
+            </p>
             <p>
               <br />
               <b>To generate a Switch Activity Book</b>
@@ -781,6 +833,12 @@ export default function GuideSelect() {
                   ⚠ {uploadError}
                 </div>
               )}
+              <p className={styles.privacyNote}>
+                <strong>Privacy note:</strong> The name and photos you provide
+                are used only to generate your personalised PDF. They are stored
+                temporarily on our server and are automatically deleted within
+                15 minutes.
+              </p>
             </div>
             <p>
               <b>Hover</b> on the tiles below to see a description of the

@@ -95,6 +95,14 @@
   font-size: 0.95rem;
 }
 
+.privacyNote {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
 .customizationForm {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -258,7 +266,9 @@
 }
 
 .card {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -283,7 +293,10 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
   z-index: 1000;
   max-width: 400px;
   min-width: 250px;
