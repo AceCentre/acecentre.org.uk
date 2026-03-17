@@ -34,14 +34,18 @@ export const getStaticProps = async () => {
     Array.isArray(post?.categories) &&
     post.categories.some((c) => c?.slug === "events");
 
+  const isAtScholarPost = (post) =>
+    Array.isArray(post?.categories) &&
+    post.categories.some((c) => c?.slug === "at-scholar");
+
   const latestsPosts = (await getAllPostCards()).filter(
-    (x) => x.mainCategoryName !== "AT Scholar" && !isEventPost(x)
+    (x) => !isAtScholarPost(x) && !isEventPost(x),
   );
 
   if (!latestsPosts) throw new Error("Couldn't get latests posts");
 
   const blogCategories = (await getAllCategories()).filter(
-    (x) => x.slug !== "at-scholar" && x.slug !== "events"
+    (x) => x.slug !== "at-scholar" && x.slug !== "events",
   );
   if (!blogCategories) throw new Error("Couldn't get the blog categories");
 
