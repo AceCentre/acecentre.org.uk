@@ -643,7 +643,7 @@ export default function GuideSelect() {
             <p>
               See{" "}
               <Link
-                href="/activity-book/Types-of-Switches-FUNctional-Switching 2.26.pdf"
+                href="/activity-book/Types-of-Switches-FUNctional-Switching-2.26.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -788,11 +788,11 @@ export default function GuideSelect() {
               <button onClick={clearFilters} className={styles.clearButton}>
                 Clear Filters
               </button>
+              <p className={styles.resultsCount}>
+                {filteredGuides.length} guide
+                {filteredGuides.length !== 1 ? "s" : ""} found
+              </p>
             </div>
-            <p className={styles.resultsCount}>
-              {filteredGuides.length} guide
-              {filteredGuides.length !== 1 ? "s" : ""} found
-            </p>
             <p>
               <b>Hover</b> on the tiles below to see a description of the
               activity.
