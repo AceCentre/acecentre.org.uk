@@ -162,6 +162,27 @@ export default function GuideSelect() {
   const [userPhoto, setUserPhoto] = useState(null);
   const [devicePhoto, setDevicePhoto] = useState(null);
   const [uploadError, setUploadError] = useState(null);
+
+  const normalizeSwitchImageName = (name) => {
+    const key = String(name || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, " ");
+
+    // Rename dropdown labels only (do not change filenames/paths).
+    const renameMap = {
+      "dog talking buttons": "recordable button",
+      "talking tilles crop": "Talking tile",
+      "big step by step": "Big step-by-step",
+      "little step by step": "Little step-by-step",
+      "little syep-by-step": "Little step-by-step",
+      "little mack": "Little mack",
+      "smooth talker with levels": "Smooth talker",
+    };
+
+    return renameMap[key] ?? name;
+  };
+
   // to connect to local change the config.launchpadUrl to http://localhost:4000
   // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
 
@@ -184,7 +205,14 @@ export default function GuideSelect() {
 
         setGuides(guidesData);
         setCategories(categoriesData);
-        setSwitchImages(switchesData);
+        setSwitchImages(
+          Array.isArray(switchesData)
+            ? switchesData.map((s) => ({
+                ...s,
+                displayName: normalizeSwitchImageName(s?.displayName),
+              }))
+            : switchesData,
+        );
         setFilteredGuides(guidesData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -649,6 +677,8 @@ export default function GuideSelect() {
               >
                 examples of equipment used in the activities.
               </Link>
+              <br /> <br />
+              <br />
             </p>
             <div className={styles.results}>
               {/* Customization Section */}
