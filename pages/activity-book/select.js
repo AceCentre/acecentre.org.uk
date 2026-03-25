@@ -205,14 +205,13 @@ export default function GuideSelect() {
 
         setGuides(guidesData);
         setCategories(categoriesData);
-        setSwitchImages(
-          Array.isArray(switchesData)
-            ? switchesData.map((s) => ({
-                ...s,
-                displayName: normalizeSwitchImageName(s?.displayName),
-              }))
-            : switchesData,
-        );
+        const normalizedSwitchImages = Array.isArray(switchesData)
+          ? switchesData.map((s) => ({
+              ...s,
+              displayName: normalizeSwitchImageName(s?.displayName),
+            }))
+          : switchesData;
+        setSwitchImages(normalizedSwitchImages);
         setFilteredGuides(guidesData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -601,7 +600,7 @@ export default function GuideSelect() {
     return (
       <>
         <header>
-          <CombinedNav defaultNavItems={defaultNavItems} />
+          <CombinedNav defaultNavItems={defaultNavItems} activityBook />
         </header>
         <main id="mainContent">
           <div className={styles.container}>
@@ -616,10 +615,13 @@ export default function GuideSelect() {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} />
+        <CombinedNav defaultNavItems={defaultNavItems} activityBook />
       </header>
       <main id="mainContent">
-        <BackToLink where="home" href="/" />
+        <BackToLink
+          where="functional switching"
+          href="/resources/functional-switching"
+        />
 
         <div className={styles.container}>
           <div className={styles.header} style={{ textAlign: "left" }}>
@@ -884,6 +886,29 @@ export default function GuideSelect() {
             onGuideSelection={handleGuideSelection}
             downloading={downloading}
           />
+
+          {selectedGuides.size > 0 && (
+            <div className={styles.stickyDownloadBar}>
+              <div className={styles.stickyDownloadInner}>
+                <span className={styles.stickySelectionCount}>
+                  {selectedGuides.size} guide
+                  {selectedGuides.size !== 1 ? "s" : ""} selected
+                </span>
+                <button
+                  onClick={() => {
+                    setModalOpen(true);
+                    downloadSelectedGuides();
+                  }}
+                  className={styles.downloadButton}
+                  disabled={downloading}
+                >
+                  {downloading
+                    ? "Downloading..."
+                    : `Download ${selectedGuides.size} Guides`}
+                </button>
+              </div>
+            </div>
+          )}
 
           <ActivityBookDownloadModal
             modalOpen={modalOpen}

@@ -80,6 +80,14 @@ export const LoginAndRegisterBoxes = () => {
             onChange={registerOnChange}
             aria-label="Register form"
           >
+            <input
+              type="text"
+              name="company"
+              tabIndex="-1"
+              autoComplete="off"
+              style={{ display: "none" }}
+              aria-hidden="true"
+            />
             <Input
               maxWidth="100%"
               placeholder="john@smith.com"
@@ -157,6 +165,14 @@ export const RegisterCheckout = () => {
           onChange={registerOnChange}
           aria-label="Register form"
         >
+          <input
+            type="text"
+            name="company"
+            tabIndex="-1"
+            autoComplete="off"
+            style={{ display: "none" }}
+            aria-hidden="true"
+          />
           <Input
             maxWidth="100%"
             placeholder="john@smith.com"
