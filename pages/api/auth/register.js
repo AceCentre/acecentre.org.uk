@@ -23,7 +23,9 @@ const REGISTER_MUTATION = gql`
 
 async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(405).send({ success: false, errorMessage: "Method not allowed" });
+    res
+      .status(405)
+      .send({ success: false, errorMessage: "Method not allowed" });
     return;
   }
 
@@ -144,7 +146,7 @@ const normaliseError = (errorMessage) => {
 
   if (
     errorMessage.includes(
-      "An account is already registered with your email address"
+      "An account is already registered with your email address",
     )
   ) {
     return "This email is already in use";
