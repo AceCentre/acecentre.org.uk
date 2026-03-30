@@ -26,7 +26,7 @@ export default function EventsIndex({ posts }) {
 
 export const getStaticProps = async () => {
   // Events are stored as standard WP Posts, categorized under "Events" (slug: events)
-  const posts = await getAllPostsForCategory("Events");
+  const posts = await getAllPostsForCategory("events", "Events");
 
   return {
     revalidate: 60,

@@ -200,7 +200,10 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
   }
 
   const featuredPosts = (
-    await getAllPostsForCategory(currentPost.featuredCategoryName)
+    await getAllPostsForCategory(
+      currentPost.featuredCategorySlug || currentPost.featuredCategoryName,
+      currentPost.featuredCategoryName,
+    )
   ).filter((post) => post.slug !== currentPost.slug);
 
   return {

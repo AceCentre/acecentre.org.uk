@@ -2,7 +2,10 @@ import { FeaturedPosts } from "../../../components/featured-posts/featured-posts
 import { Footer } from "../../../components/footer/footer";
 import { PageTitle } from "../../../components/page-title/page-title";
 import { defaultNavItems } from "../../../components/sub-nav/sub-nav";
-import { getAllCategories } from "../../../lib/posts/get-categories";
+import {
+  getAllCategories,
+  getBlogCategoryBySlug,
+} from "../../../lib/posts/get-categories";
 import { getAllPostsForCategory } from "../../../lib/posts/get-posts";
 import styles from "../../../styles/index.module.css";
 import { CombinedNav } from "../../../components/combined-nav/combined-nav";
@@ -61,13 +64,20 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const blogCategories = await getAllCategories();
   if (!blogCategories) throw new Error("Couldn't get categories");
 
-  const currentCategory = blogCategories.find(
-    (category) => category.slug === slug
+  let currentCategory = blogCategories.find(
+    (category) => category.slug === slug,
   );
+
+  if (!currentCategory) {
+    currentCategory = await getBlogCategoryBySlug(slug);
+  }
 
   if (!currentCategory) return { notFound: true };
 
-  const posts = await getAllPostsForCategory(currentCategory.title);
+  const posts = await getAllPostsForCategory(
+    currentCategory.slug,
+    currentCategory.title,
+  );
 
   return {
     revalidate: 60,
