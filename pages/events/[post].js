@@ -181,9 +181,9 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     return { notFound: true };
   }
 
-  const featuredPosts = (await getAllPostsForCategory("Events")).filter(
-    (post) => post.slug !== currentPost.slug
-  );
+  const featuredPosts = (
+    await getAllPostsForCategory("events", "Events")
+  ).filter((post) => post.slug !== currentPost.slug);
 
   return {
     revalidate: 60,
