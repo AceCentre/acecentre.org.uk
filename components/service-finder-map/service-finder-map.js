@@ -5,6 +5,14 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import styles from "./service-finder-map.module.css";
+import config from "../../lib/config";
+
+const getServiceFinderBaseUrl = () => {
+  const url =
+    config.serviceFinderUrl ||
+    "https://servicefinder.acecentre.net/.netlify/functions/graphql";
+  return url.replace("/.netlify/functions/graphql", "");
+};
 
 const waitForMap = async () => {
   return new Promise((res) => {
@@ -24,8 +32,14 @@ export const ServiceFinderMap = ({ services }) => {
 
       const map = L.map("map").setView([54.2511, -4.4631], 6);
 
+      const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+      if (!mapboxToken) {
+        console.warn(
+          "[ServiceFinderMap] NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN not set - map tiles may not load",
+        );
+      }
       L.tileLayer(
-        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2hlbmRlcnNvbjUiLCJhIjoiY2xqNDc3b3hpMWw4YjNucDk0enJtZjlyciJ9.vy3y2eap6esYOMmsoQXTQw",
+        `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${mapboxToken || ""}`,
         {
           maxZoom: 18,
           attribution:
@@ -34,7 +48,7 @@ export const ServiceFinderMap = ({ services }) => {
           id: "mapbox/streets-v11",
           tileSize: 512,
           zoomOffset: -1,
-        }
+        },
       ).addTo(map);
 
       const control = L.control.layers({}, {}, { collapsed: false });
@@ -159,7 +173,7 @@ export const ServiceFinderMap = ({ services }) => {
           return pointInPolygon(point, geom.coordinates[0]);
         } else if (geom.type === "MultiPolygon") {
           return geom.coordinates.some((polygon) =>
-            pointInPolygon(point, polygon[0])
+            pointInPolygon(point, polygon[0]),
           );
         }
         return false;
@@ -173,36 +187,38 @@ export const ServiceFinderMap = ({ services }) => {
         showServicesAtPoint(e.latlng, clickedPoint);
       });
 
-      fetch(
-        "https://servicefinder.acecentre.net/raw-data/aac-services-geo.geojson"
-      ).then(async (result) => {
-        const layer = await result.json();
-        const geoJsonLayer = L.geoJSON(layer, {
-          onEachFeature: onEachFeature,
-        }).addTo(map);
-        allGeoJsonLayers.push(geoJsonLayer);
-        control.addOverlay(geoJsonLayer, "AAC Services");
-      });
-      fetch(
-        "https://servicefinder.acecentre.net/raw-data/ec-services-geo.geojson"
-      ).then(async (result) => {
-        const layer = await result.json();
-        const geoJsonLayer = L.geoJSON(layer, {
-          onEachFeature: onEachFeature,
-        });
-        allGeoJsonLayers.push(geoJsonLayer);
-        control.addOverlay(geoJsonLayer, "EC Services");
-      });
-      fetch(
-        "https://servicefinder.acecentre.net/raw-data/wcs-services-geo.geojson"
-      ).then(async (result) => {
-        const layer = await result.json();
-        const geoJsonLayer = L.geoJSON(layer, {
-          onEachFeature: onEachFeature,
-        });
-        allGeoJsonLayers.push(geoJsonLayer);
-        control.addOverlay(geoJsonLayer, "Wheelchair Services");
-      });
+      const baseUrl = getServiceFinderBaseUrl();
+
+      fetch(`${baseUrl}/raw-data/aac-services-geo.geojson`).then(
+        async (result) => {
+          const layer = await result.json();
+          const geoJsonLayer = L.geoJSON(layer, {
+            onEachFeature: onEachFeature,
+          }).addTo(map);
+          allGeoJsonLayers.push(geoJsonLayer);
+          control.addOverlay(geoJsonLayer, "AAC Services");
+        },
+      );
+      fetch(`${baseUrl}/raw-data/ec-services-geo.geojson`).then(
+        async (result) => {
+          const layer = await result.json();
+          const geoJsonLayer = L.geoJSON(layer, {
+            onEachFeature: onEachFeature,
+          });
+          allGeoJsonLayers.push(geoJsonLayer);
+          control.addOverlay(geoJsonLayer, "EC Services");
+        },
+      );
+      fetch(`${baseUrl}/raw-data/wcs-services-geo.geojson`).then(
+        async (result) => {
+          const layer = await result.json();
+          const geoJsonLayer = L.geoJSON(layer, {
+            onEachFeature: onEachFeature,
+          });
+          allGeoJsonLayers.push(geoJsonLayer);
+          control.addOverlay(geoJsonLayer, "Wheelchair Services");
+        },
+      );
     };
 
     loadMap();

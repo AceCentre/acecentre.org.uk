@@ -15,8 +15,13 @@ import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 
 import { usePosthog } from "../../lib/use-posthog";
+import config from "../../lib/config";
 
 const gql = ([result]) => result;
+
+const SERVICE_FINDER_GRAPHQL_URL =
+  config.serviceFinderUrl ||
+  "https://servicefinder.acecentre.net/.netlify/functions/graphql";
 
 const GetServicesFromCoords = gql`
   query GetServicesFromCoords($lat: Float!, $lng: Float!) {
@@ -120,22 +125,19 @@ const useServices = () => {
         geo.getCurrentPosition(res, rej);
       });
 
-      const result = await fetch(
-        "https://servicefinder.acecentre.net/.netlify/functions/graphql",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
+      const result = await fetch(SERVICE_FINDER_GRAPHQL_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: GetServicesFromCoords,
+          variables: {
+            lat: coords.latitude,
+            lng: coords.longitude,
           },
-          body: JSON.stringify({
-            query: GetServicesFromCoords,
-            variables: {
-              lat: coords.latitude,
-              lng: coords.longitude,
-            },
-          }),
-        }
-      );
+        }),
+      });
 
       const parsed = await result.json();
 
@@ -196,17 +198,7 @@ const useServices = () => {
 
     try {
       const query = currentEvent.target.postcode.value.trim();
-
-      // Use local API if running on localhost, otherwise use production
-      // You can also set this via localStorage: localStorage.setItem('useLocalServiceFinder', 'true')
-      const useLocalAPI =
-        window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1" ||
-        localStorage.getItem("useLocalServiceFinder") === "true";
-
-      const apiUrl = useLocalAPI
-        ? "https://servicefinder.acecentre.net/.netlify/functions/graphql"
-        : "https://servicefinder.acecentre.net/.netlify/functions/graphql";
+      const apiUrl = SERVICE_FINDER_GRAPHQL_URL;
 
       // Use the new unified search query (PR #81) which supports postcode, outcode, and place names
       // Fall back to old query if the new one isn't available
@@ -245,7 +237,7 @@ const useServices = () => {
           "Using unified search - Location type:",
           serviceData.locationType,
           "Resolved:",
-          serviceData.resolvedLocation
+          serviceData.resolvedLocation,
         );
       } else if (parsed.data?.servicesForPostcode) {
         // Old postcode search response (ServiceResult)
