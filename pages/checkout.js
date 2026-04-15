@@ -338,7 +338,10 @@ const useCheckoutForm = (
 
         // Stripe payment method id (pm_...) used by backend UPE gateway
         const stripePaymentMethodId = pmResult?.paymentMethod?.id || null;
-        if (!stripePaymentMethodId) {
+        if (
+          !stripePaymentMethodId ||
+          !String(stripePaymentMethodId).startsWith("pm_")
+        ) {
           setAllowSubmit(true);
           setCardError("Payment method could not be created. Please try again.");
           return;
