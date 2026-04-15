@@ -308,6 +308,43 @@ const useCheckoutForm = (
         if (!cardElement) {
           throw Error("cardElement not found");
         }
+
+        const pmResult = await stripe.createPaymentMethod({
+          type: "card",
+          card: cardElement,
+          billing_details: {
+            name: `${billingDetails.firstName} ${billingDetails.lastName}`,
+            email: billingDetails.email,
+            phone: billingDetails.phone,
+            address: billingDetails.address1
+              ? {
+                line1: billingDetails.address1,
+                line2: billingDetails.address2 || undefined,
+                city: billingDetails.city || undefined,
+                state: billingDetails.state || undefined,
+                postal_code: billingDetails.postcode || undefined,
+                country: billingDetails.country || undefined,
+              }
+              : undefined,
+          },
+        });
+
+        if (pmResult?.error?.message) {
+          setAllowSubmit(true);
+          setCardError(pmResult.error.message);
+          return;
+        }
+
+        // Stripe payment method id (pm_...) used by backend UPE gateway
+        const stripePaymentMethodId = pmResult?.paymentMethod?.id || null;
+        if (!stripePaymentMethodId) {
+          setAllowSubmit(true);
+          setCardError("Payment method could not be created. Please try again.");
+          return;
+        }
+
+        // Attach for later checkout request
+        billingDetails = { ...billingDetails, stripePaymentMethodId };
       }
 
       let delegatedEmailsAsGroupPurchases = {};
@@ -404,6 +441,7 @@ const useCheckoutForm = (
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
+            stripePaymentMethodId: billingDetails.stripePaymentMethodId || null,
             groupPurchaseEmails: {
               ...groupPurchaseEmails,
               ...delegatedEmailsAsGroupPurchases,
