@@ -289,6 +289,7 @@ const useCheckoutForm = (
 
     const submit = async () => {
       let cardElement = null;
+      let stripePaymentMethodIdForCheckout = null;
 
       // eslint-disable-next-line no-undef
       if (typeof gtag !== "undefined" && gtag) {
@@ -342,9 +343,12 @@ const useCheckoutForm = (
           setCardError("Payment method could not be created. Please try again.");
           return;
         }
+        // Keep pm_... separate from Woo billing/shipping details (GraphQL types are strict)
+        // We'll send it as a top-level field to our checkout API route instead.
+        billingDetails = { ...billingDetails };
 
-        // Attach for later checkout request
-        billingDetails = { ...billingDetails, stripePaymentMethodId };
+        // Used later when calling /api/cart/checkout
+        stripePaymentMethodIdForCheckout = stripePaymentMethodId;
       }
 
       let delegatedEmailsAsGroupPurchases = {};
@@ -443,7 +447,7 @@ const useCheckoutForm = (
             shipToDifferentAddress: showFullDelivery,
             orderNotesDelivery: event.target?.orderNotesDelivery?.value || "",
             addToMailingList: event.target.mailingList.checked,
-            stripePaymentMethodId: billingDetails.stripePaymentMethodId || null,
+            stripePaymentMethodId: stripePaymentMethodIdForCheckout,
             groupPurchaseEmails: {
               ...groupPurchaseEmails,
               ...delegatedEmailsAsGroupPurchases,
