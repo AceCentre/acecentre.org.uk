@@ -427,7 +427,9 @@ const useCheckoutForm = (
         const updateCustomerParsed = await updateCustomerResponse.json();
 
         if (updateCustomerParsed.success === false) {
-          setGeneralError(parsed.error || "Failed to update customer");
+          setGeneralError(
+            updateCustomerParsed.error || "Failed to update customer",
+          );
           setAllowSubmit(true);
           window.scrollTo(0, 0);
           return;
