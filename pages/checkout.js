@@ -288,7 +288,7 @@ const useCheckoutForm = (
     }
 
     const submit = async () => {
-      let source = {};
+      let cardElement = null;
 
       // eslint-disable-next-line no-undef
       if (typeof gtag !== "undefined" && gtag) {
@@ -302,29 +302,11 @@ const useCheckoutForm = (
       }
       if (!freeCheckout) {
         // Extract the payment data from our <CardElement/> component
-        const cardElements = elements.getElement(CardElement);
+        cardElement = elements.getElement(CardElement);
 
         // Guard against an undefined value
-        if (!cardElements) {
-          throw Error("cardElements not found");
-        }
-        // Create the Source object
-        const result = await stripe.createSource(cardElements, {
-          type: "card",
-          owner: {
-            email: billingDetails.email,
-            name: billingDetails.firstName + " " + billingDetails.lastName,
-            phone: billingDetails.phone,
-          },
-        });
-
-        source = result.source;
-        const sourceError = result.error;
-
-        if (sourceError && sourceError.message) {
-          setAllowSubmit(true);
-          setCardError(sourceError.message);
-          return;
+        if (!cardElement) {
+          throw Error("cardElement not found");
         }
       }
 
@@ -392,7 +374,6 @@ const useCheckoutForm = (
           {
             method: "POST",
             body: JSON.stringify({
-              source,
               billingDetails,
               shippingDetails: deliveryDetails,
               shipToDifferentAddress: showFullDelivery,
@@ -418,7 +399,6 @@ const useCheckoutForm = (
         const response = await fetch("/api/cart/checkout", {
           method: "POST",
           body: JSON.stringify({
-            source,
             billingDetails,
             shippingDetails: deliveryDetails,
             shipToDifferentAddress: showFullDelivery,
@@ -452,7 +432,33 @@ const useCheckoutForm = (
             localStorage.setItem(`order-${id}`, JSON.stringify(order));
 
             if (!order.stripeFinishedCharging) {
-              await stripe.confirmCardPayment(order.paymentIntent);
+              const result = await stripe.confirmCardPayment(order.paymentIntent, {
+                payment_method: {
+                  card: cardElement,
+                  billing_details: {
+                    name: `${billingDetails.firstName} ${billingDetails.lastName}`,
+                    email: billingDetails.email,
+                    phone: billingDetails.phone,
+                    address: billingDetails.address1
+                      ? {
+                        line1: billingDetails.address1,
+                        line2: billingDetails.address2 || undefined,
+                        city: billingDetails.city || undefined,
+                        state: billingDetails.state || undefined,
+                        postal_code: billingDetails.postcode || undefined,
+                        country: billingDetails.country || undefined,
+                      }
+                      : undefined,
+                  },
+                },
+              });
+
+              if (result?.error?.message) {
+                setGeneralError(result.error.message);
+                setAllowSubmit(true);
+                window.scrollTo(0, 0);
+                return;
+              }
             }
 
             router.push(`/order/${id}`);
