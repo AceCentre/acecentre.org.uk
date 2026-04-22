@@ -57,6 +57,14 @@ export default function CommunicationWorks({ page }) {
                   <Link href="https://bit.ly/CW2026North">
                     Register for free here.
                   </Link>
+                  <br />
+                  <br />
+                  <Link
+                    href="/Communication-Works-North-Seminar-Programme-2026.pdf"
+                    download
+                  >
+                    View Seminar Programme
+                  </Link>
                 </p>
               </div>
             </div>
