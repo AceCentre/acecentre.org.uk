@@ -154,9 +154,8 @@ export const DefaultHead = ({
         <meta property="og:image:height" content={image.height} />
       )}
 
-      {/* Twitter */}
+      {/* Twitter card preview when others share our pages (no @site — we are not on X) */}
       <meta name="twitter:card" content="summary"></meta>
-      <meta name="twitter:site" content="@acecentre"></meta>
     </Head>
   );
 };

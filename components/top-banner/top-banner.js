@@ -1,4 +1,5 @@
 /* eslint-disable indent */
+// Site-wide promo banner. Rendered from pages/_app.js — uncomment <TopBanner /> there to show again.
 import styles from "./top-banner.module.css";
 
 import Link from "next/link";

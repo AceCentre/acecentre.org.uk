@@ -1,7 +1,7 @@
 import styles from "./blog-meta.module.css";
 import Avatar from "@mui/material/Avatar";
 
-import TwitterIcon from "@mui/icons-material/Twitter";
+import { XIcon } from "../x-icon/x-icon";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Link from "next/link";
@@ -47,11 +47,11 @@ export const ShareButtons = ({
         href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${shareText}`}
         target="_blank"
         rel="noreferrer"
-        aria-label="Twitter logo"
+        aria-label="Share on X"
         className={styles.avatarLink}
       >
         <Avatar className={`${styles.roundedAvatar} ${avatarClassName}`}>
-          <TwitterIcon className={styles.logo} />
+          <XIcon className={styles.logo} />
         </Avatar>
       </Link>
 

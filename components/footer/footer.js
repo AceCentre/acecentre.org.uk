@@ -1,7 +1,6 @@
 import Avatar from "@mui/material/Avatar";
 import SvgIcon from "@mui/material/SvgIcon";
 
-import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -130,16 +129,6 @@ export const Footer = ({ noPhoneNumber = false }) => {
                 >
                   <Avatar className={styles.roundedAvatar}>
                     <InstagramIcon />
-                  </Avatar>
-                </Link>
-
-                <Link
-                  href="https://twitter.com/acecentre"
-                  aria-label="Twitter logo"
-                  className={styles.avatarLink}
-                >
-                  <Avatar className={styles.roundedAvatar}>
-                    <TwitterIcon />
                   </Avatar>
                 </Link>
 
