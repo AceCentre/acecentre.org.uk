@@ -18,7 +18,8 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import config from "../lib/config";
 import { AuthContext } from "../lib/auth-hook";
-import { TopBanner } from "../components/top-banner/top-banner";
+// Communication Works site-wide banner — re-enable before the next event
+// import { TopBanner } from "../components/top-banner/top-banner";
 
 const theme = createTheme();
 
@@ -64,7 +65,7 @@ function MyApp({
   return (
     <>
       <SkipLink />
-      <TopBanner />
+      {/* <TopBanner /> */}
       <AuthContext.Provider
         value={{
           loggedInStatus,
