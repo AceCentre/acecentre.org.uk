@@ -393,107 +393,112 @@ export const NewsletterSignup = ({
   withNames = false,
   tags = [],
   onSuccess = () => {},
-  subscribeText = "Subscribe",
 }) => {
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
   const { posthogLoaded, posthog } = usePosthog();
+  const connectorUrl =
+    process.env.NEXT_PUBLIC_CRM_CONNECTOR_URL ||
+    "https://crm-connector.acecentre.org.uk/crm/crm-functions";
+  const [status, setStatus] = useState({
+    loading: false,
+    error: "",
+    success: false,
+    message: "",
+  });
 
-  // Track when user starts interacting with the form
-  const handleFormInteraction = () => {
-    if (
-      posthogLoaded &&
-      window.location.origin === "https://acecentre.org.uk"
-    ) {
-      posthog.capture("newsletterFormInteraction", {
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    setStatus({ loading: true, error: "", success: false });
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const submittedEmail = (formData.get("email") || "")
+        .toString()
+        .trim();
+      const submittedFirstName = (formData.get("firstName") || "")
+        .toString()
+        .trim();
+      const submittedLastName = (formData.get("lastName") || "")
+        .toString()
+        .trim();
+
+      if (!submittedEmail) {
+        setStatus({
+          loading: false,
+          error: "Email is required.",
+          success: false,
+          message: "",
+        });
+        return;
+      }
+
+      const payload = {
+        email: submittedEmail,
+        firstName: submittedFirstName || undefined,
+        lastName: submittedLastName || undefined,
         location: signUpIdentifier,
-        tags: tags.map((tag) => tag.name),
-        hasNames: withNames,
+        tags,
+        method: "add-to-newsletter",
+      };
+
+      const response = await fetch(connectorUrl, {
+        body: JSON.stringify(payload),
+        method: "POST",
+        headers: { "content-type": "application/json" },
       });
+
+      const result = await response
+        .json()
+        .catch(() => ({ message: "Invalid JSON response" }));
+
+      if (response.status !== 200) {
+        throw new Error(result?.reason || "Newsletter signup failed");
+      }
+
+      setStatus({
+        loading: false,
+        error: "",
+        success: true,
+        message: "You have successfully signed up for the newsletter.",
+      });
+
+      if (typeof gtag !== "undefined" && gtag) {
+        gtag("event", "conversion", {
+          send_to: "AW-10885468875/newsletter_signup",
+        });
+      }
+
+      if (
+        posthogLoaded &&
+        window.location.origin === "https://acecentre.org.uk"
+      ) {
+        posthog.capture("newsletterSignup", {
+          location: signUpIdentifier,
+          tags: tags.map((tag) => tag.name),
+          hasNames: withNames,
+        });
+      }
+
+      onSuccess();
+    } catch (error) {
+      setStatus({
+        loading: false,
+        error: "Failed to add to mailing list. Please try again.",
+        success: false,
+        message: "",
+      });
+      console.warn("Newsletter connector failed", error);
     }
   };
 
   return (
-    <>
-      <form
-        action={"https://crm-connector.acecentre.org.uk/crm/crm-functions"}
-        method="POST"
-        className={styles.form}
-        onSubmit={(e) => {
-          e.preventDefault();
-
-          const addToList = async () => {
-            setLoading(true);
-
-            try {
-              const response = await fetch(
-                "https://crm-connector.acecentre.org.uk/crm/crm-functions",
-                {
-                  body: JSON.stringify({
-                    email: e.target.email.value,
-                    firstName: e?.target?.firstName?.value || undefined,
-                    lastName: e?.target?.lastName?.value || undefined,
-                    location: signUpIdentifier,
-                    method: "add-to-newsletter",
-                    tags,
-                  }),
-                  method: "POST",
-                  headers: { "content-type": "application/json" },
-                }
-              );
-
-              const result = await response.json();
-
-              if (response.status !== 200) {
-                console.warn(result);
-                throw new Error("Non 200 status");
-              }
-
-              // Track successful newsletter signup
-              if (
-                posthogLoaded &&
-                window.location.origin === "https://acecentre.org.uk"
-              ) {
-                console.log("Capture", "newsletterSignup", {
-                  location: signUpIdentifier,
-                  tags: tags.map((tag) => tag.name),
-                  hasNames: withNames,
-                });
-                posthog.capture("newsletterSignup", {
-                  location: signUpIdentifier,
-                  tags: tags.map((tag) => tag.name),
-                  hasNames: withNames,
-                });
-              }
-
-              onSuccess();
-
-              setSuccess(true);
-            } catch (err) {
-              console.warn(err);
-              setError("An error occurred");
-
-              // Track newsletter signup errors
-              if (
-                posthogLoaded &&
-                window.location.origin === "https://acecentre.org.uk"
-              ) {
-                posthog.capture("newsletterSignupError", {
-                  location: signUpIdentifier,
-                  tags: tags.map((tag) => tag.name),
-                  hasNames: withNames,
-                  error: err.message,
-                });
-              }
-            }
-
-            setLoading(false);
-          };
-
-          addToList();
-        }}
-      >
+    <div
+      className={styles.form}
+      data-signup-identifier={signUpIdentifier}
+      data-with-names={withNames}
+      data-tags={tags.map((tag) => tag.name).join(",")}
+    >
+      <form onSubmit={onSubmit}>
         {withNames && (
           <div className={styles.namesInput}>
             <Input
@@ -502,7 +507,6 @@ export const NewsletterSignup = ({
               placeholder={"First name"}
               ariaLabel="First name"
               white
-              onFocus={handleFormInteraction}
             ></Input>
             <Input
               withLabel
@@ -510,38 +514,37 @@ export const NewsletterSignup = ({
               placeholder={"Last name"}
               ariaLabel="Last name"
               white
-              onFocus={handleFormInteraction}
             ></Input>
           </div>
         )}
         <div className={styles.formInput}>
-          <Input
-            withLabel={withNames}
-            name="email"
-            required
-            placeholder={"Email address"}
-            ariaLabel="Email address"
-            type="email"
-            white
-            onFocus={handleFormInteraction}
-          ></Input>
-          <Button type="submit" disabled={!!error || !!success || loading}>
-            {subscribeText}
+          <div className={styles.emailField}>
+            <Input
+              withLabel={withNames}
+              name="email"
+              required
+              placeholder={"Email address"}
+              ariaLabel="Email address"
+              type="email"
+              white
+            ></Input>
+          </div>
+          <Button
+            type="submit"
+            disabled={status.loading}
+            className={styles.subscribeButton}
+          >
+            {status.loading ? "Submitting..." : "Subscribe"}
           </Button>
         </div>
-        {error && (
-          <p className={styles.error}>
-            An error occurred whilst trying to register for the newsletter,
-            please try again later.
-          </p>
-        )}
-        {success && (
+        {status.error && <p className={styles.error}>{status.error}</p>}
+        {status.success && (
           <p className={styles.success}>
-            You have successfully signed up for the newsletter.
+            {status.message || "Thanks for signing up!"}
           </p>
         )}
       </form>
-    </>
+    </div>
   );
 };
 

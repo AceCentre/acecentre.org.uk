@@ -19,6 +19,15 @@
   align-items: flex-end;
 }
 
+.emailField {
+  flex: 1 1 60%;
+  min-width: 220px;
+}
+
+.subscribeButton {
+  white-space: nowrap;
+}
+
 .error {
   font-weight: bold;
   color: red;
@@ -117,9 +126,6 @@
 
 /** Mobile CSS */
 @media (max-width: 760px) {
-  .container {
-  }
-
   .formInput {
     flex-direction: column;
     align-items: center;

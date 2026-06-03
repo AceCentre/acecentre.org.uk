@@ -51,13 +51,16 @@ const useCheckoutForm = (
   groupPurchaseLines,
   delegatedLearningLines,
   billingDetails,
-  rawTotal
+  rawTotal,
 ) => {
+  const connectorUrl =
+    process.env.NEXT_PUBLIC_CRM_CONNECTOR_URL ||
+    "https://crm-connector.acecentre.org.uk/crm/crm-functions";
   const { refreshLoginStatus } = useAuth();
   const [allowSubmit, setAllowSubmit] = useState(true);
   const [showFullDelivery, setShowFullDelivery] = useState(false);
   const [forceUkDelivery, setForceUkDelivery] = useState(
-    billingDetails.country && billingDetails.country !== "GB"
+    billingDetails.country && billingDetails.country !== "GB",
   );
   const [billingError, setBillingError] = useState(null);
   const [deliveryError, setDeliveryError] = useState(null);
@@ -80,7 +83,7 @@ const useCheckoutForm = (
     useState(emptyEmailErrors);
 
   const [groupPurchaseEmails, setGroupPurchaseEmails] = useState(
-    defaultGroupPurchases
+    defaultGroupPurchases,
   );
 
   const [delegatedLearningErrors, setDelegatedLearningErrors] = useState(() => {
@@ -199,7 +202,7 @@ const useCheckoutForm = (
 
     const missingBillingFields = getMissingRequiredFields(
       billingDetails,
-      requiredBillingFields
+      requiredBillingFields,
     );
 
     if (missingBillingFields.length > 0) {
@@ -343,7 +346,9 @@ const useCheckoutForm = (
           !String(stripePaymentMethodId).startsWith("pm_")
         ) {
           setAllowSubmit(true);
-          setCardError("Payment method could not be created. Please try again.");
+          setCardError(
+            "Payment method could not be created. Please try again.",
+          );
           return;
         }
         // Keep pm_... separate from Woo billing/shipping details (GraphQL types are strict)
@@ -364,21 +369,17 @@ const useCheckoutForm = (
       try {
         if (event.target.mailingList.checked) {
           try {
-            const response = await fetch(
-              "https://crm-connector.acecentre.org.uk/crm/crm-functions",
-              {
-                body: JSON.stringify({
-                  email: billingDetails.email,
-                  firstName:
-                    event?.target?.firstNameBilling?.value || undefined,
-                  lastName: event?.target?.lastNameBilling?.value || undefined,
-                  location: "checkout",
-                  method: "add-to-newsletter",
-                }),
-                method: "POST",
-                headers: { "content-type": "application/json" },
-              }
-            );
+            const response = await fetch(connectorUrl, {
+              body: JSON.stringify({
+                email: billingDetails.email,
+                firstName: event?.target?.firstNameBilling?.value || undefined,
+                lastName: event?.target?.lastNameBilling?.value || undefined,
+                location: "checkout",
+                method: "add-to-newsletter",
+              }),
+              method: "POST",
+              headers: { "content-type": "application/json" },
+            });
 
             const result = await response.json();
 
@@ -428,7 +429,7 @@ const useCheckoutForm = (
                 ...delegatedEmailsAsGroupPurchases,
               },
             }),
-          }
+          },
         );
 
         const updateCustomerParsed = await updateCustomerResponse.json();
@@ -479,26 +480,29 @@ const useCheckoutForm = (
             localStorage.setItem(`order-${id}`, JSON.stringify(order));
 
             if (!order.stripeFinishedCharging) {
-              const result = await stripe.confirmCardPayment(order.paymentIntent, {
-                payment_method: {
-                  card: cardElement,
-                  billing_details: {
-                    name: `${billingDetails.firstName} ${billingDetails.lastName}`,
-                    email: billingDetails.email,
-                    phone: billingDetails.phone,
-                    address: billingDetails.address1
-                      ? {
-                        line1: billingDetails.address1,
-                        line2: billingDetails.address2 || undefined,
-                        city: billingDetails.city || undefined,
-                        state: billingDetails.state || undefined,
-                        postal_code: billingDetails.postcode || undefined,
-                        country: billingDetails.country || undefined,
-                      }
-                      : undefined,
+              const result = await stripe.confirmCardPayment(
+                order.paymentIntent,
+                {
+                  payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                      name: `${billingDetails.firstName} ${billingDetails.lastName}`,
+                      email: billingDetails.email,
+                      phone: billingDetails.phone,
+                      address: billingDetails.address1
+                        ? {
+                          line1: billingDetails.address1,
+                          line2: billingDetails.address2 || undefined,
+                          city: billingDetails.city || undefined,
+                          state: billingDetails.state || undefined,
+                          postal_code: billingDetails.postcode || undefined,
+                          country: billingDetails.country || undefined,
+                        }
+                        : undefined,
+                    },
                   },
                 },
-              });
+              );
 
               if (result?.error?.message) {
                 setGeneralError(result.error.message);
@@ -638,7 +642,7 @@ const CheckoutForm = ({
     groupPurchaseLines,
     delegatedLearningLines,
     billingDetails,
-    rawTotal
+    rawTotal,
   );
 
   return (
@@ -773,11 +777,11 @@ export const getServerSideProps = withSession(async function ({ req }) {
   }
 
   const groupPurchaseLines = lines.filter(
-    (x) => x.groupPurchase && x.quantity > 1
+    (x) => x.groupPurchase && x.quantity > 1,
   );
 
   const delegatedLearningLines = lines.filter(
-    (x) => x.groupPurchase && x.quantity == 1
+    (x) => x.groupPurchase && x.quantity == 1,
   );
 
   return {
