@@ -30,7 +30,11 @@ import { ResourceList } from "../resource-list/resource-list";
 import Link from "next/link";
 import { BlockPicker } from "react-color";
 import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
-import { NewsletterSignup } from "../resources-download/resources-download";
+import {
+  NewsletterSignup,
+  SignupModalConsentText,
+} from "../resources-download/resources-download";
+import signupModalStyles from "../resources-download/resources-download.module.css";
 import { ProductFaqs } from "../product-faqs/product-faqs";
 
 const storageKey = "newsletter-opt-in";
@@ -192,7 +196,7 @@ const ForcedEmailDownloadModal = ({
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent className={signupModalStyles.signupModalContent}>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Preparing {name} for download</h2>
@@ -202,10 +206,7 @@ const ForcedEmailDownloadModal = ({
             ) : (
               <Progress totalTime={10000} />
             )}
-            <p>
-              You can access this content by joining our mailing list to stay up
-              to date with the latest resources from Ace Centre
-            </p>
+            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>
@@ -286,7 +287,7 @@ const OptionalEmailDownloadModal = ({
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent className={signupModalStyles.signupModalContent}>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Preparing {name} for download</h2>
@@ -296,10 +297,7 @@ const OptionalEmailDownloadModal = ({
             ) : (
               <Progress totalTime={10000} />
             )}
-            <p>
-              While you wait, why not sign up to our free newsletter to stay up
-              to date with the latest resources from Ace Centre
-            </p>
+            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>

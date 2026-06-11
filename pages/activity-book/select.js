@@ -7,7 +7,11 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
-import { NewsletterSignup } from "../../components/resources-download/resources-download";
+import {
+  NewsletterSignup,
+  SignupModalConsentText,
+} from "../../components/resources-download/resources-download";
+import signupModalStyles from "../../components/resources-download/resources-download.module.css";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import LinearProgress from "@mui/material/LinearProgress";
 import styles from "../../styles/activity-book.module.css";
@@ -60,6 +64,8 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
   );
 };
 
+const NEWSLETTER_OPT_IN_KEY = "newsletter-opt-in";
+
 const LOADING_MESSAGES = [
   "Gathering information about your activity book.....",
   "Setting up your activity book.....",
@@ -103,9 +109,46 @@ const ActivityBookProgress = ({ totalTime }) => {
   );
 };
 
+const ActivityBookSignupModal = ({ modalOpen, onClose, onSuccess }) => {
+  const slug = "switch-activity-book";
+
+  return (
+    <Modal
+      scrollBehavior="inside"
+      size="3xl"
+      isCentered
+      isOpen={modalOpen}
+      onClose={onClose}
+    >
+      <ModalOverlay />
+      <ModalContent className={signupModalStyles.signupModalContent}>
+        <ModalBody style={{ padding: "2rem" }}>
+          <div className={styles.topSection}>
+            <h2>Learn more!</h2>
+            <SignupModalConsentText />
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup
+              withNames
+              tags={[{ name: slug }]}
+              signUpIdentifier="activity-book"
+              onSuccess={onSuccess}
+            />
+          </div>
+          <div className={styles.bottomContainer}>
+            <button className={styles.closeButton} onClick={onClose}>
+              Close window
+            </button>
+          </div>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+  );
+};
+
 const ActivityBookDownloadModal = ({ modalOpen, onClose }) => {
   const name = "your Switch Activity Book";
-  const slug = "switch-activity-book";
 
   return (
     <Modal
@@ -120,19 +163,7 @@ const ActivityBookDownloadModal = ({ modalOpen, onClose }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Preparing {name} for download</h2>
-
             <ActivityBookProgress totalTime={10000} />
-            <p>
-              While you wait, why not sign up to our free newsletter to stay up
-              to date with the latest resources from Ace Centre
-            </p>
-          </div>
-
-          <div className={styles.newsletterContainer}>
-            <NewsletterSignup
-              tags={[{ name: slug }]}
-              signUpIdentifier="activity-book"
-            />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
@@ -155,34 +186,14 @@ export default function GuideSelect() {
   const [loading, setLoading] = useState(true);
   const [selectedGuides, setSelectedGuides] = useState(new Set());
   const [downloading, setDownloading] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [signupModalOpen, setSignupModalOpen] = useState(false);
+  const [progressModalOpen, setProgressModalOpen] = useState(false);
 
   // Customization state
   const [userName, setUserName] = useState("");
   const [userPhoto, setUserPhoto] = useState(null);
   const [devicePhoto, setDevicePhoto] = useState(null);
   const [uploadError, setUploadError] = useState(null);
-
-  const normalizeSwitchImageName = (name) => {
-    const key = String(name || "")
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, " ");
-
-    // Rename dropdown labels only (do not change filenames/paths).
-    const renameMap = {
-      "dog talking buttons": "recordable button",
-      "talking tilles crop": "Talking tile",
-      "big step by step": "Big step-by-step",
-      "little step by step": "Little step-by-step",
-      "little syep-by-step": "Little step-by-step",
-      "little mack": "Little mack",
-      "smooth talker with levels": "Smooth talker",
-    };
-
-    return renameMap[key] ?? name;
-  };
-
   // to connect to local change the config.launchpadUrl to http://localhost:4000
   // eg fetch(`${config.launchpadUrl}/api/activity-book`), to fetch(`http://localhost:4000/api/activity-book`)
 
@@ -205,13 +216,7 @@ export default function GuideSelect() {
 
         setGuides(guidesData);
         setCategories(categoriesData);
-        const normalizedSwitchImages = Array.isArray(switchesData)
-          ? switchesData.map((s) => ({
-              ...s,
-              displayName: normalizeSwitchImageName(s?.displayName),
-            }))
-          : switchesData;
-        setSwitchImages(normalizedSwitchImages);
+        setSwitchImages(switchesData);
         setFilteredGuides(guidesData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -318,12 +323,31 @@ export default function GuideSelect() {
     }
   };
 
-  const downloadSelectedGuides = async () => {
+  const startDownload = () => {
+    setProgressModalOpen(true);
+    downloadSelectedGuides();
+  };
+
+  const handleDownloadClick = () => {
     if (selectedGuides.size === 0) {
       alert("Please select at least one guide to download.");
       return;
     }
 
+    if (localStorage.getItem(NEWSLETTER_OPT_IN_KEY) === "true") {
+      startDownload();
+    } else {
+      setSignupModalOpen(true);
+    }
+  };
+
+  const handleSignupSuccess = () => {
+    localStorage.setItem(NEWSLETTER_OPT_IN_KEY, "true");
+    setSignupModalOpen(false);
+    startDownload();
+  };
+
+  const downloadSelectedGuides = async () => {
     setDownloading(true);
     try {
       const selectedGuideProducts = guideProducts.filter((product) =>
@@ -600,7 +624,7 @@ export default function GuideSelect() {
     return (
       <>
         <header>
-          <CombinedNav defaultNavItems={defaultNavItems} activityBook />
+          <CombinedNav defaultNavItems={defaultNavItems} />
         </header>
         <main id="mainContent">
           <div className={styles.container}>
@@ -615,13 +639,10 @@ export default function GuideSelect() {
   return (
     <>
       <header>
-        <CombinedNav defaultNavItems={defaultNavItems} activityBook />
+        <CombinedNav defaultNavItems={defaultNavItems} />
       </header>
       <main id="mainContent">
-        <BackToLink
-          where="functional switching"
-          href="/resources/functional-switching"
-        />
+        <BackToLink where="home" href="/" />
 
         <div className={styles.container}>
           <div className={styles.header} style={{ textAlign: "left" }}>
@@ -669,167 +690,168 @@ export default function GuideSelect() {
                 )}
               </FormModal>
             </p>
-            <br />
+            <br></br>
             <p>
               See{" "}
               <Link
-                href="/activity-book/Types-of-Switches-FUNctional-Switching-2.26.pdf"
+                href="/activity-book/Types-of-Switches-FUNctional-Switching 2.26.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 examples of equipment used in the activities.
               </Link>
-              <br /> <br />
-              <br />
             </p>
-            <div className={styles.results}>
-              {/* Customization Section */}
-              <div className={styles.customizationSection}>
-                <h3>Personalize Your Activity Book (Optional)</h3>
-                <p>
-                  Add the learner’s name and photos of how their switches are
-                  set up to personalise the activity guides. Maximum file size:
-                  5MB per image. Supported formats: JPG, PNG, GIF
-                </p>
+            <p>
+              <br />
+              <b>To generate a Switch Activity Book</b>
+            </p>
+            <p>Use the drop-down menus to:</p>
+            <ul>
+              <li>
+                <b>Category:</b> filter the activity guides by areas of
+                interest.
+              </li>
+              <li>
+                <b>Switch Image:</b> insert an image of a specific switch into
+                the guide.
+              </li>
+            </ul>
+          </div>
 
-                <div className={styles.customizationForm}>
-                  <div className={styles.formGroup}>
-                    <label htmlFor="userName">
-                      Name: enter learner’s name (in text box){" "}
-                    </label>
-                    <input
-                      type="text"
-                      id="userName"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                      placeholder="Enter your name"
-                      className={styles.textInput}
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="userPhoto">
-                      1 Switch Setup Photo (Optional):
-                    </label>
-                    <input
-                      type="file"
-                      id="userPhoto"
-                      accept="image/*"
-                      onChange={handleUserPhotoChange}
-                      className={styles.fileInput}
-                    />
-                    {userPhoto && (
-                      <p className={styles.fileInfo}>
-                        ✓ {userPhoto.name} selected (
-                        {formatFileSize(userPhoto.size)})
-                      </p>
-                    )}
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="devicePhoto">
-                      2 Switch Setup Photo (Optional):
-                    </label>
-                    <input
-                      type="file"
-                      id="devicePhoto"
-                      accept="image/*"
-                      onChange={handleDevicePhotoChange}
-                      className={styles.fileInput}
-                    />
-                    {devicePhoto && (
-                      <p className={styles.fileInfo}>
-                        ✓ {devicePhoto.name} selected (
-                        {formatFileSize(devicePhoto.size)})
-                      </p>
-                    )}
-                  </div>
-                </div>
-                {uploadError && (
-                  <div
-                    className={styles.errorMessage}
-                    style={{
-                      marginTop: "1rem",
-                      padding: "0.75rem",
-                      backgroundColor: "#fee",
-                      border: "1px solid #fcc",
-                      borderRadius: "4px",
-                      color: "#c33",
-                    }}
-                  >
-                    ⚠ {uploadError}
-                  </div>
-                )}
-                <p className={styles.privacyNote}>
-                  <strong>Privacy note:</strong> The name and photos you provide
-                  are used only to generate your personalised PDF. They are
-                  stored temporarily on our server and are automatically deleted
-                  within 15 minutes.
-                </p>
-              </div>
-              <p>
-                <b>To generate a Switch Activity Book</b>
-              </p>
-              <p>Use the drop-down menus to:</p>
-              <ul>
-                <li>
-                  <b>Category:</b> filter the activity guides by areas of
-                  interest.
-                </li>
-                <li>
-                  <b>Switch Image:</b> insert an image of a specific switch into
-                  the guide.
-                </li>
-              </ul>
+          <div className={styles.filters}>
+            <div className={styles.filterGroup}>
+              <label htmlFor="category">Category:</label>
+              <select
+                id="category"
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+                className={styles.select}
+              >
+                <option value="">All Categories</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div className={styles.filters}>
-              <div className={styles.filterGroup}>
-                <label htmlFor="category">Category:</label>
-                <select
-                  id="category"
-                  value={selectedCategory}
-                  onChange={handleCategoryChange}
-                  className={styles.select}
-                >
-                  <option value="">All Categories</option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-              </div>
 
-              <div className={styles.filterGroup}>
-                <label htmlFor="switchImage">Switch Image:</label>
-                <select
-                  id="switchImage"
-                  value={selectedSwitchImage}
-                  onChange={handleSwitchImageChange}
-                  className={styles.select}
-                >
-                  <option value="">Default Images</option>
-                  {switchImages.map((switchImage) => (
-                    <option key={switchImage.filename} value={switchImage.path}>
-                      {switchImage.displayName}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className={styles.filterGroup}>
+              <label htmlFor="switchImage">Switch Image:</label>
+              <select
+                id="switchImage"
+                value={selectedSwitchImage}
+                onChange={handleSwitchImageChange}
+                className={styles.select}
+              >
+                <option value="">Default Images</option>
+                {switchImages.map((switchImage) => (
+                  <option key={switchImage.filename} value={switchImage.path}>
+                    {switchImage.displayName}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-              <button onClick={clearFilters} className={styles.clearButton}>
-                Clear Filters
-              </button>
-              <p className={styles.resultsCount}>
-                {filteredGuides.length} guide
-                {filteredGuides.length !== 1 ? "s" : ""} found
+            <button onClick={clearFilters} className={styles.clearButton}>
+              Clear Filters
+            </button>
+          </div>
+
+          <div className={styles.results}>
+            <p className={styles.resultsCount}>
+              {filteredGuides.length} guide
+              {filteredGuides.length !== 1 ? "s" : ""} found
+            </p>
+
+            {/* Customization Section */}
+            <div className={styles.customizationSection}>
+              <h3>Personalize Your Activity Book (Optional)</h3>
+              <p>
+                Add the learner’s name and photos of how their switches are set
+                up to personalise the activity guides. Maximum file size: 5MB
+                per image. Supported formats: JPG, PNG, GIF
+              </p>
+
+              <div className={styles.customizationForm}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="userName">
+                    Name: enter learner’s name (in text box){" "}
+                  </label>
+                  <input
+                    type="text"
+                    id="userName"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="Enter your name"
+                    className={styles.textInput}
+                  />
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="userPhoto">
+                    1 Switch Setup Photo (Optional):
+                  </label>
+                  <input
+                    type="file"
+                    id="userPhoto"
+                    accept="image/*"
+                    onChange={handleUserPhotoChange}
+                    className={styles.fileInput}
+                  />
+                  {userPhoto && (
+                    <p className={styles.fileInfo}>
+                      ✓ {userPhoto.name} selected (
+                      {formatFileSize(userPhoto.size)})
+                    </p>
+                  )}
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="devicePhoto">
+                    2 Switch Setup Photo (Optional):
+                  </label>
+                  <input
+                    type="file"
+                    id="devicePhoto"
+                    accept="image/*"
+                    onChange={handleDevicePhotoChange}
+                    className={styles.fileInput}
+                  />
+                  {devicePhoto && (
+                    <p className={styles.fileInfo}>
+                      ✓ {devicePhoto.name} selected (
+                      {formatFileSize(devicePhoto.size)})
+                    </p>
+                  )}
+                </div>
+              </div>
+              {uploadError && (
+                <div
+                  className={styles.errorMessage}
+                  style={{
+                    marginTop: "1rem",
+                    padding: "0.75rem",
+                    backgroundColor: "#fee",
+                    border: "1px solid #fcc",
+                    borderRadius: "4px",
+                    color: "#c33",
+                  }}
+                >
+                  ⚠ {uploadError}
+                </div>
+              )}
+              <p className={styles.privacyNote}>
+                <strong>Privacy note:</strong> The name and photos you provide
+                are used only to generate your personalised PDF. They are stored
+                temporarily on our server and are automatically deleted within
+                15 minutes. We do not use them for any other purpose.
               </p>
             </div>
             <p>
               <b>Hover</b> on the tiles below to see a description of the
               activity.
-            </p>{" "}
-            <br />
+            </p>
             <p>
               <b>Select the checkbox</b> to include an activity guide in the
               download.
@@ -838,6 +860,7 @@ export default function GuideSelect() {
               Click on the <b>Download</b> button to generate your Switch
               Activity Book.
             </p>
+
             {filteredGuides.length > 0 && (
               <div className={styles.bulkActions}>
                 <div className={styles.selectionControls}>
@@ -862,10 +885,7 @@ export default function GuideSelect() {
 
                 {selectedGuides.size > 0 && (
                   <button
-                    onClick={() => {
-                      setModalOpen(true);
-                      downloadSelectedGuides();
-                    }}
+                    onClick={handleDownloadClick}
                     className={styles.downloadButton}
                     disabled={downloading}
                   >
@@ -887,32 +907,14 @@ export default function GuideSelect() {
             downloading={downloading}
           />
 
-          {selectedGuides.size > 0 && (
-            <div className={styles.stickyDownloadBar}>
-              <div className={styles.stickyDownloadInner}>
-                <span className={styles.stickySelectionCount}>
-                  {selectedGuides.size} guide
-                  {selectedGuides.size !== 1 ? "s" : ""} selected
-                </span>
-                <button
-                  onClick={() => {
-                    setModalOpen(true);
-                    downloadSelectedGuides();
-                  }}
-                  className={styles.downloadButton}
-                  disabled={downloading}
-                >
-                  {downloading
-                    ? "Downloading..."
-                    : `Download ${selectedGuides.size} Guides`}
-                </button>
-              </div>
-            </div>
-          )}
-
+          <ActivityBookSignupModal
+            modalOpen={signupModalOpen}
+            onClose={() => setSignupModalOpen(false)}
+            onSuccess={handleSignupSuccess}
+          />
           <ActivityBookDownloadModal
-            modalOpen={modalOpen}
-            onClose={() => setModalOpen(false)}
+            modalOpen={progressModalOpen}
+            onClose={() => setProgressModalOpen(false)}
           />
         </div>
       </main>

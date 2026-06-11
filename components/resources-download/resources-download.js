@@ -9,9 +9,21 @@ import config from "../../lib/config";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { usePosthog } from "../../lib/use-posthog";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { Input } from "../input/input";
 
 const storageKey = "newsletter-opt-in";
+
+export const SignupModalConsentText = () => (
+  <p className={styles.signupConsentText}>
+    By subscribing to this form, you are agreeing that Ace Centre may contact
+    you about related services and information through our newsletter and other
+    correspondence. You can unsubscribe from these communications at any time.
+    For information on how to unsubscribe, as well as our privacy practices and
+    commitment to protecting your privacy, please review our{" "}
+    <Link href="/page/privacy">Privacy Policy</Link>.
+  </p>
+);
 
 export const ResourcesDownload = ({ resource }) => {
   const variations = resource.variations || [];
@@ -558,14 +570,11 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent className={styles.signupModalContent}>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download</h2>
-            <p>
-              You can access this content by joining our mailing list to stay up
-              to date with the latest resources from Ace Centre
-            </p>
+            <SignupModalConsentText />
           </div>
           <div className={styles.newsletterContainer}>
             <NewsletterSignup
@@ -703,14 +712,11 @@ const OptionalDownloadModal = ({ modalOpen, onClose, slug }) => {
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent className={styles.signupModalContent}>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download complete</h2>
-            <p>
-              Sign up to our free newsletter to stay up to date with the latest
-              resources from Ace Centre
-            </p>
+            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>

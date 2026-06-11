@@ -7,9 +7,21 @@
   padding: 1.5rem 0;
 }
 
+.signupModalContent {
+  max-width: 56rem !important;
+  width: min(92vw, 56rem) !important;
+}
+
+.signupConsentText {
+  width: 92%;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
 .form {
-  width: 60%;
+  width: 80%;
   min-width: 300px;
+  max-width: 40rem;
   margin: 0 auto;
 }
 
@@ -119,7 +131,8 @@
 }
 
 .topSection p {
-  width: 60%;
+  width: 92%;
+  max-width: 48rem;
   min-width: 250px;
   margin: 0 auto;
 }
