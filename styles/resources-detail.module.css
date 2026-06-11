@@ -98,7 +98,8 @@
 }
 
 .topSection p {
-  width: 60%;
+  width: 92%;
+  max-width: 48rem;
   min-width: 250px;
   margin: 0 auto;
 }

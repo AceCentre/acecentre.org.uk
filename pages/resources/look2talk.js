@@ -7,7 +7,11 @@ import {
 } from "../../lib/products/get-products";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
-import { NewsletterSignup } from "../../components/resources-download/resources-download";
+import {
+  NewsletterSignup,
+  SignupModalConsentText,
+} from "../../components/resources-download/resources-download";
+import signupModalStyles from "../../components/resources-download/resources-download.module.css";
 
 import styles from "../../styles/resources-detail.module.css";
 import { ProjectHighlight } from "../../components/project-highlight/project-highlight";
@@ -77,15 +81,11 @@ export default function ResourceDetail({
         onClose={onClose}
       >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent className={signupModalStyles.signupModalContent}>
           <ModalBody style={{ padding: "2rem" }}>
             <div className={styles.topSection}>
               <h2>Learn more!</h2>
-              <p>
-                You can access this content by joining our mailing list to hear
-                about Ace Centre Learning courses on Look2Talk and other
-                training opportunities.
-              </p>
+              <SignupModalConsentText />
             </div>
 
             <div className={styles.newsletterContainer}>

@@ -78,6 +78,16 @@ function MyApp({
             src="https://www.googletagmanager.com/gtag/js?id=G-5PYYXEH8M9"
             strategy="afterInteractive"
           />
+          <Script
+            id="hubspot-forms"
+            src="https://js-eu1.hsforms.net/forms/embed/v2.js"
+            strategy="afterInteractive"
+          />
+          <Script
+            id="hubspot-tracking"
+            src="https://js-eu1.hs-scripts.com/147550428.js"
+            strategy="afterInteractive"
+          />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
