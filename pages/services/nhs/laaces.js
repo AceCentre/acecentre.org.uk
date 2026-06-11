@@ -11,7 +11,6 @@ import { Image } from "../../../components/image";
 import styles from "../../../styles/nhs-assessment.module.css";
 import { getSimpleStory } from "../../../lib/story/get-story";
 // import { FeaturedStory } from "../../../components/featured-story/featured-story";
-import { InformationDays } from "../../../components/information-days/information-days";
 import Link from "next/link";
 // import BuildIcon from "@mui/icons-material/Build";
 import { getAllProducts } from "../../../lib/products/get-products";
@@ -251,7 +250,6 @@ export default function Laaces({ gettingStartedResources }) {
             </div> */}
           </div>
         </div>
-        <InformationDays nhs />
         <ResourceList
           title="Resources to get started"
           viewAllLink="/resources/all?category=getting-started"

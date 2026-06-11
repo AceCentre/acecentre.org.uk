@@ -11,7 +11,6 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 import styles from "../../styles/assessments.module.css";
 import Link from "next/link";
-import { InformationDays } from "../../components/information-days/information-days";
 import { CONTACT_FORM, FormModal } from "../../components/ms-form";
 
 export default function EngineeringPage() {
@@ -118,7 +117,6 @@ export default function EngineeringPage() {
             </div>
           </div>
         </div>
-        <InformationDays />
       </main>
       <Footer />
     </>

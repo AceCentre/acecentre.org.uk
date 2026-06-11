@@ -6,13 +6,9 @@ import { VideoWithCardCover } from "../../components/video-with-card-cover/video
 import styles from "../../styles/finding-the-right-aid.module.css";
 import { getSimpleStory } from "../../lib/story/get-story";
 import { CardHighlight } from "../../components/project-highlight/project-highlight";
-import { ResourceList } from "../../components/resource-list/resource-list";
-import { getAllProducts } from "../../lib/products/get-products";
-import { getAllProductCategories } from "../../lib/products/get-all-categories";
-import { filterProducts } from "../../lib/products/filter-products";
 import { GettingStartedQuote } from "../../components/getting-started-quote/getting-started-quote";
 
-export default function GettingStartedLanding({ story, resources }) {
+export default function GettingStartedLanding({ story }) {
   return (
     <>
       <header>
@@ -101,12 +97,6 @@ export default function GettingStartedLanding({ story, resources }) {
           </div>
           <GettingStartedQuote pronoun="his" story={story} />
         </div>
-        <ResourceList
-          title="Resources to get started"
-          viewAllLink="/resources/all?category=getting-started"
-          products={resources}
-          className={styles.resourcesList}
-        />
       </main>
       <Footer />
     </>
@@ -116,31 +106,10 @@ export default function GettingStartedLanding({ story, resources }) {
 export const getStaticProps = async () => {
   const story = await getSimpleStory("glyn");
 
-  const products = await getAllProducts();
-  const { slugs: productCategories } = await getAllProductCategories();
-
-  const { results: gettingStartedResources } = filterProducts(
-    products,
-    productCategories,
-    {
-      page: 0,
-      productsPerPage: 1000,
-      category: "getting-started",
-    }
-  );
-
-  const resources = gettingStartedResources.map((product) => ({
-    title: htmlDecode(product.name),
-    mainCategoryName: product.category.name,
-    featuredImage: product.image,
-    ...product,
-  }));
-
   return {
     revalidate: 60,
     props: {
       story,
-      resources,
       seo: {
         title: "Which is the right communication aid for me?",
         description:
@@ -149,7 +118,3 @@ export const getStaticProps = async () => {
     },
   };
 };
-
-function htmlDecode(input) {
-  return input.replace(/&amp;/g, "&");
-}

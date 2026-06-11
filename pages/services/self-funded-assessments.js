@@ -259,7 +259,14 @@ export default function EngineeringPage() {
             </div>
           </div>
         </div>
-        <InformationDays />
+        <InformationDays
+          imageSrc="/Info-Appointment-Picture.jpg"
+          imageAlt="Person discussing development needs with Ace Centre team"
+          title="Information appointments"
+          description="Meet with our team to discuss your assessment needs and to learn more about the process and if it is right for you."
+          buttonText="Book a free appointment"
+          buttonHref="https://outlook.office.com/book/PartnershipsConsultancyManager@acecentre.org.uk/s/Erw2WCJruEyCeOLx6dOfcQ2?ismsaljsauthenabled=true"
+        />
       </main>
       <Footer />
     </>
