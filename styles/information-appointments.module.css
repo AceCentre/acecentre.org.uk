@@ -12,3 +12,26 @@
 .container > :first-child {
   margin-top: 0;
 }
+
+.bookingSection {
+  margin-top: 2rem;
+}
+
+.bookingButton {
+  display: block;
+  margin: 2rem auto;
+}
+
+.bookingPanel {
+  margin-top: 1rem;
+}
+
+.infoFrame {
+  height: 3100px;
+}
+
+@media (max-width: 1132px) {
+  .infoFrame {
+    height: 3700px;
+  }
+}
