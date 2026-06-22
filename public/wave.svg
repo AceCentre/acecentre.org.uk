@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350">
-  <defs/>
-  <defs>
-    <path id="a" d="M0 0h1440v350H0z"/>
-  </defs>
-  <g fill="none" fill-rule="evenodd">
-    <path fill="#BFDDED" d="M0 0h1440v350H0z"/>
-    <g fill="#FFF" fill-opacity=".2">
-      <path d="M220 137c34-1 68 1 101 4 68 6 135 18 201 30l99 18 99 15c67 9 133 14 200 13a1053 1053 0 00387-80c46-18 90-38 133-61V1H0v172a718 718 0 01220-36z"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350"><defs><path id="a" d="M0 0h1440v350H0z"/></defs><g fill="none" fill-rule="evenodd"><path fill="#BFDDED" d="M0 0h1440v350H0z"/><g fill="#FFF" fill-opacity=".2"><path d="M220 137c34-1 68 1 101 4 68 6 135 18 201 30l99 18 99 15c67 9 133 14 200 13a1053 1053 0 00387-80c46-18 90-38 133-61V1H0v172a718 718 0 01220-36z"/></g></g></svg>
