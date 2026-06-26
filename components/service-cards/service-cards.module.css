@@ -54,6 +54,16 @@
   overflow-wrap: anywhere;
 }
 
+.emailList {
+  display: flex;
+  flex-direction: column;
+}
+
+.emailList .emailLink {
+  display: block;
+  padding: 0.25rem 0;
+}
+
 /** Mobile CSS */
 @media (max-width: 900px) {
   .container {
