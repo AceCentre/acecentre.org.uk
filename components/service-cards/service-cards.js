@@ -3,6 +3,15 @@ import { Fragment } from "react";
 import { Button } from "../button/button";
 import styles from "./service-cards.module.css";
 
+const parseEmails = (email) => {
+  if (!email) return [];
+
+  return email
+    .split(/[,\n;]+/)
+    .map((value) => value.replace(/^mailto:/i, "").trim())
+    .filter(Boolean);
+};
+
 export const ImportantCallout = ({ service }) => {
   // Don't display the callout for ace-n or ace-s services
   if (!service || service.id === "ace-n" || service.id === "ace-s") {
@@ -30,6 +39,7 @@ export const ServiceCards = ({ service }) => {
   const showCommMatters =
     service.communicationMatters &&
     service.communicationMatters !== service.website;
+  const emails = parseEmails(service.email);
 
   return (
     <div className={styles.container}>
@@ -47,10 +57,18 @@ export const ServiceCards = ({ service }) => {
           <strong>Phone:</strong> {service.phoneNumber}
         </p>
         <p>
-          <strong>Email:</strong>{" "}
-          <a href={`mailto:${service.email}`} className={styles.emailLink}>
-            {service.email}
-          </a>
+          <strong>Email:</strong>
+          <span className={styles.emailList}>
+            {emails.map((email) => (
+              <a
+                key={email}
+                href={`mailto:${email}`}
+                className={styles.emailLink}
+              >
+                {email}
+              </a>
+            ))}
+          </span>
         </p>
         <div className={styles.visitWebsiteContainer}>
           <Button href={service.website}>Visit their website</Button>
