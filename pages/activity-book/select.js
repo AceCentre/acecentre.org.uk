@@ -8,7 +8,6 @@ import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
 import { NewsletterSignup } from "../../components/resources-download/resources-download";
-import signupModalStyles from "../../components/resources-download/resources-download.module.css";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import LinearProgress from "@mui/material/LinearProgress";
 import styles from "../../styles/activity-book.module.css";
@@ -61,8 +60,6 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
   );
 };
 
-const NEWSLETTER_OPT_IN_KEY = "newsletter-opt-in";
-
 const LOADING_MESSAGES = [
   "Gathering information about your activity book.....",
   "Setting up your activity book.....",
@@ -106,45 +103,9 @@ const ActivityBookProgress = ({ totalTime }) => {
   );
 };
 
-const ActivityBookSignupModal = ({ modalOpen, onClose, onSuccess }) => {
-  const slug = "switch-activity-book";
-
-  return (
-    <Modal
-      scrollBehavior="inside"
-      size="3xl"
-      isCentered
-      isOpen={modalOpen}
-      onClose={onClose}
-    >
-      <ModalOverlay />
-      <ModalContent className={signupModalStyles.signupModalContent}>
-        <ModalBody style={{ padding: "2rem" }}>
-          <div className={styles.topSection}>
-            <h2>Learn more!</h2>
-          </div>
-
-          <div className={styles.newsletterContainer}>
-            <NewsletterSignup
-              withNames
-              tags={[{ name: slug }]}
-              signUpIdentifier="activity-book"
-              onSuccess={onSuccess}
-            />
-          </div>
-          <div className={styles.bottomContainer}>
-            <button className={styles.closeButton} onClick={onClose}>
-              Close window
-            </button>
-          </div>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
-};
-
 const ActivityBookDownloadModal = ({ modalOpen, onClose }) => {
   const name = "your Switch Activity Book";
+  const slug = "switch-activity-book";
 
   return (
     <Modal
@@ -159,7 +120,19 @@ const ActivityBookDownloadModal = ({ modalOpen, onClose }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Preparing {name} for download</h2>
+
             <ActivityBookProgress totalTime={10000} />
+            <p>
+              While you wait, why not sign up to our free newsletter to stay up
+              to date with the latest resources from Ace Centre
+            </p>
+          </div>
+
+          <div className={styles.newsletterContainer}>
+            <NewsletterSignup
+              tags={[{ name: slug }]}
+              signUpIdentifier="activity-book"
+            />
           </div>
           <div className={styles.bottomContainer}>
             <button className={styles.closeButton} onClick={onClose}>
@@ -182,8 +155,7 @@ export default function GuideSelect() {
   const [loading, setLoading] = useState(true);
   const [selectedGuides, setSelectedGuides] = useState(new Set());
   const [downloading, setDownloading] = useState(false);
-  const [signupModalOpen, setSignupModalOpen] = useState(false);
-  const [progressModalOpen, setProgressModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Customization state
   const [userName, setUserName] = useState("");
@@ -319,31 +291,12 @@ export default function GuideSelect() {
     }
   };
 
-  const startDownload = () => {
-    setProgressModalOpen(true);
-    downloadSelectedGuides();
-  };
-
-  const handleDownloadClick = () => {
+  const downloadSelectedGuides = async () => {
     if (selectedGuides.size === 0) {
       alert("Please select at least one guide to download.");
       return;
     }
 
-    if (localStorage.getItem(NEWSLETTER_OPT_IN_KEY) === "true") {
-      startDownload();
-    } else {
-      setSignupModalOpen(true);
-    }
-  };
-
-  const handleSignupSuccess = () => {
-    localStorage.setItem(NEWSLETTER_OPT_IN_KEY, "true");
-    setSignupModalOpen(false);
-    startDownload();
-  };
-
-  const downloadSelectedGuides = async () => {
     setDownloading(true);
     try {
       const selectedGuideProducts = guideProducts.filter((product) =>
@@ -690,7 +643,7 @@ export default function GuideSelect() {
             <p>
               See{" "}
               <Link
-                href="/activity-book/Types-of-Switches-FUNctional-Switching 2.26.pdf"
+                href="/activity-book/Types-of-Switches-FUNctional-Switching-2.26.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -881,7 +834,10 @@ export default function GuideSelect() {
 
                 {selectedGuides.size > 0 && (
                   <button
-                    onClick={handleDownloadClick}
+                    onClick={() => {
+                      setModalOpen(true);
+                      downloadSelectedGuides();
+                    }}
                     className={styles.downloadButton}
                     disabled={downloading}
                   >
@@ -903,14 +859,9 @@ export default function GuideSelect() {
             downloading={downloading}
           />
 
-          <ActivityBookSignupModal
-            modalOpen={signupModalOpen}
-            onClose={() => setSignupModalOpen(false)}
-            onSuccess={handleSignupSuccess}
-          />
           <ActivityBookDownloadModal
-            modalOpen={progressModalOpen}
-            onClose={() => setProgressModalOpen(false)}
+            modalOpen={modalOpen}
+            onClose={() => setModalOpen(false)}
           />
         </div>
       </main>
