@@ -302,11 +302,6 @@ const REDIRECTS = [
     permanent: true,
   },
   {
-    source: "/symbol-charts",
-    destination: "/resources/all?category=symbol-charts",
-    permanent: true,
-  },
-  {
     source: "/page/service-leads-ms-bookings-calendars",
     destination:
       "https://backend.acecentre.org.uk/service-leads-ms-bookings-calendars/",
@@ -818,11 +813,6 @@ const REDIRECTS = [
   },
   {
     source: "/communication-",
-    destination: "/resources/all",
-    permanent: true,
-  },
-  {
-    source: "/resources/look2talk",
     destination: "/resources/all",
     permanent: true,
   },

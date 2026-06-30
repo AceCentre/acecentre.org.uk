@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ImageWithLoader, Image } from "../image";
 import styles from "./footer.module.css";
 import { NewsletterSignup } from "../resources-download/resources-download";
+import signupModalStyles from "../resources-download/resources-download.module.css";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { useState } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -28,14 +29,10 @@ export const NewsletterModal = ({
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent className={signupModalStyles.signupModalContent}>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Ace Centre Newsletter</h2>
-            <p>
-              Sign up to our free newsletter to stay up to date with the latest
-              news from Ace Centre
-            </p>
           </div>
 
           <div className={styles.newsletterContainer}>
