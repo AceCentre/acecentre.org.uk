@@ -18,11 +18,7 @@ export default function CommunicationWorks({ page }) {
   return (
     <>
       <Head>
-        <script
-          defer
-          data-domain="scecentre.org.uk/communication-works-2025"
-          src="https://stats.scecentre.org.uk/js/script.js"
-        ></script>
+        <script defer data-domain="scecentre.org.uk/communication-works-2025" src="https://stats.scecentre.org.uk/js/script.js"></script>
       </Head>
       <header>
         <CombinedNav defaultNavItems={defaultNavItems} />
@@ -42,10 +38,7 @@ export default function CommunicationWorks({ page }) {
               className={styles.pageContent}
               dangerouslySetInnerHTML={{ __html: page.content }}
             ></div>
-            <MailingList
-              signUpIdentifier="communication-works"
-              description="Sign up to our free newsletter to get emails about other Ace Centre events and news."
-            />
+            <MailingList signUpIdentifier="communication-works" />
           </div>
           <div>
             <div className={styles.quote}>

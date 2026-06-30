@@ -34,10 +34,7 @@ export default function CommunicationWorks({ page }) {
               className={styles.pageContent}
               dangerouslySetInnerHTML={{ __html: page.content }}
             ></div>
-            <MailingList
-              signUpIdentifier="communication-works"
-              description="Sign up to our free newsletter to get emails about other Ace Centre events and news."
-            />
+            <MailingList signUpIdentifier="communication-works" />
           </div>
           <div>
             <div className={styles.quote}>

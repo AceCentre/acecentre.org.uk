@@ -30,10 +30,7 @@ import { ResourceList } from "../resource-list/resource-list";
 import Link from "next/link";
 import { BlockPicker } from "react-color";
 import { FormModal, RESOURCE_FEEDBACK } from "../ms-form";
-import {
-  NewsletterSignup,
-  SignupModalConsentText,
-} from "../resources-download/resources-download";
+import { NewsletterSignup } from "../resources-download/resources-download";
 import signupModalStyles from "../resources-download/resources-download.module.css";
 import { ProductFaqs } from "../product-faqs/product-faqs";
 
@@ -83,7 +80,7 @@ const Progress = ({ totalTime }) => {
   const interval = 100 / LOADING_MESSAGES.length;
   const currentMessageIndex = Math.min(
     Math.floor(value / interval),
-    LOADING_MESSAGES.length - 1
+    LOADING_MESSAGES.length - 1,
   );
   const currentMessage = LOADING_MESSAGES[currentMessageIndex];
 
@@ -206,7 +203,6 @@ const ForcedEmailDownloadModal = ({
             ) : (
               <Progress totalTime={10000} />
             )}
-            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>
@@ -297,7 +293,6 @@ const OptionalEmailDownloadModal = ({
             ) : (
               <Progress totalTime={10000} />
             )}
-            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>

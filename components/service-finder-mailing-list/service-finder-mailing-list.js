@@ -7,13 +7,11 @@ export const ServiceFinderMailingList = () => {
 
 export const MailingList = ({
   title = "Sign up for our newsletter",
-  description = "Sign up to our free newsletter to stay up to date with the latest news from Ace Centre",
   signUpIdentifier = "home",
 }) => {
   return (
     <div className={styles.container}>
       <h2>{title}</h2>
-      <p>{description}</p>
       <NewsletterSignup
         tags={[{ name: "service-finder" }]}
         signUpIdentifier={signUpIdentifier}

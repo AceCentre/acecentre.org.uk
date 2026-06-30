@@ -302,7 +302,7 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
 
   const defaultVariation = variations[0];
   const [currentlySelected, setCurrentlySelected] = useState(
-    defaultVariation.slug
+    defaultVariation.slug,
   );
 
   useEffect(() => {
@@ -314,11 +314,11 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
   };
 
   const currentlySelectedFull = variations.find(
-    (x) => x.slug == currentlySelected
+    (x) => x.slug == currentlySelected,
   );
 
   const downloadableVariations = variations.filter(
-    (variation) => variation.instantDownloadAvailable
+    (variation) => variation.instantDownloadAvailable,
   );
 
   const showFreePrice = variations.length !== downloadableVariations.length;
@@ -424,9 +424,7 @@ export const NewsletterSignup = ({
 
     try {
       const formData = new FormData(event.currentTarget);
-      const submittedEmail = (formData.get("email") || "")
-        .toString()
-        .trim();
+      const submittedEmail = (formData.get("email") || "").toString().trim();
       const submittedFirstName = (formData.get("firstName") || "")
         .toString()
         .trim();
@@ -505,12 +503,13 @@ export const NewsletterSignup = ({
 
   return (
     <div
-      className={styles.form}
+      className={styles.signupContainer}
       data-signup-identifier={signUpIdentifier}
       data-with-names={withNames}
       data-tags={tags.map((tag) => tag.name).join(",")}
     >
-      <form onSubmit={onSubmit}>
+      <SignupModalConsentText />
+      <form className={styles.form} onSubmit={onSubmit}>
         {withNames && (
           <div className={styles.namesInput}>
             <Input
@@ -574,7 +573,6 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download</h2>
-            <SignupModalConsentText />
           </div>
           <div className={styles.newsletterContainer}>
             <NewsletterSignup
@@ -596,7 +594,7 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
                       link.click();
                       localStorage.setItem(
                         `${storageKey}-${resource.slug}`,
-                        true
+                        true,
                       );
                     }
               }
@@ -716,7 +714,6 @@ const OptionalDownloadModal = ({ modalOpen, onClose, slug }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download complete</h2>
-            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>

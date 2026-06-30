@@ -7,10 +7,7 @@ import { CombinedNav } from "../../components/combined-nav/combined-nav";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 import { Card } from "../../components/latest-from-blog/latest-from-blog";
 import { FormModal, RESOURCE_FEEDBACK } from "../../components/ms-form";
-import {
-  NewsletterSignup,
-  SignupModalConsentText,
-} from "../../components/resources-download/resources-download";
+import { NewsletterSignup } from "../../components/resources-download/resources-download";
 import signupModalStyles from "../../components/resources-download/resources-download.module.css";
 import { Modal, ModalBody, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -125,7 +122,6 @@ const ActivityBookSignupModal = ({ modalOpen, onClose, onSuccess }) => {
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Learn more!</h2>
-            <SignupModalConsentText />
           </div>
 
           <div className={styles.newsletterContainer}>
