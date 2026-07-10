@@ -448,6 +448,7 @@ export const NewsletterSignup = ({
         lastName: submittedLastName || undefined,
         location: signUpIdentifier,
         tags,
+        event: tags.length ? tags.map((tag) => tag.name).join(";") : undefined,
         method: "add-to-newsletter",
       };
 
@@ -465,11 +466,18 @@ export const NewsletterSignup = ({
         throw new Error(result?.reason || "Newsletter signup failed");
       }
 
+      const subscriptionWarning = result?.subscriptionWarning || "";
+      const wasUnsubscribed =
+        subscriptionWarning &&
+        subscriptionWarning.includes("cannot be updated because they have unsubscribed");
+
       setStatus({
         loading: false,
         error: "",
         success: true,
-        message: "You have successfully signed up for the newsletter.",
+        message: wasUnsubscribed
+          ? "You were previously unsubscribed. Please use the preferences link in a recent Ace Centre email to re-subscribe."
+          : "You have successfully signed up for the newsletter.",
       });
 
       if (typeof gtag !== "undefined" && gtag) {
@@ -569,10 +577,14 @@ const ForcedEmail = ({ resource, modalOpen, onClose, onSuccess }) => {
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent className={styles.signupModalContent}>
+      <ModalContent>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download</h2>
+            <p>
+              You can access this content by joining our mailing list to stay up
+              to date with the latest resources from Ace Centre
+            </p>
           </div>
           <div className={styles.newsletterContainer}>
             <NewsletterSignup
@@ -710,10 +722,14 @@ const OptionalDownloadModal = ({ modalOpen, onClose, slug }) => {
       onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent className={styles.signupModalContent}>
+      <ModalContent>
         <ModalBody style={{ padding: "2rem" }}>
           <div className={styles.topSection}>
             <h2>Free download complete</h2>
+            <p>
+              Sign up to our free newsletter to stay up to date with the latest
+              resources from Ace Centre
+            </p>
           </div>
 
           <div className={styles.newsletterContainer}>
