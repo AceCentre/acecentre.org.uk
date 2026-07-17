@@ -34,7 +34,7 @@ export default function ResourceDetail({
 }) {
   const [modelOpen, setModelOpen] = useState(false);
   const [modelLink, setModelLink] = useState(
-    "https://docs.acecentre.org.uk/look2talk/"
+    "https://docs.acecentre.org.uk/look2talk/",
   );
   const router = useRouter();
   const { query } = router;
@@ -153,12 +153,15 @@ export default function ResourceDetail({
                 electronically or download and print
               </li>
               <li>
-                <strong>Templates: </strong>Free to download as Boardmaker7 or
-                InPrint 3 (coming soon) file
+                <strong>Templates: </strong>Free to download for Boardmaker 7
+                and InPrint 3 users. Templates are included with InPrint 4.
               </li>
               <li>
-                <strong>Communication Easel:&nbsp;</strong>A4 and A3 options
-                available from Inclusive Technology
+                <strong>Stand:&nbsp;</strong>A suitable stand is needed to
+                position the Look2Talk book correctly for access and viewing.
+                See our{" "}
+                <Link href="/blog/look2talk-stand">blog</Link> for practical
+                guidance on choosing and adapting a stand.
               </li>
               <li>
                 <strong>Training:</strong>&nbsp;Introductory and Developing
@@ -252,27 +255,27 @@ export default function ResourceDetail({
             </p>
             <p>
               Compatible with Boardmaker 7 to access Picture Communication
-              Symbols (PCS) and InPrint 3 for Widgit symbols.
+              Symbols (PCS) and InPrint 3 for Widgit symbols. InPrint 4 users
+              can find the Look2Talk templates freely available within the
+              &apos;Communication&apos; template folder included.
             </p>
             <p>
               Please note: these files download as a .zip files. Please extract
               the individual template files before opening in your symbol
               software.
             </p>
-            <h2>Look2Talk Communication Easel</h2>
+            <h2>Look2Talk Stand</h2>
             <p>
-              An eye pointing communication book is best viewed by the
-              communication book user and their partner when it is displayed on
-              an easel file. As the book can get quite big (and heavy!) it is
-              best that a sturdy easel file is used. We recommend the
-              Communication Easel by Inclusive Technology which is available in
-              an A4 as well as A3 version should larger pages be needed.
+              An eye-pointing communication book should be positioned so that
+              both the communication book user and their communication partner
+              can clearly see and access it. As books can become large and heavy
+              over time, a sturdy stand or display solution may be needed.
             </p>
             <p>
-              <a href="https://www.inclusive.com/products/communication-easel?_pos=1&_psq=easel&_ss=e&_v=1.0">
-                Click here to view the Inclusive Technology A4 Communication
-                Easel
-              </a>
+              There is no single &quot;perfect&quot; Look2Talk stand, the best
+              option depends on the individual&apos;s needs, environments and
+              communication partners. For ideas and practical guidance, read{" "}
+              <Link href="/blog/look2talk-stand">our blog</Link>.
             </p>
             <h2>Look2Talk Introductory Stage Symbols</h2>
             <p>
@@ -317,7 +320,7 @@ export default function ResourceDetail({
                     className={styles.downloadFormButton}
                     onClick={() => {
                       openPopup(
-                        "https://acecentreuk.sharepoint.com/:p:/s/AnonymousShares/EfexZJSb6gNAt8Q1BtwCK-4BHhgqo2D5jFKBFUTiIoL_jg"
+                        "https://acecentreuk.sharepoint.com/:p:/s/AnonymousShares/EfexZJSb6gNAt8Q1BtwCK-4BHhgqo2D5jFKBFUTiIoL_jg",
                       );
                     }}
                   >
@@ -328,7 +331,7 @@ export default function ResourceDetail({
                   href="#"
                   onClick={() => {
                     openPopup(
-                      "https://backend.acecentre.org.uk/wp-content/uploads/2023/09/Look2Talk-Demonstration-Book-9.23.ppsx"
+                      "https://backend.acecentre.org.uk/wp-content/uploads/2023/09/Look2Talk-Demonstration-Book-9.23.ppsx",
                     );
                   }}
                 >
@@ -338,7 +341,7 @@ export default function ResourceDetail({
                   href="#"
                   onClick={() => {
                     openPopup(
-                      "https://backend.acecentre.org.uk/wp-content/uploads/2024/04/Look2Talk-Printable-Demonstration-Book-9.25.pdf"
+                      "https://backend.acecentre.org.uk/wp-content/uploads/2024/04/Look2Talk-Printable-Demonstration-Book-9.25.pdf",
                     );
                   }}
                 >
@@ -363,7 +366,7 @@ export default function ResourceDetail({
                     className={styles.downloadFormButton}
                     onClick={() => {
                       openPopup(
-                        "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Communication-Book-Templates-Ace-Centre-June23.zip"
+                        "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Communication-Book-Templates-Ace-Centre-June23.zip",
                       );
                     }}
                   >
@@ -375,7 +378,7 @@ export default function ResourceDetail({
                     className={styles.downloadFormButton}
                     onClick={() => {
                       openPopup(
-                        "https://backend.acecentre.org.uk/wp-content/uploads/2024/06/Look2Talk-InPrint-Templates-AceCentre-June2024.zip"
+                        "https://backend.acecentre.org.uk/wp-content/uploads/2024/06/Look2Talk-InPrint-Templates-AceCentre-June2024.zip",
                       );
                     }}
                   >
@@ -420,7 +423,7 @@ export default function ResourceDetail({
                     className={styles.downloadFormButton}
                     onClick={() => {
                       openPopup(
-                        "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Introductory-Stage-More-Stop-6.23.zip"
+                        "https://backend.acecentre.org.uk/wp-content/uploads/2017/09/Look2Talk-Introductory-Stage-More-Stop-6.23.zip",
                       );
                     }}
                   >
@@ -534,7 +537,7 @@ export const getStaticProps = async () => {
       mainCategoryName: product.category.name,
       featuredImage: product.image,
       ...product,
-    })
+    }),
   );
 
   const seoPrice = currentResource.price;
