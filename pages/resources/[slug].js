@@ -118,7 +118,8 @@ export async function getStaticPaths() {
     (x) =>
       x.slug !== "look2talk" &&
       x.slug !== "developing-using-communication-book" &&
-      x.slug !== "functional-switching"
+      x.slug !== "functional-switching" &&
+      x.slug !== "language-library"
   );
 
   if (!allProducts) throw new Error("Could not get all the products");
@@ -151,6 +152,15 @@ export const getStaticProps = async ({ params: { slug } }) => {
   if (!currentResource) {
     return {
       notFound: true,
+    };
+  }
+
+  if (slug === "language-library") {
+    return {
+      redirect: {
+        destination: "/language-library",
+        permanent: true,
+      },
     };
   }
 

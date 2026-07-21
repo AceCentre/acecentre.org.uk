@@ -44,7 +44,12 @@ export const ResourceList = ({
                 showPrice ? styles.postTitleContainer : ""
               }
               imageContainerClassName={styles.imageContainer}
-              href={`/resources/${product.slug}`}
+              href={
+                product.href ||
+                (product.slug === "language-library"
+                  ? "/language-library"
+                  : `/resources/${product.slug}`)
+              }
               key={`${title}-card-${product.slug}`}
               noImagePostCount={product.noImagePostCount}
               subtitle={product.mainCategoryName}
