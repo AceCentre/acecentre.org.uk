@@ -19,6 +19,7 @@ export const NewsletterModal = ({
   onClose,
   signUpIdentifier = "footer",
   tags = [],
+  onSuccess = () => {},
 }) => {
   return (
     <Modal
@@ -40,6 +41,7 @@ export const NewsletterModal = ({
               withNames
               signUpIdentifier={signUpIdentifier}
               tags={tags}
+              onSuccess={onSuccess}
             />
           </div>
           <div className={styles.bottomContainer}>
