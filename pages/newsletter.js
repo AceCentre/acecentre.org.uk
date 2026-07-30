@@ -36,20 +36,77 @@ const parseTags = (value) => {
     .map((name) => ({ name }));
 };
 
+const deriveTagsFromReturnTo = (returnTo) => {
+  if (!returnTo || returnTo === "/") {
+    return [{ name: "homepage" }];
+  }
+
+  if (returnTo === "/learning" || returnTo.startsWith("/learning/")) {
+    return [{ name: "learning" }];
+  }
+
+  if (returnTo === "/resources") {
+    return [{ name: "resources" }];
+  }
+
+  if (returnTo.startsWith("/resources/")) {
+    const parts = returnTo.split("/").filter(Boolean);
+    const slug = parts[1];
+    if (slug) {
+      return [{ name: slug }];
+    }
+  }
+
+  return [];
+};
+
+const allowedSignUpLocations = new Set([
+  "footer",
+  "home",
+  "none",
+  "resource-download",
+  "service-finder",
+  "activity-book",
+  "at-scholar",
+  "aacinfo",
+  "launchpad",
+  "speechbubble",
+  "look2talk",
+  "communication-works",
+]);
+
+const getSafeSignUpIdentifier = (value) => {
+  const source = getQueryValue(value);
+
+  if (allowedSignUpLocations.has(source)) {
+    return source;
+  }
+
+  // HubSpot CTA source names are useful for URLs, but can fail HubSpot
+  // contact updates when written into constrained location properties.
+  return "footer";
+};
+
 export default function NewsletterPage() {
   const router = useRouter();
   const thankYouShown = getQueryValue(router.query.thankyou) === "1";
 
   const signUpIdentifier = useMemo(() => {
-    const source = getQueryValue(router.query.source);
-    return source || "hubspot-popup";
+    return getSafeSignUpIdentifier(router.query.source);
   }, [router.query.source]);
 
-  const tags = useMemo(() => parseTags(router.query.tag), [router.query.tag]);
   const returnTo = useMemo(
     () => getSafeReturnTo(router.query.returnTo),
     [router.query.returnTo],
   );
+  const tags = useMemo(() => {
+    const explicitTags = parseTags(router.query.tag);
+    if (explicitTags.length > 0) {
+      return explicitTags;
+    }
+
+    return deriveTagsFromReturnTo(returnTo);
+  }, [router.query.tag, returnTo]);
 
   const onClose = useCallback(() => {
     router.push(returnTo);
