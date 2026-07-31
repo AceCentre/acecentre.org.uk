@@ -26,16 +26,55 @@ export const Nav = ({
   const [newsletterSource, setNewsletterSource] = useState(undefined);
   const [tags, setTags] = useState([]);
   const { loggedInStatus } = useAuth();
-  const { query } = useRouter();
+  const { query, asPath } = useRouter();
 
   useEffect(() => {
-    setModelOpen(query.newsletter !== undefined);
-    setNewsletterSource(query.newsletter);
+    const rawNewsletterValue = Array.isArray(query.newsletter)
+      ? query.newsletter[0]
+      : query.newsletter;
+    const cleanPath = asPath.split("?")[0];
+    setModelOpen(rawNewsletterValue !== undefined);
 
-    if (query.newsletter !== "1") {
-      setTags([{ name: query.newsletter }]);
+    if (rawNewsletterValue === undefined) {
+      setNewsletterSource(undefined);
+      setTags([]);
+      return;
     }
-  }, [query.newsletter]);
+
+    if (rawNewsletterValue !== "1") {
+      setNewsletterSource(rawNewsletterValue);
+      setTags([{ name: rawNewsletterValue }]);
+      return;
+    }
+
+    if (cleanPath === "/") {
+      setNewsletterSource("hubspot-home");
+      setTags([{ name: "homepage" }]);
+      return;
+    }
+
+    if (cleanPath === "/resources") {
+      setNewsletterSource("hubspot-resources");
+      setTags([{ name: "resources" }]);
+      return;
+    }
+
+    if (cleanPath.startsWith("/resources/")) {
+      const slug = cleanPath.split("/").filter(Boolean)[1];
+      setNewsletterSource("hubspot-resources");
+      setTags(slug ? [{ name: slug }] : [{ name: "resources" }]);
+      return;
+    }
+
+    if (cleanPath === "/learning" || cleanPath.startsWith("/learning/")) {
+      setNewsletterSource("hubspot-learning");
+      setTags([{ name: "learning" }]);
+      return;
+    }
+
+    setNewsletterSource("pop-over");
+    setTags([]);
+  }, [query.newsletter, asPath]);
 
   const onClose = () => setModelOpen(false);
 
