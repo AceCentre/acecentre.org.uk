@@ -60,31 +60,9 @@ const deriveTagsFromReturnTo = (returnTo) => {
   return [];
 };
 
-const allowedSignUpLocations = new Set([
-  "footer",
-  "home",
-  "none",
-  "resource-download",
-  "service-finder",
-  "activity-book",
-  "at-scholar",
-  "aacinfo",
-  "launchpad",
-  "speechbubble",
-  "look2talk",
-  "communication-works",
-]);
-
-const getSafeSignUpIdentifier = (value) => {
+const getSignUpIdentifier = (value) => {
   const source = getQueryValue(value);
-
-  if (allowedSignUpLocations.has(source)) {
-    return source;
-  }
-
-  // HubSpot CTA source names are useful for URLs, but can fail HubSpot
-  // contact updates when written into constrained location properties.
-  return "footer";
+  return source ? "cta" : "hubspot-popup";
 };
 
 export default function NewsletterPage() {
@@ -92,7 +70,7 @@ export default function NewsletterPage() {
   const thankYouShown = getQueryValue(router.query.thankyou) === "1";
 
   const signUpIdentifier = useMemo(() => {
-    return getSafeSignUpIdentifier(router.query.source);
+    return getSignUpIdentifier(router.query.source);
   }, [router.query.source]);
 
   const returnTo = useMemo(
