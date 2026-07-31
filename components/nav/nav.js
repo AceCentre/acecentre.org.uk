@@ -54,8 +54,21 @@ export const Nav = ({
     }
 
     if (cleanPath === "/resources") {
+      const referrer = document.referrer || "";
+      let referrerSlug = "";
+
+      try {
+        const referrerUrl = new URL(referrer);
+        const referrerPath = referrerUrl.pathname || "";
+        if (referrerPath.startsWith("/resources/")) {
+          referrerSlug = referrerPath.split("/").filter(Boolean)[1] || "";
+        }
+      } catch (error) {
+        referrerSlug = "";
+      }
+
       setNewsletterSource("cta");
-      setTags([{ name: "resources" }]);
+      setTags(referrerSlug ? [{ name: referrerSlug }] : [{ name: "resources" }]);
       return;
     }
 
