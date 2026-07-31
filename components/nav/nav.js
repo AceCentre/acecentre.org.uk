@@ -42,37 +42,37 @@ export const Nav = ({
     }
 
     if (rawNewsletterValue !== "1") {
-      setNewsletterSource(rawNewsletterValue);
+      setNewsletterSource("cta");
       setTags([{ name: rawNewsletterValue }]);
       return;
     }
 
     if (cleanPath === "/") {
-      setNewsletterSource("hubspot-home");
+      setNewsletterSource("cta");
       setTags([{ name: "homepage" }]);
       return;
     }
 
     if (cleanPath === "/resources") {
-      setNewsletterSource("hubspot-resources");
+      setNewsletterSource("cta");
       setTags([{ name: "resources" }]);
       return;
     }
 
     if (cleanPath.startsWith("/resources/")) {
       const slug = cleanPath.split("/").filter(Boolean)[1];
-      setNewsletterSource("hubspot-resources");
+      setNewsletterSource("cta");
       setTags(slug ? [{ name: slug }] : [{ name: "resources" }]);
       return;
     }
 
     if (cleanPath === "/learning" || cleanPath.startsWith("/learning/")) {
-      setNewsletterSource("hubspot-learning");
+      setNewsletterSource("cta");
       setTags([{ name: "learning" }]);
       return;
     }
 
-    setNewsletterSource("pop-over");
+    setNewsletterSource("cta");
     setTags([]);
   }, [query.newsletter, asPath]);
 
