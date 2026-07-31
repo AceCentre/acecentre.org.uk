@@ -15,6 +15,8 @@ import { NewsletterModal } from "../footer/footer";
 import { useRouter } from "next/router";
 import { useAuth } from "../../lib/auth-hook";
 
+const NEWSLETTER_LAST_PATH_KEY = "newsletter-last-path";
+
 export const Nav = ({
   nhs,
   atScholar,
@@ -27,6 +29,21 @@ export const Nav = ({
   const [tags, setTags] = useState([]);
   const { loggedInStatus } = useAuth();
   const { query, asPath } = useRouter();
+
+  useEffect(() => {
+    const rawNewsletterValue = Array.isArray(query.newsletter)
+      ? query.newsletter[0]
+      : query.newsletter;
+
+    if (rawNewsletterValue !== undefined) {
+      return;
+    }
+
+    const cleanPath = asPath.split("?")[0];
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(NEWSLETTER_LAST_PATH_KEY, cleanPath);
+    }
+  }, [query.newsletter, asPath]);
 
   useEffect(() => {
     const rawNewsletterValue = Array.isArray(query.newsletter)
@@ -54,21 +71,31 @@ export const Nav = ({
     }
 
     if (cleanPath === "/resources") {
-      const referrer = document.referrer || "";
-      let referrerSlug = "";
+      let inferredSlug = "";
 
-      try {
-        const referrerUrl = new URL(referrer);
-        const referrerPath = referrerUrl.pathname || "";
-        if (referrerPath.startsWith("/resources/")) {
-          referrerSlug = referrerPath.split("/").filter(Boolean)[1] || "";
+      if (typeof window !== "undefined") {
+        const lastPath =
+          window.sessionStorage.getItem(NEWSLETTER_LAST_PATH_KEY) || "";
+        if (lastPath.startsWith("/resources/")) {
+          inferredSlug = lastPath.split("/").filter(Boolean)[1] || "";
         }
-      } catch (error) {
-        referrerSlug = "";
+      }
+
+      if (!inferredSlug) {
+        const referrer = document.referrer || "";
+        try {
+          const referrerUrl = new URL(referrer);
+          const referrerPath = referrerUrl.pathname || "";
+          if (referrerPath.startsWith("/resources/")) {
+            inferredSlug = referrerPath.split("/").filter(Boolean)[1] || "";
+          }
+        } catch (error) {
+          inferredSlug = "";
+        }
       }
 
       setNewsletterSource("cta");
-      setTags(referrerSlug ? [{ name: referrerSlug }] : [{ name: "resources" }]);
+      setTags(inferredSlug ? [{ name: inferredSlug }] : [{ name: "resources" }]);
       return;
     }
 
