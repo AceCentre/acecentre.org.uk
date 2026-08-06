@@ -17,7 +17,23 @@ import { useAuth } from "../../lib/auth-hook";
 
 const NEWSLETTER_LAST_PATH_KEY = "newsletter-last-path";
 const NEWSLETTER_LAST_PATH_AT_KEY = "newsletter-last-path-at";
+const NEWSLETTER_LAST_PATH_COOKIE = "newsletter_last_path";
+const NEWSLETTER_LAST_PATH_AT_COOKIE = "newsletter_last_path_at";
 const NEWSLETTER_LAST_PATH_MAX_AGE_MS = 1000 * 60 * 30; // 30 minutes
+
+const getCookieValue = (name) => {
+  if (typeof document === "undefined") {
+    return "";
+  }
+
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    return decodeURIComponent(parts.pop().split(";").shift() || "");
+  }
+
+  return "";
+};
 
 export const Nav = ({
   nhs,
@@ -48,6 +64,10 @@ export const Nav = ({
         NEWSLETTER_LAST_PATH_AT_KEY,
         Date.now().toString(),
       );
+      document.cookie = `${NEWSLETTER_LAST_PATH_COOKIE}=${encodeURIComponent(
+        cleanPath,
+      )}; path=/; max-age=1800; SameSite=Lax`;
+      document.cookie = `${NEWSLETTER_LAST_PATH_AT_COOKIE}=${Date.now()}; path=/; max-age=1800; SameSite=Lax`;
     }
   }, [query.newsletter, asPath]);
 
@@ -91,6 +111,20 @@ export const Nav = ({
         if (isFresh && lastPath.startsWith("/resources/")) {
           inferredSlug = lastPath.split("/").filter(Boolean)[1] || "";
           slugSource = "localStorage";
+        }
+
+        if (!inferredSlug) {
+          const cookieLastPath = getCookieValue(NEWSLETTER_LAST_PATH_COOKIE);
+          const cookieLastPathAt = Number(
+            getCookieValue(NEWSLETTER_LAST_PATH_AT_COOKIE) || "0",
+          );
+          const cookieIsFresh =
+            Date.now() - cookieLastPathAt <= NEWSLETTER_LAST_PATH_MAX_AGE_MS;
+
+          if (cookieIsFresh && cookieLastPath.startsWith("/resources/")) {
+            inferredSlug = cookieLastPath.split("/").filter(Boolean)[1] || "";
+            slugSource = "cookie";
+          }
         }
       }
 
