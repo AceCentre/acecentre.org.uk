@@ -16,6 +16,8 @@ import { useRouter } from "next/router";
 import { useAuth } from "../../lib/auth-hook";
 
 const NEWSLETTER_LAST_PATH_KEY = "newsletter-last-path";
+const NEWSLETTER_LAST_PATH_AT_KEY = "newsletter-last-path-at";
+const NEWSLETTER_LAST_PATH_MAX_AGE_MS = 1000 * 60 * 30; // 30 minutes
 
 export const Nav = ({
   nhs,
@@ -41,7 +43,11 @@ export const Nav = ({
 
     const cleanPath = asPath.split("?")[0];
     if (typeof window !== "undefined") {
-      window.sessionStorage.setItem(NEWSLETTER_LAST_PATH_KEY, cleanPath);
+      window.localStorage.setItem(NEWSLETTER_LAST_PATH_KEY, cleanPath);
+      window.localStorage.setItem(
+        NEWSLETTER_LAST_PATH_AT_KEY,
+        Date.now().toString(),
+      );
     }
   }, [query.newsletter, asPath]);
 
@@ -72,12 +78,19 @@ export const Nav = ({
 
     if (cleanPath === "/resources") {
       let inferredSlug = "";
+      let slugSource = "none";
 
       if (typeof window !== "undefined") {
         const lastPath =
-          window.sessionStorage.getItem(NEWSLETTER_LAST_PATH_KEY) || "";
-        if (lastPath.startsWith("/resources/")) {
+          window.localStorage.getItem(NEWSLETTER_LAST_PATH_KEY) || "";
+        const lastPathAt = Number(
+          window.localStorage.getItem(NEWSLETTER_LAST_PATH_AT_KEY) || "0",
+        );
+        const isFresh = Date.now() - lastPathAt <= NEWSLETTER_LAST_PATH_MAX_AGE_MS;
+
+        if (isFresh && lastPath.startsWith("/resources/")) {
           inferredSlug = lastPath.split("/").filter(Boolean)[1] || "";
+          slugSource = "localStorage";
         }
       }
 
@@ -88,11 +101,18 @@ export const Nav = ({
           const referrerPath = referrerUrl.pathname || "";
           if (referrerPath.startsWith("/resources/")) {
             inferredSlug = referrerPath.split("/").filter(Boolean)[1] || "";
+            slugSource = "referrer";
           }
         } catch (error) {
           inferredSlug = "";
         }
       }
+
+      console.log("[newsletter-cta-debug]", {
+        cleanPath,
+        inferredSlug: inferredSlug || "resources",
+        slugSource,
+      });
 
       setNewsletterSource("cta");
       setTags(inferredSlug ? [{ name: inferredSlug }] : [{ name: "resources" }]);
