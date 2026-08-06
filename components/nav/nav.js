@@ -59,6 +59,10 @@ export const Nav = ({
 
     const cleanPath = asPath.split("?")[0];
     if (typeof window !== "undefined") {
+      const hostname = window.location.hostname || "";
+      const cookieDomain = hostname.endsWith("acecentre.org.uk")
+        ? "; domain=.acecentre.org.uk"
+        : "";
       window.localStorage.setItem(NEWSLETTER_LAST_PATH_KEY, cleanPath);
       window.localStorage.setItem(
         NEWSLETTER_LAST_PATH_AT_KEY,
@@ -66,8 +70,8 @@ export const Nav = ({
       );
       document.cookie = `${NEWSLETTER_LAST_PATH_COOKIE}=${encodeURIComponent(
         cleanPath,
-      )}; path=/; max-age=1800; SameSite=Lax`;
-      document.cookie = `${NEWSLETTER_LAST_PATH_AT_COOKIE}=${Date.now()}; path=/; max-age=1800; SameSite=Lax`;
+      )}; path=/; max-age=1800; SameSite=Lax${cookieDomain}`;
+      document.cookie = `${NEWSLETTER_LAST_PATH_AT_COOKIE}=${Date.now()}; path=/; max-age=1800; SameSite=Lax${cookieDomain}`;
     }
   }, [query.newsletter, asPath]);
 
@@ -146,6 +150,8 @@ export const Nav = ({
         cleanPath,
         inferredSlug: inferredSlug || "resources",
         slugSource,
+        hostname:
+          typeof window !== "undefined" ? window.location.hostname : "unknown",
       });
 
       setNewsletterSource("cta");
