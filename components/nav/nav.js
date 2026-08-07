@@ -15,26 +15,6 @@ import { NewsletterModal } from "../footer/footer";
 import { useRouter } from "next/router";
 import { useAuth } from "../../lib/auth-hook";
 
-const NEWSLETTER_LAST_PATH_KEY = "newsletter-last-path";
-const NEWSLETTER_LAST_PATH_AT_KEY = "newsletter-last-path-at";
-const NEWSLETTER_LAST_PATH_COOKIE = "newsletter_last_path";
-const NEWSLETTER_LAST_PATH_AT_COOKIE = "newsletter_last_path_at";
-const NEWSLETTER_LAST_PATH_MAX_AGE_MS = 1000 * 60 * 30; // 30 minutes
-
-const getCookieValue = (name) => {
-  if (typeof document === "undefined") {
-    return "";
-  }
-
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) {
-    return decodeURIComponent(parts.pop().split(";").shift() || "");
-  }
-
-  return "";
-};
-
 export const Nav = ({
   nhs,
   atScholar,
@@ -47,33 +27,6 @@ export const Nav = ({
   const [tags, setTags] = useState([]);
   const { loggedInStatus } = useAuth();
   const { query, asPath } = useRouter();
-
-  useEffect(() => {
-    const rawNewsletterValue = Array.isArray(query.newsletter)
-      ? query.newsletter[0]
-      : query.newsletter;
-
-    if (rawNewsletterValue !== undefined) {
-      return;
-    }
-
-    const cleanPath = asPath.split("?")[0];
-    if (typeof window !== "undefined") {
-      const hostname = window.location.hostname || "";
-      const cookieDomain = hostname.endsWith("acecentre.org.uk")
-        ? "; domain=.acecentre.org.uk"
-        : "";
-      window.localStorage.setItem(NEWSLETTER_LAST_PATH_KEY, cleanPath);
-      window.localStorage.setItem(
-        NEWSLETTER_LAST_PATH_AT_KEY,
-        Date.now().toString(),
-      );
-      document.cookie = `${NEWSLETTER_LAST_PATH_COOKIE}=${encodeURIComponent(
-        cleanPath,
-      )}; path=/; max-age=1800; SameSite=Lax${cookieDomain}`;
-      document.cookie = `${NEWSLETTER_LAST_PATH_AT_COOKIE}=${Date.now()}; path=/; max-age=1800; SameSite=Lax${cookieDomain}`;
-    }
-  }, [query.newsletter, asPath]);
 
   useEffect(() => {
     const rawNewsletterValue = Array.isArray(query.newsletter)
@@ -101,61 +54,8 @@ export const Nav = ({
     }
 
     if (cleanPath === "/resources") {
-      let inferredSlug = "";
-      let slugSource = "none";
-
-      if (typeof window !== "undefined") {
-        const lastPath =
-          window.localStorage.getItem(NEWSLETTER_LAST_PATH_KEY) || "";
-        const lastPathAt = Number(
-          window.localStorage.getItem(NEWSLETTER_LAST_PATH_AT_KEY) || "0",
-        );
-        const isFresh = Date.now() - lastPathAt <= NEWSLETTER_LAST_PATH_MAX_AGE_MS;
-
-        if (isFresh && lastPath.startsWith("/resources/")) {
-          inferredSlug = lastPath.split("/").filter(Boolean)[1] || "";
-          slugSource = "localStorage";
-        }
-
-        if (!inferredSlug) {
-          const cookieLastPath = getCookieValue(NEWSLETTER_LAST_PATH_COOKIE);
-          const cookieLastPathAt = Number(
-            getCookieValue(NEWSLETTER_LAST_PATH_AT_COOKIE) || "0",
-          );
-          const cookieIsFresh =
-            Date.now() - cookieLastPathAt <= NEWSLETTER_LAST_PATH_MAX_AGE_MS;
-
-          if (cookieIsFresh && cookieLastPath.startsWith("/resources/")) {
-            inferredSlug = cookieLastPath.split("/").filter(Boolean)[1] || "";
-            slugSource = "cookie";
-          }
-        }
-      }
-
-      if (!inferredSlug) {
-        const referrer = document.referrer || "";
-        try {
-          const referrerUrl = new URL(referrer);
-          const referrerPath = referrerUrl.pathname || "";
-          if (referrerPath.startsWith("/resources/")) {
-            inferredSlug = referrerPath.split("/").filter(Boolean)[1] || "";
-            slugSource = "referrer";
-          }
-        } catch (error) {
-          inferredSlug = "";
-        }
-      }
-
-      console.log("[newsletter-cta-debug]", {
-        cleanPath,
-        inferredSlug: inferredSlug || "resources",
-        slugSource,
-        hostname:
-          typeof window !== "undefined" ? window.location.hostname : "unknown",
-      });
-
       setNewsletterSource("cta");
-      setTags(inferredSlug ? [{ name: inferredSlug }] : [{ name: "resources" }]);
+      setTags([{ name: "resources" }]);
       return;
     }
 
