@@ -42,6 +42,19 @@
   width: calc(50% - 1rem);
 }
 
+.privacyNote {
+  margin: 2rem auto 0;
+  max-width: 48rem;
+  text-align: center;
+  color: #00537f;
+  line-height: 1.5;
+}
+
+.privacyNote a {
+  color: #00537f;
+  text-decoration: underline;
+}
+
 /** Mobile CSS */
 @media (max-width: 760px) {
   .level {
