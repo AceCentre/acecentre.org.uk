@@ -50,6 +50,18 @@ export const LearningLevelDescriptions = () => {
           </ul>
         </div>
       </div>
+      <p className={styles.privacyNote}>
+        Policies and procedure for the AAC module, Assistive Technology Unit,
+        and Access module is available in our{" "}
+        <a
+          href="https://acecentreuk.sharepoint.com/:f:/s/AnonymousShares/IgBpbHw9E3CyR7Y5u6aLtOkEAXYS6bnpg5Aa5I8GU_NSWEA?e=PLPU3l"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          course privacy policy
+        </a>
+        .
+      </p>
     </div>
   );
 };

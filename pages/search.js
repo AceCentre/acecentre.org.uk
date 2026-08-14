@@ -4,11 +4,13 @@ import { defaultNavItems } from "../components/sub-nav/sub-nav";
 
 import { FeaturedPosts } from "../components/featured-posts/featured-posts";
 import { BackToLink } from "../components/back-to-link/back-to-link";
+import { ServiceSearchResults } from "../components/service-search-results/service-search-results";
 
 import { getAllFullPosts, getFullProjects } from "../lib/posts/get-posts";
 import Fuse from "fuse.js";
 import { getAllProducts } from "../lib/products/get-products";
 import { ResourceList } from "../components/resource-list/resource-list";
+import { searchServices } from "../lib/search/searchable-services";
 
 import styles from "../styles/search.module.css";
 
@@ -17,6 +19,7 @@ export default function Search({
   events,
   projects,
   products,
+  services = [],
   searchText,
 }) {
   return (
@@ -32,6 +35,9 @@ export default function Search({
           >{`Results for: "${searchText}"`}</h1>
         </div>
         <div className={styles.resultsContainer}>
+          {services.length > 0 && (
+            <ServiceSearchResults services={services} />
+          )}
           {products.length > 0 && (
             <ResourceList
               title="Resources"
@@ -143,12 +149,14 @@ export const getServerSideProps = async (req) => {
     });
 
   const filteredProducts = productsResult.map((result) => result.item);
+  const filteredServices = searchServices(searchText);
 
   return {
     props: {
       blogPosts: filteredPosts.slice(0, 4),
       events: filteredEvents.slice(0, 4),
       projects: filteredProjects.slice(0, 4),
+      services: filteredServices,
       products: filteredProducts
         .map((product) => ({
           title: htmlDecode(product.name),
