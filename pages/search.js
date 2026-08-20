@@ -10,6 +10,7 @@ import { getAllFullPosts, getFullProjects } from "../lib/posts/get-posts";
 import Fuse from "fuse.js";
 import { getAllProducts } from "../lib/products/get-products";
 import { ResourceList } from "../components/resource-list/resource-list";
+import { searchLearning } from "../lib/search/searchable-learning";
 import { searchServices } from "../lib/search/searchable-services";
 
 import styles from "../styles/search.module.css";
@@ -19,6 +20,7 @@ export default function Search({
   events,
   projects,
   products,
+  learning = [],
   services = [],
   searchText,
 }) {
@@ -35,15 +37,32 @@ export default function Search({
           >{`Results for: "${searchText}"`}</h1>
         </div>
         <div className={styles.resultsContainer}>
-          {services.length > 0 && (
-            <ServiceSearchResults services={services} />
-          )}
           {products.length > 0 && (
             <ResourceList
               title="Resources"
               products={products}
               viewAllLink={`/resources/all?searchText=${searchText}`}
               viewAllText="Search all resources"
+            />
+          )}
+          {learning.length > 0 && (
+            <ServiceSearchResults
+              items={learning}
+              title="Learning"
+              subtitle="Learning"
+              viewAllLink="/learning"
+              viewAllText="View all learning"
+              keyPrefix="learning-search"
+            />
+          )}
+          {services.length > 0 && (
+            <ServiceSearchResults
+              items={services}
+              title="Services"
+              subtitle="Services"
+              viewAllLink="/services"
+              viewAllText="View all services"
+              keyPrefix="service-search"
             />
           )}
           {blogPosts.length > 0 && (
@@ -149,6 +168,7 @@ export const getServerSideProps = async (req) => {
     });
 
   const filteredProducts = productsResult.map((result) => result.item);
+  const filteredLearning = searchLearning(searchText);
   const filteredServices = searchServices(searchText);
 
   return {
@@ -156,6 +176,7 @@ export const getServerSideProps = async (req) => {
       blogPosts: filteredPosts.slice(0, 4),
       events: filteredEvents.slice(0, 4),
       projects: filteredProjects.slice(0, 4),
+      learning: filteredLearning,
       services: filteredServices,
       products: filteredProducts
         .map((product) => ({
