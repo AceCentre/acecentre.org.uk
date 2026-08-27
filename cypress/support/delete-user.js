@@ -5,8 +5,15 @@ export const deleteUser = async (
   subdomain = "digitalocean",
   testName = "unknown"
 ) => {
+  const baseUrl = Cypress.config("baseUrl");
+  const isProductionBaseUrl =
+    baseUrl && new URL(baseUrl).hostname === "acecentre.org.uk";
+  const cleanupSubdomain =
+    Cypress.env("WORDPRESS_SUBDOMAIN") ||
+    (isProductionBaseUrl ? "backend" : subdomain);
+
   const getUserResponse = await fetch(
-    `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
+    `https://${cleanupSubdomain}.acecentre.org.uk/index.php?graphql`,
     {
       method: "POST",
       headers: {
@@ -43,7 +50,7 @@ export const deleteUser = async (
   const userDatabaseId = getUserResult.data.user.databaseId;
 
   const ordersResponse = await fetch(
-    `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
+    `https://${cleanupSubdomain}.acecentre.org.uk/index.php?graphql`,
     {
       method: "POST",
       headers: {
@@ -76,7 +83,7 @@ export const deleteUser = async (
   for (const order of ordersResult.data.orders.nodes) {
     // mutation ($orderId: ID!) { deleteOrder(input: {id: $orderId}) { order { id } } }
     const deleteOrderResponse = await fetch(
-      `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
+      `https://${cleanupSubdomain}.acecentre.org.uk/index.php?graphql`,
       {
         method: "POST",
         headers: {
@@ -109,7 +116,7 @@ export const deleteUser = async (
   }
 
   const deleteUserResponse = await fetch(
-    `https://${subdomain}.acecentre.org.uk/index.php?graphql`,
+    `https://${cleanupSubdomain}.acecentre.org.uk/index.php?graphql`,
     {
       method: "POST",
       headers: {
