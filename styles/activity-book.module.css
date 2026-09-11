@@ -24,10 +24,34 @@
   line-height: 1.6;
 }
 
+.guideControls {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.generateInstructions {
+  margin-bottom: 1rem;
+}
+
+.generateInstructions p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+}
+
+.generateInstructions ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
 .filters {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   flex-wrap: wrap;
   align-items: flex-end;
 }
@@ -212,6 +236,11 @@
 .downloadButton:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+.bottomBulkActions {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .guidesList {
