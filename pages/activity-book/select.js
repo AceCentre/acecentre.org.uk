@@ -67,6 +67,50 @@ const LOADING_MESSAGES = [
   "Saving your new custom activity book.....",
 ];
 
+const BulkActionsBar = ({
+  selectedGuides,
+  filteredGuides,
+  downloading,
+  onSelectAll,
+  onClearAll,
+  onDownload,
+  className = "",
+}) => (
+  <div className={`${styles.bulkActions} ${className}`}>
+    <div className={styles.selectionControls}>
+      <button
+        onClick={onSelectAll}
+        className={styles.actionButton}
+        disabled={downloading}
+      >
+        Select All
+      </button>
+      <button
+        onClick={onClearAll}
+        className={styles.actionButton}
+        disabled={downloading}
+      >
+        Clear All
+      </button>
+      <span className={styles.selectionCount}>
+        {selectedGuides.size} of {filteredGuides.length} selected
+      </span>
+    </div>
+
+    {selectedGuides.size > 0 && (
+      <button
+        onClick={onDownload}
+        className={styles.downloadButton}
+        disabled={downloading}
+      >
+        {downloading
+          ? "Downloading..."
+          : `Download ${selectedGuides.size} Guides`}
+      </button>
+    )}
+  </div>
+);
+
 const ActivityBookProgress = ({ totalTime }) => {
   const [value, setValue] = useState(0);
 
@@ -204,9 +248,15 @@ export default function GuideSelect() {
     let filtered = guides;
 
     if (selectedCategory) {
-      filtered = filtered.filter(
-        (guide) => guide.category === selectedCategory,
-      );
+      filtered = filtered.filter((guide) => {
+        const guideCategories =
+          guide.categories?.length > 0
+            ? guide.categories
+            : guide.category
+              ? [guide.category]
+              : [];
+        return guideCategories.includes(selectedCategory);
+      });
     }
 
     setFilteredGuides(filtered);
@@ -650,69 +700,9 @@ export default function GuideSelect() {
                 examples of equipment used in the activities.
               </Link>
             </p>
-            <p>
-              <br />
-              <b>To generate a Switch Activity Book</b>
-            </p>
-            <p>Use the drop-down menus to:</p>
-            <ul>
-              <li>
-                <b>Category:</b> filter the activity guides by areas of
-                interest.
-              </li>
-              <li>
-                <b>Switch Image:</b> insert an image of a specific switch into
-                the guide.
-              </li>
-            </ul>
-          </div>
-
-          <div className={styles.filters}>
-            <div className={styles.filterGroup}>
-              <label htmlFor="category">Category:</label>
-              <select
-                id="category"
-                value={selectedCategory}
-                onChange={handleCategoryChange}
-                className={styles.select}
-              >
-                <option value="">All Categories</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={styles.filterGroup}>
-              <label htmlFor="switchImage">Switch Image:</label>
-              <select
-                id="switchImage"
-                value={selectedSwitchImage}
-                onChange={handleSwitchImageChange}
-                className={styles.select}
-              >
-                <option value="">Default Images</option>
-                {switchImages.map((switchImage) => (
-                  <option key={switchImage.filename} value={switchImage.path}>
-                    {switchImage.displayName}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <button onClick={clearFilters} className={styles.clearButton}>
-              Clear Filters
-            </button>
           </div>
 
           <div className={styles.results}>
-            <p className={styles.resultsCount}>
-              {filteredGuides.length} guide
-              {filteredGuides.length !== 1 ? "s" : ""} found
-            </p>
-
             {/* Customization Section */}
             <div className={styles.customizationSection}>
               <h3>Personalize Your Activity Book (Optional)</h3>
@@ -809,46 +799,85 @@ export default function GuideSelect() {
               Click on the <b>Download</b> button to generate your Switch
               Activity Book.
             </p>
-
-            {filteredGuides.length > 0 && (
-              <div className={styles.bulkActions}>
-                <div className={styles.selectionControls}>
-                  <button
-                    onClick={selectAllGuides}
-                    className={styles.actionButton}
-                    disabled={downloading}
-                  >
-                    Select All
-                  </button>
-                  <button
-                    onClick={clearAllGuides}
-                    className={styles.actionButton}
-                    disabled={downloading}
-                  >
-                    Clear All
-                  </button>
-                  <span className={styles.selectionCount}>
-                    {selectedGuides.size} of {filteredGuides.length} selected
-                  </span>
-                </div>
-
-                {selectedGuides.size > 0 && (
-                  <button
-                    onClick={() => {
-                      setModalOpen(true);
-                      downloadSelectedGuides();
-                    }}
-                    className={styles.downloadButton}
-                    disabled={downloading}
-                  >
-                    {downloading
-                      ? "Downloading..."
-                      : `Download ${selectedGuides.size} Guides`}
-                  </button>
-                )}
-              </div>
-            )}
           </div>
+
+          <div className={styles.guideControls}>
+            <div className={styles.generateInstructions}>
+              <p>
+                <b>To generate a Switch Activity Book</b>
+              </p>
+              <p>Use the drop-down menus to:</p>
+              <ul>
+                <li>
+                  <b>Category:</b> filter the activity guides by areas of
+                  interest.
+                </li>
+                <li>
+                  <b>Switch Image:</b> insert an image of a specific switch
+                  into the guide.
+                </li>
+              </ul>
+            </div>
+
+            <div className={styles.filters}>
+              <div className={styles.filterGroup}>
+                <label htmlFor="category">Category:</label>
+                <select
+                  id="category"
+                  value={selectedCategory}
+                  onChange={handleCategoryChange}
+                  className={styles.select}
+                >
+                  <option value="">All Categories</option>
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className={styles.filterGroup}>
+                <label htmlFor="switchImage">Switch Image:</label>
+                <select
+                  id="switchImage"
+                  value={selectedSwitchImage}
+                  onChange={handleSwitchImageChange}
+                  className={styles.select}
+                >
+                  <option value="">Default Images</option>
+                  {switchImages.map((switchImage) => (
+                    <option key={switchImage.filename} value={switchImage.path}>
+                      {switchImage.displayName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button onClick={clearFilters} className={styles.clearButton}>
+                Clear Filters
+              </button>
+            </div>
+
+            <p className={styles.resultsCount}>
+              {filteredGuides.length} guide
+              {filteredGuides.length !== 1 ? "s" : ""} found
+            </p>
+          </div>
+
+          {filteredGuides.length > 0 && (
+            <BulkActionsBar
+              selectedGuides={selectedGuides}
+              filteredGuides={filteredGuides}
+              downloading={downloading}
+              onSelectAll={selectAllGuides}
+              onClearAll={clearAllGuides}
+              onDownload={() => {
+                setModalOpen(true);
+                downloadSelectedGuides();
+              }}
+            />
+          )}
 
           <ActivityBookList
             title="Activity  Guides"
@@ -858,6 +887,21 @@ export default function GuideSelect() {
             onGuideSelection={handleGuideSelection}
             downloading={downloading}
           />
+
+          {filteredGuides.length > 0 && (
+            <BulkActionsBar
+              selectedGuides={selectedGuides}
+              filteredGuides={filteredGuides}
+              downloading={downloading}
+              onSelectAll={selectAllGuides}
+              onClearAll={clearAllGuides}
+              onDownload={() => {
+                setModalOpen(true);
+                downloadSelectedGuides();
+              }}
+              className={styles.bottomBulkActions}
+            />
+          )}
 
           <ActivityBookDownloadModal
             modalOpen={modalOpen}
