@@ -45,10 +45,19 @@ const GuideCardWithTooltip = ({ product, styles, Card }) => {
         imageContainerClassName={styles.imageContainer}
         href="#"
         noImagePostCount={0}
-        subtitle={product.category}
+        showSubtitle={false}
         featuredImage={product.image}
         title={product.title}
       >
+        {product.categories?.length > 0 && (
+          <div className={styles.categoryTags}>
+            {product.categories.map((category) => (
+              <span key={category} className={styles.categoryTagLine}>
+                {category}
+              </span>
+            ))}
+          </div>
+        )}
         <p className={styles.productTitle}>{product.title}</p>
         {product.badgeText && (
           <span className={styles.badge}>{product.badgeText}</span>
@@ -616,6 +625,12 @@ export default function GuideSelect() {
     badgeText: guide.badgeText,
     title: guide.title,
     category: guide.category,
+    categories:
+      guide.categories?.length > 0
+        ? guide.categories
+        : guide.category
+          ? [guide.category]
+          : [],
     tooltipText: guide.tooltipText, // Include tooltipText from guide data
   }));
 
