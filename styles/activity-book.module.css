@@ -295,13 +295,15 @@
 }
 
 .card {
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   background: white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  min-height: 280px;
+  padding: 1rem 1rem 1.35rem;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
 }
@@ -320,7 +322,10 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
   z-index: 1000;
   max-width: 400px;
   min-width: 250px;
@@ -378,11 +383,34 @@
   object-position: center;
 }
 
+.categoryTags {
+  color: #000;
+  background: #94c64e;
+  border-radius: 10px;
+  padding: 2px 6px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: -20px auto 0.15rem;
+  z-index: 1;
+  text-align: center;
+}
+
+.categoryTagLine {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: capitalize;
+  white-space: nowrap;
+  padding: 1px 0;
+}
+
 .productTitle {
   font-size: 1.2rem;
   font-weight: 600;
   color: #333;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.35rem;
   text-align: center;
   line-height: 1.3;
 }
@@ -391,13 +419,13 @@
   display: inline-block;
   background: #28a745;
   color: white;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  margin: 0.5rem auto;
+  margin: 0.25rem auto 0.45rem;
   text-align: center;
-  min-width: 80px;
+  min-width: 72px;
 }
 
 /** Mobile CSS */
