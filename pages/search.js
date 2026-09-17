@@ -11,6 +11,7 @@ import Fuse from "fuse.js";
 import { getAllProducts } from "../lib/products/get-products";
 import { ResourceList } from "../components/resource-list/resource-list";
 import { searchLearning } from "../lib/search/searchable-learning";
+import { searchPages } from "../lib/search/searchable-pages";
 import { searchServices } from "../lib/search/searchable-services";
 
 import styles from "../styles/search.module.css";
@@ -22,6 +23,7 @@ export default function Search({
   products,
   learning = [],
   services = [],
+  pages = [],
   searchText,
 }) {
   return (
@@ -63,6 +65,16 @@ export default function Search({
               viewAllLink="/services"
               viewAllText="View all services"
               keyPrefix="service-search"
+            />
+          )}
+          {pages.length > 0 && (
+            <ServiceSearchResults
+              items={pages}
+              title="Pages"
+              subtitle="Pages"
+              viewAllLink="/"
+              viewAllText="Go to home"
+              keyPrefix="page-search"
             />
           )}
           {blogPosts.length > 0 && (
@@ -170,6 +182,7 @@ export const getServerSideProps = async (req) => {
   const filteredProducts = productsResult.map((result) => result.item);
   const filteredLearning = searchLearning(searchText);
   const filteredServices = searchServices(searchText);
+  const filteredPages = searchPages(searchText);
 
   return {
     props: {
@@ -178,6 +191,7 @@ export const getServerSideProps = async (req) => {
       projects: filteredProjects.slice(0, 4),
       learning: filteredLearning,
       services: filteredServices,
+      pages: filteredPages,
       products: filteredProducts
         .map((product) => ({
           title: htmlDecode(product.name),
