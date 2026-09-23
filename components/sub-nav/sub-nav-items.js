@@ -51,7 +51,7 @@ export const defaultNavItems = [
       },
       {
         title: "eBooks to get started",
-        href: "/resources/all?category=made-by-ace&subcategory=e-books",
+        href: "/resources/all?category=info_apps&orderby=most-popular&page=1&subcategory=e-books",
       },
     ],
   },
