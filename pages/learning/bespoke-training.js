@@ -72,7 +72,7 @@ export default function BespokeTraining() {
             </ul>
             <p>
               *prices as delivered at an Ace Centre location. For training at
-              your venue add travel @45ppm return journey from the nearest Ace
+              your venue add travel @55ppm return journey from the nearest Ace
               Centre. Other costs may apply.
             </p>
             <h3>Online Live Training</h3>
