@@ -1,6 +1,9 @@
 # *
 User-agent: *
 Allow: /
+# Kotobee ebook chapter files — not real site pages; crawl caused mass 404s
+Disallow: /ebooks/*/xhtml/
+Disallow: /ebooks/*/epub/
 
 # Host
 Host: https://acecentre.org.uk
