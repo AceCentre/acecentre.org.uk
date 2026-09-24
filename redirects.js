@@ -292,6 +292,11 @@ const REDIRECTS = [
     permanent: true,
   },
   {
+    source: "/events/comm-works-2027",
+    destination: "/communication-works-2027",
+    permanent: true,
+  },
+  {
     source: "/acl-comm",
     destination: "/learning/search?category=communication",
     permanent: true,
@@ -684,6 +689,12 @@ const REDIRECTS = [
     destination: "/nhs-service-finder",
     permanent: true,
   },
+  // Catch-all for relative NHS website links crawled as site paths
+  {
+    source: "/nhs-service-finder/www.:path*",
+    destination: "/nhs-service-finder",
+    permanent: true,
+  },
   // Ebooks landing pages
   {
     source:
@@ -694,6 +705,12 @@ const REDIRECTS = [
   {
     source: "/ebooks/designing-and-using-alphabet-charts",
     destination: "/ebooks/",
+    permanent: true,
+  },
+  // Broken Kotobee chapter URLs (missing /epub/EPUB/) — send crawlers to book root
+  {
+    source: "/ebooks/:book/xhtml/:path*",
+    destination: "/ebooks/:book/",
     permanent: true,
   },
   // Projects

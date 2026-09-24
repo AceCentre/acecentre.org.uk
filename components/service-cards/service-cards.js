@@ -12,6 +12,20 @@ const parseEmails = (email) => {
     .filter(Boolean);
 };
 
+/** Turn bare domains like www.example.nhs.uk into absolute URLs. */
+export const toAbsoluteExternalUrl = (url) => {
+  if (!url || typeof url !== "string") return null;
+
+  const trimmed = url.trim();
+  if (!trimmed || /^n\/?a$/i.test(trimmed)) return null;
+  if (/^(https?:|mailto:|tel:)/i.test(trimmed)) return trimmed;
+  if (trimmed.includes("@") && !trimmed.includes("/")) {
+    return `mailto:${trimmed.replace(/^mailto:/i, "")}`;
+  }
+
+  return `https://${trimmed.replace(/^\/+/, "")}`;
+};
+
 export const ImportantCallout = ({ service }) => {
   // Don't display the callout for ace-n or ace-s services
   if (!service || service.id === "ace-n" || service.id === "ace-s") {
@@ -36,9 +50,12 @@ export const ImportantCallout = ({ service }) => {
 };
 
 export const ServiceCards = ({ service }) => {
+  const websiteUrl = toAbsoluteExternalUrl(service.website);
+  const communicationMattersUrl = toAbsoluteExternalUrl(
+    service.communicationMatters
+  );
   const showCommMatters =
-    service.communicationMatters &&
-    service.communicationMatters !== service.website;
+    communicationMattersUrl && communicationMattersUrl !== websiteUrl;
   const emails = parseEmails(service.email);
 
   return (
@@ -70,11 +87,13 @@ export const ServiceCards = ({ service }) => {
             ))}
           </span>
         </p>
-        <div className={styles.visitWebsiteContainer}>
-          <Button href={service.website}>Visit their website</Button>
-        </div>
+        {websiteUrl && (
+          <div className={styles.visitWebsiteContainer}>
+            <Button href={websiteUrl}>Visit their website</Button>
+          </div>
+        )}
         {showCommMatters && (
-          <a href={service.communicationMatters}>
+          <a href={communicationMattersUrl}>
             Check out their profile on Communication Matters &gt;
           </a>
         )}
