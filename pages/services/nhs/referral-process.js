@@ -346,7 +346,7 @@ export default function NHSLanding() {
             </p>
             <ul>
               <li>
-                <Link href="/resources/all?category=made-by-ace&subcategory=e-books">
+                <Link href="/resources/all?category=info_apps&orderby=most-popular&page=1&subcategory=e-books">
                   Getting Started eBooks
                 </Link>
                 {": "}covering a range of topics to help families and

@@ -462,7 +462,7 @@ const FAQS = [
         <p>
           You will find much more information about all of the above issues in
           the new resource{" "}
-          <a href="https://acecentre.org.uk/resources/all?category=made-by-ace&subcategory=e-books">
+          <a href="https://acecentre.org.uk/resources/all?category=info_apps&orderby=most-popular&page=1&subcategory=e-books">
             Getting Started with AAC:&nbsp; Using low tech symbol based systems
             with children
           </a>

@@ -163,7 +163,8 @@ const REDIRECTS = [
   },
   {
     source: "/resources/getting-started-aac",
-    destination: "/resources/all?category=made-by-ace&subcategory=e-books",
+    destination:
+      "/resources/all?category=info_apps&orderby=most-popular&page=1&subcategory=e-books",
     permanent: true,
   },
   {
@@ -208,7 +209,8 @@ const REDIRECTS = [
   },
   {
     source: "/ebooks",
-    destination: "/resources/all?category=made-by-ace&subcategory=e-books",
+    destination:
+      "/resources/all?category=info_apps&orderby=most-popular&page=1&subcategory=e-books",
     permanent: true,
   },
   {
