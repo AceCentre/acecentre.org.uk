@@ -13,6 +13,8 @@ import { ResourceList } from "../components/resource-list/resource-list";
 import { searchLearning } from "../lib/search/searchable-learning";
 import { searchPages } from "../lib/search/searchable-pages";
 import { searchServices } from "../lib/search/searchable-services";
+import { POST_SEARCH_OPTIONS } from "../lib/search/post-search-options";
+import { PRODUCT_SEARCH_OPTIONS } from "../lib/search/product-search-options";
 
 import styles from "../styles/search.module.css";
 
@@ -47,14 +49,13 @@ export default function Search({
               viewAllText="Search all resources"
             />
           )}
-          {learning.length > 0 && (
-            <ServiceSearchResults
-              items={learning}
-              title="Learning"
-              subtitle="Learning"
-              viewAllLink="/learning"
-              viewAllText="View all learning"
-              keyPrefix="learning-search"
+          {blogPosts.length > 0 && (
+            <FeaturedPosts
+              title="Blog posts"
+              smallCards
+              posts={blogPosts}
+              viewAllLink={`/blog/search?searchText=${searchText}`}
+              viewAllText="Search all blog posts"
             />
           )}
           {services.length > 0 && (
@@ -77,13 +78,14 @@ export default function Search({
               keyPrefix="page-search"
             />
           )}
-          {blogPosts.length > 0 && (
-            <FeaturedPosts
-              title="Blog posts"
-              smallCards
-              posts={blogPosts}
-              viewAllLink={`/blog/search?searchText=${searchText}`}
-              viewAllText="Search all blog posts"
+          {learning.length > 0 && (
+            <ServiceSearchResults
+              items={learning}
+              title="Learning"
+              subtitle="Learning"
+              viewAllLink="/learning"
+              viewAllText="View all learning"
+              keyPrefix="learning-search"
             />
           )}
           {events.length > 0 && (
@@ -133,47 +135,35 @@ export const getServerSideProps = async (req) => {
   const blogPostsSource = allPosts.filter((p) => !isEventPost(p));
   const eventsSource = allPosts.filter(isEventPost);
 
-  const blogFuse = new Fuse(blogPostsSource, {
-    keys: ["content", "title"],
-  });
+  const blogFuse = new Fuse(blogPostsSource, POST_SEARCH_OPTIONS);
   const blogResults = blogFuse.search(searchText);
   const filteredPosts = blogResults.map((result) => result.item);
 
-  const eventsFuse = new Fuse(eventsSource, {
-    keys: ["content", "title"],
-  });
+  const eventsFuse = new Fuse(eventsSource, POST_SEARCH_OPTIONS);
   const eventsResults = eventsFuse.search(searchText);
   const filteredEvents = eventsResults.map((result) => result.item);
 
   const allProjects = await getFullProjects();
-  const projectsFuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const projectsFuse = new Fuse(allProjects, POST_SEARCH_OPTIONS);
   const projectsResult = projectsFuse.search(searchText);
   const filteredProjects = projectsResult.map((result) => result.item);
 
   const allProducts = await getAllProducts();
-  const productsFuse = new Fuse(allProducts, {
-    keys: ["name", "description", "shortDescription"],
-    includeScore: true,
-  });
+  const productsFuse = new Fuse(allProducts, PRODUCT_SEARCH_OPTIONS);
   const productsResult = productsFuse
     .search(searchText)
     .reverse()
     .sort((a, b) => {
       const aName = a.item.name.toLowerCase();
       const bName = b.item.name.toLowerCase();
+      const query = searchText.toLowerCase();
 
-      if (
-        aName.includes(searchText.toLowerCase()) &&
-        !bName.includes(searchText.toLowerCase())
-      ) {
+      if (aName.includes(query) && !bName.includes(query)) {
         return -1;
       }
 
-      if (
-        aName.includes(searchText.toLowerCase()) &&
-        !bName.includes(searchText.toLowerCase())
-      ) {
-        return -1;
+      if (bName.includes(query) && !aName.includes(query)) {
+        return 1;
       }
 
       return 0;

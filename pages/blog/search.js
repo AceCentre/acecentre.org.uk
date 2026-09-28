@@ -4,6 +4,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { getAllFullPosts } from "../../lib/posts/get-posts";
+import { POST_SEARCH_OPTIONS } from "../../lib/search/post-search-options";
 import Fuse from "fuse.js";
 
 export default function SearchBlog({ allPosts, searchText }) {
@@ -41,7 +42,7 @@ export const getServerSideProps = async (req) => {
     };
   }
 
-  const fuse = new Fuse(nonEventPosts, { keys: ["content", "title"] });
+  const fuse = new Fuse(nonEventPosts, POST_SEARCH_OPTIONS);
   const results = fuse.search(searchText);
   const filteredPosts = results.map((result) => result.item);
 

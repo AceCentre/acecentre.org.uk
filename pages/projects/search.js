@@ -3,6 +3,7 @@ import { FeaturedPosts } from "../../components/featured-posts/featured-posts";
 import { Footer } from "../../components/footer/footer";
 import { defaultNavItems } from "../../components/sub-nav/sub-nav";
 import { getFullProjects } from "../../lib/posts/get-posts";
+import { POST_SEARCH_OPTIONS } from "../../lib/search/post-search-options";
 import Fuse from "fuse.js";
 import { BackToLink } from "../../components/back-to-link/back-to-link";
 
@@ -41,7 +42,7 @@ export const getServerSideProps = async (req) => {
 
   if (!allProjects) throw new Error("Could not get all the projects");
 
-  const fuse = new Fuse(allProjects, { keys: ["content", "title"] });
+  const fuse = new Fuse(allProjects, POST_SEARCH_OPTIONS);
   const results = fuse.search(searchText);
   const filteredProjects = results.map((result) => result.item);
 
