@@ -58,7 +58,7 @@ export const LearningLevelDescriptions = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          course privacy policy
+          here
         </a>
         .
       </p>
