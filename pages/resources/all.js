@@ -87,7 +87,7 @@ export const getServerSideProps = async (req) => {
 
   const resources = filteredProducts.map((product) => ({
     title: htmlDecode(product.name),
-    mainCategoryName: product.category.name,
+    mainCategoryName: product.category?.name || product.mainCategoryName || "",
     featuredImage: product.image,
     ...product,
   }));

@@ -382,13 +382,13 @@ export const getStaticProps = async () => {
     };
   }
 
-  const currentCategory = currentResource.category.name;
+  const currentCategory = currentResource.category?.name || "";
 
   const relatedResources = allProducts
     .filter((product) => product.slug !== slug)
     .map((product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
+      mainCategoryName: product.category?.name || product.mainCategoryName || "",
       featuredImage: product.image,
       ...product,
     }))
@@ -417,7 +417,7 @@ export const getStaticProps = async () => {
   const attachedResources = currentResource.attachedResources.map(
     (product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
+      mainCategoryName: product.mainCategoryName,
       featuredImage: product.image,
       ...product,
     }),
