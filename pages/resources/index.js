@@ -55,7 +55,7 @@ export const getStaticProps = async () => {
   const allProducts = await getAllProductsByPopularity();
   const popularResources = allProducts.slice(0, 4).map((product) => ({
     title: htmlDecode(product.name),
-    mainCategoryName: product.category.name,
+    mainCategoryName: product.category?.name || product.mainCategoryName || "",
     featuredImage: product.image,
     ...product,
   }));
@@ -66,7 +66,7 @@ export const getStaticProps = async () => {
     .filter((resource) => resource.featured)
     .map((product) => ({
       title: htmlDecode(product.name),
-      mainCategoryName: product.category.name,
+      mainCategoryName: product.category?.name || product.mainCategoryName || "",
       featuredImage: product.image,
       ...product,
     }));
