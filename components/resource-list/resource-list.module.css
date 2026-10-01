@@ -12,6 +12,18 @@
   text-align: center;
 }
 
+.wasPrice {
+  text-decoration: line-through;
+  opacity: 0.55;
+  margin-right: 0.4em;
+  font-weight: normal;
+}
+
+.salePrice {
+  font-weight: 700;
+  color: #c62828;
+}
+
 .postTitleContainer {
   justify-content: start;
 }

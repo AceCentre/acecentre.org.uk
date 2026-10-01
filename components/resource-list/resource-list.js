@@ -102,18 +102,60 @@ const shouldShowRibbon = () => {
   return false;
 };
 
+const formatGbp = (amount) => {
+  if (amount === 0) return "Free";
+  if (amount == null) return null;
+
+  const value = Number(amount);
+  if (Number.isNaN(value)) return null;
+
+  return Number.isInteger(value) ? `£${value}` : `£${value.toFixed(2)}`;
+};
+
+const formatRange = (min, max) => {
+  const minLabel = min === 0 ? "Free" : formatGbp(min);
+  return `${minLabel} - ${formatGbp(max)}`;
+};
+
 const Price = ({ product }) => {
-  let cost = "Free";
-
-  // If minPrice and maxPrice are present
+  // If minPrice and maxPrice are present (variable products)
   if (product.minPrice !== undefined && product.maxPrice !== undefined) {
-    const minPrice = product.minPrice === 0 ? "Free" : `£${product.minPrice}`;
-    cost = `${minPrice} - £${product.maxPrice}`;
+    const current = formatRange(product.minPrice, product.maxPrice);
+    const showPrevious =
+      product.onSale &&
+      product.minRegularPrice != null &&
+      product.maxRegularPrice != null &&
+      (product.minRegularPrice > product.minPrice ||
+        product.maxRegularPrice > product.maxPrice);
+
+    return (
+      <p className={styles.price}>
+        {showPrevious && (
+          <span className={styles.wasPrice}>
+            {formatRange(product.minRegularPrice, product.maxRegularPrice)}
+          </span>
+        )}
+        <span className={showPrevious ? styles.salePrice : undefined}>
+          {current}
+        </span>
+      </p>
+    );
   }
 
-  if (product.price && product.price > 0) {
-    cost = `£${product.price}`;
-  }
+  const current = formatGbp(product.price ?? 0) || "Free";
+  const showPrevious =
+    product.onSale &&
+    product.regularPrice != null &&
+    product.regularPrice > product.price;
 
-  return <p className={styles.price}>{cost}</p>;
+  return (
+    <p className={styles.price}>
+      {showPrevious && (
+        <span className={styles.wasPrice}>{formatGbp(product.regularPrice)}</span>
+      )}
+      <span className={showPrevious ? styles.salePrice : undefined}>
+        {current}
+      </span>
+    </p>
+  );
 };

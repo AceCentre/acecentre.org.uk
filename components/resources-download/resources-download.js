@@ -390,14 +390,37 @@ const MixedVariations = ({ resource, variations, posthog, posthogLoaded }) => {
   );
 };
 
-const Price = ({ resource }) => {
-  const price = resource.price === 0 ? "Free" : `£${resource.price}`;
+const formatGbp = (amount) => {
+  if (amount === 0) return "Free";
+  if (amount == null) return null;
 
+  const value = Number(amount);
+  if (Number.isNaN(value)) return null;
+
+  return Number.isInteger(value) ? `£${value}` : `£${value.toFixed(2)}`;
+};
+
+const Price = ({ resource }) => {
   if (!resource.inStock && !resource.outOfStockForm) {
     return <p className={styles.price}>Out of stock</p>;
   }
 
-  return <p className={styles.price}>{price}</p>;
+  const current = formatGbp(resource.price ?? 0) || "Free";
+  const showPrevious =
+    resource.onSale &&
+    resource.regularPrice != null &&
+    resource.regularPrice > resource.price;
+
+  return (
+    <p className={styles.price}>
+      {showPrevious && (
+        <span className={styles.wasPrice}>{formatGbp(resource.regularPrice)}</span>
+      )}
+      <span className={showPrevious ? styles.salePrice : undefined}>
+        {current}
+      </span>
+    </p>
+  );
 };
 
 export const NewsletterSignup = ({
@@ -469,7 +492,9 @@ export const NewsletterSignup = ({
       const subscriptionWarning = result?.subscriptionWarning || "";
       const wasUnsubscribed =
         subscriptionWarning &&
-        subscriptionWarning.includes("cannot be updated because they have unsubscribed");
+        subscriptionWarning.includes(
+          "cannot be updated because they have unsubscribed",
+        );
 
       setStatus({
         loading: false,
