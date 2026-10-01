@@ -93,6 +93,19 @@
   margin-bottom: 0.5rem;
 }
 
+.wasPrice {
+  text-decoration: line-through;
+  opacity: 0.55;
+  margin-right: 0.4em;
+  font-weight: normal;
+  font-size: 0.7em;
+}
+
+.salePrice {
+  font-weight: bold;
+  color: #c62828;
+}
+
 .closeButton {
   background: none;
   border: 0;
