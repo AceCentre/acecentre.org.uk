@@ -51,8 +51,7 @@ export const LearningLevelDescriptions = () => {
         </div>
       </div>
       <p className={styles.privacyNote}>
-        Policies and procedure for the AAC module, Assistive Technology Unit,
-        and Access module is available in our{" "}
+        Policies and Procedures for our Accredited courses can be found{" "}
         <a
           href="https://acecentreuk.sharepoint.com/:f:/s/AnonymousShares/IgBpbHw9E3CyR7Y5u6aLtOkEAXYS6bnpg5Aa5I8GU_NSWEA?e=PLPU3l"
           target="_blank"
