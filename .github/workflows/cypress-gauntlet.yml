@@ -46,7 +46,7 @@ jobs:
     secrets: inherit
     with:
       tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
+      baseUrl: https://live-acecentregrouk-z9iru.ondigitalocean.app
 
   GauntletRunTwoPre:
     needs: [GauntletRunOnePre]
@@ -54,7 +54,7 @@ jobs:
     secrets: inherit
     with:
       tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
+      baseUrl: https://live-acecentregrouk-z9iru.ondigitalocean.app
 
   GauntletRunThreePre:
     needs: [GauntletRunTwoPre]
@@ -62,7 +62,7 @@ jobs:
     secrets: inherit
     with:
       tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
+      baseUrl: https://live-acecentregrouk-z9iru.ondigitalocean.app
 
   GauntletRunFourPre:
     needs: [GauntletRunThreePre]
@@ -70,7 +70,7 @@ jobs:
     secrets: inherit
     with:
       tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
+      baseUrl: https://live-acecentregrouk-z9iru.ondigitalocean.app
 
   GauntletRunFivePre:
     needs: [GauntletRunFourPre]
@@ -78,4 +78,4 @@ jobs:
     secrets: inherit
     with:
       tags: pre-deploy
-      baseUrl: https://integration.acecentre.org.uk
+      baseUrl: https://live-acecentregrouk-z9iru.ondigitalocean.app
