@@ -60,7 +60,10 @@ function MyApp({
     };
 
     loadScript("hubspot-forms", "https://js-eu1.hsforms.net/forms/embed/v2.js");
-    loadScript("hubspot-tracking", "https://js-eu1.hs-scripts.com/147550428.js");
+    loadScript(
+      "hubspot-tracking",
+      "https://js-eu1.hs-scripts.com/147550428.js",
+    );
 
     if (config.environment === "production") {
       loadScript(
@@ -123,6 +126,17 @@ function MyApp({
               gtag('config', 'G-5PYYXEH8M9');
             `}
           </Script>
+          {config.environment === "production" && !disableThirdPartyScripts && (
+            <Script id="microsoft-clarity" strategy="afterInteractive">
+              {`
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "vis4yzm3gl");
+              `}
+            </Script>
+          )}
         </>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={chakraTheme} resetCSS={false}>
@@ -157,7 +171,9 @@ const MaintenancePage = () => (
         }
 
         body {
-          font: 20px Helvetica, sans-serif;
+          font:
+            20px Helvetica,
+            sans-serif;
           color: #333;
         }
 
