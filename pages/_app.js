@@ -28,11 +28,47 @@ const chakraTheme = extendTheme({
   useSystemColorMode: false,
 });
 
+const disableThirdPartyScripts =
+  process.env.NEXT_PUBLIC_DISABLE_THIRD_PARTY_SCRIPTS === "true";
+
 function MyApp({
   Component,
   pageProps: { seo = {}, uncaughtError, trace, ...pageProps },
 }) {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    // Explicitly controlled by env per environment (e.g. CI/staging).
+    if (disableThirdPartyScripts) {
+      return;
+    }
+
+    const loadScript = (id, src) => {
+      if (document.getElementById(id)) {
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = id;
+      script.src = src;
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    loadScript("hubspot-forms", "https://js-eu1.hsforms.net/forms/embed/v2.js");
+    loadScript("hubspot-tracking", "https://js-eu1.hs-scripts.com/147550428.js");
+
+    if (config.environment === "production") {
+      loadScript(
+        "cookieyes",
+        "https://cdn-cookieyes.com/client_data/5f7bdf61622959f12d1b8723/script.js",
+      );
+    }
+  }, []);
 
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -78,16 +114,6 @@ function MyApp({
             src="https://www.googletagmanager.com/gtag/js?id=G-5PYYXEH8M9"
             strategy="afterInteractive"
           />
-          <Script
-            id="hubspot-forms"
-            src="https://js-eu1.hsforms.net/forms/embed/v2.js"
-            strategy="afterInteractive"
-          />
-          <Script
-            id="hubspot-tracking"
-            src="https://js-eu1.hs-scripts.com/147550428.js"
-            strategy="afterInteractive"
-          />
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
@@ -97,13 +123,6 @@ function MyApp({
               gtag('config', 'G-5PYYXEH8M9');
             `}
           </Script>
-          {config.environment === "production" && (
-            <Script
-              id="cookieyes"
-              src="https://cdn-cookieyes.com/client_data/5f7bdf61622959f12d1b8723/script.js"
-              strategy="afterInteractive"
-            ></Script>
-          )}
         </>
         <ThemeProvider theme={theme}>
           <ChakraProvider theme={chakraTheme} resetCSS={false}>
