@@ -8,9 +8,9 @@ export const TopBanner = () => {
   return (
     <div className={styles.container}>
       <p>
-        🎉 Join us for Communication Works North on Friday 22nd May!{" "}
-        <Link href="/communication-works-2026">
-          Click here to find out more and see the seminar programme
+        🎉 Meet us at TES SEND Show 2026.{" "}
+        <Link href="/newsletter?source=cta&tag=tes-send-show-2026&returnTo=/&utm_source=tes_send_show&utm_medium=banner&utm_campaign=tes_send_show_2026">
+          Sign up for updates from the event
         </Link>
       </p>
     </div>
