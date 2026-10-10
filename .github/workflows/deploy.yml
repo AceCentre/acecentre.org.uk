@@ -69,7 +69,7 @@ jobs:
           node-version: "20"
 
       - name: Cypress prod smoke
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7.4.6
         with:
           install: true
           browser: chrome
