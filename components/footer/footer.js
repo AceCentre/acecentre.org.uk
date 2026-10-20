@@ -87,7 +87,6 @@ export const Footer = ({ noPhoneNumber = false }) => {
                 <p className={styles.officeHours}>
                   Office hours, 9AM - 5PM, Monday - Friday
                 </p>
-                <p className={styles.helpAndSupport}>Help and support:</p>
                 <Link href="/contact" className={styles.helpAndSupportLink}>
                   Contact us
                 </Link>

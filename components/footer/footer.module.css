@@ -83,6 +83,7 @@
   display: flex;
   gap: 0.5rem;
   align-self: flex-start;
+  margin-left: 13px;
 }
 
 .avatarLink {
@@ -92,11 +93,6 @@
 .copyright {
   font-size: 16px;
   color: #ffffff;
-}
-
-.helpAndSupport {
-  color: #ffffff;
-  margin-bottom: 0;
 }
 
 .helpAndSupportLink {
