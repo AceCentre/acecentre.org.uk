@@ -1,7 +1,7 @@
 {
   "name": "acecentre.org.uk",
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "version": "0.1.0",
   "private": true,
