@@ -44,8 +44,11 @@ export default function CommunicationWorks({ page }) {
               <div>
                 <h3>Communication Works NORTH</h3>
                 <p>Friday 28th May</p>
-                <p>Time TBC</p>
-                <p>Location TBC</p>
+                <p>9:30am - 4:00pm</p>
+                <p>
+                  Oldham Events Centre, Boundary Park Stadium, Hilbre Ave,
+                  Oldham OL2 5BL
+                </p>
 
                 {/* <p>
                   <Link href="https://bit.ly/CW2026North">
@@ -99,8 +102,11 @@ export default function CommunicationWorks({ page }) {
               <div>
                 <h3>Communication Works SOUTH</h3>
                 <p>Wednesday 23rd June</p>
-                <p>Time TBC</p>
-                <p>Location TBC</p>
+                <p>9:15am - 4:00pm</p>
+                <p>
+                  Oldham Events Centre, Boundary Park Stadium, Hilbre Ave,
+                  Oldham OL2 5BL
+                </p>
                 {/* <p>
                   <Link href="https://bit.ly/CW2026_EventBrite">
                     Register for free here.
