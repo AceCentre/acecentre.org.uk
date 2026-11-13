@@ -1,17 +1,16 @@
 /* eslint-disable indent */
-// Site-wide promo banner. Rendered from pages/_app.js — uncomment <TopBanner /> there to show again.
+// Site-wide banner. Rendered from pages/_app.js.
 import styles from "./top-banner.module.css";
-
-import Link from "next/link";
 
 export const TopBanner = () => {
   return (
     <div className={styles.container}>
       <p>
-        🎉 Meet us at TES SEND Show 2026.{" "}
-        <Link href="/newsletter?source=cta&tag=tes-send-show-2026&returnTo=/&utm_source=tes_send_show&utm_medium=banner&utm_campaign=tes_send_show_2026">
-          Sign up for updates from the event
-        </Link>
+        Due to global technical issues affecting Microsoft platforms today, we
+        are experiencing difficulties with e-mail and other applications. Our
+        phone lines remain open and we are able to take calls, however, emails
+        may not be received or responded to until this issue is resolved. We
+        thank you for your patience with this matter.
       </p>
     </div>
   );
