@@ -110,7 +110,8 @@ export async function getStaticPaths() {
             "comm-works-2025",
             "comm-works-2024",
             "comm-works-2026",
-          ].includes(x.params.post)
+            "comm-works-2027",
+          ].includes(x.params.post),
       ),
     fallback: true,
   };
@@ -158,6 +159,14 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
       },
     };
   }
+  if (postSlug === "comm-works-2027") {
+    return {
+      redirect: {
+        destination: "/communication-works-2027",
+        permanent: true,
+      },
+    };
+  }
 
   // Try to get the post directly by slug first (more reliable)
   let currentPost = await getPostBySlug(postSlug);
@@ -173,13 +182,15 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
         console.error(`Post not found with slug: "${postSlug}"`);
         console.log(
           "Available post slugs (first 10):",
-          allPosts.slice(0, 10).map((p) => p.slug)
+          allPosts.slice(0, 10).map((p) => p.slug),
         );
         // Check for similar slugs
         const similarSlugs = allPosts
           .map((p) => p.slug)
           .filter((slug) =>
-            slug.toLowerCase().includes(postSlug.toLowerCase().substring(0, 10))
+            slug
+              .toLowerCase()
+              .includes(postSlug.toLowerCase().substring(0, 10)),
           );
         if (similarSlugs.length > 0) {
           console.log("Similar slugs found:", similarSlugs);

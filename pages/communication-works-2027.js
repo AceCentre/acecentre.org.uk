@@ -50,19 +50,19 @@ export default function CommunicationWorks({ page }) {
                   Oldham OL2 5BL
                 </p>
 
-                {/* <p>
-                  <Link href="https://bit.ly/CW2026North">
+                <p>
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-north-2027-tickets-1997446354817?aff=oddtdtcreator">
                     Register for free here.
                   </Link>
                   <br />
                   <br />
-                  <Link
+                  {/* <Link
                     href="/Communication-Works-North-Seminar-Programme-2026.pdf"
                     download
                   >
                     View Seminar Programme
-                  </Link>
-                </p> */}
+                  </Link> */}
+                </p>
               </div>
             </div>
             {page.communicationWorksUrl && (
@@ -107,11 +107,11 @@ export default function CommunicationWorks({ page }) {
                   Oldham Events Centre, Boundary Park Stadium, Hilbre Ave,
                   Oldham OL2 5BL
                 </p>
-                {/* <p>
-                  <Link href="https://bit.ly/CW2026_EventBrite">
+                <p>
+                  <Link href="https://www.eventbrite.co.uk/e/communication-works-south-2027-tickets-2004631595064">
                     Register for free here.
                   </Link>
-                </p> */}
+                </p>
               </div>
             </div>
           </div>
