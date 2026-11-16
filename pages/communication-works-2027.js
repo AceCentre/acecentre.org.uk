@@ -22,10 +22,10 @@ export default function CommunicationWorks({ page }) {
       <main id="mainContent">
         <div className={styles.imageContainer}>
           <ImageWithLoader
-            src="/CWLogo-27.png"
+            src="/CW27-Logo.jpg"
             alt="Communication works banner"
             width={6912}
-            height={5456}
+            height={4456}
           />
         </div>
         <div className={styles.bottomContainer}>
