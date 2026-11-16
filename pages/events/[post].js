@@ -106,6 +106,7 @@ export async function getStaticPaths() {
     "comm-works-2024",
     "comm-works-2025",
     "comm-works-2026",
+    "comm-works-2027",
   ];
 
   const paths = eventPosts
@@ -161,6 +162,15 @@ export const getStaticProps = async ({ params: { post: postSlug } }) => {
     return {
       redirect: {
         destination: "/communication-works-2026",
+        permanent: true,
+      },
+    };
+  }
+
+  if (postSlug === "comm-works-2027") {
+    return {
+      redirect: {
+        destination: "/communication-works-2027",
         permanent: true,
       },
     };
