@@ -103,10 +103,7 @@ export default function CommunicationWorks({ page }) {
                 <h3>Communication Works SOUTH</h3>
                 <p>Wednesday 23rd June</p>
                 <p>9:15am - 4:00pm</p>
-                <p>
-                  Oldham Events Centre, Boundary Park Stadium, Hilbre Ave,
-                  Oldham OL2 5BL
-                </p>
+                <p>Charlton Athletic Football Club, London SE7 8BL</p>
                 <p>
                   <Link href="https://www.eventbrite.co.uk/e/communication-works-south-2027-tickets-2004631595064">
                     Register for free here.
